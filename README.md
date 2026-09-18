@@ -6,6 +6,18 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > Infrastructure possession does not become sovereign authority.
 
+## Independent implementers wanted
+
+ENTITY Protocol 1.0 is **FROZEN_FOR_EXTERNAL_CONFORMANCE**, and BTG is actively seeking an unrelated implementation built from the public protocol rather than from the BTG reference runtime.
+
+Rust, Go, C#, TypeScript, Java/Kotlin and Swift implementations are especially useful. The authoritative sealed kit provides the protocol, schemas, profiles, trust material, valid/invalid vectors, black-box runner and live-interoperability procedure.
+
+- **[Join the independent implementation discussion](https://github.com/blackmore-technology-group/ENTITY/discussions/9)**
+- **[Take the clean-room conformance challenge](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit/issues/2)**
+- **[Open the sealed ENTITY Protocol 1.0 Conformance Kit](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit)**
+
+Independent external interoperability is still **PENDING**. These public challenges exist to test that milestone rather than assume it.
+
 ## Download ENTITY for Windows
 
 **ENTITY 1.0.0-rc2 for Windows x64 is publicly available now.**
