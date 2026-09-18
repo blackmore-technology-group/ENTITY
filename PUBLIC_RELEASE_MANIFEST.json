@@ -50,10 +50,14 @@
     "compileall": "PASS",
     "simple_sdk_import": "PASS",
     "canonical_service_import": "PASS",
-    "public_contract_tests": "4/4 PASS",
+    "public_contract_tests": "5/5 PASS",
     "clean_clone": "PASS",
     "clean_clone_public_contract_tests": "4/4 PASS",
-    "utf8_mojibake_scan": "REQUIRED"
+    "utf8_mojibake_scan": "PASS",
+    "utf8_repaired_files": 61,
+    "utf8_repaired_sequences": 219,
+    "github_actions_ubuntu": "PASS",
+    "github_actions_run_id": 35293106040
   },
   "license": "Apache-2.0",
   "maintenance_of": "v1.0.0-rc2.1",

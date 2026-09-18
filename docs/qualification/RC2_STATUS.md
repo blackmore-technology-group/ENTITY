@@ -31,3 +31,5 @@ RC2.1 was cloned into a separate directory from Git-tracked content only. Requir
 ## UTF-8 repository validation
 
 RC2.2 scans every tracked public text/source file for invalid UTF-8, Unicode replacement characters, and reconstructable Windows-1252/UTF-8 mojibake. The release gate requires zero findings.
+
+Release evidence: 61 affected files / 219 mojibake sequences repaired; clean-clone public test suite 5/5 PASS; GitHub Actions Ubuntu run 35293106040 PASS.
