@@ -6,13 +6,41 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > Infrastructure possession does not become sovereign authority.
 
+## Download ENTITY for Windows
+
+**ENTITY 1.0.0-rc2 for Windows x64 is publicly available now.**
+
+> **[Download ENTITY 1.0.0-rc2 for Windows x64](https://github.com/blackmore-technology-group/ENTITY/releases/download/v1.0.0-rc2/ENTITY_1.0.0-rc2_WINDOWS_x64_SIGNED.zip)**
+
+Release page: **[ENTITY 1.0.0-rc2 — First Public Release Candidate](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v1.0.0-rc2)**
+
+| Windows release item | Value |
+| --- | --- |
+| Product version | **1.0.0-rc2** |
+| Platform | **Windows x64** |
+| Archive | `ENTITY_1.0.0-rc2_WINDOWS_x64_SIGNED.zip` |
+| SHA-256 | `aa02846cfbfe4871aa093815cbb269b82ac9551b513c9b872c84584576b42aa4` |
+| Distribution signature | **ENTITY Ed25519 signed manifest — verified** |
+| Microsoft Authenticode | **Not currently signed** |
+| Independent external interoperability | **PENDING** |
+
+The archive contains the Windows GUI and CLI, the sanitized canonical runtime required by the launchers, build provenance, public signer material, SHA-256 verification material, and the signed ENTITY release manifest.
+
+The Windows product release and the protocol conformance kit are deliberately separate:
+
+- **ENTITY** — the actual open-source reference implementation and downloadable Windows product.
+- **[ENTITY Protocol 1.0 Conformance Kit](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit)** — the authoritative sealed clean-room test target for independent implementations.
+
+The repository has subsequently received RC2.1/RC2.2 source and public-packaging corrections. The currently published Windows executable build identifies itself as **1.0.0-rc2**, so it remains attached to the matching immutable `v1.0.0-rc2` release rather than being relabeled as a different binary version.
+
 ENTITY is designed so that a person, organization, application, or other Entity can preserve cryptographic identity and governed authority across devices, hosts, providers, and infrastructure changes without making a storage provider, cloud host, registrar, resolver, application vendor, or Blackmore Technology Group the sovereign authority merely because it operates infrastructure.
 
 ## Release status
 
 | Component | Status |
 | --- | --- |
-| Reference implementation | **1.0.0-rc2.2** |
+| Public source/reference repository | **1.0.0-rc2.2** |
+| Windows x64 product build | **1.0.0-rc2** — [download](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v1.0.0-rc2) |
 | ENTITY Protocol | **1.0 — FROZEN_FOR_EXTERNAL_CONFORMANCE** |
 | Master requirements | **SERS-ENTITY-003 v2.2 — 172 normative sections** |
 | Sovereign Domain profile | **SERS-ENTITY-DOMAIN-001 v1.0** |
