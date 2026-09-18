@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 from pathlib import Path
 import hashlib, hmac, importlib.util, json, os, secrets, time
 
@@ -122,7 +122,7 @@ def sers_acceptance_v1(*, request: dict, required_steps: list[str]) -> dict:
 
 
 class CanonicalServiceAPI:
-    """Versioned faÃ§ade over canonical ENTITY authorities. Every mutation requires an active scoped capability."""
+    """Versioned façade over canonical ENTITY authorities. Every mutation requires an active scoped capability."""
     API_VERSION="entity-canonical-service-api-v1"
     def __init__(self,state_dir: str|Path|None=None):
         self.state=Path(state_dir or _state_root()).resolve(); self.state.mkdir(parents=True,exist_ok=True)

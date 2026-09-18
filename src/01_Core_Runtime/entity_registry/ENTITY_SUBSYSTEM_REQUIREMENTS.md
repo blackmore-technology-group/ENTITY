@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Runtime Entity Registry
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Runtime Entity Registry
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `01_Core_Runtime/entity_registry`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`

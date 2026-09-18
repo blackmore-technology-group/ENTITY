@@ -1,6 +1,6 @@
-﻿# ENTITY Transaction Evidence Bundle v1
+# ENTITY Transaction Evidence Bundle v1
 Status: Normative interoperability and qualification specification
-Architecture baseline: SERS-ENTITY-003 v2.2, Sections 171â€“172
+Architecture baseline: SERS-ENTITY-003 v2.2, Sections 171–172
 Schema identifier: `entity-transaction-evidence-bundle-v1`
 
 ## 1. Purpose
@@ -11,20 +11,20 @@ A conforming bundle SHALL preserve the distinction between cryptographic validit
 ## 2. Canonical transaction chain
 The v1 qualified profile SHALL support this evidence chain:
 
-`Entity identity â†’ asset provenance â†’ rights claim â†’ signed licence â†’ usage receipt â†’ external settlement evidence â†’ accounting/value state â†’ Digital Commodity contribution â†’ corporate authorization â†’ share issuance â†’ capitalization/shareholder state â†’ capital accounting â†’ disclosure snapshot â†’ event-ledger checkpoint`.
+`Entity identity → asset provenance → rights claim → signed licence → usage receipt → external settlement evidence → accounting/value state → Digital Commodity contribution → corporate authorization → share issuance → capitalization/shareholder state → capital accounting → disclosure snapshot → event-ledger checkpoint`.
 
 Each link SHALL reference the same transaction-scoped identifiers used by adjacent links. A verifier SHALL fail closed on broken or contradictory cross-links.
 ## 3. Top-level bundle object
 A bundle SHALL contain:
 
 - `schema` = `entity-transaction-evidence-bundle-v1`;
-- `transaction_id` â€” collision-resistant transaction evidence identifier;
-- `issuer_entity_id` â€” Entity that signs the bundle header;
-- `transaction_root_sha256` â€” deterministic SHA-256 commitment over the complete `evidence` object;
-- `generated_at_ms` â€” export-generation time, excluded from the transaction root;
-- `evidence` â€” canonical evidence object defined below;
-- `signature` â€” ENTITY signature over the bundle header `{schema, transaction_id, issuer_entity_id, transaction_root_sha256}`;
-- `evidence_boundary` â€” declarations preventing unsupported legal/factual interpretation.
+- `transaction_id` — collision-resistant transaction evidence identifier;
+- `issuer_entity_id` — Entity that signs the bundle header;
+- `transaction_root_sha256` — deterministic SHA-256 commitment over the complete `evidence` object;
+- `generated_at_ms` — export-generation time, excluded from the transaction root;
+- `evidence` — canonical evidence object defined below;
+- `signature` — ENTITY signature over the bundle header `{schema, transaction_id, issuer_entity_id, transaction_root_sha256}`;
+- `evidence_boundary` — declarations preventing unsupported legal/factual interpretation.
 
 The transaction root SHALL be `SHA-256(canonical_json(evidence))`, where canonical JSON uses UTF-8, lexicographically sorted object keys, no insignificant whitespace, JSON separators `,` and `:`, and deterministic string conversion for supported scalar values.
 

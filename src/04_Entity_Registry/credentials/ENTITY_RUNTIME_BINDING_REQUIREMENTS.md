@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” credentials
+# Canonical Runtime Binding — credentials
 Authority: `credentials`
 Canonical owner: `04_Entity_Registry\credentials`
 

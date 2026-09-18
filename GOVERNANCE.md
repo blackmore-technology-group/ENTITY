@@ -1,4 +1,4 @@
-﻿# ENTITY Open-Source Governance
+# ENTITY Open-Source Governance
 
 ## Stewardship
 
@@ -22,7 +22,7 @@ unless that dependency is explicitly outside core conformance and chosen by the 
 
 ## Conformance
 
-Conformance is determined by public specifications, schemas, test vectors, and reproducible verificationâ€”not by access to private BTG infrastructure.
+Conformance is determined by public specifications, schemas, test vectors, and reproducible verification—not by access to private BTG infrastructure.
 
 ENTITY Protocol 1.0 is currently **FROZEN_FOR_EXTERNAL_CONFORMANCE**. Independent external interoperability qualification is still pending.
 

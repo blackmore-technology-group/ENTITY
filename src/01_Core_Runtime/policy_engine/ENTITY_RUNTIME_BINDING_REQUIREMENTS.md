@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” policy_consent
+# Canonical Runtime Binding — policy_consent
 Authority: `policy_consent`
 Canonical owner: `01_Core_Runtime\policy_engine`
 

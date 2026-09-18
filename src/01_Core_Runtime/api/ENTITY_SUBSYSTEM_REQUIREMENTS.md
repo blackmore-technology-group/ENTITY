@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Authoritative API
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Authoritative API
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `01_Core_Runtime/api`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`

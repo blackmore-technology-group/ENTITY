@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Bindings â€” data_vault / data_sources
+# Canonical Runtime Bindings — data_vault / data_sources
 Authorities: `data_vault`, `data_sources`
 Canonical owner: `08_Data_Vaults`
 

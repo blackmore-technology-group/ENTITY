@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.0.0-rc2.2 - 2026-09-17
+
+Repository-wide Unicode/UTF-8 repair release.
+
+### Fixed
+- Repaired 219 mojibake sequences across 61 tracked public files.
+- Corrected malformed box-drawing characters, dashes, arrows, quotes, and related UTF-8 text.
+- Added the published `08_Data_Vaults` directory to the README repository layout.
+- Added a CI repository-safety gate that rejects invalid UTF-8, Unicode replacement characters, and reconstructable Windows-1252/UTF-8 mojibake.
+
+### Compatibility
+- No ENTITY Protocol 1.0 semantic change.
+- No SERS-ENTITY-003 v2.2 requirement change.
+- No Sovereign Domain profile semantic change.
+- `v1.0.0-rc2.1` remains immutable release history; RC2.2 supersedes it for public checkout/use.
+
 ## 1.0.0-rc2.1 - 2026-09-17
 
 Public packaging correction for the first RC2 release candidate.

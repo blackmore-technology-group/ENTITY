@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” identity
+# Canonical Runtime Binding — identity
 Authority: `identity`
 Canonical owner: `01_Core_Runtime\identity`
 NIKI embedded implementation is fallback only.

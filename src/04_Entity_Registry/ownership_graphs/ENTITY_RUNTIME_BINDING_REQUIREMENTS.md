@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” rights_claims
+# Canonical Runtime Binding — rights_claims
 Authority: `rights_claims`
 Canonical owner: `04_Entity_Registry\ownership_graphs`
 

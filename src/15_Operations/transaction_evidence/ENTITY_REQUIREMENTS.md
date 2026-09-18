@@ -1,5 +1,5 @@
-﻿# ENTITY Transaction Evidence Bundle Requirements
-Source: SERS-ENTITY-003 v2.2 â€” Sections 171â€“172
+# ENTITY Transaction Evidence Bundle Requirements
+Source: SERS-ENTITY-003 v2.2 — Sections 171–172
 Protocol specification: `14_Protocols_SDK/schemas/ENTITY_TRANSACTION_EVIDENCE_BUNDLE_v1.md`
 Status: Authoritative repository requirement mapping
 

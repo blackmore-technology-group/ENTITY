@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Service Runtime
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Service Runtime
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `01_Core_Runtime/service_runtime`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`

@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” portable_state
+# Canonical Runtime Binding — portable_state
 Authority: `portable_state`
 Canonical owner: `15_Operations\backups`
 

@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Protocol Specifications
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Protocol Specifications
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `14_Protocols_SDK/protocol_specs`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`

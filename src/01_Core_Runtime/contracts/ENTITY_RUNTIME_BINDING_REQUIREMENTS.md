@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” contracts
+# Canonical Runtime Binding — contracts
 Authority: `contracts`
 Canonical owner: `01_Core_Runtime\contracts`
 

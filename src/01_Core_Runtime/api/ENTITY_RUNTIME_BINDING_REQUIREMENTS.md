@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” service_api
+# Canonical Runtime Binding — service_api
 Authority: `service_api`
 Canonical owner: `01_Core_Runtime\api`
 

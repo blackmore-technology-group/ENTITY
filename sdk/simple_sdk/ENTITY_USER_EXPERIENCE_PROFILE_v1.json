@@ -1,4 +1,4 @@
-﻿{
+{
   "schema": "entity-user-experience-profile-v1",
   "version": "1.0",
   "principle": "Expose human intent, not internal authority topology.",
@@ -18,7 +18,7 @@
       "meaning": "Grant an explicit scoped capability; default is deny."
     },
     {
-      "label": "Created by me â€” verified",
+      "label": "Created by me — verified",
       "meaning": "Cryptographic provenance/controller evidence is valid.",
       "must_not_mean": "Legal ownership or factual truth automatically proven"
     },

@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” event_ledger
+# Canonical Runtime Binding — event_ledger
 Authority: `event_ledger`
 Canonical owner: `04_Entity_Registry\event_ledger`
 

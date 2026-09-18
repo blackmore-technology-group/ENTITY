@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” core_permissions
+# Canonical Runtime Binding — core_permissions
 Authority: `core_permissions`
 Canonical owner: `01_Core_Runtime\permissions`
 

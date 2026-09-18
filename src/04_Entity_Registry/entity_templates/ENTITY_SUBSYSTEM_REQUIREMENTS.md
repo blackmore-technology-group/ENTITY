@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Entity Templates
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Entity Templates
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `04_Entity_Registry/entity_templates`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`

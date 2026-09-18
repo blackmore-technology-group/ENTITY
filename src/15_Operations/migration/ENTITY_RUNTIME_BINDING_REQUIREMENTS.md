@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” migration_config
+# Canonical Runtime Binding — migration_config
 Authority: `migration_config`
 Canonical owner: `15_Operations\migration`
 

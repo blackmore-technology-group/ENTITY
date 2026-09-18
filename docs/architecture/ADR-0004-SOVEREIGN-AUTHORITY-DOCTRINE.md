@@ -1,4 +1,4 @@
-﻿# ADR-0004 â€” Sovereign Authority Doctrine and Provider Non-Authority
+# ADR-0004 — Sovereign Authority Doctrine and Provider Non-Authority
 Status: Accepted
 Baseline: SERS-ENTITY-003 v2.2, Section 172
 

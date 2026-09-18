@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Bindings â€” Entity Registry
+# Canonical Runtime Bindings — Entity Registry
 Authorities: `credentials`, `knowledge_capital`, `data_universe`
 Canonical owner: `04_Entity_Registry`
 

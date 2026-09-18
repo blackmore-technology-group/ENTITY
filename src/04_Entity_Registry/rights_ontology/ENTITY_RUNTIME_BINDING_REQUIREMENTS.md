@@ -1,10 +1,10 @@
-﻿# Canonical Runtime Binding â€” rights_ontology
+# Canonical Runtime Binding — rights_ontology
 Authority: `rights_ontology`
 Canonical owner: `04_Entity_Registry\rights_ontology`
-Source: SERS-ENTITY-002 Â§126
+Source: SERS-ENTITY-002 §126
 
 - Rights and interests SHALL be modeled as relationships, not a single owner field.
-- The ontology SHALL support the stakeholder/right types defined by SERS Â§Â§18â€“20 and versioned extension.
+- The ontology SHALL support the stakeholder/right types defined by SERS §§18–20 and versioned extension.
 - Verification state SHALL remain separate from dispute/lifecycle state.
 - Cardinality, fractional share, scope, territory, duration, legal basis, evidence, delegation, inheritance/succession and supersession SHALL be representable.
 - Registration time SHALL NOT automatically resolve ownership/authorship/priority disputes.

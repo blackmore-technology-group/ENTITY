@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” usage_control
+# Canonical Runtime Binding — usage_control
 Authority: `usage_control`
 Canonical owner: `01_Core_Runtime\usage_control`
 

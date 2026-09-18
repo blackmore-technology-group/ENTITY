@@ -1,7 +1,7 @@
-﻿# Canonical Runtime Binding â€” information_projection
+# Canonical Runtime Binding — information_projection
 Authority: `information_projection`
 Canonical owner: `01_Core_Runtime\information_projection`
-Source: SERS-ENTITY-002 Â§124
+Source: SERS-ENTITY-002 §124
 
 - All sensitive cross-subsystem information movement SHALL pass an enforceable projection decision.
 - Authorization SHALL evaluate subsystem, actor/capability, purpose, classification, rights/consent, target/provider and external-disclosure policy.

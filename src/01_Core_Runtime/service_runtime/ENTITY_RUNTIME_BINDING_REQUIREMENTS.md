@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Bindings â€” service_runtime
+# Canonical Runtime Bindings — service_runtime
 Authorities: `contracts`, `settlement`, `data_pools`, `data_spaces`
 Canonical owner: `01_Core_Runtime\service_runtime`
 

@@ -1,7 +1,7 @@
-﻿# ENTITY Implementation Compatibility
-Authoritative source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Implementation Compatibility
+Authoritative source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: this public ENTITY repository and compatible integrations
-Status: Unified implementation contract â€” 2026-09-15
+Status: Unified implementation contract — 2026-09-15
 
 ## Authority Semantics
 - ENTITY canonical authority remains in the owning root subsystem; NIKI remains reasoning/integration even though `10_NIKI` is now in the same implementation workstream.

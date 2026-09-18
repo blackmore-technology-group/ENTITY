@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Relationships
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Relationships
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `04_Entity_Registry/relationships`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`
@@ -23,7 +23,7 @@ Represent relationships independently from root identity disclosure and support 
 - Qualification SHALL include positive and negative authorization/state-transition tests appropriate to this subsystem.
 - Release evidence SHALL demonstrate implemented behavior; unqualified capability SHALL NOT be represented as production complete.
 
-## SERS-ENTITY-003 v2.2 â€” Section 172 Sovereign Authority Doctrine
+## SERS-ENTITY-003 v2.2 — Section 172 Sovereign Authority Doctrine
 - ENTITY SHALL represent possession, custody, storage control, processing authority, sovereign authority, authorship, legal rights, consent authority, licensing authority, authorized usage, economic participation, governance authority and payment authority as distinct relationships.
 - Evidence supporting one relationship SHALL NOT silently establish another relationship.
 - Storage/custody/processing providers SHALL NOT acquire sovereign, licensing, consent or economic authority merely from infrastructure access.

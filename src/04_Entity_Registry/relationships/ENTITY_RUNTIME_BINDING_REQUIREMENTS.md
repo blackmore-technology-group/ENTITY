@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” relationship_identity
+# Canonical Runtime Binding — relationship_identity
 Authority: `relationship_identity`
 Canonical owner: `04_Entity_Registry\relationships`
 

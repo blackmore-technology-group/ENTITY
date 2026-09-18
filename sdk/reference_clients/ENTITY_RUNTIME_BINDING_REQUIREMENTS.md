@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” protocol_conformance
+# Canonical Runtime Binding — protocol_conformance
 Authority: `protocol_conformance`
 Canonical owner: `14_Protocols_SDK\reference_clients`
 

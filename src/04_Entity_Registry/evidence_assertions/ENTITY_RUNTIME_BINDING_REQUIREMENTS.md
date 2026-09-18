@@ -1,7 +1,7 @@
-﻿# Canonical Runtime Binding â€” evidence_assertion
+# Canonical Runtime Binding — evidence_assertion
 Authority: `evidence_assertion`
 Canonical owner: `04_Entity_Registry\evidence_assertions`
-Source: SERS-ENTITY-002 Â§125
+Source: SERS-ENTITY-002 §125
 
 - Every material assertion SHALL be capable of carrying an Evidence Assertion Envelope.
 - The envelope SHALL preserve claim, claimant, evidence origin, references, confidence, verification level, timestamps, signatures, jurisdiction, dispute state, supersession and schema/version.

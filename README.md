@@ -12,9 +12,9 @@ ENTITY is designed so that a person, organization, application, or other Entity 
 
 | Component | Status |
 | --- | --- |
-| Reference implementation | **1.0.0-rc2.1** |
-| ENTITY Protocol | **1.0 â€” FROZEN_FOR_EXTERNAL_CONFORMANCE** |
-| Master requirements | **SERS-ENTITY-003 v2.2 â€” 172 normative sections** |
+| Reference implementation | **1.0.0-rc2.2** |
+| ENTITY Protocol | **1.0 — FROZEN_FOR_EXTERNAL_CONFORMANCE** |
+| Master requirements | **SERS-ENTITY-003 v2.2 — 172 normative sections** |
 | Sovereign Domain profile | **SERS-ENTITY-DOMAIN-001 v1.0** |
 | Internal qualification | Evidence-backed RC2 qualification completed for the published reference implementation scope |
 | Independent external interoperability | **PENDING** |
@@ -38,27 +38,28 @@ ENTITY separates concepts that conventional platforms often collapse:
 
 ```text
 ENTITY/
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ 01_Core_Runtime/
-â”‚   â”œâ”€â”€ 04_Entity_Registry/
-â”‚   â”œâ”€â”€ 15_Operations/
-â”‚   â””â”€â”€ 22_Sovereign_Domain/
-â”œâ”€â”€ sdk/
-â”‚   â”œâ”€â”€ open_entity_sdk/
-â”‚   â”œâ”€â”€ open_entity_sdk_v1_1/
-â”‚   â”œâ”€â”€ principal_binding/
-â”‚   â”œâ”€â”€ simple_sdk/
-â”‚   â”œâ”€â”€ android_sdk/
-â”‚   â”œâ”€â”€ apple_sdk/
-â”‚   â”œâ”€â”€ web_sdk/
-â”‚   â””â”€â”€ windows_sdk/
-â”œâ”€â”€ protocol/
-â”œâ”€â”€ docs/
-â”‚   â”œâ”€â”€ requirements/
-â”‚   â”œâ”€â”€ architecture/
-â”‚   â””â”€â”€ qualification/
-â”œâ”€â”€ examples/
-â””â”€â”€ tests/
+├── src/
+│   ├── 01_Core_Runtime/
+│   ├── 04_Entity_Registry/
+│   ├── 08_Data_Vaults/
+│   ├── 15_Operations/
+│   └── 22_Sovereign_Domain/
+├── sdk/
+│   ├── open_entity_sdk/
+│   ├── open_entity_sdk_v1_1/
+│   ├── principal_binding/
+│   ├── simple_sdk/
+│   ├── android_sdk/
+│   ├── apple_sdk/
+│   ├── web_sdk/
+│   └── windows_sdk/
+├── protocol/
+├── docs/
+│   ├── requirements/
+│   ├── architecture/
+│   └── qualification/
+├── examples/
+└── tests/
 ```
 
 The repository intentionally excludes production databases, private keys, machine-specific principal bindings, recovery secrets, operational backups, BTG production state, generated installers, and qualification environments.

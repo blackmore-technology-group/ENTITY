@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” data_universe
+# Canonical Runtime Binding — data_universe
 Authority: `data_universe`
 Canonical owner: `04_Entity_Registry\data_universe_adapter`
 

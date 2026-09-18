@@ -1,10 +1,10 @@
-# ENTITY 1.0.0-rc2.1 Qualification Status
+# ENTITY 1.0.0-rc2.2 Qualification Status
 
 Date: 2026-09-17
 
 ## Current public claim
 
-The published reference implementation is 1.0.0-rc2.1. It preserves the RC2 protocol semantics and corrects public source packaging from the initial rc2 tag.
+The published reference implementation is 1.0.0-rc2.2. It preserves RC2 protocol semantics, supersedes RC2.1 for public checkout/use, and repairs repository-wide UTF-8 mojibake in public text/source literals.
 
 ENTITY Protocol 1.0 is **FROZEN_FOR_EXTERNAL_CONFORMANCE**.
 
@@ -27,3 +27,7 @@ This repository publishes the requirements, protocol freeze, reference source, s
 ## Clean-clone packaging validation
 
 RC2.1 was cloned into a separate directory from Git-tracked content only. Required portability, credential-authority, sovereign-domain recovery, and principal-binding schema files were present; compileall and the public contract/repository-safety suite passed 4/4.
+
+## UTF-8 repository validation
+
+RC2.2 scans every tracked public text/source file for invalid UTF-8, Unicode replacement characters, and reconstructable Windows-1252/UTF-8 mojibake. The release gate requires zero findings.

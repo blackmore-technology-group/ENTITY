@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” service_state_machine
+# Canonical Runtime Binding — service_state_machine
 Authority: `service_state_machine`
 Canonical owner: `15_Operations\runtime_states`
 

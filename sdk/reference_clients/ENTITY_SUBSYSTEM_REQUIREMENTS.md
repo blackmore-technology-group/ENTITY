@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Reference Clients
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Reference Clients
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `14_Protocols_SDK/reference_clients`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`

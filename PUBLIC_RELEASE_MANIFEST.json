@@ -1,7 +1,7 @@
 {
   "schema": "entity-public-release-manifest-v1",
   "product": "ENTITY",
-  "release": "1.0.0-rc2.1",
+  "release": "1.0.0-rc2.2",
   "release_date": "2026-09-17",
   "protocol": {
     "version": "1.0",
@@ -52,9 +52,10 @@
     "canonical_service_import": "PASS",
     "public_contract_tests": "4/4 PASS",
     "clean_clone": "PASS",
-    "clean_clone_public_contract_tests": "4/4 PASS"
+    "clean_clone_public_contract_tests": "4/4 PASS",
+    "utf8_mojibake_scan": "REQUIRED"
   },
   "license": "Apache-2.0",
-  "maintenance_of": "v1.0.0-rc2",
-  "maintenance_scope": "public packaging/source inclusion correction; no protocol semantic change"
+  "maintenance_of": "v1.0.0-rc2.1",
+  "maintenance_scope": "repository-wide UTF-8 mojibake repair and CI encoding guard; no protocol semantic change"
 }

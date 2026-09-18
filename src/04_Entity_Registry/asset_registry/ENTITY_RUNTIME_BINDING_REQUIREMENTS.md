@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” asset_registry
+# Canonical Runtime Binding — asset_registry
 Authority: `asset_registry`
 Canonical owner: `04_Entity_Registry\asset_registry`
 

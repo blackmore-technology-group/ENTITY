@@ -1,4 +1,4 @@
-﻿# Canonical Runtime Binding â€” transaction_evidence_bundle_v1
+# Canonical Runtime Binding — transaction_evidence_bundle_v1
 Authority: `transaction_evidence_bundle_v1`
 Canonical owner: `15_Operations\transaction_evidence`
 

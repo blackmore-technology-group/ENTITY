@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Namespaces
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Namespaces
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `04_Entity_Registry/namespaces`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`

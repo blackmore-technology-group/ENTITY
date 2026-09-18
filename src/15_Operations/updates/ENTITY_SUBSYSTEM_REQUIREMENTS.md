@@ -1,5 +1,5 @@
-﻿# ENTITY Subsystem Requirements â€” Updates
-Source: SERS-ENTITY-001 â€” Target Architecture v1.0
+# ENTITY Subsystem Requirements — Updates
+Source: SERS-ENTITY-001 — Target Architecture v1.0
 Repository scope: `15_Operations/updates`
 Status: Active engineering requirement
 Cross-stream contract: `docs/requirements/CROSS_IMPLEMENTATION_COMPATIBILITY.md`
