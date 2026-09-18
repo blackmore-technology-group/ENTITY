@@ -1,0 +1,31 @@
+﻿{
+  "schema": "btg-entity-ecosystem-integration-profile-v1",
+  "version": "1.0",
+  "required_for_native_entity_qualification": [
+    "stable_application_or_system_entity_identity",
+    "principal_binding_when_human_or_device_originated_authority_is_used",
+    "explicit_producer_and_asset_controller_separation",
+    "default_deny_authorization",
+    "registration_does_not_infer_ownership",
+    "provenance_does_not_infer_legal_rights_or_truth",
+    "application_events_cannot_create_settlement_or_realized_value",
+    "raw_content_not_required_in_entity_event_envelopes",
+    "revocation_fails_closed",
+    "source_change_scope_is_bounded_and_evidenced",
+    "native_product_regression_passes",
+    "release_or_artifact_hash_is_sealed"
+  ],
+  "approved_public_facades": [
+    "ENTITY Simple SDK v1",
+    "Open ENTITY SDK v1.1",
+    "BTG Application SDK"
+  ],
+  "qualification_states": [
+    "NATIVE_ENTITY_QUALIFIED",
+    "PRINCIPAL_BOUND_ONLY",
+    "CANONICAL_SUBSYSTEM_INTEGRATED",
+    "DISCOVERED_NOT_NATIVE_ENTITY_QUALIFIED",
+    "EXTERNAL_VALIDATION_PENDING"
+  ],
+  "non_rule": "Presence in the BTG filesystem or use of NIKI/BSIE does not by itself constitute ENTITY qualification."
+}

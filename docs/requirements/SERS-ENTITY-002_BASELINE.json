@@ -1,0 +1,18 @@
+﻿{
+  "schema": "entity-architecture-baseline-v2",
+  "baseline_id": "SERS-ENTITY-002",
+  "title": "Complete Master Engineering Design v2.0",
+  "status": "AUTHORITATIVE_TARGET_ENGINEERING_REQUIREMENT",
+  "parent_baseline": "SERS-ENTITY-001",
+  "normative_sections": {"first": 1, "last": 150, "count": 150},
+  "source_filename": "ENTITY_Sovereign_Digital_Rights_Platform_Complete_Master_Engineering_Design_v2.0(1).md",
+  "source_sha256": "6a029cd67f73d25be5a05b4f4ddee0a2c72a8e9adf91d35bba18abd1ef766f65",
+  "source_line_count": 4865,
+  "source_copy_status": "AUTHORITATIVE_ATTACHMENT_HASH_PINNED_NOT_YET_MIRRORED",
+  "engineering_chain": ["REQUIREMENT", "DESIGN", "CODE_CONFIGURATION", "TEST", "RESULT", "EVIDENCE", "HASH", "RELEASE"],
+  "requirement_states": ["SPECIFIED", "DESIGNED", "IMPLEMENTED", "UNIT_VERIFIED", "INTEGRATION_VERIFIED", "ADVERSARIAL_VERIFIED", "QUALIFIED"],
+  "semantic_change_requires_adr": true,
+  "historical_signed_records_never_silently_reinterpreted": true,
+  "ten_of_ten_is_evidence_backed": true,
+  "production_ready_declared": false
+}

@@ -1,0 +1,20 @@
+﻿{
+  "schema": "entity-open-sdk-asset-envelope-v1.1",
+  "application_entity_id": "ent2-EXAMPLE_APPLICATION_ENTITY_ID",
+  "asset_controller_entity_id": "ent2-EXAMPLE_CONTROLLER_ENTITY_ID",
+  "idempotency_key": "00000000-0000-4000-8000-000000000000",
+  "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "size_bytes": 1234,
+  "media_type": "application/octet-stream",
+  "title": "Example asset",
+  "asset_kind": "DATA",
+  "classification": "PRIVATE",
+  "metadata": {
+    "example": true
+  },
+  "source_subject_ref": "ent2-EXAMPLE_CONTROLLER_ENTITY_ID",
+  "explicit_rights_claim": {},
+  "contributors": [],
+  "parent_asset_ids": [],
+  "raw_content_included": false
+}

@@ -1,0 +1,59 @@
+﻿{
+  "baseline_id": "SERS-ENTITY-003",
+  "corporate_capital_extension": {
+    "count": 20,
+    "first": 151,
+    "last": 170
+  },
+  "engineering_chain": [
+    "REQUIREMENT",
+    "DESIGN",
+    "CODE_CONFIGURATION",
+    "TEST",
+    "RESULT",
+    "EVIDENCE",
+    "HASH",
+    "RELEASE"
+  ],
+  "historical_signed_records_never_silently_reinterpreted": true,
+  "independent_transaction_extension": {
+    "count": 1,
+    "first": 171,
+    "last": 171
+  },
+  "normative_sections": {
+    "count": 172,
+    "first": 1,
+    "last": 172
+  },
+  "parent_baseline": "SERS-ENTITY-002",
+  "production_ready_declared": false,
+  "regulated_execution_enabled_by_default": false,
+  "requirement_states": [
+    "SPECIFIED",
+    "DESIGNED",
+    "IMPLEMENTED",
+    "UNIT_VERIFIED",
+    "INTEGRATION_VERIFIED",
+    "ADVERSARIAL_VERIFIED",
+    "QUALIFIED"
+  ],
+  "schema": "entity-architecture-baseline-v3",
+  "semantic_change_requires_adr": true,
+  "source_copy_status": "MIRRORED_AND_HASH_VERIFIED",
+  "source_filename": "ENTITY_Sovereign_Digital_Rights_Platform_Complete_Master_Engineering_Design_v2.2_Section172_Sovereign_Authority_Doctrine.md",
+  "source_line_count": 6575,
+  "source_mirror_path": "00_Governance\\source_baselines\\ENTITY_Sovereign_Digital_Rights_Platform_Complete_Master_Engineering_Design_v2.2_Section172_Sovereign_Authority_Doctrine.md",
+  "source_mirror_sha256": "4efe4372d2e815fccf2720c1446b2b0423749c24f2d05819283babfe94304cde",
+  "source_sha256": "4efe4372d2e815fccf2720c1446b2b0423749c24f2d05819283babfe94304cde",
+  "sovereign_authority_doctrine": {
+    "count": 1,
+    "first": 172,
+    "last": 172
+  },
+  "sovereign_domain_source_mirror_path": "00_Governance\\source_baselines\\ENTITY_Sovereign_Domain_Device_Native_Presence_Architecture_v1.0.md",
+  "sovereign_domain_source_sha256": "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f",
+  "status": "AUTHORITATIVE_TARGET_ENGINEERING_REQUIREMENT",
+  "ten_of_ten_is_evidence_backed": true,
+  "title": "Complete Master Engineering Design v2.2"
+}

@@ -1,0 +1,25 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:btg:entity:transaction-evidence-bundle:v1",
+  "title": "ENTITY Transaction Evidence Bundle v1",
+  "type": "object",
+  "required": ["schema","transaction_id","issuer_entity_id","transaction_root_sha256","generated_at_ms","evidence","signature","evidence_boundary"],
+  "properties": {
+    "schema": {"const": "entity-transaction-evidence-bundle-v1"},
+    "transaction_id": {"type": "string", "pattern": "^txev1-[0-9a-f]{40}$"},
+    "issuer_entity_id": {"type": "string"},
+    "transaction_root_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "generated_at_ms": {"type": "integer", "minimum": 1},
+    "signature": {"type": "object"},
+    "evidence_boundary": {"type": "object"},
+    "evidence": {"$ref": "#/$defs/evidence"}
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "required": ["transaction_record","manifests","asset_provenance","rights","licence","usage_receipt","license_settlement","value_record","digital_commodity","corporate_authorization","capital","share_settlement","event_ledger","external_trust_anchors"],
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "entity-open-sdk-envelopes-v1.1",
+  "title": "ENTITY Open SDK v1.1 Asset Envelope",
+  "type": "object",
+  "required": ["schema", "application_entity_id", "asset_controller_entity_id", "idempotency_key", "content_sha256", "size_bytes", "media_type", "title", "asset_kind", "raw_content_included"],
+  "properties": {
+    "schema": {"const": "entity-open-sdk-asset-envelope-v1.1"},
+    "application_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-[a-z2-7]{52}$"},
+    "asset_controller_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-[a-z2-7]{52}$"},
+    "installation_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-[a-z2-7]{52}$"},
+    "device_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-[a-z2-7]{52}$"},
+    "idempotency_key": {"type": "string", "minLength": 1, "maxLength": 256},
+    "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "size_bytes": {"type": "integer", "minimum": 0},
+    "media_type": {"type": "string"},
+    "title": {"type": "string"},
+    "asset_kind": {"enum": ["SOFTWARE", "DATA", "MODEL", "KNOWLEDGE", "EVIDENCE"]},
+    "raw_content_included": {"const": false},
+    "principal_binding": {"$ref": "ENTITY_PRINCIPAL_BINDING_v1.schema.json"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,6 @@
+ENTITY
+Copyright 2026 Blackmore Technology Group Limited
+
+Licensed under the Apache License, Version 2.0.
+
+ENTITY includes protocol specifications and a reference implementation developed by Blackmore Technology Group Limited. Third-party components, when used by downstream builds, remain subject to their respective licenses and are not automatically relicensed by this repository.

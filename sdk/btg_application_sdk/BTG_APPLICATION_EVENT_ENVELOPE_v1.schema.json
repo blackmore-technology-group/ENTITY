@@ -1,0 +1,26 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:btg:entity:btg-app-ingest-envelope:v1",
+  "title": "ENTITY BTG Application Ingest Envelope v1",
+  "type": "object",
+  "required": ["schema","application_entity_id","organization_entity_id","idempotency_key","content_sha256","size_bytes","media_type","title","asset_kind","classification","raw_content_included"],
+  "properties": {
+    "schema": {"const": "entity-btg-app-ingest-envelope-v1"},
+    "application_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-"},
+    "organization_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-"},
+    "idempotency_key": {"type": "string", "minLength": 1, "maxLength": 256},
+    "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "size_bytes": {"type": "integer", "minimum": 0},
+    "media_type": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "asset_kind": {"enum": ["SOFTWARE","DATA","MODEL","KNOWLEDGE","EVIDENCE"]},
+    "classification": {"type": "string"},
+    "metadata": {"type": "object"},
+    "source_subject_ref": {"type": ["string","null"]},
+    "explicit_rights_claim": {"type": "object"},
+    "contributors": {"type": "array", "items": {"type": "object"}},
+    "parent_asset_ids": {"type": "array", "items": {"type": "string"}},
+    "raw_content_included": {"const": false}
+  },
+  "additionalProperties": false
+}

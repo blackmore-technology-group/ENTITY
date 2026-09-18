@@ -1,0 +1,26 @@
+﻿{
+  "schema": "entity-rights-ontology-v1",
+  "version": "1.0.0",
+  "verification_states": ["SELF_ASSERTED", "CORROBORATED", "VERIFIED", "AUTHORITATIVELY_VERIFIED"],
+  "dispute_states": ["ACTIVE", "CHALLENGED", "DISPUTED", "ADJUDICATED", "SUPERSEDED"],
+  "stakeholder_right_types": [
+    "AUTHOR", "CREATOR", "COPYRIGHT_CLAIMANT", "COPYRIGHT_OWNER", "CONTROLLER", "CUSTODIAN",
+    "DATA_CONTROLLER", "PERSONAL_DATA_SUBJECT", "DEPICTED_PERSON", "TRADEMARK_INTEREST", "PATENT_INTEREST",
+    "CONFIDENTIALITY_INTEREST", "LICENSEE", "LICENSOR", "LICENSING_AUTHORITY", "ROYALTY_PARTICIPANT",
+    "EMPLOYEE_EMPLOYER_INTEREST", "COLLECTIVE_OWNER", "COLLECTIVE_CONTROLLER", "GUARDIAN", "ESTATE",
+    "PLATFORM_LICENSE_HOLDER", "AUTHORIZED_AGENT"
+  ],
+  "relationship_properties": [
+    "claim_id", "asset_reference", "claimant_entity", "right_type", "share_basis_points", "scope",
+    "territory", "jurisdiction", "legal_basis", "effective_at", "expires_at", "evidence_references",
+    "evidence_origin", "verification_level", "dispute_state", "delegation", "inheritance_succession", "supersedes"
+  ],
+  "invariants": [
+    "registration_time_does_not_resolve_ownership",
+    "signature_does_not_equal_legal_truth",
+    "verification_state_is_separate_from_dispute_state",
+    "ontology_extensions_do_not_rewrite_historical_records",
+    "competing_claims_may_coexist"
+  ],
+  "external_mapping_policy": "BTG extensions must be explicit and versioned; external standard mappings are documented where feasible"
+}

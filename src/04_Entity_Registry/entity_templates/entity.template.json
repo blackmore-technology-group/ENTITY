@@ -1,0 +1,17 @@
+﻿{
+  "entity_id": "GENERATE_CRYPTOGRAPHIC_ID",
+  "display_name": "",
+  "entity_type": "person|family|organization|product|application|community|other",
+  "human_name": "",
+  "parent_entity_id": null,
+  "owners": [],
+  "controllers": [],
+  "delegations": [],
+  "relationships": [],
+  "services": [],
+  "authorized_nodes": [],
+  "public_profile": {},
+  "private_policy_ref": "",
+  "created_utc": "",
+  "status": "inactive_until_initialized"
+}

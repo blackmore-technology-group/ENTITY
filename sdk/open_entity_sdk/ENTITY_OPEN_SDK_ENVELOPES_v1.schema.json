@@ -1,0 +1,21 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ENTITY Open SDK Envelopes v1",
+  "oneOf": [
+    {"$ref": "#/$defs/asset"},
+    {"$ref": "#/$defs/event"}
+  ],
+  "$defs": {
+    "sha256": {"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "asset": {
+      "type":"object",
+      "required":["schema","application_entity_id","idempotency_key","content_sha256","size_bytes","media_type","title","asset_kind","raw_content_included"],
+      "properties":{"schema":{"const":"entity-open-sdk-asset-envelope-v1"},"application_entity_id":{"type":"string","pattern":"^(ent1|ent2)-"},"idempotency_key":{"type":"string","minLength":1},"content_sha256":{"$ref":"#/$defs/sha256"},"asset_kind":{"enum":["SOFTWARE","DATA","MODEL","KNOWLEDGE","EVIDENCE"]},"raw_content_included":{"const":false}}
+    },
+    "event": {
+      "type":"object",
+      "required":["schema","application_entity_id","idempotency_key","event_type","payload_sha256","raw_payload_included"],
+      "properties":{"schema":{"const":"entity-open-sdk-event-envelope-v1"},"application_entity_id":{"type":"string","pattern":"^(ent1|ent2)-"},"idempotency_key":{"type":"string","minLength":1},"payload_sha256":{"$ref":"#/$defs/sha256"},"raw_payload_included":{"const":false}}
+    }
+  }
+}
