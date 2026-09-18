@@ -51,7 +51,8 @@
     "simple_sdk_import": "PASS",
     "canonical_service_import": "PASS",
     "public_contract_tests": "4/4 PASS",
-    "clean_clone": "REQUIRED"
+    "clean_clone": "PASS",
+    "clean_clone_public_contract_tests": "4/4 PASS"
   },
   "license": "Apache-2.0",
   "maintenance_of": "v1.0.0-rc2",
