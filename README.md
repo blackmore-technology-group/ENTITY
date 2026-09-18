@@ -1,4 +1,4 @@
-﻿# ENTITY
+# ENTITY
 
 **Provider-independent sovereign digital authority infrastructure.**
 
@@ -12,7 +12,7 @@ ENTITY is designed so that a person, organization, application, or other Entity 
 
 | Component | Status |
 | --- | --- |
-| Reference implementation | **1.0.0-rc2** |
+| Reference implementation | **1.0.0-rc2.1** |
 | ENTITY Protocol | **1.0 â€” FROZEN_FOR_EXTERNAL_CONFORMANCE** |
 | Master requirements | **SERS-ENTITY-003 v2.2 â€” 172 normative sections** |
 | Sovereign Domain profile | **SERS-ENTITY-DOMAIN-001 v1.0** |

@@ -1,4 +1,4 @@
-﻿import pathlib
+import pathlib
 import re
 import unittest
 
@@ -10,6 +10,8 @@ FORBIDDEN_SUFFIXES = {
     ".exe", ".dll", ".ipa", ".apk", ".aab",
 }
 TEXT_SUFFIXES = {".py", ".md", ".json", ".txt", ".cfg", ".yml", ".yaml"}
+FORBIDDEN_LIVE_JSON_NAMES = {"credentials.json", "secrets.json", "auth.json", "cookies.json"}
+FORBIDDEN_LIVE_JSON_SUFFIXES = ("_principal_binding.json", "_device_binding.json")
 PRIVATE_KEY_MARKERS = tuple(
     "-----BEGIN " + kind + "PRIVATE KEY-----"
     for kind in ("", "RSA ", "EC ", "OPENSSH ")
@@ -25,7 +27,10 @@ class RepositorySafetyTests(unittest.TestCase):
     def test_no_forbidden_operational_artifacts(self):
         bad = []
         for path in self.tracked_candidate_files():
+            name = path.name.lower()
             if path.suffix.lower() in FORBIDDEN_SUFFIXES:
+                bad.append(str(path.relative_to(REPO)))
+            elif name in FORBIDDEN_LIVE_JSON_NAMES or name.endswith(FORBIDDEN_LIVE_JSON_SUFFIXES):
                 bad.append(str(path.relative_to(REPO)))
         self.assertEqual(bad, [], f"forbidden operational artifacts: {bad}")
 

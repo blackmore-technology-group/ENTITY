@@ -1,56 +1,59 @@
-﻿{
-    "schema":  "entity-public-release-manifest-v1",
-    "product":  "ENTITY",
-    "release":  "1.0.0-rc2",
-    "release_date":  "2026-09-17",
-    "protocol":  {
-                     "version":  "1.0",
-                     "status":  "FROZEN_FOR_EXTERNAL_CONFORMANCE",
-                     "external_qualification":  "PENDING"
-                 },
-    "requirements":  {
-                         "id":  "SERS-ENTITY-003",
-                         "version":  "v2.2",
-                         "normative_sections":  172,
-                         "sha256":  "4efe4372d2e815fccf2720c1446b2b0423749c24f2d05819283babfe94304cde"
-                     },
-    "sovereign_domain":  {
-                             "id":  "SERS-ENTITY-DOMAIN-001",
-                             "version":  "v1.0",
-                             "sha256":  "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f"
-                         },
-    "published_source_domains":  [
-                                     "01_Core_Runtime",
-                                     "04_Entity_Registry",
-                                     "08_Data_Vaults",
-                                     "15_Operations",
-                                     "22_Sovereign_Domain"
-                                 ],
-    "sdk_profiles":  [
-                         "open_entity_sdk",
-                         "open_entity_sdk_v1_1",
-                         "principal_binding",
-                         "simple_sdk",
-                         "android_sdk",
-                         "apple_sdk",
-                         "web_sdk",
-                         "windows_sdk"
-                     ],
-    "security_boundary":  {
-                              "production_state_included":  false,
-                              "private_keys_included":  false,
-                              "live_principal_bindings_included":  false,
-                              "runtime_databases_included":  false,
-                              "encrypted_backups_included":  false,
-                              "generated_binaries_included":  false,
-                              "internal_runtime_bindings_included":  false
-                          },
-    "validation":  {
-                       "python":  "3.11",
-                       "compileall":  "PASS",
-                       "simple_sdk_import":  "PASS",
-                       "canonical_service_import":  "PASS",
-                       "public_contract_tests":  "4/4 PASS"
-                   },
-    "license":  "Apache-2.0"
+{
+  "schema": "entity-public-release-manifest-v1",
+  "product": "ENTITY",
+  "release": "1.0.0-rc2.1",
+  "release_date": "2026-09-17",
+  "protocol": {
+    "version": "1.0",
+    "status": "FROZEN_FOR_EXTERNAL_CONFORMANCE",
+    "external_qualification": "PENDING"
+  },
+  "requirements": {
+    "id": "SERS-ENTITY-003",
+    "version": "v2.2",
+    "normative_sections": 172,
+    "sha256": "4efe4372d2e815fccf2720c1446b2b0423749c24f2d05819283babfe94304cde"
+  },
+  "sovereign_domain": {
+    "id": "SERS-ENTITY-DOMAIN-001",
+    "version": "v1.0",
+    "sha256": "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f"
+  },
+  "published_source_domains": [
+    "01_Core_Runtime",
+    "04_Entity_Registry",
+    "08_Data_Vaults",
+    "15_Operations",
+    "22_Sovereign_Domain"
+  ],
+  "sdk_profiles": [
+    "open_entity_sdk",
+    "open_entity_sdk_v1_1",
+    "principal_binding",
+    "simple_sdk",
+    "android_sdk",
+    "apple_sdk",
+    "web_sdk",
+    "windows_sdk"
+  ],
+  "security_boundary": {
+    "production_state_included": false,
+    "private_keys_included": false,
+    "live_principal_bindings_included": false,
+    "runtime_databases_included": false,
+    "encrypted_backups_included": false,
+    "generated_binaries_included": false,
+    "internal_runtime_bindings_included": false
+  },
+  "validation": {
+    "python": "3.11",
+    "compileall": "PASS",
+    "simple_sdk_import": "PASS",
+    "canonical_service_import": "PASS",
+    "public_contract_tests": "4/4 PASS",
+    "clean_clone": "REQUIRED"
+  },
+  "license": "Apache-2.0",
+  "maintenance_of": "v1.0.0-rc2",
+  "maintenance_scope": "public packaging/source inclusion correction; no protocol semantic change"
 }
