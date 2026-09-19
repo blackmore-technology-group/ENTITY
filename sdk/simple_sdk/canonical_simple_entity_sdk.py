@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 from pathlib import Path
 import hashlib, importlib.util, json
 
@@ -63,6 +63,10 @@ class SimpleEntitySDK:
             payload_sha256=payload_sha256,subject_ids=subject_ids,object_ids=object_ids,
             idempotency_key=idempotency_key,evidence_origin=evidence_origin,confidence=confidence)
         return host.record_event(envelope)
+
+    def resolve_entity_id(self,entity_ref:str)->str:
+        manager=PORT.PortableStateManager(self.state,self.identity)
+        return manager.resolve_entity_ref(entity_ref)
 
     def export_entity(self,entity_id:str,destination:str|Path)->dict:
         manager=PORT.PortableStateManager(self.state,self.identity)

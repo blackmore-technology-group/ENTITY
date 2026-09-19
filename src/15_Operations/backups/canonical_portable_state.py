@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 from pathlib import Path
 import base64, hashlib, json, os, re, secrets, shutil, sqlite3, tempfile, time, zipfile
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
@@ -19,21 +19,51 @@ class PortableStateManager:
         self.root=self.state/"portability"; self.root.mkdir(parents=True,exist_ok=True)
 
     _DURABLE_ID_RE=re.compile(r"^[A-Za-z][A-Za-z0-9_]{0,24}[0-9]*-[A-Za-z0-9_-]{8,}$")
+    _ENTITY_ID_RE=re.compile(r"^(?:ent1|ent2)-[a-z2-7]{52}$")
     _REDACT_COLUMNS={"key_path","cipher_path","local_locator","password","secret","token","private_key"}
+    _NON_TRAVERSAL_ID_PREFIXES=("sig-","rec-")
 
     @classmethod
-    def _collect_ids(cls,value) -> set[str]:
+    def _contains_token(cls,value,tokens:set[str])->bool:
+        if isinstance(value,dict):
+            return any(cls._contains_token(v,tokens) for v in value.values())
+        if isinstance(value,list):
+            return any(cls._contains_token(v,tokens) for v in value)
+        if isinstance(value,str):
+            s=value.strip()
+            if s in tokens:
+                return True
+            if s[:1] in "[{":
+                try: return cls._contains_token(json.loads(s),tokens)
+                except Exception: return False
+        return False
+
+    @classmethod
+    def _reference_field(cls,key)->bool:
+        k=str(key or "").lower()
+        if k.endswith("_json"):
+            k=k[:-5]
+        return k.endswith(("_id","_ids","_ref","_refs")) or k in {"subject_ids","object_ids","parent_asset_ids"}
+
+    @classmethod
+    def _collect_ids(cls,value,key_hint=None)->set[str]:
         found=set()
         if isinstance(value,dict):
-            for v in value.values(): found |= cls._collect_ids(v)
+            for k,v in value.items(): found |= cls._collect_ids(v,k)
         elif isinstance(value,list):
-            for v in value: found |= cls._collect_ids(v)
-        elif isinstance(value,str) and cls._DURABLE_ID_RE.fullmatch(value):
-            found.add(value)
+            for v in value: found |= cls._collect_ids(v,key_hint)
+        elif isinstance(value,str):
+            s=value.strip()
+            if s[:1] in "[{":
+                try: found |= cls._collect_ids(json.loads(s),key_hint)
+                except Exception: pass
+            elif cls._reference_field(key_hint) and cls._DURABLE_ID_RE.fullmatch(s):
+                if not cls._ENTITY_ID_RE.fullmatch(s) and not s.startswith(cls._NON_TRAVERSAL_ID_PREFIXES):
+                    found.add(s)
         return found
 
     @classmethod
-    def _redact_row(cls,row: dict) -> dict:
+    def _redact_row(cls,row:dict)->dict:
         out={}
         for k,v in row.items():
             lk=str(k).lower()
@@ -43,44 +73,79 @@ class PortableStateManager:
         return out
 
     @classmethod
-    def _sqlite_export(cls,path: Path,entity_id: str) -> dict:
+    def _sqlite_scan(cls,path:Path,tokens:set[str])->tuple[dict,set[str]]:
         out={"database":path.name,"scope":"ENTITY_ONLY","tables":{}}
+        discovered=set()
         db=sqlite3.connect(path); db.row_factory=sqlite3.Row
         try:
             tables=[r[0] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
-            all_rows={t:[dict(r) for r in db.execute(f'SELECT * FROM "{t}"').fetchall()] for t in tables}
-            selected={t:[] for t in tables}; tokens={entity_id}; changed=True; passes=0
-            while changed and passes<8:
-                changed=False; passes+=1
-                for table,rows in all_rows.items():
-                    already={json.dumps(r,sort_keys=True,default=str) for r in selected[table]}
-                    for row in rows:
-                        encoded=json.dumps(row,sort_keys=True,default=str)
-                        if encoded in already: continue
-                        if any(token in encoded for token in tokens):
-                            selected[table].append(row); already.add(encoded); changed=True
-                            for key,value in row.items():
-                                if str(key).lower().endswith("_id") and isinstance(value,str): tokens.add(value)
-                                try: tokens |= cls._collect_ids(json.loads(value)) if isinstance(value,str) and value[:1] in "[{" else set()
-                                except Exception: pass
-            for table,rows in selected.items():
-                if rows: out["tables"][table]=[cls._redact_row(r) for r in rows]
+            for table in tables:
+                quoted=str(table).replace('"','""')
+                cur=db.execute(f'SELECT * FROM "{quoted}"')
+                selected=[]
+                while True:
+                    batch=cur.fetchmany(5000)
+                    if not batch: break
+                    for raw in batch:
+                        row=dict(raw)
+                        if cls._contains_token(row,tokens):
+                            selected.append(cls._redact_row(row))
+                            discovered |= cls._collect_ids(row)
+                if selected: out["tables"][table]=selected
         finally: db.close()
-        out["selected_object_identifiers"]=len(tokens)
-        return out
-    def export_entity(self,entity_id: str,destination: str|Path) -> dict:
+        return out,discovered
+
+    def resolve_entity_ref(self,entity_ref:str)->str:
+        ref=str(entity_ref or "").strip()
+        if not ref: raise ValueError("Entity ID or alias is required")
+        try:
+            manifest=self.identity.load_manifest(ref)
+            return str(manifest["entity_id"])
+        except (ValueError,FileNotFoundError,RuntimeError,KeyError):
+            pass
+        needle=ref.casefold(); matches=[]
+        for manifest in self.identity.list_local():
+            candidates=[str(manifest.get("display_name") or "")]
+            candidates.extend(str(x) for x in (manifest.get("aliases") or []))
+            if any(needle==candidate.strip().casefold() for candidate in candidates if candidate.strip()):
+                matches.append(str(manifest["entity_id"]))
+        matches=sorted(set(matches))
+        if not matches: raise KeyError(f"unknown Entity ID or alias: {ref}")
+        if len(matches)>1: raise ValueError(f"ambiguous Entity alias/display name: {ref}")
+        return matches[0]
+
+    def export_entity(self,entity_id:str,destination:str|Path)->dict:
+        entity_id=self.resolve_entity_ref(entity_id)
         dest=Path(destination).resolve(); dest.mkdir(parents=True,exist_ok=True)
         manifest=self.identity.load_manifest(entity_id)
         (dest/"identity_manifest.json").write_text(json.dumps(manifest,indent=2,sort_keys=True),encoding="utf-8")
+        db_paths=[p for p in sorted(self.state.rglob("*.sqlite")) if "portability" not in {part.lower() for part in p.parts}]
+        selected_by_db={}; seen_by_db={}; tokens={entity_id}; closure_passes=0
+        for pass_index in range(6):
+            snapshot=set(tokens); discovered=set()
+            for db_path in db_paths:
+                rel="__".join(db_path.relative_to(self.state).parts)+".json"
+                scan,new_ids=self._sqlite_scan(db_path,snapshot); discovered |= new_ids
+                bucket=selected_by_db.setdefault(rel,{}); seen=seen_by_db.setdefault(rel,{})
+                for table,rows in scan["tables"].items():
+                    target=bucket.setdefault(table,[]); table_seen=seen.setdefault(table,set())
+                    for row in rows:
+                        encoded=json.dumps(row,sort_keys=True,default=str,separators=(",",":"))
+                        if encoded not in table_seen:
+                            target.append(row); table_seen.add(encoded)
+            tokens |= discovered; closure_passes=pass_index+1
+            if tokens==snapshot: break
         exported=[]
-        for db_path in sorted(self.state.rglob("*.sqlite")):
-            if "portability" in {p.lower() for p in db_path.parts}: continue
-            data=self._sqlite_export(db_path,entity_id)
+        for db_path in db_paths:
             rel="__".join(db_path.relative_to(self.state).parts)+".json"
-            out=dest/rel; out.write_text(json.dumps(data,indent=2,sort_keys=True,default=str),encoding="utf-8")
+            tables=selected_by_db.get(rel,{})
+            identifiers={entity_id} | self._collect_ids(tables)
+            data={"database":db_path.name,"scope":"ENTITY_ONLY","scope_policy":"TARGET_ENTITY_AND_NON_ENTITY_OBJECT_CLOSURE","foreign_entity_traversal":False,"selected_object_identifiers":len(identifiers),"tables":tables}
+            out=dest/rel
+            out.write_text(json.dumps(data,indent=2,sort_keys=True,default=str),encoding="utf-8")
             exported.append(out)
         files=[dest/"identity_manifest.json",*exported]
-        evidence={"schema":"entity-portable-export-v1","entity_id":entity_id,"created_at_ms":_now(),"scope":"ENTITY_ONLY","formats":["JSON"],"files":[{"name":p.name,"sha256":_sha(p),"bytes":p.stat().st_size} for p in files],"private_keys_included":False,"raw_vault_content_included":False,"local_paths_redacted":True,"global_interleaved_ledger_chain_included":False,"independent_subset_proof_target":"MERKLE_WITNESS_PHASE"}
+        evidence={"schema":"entity-portable-export-v1","entity_id":entity_id,"created_at_ms":_now(),"scope":"ENTITY_ONLY","scope_policy":"TARGET_ENTITY_AND_NON_ENTITY_OBJECT_CLOSURE","foreign_entity_traversal":False,"cross_database_object_closure":True,"closure_passes":closure_passes,"formats":["JSON"],"files":[{"name":p.name,"sha256":_sha(p),"bytes":p.stat().st_size} for p in files],"private_keys_included":False,"raw_vault_content_included":False,"local_paths_redacted":True,"global_interleaved_ledger_chain_included":False,"independent_subset_proof_target":"MERKLE_WITNESS_PHASE"}
         evidence["signature"]=self.identity.sign(entity_id,{k:v for k,v in evidence.items() if k!="signature"})
         (dest/"EXPORT_MANIFEST.json").write_text(json.dumps(evidence,indent=2,sort_keys=True),encoding="utf-8")
         return evidence

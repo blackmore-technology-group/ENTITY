@@ -6,6 +6,17 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > Infrastructure possession does not become sovereign authority.
 
+## ENTITY 2.0 development: full ADAM + causal NIKI
+
+The current development line is **ENTITY 2.0.0-alpha1**. It integrates the full ADAM v1.0 bounded software reference as ENTITY's deterministic atomic/evidence and state-transition substrate and adds a bounded causal-intelligence layer to NIKI. ENTITY remains the sovereign authority root; ADAM executes and records governed transitions; BSIE retains spatial/world responsibility; NIKI performs reasoning, hard intervention analysis, counterfactual comparison and adaptive cognition routing without gaining sovereign mutation authority.
+
+**ENTITY Protocol 1.0 is not being rewritten.** Protocol 1.0 remains frozen and its sealed conformance kit remains the authoritative test target for 1.0 implementations. The ADAM and causal-NIKI integrations are versioned onto the 2.0 development line because they expand evidence/state and reasoning semantics.
+
+- [ENTITY 2.0 / Full ADAM architecture](docs/architecture/ENTITY_2_FULL_ADAM_INTEGRATION.md)
+- [ENTITY 2.0 / Causal NIKI architecture](docs/architecture/ENTITY_2_CAUSAL_NIKI_INTEGRATION.md)
+- [Development release manifest](DEVELOPMENT_RELEASE_MANIFEST.json)
+- ADAM reference package pin: `3cc6541f2d00dd0580989cc7fe6e8abd56974d1069f61c710e230568e00b8da3`
+
 ## Independent implementers wanted
 
 ENTITY Protocol 1.0 is **FROZEN_FOR_EXTERNAL_CONFORMANCE**, and BTG is actively seeking an unrelated implementation built from the public protocol rather than from the BTG reference runtime.
@@ -51,9 +62,9 @@ ENTITY is designed so that a person, organization, application, or other Entity 
 
 | Component | Status |
 | --- | --- |
-| Public source/reference repository | **1.0.0-rc2.2** |
+| Public source/reference repository | **2.0.0-alpha1 development**; 1.0 release history preserved |
 | Windows x64 product build | **1.0.0-rc2** — [download](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v1.0.0-rc2) |
-| ENTITY Protocol | **1.0 — FROZEN_FOR_EXTERNAL_CONFORMANCE** |
+| ENTITY Protocol | **1.0 — FROZEN_FOR_EXTERNAL_CONFORMANCE**; **2.0 — DEVELOPMENT** |
 | Master requirements | **SERS-ENTITY-003 v2.2 — 172 normative sections** |
 | Sovereign Domain profile | **SERS-ENTITY-DOMAIN-001 v1.0** |
 | Internal qualification | Evidence-backed RC2 qualification completed for the published reference implementation scope |
@@ -82,6 +93,8 @@ ENTITY/
 │   ├── 01_Core_Runtime/
 │   ├── 04_Entity_Registry/
 │   ├── 08_Data_Vaults/
+│   ├── 10_NIKI/
+│   ├── 11_ADAM/
 │   ├── 15_Operations/
 │   └── 22_Sovereign_Domain/
 ├── sdk/
@@ -115,6 +128,15 @@ python -m pip install -r requirements.txt
 python -m compileall -q src sdk protocol
 python -m unittest discover -s tests -v
 ```
+
+
+For the full ADAM integration path, provide a verified ADAM v1.0 source root before constructing `EntityFullAdamRuntime`:
+
+```text
+ENTITY_ADAM_V1_ROOT=<verified ADAM_v1_0_COMPLETE_SOFTWARE_REFERENCE_RC2 source root>
+```
+
+Verify the corresponding ADAM package before extraction with `python tools/verify_adam_reference.py <package.zip>`.
 
 A minimal developer facade is provided at:
 

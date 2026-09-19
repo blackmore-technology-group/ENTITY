@@ -145,3 +145,7 @@ Thumbs.db
 /tmp/
 /temp/
 .cache/
+
+# Optional local full ADAM source/package for ENTITY 2 development
+/src/11_ADAM/full_runtime/vendor/
+/src/11_ADAM/full_runtime/package/
