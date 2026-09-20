@@ -1,0 +1,11 @@
+{
+  "adam_version": "1.0.0-rc2",
+  "authoritative_inner_release": "ADAM_v1_0_COMPLETE_SOFTWARE_REFERENCE_RC2.zip",
+  "authoritative_inner_sha256": "3cc6541f2d00dd0580989cc7fe6e8abd56974d1069f61c710e230568e00b8da3",
+  "authoritative_inner_sidecar_matches": true,
+  "external_certification_required": true,
+  "integration_policy": "ENTITY 2.0 binds to the verified inner signed ADAM RC2 release. Protocol 1.0 remains frozen.",
+  "packaging_revision": "RC2-R2",
+  "schema": "entity-adam-full-runtime-pin-v1",
+  "source_distribution": "ADAM source/package is intentionally not embedded in this public repository; set ENTITY_ADAM_V1_ROOT to a verified source root."
+}

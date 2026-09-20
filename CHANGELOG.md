@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.0-alpha1 - 2026-09-18
+
+- Added the full ADAM v1.0 integration development line.
+- Added bounded NIKI structural causal models, hard interventions, counterfactual reasoning and adaptive cognition routing.
+- Causal model persistence requires explicit ENTITY approval; NIKI remains non-authoritative and ADAM remains the governed executor.
+- Corrected ENTITY_ONLY portable export closure so typed references do not recursively traverse unrelated foreign Entity identities.
+- Added alias-aware portable export regression coverage.
+- Preserved ENTITY Protocol 1.0 as frozen and immutable in meaning.
+- Added the `EntityFullAdamRuntime` bridge for ENTITY-authorized ADAM exact evidence, evidence alignment and reaction-governed transition history.
+- Added the NIKI/ADAM v2 execution coordinator while preserving `execution_authority = ENTITY`, `executor = ADAM`, and non-authoritative NIKI reasoning.
+- Added an explicit ADAM RC2 package pin and verification tool.
+- Added the 2.0 development architecture and development release manifest.
+- External ADAM certification gates and independent ENTITY interoperability remain separate open evidence gates.
+
 ## 1.0.0-rc2.2 - 2026-09-17
 
 Repository-wide Unicode/UTF-8 repair release.

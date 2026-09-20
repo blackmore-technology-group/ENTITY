@@ -1,0 +1,36 @@
+{
+  "adam": {
+    "external_certification_required": true,
+    "package_sha256": "3cc6541f2d00dd0580989cc7fe6e8abd56974d1069f61c710e230568e00b8da3",
+    "version": "1.0.0-rc2"
+  },
+  "claims": {
+    "causal_niki_bridge_source_present": true,
+    "counterfactual_results_are_model_dependent_analysis": true,
+    "entity_only_export_foreign_entity_traversal": false,
+    "entity_remains_authority_root": true,
+    "full_adam_bridge_source_present": true,
+    "niki_remains_non_authoritative_reasoner": true,
+    "protocol_1_conformance_kit_still_valid_for_protocol_1_only": true,
+    "protocol_2_external_conformance": false
+  },
+  "niki": {
+    "adaptive_cognition_routing": true,
+    "counterfactual_reasoning": true,
+    "execution_authority": "ENTITY",
+    "executor": "ADAM",
+    "hard_interventions": true,
+    "legacy_superintelligence_claims_migrated": false,
+    "legacy_voice_companion_migrated": false,
+    "sovereign_mutation_authority": false,
+    "structural_causal_models": true,
+    "version": "1.3-entity-causal"
+  },
+  "protocol": {
+    "1.0": "FROZEN_FOR_EXTERNAL_CONFORMANCE_UNCHANGED",
+    "2.0": "DEVELOPMENT"
+  },
+  "release": "2.0.0-alpha1",
+  "schema": "entity-development-release-manifest-v1",
+  "status": "DEVELOPMENT_FULL_ADAM_AND_CAUSAL_NIKI_INTEGRATED"
+}
