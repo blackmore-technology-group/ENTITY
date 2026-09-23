@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 from pathlib import Path
 from threading import RLock
 from typing import Any
@@ -72,6 +72,14 @@ class EntityIdentityVault:
         path.write_bytes(raw)
         try: os.chmod(path, 0o600)
         except OSError: pass
+
+    def _remove_private_key_material(self, entity_id: str, key_id: str) -> list[str]:
+        removed=[]; kd=self._entity_key_dir(entity_id)
+        for suffix in (".key", ".key.tpm"):
+            path=kd/f"{key_id}{suffix}"
+            if path.is_file():
+                path.unlink(); removed.append(path.name)
+        return removed
 
     def _read_private_key_bytes(self, entity_id: str, key_id: str) -> bytes:
         raw_path=self._entity_key_dir(entity_id)/f"{key_id}.key"
@@ -227,6 +235,7 @@ class EntityIdentityVault:
         signed=dict(data,signature={"key_id":new_id,"suite":SIG_SUITE,"signature":_b64(new_key.sign(canonical_json(data)))})
         self._write_private(self._entity_key_dir(entity_id)/f"{new_id}.key",_private_raw(new_key)); self._manifest_path(entity_id).write_text(json.dumps(signed,indent=2,sort_keys=True),encoding="utf-8")
         if not self.verify_manifest(signed): raise RuntimeError("rotated manifest failed continuity verification")
+        self._remove_private_key_material(entity_id,old_id)
         return signed
 
     def recover_signing_key(self, entity_id: str) -> dict:
@@ -253,6 +262,7 @@ class EntityIdentityVault:
         signed=dict(data,signature={"key_id":new_id,"suite":SIG_SUITE,"signature":_b64(new_key.sign(canonical_json(data)))})
         self._write_private(self._entity_key_dir(entity_id)/f"{new_id}.key",_private_raw(new_key)); self._manifest_path(entity_id).write_text(json.dumps(signed,indent=2,sort_keys=True),encoding="utf-8")
         if not self.verify_manifest(signed): raise RuntimeError("recovered manifest failed verification")
+        self._remove_private_key_material(entity_id,old_id)
         return signed
 
 
@@ -303,10 +313,15 @@ class EntityIdentityVault:
             else:
                 method = cls._method(manifest, str(signature_record.get("key_id") or ""))
                 if not method or method.get("status") not in {"active","retired","revoked"} or method.get("suite") != signature_record.get("suite"): return False
-                if method.get("status") == "revoked":
+                status=method.get("status")
+                if record_schema == "entity-signature-record-v2":
+                    signed_at=signature_record.get("signed_at_ms"); created_at=method.get("created_at_ms")
+                    if signed_at is None: return False
+                    if created_at is not None and int(signed_at) < int(created_at): return False
+                if status in {"retired","revoked"}:
                     if record_schema != "entity-signature-record-v2": return False
-                    signed_at=signature_record.get("signed_at_ms"); revoked_at=method.get("revoked_at_ms")
-                    if signed_at is None or revoked_at is None or int(signed_at) > int(revoked_at): return False
+                    cutoff=method.get("retired_at_ms") if status=="retired" else method.get("revoked_at_ms")
+                    if cutoff is None or int(signature_record.get("signed_at_ms")) > int(cutoff): return False
                 public_raw = _unb64(str(method["public_key"]))
             Ed25519PublicKey.from_public_bytes(public_raw).verify(_unb64(str(signature_record["signature"])), signed_bytes)
             return True

@@ -1,0 +1,91 @@
+{
+  "claim_boundary": [
+    "BTG-controlled clean-room polyglot transaction/recovery qualification is closed.",
+    "This is not unrelated third-party implementation or independent external interoperability."
+  ],
+  "classification": "BTG_INTERNAL_CONTROLLED_POLYGLOT_QUALIFICATION",
+  "cross_language_recovery_agreement": true,
+  "cross_language_result_agreement": true,
+  "cross_language_state_agreement": true,
+  "date": "2026-09-23",
+  "failures": [],
+  "implementations": {
+    "csharp": {
+      "artifact_sha256": "69539ef2268ffbc620e4a514f8aed485b808f31e2bf9c037105df79b1257eb57",
+      "branch": "qualification/v3.0.0",
+      "commit": "9eb91e343ccd93a1fe3812a268eef92f10e8d555",
+      "invalid_vectors_rejected": 8,
+      "pass": true,
+      "recovery_root_sha256": "6d6b5c0e1bd7cddf4422adafc2e1cf356feae7a18185ffc7803a23635a81967d",
+      "repository": "blackmore-technology-group/ENTITY-CSHARP-CLEANROOM",
+      "result_sha256": "659c787f9c1abf8ab658559e2c57d64335d863667e556e69bf12dee05c7bd75d",
+      "state_root_sha256": "3df9bf45826a5aca60316a60217630c992c130dae99675fad36abda37737491e",
+      "workflow_run_id": 35921234617,
+      "workflow_url": "https://github.com/blackmore-technology-group/ENTITY-CSHARP-CLEANROOM/actions/runs/35921234617"
+    },
+    "go": {
+      "artifact_sha256": "4fea0b1727b029d0544196c762087acbe6a3ad3e0f1630d6d4a8f46c390daa6b",
+      "branch": "qualification/v3.0.0",
+      "commit": "a65ffa4925f52b1ee979abd24d15aee85665a5e0",
+      "invalid_vectors_rejected": 8,
+      "pass": true,
+      "recovery_root_sha256": "6d6b5c0e1bd7cddf4422adafc2e1cf356feae7a18185ffc7803a23635a81967d",
+      "repository": "blackmore-technology-group/ENTITY-GO-CLEANROOM",
+      "result_sha256": "659c787f9c1abf8ab658559e2c57d64335d863667e556e69bf12dee05c7bd75d",
+      "state_root_sha256": "3df9bf45826a5aca60316a60217630c992c130dae99675fad36abda37737491e",
+      "workflow_run_id": 35921245099,
+      "workflow_url": "https://github.com/blackmore-technology-group/ENTITY-GO-CLEANROOM/actions/runs/35921245099"
+    },
+    "rust": {
+      "artifact_sha256": "450fdb73839f5efc0801f8205734e0ad0456d3db6ff0c89dad490eabd4c1728e",
+      "branch": "qualification/v3.0.0",
+      "commit": "d25b100f39c6ab4bbb9bfbaf59dffc398bc27d10",
+      "invalid_vectors_rejected": 8,
+      "pass": true,
+      "recovery_root_sha256": "6d6b5c0e1bd7cddf4422adafc2e1cf356feae7a18185ffc7803a23635a81967d",
+      "repository": "blackmore-technology-group/ENTITY-RUST-CLEANROOM",
+      "result_sha256": "659c787f9c1abf8ab658559e2c57d64335d863667e556e69bf12dee05c7bd75d",
+      "state_root_sha256": "3df9bf45826a5aca60316a60217630c992c130dae99675fad36abda37737491e",
+      "workflow_run_id": 35921206515,
+      "workflow_url": "https://github.com/blackmore-technology-group/ENTITY-RUST-CLEANROOM/actions/runs/35921206515"
+    },
+    "swift": {
+      "artifact_sha256": "85e9ccc7d0c5872d12d4c22cbf752821445c153b2448f7b032824171acaec3b6",
+      "branch": "qualification/v3.0.0",
+      "commit": "068cbcc419ec7035a4fafae6132808bb9f6b3226",
+      "invalid_vectors_rejected": 8,
+      "pass": true,
+      "recovery_root_sha256": "6d6b5c0e1bd7cddf4422adafc2e1cf356feae7a18185ffc7803a23635a81967d",
+      "repository": "blackmore-technology-group/ENTITY-SWIFT-CLEANROOM",
+      "result_sha256": "659c787f9c1abf8ab658559e2c57d64335d863667e556e69bf12dee05c7bd75d",
+      "state_root_sha256": "3df9bf45826a5aca60316a60217630c992c130dae99675fad36abda37737491e",
+      "workflow_run_id": 35921258570,
+      "workflow_url": "https://github.com/blackmore-technology-group/ENTITY-SWIFT-CLEANROOM/actions/runs/35921258570"
+    },
+    "typescript": {
+      "artifact_sha256": "9a99e1740ac6f2bf51028030b8efaca71d1aac46ea5bc46cc32cccfc70d88768",
+      "branch": "qualification/v3.0.0",
+      "commit": "aa86289a39afd05a7dfaf036e058b2804e69e530",
+      "invalid_vectors_rejected": 8,
+      "pass": true,
+      "recovery_root_sha256": "6d6b5c0e1bd7cddf4422adafc2e1cf356feae7a18185ffc7803a23635a81967d",
+      "repository": "blackmore-technology-group/ENTITY-TYPESCRIPT-CLEANROOM",
+      "result_sha256": "659c787f9c1abf8ab658559e2c57d64335d863667e556e69bf12dee05c7bd75d",
+      "state_root_sha256": "3df9bf45826a5aca60316a60217630c992c130dae99675fad36abda37737491e",
+      "workflow_run_id": 35921220857,
+      "workflow_url": "https://github.com/blackmore-technology-group/ENTITY-TYPESCRIPT-CLEANROOM/actions/runs/35921220857"
+    }
+  },
+  "release": "v3.0.0",
+  "release_commit": "63acd0962965eda1f80bc8afc6259029daaec7aa",
+  "release_snapshot_sha256": "b08d691922928a4e2c1fecb2d18bb3c22f5856480f140337a946ebb047ab114a",
+  "schema": "entity-v3-btg-polyglot-qualification-v1",
+  "sealed_kit": {
+    "invalid_vectors": 8,
+    "manifest_checksum_covered": true,
+    "recovery_root_sha256": "6d6b5c0e1bd7cddf4422adafc2e1cf356feae7a18185ffc7803a23635a81967d",
+    "result_sha256": "659c787f9c1abf8ab658559e2c57d64335d863667e556e69bf12dee05c7bd75d",
+    "state_root_sha256": "3df9bf45826a5aca60316a60217630c992c130dae99675fad36abda37737491e"
+  },
+  "status": "PASS"
+}

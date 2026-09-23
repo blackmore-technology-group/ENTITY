@@ -1,0 +1,57 @@
+{
+  "additional_release_evidence": "market recovery suite includes controller-signature tamper after recomputing bundle/table hashes",
+  "classification": "BTG_INTERNAL",
+  "covered": [
+    "post-signature field mutation",
+    "wrong-signer substitution",
+    "noncanonical signed wire",
+    "exact replay",
+    "nonce replay with new id",
+    "payment-attestation mutation"
+  ],
+  "implementations": {
+    "mirror": {
+      "counts": {
+        "duplicate_nonce_rejected": 500,
+        "noncanonical_rejected": 500,
+        "payment_tamper_rejected": 200,
+        "replay_rejected": 500,
+        "tamper_rejected": 500,
+        "wrong_signer_rejected": 500
+      },
+      "expected": {
+        "duplicate_nonce_rejected": 500,
+        "noncanonical_rejected": 500,
+        "payment_tamper_rejected": 200,
+        "replay_rejected": 500,
+        "tamper_rejected": 500,
+        "wrong_signer_rejected": 500
+      },
+      "pass": true
+    },
+    "reference": {
+      "counts": {
+        "duplicate_nonce_rejected": 500,
+        "noncanonical_rejected": 500,
+        "payment_tamper_rejected": 200,
+        "replay_rejected": 500,
+        "tamper_rejected": 500,
+        "wrong_signer_rejected": 500
+      },
+      "expected": {
+        "duplicate_nonce_rejected": 500,
+        "noncanonical_rejected": 500,
+        "payment_tamper_rejected": 200,
+        "replay_rejected": 500,
+        "tamper_rejected": 500,
+        "wrong_signer_rejected": 500
+      },
+      "pass": true
+    }
+  },
+  "pass": true,
+  "schema": "entity-v3-internal-crypto-assurance-v1",
+  "scope": "Internal cryptographic misuse/red-team assurance; not an independent external cryptographic audit.",
+  "seed": 305031,
+  "total_adversarial_cases": 5400
+}

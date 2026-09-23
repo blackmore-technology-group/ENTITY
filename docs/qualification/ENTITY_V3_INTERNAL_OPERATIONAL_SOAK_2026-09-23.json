@@ -1,0 +1,27 @@
+{
+  "classification": "BTG_INTERNAL",
+  "implementations": {
+    "mirror": {
+      "buyer_balance": 3406,
+      "elapsed_seconds": 450.032,
+      "pass": true,
+      "reopens": 34,
+      "trades": 3406,
+      "trades_per_second": 7.568
+    },
+    "reference": {
+      "buyer_balance": 3825,
+      "elapsed_seconds": 450.125,
+      "pass": true,
+      "reopens": 38,
+      "trades": 3825,
+      "trades_per_second": 8.498
+    }
+  },
+  "pass": true,
+  "reopen_every_trades": 100,
+  "schema": "entity-v3-internal-operational-soak-v1",
+  "scope": "15-minute bounded continuous EEP execution with periodic implementation reopen on local hardware; combined with destructive recovery/concurrency/failure-injection release evidence. Not an external SLA or independent production certification.",
+  "target_total_wall_seconds": 900,
+  "total_settled_trades": 7231
+}
