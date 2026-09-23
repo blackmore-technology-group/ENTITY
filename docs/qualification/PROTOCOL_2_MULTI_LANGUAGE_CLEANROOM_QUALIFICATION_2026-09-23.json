@@ -1,0 +1,79 @@
+{
+  "schema": "entity-protocol2-multilanguage-cleanroom-qualification-v1",
+  "date": "2026-09-23",
+  "status": "PASS",
+  "claim": "BTG-controlled five-language clean-room reproducibility qualification",
+  "external_independent_implementation": "PENDING",
+  "sealed_conformance_kit_tree_sha": "a07a2b1c108b0952b20332d0f72c610146832b50",
+  "golden_transaction_root_sha256": "7675954822a2adc2fccf9fb44bc4728f92e93d9741f9b4b669bebd6844f697a1",
+  "vectors_passed": 10,
+  "vectors_total": 10,
+  "recovery_pass": true,
+  "implementations": [
+    {
+      "language": "rust",
+      "repository": "blackmore-technology-group/ENTITY-RUST-CLEANROOM",
+      "commit": "ed06520632f6f454d6745b288847589e25c1205b",
+      "github_actions_run_id": 35865352929,
+      "result": "PASS",
+      "artifact_id": 10752222310,
+      "artifact_zip_sha256": "b822083a275ec62c8748664688186bb459392d65208834cf6381c381f4b8b5d3"
+    },
+    {
+      "language": "typescript",
+      "repository": "blackmore-technology-group/ENTITY-TYPESCRIPT-CLEANROOM",
+      "commit": "70f0859ef218eb0406aa473f996912005c135bc2",
+      "github_actions_run_id": 35865374207,
+      "result": "PASS",
+      "artifact_id": 10751612244,
+      "artifact_zip_sha256": "7a77d989a87fbae24f1841f468b8b24db516361ec0d0d380c8371ff1283c25dc"
+    },
+    {
+      "language": "csharp",
+      "repository": "blackmore-technology-group/ENTITY-CSHARP-CLEANROOM",
+      "commit": "6d2cc46a299d1052d78bd57a95310a09662bd402",
+      "github_actions_run_id": 35865658991,
+      "result": "PASS",
+      "artifact_id": 10752422841,
+      "artifact_zip_sha256": "38ffe0c2c8dc3ef3965038fcf1dcb3911aa10c960185c243b95d4460286f81f9"
+    },
+    {
+      "language": "go",
+      "repository": "blackmore-technology-group/ENTITY-GO-CLEANROOM",
+      "commit": "63280de32601674d4da5cfc5e1d6c6a24634a17b",
+      "github_actions_run_id": 35865403177,
+      "result": "PASS",
+      "artifact_id": 10752452195,
+      "artifact_zip_sha256": "02bbbe8fb63702de3c8869ce9157ad5b0e92890083da3404f93546526d9b1fb0"
+    },
+    {
+      "language": "swift",
+      "repository": "blackmore-technology-group/ENTITY-SWIFT-CLEANROOM",
+      "commit": "c271521d5c2824321a1458c9260b7a7b33643354",
+      "github_actions_run_id": 35865450757,
+      "result": "PASS",
+      "artifact_id": 10752172881,
+      "artifact_zip_sha256": "f5ec73c373cac4e2e99213493bd9d2ccc3533145c4c23c4e2448c48b5d7636c9"
+    }
+  ],
+  "vector_result_sha256": {
+    "valid_golden": "356f5bc434f23b19e048c046684544771bf24d1268a5178fc6f363e131d86505",
+    "invalid_root_tamper": "0b91a90afe6822659743fa1e429dd226873b28d9f62b30b5f1a8bc917502cbbe",
+    "invalid_missing_rights": "57cdf62daec7e53c6afd60308bd126b59ca6379cc0ba0543cc3002d3c0464296",
+    "invalid_usage_purpose": "0eb43ed26960148405a8bae396daeec063e9180c1c8481975c8aa8637cd4376b",
+    "invalid_settlement_direction": "e8f54914091b01217e092acbfce679abad82192fe6b1d8f3c8f2cf4ca6869ece",
+    "invalid_commodity_over_settlement": "eca68fd672c8e48f76da5ba25d6b53a8a1f48284f3fe511e34fbc2e43d4bf597",
+    "invalid_capital_unbalanced": "0ce6de00ddb3591c31bf3d426492b3c1a9ab44051330c39aa8fc015cdb872bb5",
+    "invalid_capital_shares": "51caf49fad6ab14f8b8360829e63453a625c882f02637550f62eeab8a1a83ce4",
+    "invalid_ledger_continuity": "c3114d2241c77e34e7a04ff2ead9fc5c8c0759539b4a55f2b8f37414ee9674d1",
+    "invalid_signature": "8089431526b649d1b9f3eb431e82424325b7ba225c050f0785c5befdad9d49d3"
+  },
+  "claim_boundary": {
+    "controlled_multilanguage_cleanroom_reproducibility": "VERIFIED",
+    "github_hosted_native_implementation_campaigns": "5/5 PASS",
+    "cross_language_canonical_result_agreement": "VERIFIED",
+    "sovereign_recovery_agreement": "VERIFIED",
+    "unrelated_third_party_implementation": "PENDING",
+    "independent_external_interoperability_qualification": "PENDING"
+  }
+}
