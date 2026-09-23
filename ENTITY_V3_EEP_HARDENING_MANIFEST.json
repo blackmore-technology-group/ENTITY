@@ -1,0 +1,79 @@
+{
+  "based_on_local_commit": "68179328a2b87408af93a5caa1c64312e70247be",
+  "claim_boundaries": [
+    "development working-tree evidence, not a release",
+    "external independent v3 reimplementation remains pending",
+    "payment attestation is evidence, not absolute truth",
+    "venue operator entitlement receipt does not transfer underlying ownership",
+    "legal and regulatory classification remains outside protocol truth"
+  ],
+  "created_date": "2026-09-23",
+  "files": [
+    {
+      "path": "src/31_Profiles/exchange_protocol.py",
+      "sha256": "cca451e553ea70a778c983805d155f05bb92baab5f481f75a60084a92e48d9f6"
+    },
+    {
+      "path": "src/32_V3_Hardening/exchange_protocol.py",
+      "sha256": "a631e259d2f0d7e4c4abf3acf1c04586e22bf5072928e5f9a9ddc3c130713637"
+    },
+    {
+      "path": "tests/test_v3_exchange_convergence.py",
+      "sha256": "079767d481e2dd09582bbf8b5e97a0ea4334d3fe06acbcc32e99c03caddf29fd"
+    },
+    {
+      "path": "tests/test_v3_hardening_exchange.py",
+      "sha256": "f7a7ecf9fa7d748d3953eb68c426945273c42fcf3a952048f21f0def773ecd17"
+    },
+    {
+      "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL_DRAFT.md",
+      "sha256": "1733dcf2055a4353abd611344582438a04cbae08b358451290885697c665dbd7"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_GAP_CLOSURE_MATRIX.md",
+      "sha256": "9b026fb2f29059fe8cb2bfac34f16845dae863dd420622738de224188828775c"
+    }
+  ],
+  "implemented_hardenings": [
+    "externally_signed_instrument_issuance",
+    "externally_signed_disclosure",
+    "disclosure_bound_listing",
+    "externally_signed_listing",
+    "externally_signed_order_ingestion",
+    "venue_receipt_time_price_priority",
+    "externally_signed_cancellation",
+    "externally_signed_usage",
+    "externally_signed_rfq",
+    "externally_signed_quote",
+    "externally_signed_quote_acceptance",
+    "signed_payment_attestation",
+    "authorized_settlement_verifiers",
+    "external_verified_requires_payment_attestation",
+    "venue_operator_entitlement_attestation",
+    "issuer_signed_revenue_rule_sets",
+    "replay_protection_for_signed_market_intents",
+    "reference_mirror_convergence",
+    "unsettled_sell_commitment_reservation",
+    "rfq_acceptance_unreserved_entitlement_recheck",
+    "execution_time_revenue_rule_binding",
+    "atomic_concurrent_sell_admission",
+    "atomic_order_book_revalidation",
+    "single_commit_concurrent_settlement",
+    "atomic_revenue_event_and_settlement_rollback"
+  ],
+  "schema": "entity-v3-eep-authorization-hardening-manifest-v1",
+  "snapshot_sha256": "d9a7c967ffca58a366fe82d8d3aa65b50a48dae35b2b5034e161de6221c7c1bb",
+  "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
+  "validation": {
+    "complete_active_tree": {
+      "passed": 90,
+      "total": 90
+    },
+    "targeted_eep_reference_mirror": {
+      "passed": 30,
+      "total": 30
+    }
+  },
+  "version": "3.0.0",
+  "working_tree_snapshot": false
+}

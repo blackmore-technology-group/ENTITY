@@ -1,0 +1,12 @@
+{
+  "created_at_ms": 1790170000000,
+  "disclosure_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+  "instrument_id": "inst3-test",
+  "lister": "ent3-issuer",
+  "listing_id": "listing3-test",
+  "min_lot": 1,
+  "schema": "entity-eep-listing-v1",
+  "status": "ACTIVE",
+  "tick_size": 1,
+  "venue_id": "venue3-test"
+}

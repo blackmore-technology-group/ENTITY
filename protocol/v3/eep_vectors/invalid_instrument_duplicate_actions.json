@@ -1,0 +1,22 @@
+{
+  "bytes_are_not_the_traded_scarcity": true,
+  "created_at_ms": 1790170000000,
+  "delivery_mode": "ENTITLEMENT",
+  "duration_ms": 86400000,
+  "instrument_class": "SPOT_LICENSE",
+  "instrument_id": "inst3-test",
+  "issuer": "ent3-issuer",
+  "rights": {
+    "actions": [
+      "TRAIN",
+      "TRAIN"
+    ],
+    "raw_redistribution": false
+  },
+  "schema": "entity-eep-instrument-v1",
+  "settlement_currency": "CAD",
+  "status": "ACTIVE",
+  "total_units": 1000,
+  "transferable": true,
+  "underlying_object_id": "obj3-data"
+}

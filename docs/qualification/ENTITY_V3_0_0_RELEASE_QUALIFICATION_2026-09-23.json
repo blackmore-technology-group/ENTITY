@@ -1,0 +1,76 @@
+{
+  "claim_boundaries": [
+    "external_unrelated_party_v3_reimplementation_pending",
+    "cross_language_live_v3_interoperability_pending",
+    "production_exchange_capacity_not_certified",
+    "legal_title_not_determined_by_protocol",
+    "regulatory_classification_not_determined_by_protocol",
+    "market_value_not_declared_by_protocol",
+    "external_payment_evidence_is_attestation_not_absolute_truth"
+  ],
+  "date": "2026-09-23",
+  "evidence": {
+    "bounded_release_load": {
+      "mirror_trades": 250,
+      "mirror_trades_per_second": 13.698,
+      "production_capacity_certification": false,
+      "qualified": true,
+      "reference_trades": 250,
+      "reference_trades_per_second": 14.354,
+      "total_settled_trades": 500
+    },
+    "complete_regression": {
+      "passed": 90,
+      "total": 90
+    },
+    "eep_reference_mirror_convergence": {
+      "passed": 16,
+      "total": 16
+    },
+    "eep_schema_wire_conformance": {
+      "passed": 4,
+      "total": 4
+    },
+    "eep_targeted_hardening": {
+      "passed": 30,
+      "total": 30
+    },
+    "eep_vectors": {
+      "expected_invalid": 14,
+      "expected_valid": 13,
+      "total": 27
+    },
+    "eopp_targeted": {
+      "passed": 20,
+      "total": 20
+    },
+    "market_recovery_targeted": {
+      "passed": 7,
+      "total": 7
+    }
+  },
+  "qualified_invariants": [
+    "signed_noncustodial_market_actions",
+    "venue_receipt_time_priority",
+    "disclosure_bound_listings",
+    "signed_external_payment_attestations",
+    "unsettled_rights_reservation",
+    "rfq_unreserved_entitlement_recheck",
+    "execution_time_revenue_rule_binding",
+    "atomic_concurrent_sell_admission",
+    "atomic_concurrent_matching",
+    "atomic_double_settlement_prevention",
+    "settlement_revenue_atomic_rollback",
+    "controller_attested_destructive_market_recovery"
+  ],
+  "schema": "entity-v3-release-qualification-v1",
+  "status": "BTG_INTERNAL_QUALIFIED_FOR_OPEN_SOURCE_RELEASE",
+  "universal_primitives": [
+    "ENTITY",
+    "AUTHORITY",
+    "RIGHT",
+    "EVENT",
+    "VALUE"
+  ],
+  "version": "3.0.0"
+}

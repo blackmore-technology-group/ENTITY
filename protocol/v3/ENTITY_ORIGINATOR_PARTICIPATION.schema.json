@@ -1,0 +1,618 @@
+{
+  "$defs": {
+    "economic_event": {
+      "additionalProperties": true,
+      "properties": {
+        "actor_entity_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "currency": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "dedupe_key": {
+          "type": "string"
+        },
+        "details": {
+          "type": "object"
+        },
+        "economic_event_is_evidence_not_market_value": {
+          "const": true
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "evidence_sha256": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          ]
+        },
+        "gross_amount_units": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "instrument_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "policy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema": {
+          "const": "entity-v3-economic-event-v1"
+        },
+        "subject_ref": {
+          "type": "string"
+        },
+        "treasury_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "event_id",
+        "dedupe_key",
+        "event_type",
+        "treasury_id",
+        "actor_entity_id",
+        "subject_ref",
+        "gross_amount_units",
+        "currency",
+        "details",
+        "created_at_ms",
+        "economic_event_is_evidence_not_market_value"
+      ],
+      "type": "object"
+    },
+    "indicative_mark": {
+      "additionalProperties": true,
+      "properties": {
+        "indicative_only": {
+          "const": true
+        },
+        "marks": {
+          "type": "array"
+        },
+        "not_accounting_fair_value": {
+          "const": true
+        },
+        "not_protocol_generated_value": {
+          "const": true
+        },
+        "schema": {
+          "const": "entity-v3-treasury-indicative-mark-v1"
+        },
+        "treasury_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "treasury_id",
+        "marks",
+        "indicative_only",
+        "not_accounting_fair_value",
+        "not_protocol_generated_value"
+      ],
+      "type": "object"
+    },
+    "obligation": {
+      "additionalProperties": true,
+      "properties": {
+        "amount_units": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "bps": {
+          "maximum": 10000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "obligation_id": {
+          "type": "string"
+        },
+        "payer_entity_id": {
+          "type": "string"
+        },
+        "recipient_entity_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "ACCRUED",
+            "SETTLED"
+          ]
+        }
+      },
+      "required": [
+        "obligation_id",
+        "payer_entity_id",
+        "recipient_entity_id",
+        "amount_units",
+        "currency",
+        "basis",
+        "bps",
+        "status"
+      ],
+      "type": "object"
+    },
+    "policy": {
+      "additionalProperties": true,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "currency": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "derivative_participation_bps": {
+          "maximum": 10000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "effective_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "instrument_id": {
+          "type": "string"
+        },
+        "no_retroactive_economic_rights": {
+          "const": true
+        },
+        "originator_entity_id": {
+          "type": "string"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "primary_treasury_bps": {
+          "maximum": 10000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "protocol_tax_bps": {
+          "const": 0
+        },
+        "reserve_units": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "schema": {
+          "const": "entity-v3-originator-participation-policy-v1"
+        },
+        "secondary_royalty_bps": {
+          "maximum": 10000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "terms_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "total_units": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "treasury_entity_id": {
+          "type": "string"
+        },
+        "treasury_id": {
+          "type": "string"
+        },
+        "version": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schema",
+        "policy_id",
+        "instrument_id",
+        "version",
+        "originator_entity_id",
+        "treasury_id",
+        "total_units",
+        "reserve_units",
+        "primary_treasury_bps",
+        "secondary_royalty_bps",
+        "derivative_participation_bps",
+        "currency",
+        "terms_sha256",
+        "protocol_tax_bps",
+        "treasury_entity_id",
+        "effective_at_ms",
+        "created_at_ms",
+        "no_retroactive_economic_rights"
+      ],
+      "type": "object"
+    },
+    "position": {
+      "additionalProperties": true,
+      "properties": {
+        "monetary_obligations": {
+          "type": "object"
+        },
+        "protocol_tax_bps": {
+          "const": 0
+        },
+        "reserve_positions": {
+          "type": "array"
+        },
+        "schema": {
+          "const": "entity-v3-treasury-position-v1"
+        },
+        "token_balance": {
+          "type": "null"
+        },
+        "treasury_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "treasury_id",
+        "monetary_obligations",
+        "reserve_positions",
+        "protocol_tax_bps",
+        "token_balance"
+      ],
+      "type": "object"
+    },
+    "reconciliation": {
+      "additionalProperties": true,
+      "properties": {
+        "captured_trade_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "event_and_obligation_reconciled": {
+          "const": true
+        },
+        "in_scope_trades": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "mismatched_obligation_trade_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "mismatched_trade_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "missing_obligation_trade_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "missing_trade_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "out_of_scope_trade_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "protocol_tax_bps": {
+          "const": 0
+        },
+        "scanned_settled_trades": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "schema": {
+          "const": "entity-v3-eopp-reconciliation-v1"
+        }
+      },
+      "required": [
+        "schema",
+        "scanned_settled_trades",
+        "in_scope_trades",
+        "captured_trade_ids",
+        "missing_trade_ids",
+        "mismatched_trade_ids",
+        "complete",
+        "protocol_tax_bps",
+        "missing_obligation_trade_ids",
+        "mismatched_obligation_trade_ids",
+        "event_and_obligation_reconciled"
+      ],
+      "type": "object"
+    },
+    "reserve_allocation": {
+      "additionalProperties": true,
+      "properties": {
+        "allocation_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "cross_store_atomic": {
+          "const": true
+        },
+        "eep_balance_transfer_enforced": {
+          "type": "boolean"
+        },
+        "instrument_id": {
+          "type": "string"
+        },
+        "originator_entity_id": {
+          "type": "string"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "protocol_tax_bps": {
+          "const": 0
+        },
+        "schema": {
+          "const": "entity-v3-treasury-reserve-allocation-v1"
+        },
+        "treasury_entity_id": {
+          "type": "string"
+        },
+        "units": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schema",
+        "allocation_id",
+        "policy_id",
+        "instrument_id",
+        "originator_entity_id",
+        "treasury_entity_id",
+        "units",
+        "created_at_ms",
+        "eep_balance_transfer_enforced",
+        "cross_store_atomic",
+        "protocol_tax_bps"
+      ],
+      "type": "object"
+    },
+    "settlement_attestation": {
+      "additionalProperties": true,
+      "properties": {
+        "evidence_sha256": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          ]
+        },
+        "external_verified": {
+          "type": "boolean"
+        },
+        "obligation_id": {
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-obligation-settlement-attestation-v1"
+        },
+        "settlement_ref": {
+          "type": "string"
+        },
+        "verification_is_attestation_not_absolute_truth": {
+          "const": true
+        },
+        "verifier_authority_basis": {
+          "enum": [
+            "PAYER_ATTESTATION",
+            "TREASURY_OWNER_ATTESTATION",
+            "TREASURY_ENTITY_ATTESTATION",
+            "AUTHORIZED_SETTLEMENT_VERIFIER"
+          ]
+        },
+        "verifier_entity_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "obligation_id",
+        "verifier_entity_id",
+        "verifier_authority_basis",
+        "settlement_ref",
+        "external_verified",
+        "verification_is_attestation_not_absolute_truth"
+      ],
+      "type": "object"
+    },
+    "settlement_verifier_authorization": {
+      "additionalProperties": true,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "owner_entity_id": {
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-settlement-verifier-authorization-v1"
+        },
+        "status": {
+          "enum": [
+            "ACTIVE",
+            "REVOKED"
+          ]
+        },
+        "treasury_id": {
+          "type": "string"
+        },
+        "verifier_entity_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "treasury_id",
+        "owner_entity_id",
+        "verifier_entity_id",
+        "status",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "treasury": {
+      "additionalProperties": true,
+      "properties": {
+        "owner_entity_id": {
+          "type": "string"
+        },
+        "protocol_tax_bps": {
+          "const": 0
+        },
+        "schema": {
+          "const": "entity-v3-treasury-v1"
+        },
+        "treasury_entity_id": {
+          "type": "string"
+        },
+        "treasury_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "treasury_id",
+        "owner_entity_id",
+        "treasury_entity_id",
+        "protocol_tax_bps"
+      ],
+      "type": "object"
+    },
+    "treasury_snapshot": {
+      "additionalProperties": true,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "position": {
+          "type": "object"
+        },
+        "position_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "protocol_tax_bps": {
+          "const": 0
+        },
+        "schema": {
+          "const": "entity-v3-treasury-snapshot-v1"
+        },
+        "snapshot_id": {
+          "type": "string"
+        },
+        "treasury_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "snapshot_id",
+        "treasury_id",
+        "position_sha256",
+        "created_at_ms",
+        "protocol_tax_bps",
+        "position"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://entity.invalid/protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/treasury"
+    },
+    {
+      "$ref": "#/$defs/policy"
+    },
+    {
+      "$ref": "#/$defs/obligation"
+    },
+    {
+      "$ref": "#/$defs/position"
+    },
+    {
+      "$ref": "#/$defs/settlement_verifier_authorization"
+    },
+    {
+      "$ref": "#/$defs/settlement_attestation"
+    },
+    {
+      "$ref": "#/$defs/reconciliation"
+    },
+    {
+      "$ref": "#/$defs/reserve_allocation"
+    },
+    {
+      "$ref": "#/$defs/economic_event"
+    },
+    {
+      "$ref": "#/$defs/indicative_mark"
+    },
+    {
+      "$ref": "#/$defs/treasury_snapshot"
+    }
+  ],
+  "title": "ENTITY Originator Participation Profile Records"
+}

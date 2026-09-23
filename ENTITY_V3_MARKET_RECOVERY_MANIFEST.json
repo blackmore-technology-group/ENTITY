@@ -1,0 +1,66 @@
+{
+  "based_on_local_commit": "68179328a2b87408af93a5caa1c64312e70247be",
+  "claim_boundaries": [
+    "market recovery does not export private signing keys",
+    "market recovery composes with but does not replace ENTITY Core identity/key recovery",
+    "external settlement remains attestation evidence",
+    "development evidence is not release qualification",
+    "external independent market-recovery reimplementation remains pending"
+  ],
+  "created_date": "2026-09-23",
+  "files": [
+    {
+      "path": "src/34_Market_Recovery/market_recovery.py",
+      "sha256": "97d084fdcece2289a5860e6a16007c40f39cd95f27693c961d702fdd1b388cd9"
+    },
+    {
+      "path": "tests/test_v3_market_recovery.py",
+      "sha256": "e7a89fa2381421b21b37b6238217f72f8cc9cdf91259e82688128327b9b940ff"
+    },
+    {
+      "path": "protocol/v3/ENTITY_MARKET_STATE_RECOVERY_PROFILE.md",
+      "sha256": "70be04b633a305b7c09d1873533370b1b059a2bc4227ae64c5b74320545df8c4"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_GAP_CLOSURE_MATRIX.md",
+      "sha256": "9b026fb2f29059fe8cb2bfac34f16845dae863dd420622738de224188828775c"
+    },
+    {
+      "path": "ENTITY_V3_EEP_CONFORMANCE_MANIFEST.json",
+      "sha256": "07700ba28c78f9d7d5c65f946fc5a320f05f32918721f0e9efda75f054d34053"
+    },
+    {
+      "path": "ENTITY_V3_EOPP_HARDENING_MANIFEST.json",
+      "sha256": "ecbb035a6fef8accfd68ca36bd2e7425957420b47c7f387c17dfd84341bdb3c4"
+    }
+  ],
+  "implemented": [
+    "provider_independent_logical_eep_state_export",
+    "provider_independent_logical_eopp_state_export",
+    "per_table_and_per_database_semantic_roots",
+    "embedded_public_signer_manifests",
+    "venue_operator_and_treasury_owner_root_attestations",
+    "linked_core_sovereign_bundles",
+    "empty_destination_fail_closed_restore",
+    "atomic_cross_database_restore",
+    "post_restore_exact_state_root_comparison",
+    "destructive_market_database_recovery",
+    "tamper_detection_after_hash_recomputation",
+    "required_trade_revenue_binding_recovery"
+  ],
+  "schema": "entity-v3-market-recovery-evidence-manifest-v1",
+  "snapshot_sha256": "6055a9bd4c4a3ae0968bd425dd8245f62a4ce5cd57fbb4399903366667b970de",
+  "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
+  "validation": {
+    "complete_active_tree": {
+      "passed": 90,
+      "total": 90
+    },
+    "targeted_market_recovery": {
+      "passed": 7,
+      "total": 7
+    }
+  },
+  "version": "3.0.0",
+  "working_tree_snapshot": false
+}

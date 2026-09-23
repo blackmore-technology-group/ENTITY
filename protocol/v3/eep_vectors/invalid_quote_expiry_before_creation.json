@@ -1,0 +1,10 @@
+{
+  "created_at_ms": 1790170000000,
+  "expires_at_ms": 1790169999999,
+  "nonce": "quote-nonce-1",
+  "price": 8400,
+  "provider": "ent3-issuer",
+  "quote_id": "quote3-test",
+  "rfq_id": "rfq3-test",
+  "schema": "entity-eep-rfq-quote-v1"
+}

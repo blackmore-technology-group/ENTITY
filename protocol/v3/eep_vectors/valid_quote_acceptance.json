@@ -1,0 +1,9 @@
+{
+  "acceptance_id": "accept3-test",
+  "created_at_ms": 1790170000000,
+  "nonce": "accept-nonce-1",
+  "quote_id": "quote3-test",
+  "requester": "ent3-buyer",
+  "rfq_id": "rfq3-test",
+  "schema": "entity-eep-rfq-acceptance-v1"
+}

@@ -1,0 +1,427 @@
+{
+  "base_commit": "e2448d3a7d82633c24a474f04fb21d394923f453",
+  "base_existing_file_differences": 0,
+  "base_line": "current protected ENTITY mainline",
+  "claim_boundaries": [
+    "v3 interoperability not yet qualified",
+    "external independent reimplementation not yet qualified",
+    "production deployment not claimed",
+    "legal ownership and title are not inferred",
+    "asserted value is not market value",
+    "internal settlement does not prove external money movement"
+  ],
+  "created_date": "2026-09-23",
+  "development_snapshot_sha256": "0c3c859a88d704cedc187983ff7211f723c79befec7391659545749520d459ec",
+  "files": [
+    {
+      "path": "ENTITY_V3_ECONOMIC_PARTICIPATION_MANIFEST.json",
+      "sha256": "baa9e48c7a507075ff35cc0b72e60079875a81218fa4bc5a8963a39bb3ce5eb4"
+    },
+    {
+      "path": "ENTITY_V3_EEP_CONFORMANCE_MANIFEST.json",
+      "sha256": "07700ba28c78f9d7d5c65f946fc5a320f05f32918721f0e9efda75f054d34053"
+    },
+    {
+      "path": "ENTITY_V3_EEP_HARDENING_MANIFEST.json",
+      "sha256": "91090ee36f2d6469ac120bee3fa7dbecf5a516fc420e4c8635a8c99a36e563a3"
+    },
+    {
+      "path": "ENTITY_V3_EOPP_HARDENING_MANIFEST.json",
+      "sha256": "ecbb035a6fef8accfd68ca36bd2e7425957420b47c7f387c17dfd84341bdb3c4"
+    },
+    {
+      "path": "ENTITY_V3_MARKET_RECOVERY_MANIFEST.json",
+      "sha256": "06689bfc335779eb88e91e8029c1469c9cc336a9f747ed3bdfd7096f8ccb2357"
+    },
+    {
+      "path": "protocol/v3/BTG_TREASURY_DEPLOYMENT_REQUIREMENTS.md",
+      "sha256": "5d4157c537124b432027ef77d6bb891093074d5965a91b9ad3865b617f142cee"
+    },
+    {
+      "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL.schema.json",
+      "sha256": "146932a4598797e295ad7d86ac3ee3ee80261fc1675b1bfb4724df0e05fa3218"
+    },
+    {
+      "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL_DRAFT.md",
+      "sha256": "1733dcf2055a4353abd611344582438a04cbae08b358451290885697c665dbd7"
+    },
+    {
+      "path": "protocol/v3/ENTITY_MARKET_STATE_RECOVERY_PROFILE.md",
+      "sha256": "70be04b633a305b7c09d1873533370b1b059a2bc4227ae64c5b74320545df8c4"
+    },
+    {
+      "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION.schema.json",
+      "sha256": "4a8d4341e86f3d41eb41e16255d10cac8c0505ef216a6286ffbf76ac94b5a832"
+    },
+    {
+      "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION_PROFILE.md",
+      "sha256": "d2e28bc76b8dfe65ecdbf0df9bc839777a913a75ffbee35e05b7a530203431d0"
+    },
+    {
+      "path": "protocol/v3/ENTITY_PROTOCOL_3_0_DRAFT.md",
+      "sha256": "c164e8b12f6b85e4296a5584461d7158f7446980beac99ae645e388a28a70fc4"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_GAP_CLOSURE_MATRIX.md",
+      "sha256": "9b026fb2f29059fe8cb2bfac34f16845dae863dd420622738de224188828775c"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_PRIMITIVES.schema.json",
+      "sha256": "84d587e28b3ea18f9e3987e5d7dd42ddb4fe724ab22252ec7376814e9db38d50"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_PROFILE_ARCHITECTURE.md",
+      "sha256": "6a4d10dc5887282b316a7a64f43f90be8d7c2e8710f2b80bf6aa5f4b11676f33"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/README.md",
+      "sha256": "ff734344b2be9e523109c677b4aa746b19eb7e505bd4ba01be8f11ef44ca030e"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/SHA256SUMS.txt",
+      "sha256": "68989a573a74046e55d6b2713f9fdee8304d8b709d22dd5ccd17f32791d927b7"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/VECTOR_MANIFEST.json",
+      "sha256": "08fe381309dc122e0efb8544490e23287e53b3d37cea868b5cd359cc736c4b53"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_disclosure_uppercase_sha.json",
+      "sha256": "0a2eae7d2c1d1a10f1ad5e173890f33bee5d4c7fd65fb4388996f01bbfddd017"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_entitlement_underlying_ownership_flag.json",
+      "sha256": "0c7a7488ff4959f25f19682607fdede978228e2eedeecd85cca59c522ee35e6a"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_instrument_duplicate_actions.json",
+      "sha256": "8c15398f90e40bdfb67bc663d359bdb8be52a7fa5baaa4ae405ca74ef88d382e"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_instrument_unsorted_actions.json",
+      "sha256": "e2c6dd771249139633b10b2819fdb9b650f4c9290f6cd823f042c451da147c8f"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_instrument_zero_duration.json",
+      "sha256": "e6e9a1beda19b768ca82e38ed3305bedff0fe772473e9267e44c4a78a0907a7f"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_order_extra_property.json",
+      "sha256": "d45496e6d8e58f324a8cbad389dabc67413dc2b7edef559f1a39ffde6ea7daf1"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_order_lowercase_side.json",
+      "sha256": "9ba6ce95fa570fdddad9c65c4a70736c97aff8891a5b15daefbe0c8491e040f1"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_order_quantity_string.json",
+      "sha256": "dcbda46a8b3fd6bf29f7355f5cd2cc79144cce4630b61640f7569784d0000c68"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_payment_truth_boundary.json",
+      "sha256": "9497b0f3e15c109adbd7c49f12ae40af2ed7a151cf595721bb5a3851f925a0d5"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_quote_expiry_before_creation.json",
+      "sha256": "ff6ba466dfeb51b9e88f631963748b4dbb2bd5781447844f9f67b9b742267690"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_revenue_total_over_10000.json",
+      "sha256": "79aee3480c99433f20460d9963b64c72a4291fdcf42cfccb543a2b91f22c0776"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_rfq_expiry_not_after_creation.json",
+      "sha256": "8c9b7ec97d91cc00ece20faf52d949a15daffd11b8c3adbeaf1aeed548d37f59"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_usage_lowercase_action.json",
+      "sha256": "fc15918b166bb5770558fe304b232d60ec4eb925984c91f1962384660bad0af2"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_venue_execution_model.json",
+      "sha256": "238ae657e7bd18369e583ab3c1e88e5f5fe9aaa5ac0c391279038d585a173b37"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_cancellation.json",
+      "sha256": "52befe85b79b79af0b5928c0b26c191d0b9add0bfeaeed346030d802407570f6"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_disclosure.json",
+      "sha256": "9716d582307d2368925a8a5e2ce87f724ab864eeb9cd912d4dc391211ec5a45d"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_entitlement.json",
+      "sha256": "710c0dfe8a73fc2ec89425fd6d2625385ed7dfdc54e6990f8d98290d7e1d1655"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_instrument.json",
+      "sha256": "6572cfd3cda124cec50b192d67b995e76cef567586b657256655385113ac6b11"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_listing.json",
+      "sha256": "2290177d72705ebc8bccf8aba25be6b87dfbf9ef0a54cc078a7dee50353ec9f7"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_order.json",
+      "sha256": "c053c18377320c6c7e35cb3309e7478aad60685836973be4db43484ab4d6b78f"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_payment_attestation.json",
+      "sha256": "7f5a7d0ec5710b406c2bfadfd9ce7fda23be670a02a777c140d286d7faefcadb"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_quote.json",
+      "sha256": "53ff64411b11b9b4edb9e03c144b4b2240a66b6d72ce94bbde24bcbf2a95bf5b"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_quote_acceptance.json",
+      "sha256": "013bc1b216df7787a219bf655e4b616ff38c57e9a21e3e9c1074cb74092022aa"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_revenue_rule_set.json",
+      "sha256": "9519a03d86d19bc71d73f7ac810836e966630bf78da91511dae206e524529f82"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_rfq.json",
+      "sha256": "2c2f061c876c757ef7e0c7485fb9455b9ca72b9d187d2ee178f44cb0e817d4bd"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_usage.json",
+      "sha256": "f7dbcefdd56b672b8f1f7d5aa132c522401be60e6f2e8d9d624b1d2d91b97e92"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_venue.json",
+      "sha256": "56c5cec07cda7f5ad0ba54f2c4c6e140146cda70c9e40cc11055249bf249848f"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "ba36584e5af40e46435d63315f94fb6d600e3d18af53d123e321763f98f22668"
+    },
+    {
+      "path": "src/30_Universal_Transaction_Fabric/canonical_universal_fabric.py",
+      "sha256": "1305c9d5076d0671fbf8f9c2fe820418ed5b78bb1c8bd3e05dbcfff92923d8ac"
+    },
+    {
+      "path": "src/31_Profiles/exchange_protocol.py",
+      "sha256": "cca451e553ea70a778c983805d155f05bb92baab5f481f75a60084a92e48d9f6"
+    },
+    {
+      "path": "src/31_Profiles/governance_privacy.py",
+      "sha256": "9e2d48b6720a00cc5b6aac95a1c47c4ffb115babe30480ea3338ea3051a27db8"
+    },
+    {
+      "path": "src/31_Profiles/profile_core.py",
+      "sha256": "36e5bf598d6bdfccf25b961dcc2b7a8c1c4af90f27d92aa49cfb286ec05318be"
+    },
+    {
+      "path": "src/31_Profiles/resilience_interop.py",
+      "sha256": "a8e5b9a4704f87710fa7b36159ae68daf82ea45ad35dc53c04c6f0f6745fb848"
+    },
+    {
+      "path": "src/32_V3_Hardening/exchange_protocol.py",
+      "sha256": "a631e259d2f0d7e4c4abf3acf1c04586e22bf5072928e5f9a9ddc3c130713637"
+    },
+    {
+      "path": "src/32_V3_Hardening/hardening_profiles.py",
+      "sha256": "c11198451947a557cd3fd0090c26629a60e7e84bc20c09768dc2bf37c123b2a7"
+    },
+    {
+      "path": "src/33_Economic_Participation/btg_deployment.py",
+      "sha256": "e6ecfe044ea3d5516f3fe3649252b0c23d3ec22a252e4cb8fc98880c98d1ff26"
+    },
+    {
+      "path": "src/33_Economic_Participation/economic_participation.py",
+      "sha256": "3d805ab601bbf46001175796b601c3c66190c704408f86beb21f942f1de6a9d5"
+    },
+    {
+      "path": "src/34_Market_Recovery/market_recovery.py",
+      "sha256": "97d084fdcece2289a5860e6a16007c40f39cd95f27693c961d702fdd1b388cd9"
+    },
+    {
+      "path": "tests/test_v3_economic_participation.py",
+      "sha256": "35c376010c209108aa0c314f531c06739c8af929c0bfea6af1753d5452f1c093"
+    },
+    {
+      "path": "tests/test_v3_eep_conformance.py",
+      "sha256": "d832cc585662a8722bb3ac95763c6f487285983818794a314826792a6c11390f"
+    },
+    {
+      "path": "tests/test_v3_exchange_convergence.py",
+      "sha256": "079767d481e2dd09582bbf8b5e97a0ea4334d3fe06acbcc32e99c03caddf29fd"
+    },
+    {
+      "path": "tests/test_v3_hardening_exchange.py",
+      "sha256": "f7a7ecf9fa7d748d3953eb68c426945273c42fcf3a952048f21f0def773ecd17"
+    },
+    {
+      "path": "tests/test_v3_market_recovery.py",
+      "sha256": "e7a89fa2381421b21b37b6238217f72f8cc9cdf91259e82688128327b9b940ff"
+    },
+    {
+      "path": "tests/test_v3_profiles.py",
+      "sha256": "4b173e0a40c31858cbf95cef53ccb8128ea2694fec55511e4ea7acf3fcd2c151"
+    },
+    {
+      "path": "tests/test_v3_universal_fabric.py",
+      "sha256": "89751c9ac0570fc50cb5ec00f1b15b9d026c5b6da3fbfee757a4d91847f4e9dc"
+    },
+    {
+      "path": "tools/bootstrap_v3_env.ps1",
+      "sha256": "d9fefb6c9a5448f597d1ea40c5d29af8ae6f190b8fd83da4106c913b2e279b96"
+    },
+    {
+      "path": "tools/run_v3_regression.ps1",
+      "sha256": "0bc9f4acc6d1fb8b6b274c305bd89750b78e68ad5568887ee46a577385d5f5f9"
+    },
+    {
+      "path": "tools/verify_v3_bundle.py",
+      "sha256": "5f5dc297d69bffb2f75b024c843663998ba61295ee9b0e02c7e03be595163838"
+    },
+    {
+      "path": "tools/verify_v3_development_manifest.py",
+      "sha256": "61b1ba62839f8af47dc7ebe5bdfde3b971eaf0d71aa29d9c7cb52e13cd0a9d13"
+    }
+  ],
+  "implementation_roles": {
+    "core": "src/30_Universal_Transaction_Fabric",
+    "deployment_adapter_non_normative": "src/33_Economic_Participation/btg_deployment.py",
+    "exchange_authorization_hardening_evidence": "ENTITY_V3_EEP_HARDENING_MANIFEST.json",
+    "exchange_conformance_evidence": "ENTITY_V3_EEP_CONFORMANCE_MANIFEST.json",
+    "exchange_development_vectors": "protocol/v3/eep_vectors/VECTOR_MANIFEST.json",
+    "exchange_normative_record_schema": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL.schema.json",
+    "market_state_recovery_evidence": "ENTITY_V3_MARKET_RECOVERY_MANIFEST.json",
+    "market_state_recovery_profile": "src/34_Market_Recovery/market_recovery.py",
+    "market_state_recovery_protocol": "protocol/v3/ENTITY_MARKET_STATE_RECOVERY_PROFILE.md",
+    "normative_authority": "versioned protocol text, schemas, vectors and deterministic conformance results; no implementation tree or deployment adapter is normative by itself",
+    "originator_participation_profile": "src/33_Economic_Participation/economic_participation.py",
+    "qualification_mirror": "src/32_V3_Hardening",
+    "reference_profiles": "src/31_Profiles"
+  },
+  "implemented_capabilities": [
+    "digital_commodity_objects",
+    "delegated_ai_authority",
+    "machine_readable_rights",
+    "replay_protected_usage_events",
+    "metered_settlement_obligations",
+    "existing_settlement_engine_bridge",
+    "causal_provenance_graph",
+    "deterministic_derived_value_distribution",
+    "physical_and_digital_objects",
+    "signed_attestations",
+    "trust_policy_thresholds",
+    "entity_native_resolution",
+    "self_verifying_sovereign_bundles",
+    "standalone_empty_vault_verifier",
+    "optional_versioned_profiles",
+    "schema_immutability_and_negotiation",
+    "canonical_rights_ontology",
+    "selective_disclosure",
+    "encrypted_private_claims",
+    "pairwise_pseudonyms",
+    "dispute_and_supersession_semantics",
+    "status_revocation_and_stale_policies",
+    "recovery_quorum",
+    "succession_continuity_designations",
+    "federated_resolution_quorum",
+    "resolver_anti_equivocation",
+    "attenuated_agent_subdelegation",
+    "physical_binding_and_custody",
+    "attribution_methodology_receipts",
+    "settlement_adapter_registry",
+    "reputation_neutral_admission_control",
+    "degradation_state_machine",
+    "merkle_batching_and_archival_snapshots",
+    "legacy_system_bridges",
+    "standards_rfc_threshold_governance",
+    "entity_exchange_protocol",
+    "deterministic_price_time_matching",
+    "payment_versus_right_settlement",
+    "market_data_protocol",
+    "market_surveillance",
+    "rfq_market",
+    "entitlement_usage_metering",
+    "revenue_distribution",
+    "reference_mirror_convergence_tests",
+    "call_auction",
+    "rfq_quote_acceptance",
+    "originator_economic_participation",
+    "issuer_defined_treasury_reserve",
+    "primary_sale_treasury_participation",
+    "secondary_originator_royalty",
+    "derivative_revenue_participation",
+    "service_revenue_participation",
+    "external_settlement_evidence_attestation",
+    "indicative_mark_separation_from_accounting_value",
+    "reproducible_external_venv_regression",
+    "originator_participation_profile_eopp",
+    "btg_deployment_without_protocol_privilege",
+    "versioned_participation_policy",
+    "actual_eep_reserve_allocation",
+    "manifest_self_verification",
+    "cross_store_atomic_reserve_allocation",
+    "atomic_economic_event_and_obligation",
+    "event_and_obligation_reconciliation",
+    "historical_derivative_policy_binding",
+    "provider_receivable_without_payer_private_key",
+    "expanded_eopp_record_schema",
+    "externally_signed_market_intents",
+    "noncustodial_market_participant_keys",
+    "venue_receipt_time_priority",
+    "signed_payment_attestations",
+    "authorized_settlement_verifiers",
+    "signed_instrument_issuance",
+    "signed_disclosure_and_listing",
+    "listing_disclosure_binding",
+    "issuer_authenticated_revenue_rules",
+    "signed_order_cancellation",
+    "signed_usage_receipts",
+    "signed_rfq_quote_acceptance",
+    "canonical_signed_wire_validation",
+    "strict_signed_wire_type_rejection",
+    "eep_json_schema_draft_2020_12",
+    "eep_valid_invalid_conformance_vectors",
+    "eep_vector_checksum_seal",
+    "eep_schema_and_wire_two_layer_conformance",
+    "entitlement_expiry_convergence",
+    "market_state_provider_independent_export",
+    "eep_eopp_logical_state_roots",
+    "market_recovery_controller_attestations",
+    "atomic_cross_database_market_restore",
+    "destructive_eep_eopp_recovery",
+    "rehash_resistant_controller_signed_recovery",
+    "empty_destination_fail_closed_restore",
+    "unsettled_sell_commitment_reservation",
+    "rfq_acceptance_unreserved_entitlement_recheck",
+    "execution_time_trade_revenue_binding",
+    "trade_revenue_binding_market_recovery",
+    "atomic_concurrent_sell_admission",
+    "atomic_order_book_revalidation",
+    "single_commit_concurrent_settlement",
+    "atomic_revenue_event_and_settlement_rollback"
+  ],
+  "regression": {
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/run_v3_regression.ps1",
+    "environment": "workspace-external virtualenv; no dependency environment stored inside repository",
+    "passed": 90,
+    "python": "3.10.11",
+    "total": 90
+  },
+  "release_load_qualification": {
+    "mirror_trades_per_second": 13.698,
+    "production_capacity_certification": false,
+    "qualified": true,
+    "reference_trades_per_second": 14.354,
+    "total_settled_trades": 500
+  },
+  "schema": "entity-v3-development-manifest-v1",
+  "snapshot_sealed_at": "2026-09-23T20:08:49.316157Z",
+  "status": "SUPERSEDED_BY_ENTITY_V3_0_0_RELEASE",
+  "universal_primitives": [
+    "ENTITY",
+    "AUTHORITY",
+    "RIGHT",
+    "EVENT",
+    "VALUE"
+  ],
+  "version": "3.0.0"
+}

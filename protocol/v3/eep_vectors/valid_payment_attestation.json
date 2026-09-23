@@ -1,0 +1,11 @@
+{
+  "attestation_id": "payatt3-test",
+  "created_at_ms": 1790170000000,
+  "evidence_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+  "nonce": "pay-nonce-1",
+  "schema": "entity-eep-payment-attestation-v1",
+  "settlement_ref": "bank-ref-1",
+  "trade_id": "trade3-test",
+  "verification_is_attestation_not_absolute_truth": true,
+  "verifier_entity_id": "ent3-buyer"
+}

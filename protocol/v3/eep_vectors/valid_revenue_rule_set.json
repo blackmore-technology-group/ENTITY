@@ -1,0 +1,12 @@
+{
+  "allocations_bps": {
+    "ent3-originator": 150,
+    "ent3-researcher": 50
+  },
+  "created_at_ms": 1790170000000,
+  "instrument_id": "inst3-test",
+  "issuer": "ent3-issuer",
+  "nonce": "rev-nonce-1",
+  "rule_set_id": "revrule3-test",
+  "schema": "entity-eep-revenue-rule-set-v1"
+}

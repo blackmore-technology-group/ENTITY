@@ -1,0 +1,10 @@
+{
+  "action": "TRAIN",
+  "created_at_ms": 1790170000000,
+  "holder": "ent3-buyer",
+  "instrument_id": "inst3-test",
+  "nonce": "usage-nonce-1",
+  "schema": "entity-eep-usage-v1",
+  "units": 3,
+  "usage_id": "usage3-test"
+}

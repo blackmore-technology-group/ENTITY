@@ -1,0 +1,12 @@
+{
+  "created_at_ms": 1790170000000,
+  "expires_at_ms": 1790170000000,
+  "instrument_id": "inst3-test",
+  "nonce": "rfq-nonce-1",
+  "quantity": 5,
+  "requester": "ent3-buyer",
+  "rfq_id": "rfq3-test",
+  "schema": "entity-eep-rfq-v1",
+  "side": "BUY",
+  "venue_id": "venue3-test"
+}

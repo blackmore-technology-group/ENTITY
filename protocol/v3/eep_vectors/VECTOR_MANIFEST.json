@@ -1,0 +1,240 @@
+{
+  "profile": "ENTITY_EXCHANGE_PROTOCOL",
+  "schema": "entity-v3-eep-vector-manifest-v1",
+  "signed_wire_schemas": [
+    "entity-eep-instrument-v1",
+    "entity-eep-disclosure-v1",
+    "entity-eep-listing-v1",
+    "entity-eep-order-v1",
+    "entity-eep-order-cancel-v1",
+    "entity-eep-payment-attestation-v1",
+    "entity-eep-usage-v1",
+    "entity-eep-revenue-rule-set-v1",
+    "entity-eep-rfq-v1",
+    "entity-eep-rfq-quote-v1",
+    "entity-eep-rfq-acceptance-v1"
+  ],
+  "validator_chain": [
+    "JSON_SCHEMA_DRAFT_2020_12",
+    "ENTITY_CANONICAL_SIGNED_WIRE_RULES"
+  ],
+  "vectors": [
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": null,
+      "name": "valid_venue",
+      "path": "valid_venue.json",
+      "record_schema": "entity-eep-venue-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_instrument",
+      "path": "valid_instrument.json",
+      "record_schema": "entity-eep-instrument-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_disclosure",
+      "path": "valid_disclosure.json",
+      "record_schema": "entity-eep-disclosure-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_listing",
+      "path": "valid_listing.json",
+      "record_schema": "entity-eep-listing-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_order",
+      "path": "valid_order.json",
+      "record_schema": "entity-eep-order-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_cancellation",
+      "path": "valid_cancellation.json",
+      "record_schema": "entity-eep-order-cancel-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_payment_attestation",
+      "path": "valid_payment_attestation.json",
+      "record_schema": "entity-eep-payment-attestation-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_usage",
+      "path": "valid_usage.json",
+      "record_schema": "entity-eep-usage-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_revenue_rule_set",
+      "path": "valid_revenue_rule_set.json",
+      "record_schema": "entity-eep-revenue-rule-set-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_rfq",
+      "path": "valid_rfq.json",
+      "record_schema": "entity-eep-rfq-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_quote",
+      "path": "valid_quote.json",
+      "record_schema": "entity-eep-rfq-quote-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": true,
+      "name": "valid_quote_acceptance",
+      "path": "valid_quote_acceptance.json",
+      "record_schema": "entity-eep-rfq-acceptance-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": true,
+      "expected_wire_valid": null,
+      "name": "valid_entitlement",
+      "path": "valid_entitlement.json",
+      "record_schema": "entity-eep-entitlement-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_order_quantity_string",
+      "path": "invalid_order_quantity_string.json",
+      "record_schema": "entity-eep-order-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_order_lowercase_side",
+      "path": "invalid_order_lowercase_side.json",
+      "record_schema": "entity-eep-order-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": true,
+      "name": "invalid_order_extra_property",
+      "path": "invalid_order_extra_property.json",
+      "record_schema": "entity-eep-order-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_instrument_unsorted_actions",
+      "path": "invalid_instrument_unsorted_actions.json",
+      "record_schema": "entity-eep-instrument-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_instrument_duplicate_actions",
+      "path": "invalid_instrument_duplicate_actions.json",
+      "record_schema": "entity-eep-instrument-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_instrument_zero_duration",
+      "path": "invalid_instrument_zero_duration.json",
+      "record_schema": "entity-eep-instrument-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_disclosure_uppercase_sha",
+      "path": "invalid_disclosure_uppercase_sha.json",
+      "record_schema": "entity-eep-disclosure-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_usage_lowercase_action",
+      "path": "invalid_usage_lowercase_action.json",
+      "record_schema": "entity-eep-usage-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_revenue_total_over_10000",
+      "path": "invalid_revenue_total_over_10000.json",
+      "record_schema": "entity-eep-revenue-rule-set-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_rfq_expiry_not_after_creation",
+      "path": "invalid_rfq_expiry_not_after_creation.json",
+      "record_schema": "entity-eep-rfq-v1"
+    },
+    {
+      "expected_schema_valid": true,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_quote_expiry_before_creation",
+      "path": "invalid_quote_expiry_before_creation.json",
+      "record_schema": "entity-eep-rfq-quote-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": false,
+      "name": "invalid_payment_truth_boundary",
+      "path": "invalid_payment_truth_boundary.json",
+      "record_schema": "entity-eep-payment-attestation-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": null,
+      "name": "invalid_entitlement_underlying_ownership_flag",
+      "path": "invalid_entitlement_underlying_ownership_flag.json",
+      "record_schema": "entity-eep-entitlement-v1"
+    },
+    {
+      "expected_schema_valid": false,
+      "expected_valid": false,
+      "expected_wire_valid": null,
+      "name": "invalid_venue_execution_model",
+      "path": "invalid_venue_execution_model.json",
+      "record_schema": "entity-eep-venue-v1"
+    }
+  ],
+  "version": "3.0.0"
+}

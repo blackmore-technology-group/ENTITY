@@ -1,0 +1,832 @@
+{
+  "$defs": {
+    "cancellation": {
+      "additionalProperties": false,
+      "properties": {
+        "cancellation_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "order_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "participant": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-order-cancel-v1"
+        }
+      },
+      "required": [
+        "schema",
+        "cancellation_id",
+        "order_id",
+        "participant",
+        "nonce",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "disclosure": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "disclosure_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "disclosure_type": {
+          "minLength": 1,
+          "pattern": "^[A-Z0-9][A-Z0-9_.:-]*$",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "protected_data_included": {
+          "const": false
+        },
+        "publisher": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-disclosure-v1"
+        },
+        "venue_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "disclosure_id",
+        "venue_id",
+        "instrument_id",
+        "publisher",
+        "disclosure_type",
+        "content_sha256",
+        "created_at_ms",
+        "protected_data_included"
+      ],
+      "type": "object"
+    },
+    "entitlement": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "entitlement_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "expires_at_ms": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            }
+          ]
+        },
+        "holder": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "instrument_issuer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "ownership_of_underlying_transferred": {
+          "const": false
+        },
+        "quantity": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "rights": {
+          "additionalProperties": true,
+          "minProperties": 1,
+          "properties": {
+            "actions": {
+              "items": {
+                "minLength": 1,
+                "pattern": "^[A-Z0-9][A-Z0-9_.:-]*$",
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "actions"
+          ],
+          "type": "object",
+          "x-entity-canonical-actions-order": "lexicographic"
+        },
+        "schema": {
+          "const": "entity-eep-entitlement-v1"
+        },
+        "trade_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "venue_operator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "venue_operator_is_not_underlying_owner": {
+          "const": true
+        }
+      },
+      "required": [
+        "schema",
+        "entitlement_id",
+        "trade_id",
+        "instrument_id",
+        "holder",
+        "quantity",
+        "rights",
+        "expires_at_ms",
+        "created_at_ms",
+        "instrument_issuer",
+        "venue_operator",
+        "ownership_of_underlying_transferred",
+        "venue_operator_is_not_underlying_owner"
+      ],
+      "type": "object"
+    },
+    "instrument": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes_are_not_the_traded_scarcity": {
+          "const": true
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "delivery_mode": {
+          "minLength": 1,
+          "pattern": "^[A-Z0-9][A-Z0-9_.:-]*$",
+          "type": "string"
+        },
+        "duration_ms": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "minimum": 1,
+              "type": "integer"
+            }
+          ]
+        },
+        "instrument_class": {
+          "enum": [
+            "SPOT_LICENSE",
+            "SUBSCRIPTION",
+            "COMPUTE_TO_DATA",
+            "PROCUREMENT",
+            "CONTRIBUTION",
+            "SECONDARY_LICENSE"
+          ]
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "issuer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rights": {
+          "additionalProperties": true,
+          "minProperties": 1,
+          "properties": {
+            "actions": {
+              "items": {
+                "minLength": 1,
+                "pattern": "^[A-Z0-9][A-Z0-9_.:-]*$",
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "actions"
+          ],
+          "type": "object",
+          "x-entity-canonical-actions-order": "lexicographic"
+        },
+        "schema": {
+          "const": "entity-eep-instrument-v1"
+        },
+        "settlement_currency": {
+          "minLength": 1,
+          "pattern": "^[A-Z0-9][A-Z0-9_.:-]*$",
+          "type": "string"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "total_units": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "transferable": {
+          "type": "boolean"
+        },
+        "underlying_object_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "instrument_id",
+        "issuer",
+        "underlying_object_id",
+        "instrument_class",
+        "rights",
+        "total_units",
+        "transferable",
+        "duration_ms",
+        "settlement_currency",
+        "delivery_mode",
+        "status",
+        "created_at_ms",
+        "bytes_are_not_the_traded_scarcity"
+      ],
+      "type": "object"
+    },
+    "listing": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "disclosure_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "lister": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "listing_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "min_lot": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "schema": {
+          "const": "entity-eep-listing-v1"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "tick_size": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "venue_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "listing_id",
+        "venue_id",
+        "instrument_id",
+        "lister",
+        "min_lot",
+        "tick_size",
+        "disclosure_sha256",
+        "status",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "order": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "limit_price": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "order_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "participant": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "quantity": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "schema": {
+          "const": "entity-eep-order-v1"
+        },
+        "side": {
+          "enum": [
+            "BUY",
+            "SELL"
+          ]
+        },
+        "tif": {
+          "enum": [
+            "GTC",
+            "IOC",
+            "DAY"
+          ]
+        },
+        "venue_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "order_id",
+        "venue_id",
+        "instrument_id",
+        "participant",
+        "side",
+        "quantity",
+        "limit_price",
+        "tif",
+        "nonce",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "payment_attestation": {
+      "additionalProperties": false,
+      "properties": {
+        "attestation_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "evidence_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-payment-attestation-v1"
+        },
+        "settlement_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "trade_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "verification_is_attestation_not_absolute_truth": {
+          "const": true
+        },
+        "verifier_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "attestation_id",
+        "trade_id",
+        "verifier_entity_id",
+        "settlement_ref",
+        "evidence_sha256",
+        "nonce",
+        "created_at_ms",
+        "verification_is_attestation_not_absolute_truth"
+      ],
+      "type": "object"
+    },
+    "quote": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "expires_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "price": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "provider": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "quote_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rfq_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-rfq-quote-v1"
+        }
+      },
+      "required": [
+        "schema",
+        "quote_id",
+        "rfq_id",
+        "provider",
+        "price",
+        "expires_at_ms",
+        "nonce",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "quote_acceptance": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "quote_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "requester": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rfq_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-rfq-acceptance-v1"
+        }
+      },
+      "required": [
+        "schema",
+        "acceptance_id",
+        "rfq_id",
+        "quote_id",
+        "requester",
+        "nonce",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "revenue_rule_set": {
+      "additionalProperties": false,
+      "properties": {
+        "allocations_bps": {
+          "additionalProperties": {
+            "maximum": 10000,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "issuer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rule_set_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-revenue-rule-set-v1"
+        }
+      },
+      "required": [
+        "schema",
+        "rule_set_id",
+        "instrument_id",
+        "issuer",
+        "allocations_bps",
+        "nonce",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "rfq": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "expires_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "quantity": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "requester": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rfq_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-rfq-v1"
+        },
+        "side": {
+          "enum": [
+            "BUY",
+            "SELL"
+          ]
+        },
+        "venue_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "rfq_id",
+        "venue_id",
+        "instrument_id",
+        "requester",
+        "side",
+        "quantity",
+        "expires_at_ms",
+        "nonce",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "usage": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "minLength": 1,
+          "pattern": "^[A-Z0-9][A-Z0-9_.:-]*$",
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "holder": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-usage-v1"
+        },
+        "units": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "usage_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "usage_id",
+        "instrument_id",
+        "holder",
+        "action",
+        "units",
+        "nonce",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "venue": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "execution_models": {
+          "items": {
+            "enum": [
+              "ORDER_BOOK",
+              "CALL_AUCTION",
+              "RFQ"
+            ]
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "jurisdiction": {
+          "minLength": 1,
+          "pattern": "^[A-Z0-9][A-Z0-9_.:-]*$",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "operator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-eep-venue-v1"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "venue_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "venue_is_not_protocol_authority": {
+          "const": true
+        }
+      },
+      "required": [
+        "schema",
+        "venue_id",
+        "operator",
+        "name",
+        "jurisdiction",
+        "execution_models",
+        "policy_sha256",
+        "status",
+        "created_at_ms",
+        "venue_is_not_protocol_authority"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:entity:v3:entity-exchange-protocol:records",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Normative body schemas for EEP market records. Signature envelopes use ENTITY identity signature records separately. Canonical cross-field rules are defined by the EEP conformance profile.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/venue"
+    },
+    {
+      "$ref": "#/$defs/instrument"
+    },
+    {
+      "$ref": "#/$defs/disclosure"
+    },
+    {
+      "$ref": "#/$defs/listing"
+    },
+    {
+      "$ref": "#/$defs/order"
+    },
+    {
+      "$ref": "#/$defs/cancellation"
+    },
+    {
+      "$ref": "#/$defs/payment_attestation"
+    },
+    {
+      "$ref": "#/$defs/usage"
+    },
+    {
+      "$ref": "#/$defs/revenue_rule_set"
+    },
+    {
+      "$ref": "#/$defs/rfq"
+    },
+    {
+      "$ref": "#/$defs/quote"
+    },
+    {
+      "$ref": "#/$defs/quote_acceptance"
+    },
+    {
+      "$ref": "#/$defs/entitlement"
+    }
+  ],
+  "title": "ENTITY Exchange Protocol v3 Record Bodies",
+  "x-entity-signed-wire-definitions": [
+    "instrument",
+    "disclosure",
+    "listing",
+    "order",
+    "cancellation",
+    "payment_attestation",
+    "usage",
+    "revenue_rule_set",
+    "rfq",
+    "quote",
+    "quote_acceptance"
+  ]
+}

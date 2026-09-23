@@ -1,0 +1,11 @@
+{
+  "content_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+  "created_at_ms": 1790170000000,
+  "disclosure_id": "disc3-test",
+  "disclosure_type": "LISTING",
+  "instrument_id": "inst3-test",
+  "protected_data_included": false,
+  "publisher": "ent3-issuer",
+  "schema": "entity-eep-disclosure-v1",
+  "venue_id": "venue3-test"
+}

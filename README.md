@@ -6,7 +6,23 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > Infrastructure possession does not become sovereign authority.
 
-## ENTITY 2.0 development: full ADAM + causal NIKI
+## ENTITY 3.0.0 - BTG internally qualified release
+
+ENTITY 3.0.0 is the current release line. It extends ENTITY into a provider-independent sovereign state and data-rights market architecture built on five primitives: **ENTITY, AUTHORITY, RIGHT, EVENT, VALUE**.
+
+The release includes the Universal Transaction Fabric, versioned profiles, the ENTITY Exchange Protocol (EEP), the ENTITY Originator Participation Profile (EOPP), and the Market State Recovery Profile (MSRP). EEP trades verifiable rights in data rather than treating copied bytes as scarce property.
+
+Release qualification on 2026-09-23 includes the complete v3 regression, sealed valid/invalid EEP conformance vectors, reference/mirror convergence, adversarial authorization and concurrency campaigns, EOPP economic-integrity tests, destructive EEP/EOPP recovery, and a bounded 500-settled-trade release-load campaign across both EEP implementations.
+
+**Claim boundary:** this is a BTG internally qualified open-source release. Independent unrelated-party v3 reimplementation and cross-language live interoperability remain pending and are not claimed by this release. Legal title, regulatory classification, market value, and external payment truth remain outside protocol truth.
+
+- [ENTITY Protocol 3.0](protocol/v3/ENTITY_PROTOCOL_3_0.md)
+- [ENTITY Exchange Protocol 3.0](protocol/v3/ENTITY_EXCHANGE_PROTOCOL_3_0.md)
+- [ENTITY v3 release qualification](docs/qualification/ENTITY_V3_0_0_RELEASE_QUALIFICATION_2026-09-23.md)
+- [ENTITY v3 release manifest](ENTITY_V3_RELEASE_MANIFEST.json)
+
+
+## ENTITY 2.0 historical development line: full ADAM + causal NIKI
 
 The current development line is **ENTITY 2.0.0-alpha1**. It integrates the full ADAM v1.0 bounded software reference as ENTITY's deterministic atomic/evidence and state-transition substrate and adds a bounded causal-intelligence layer to NIKI. ENTITY remains the sovereign authority root; ADAM executes and records governed transitions; BSIE retains spatial/world responsibility; NIKI performs reasoning, hard intervention analysis, counterfactual comparison and adaptive cognition routing without gaining sovereign mutation authority.
 
@@ -62,12 +78,12 @@ ENTITY is designed so that a person, organization, application, or other Entity 
 
 | Component | Status |
 | --- | --- |
-| Public source/reference repository | **2.0.0-alpha1 development**; 1.0 release history preserved |
+| Public source/reference repository | **3.0.0 - BTG internally qualified release**; prior release history preserved |
 | Windows x64 product build | **1.0.0-rc2** — [download](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v1.0.0-rc2) |
-| ENTITY Protocol | **1.0 — FROZEN_FOR_EXTERNAL_CONFORMANCE**; **2.0 — DEVELOPMENT** |
+| ENTITY Protocol | **3.0.0 - RELEASED / BTG INTERNAL QUALIFIED**; 1.0 and 2.0 history preserved |
 | Master requirements | **SERS-ENTITY-003 v2.2 — 172 normative sections** |
 | Sovereign Domain profile | **SERS-ENTITY-DOMAIN-001 v1.0** |
-| Internal qualification | Evidence-backed RC2 qualification completed for the published reference implementation scope |
+| Internal qualification | **ENTITY 3.0.0 release gate passed** for the documented BTG internal scope |
 | Independent external interoperability | **PENDING** |
 
 The protocol freeze stabilizes semantics for external conformance work. It is **not** a claim that unrelated third-party implementations have already passed interoperability qualification.
