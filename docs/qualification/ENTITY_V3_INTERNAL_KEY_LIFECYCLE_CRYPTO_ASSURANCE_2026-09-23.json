@@ -1,0 +1,31 @@
+{
+  "claim_boundary": "BTG internal cryptographic adversarial/randomized assurance; not an independent external cryptographic review or proof of absolute signing time.",
+  "classification": "BTG_INTERNAL_CRYPTO_ASSURANCE",
+  "counts": {
+    "eep_signed_intent_cases": {
+      "replay_rejected": 1000,
+      "tamper_rejected": 1000,
+      "valid": 1000,
+      "wrong_signer_rejected": 1000
+    },
+    "manifest_tamper_rejections": 1000,
+    "pre_creation_timestamp_rejected": true,
+    "random_signature_cases": 10000,
+    "recovery_cycles": 25,
+    "rotation_cycles": 100
+  },
+  "elapsed_seconds": 50.109,
+  "failures": [],
+  "finding_fixed": "retired operational signing keys were not time-cutoff during verification and remained locally stored after rotation",
+  "fixes": [
+    "retired/revoked key cutoff enforcement",
+    "pre-key-creation timestamp rejection",
+    "obsolete local operational key material removal after successful rotation/recovery"
+  ],
+  "pass": true,
+  "patch_candidate": "v3.0.1",
+  "release_base": "v3.0.0",
+  "release_snapshot_sha256": "b08d691922928a4e2c1fecb2d18bb3c22f5856480f140337a946ebb047ab114a",
+  "schema": "entity-v3-btg-internal-crypto-assurance-v1",
+  "truth_boundary": "A signer-controlled signed_at_ms is not an objective trusted timestamp. A compromised historical key can attempt backdating; authoritative temporal claims require independently anchored timestamp/event evidence."
+}

@@ -1,0 +1,20 @@
+{
+  "classification": "BTG_INTERNAL",
+  "implementations": {
+    "mirror": {
+      "elapsed_seconds": 243.945,
+      "trades": 2000,
+      "trades_per_second": 8.199
+    },
+    "reference": {
+      "elapsed_seconds": 229.97,
+      "trades": 2000,
+      "trades_per_second": 8.697
+    }
+  },
+  "pass": true,
+  "schema": "entity-v3-internal-market-scale-qualification-v1",
+  "scope": "Sustained signed-order/matching/clearing/settlement/entitlement execution on local hardware; BTG internal operational qualification, not third-party capacity certification or SLA.",
+  "total_fully_settled_trades": 4000,
+  "trades_per_implementation": 2000
+}

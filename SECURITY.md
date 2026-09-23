@@ -4,7 +4,12 @@ ENTITY handles identity, authority, provenance, rights, cryptographic verificati
 
 ## Supported public release
 
-The current public reference implementation is **1.0.0-rc2.2** and ENTITY Protocol 1.0 is **FROZEN_FOR_EXTERNAL_CONFORMANCE**.
+The current public source/reference release is **ENTITY v3.0.1**. The separately published Windows x64 binary remains **1.0.0-rc2**. ENTITY Protocol 1.0 remains **FROZEN_FOR_EXTERNAL_CONFORMANCE** as historical conformance scope.
+
+
+## v3.0.1 key-lifecycle hardening
+
+ENTITY v3.0.1 enforces operational signing-key creation and retirement/revocation cutoffs for v2 signature records and removes obsolete local operational key material after successful rotation/recovery. Valid historical signatures remain verifiable when their signed time precedes the relevant cutoff. A signer-controlled `signed_at_ms` is evidence from the signer, not an objective trusted timestamp; authoritative temporal claims require independently anchored time/event evidence.
 
 ## Reporting a vulnerability
 

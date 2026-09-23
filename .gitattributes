@@ -7,3 +7,5 @@
 *.ico binary
 *.pdf binary
 docs/requirements/SERS-ENTITY-003_v2.2_COMPLETE_MASTER_ENGINEERING_DESIGN.md whitespace=-trailing-space
+
+qualification/v3-btg-internal/** -text

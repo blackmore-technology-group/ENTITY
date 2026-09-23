@@ -1,0 +1,32 @@
+{
+  "classification": "BTG_INTERNAL",
+  "counts": {
+    "aes_aad_tamper_rejected": 300,
+    "aes_ciphertext_tamper_rejected": 300,
+    "aes_roundtrip": 300,
+    "aes_wrong_key_rejected": 300,
+    "hard_commitment_tamper_rejected": 300,
+    "hard_reveal_tamper_rejected": 300,
+    "hard_valid": 300,
+    "ref_commitment_tamper_rejected": 300,
+    "ref_reveal_tamper_rejected": 300,
+    "ref_valid": 300
+  },
+  "expected": {
+    "aes_aad_tamper_rejected": 300,
+    "aes_ciphertext_tamper_rejected": 300,
+    "aes_roundtrip": 300,
+    "aes_wrong_key_rejected": 300,
+    "hard_commitment_tamper_rejected": 300,
+    "hard_reveal_tamper_rejected": 300,
+    "hard_valid": 300,
+    "ref_commitment_tamper_rejected": 300,
+    "ref_reveal_tamper_rejected": 300,
+    "ref_valid": 300
+  },
+  "iterations": 300,
+  "pass": true,
+  "schema": "entity-v3-internal-privacy-crypto-assurance-v1",
+  "scope": "Internal privacy-primitive misuse/tamper assurance for selective disclosure convergence and AES-GCM envelopes; not independent cryptographic review.",
+  "total_assertions": 3000
+}

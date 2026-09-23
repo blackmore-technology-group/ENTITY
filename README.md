@@ -6,15 +6,15 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > Infrastructure possession does not become sovereign authority.
 
-## ENTITY 3.0.0 - BTG internally qualified release
+## ENTITY 3.0.1 - BTG internally qualified maintenance release
 
-ENTITY 3.0.0 is the current release line. It extends ENTITY into a provider-independent sovereign state and data-rights market architecture built on five primitives: **ENTITY, AUTHORITY, RIGHT, EVENT, VALUE**.
+ENTITY 3.0.1 is the current release line. It supersedes v3.0.0 with signing-key lifecycle hardening while preserving the v3.0 market/protocol semantics. It extends ENTITY into a provider-independent sovereign state and data-rights market architecture built on five primitives: **ENTITY, AUTHORITY, RIGHT, EVENT, VALUE**.
 
 The release includes the Universal Transaction Fabric, versioned profiles, the ENTITY Exchange Protocol (EEP), the ENTITY Originator Participation Profile (EOPP), and the Market State Recovery Profile (MSRP). EEP trades verifiable rights in data rather than treating copied bytes as scarce property.
 
 Release qualification on 2026-09-23 includes the complete v3 regression, sealed valid/invalid EEP conformance vectors, reference/mirror convergence, adversarial authorization and concurrency campaigns, EOPP economic-integrity tests, destructive EEP/EOPP recovery, and a bounded 500-settled-trade release-load campaign across both EEP implementations.
 
-**Claim boundary:** this is a BTG internally qualified open-source release. Independent unrelated-party v3 reimplementation and cross-language live interoperability remain pending and are not claimed by this release. Legal title, regulatory classification, market value, and external payment truth remain outside protocol truth.
+**Qualification update:** BTG-controlled five-language v3 transaction/recovery interoperability, internal large-state/market scale, internal cryptographic/privacy assurance, operational soak, and regulatory-engineering mapping are now closed. Unrelated third-party implementation/interoperability, independent external security review, and deployment-specific legal/regulatory determinations remain external. Legal title, market value, accounting fair value, and objective external payment truth remain outside protocol truth.
 
 - [ENTITY Protocol 3.0](protocol/v3/ENTITY_PROTOCOL_3_0.md)
 - [ENTITY Exchange Protocol 3.0](protocol/v3/ENTITY_EXCHANGE_PROTOCOL_3_0.md)
@@ -61,7 +61,8 @@ Release page: **[ENTITY 1.0.0-rc2 — First Public Release Candidate](https://gi
 | SHA-256 | `aa02846cfbfe4871aa093815cbb269b82ac9551b513c9b872c84584576b42aa4` |
 | Distribution signature | **ENTITY Ed25519 signed manifest — verified** |
 | Microsoft Authenticode | **Not currently signed** |
-| Independent external interoperability | **PENDING** |
+| BTG-controlled v3 polyglot interoperability | **PASS — Rust / TypeScript / C# / Go / Swift** |
+| Unrelated independent external interoperability | **PENDING** |
 
 The archive contains the Windows GUI and CLI, the sanitized canonical runtime required by the launchers, build provenance, public signer material, SHA-256 verification material, and the signed ENTITY release manifest.
 
@@ -78,13 +79,14 @@ ENTITY is designed so that a person, organization, application, or other Entity 
 
 | Component | Status |
 | --- | --- |
-| Public source/reference repository | **3.0.0 - BTG internally qualified release**; prior release history preserved |
+| Public source/reference repository | **3.0.1 - BTG internally qualified maintenance release**; prior release history preserved |
 | Windows x64 product build | **1.0.0-rc2** — [download](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v1.0.0-rc2) |
-| ENTITY Protocol | **3.0.0 - RELEASED / BTG INTERNAL QUALIFIED**; 1.0 and 2.0 history preserved |
+| ENTITY Protocol | **3.0.1 - RELEASED / BTG INTERNAL QUALIFIED**; 1.0, 2.0 and 3.0.0 history preserved |
 | Master requirements | **SERS-ENTITY-003 v2.2 — 172 normative sections** |
 | Sovereign Domain profile | **SERS-ENTITY-DOMAIN-001 v1.0** |
-| Internal qualification | **ENTITY 3.0.0 release gate passed** for the documented BTG internal scope |
-| Independent external interoperability | **PENDING** |
+| Internal qualification | **ENTITY 3.0.1 maintenance qualification passed** for the documented BTG internal scope |
+| BTG-controlled v3 polyglot interoperability | **PASS — Rust / TypeScript / C# / Go / Swift** |
+| Unrelated independent external interoperability | **PENDING** |
 
 The protocol freeze stabilizes semantics for external conformance work. It is **not** a claim that unrelated third-party implementations have already passed interoperability qualification.
 

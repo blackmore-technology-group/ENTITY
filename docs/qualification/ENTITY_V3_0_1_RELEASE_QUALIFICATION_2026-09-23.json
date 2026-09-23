@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "eep_crypto_misuse": true,
+    "key_lifecycle_crypto": true,
+    "market_scale": true,
+    "million_asset_three_million_event_scale": true,
+    "operational_soak": true,
+    "polyglot_five_languages": true,
+    "privacy_crypto": true,
+    "regression_94_of_94": true,
+    "regulatory_engineering_mapping": true
+  },
+  "date": "2026-09-23",
+  "external_remaining": [
+    "unrelated third-party v3 implementation and independent live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required"
+  ],
+  "internally_closed": [
+    "BTG-controlled five-language v3 transaction/recovery conformance",
+    "BTG internal key-lifecycle cryptographic assurance",
+    "BTG internal EEP cryptographic misuse assurance",
+    "BTG internal privacy-primitive assurance",
+    "BTG internal million-asset/multi-million-event destructive-recovery scale",
+    "BTG internal sustained market execution scale",
+    "BTG internal bounded operational continuity soak",
+    "BTG regulatory-engineering applicability/control mapping"
+  ],
+  "metrics": {
+    "assets": 1000000,
+    "eep_adversarial_cases": 5400,
+    "events": 3000000,
+    "key_lifecycle_random_signature_cases": 10000,
+    "market_settled_trades": 4000,
+    "polyglot_evidence_sha256": "5425831b20756a320905c37e5f24133c4efa37783cbea9fd0ad5c05163e00d9a",
+    "polyglot_languages": 5,
+    "privacy_assertions": 3000,
+    "regression": {
+      "passed": 94,
+      "total": 94
+    },
+    "signed_merkle_receipts": 200,
+    "soak_seconds": 900,
+    "soak_settled_trades": 7231
+  },
+  "permanent_truth_boundaries": [
+    "protocol records do not determine legal title",
+    "protocol records do not declare market or accounting fair value",
+    "external payment evidence is attestation, not objective bank truth",
+    "internal performance qualification is not an external SLA"
+  ],
+  "schema": "entity-v3-0-1-release-qualification-v1",
+  "status": "BTG_INTERNAL_QUALIFIED_MAINTENANCE_RELEASE",
+  "version": "3.0.1"
+}

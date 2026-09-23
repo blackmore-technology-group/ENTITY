@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.0.1 - 2026-09-23
+
+Security-hardening maintenance release and BTG-controlled post-release qualification closeout.
+
+### Fixed
+- Enforced key-creation and retirement/revocation time boundaries for v2 signature verification.
+- Removed obsolete operational private-key material after successful signing-key rotation/recovery.
+- Preserved valid historical signatures created before the relevant cutoff.
+
+### Qualification
+- 94/94 full patched regression PASS.
+- Five-language BTG-controlled v3 transaction/recovery conformance PASS.
+- Internal key-lifecycle, EEP misuse and privacy-crypto assurance PASS.
+- 1,000,000-asset / 3,000,000-event destructive-recovery scale PASS.
+- 4,000 fully settled market-scale trades PASS.
+- 900-second operational soak PASS.
+- Regulatory-engineering mapping internally closed for the documented v3.0.x scope.
+
+### Claim boundary
+- Unrelated third-party interoperability, independent external security review, and deployment-specific legal/regulatory determinations remain external.
+- Signed timestamps are not objective trusted time without independent anchoring.
+
+
 ## 3.0.0 - 2026-09-23
 
 BTG internally qualified release of the ENTITY v3 sovereign state and data-rights market architecture.
