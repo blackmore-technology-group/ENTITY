@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://entity.invalid/protocol/v3/ENTITY_V3_PRIMITIVES.schema.json",
+  "title": "ENTITY Protocol 3.0 Primitive Records",
+  "oneOf": [
+    {"$ref": "#/$defs/entity"},
+    {"$ref": "#/$defs/authority"},
+    {"$ref": "#/$defs/right"},
+    {"$ref": "#/$defs/event"},
+    {"$ref": "#/$defs/value"}
+  ],
+  "$defs": {
+    "signature": {"type":"object","required":["entity_id","payload_sha256","signature"],"properties":{"entity_id":{"type":"string"},"payload_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},"signature":{"type":"string"}},"additionalProperties":true},
+    "entity": {"type":"object","required":["schema","primitive","object_id","controller_entity_id","object_type","title","created_at_ms","signature"],"properties":{"schema":{"const":"entity-v3-object-v1"},"primitive":{"const":"ENTITY"},"object_id":{"type":"string"},"controller_entity_id":{"type":"string"},"object_type":{"type":"string"},"title":{"type":"string"},"created_at_ms":{"type":"integer"},"signature":{"$ref":"#/$defs/signature"}},"additionalProperties":true},
+    "authority": {"type":"object","required":["schema","primitive","authority_id","subject_ref","grantor_entity_id","grantee_entity_id","actions","status","created_at_ms","signature"],"properties":{"schema":{"const":"entity-v3-authority-v1"},"primitive":{"const":"AUTHORITY"},"authority_id":{"type":"string"},"subject_ref":{"type":"string"},"grantor_entity_id":{"type":"string"},"grantee_entity_id":{"type":"string"},"actions":{"type":"array","minItems":1,"items":{"type":"string"}},"status":{"const":"ACTIVE"},"created_at_ms":{"type":"integer"},"signature":{"$ref":"#/$defs/signature"}},"additionalProperties":true},
+    "right": {"type":"object","required":["schema","primitive","right_id","object_id","grantor_entity_id","grantee_ref","actions","status","created_at_ms","signature"],"properties":{"schema":{"const":"entity-v3-right-v1"},"primitive":{"const":"RIGHT"},"right_id":{"type":"string"},"object_id":{"type":"string"},"grantor_entity_id":{"type":"string"},"grantee_ref":{"type":"string"},"actions":{"type":"array","minItems":1,"items":{"type":"string"}},"status":{"const":"ACTIVE"},"created_at_ms":{"type":"integer"},"signature":{"$ref":"#/$defs/signature"}},"additionalProperties":true},
+    "event": {"type":"object","required":["schema","primitive","event_id","actor_entity_id","event_type","subject_refs","payload_sha256","created_at_ms","signature"],"properties":{"schema":{"const":"entity-v3-event-v1"},"primitive":{"const":"EVENT"},"event_id":{"type":"string"},"actor_entity_id":{"type":"string"},"event_type":{"type":"string"},"subject_refs":{"type":"array","items":{"type":"string"}},"payload_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},"created_at_ms":{"type":"integer"},"signature":{"$ref":"#/$defs/signature"}},"additionalProperties":true},
+    "value": {"type":"object","required":["schema","primitive","value_id","object_id","controller_entity_id","state","amount_units","currency","basis_ref","created_at_ms","signature"],"properties":{"schema":{"const":"entity-v3-value-v1"},"primitive":{"const":"VALUE"},"value_id":{"type":"string"},"object_id":{"type":"string"},"controller_entity_id":{"type":"string"},"state":{"enum":["POTENTIAL","OFFER","CONTRACTED","ACCRUED","SETTLED","REALIZED"]},"amount_units":{"type":"integer","minimum":0},"currency":{"type":"string","minLength":1},"basis_ref":{"type":"string"},"created_at_ms":{"type":"integer"},"signature":{"$ref":"#/$defs/signature"}},"additionalProperties":true}
+  }
+}

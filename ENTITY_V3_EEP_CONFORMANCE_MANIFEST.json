@@ -1,0 +1,105 @@
+{
+  "based_on_local_commit": "68179328a2b87408af93a5caa1c64312e70247be",
+  "claim_boundaries": [
+    "development conformance evidence is not a released protocol qualification",
+    "signature cryptography remains governed by the ENTITY identity layer",
+    "stateful market authorization and signature verification are tested by executable campaigns in addition to schema vectors",
+    "external independent EEP clean-room interoperability remains pending"
+  ],
+  "conformance": {
+    "complete_active_tree": {
+      "passed": 90,
+      "total": 90
+    },
+    "json_schema_draft": "2020-12",
+    "record_definitions": 13,
+    "reference_mirror_convergence_tests": {
+      "passed": 16,
+      "total": 16
+    },
+    "schema_and_vector_tests": {
+      "passed": 4,
+      "total": 4
+    },
+    "signed_wire_schemas": 11,
+    "validator_chain": [
+      "JSON_SCHEMA_DRAFT_2020_12",
+      "ENTITY_CANONICAL_SIGNED_WIRE_RULES"
+    ],
+    "vectors_expected_invalid": 14,
+    "vectors_expected_valid": 13,
+    "vectors_total": 27
+  },
+  "created_date": "2026-09-23",
+  "files": [
+    {
+      "path": "src/31_Profiles/exchange_protocol.py",
+      "sha256": "cca451e553ea70a778c983805d155f05bb92baab5f481f75a60084a92e48d9f6"
+    },
+    {
+      "path": "src/32_V3_Hardening/exchange_protocol.py",
+      "sha256": "a631e259d2f0d7e4c4abf3acf1c04586e22bf5072928e5f9a9ddc3c130713637"
+    },
+    {
+      "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL_DRAFT.md",
+      "sha256": "1733dcf2055a4353abd611344582438a04cbae08b358451290885697c665dbd7"
+    },
+    {
+      "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL.schema.json",
+      "sha256": "146932a4598797e295ad7d86ac3ee3ee80261fc1675b1bfb4724df0e05fa3218"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/VECTOR_MANIFEST.json",
+      "sha256": "08fe381309dc122e0efb8544490e23287e53b3d37cea868b5cd359cc736c4b53"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/SHA256SUMS.txt",
+      "sha256": "68989a573a74046e55d6b2713f9fdee8304d8b709d22dd5ccd17f32791d927b7"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/README.md",
+      "sha256": "ff734344b2be9e523109c677b4aa746b19eb7e505bd4ba01be8f11ef44ca030e"
+    },
+    {
+      "path": "tests/test_v3_eep_conformance.py",
+      "sha256": "d832cc585662a8722bb3ac95763c6f487285983818794a314826792a6c11390f"
+    },
+    {
+      "path": "tests/test_v3_exchange_convergence.py",
+      "sha256": "079767d481e2dd09582bbf8b5e97a0ea4334d3fe06acbcc32e99c03caddf29fd"
+    },
+    {
+      "path": "tests/test_v3_hardening_exchange.py",
+      "sha256": "f7a7ecf9fa7d748d3953eb68c426945273c42fcf3a952048f21f0def773ecd17"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "ba36584e5af40e46435d63315f94fb6d600e3d18af53d123e321763f98f22668"
+    },
+    {
+      "path": "tools/run_v3_regression.ps1",
+      "sha256": "0bc9f4acc6d1fb8b6b274c305bd89750b78e68ad5568887ee46a577385d5f5f9"
+    }
+  ],
+  "invariants": [
+    "signed wire values are not silently normalized after signature verification",
+    "JSON integer fields reject numeric strings and booleans",
+    "enumerated tokens and usage actions are canonical uppercase",
+    "SHA-256 values are canonical lowercase hexadecimal",
+    "rights action lists are non-empty, unique, and lexicographically sorted",
+    "revenue allocations do not exceed 10000 basis points",
+    "RFQ and quote expiry follows signed creation time",
+    "entitlement expiry semantics converge across reference and qualification mirror",
+    "executed but unsettled sell quantities remain reserved until clearing completes",
+    "trade revenue allocation is bound at execution and is not changed by later rule-set mutation",
+    "sell admission rechecks unreserved entitlement atomically under concurrent submissions",
+    "concurrent matchers cannot create duplicate trades from the same executable orders",
+    "concurrent settlement attempts commit at most one entitlement transfer",
+    "revenue-event persistence is atomic with hardening-profile settlement state"
+  ],
+  "schema": "entity-v3-eep-conformance-manifest-v1",
+  "snapshot_sha256": "00b066155090b7612191852293429d00d76c996ccf00c122fc1f549f19f3cf53",
+  "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
+  "version": "3.0.0",
+  "working_tree_snapshot": false
+}

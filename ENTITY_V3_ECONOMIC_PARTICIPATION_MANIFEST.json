@@ -1,0 +1,78 @@
+{
+  "base_commit": "a22987108b7c6b4f589103b433f3d128be4f22fa",
+  "claim_boundaries": [
+    "BTG production identities are not inferred or hard-coded",
+    "indicative reserve marks are not accounting fair value",
+    "accrued obligations are not automatically realized revenue",
+    "external payment verification remains an attestation supported by evidence",
+    "the protocol does not determine securities commodity derivative tax or accounting classification",
+    "participation percentages are issuer-defined disclosed terms, not protocol privilege"
+  ],
+  "created_date": "2026-09-23",
+  "cryptocurrency_required": false,
+  "files": [
+    {
+      "path": "src/33_Economic_Participation/economic_participation.py",
+      "sha256": "3d805ab601bbf46001175796b601c3c66190c704408f86beb21f942f1de6a9d5"
+    },
+    {
+      "path": "src/33_Economic_Participation/btg_deployment.py",
+      "sha256": "e6ecfe044ea3d5516f3fe3649252b0c23d3ec22a252e4cb8fc98880c98d1ff26"
+    },
+    {
+      "path": "tests/test_v3_economic_participation.py",
+      "sha256": "35c376010c209108aa0c314f531c06739c8af929c0bfea6af1753d5452f1c093"
+    },
+    {
+      "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION_PROFILE.md",
+      "sha256": "d2e28bc76b8dfe65ecdbf0df9bc839777a913a75ffbee35e05b7a530203431d0"
+    },
+    {
+      "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION.schema.json",
+      "sha256": "4a8d4341e86f3d41eb41e16255d10cac8c0505ef216a6286ffbf76ac94b5a832"
+    },
+    {
+      "path": "protocol/v3/BTG_TREASURY_DEPLOYMENT_REQUIREMENTS.md",
+      "sha256": "5d4157c537124b432027ef77d6bb891093074d5965a91b9ad3865b617f142cee"
+    }
+  ],
+  "implemented_capabilities": [
+    "dedicated_treasury_entity",
+    "actual_eep_rights_reserve_transfer",
+    "signed_versioned_participation_policy",
+    "primary_proceeds_treasury_allocation",
+    "secondary_transfer_originator_royalty",
+    "derivative_commercial_participation",
+    "service_revenue_obligations",
+    "replay_safe_economic_events",
+    "signed_eep_sell_order_verification",
+    "secondary_seller_private_key_not_required_for_capture",
+    "evidenced_external_settlement_attestation",
+    "treasury_position_reporting",
+    "indicative_market_marks",
+    "signed_position_snapshots",
+    "btg_deployment_without_hardcoded_identity",
+    "no_protocol_tax",
+    "no_protocol_token"
+  ],
+  "issuer_neutral": true,
+  "profile": "ENTITY_ORIGINATOR_PARTICIPATION",
+  "protocol_tax_bps": 0,
+  "schema": "entity-v3-economic-participation-release-component-manifest-v1",
+  "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
+  "validation": {
+    "complete_active_tree": {
+      "passed": 90,
+      "total": 90
+    },
+    "historical_initial_economic_campaign": {
+      "passed": 8,
+      "total": 8
+    },
+    "targeted_eopp_current": {
+      "passed": 20,
+      "total": 20
+    }
+  },
+  "version": "3.0.0"
+}

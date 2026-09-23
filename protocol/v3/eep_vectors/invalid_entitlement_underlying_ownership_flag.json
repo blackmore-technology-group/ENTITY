@@ -1,0 +1,21 @@
+{
+  "created_at_ms": 1790170000000,
+  "entitlement_id": "ent3-receipt",
+  "expires_at_ms": 1790256400000,
+  "holder": "ent3-buyer",
+  "instrument_id": "inst3-test",
+  "instrument_issuer": "ent3-issuer",
+  "ownership_of_underlying_transferred": true,
+  "quantity": 10,
+  "rights": {
+    "actions": [
+      "DERIVE",
+      "TRAIN"
+    ],
+    "raw_redistribution": false
+  },
+  "schema": "entity-eep-entitlement-v1",
+  "trade_id": "trade3-test",
+  "venue_operator": "ent3-operator",
+  "venue_operator_is_not_underlying_owner": true
+}

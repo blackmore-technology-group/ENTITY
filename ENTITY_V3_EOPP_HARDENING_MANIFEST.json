@@ -1,0 +1,72 @@
+{
+  "based_on_local_commit": "68179328a2b87408af93a5caa1c64312e70247be",
+  "claim_boundaries": [
+    "working-tree hardening is not yet an immutable release",
+    "external independent v3 interoperability remains pending",
+    "external payment verification remains attestation evidence",
+    "indicative marks are not accounting fair value",
+    "legal and regulatory classification remains outside protocol truth"
+  ],
+  "created_date": "2026-09-23",
+  "files": [
+    {
+      "path": "src/33_Economic_Participation/economic_participation.py",
+      "sha256": "3d805ab601bbf46001175796b601c3c66190c704408f86beb21f942f1de6a9d5"
+    },
+    {
+      "path": "src/33_Economic_Participation/btg_deployment.py",
+      "sha256": "e6ecfe044ea3d5516f3fe3649252b0c23d3ec22a252e4cb8fc98880c98d1ff26"
+    },
+    {
+      "path": "tests/test_v3_economic_participation.py",
+      "sha256": "35c376010c209108aa0c314f531c06739c8af929c0bfea6af1753d5452f1c093"
+    },
+    {
+      "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION_PROFILE.md",
+      "sha256": "d2e28bc76b8dfe65ecdbf0df9bc839777a913a75ffbee35e05b7a530203431d0"
+    },
+    {
+      "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION.schema.json",
+      "sha256": "4a8d4341e86f3d41eb41e16255d10cac8c0505ef216a6286ffbf76ac94b5a832"
+    },
+    {
+      "path": "protocol/v3/BTG_TREASURY_DEPLOYMENT_REQUIREMENTS.md",
+      "sha256": "5d4157c537124b432027ef77d6bb891093074d5965a91b9ad3865b617f142cee"
+    }
+  ],
+  "hardenings": [
+    "trade_time_policy_binding",
+    "non_retroactive_derivative_policy_binding",
+    "single_reserve_allocation_per_instrument",
+    "cross_store_atomic_reserve_allocation",
+    "atomic_economic_event_and_obligation",
+    "authorized_and_revocable_settlement_verifiers",
+    "event_and_obligation_trade_reconciliation",
+    "provider_receivable_without_payer_private_key",
+    "derivative_currency_binding",
+    "expanded_normative_record_schema"
+  ],
+  "invariants": {
+    "cryptocurrency_required": false,
+    "event_without_required_obligation_must_not_commit": true,
+    "hidden_btg_protocol_privilege": false,
+    "protocol_tax_bps": 0,
+    "reserve_transfer_without_allocation_record_must_not_commit": true
+  },
+  "preserved_sealed_manifest_sha256": "7dc3dcd40e69dff30c615e01ecea32a96ea81243a123f108167b3fd6d390ad66",
+  "schema": "entity-v3-eopp-hardening-manifest-v1",
+  "snapshot_sha256": "6f787cf66a98f05eb9d43f5b2ef4d9ac94502cb9e084707ce060d146450a03a6",
+  "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
+  "validation": {
+    "complete_active_tree": {
+      "passed": 90,
+      "total": 90
+    },
+    "targeted_eopp": {
+      "passed": 20,
+      "total": 20
+    }
+  },
+  "version": "3.0.0",
+  "working_tree_snapshot": false
+}

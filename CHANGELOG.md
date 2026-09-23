@@ -1,5 +1,29 @@
 # Changelog
 
+## 3.0.0 - 2026-09-23
+
+BTG internally qualified release of the ENTITY v3 sovereign state and data-rights market architecture.
+
+### Added
+- Five-primitives Universal Transaction Fabric: ENTITY, AUTHORITY, RIGHT, EVENT, VALUE.
+- Versioned profile architecture with schema immutability, negotiation, dispute, privacy, recovery, federated resolution, AI attenuation, physical binding and legacy bridges.
+- ENTITY Exchange Protocol (EEP) for trading rights in data with signed non-custodial issuer/participant actions, price/time matching, RFQ, call auction reference support, payment attestations, entitlements, usage metering, market data and baseline surveillance.
+- ENTITY Originator Participation Profile (EOPP) for issuer-defined reserves, primary/secondary/derivative/service participation without protocol tax or mandatory cryptocurrency.
+- Market State Recovery Profile (MSRP) for controller-attested provider-independent EEP/EOPP logical-state recovery.
+- EEP JSON Schema plus sealed valid/invalid conformance vectors.
+
+### Qualification
+- 90/90 complete v3 regression tests passed before release promotion.
+- Concurrent sell admission, matching and settlement atomicity qualified.
+- Execution-time revenue distribution binding prevents post-trade rule rewriting.
+- Destructive market recovery and rehashed-tamper attacks pass fail-closed tests.
+- Bounded release-load gate: 500 fully settled trades across reference and qualification-mirror EEP implementations.
+
+### Claim boundary
+- This release is BTG internally qualified. Independent unrelated-party v3 reimplementation and live cross-language interoperability remain pending.
+- Protocol evidence does not itself establish legal title, regulatory classification, market value, or absolute external-payment truth.
+
+
 ## 2.0.0-alpha1 - 2026-09-18
 
 - Added the full ADAM v1.0 integration development line.
