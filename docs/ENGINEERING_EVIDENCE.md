@@ -97,6 +97,38 @@ The authoritative post-release records are:
 
 This evidence does not move or rewrite the `v3.3.0` tag, protected release commit, release manifest or release snapshot. It is controlled cross-language reproducibility evidence, not unrelated third-party interoperability.
 
+## ENTITY governs ENTITY — recursive sovereign provenance and economic lineage
+
+BTG subsequently ran the released ENTITY v3.3.0 architecture against ENTITY's own development lineage. The campaign registered the v1.0 RC lineage, v2.0.0-alpha1, v3.0.0, v3.0.1, v3.1.0, v3.2.0 and v3.3.0 as ENTITY-governed digital objects, then connected the six final BTG-controlled clean-room baselines and their conformance evidence.
+
+Qualification results:
+
+- **9** release-stage objects registered;
+- **6** clean-room result objects registered;
+- **26** signed Evidence Objects;
+- **9** Rights Passports;
+- **42** provenance edges;
+- legacy/v1 clean-room campaign retained as **PASS**;
+- v3.1 result retained as `879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5`;
+- v3.2 result retained as `1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18`;
+- v3.3 result retained as `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`;
+- backward provenance from v3.3.0 reaches the v1.0 RC lineage;
+- forward provenance from v1 reaches v3.3.0, all six v3.3 clean-room results and convergence evidence;
+- state semantic root before destructive recovery: `b3e4a87fc5e3790fb2fe54ee780d2fa66734b86091d2b2fba53b5cd6fb5c0f48`;
+- state semantic root after destructive recovery: `b3e4a87fc5e3790fb2fe54ee780d2fa66734b86091d2b2fba53b5cd6fb5c0f48`;
+- sovereign bundle semantic root: `aa81b0d1d84d70ab414183558d3ac2ce0b8204697c2fcb6914b7b91d3e3c78a6`;
+- causal/economic graph root: `0de207802b2a0b3526be8269c80917c76570e135c27befa5261d5c14edb3d132`;
+- all Evidence Objects and Rights Passports reverified after recovery.
+
+The campaign deliberately records zero monetary value and zero historical contribution weight where no evidence supports a value or percentage. It therefore proves provenance/economic-lineage readiness without manufacturing royalties, market value, accounting fair value or ownership claims.
+
+Authoritative campaign records:
+
+- `docs/qualification/ENTITY_RECURSIVE_SOVEREIGN_PROVENANCE_QUALIFICATION_2026-09-24.json`
+- `docs/qualification/ENTITY_RECURSIVE_SOVEREIGN_PROVENANCE_QUALIFICATION_2026-09-24.md`
+
+The full local qualification harness is retained on the qualification host; its SHA-256 is `8c9efbc93dbd6e313f65011c877c34ad618578c448ce698a43848ee9ef110729`. The synthetic sovereign bundle is not committed to the public repository; its semantic root is recorded above.
+
 ---
 
 ## What the tests are intended to prove
@@ -109,7 +141,8 @@ Tests can support claims such as:
 - claim-state escalation requires governed evidence/transition semantics;
 - disputes and supersession preserve history;
 - causal-economic edges require evidence and satisfy graph constraints;
-- inherited v3.2 rights and market semantics remain compatible.
+- inherited v3.2 rights and market semantics remain compatible;
+- ENTITY can register, traverse, export, destroy, recover and reverify its own synthetic development-provenance state.
 
 Tests do **not** by themselves prove:
 
