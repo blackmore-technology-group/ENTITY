@@ -6,7 +6,7 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > **Infrastructure possession does not become sovereign authority.**
 
-[Start here](START_HERE.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
+[Start here](START_HERE.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Roadmap](ROADMAP.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Governance](GOVERNANCE.md) · [Contributing](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
 
 ---
 
@@ -125,16 +125,16 @@ ENTITY publishes evidence separately from claims about the project.
 
 | Evidence boundary | Current public position |
 | --- | --- |
-| Protected stable release | **v3.2.0** — commit `512665096cef3771a3a8307d6dc955015ee0efbc` |
+| Current release line | **v3.3.0 — Verifiable Reality, Evidence and Economic Causality** |
 | Complete v3.3 regression | **144/144 PASS** |
 | v3.2 targeted adoption tests | **12/12 PASS** |
 | v3.2 sealed adoption vectors | **16/16 PASS** — 8 valid / 8 invalid |
 | v3.2 BTG-controlled native convergence | **Rust · TypeScript · C# · Go · Swift · Java** |
 | v3.2 common result SHA-256 | `1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18` |
 | v3.3 targeted verifiable-reality suite | **16/16 PASS** |
-| v3.3 sealed reality vectors | **20/20 PASS** ? 10 valid / 10 invalid |
+| v3.3 sealed reality vectors | **20/20 PASS** — 10 valid / 10 invalid |
 | v3.3 deterministic result SHA-256 | `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d` |
-| Protected predecessor | **v3.2.0** ? commit `512665096cef3771a3a8307d6dc955015ee0efbc` |
+| Protected predecessor | **v3.2.0** — commit `512665096cef3771a3a8307d6dc955015ee0efbc` |
 | Unrelated third-party implementation | **OPEN / PENDING** |
 | Independent external security review | **PENDING** |
 | Deployment-specific legal/regulatory determination | **Outside ENTITY protocol claims** |
