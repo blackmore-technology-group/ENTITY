@@ -39,7 +39,6 @@ FILES=[
  "protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json",
  "protocol/v3/ENTITY_V3_4_GLOBAL_PASSPORT_CLEANROOM_KIT.min.json",
  "profiles/registry.json",
- "profiles/ENTITY_V3_4_IMPLEMENTATION_PACKAGES.json",
  "tools/build_v3_4_cleanroom_kit.py",
  "tools/verify_v3_4_global_passport_release.py",
  "tools/build_v3_4_industry_packages.py",
@@ -80,5 +79,5 @@ report={
  "economic_value_invented":False,"historical_provenance_before_v3_4_claimed":False,
  "claim_boundary":"This campaign proves v3.4 release artifacts were registered under the new continuous-provenance workflow; it does not reconstruct or certify pre-v3.4 history."
 }
-OUT.parent.mkdir(parents=True,exist_ok=True); OUT.write_text(json.dumps(report,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+OUT.parent.mkdir(parents=True,exist_ok=True); OUT.write_bytes((json.dumps(report,indent=2,sort_keys=True)+"\n").encode("utf-8"))
 print(json.dumps({"files":report["files"],"inventory_sha256":report["inventory_sha256"],"state":str(STATE),"report":str(OUT)},indent=2))
