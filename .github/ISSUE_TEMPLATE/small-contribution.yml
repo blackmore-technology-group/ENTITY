@@ -1,0 +1,59 @@
+name: Small contribution proposal
+about: Propose a bounded documentation, test, portability, example or tooling improvement.
+title: "[CONTRIB] "
+labels:
+  - help wanted
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Small, independently owned contributions are encouraged. You do not need to understand or change the entire protocol.
+  - type: input
+    id: scope
+    attributes:
+      label: Proposed scope
+      placeholder: Add a minimal Evidence Object example for v3.3
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What would you change?
+      description: Keep the proposal narrow enough that another contributor can understand the finish line.
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Contribution type
+      options:
+        - Documentation
+        - Example
+        - Test / vector
+        - Portability / environment reproduction
+        - Benchmark
+        - Error message / developer experience
+        - Tooling
+        - Small implementation subset
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: How would we know it is complete?
+      description: Describe a test, example output, reproduction result or other objective completion evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Authority / evidence boundary affected (if any)
+      description: If the work touches identity, rights, evidence or economic state, note the boundary you expect to preserve.
+  - type: checkboxes
+    id: ownership
+    attributes:
+      label: Contributor ownership
+      options:
+        - label: I understand that implementation choices can remain mine as long as the public protocol/test boundary is preserved.
+          required: true
