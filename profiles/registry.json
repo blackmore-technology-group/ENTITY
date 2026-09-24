@@ -1,0 +1,14 @@
+{
+  "one_global_passport": true,
+  "packages": [
+    {"name":"ai","package_sha256":"4877cb5bc76ef0803eace931ca1a9cba516c01ba94a2e0b4bc71bcb5dc1b0440","profile_refs":["entity-profile:global@1.0","entity-profile:ai@1.0"],"version":"1.0"},
+    {"name":"defence-public","package_sha256":"7edc52344822e370f937b12d05258b5cb3283756dadb5c1885dd93f126cf9887","profile_refs":["entity-profile:global@1.0","entity-profile:defence-public@1.0"],"version":"1.0"},
+    {"name":"finance","package_sha256":"768dd87fd5a29c7e2679fc2b0d4b172b8613712b148336d8fba91a3b92d0d466","profile_refs":["entity-profile:global@1.0","entity-profile:finance@1.0"],"version":"1.0"},
+    {"name":"healthcare","package_sha256":"b4e901ce37f696fa10666839cb8d3cacbd1fe663070667ca1767a6245e7cf939","profile_refs":["entity-profile:global@1.0","entity-profile:healthcare@1.0"],"version":"1.0"},
+    {"name":"manufacturing","package_sha256":"bc29a0de024cea22552078ff1913fa3df2b189436cb853cc2f4e08974325c4bc","profile_refs":["entity-profile:global@1.0","entity-profile:manufacturing@1.0"],"version":"1.0"},
+    {"name":"robotics","package_sha256":"3a0e68fa6c63b2ef9cf79ccf463335af72d49ffb3cd028c88b6a998d8678f38f","profile_refs":["entity-profile:global@1.0","entity-profile:robotics@1.0"],"version":"1.0"}
+  ],
+  "profiles_are_executable_implementation_assets": true,
+  "schema": "entity-v3-industry-package-registry-v1",
+  "version": "3.4.0"
+}
