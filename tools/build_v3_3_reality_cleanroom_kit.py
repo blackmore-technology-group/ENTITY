@@ -72,7 +72,7 @@ schema = {
     "x-entity-truth-boundary":"Cryptographic/protocol validity proves record integrity and semantics, not objective real-world truth."
 }
 SCHEMA.parent.mkdir(parents=True, exist_ok=True)
-SCHEMA.write_text(json.dumps(schema, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+SCHEMA.write_bytes((json.dumps(schema, indent=2, sort_keys=True) + "\n").encode("utf-8"))
 
 kit = {
     "schema":"entity-v3.3-verifiable-reality-cleanroom-kit-v1",
@@ -86,5 +86,5 @@ kit = {
     "expected_result_sha256":sha(transcript),
     "schema_sha256":sha(SCHEMA.read_bytes()),
 }
-OUT.write_text(json.dumps(kit, sort_keys=True, separators=(",", ":")) + "\n", encoding="utf-8")
+OUT.write_bytes((json.dumps(kit, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8"))
 print(json.dumps({"vectors":len(cases),"valid":10,"invalid":10,"expected_result_sha256":kit["expected_result_sha256"],"kit_sha256":sha(OUT.read_bytes()),"schema_sha256":kit["schema_sha256"]}, indent=2))

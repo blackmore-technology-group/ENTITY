@@ -29,7 +29,7 @@ v3.2 Rights Passports and adoption semantics compose without rewrite.
 - targeted v3.3 suite: **16/16 PASS**;
 - sealed v3.3 reality vectors: **20/20 PASS** (10 valid / 10 invalid);
 - required deterministic result SHA-256: `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`;
-- sealed kit SHA-256: `e0d6ba26baa405557bc2990e39d3022ebb8cda00ae797fab0100773cf304a6fd`.
+- sealed kit SHA-256: `f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46`.
 
 ## Permanent boundary
 

@@ -56,5 +56,5 @@ manifest={
     "release_chain":{"v3.1.0_protected_base":"b985b7cf875bdeeadb228d4d1885395cbcaf19f1","v3.2.0_protected_base":"512665096cef3771a3a8307d6dc955015ee0efbc","v3.3.0_qualified_source":qualification["qualified_source_commit"]}
 }
 out=ROOT/"ENTITY_V3_3_0_RELEASE_MANIFEST.json"
-out.write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+out.write_bytes((json.dumps(manifest,indent=2,sort_keys=True)+"\n").encode("utf-8"))
 print(json.dumps({"version":manifest["version"],"status":manifest["status"],"base_release_snapshot_sha256":base_snapshot,"overlay_files":len(entries),"overlay_snapshot_sha256":overlay_snapshot,"release_snapshot_sha256":release_snapshot},indent=2,sort_keys=True))
