@@ -45,7 +45,7 @@
     },
     "profiles_are_executable_implementation_assets": true,
     "publication_model": "core registry plus six dedicated domain repositories",
-    "registry_sha256": "9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0"
+    "registry_sha256": "d59e93c0569b0c21bbb214da1afb567ad02324f581e1a2bfb2460a9c38ca7295"
   },
   "permanent_truth_boundaries": [
     "cryptographic verification proves integrity/attribution, not objective external truth",
