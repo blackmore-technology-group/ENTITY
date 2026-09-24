@@ -1,0 +1,218 @@
+{
+  "base_commit": "b985b7cf875bdeeadb228d4d1885395cbcaf19f1",
+  "base_release_manifest_sha256": "c3744bfec1fd7bb5077a047a17fcee5a329f17ce42fa92c33e0e230c57bdfc68",
+  "base_release_snapshot_sha256": "0241c75e7f28481db0bfdf27a67a482c431032beedb2491b13dd5927dc344255",
+  "external_remaining": [
+    "unrelated third-party v3 implementation and independent live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+    "real external issuers, buyers, repeat transactions and market liquidity"
+  ],
+  "overlay_files": [
+    {
+      "path": "RELEASE_NOTES_v3.2.0.md",
+      "sha256": "7a1ad508d6457e422dc4e38bddbe33a952fb87a26fd742e0de1062650571f47b"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_2_0_RELEASE_QUALIFICATION_2026-09-24.json",
+      "sha256": "bff10db5f5a4f7b874b4f52b627e3715f773b4c71d1830be4d55bfd0073d368f"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_2_0_RELEASE_QUALIFICATION_2026-09-24.md",
+      "sha256": "d2a286012bf0a3935c8b8077270769ffb4c63c39d316db91998ace01369f76e2"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_2_ADOPTION_CLEANROOM_KIT.min.json",
+      "sha256": "44e7a00f910c89aced3b3c1b5e9cba486809ca313e9bfb4b7bc9266095c10c14"
+    },
+    {
+      "path": "src/36_Adoption_Layer/adoption_conformance.py",
+      "sha256": "6a796f8588f282cbbb996b1f9490479d3812ada2ab6d0cc2244210b1debc7b99"
+    },
+    {
+      "path": "src/36_Adoption_Layer/adoption_profile.py",
+      "sha256": "92164184074fb5c9edde80e9a6f4971a3e67234da32bf8497e289fc9fc3535e2"
+    },
+    {
+      "path": "src/36_Adoption_Layer/custody_connectors.py",
+      "sha256": "8a5dfa7d6f3873f694de2177ef75314cc2cd1d85f443516be7febc5318f9aea5"
+    },
+    {
+      "path": "src/36_Adoption_Layer/rights_passport.py",
+      "sha256": "50d92220334b8a179bece1fc42613bc50d6bd16fe5a24d3cddc2e1bbd77b8138"
+    },
+    {
+      "path": "src/36_Adoption_Layer/standards_adapters.py",
+      "sha256": "bc5502f3b69db287a4724071c6ca29046020755148d0a1e48d6d612d437e0604"
+    },
+    {
+      "path": "tests/test_v3_adoption_layer.py",
+      "sha256": "e63f87edfc9889900d5bfe164e9f3d8cef9d218480c0a29a75692222b0037e72"
+    },
+    {
+      "path": "tools/build_v3_2_0_release.py",
+      "sha256": "22edcc5932c8fbfdbad13e7db54c8b15d2081f33c6ade3825baba3f161a9cdd5"
+    },
+    {
+      "path": "tools/build_v3_2_adoption_cleanroom_kit.py",
+      "sha256": "b0ab1a257261e78f1fc3190e02ab0722625146ba13e3a686c314844738881370"
+    },
+    {
+      "path": "tools/build_v3_2_adoption_cleanroom_profile.py",
+      "sha256": "1a21102cef024c6e527b33dfad6a5309a74e0c5ccfab8c5f2711ab490de1f03d"
+    },
+    {
+      "path": "tools/build_v3_2_adoption_conformance.py",
+      "sha256": "e0bac1231e08913574ec95aec4cd9c7fd23b606c6a9d3854b19fa37dd13949b8"
+    },
+    {
+      "path": "tools/run_v3_2_0_release_gate.ps1",
+      "sha256": "1b755cb3c54837a1f21c151273365437f9f711a7c86271777b419ccbef96d632"
+    },
+    {
+      "path": "tools/verify_v3_2_0_release_manifest.py",
+      "sha256": "62a7977ee3ab57c1a4abcb413ddd949c6289d4c40a34c69f103197ace21eaacc"
+    },
+    {
+      "path": "tools/verify_v3_2_adoption_release.py",
+      "sha256": "b3d4d030b8368417e7355eef417c40f76aa73c60f01673b95c77f26ed09d4060"
+    }
+  ],
+  "overlay_snapshot_sha256": "31662691cbe3a2d08ee5bd54c72b73cf56b49acc3dd9133dc45672eff4042d36",
+  "permanent_truth_boundaries": [
+    "protocol records do not determine legal title",
+    "protocol records do not declare market or accounting fair value",
+    "external payment evidence is attestation, not objective bank truth",
+    "provider custody does not create ENTITY authority",
+    "external standards and credentials are evidence or mappings, not automatic ENTITY authority",
+    "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+  ],
+  "qualification": {
+    "adoption_conformance_vectors": {
+      "cleanroom_result_sha256": "1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18",
+      "invalid": 8,
+      "schema_sha256": "d474f1262166a4518399c841da93a806f5d849949f17005699200e37bcf7c321",
+      "sealed_kit_sha256": "44e7a00f910c89aced3b3c1b5e9cba486809ca313e9bfb4b7bc9266095c10c14",
+      "total": 16,
+      "valid": 8,
+      "vector_manifest_sha256": "40b081b3a5099aed375ad2f1095e589e56847f32790f40a30a864f45e4b9b093"
+    },
+    "adoption_invariants": [
+      "CORE_PRIMITIVES_UNCHANGED",
+      "MARKET_ENGINE_PRESERVED",
+      "RIGHTS_ARE_TRADED_NOT_BYTES",
+      "PROVIDER_CUSTODY_IS_NOT_AUTHORITY",
+      "EXTERNAL_STANDARDS_ARE_NOT_ENTITY_AUTHORITY",
+      "LEGAL_CLASSIFICATION_IS_EXTERNAL_ASSERTION",
+      "RESOLVER_IS_NOT_AUTHORITY",
+      "NO_SILENT_SEMANTIC_EQUIVALENCE"
+    ],
+    "base_commit": "b985b7cf875bdeeadb228d4d1885395cbcaf19f1",
+    "base_release": "v3.1.0",
+    "base_release_snapshot_sha256": "0241c75e7f28481db0bfdf27a67a482c431032beedb2491b13dd5927dc344255",
+    "cleanrooms": {
+      "csharp": {
+        "commit": "9f4d33c5b5c553644cd9c73a5c9cf09040083fe3",
+        "status": "PASS",
+        "workflow_run": 35957627266
+      },
+      "go": {
+        "commit": "ff8a733b8271ac655eac8a3302b4f6cd9acadacf",
+        "status": "PASS",
+        "workflow_run": 35957338729
+      },
+      "java": {
+        "commit": "ea58105b6c90a5b7bb5169cdf8701c880822bdae",
+        "status": "PASS",
+        "workflow_run": 35957541838
+      },
+      "rust": {
+        "commit": "13787e20dd9b52cf34c7bcc6262863a2a62b2a4e",
+        "status": "PASS",
+        "workflow_run": 35957428814
+      },
+      "swift": {
+        "commit": "f55809a85cc763d2430b046b3a60f177b30de6d8",
+        "status": "PASS",
+        "workflow_run": 35957491341
+      },
+      "typescript": {
+        "commit": "2766c68dec8914ce000123ea3281cf190dddadfc",
+        "status": "PASS",
+        "workflow_run": 35957273170
+      }
+    },
+    "date": "2026-09-24",
+    "external_remaining": [
+      "unrelated third-party v3 implementation and independent live interoperability",
+      "independent external security/cryptographic review",
+      "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+      "real external issuers, buyers, repeat transactions and market liquidity"
+    ],
+    "inherited_v3_1_0_evidence": {
+      "global_doctrine_profiles_preserved": true,
+      "regression_passed": 116,
+      "regression_total": 116,
+      "six_language_controlled_interoperability": true,
+      "v3_1_cleanroom_result_sha256": "879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5"
+    },
+    "market_structure_preserved": [
+      "DCO",
+      "INSTRUMENT",
+      "LISTING",
+      "DISCLOSURE",
+      "ORDER_RFQ_AUCTION",
+      "PRICE_DISCOVERY",
+      "TRADE",
+      "CLEARING",
+      "SETTLEMENT",
+      "ENTITLEMENT",
+      "USAGE",
+      "DERIVED_OUTPUT",
+      "ECONOMIC_CONSEQUENCE"
+    ],
+    "new_v3_2_capabilities": [
+      "signed immutable ENTITY Rights Passports bound to existing ENTITY objects",
+      "provider-neutral custody connectors for AWS S3, Azure Blob, Google Cloud Storage, Snowflake, Databricks, PostgreSQL, SQL Server, local filesystems and HTTP APIs",
+      "explicit ODRL, W3C Verifiable Credential, DID, Gaia-X and IDS translation/evidence adapters without silent semantic equivalence",
+      "developer-facing adoption SDK that composes existing rights, jurisdiction, resolver and exchange profiles without acquiring authority",
+      "federated resolver deployment profile requiring at least two resolvers and fail-closed operation",
+      "legal-classification assertion envelopes that preserve deployment-specific legal authority",
+      "sealed six-language v3.2 adoption conformance campaign"
+    ],
+    "permanent_truth_boundaries": [
+      "protocol records do not determine legal title",
+      "protocol records do not declare market or accounting fair value",
+      "external payment evidence is attestation, not objective bank truth",
+      "provider custody does not create ENTITY authority",
+      "external standards and credentials are evidence or mappings, not automatic ENTITY authority",
+      "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+    ],
+    "qualified_source_commit": "ee3587a6e65c2565eaab2e815e85415ab705ea47",
+    "regression": {
+      "environment": "_venv_entity_v3",
+      "passed": 128,
+      "runner": "tools/run_v3_regression.ps1",
+      "total": 128
+    },
+    "schema": "entity-v3-2-0-release-qualification-v1",
+    "status": "BTG_INTERNAL_QUALIFIED_ADOPTION_RELEASE_CANDIDATE",
+    "targeted_adoption_tests": {
+      "passed": 12,
+      "total": 12
+    },
+    "version": "3.2.0"
+  },
+  "qualified_source_commit": "ee3587a6e65c2565eaab2e815e85415ab705ea47",
+  "release_chain": {
+    "v3.0.1_protected_base": "a977b013cb29504f04953c4fce33d2372e91097b",
+    "v3.1.0_protected_base": "b985b7cf875bdeeadb228d4d1885395cbcaf19f1",
+    "v3.2.0_qualified_source": "ee3587a6e65c2565eaab2e815e85415ab705ea47"
+  },
+  "release_date": "2026-09-24",
+  "repository": "blackmore-technology-group/ENTITY",
+  "schema": "entity-v3-2-0-release-manifest-v1",
+  "status": "BTG_INTERNAL_QUALIFIED_ADOPTION_RELEASE_CANDIDATE",
+  "supersedes": "v3.1.0",
+  "version": "3.2.0"
+}
