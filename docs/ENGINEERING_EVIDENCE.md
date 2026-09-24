@@ -84,6 +84,19 @@ The exact overlay and composed release snapshot hashes are recorded in `ENTITY_V
 
 The qualification JSON/manifest deliberately records the state before publication as a BTG-internal qualified release candidate. Public release status is established separately by the protected `main` merge, `v3.3.0` tag and GitHub Release; that chronology should not be rewritten after publication.
 
+## v3.3.0 — post-release six-language controlled conformance
+
+After the protected `v3.3.0` release was published, BTG completed the same v3.3 sealed campaign in six native clean-room baselines: Rust, TypeScript, C#, Go, Swift and Java.
+
+All six evaluated the exact release kit (`f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46`), passed 20/20 records, and converged on result SHA-256 `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`.
+
+The authoritative post-release records are:
+
+- `docs/qualification/ENTITY_V3_3_0_SIX_LANGUAGE_CONTROLLED_CONFORMANCE_2026-09-24.json`
+- `docs/qualification/ENTITY_V3_3_0_SIX_LANGUAGE_CONTROLLED_CONFORMANCE_2026-09-24.md`
+
+This evidence does not move or rewrite the `v3.3.0` tag, protected release commit, release manifest or release snapshot. It is controlled cross-language reproducibility evidence, not unrelated third-party interoperability.
+
 ---
 
 ## What the tests are intended to prove
