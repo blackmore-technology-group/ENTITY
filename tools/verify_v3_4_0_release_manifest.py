@@ -20,7 +20,7 @@ q=manifest.get("qualification") or {}; ingest=manifest.get("continuous_provenanc
 if q.get("version")!="3.4.0" or q.get("regression",{}).get("passed")!=177 or q.get("targeted_global_passport_tests",{}).get("passed")!=33: errors.append("qualification_summary")
 if q.get("qualified_source_commit")!="854529e6cb88e77f29cce581beb74b530768224c": errors.append("qualified_source")
 if q.get("global_passport_conformance",{}).get("expected_result_sha256")!="ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba": errors.append("conformance_result")
-if ingest.get("files")!=21 or ingest.get("historical_provenance_before_v3_4_claimed") is not False: errors.append("ingest_summary")
+if ingest.get("files")!=20 or ingest.get("historical_provenance_before_v3_4_claimed") is not False: errors.append("ingest_summary")
 langs=q.get("six_language_controlled_interoperability",{}).get("implementations",{})
 if set(langs)!={"rust","typescript","go","csharp","java","swift"}: errors.append("six_language_set")
 if q.get("six_language_controlled_interoperability",{}).get("independent_third_party_interoperability") is not False: errors.append("independence_boundary")
