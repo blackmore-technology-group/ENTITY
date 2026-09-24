@@ -1,0 +1,16 @@
+{
+  "$id": "https://entity.invalid/protocol/v3/ENTITY_VERIFIABLE_REALITY.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Evidence, typed claims, scoped attestations, external reality anchors and causal economic attribution. Schema validation never implies objective truth.",
+  "properties": {
+    "schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema"
+  ],
+  "title": "ENTITY v3.3 Verifiable Reality Records",
+  "type": "object",
+  "x-entity-truth-boundary": "Cryptographic/protocol validity proves record integrity and semantics, not objective real-world truth."
+}
