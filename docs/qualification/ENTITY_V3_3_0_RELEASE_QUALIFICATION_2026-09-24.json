@@ -2,6 +2,38 @@
   "base_commit": "512665096cef3771a3a8307d6dc955015ee0efbc",
   "base_release": "v3.2.0",
   "base_release_snapshot_sha256": "31662691cbe3a2d08ee5bd54c72b73cf56b49acc3dd9133dc45672eff4042d36",
+  "cleanrooms": {
+    "csharp": {
+      "commit": "5a1fb61380a788b98d7fccb9f138527f063c1d9f",
+      "status": "PASS",
+      "workflow_run": 36016731801
+    },
+    "go": {
+      "commit": "74cebdfbb0a6751ea60764e874656b119a3e2416",
+      "status": "PASS",
+      "workflow_run": 36016190096
+    },
+    "java": {
+      "commit": "1d4d717cd9f5bd93bdcf1403d86b840517c208f3",
+      "status": "PASS",
+      "workflow_run": 36016205611
+    },
+    "rust": {
+      "commit": "0ff638fdb0a3d7e8e061205d5b5bc2e3f1e68a31",
+      "status": "PASS",
+      "workflow_run": 36016169261
+    },
+    "swift": {
+      "commit": "bbc4e6e6d7cfa4517e90ca2f9477f784e29c72f1",
+      "status": "PASS",
+      "workflow_run": 36016560914
+    },
+    "typescript": {
+      "commit": "6582532af2af6a9bcf458aa2e80a841f64f51094",
+      "status": "PASS",
+      "workflow_run": 36016179311
+    }
+  },
   "date": "2026-09-24",
   "external_remaining": [
     "unrelated third-party v3.3 implementation and independent live interoperability",
@@ -54,7 +86,7 @@
     "provider custody does not create ENTITY authority",
     "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
   ],
-  "qualified_source_commit": "b89ded63bd0df6a201dd80685625e2ee6346e4df",
+  "qualified_source_commit": "8d0d60948c584de9bdff665ed034480c08254509",
   "regression": {
     "environment": "_venv_entity_v3",
     "passed": 144,
@@ -62,6 +94,7 @@
     "total": 144
   },
   "schema": "entity-v3-3-0-release-qualification-v1",
+  "six_language_controlled_conformance": true,
   "status": "BTG_INTERNAL_QUALIFIED_VERIFIABLE_REALITY_RELEASE_CANDIDATE",
   "targeted_verifiable_reality_tests": {
     "passed": 16,

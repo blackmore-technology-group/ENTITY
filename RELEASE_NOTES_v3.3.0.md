@@ -1,4 +1,4 @@
-# ENTITY v3.3.0 ? Verifiable Reality, Evidence and Economic Causality
+# ENTITY v3.3.0 — Verifiable Reality, Evidence and Economic Causality
 
 ENTITY v3.3.0 extends the protected v3.2.0 adoption release with an explicit evidence layer connecting external-world claims to governed ENTITY state.
 
@@ -19,7 +19,7 @@ The five core primitives remain **ENTITY, AUTHORITY, RIGHT, EVENT, VALUE**.
 
 The market lifecycle remains:
 
-`DCO ? Instrument ? Listing ? Disclosure ? Order/RFQ/Auction ? Price Discovery ? Trade ? Clearing ? Settlement ? Entitlement ? Usage ? Derived Output ? Economic Consequence`
+`DCO → Instrument → Listing → Disclosure → Order/RFQ/Auction → Price Discovery → Trade → Clearing → Settlement → Entitlement → Usage → Derived Output → Economic Consequence`
 
 v3.2 Rights Passports and adoption semantics compose without rewrite.
 
@@ -30,6 +30,7 @@ v3.2 Rights Passports and adoption semantics compose without rewrite.
 - sealed v3.3 reality vectors: **20/20 PASS** (10 valid / 10 invalid);
 - required deterministic result SHA-256: `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`;
 - sealed kit SHA-256: `f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46`.
+- six BTG-controlled native clean-room implementations (Rust, TypeScript, C#, Go, Swift and Java): **PASS**, all converging on the same v3.3 result hash.
 
 ## Permanent boundary
 

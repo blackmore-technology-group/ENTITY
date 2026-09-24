@@ -19,7 +19,7 @@
     },
     {
       "path": "RELEASE_NOTES_v3.3.0.md",
-      "sha256": "2d939ee6c33173ea051e3e7c9ab33bb17ba760d81d0dd3865c5f875bc02f890f"
+      "sha256": "315b8a2a4c5734c0efc54b4b03dffa0d21192488b4845e60b6a1b4ec7a256dcb"
     },
     {
       "path": "START_HERE.md",
@@ -35,11 +35,11 @@
     },
     {
       "path": "docs/qualification/ENTITY_V3_3_0_RELEASE_QUALIFICATION_2026-09-24.json",
-      "sha256": "4bc4d23ea2a3670ad7282e30a025e1011a8e74dfb0d3507f6908b72944922cc2"
+      "sha256": "053b606da2fb27ea86a77b13b0e4bb4bda8b30a4ec759c1fd3ccad25e086ecc1"
     },
     {
       "path": "docs/qualification/ENTITY_V3_3_0_RELEASE_QUALIFICATION_2026-09-24.md",
-      "sha256": "f989b39327d551a78cf3dca03dd35848ae144f64523fad833f1b1d73f51db8e9"
+      "sha256": "0fb6c3a1c11b65111fc8b4e71ef240615848377ad0ba714005bf23abd0f199fc"
     },
     {
       "path": "protocol/v3/ENTITY_V3_3_REALITY_CLEANROOM_KIT.min.json",
@@ -98,7 +98,7 @@
       "sha256": "7f46e4c592882146b251a27c22d9ce0b36e19f5e53dceb26271a464ba5b87657"
     }
   ],
-  "overlay_snapshot_sha256": "35dcb51846abda0d7ced7aa5e40c95f34c2504a2393bd1222f5d21ceb0427c26",
+  "overlay_snapshot_sha256": "88df67541af1fb1f745c2cce7d9dbc874a6a6f0c015b004e8cd6ce190b881ec6",
   "permanent_truth_boundaries": [
     "cryptographic verification proves integrity/attribution, not objective external truth",
     "protocol verification proves ENTITY semantic validity, not objective external truth",
@@ -114,6 +114,38 @@
     "base_commit": "512665096cef3771a3a8307d6dc955015ee0efbc",
     "base_release": "v3.2.0",
     "base_release_snapshot_sha256": "31662691cbe3a2d08ee5bd54c72b73cf56b49acc3dd9133dc45672eff4042d36",
+    "cleanrooms": {
+      "csharp": {
+        "commit": "5a1fb61380a788b98d7fccb9f138527f063c1d9f",
+        "status": "PASS",
+        "workflow_run": 36016731801
+      },
+      "go": {
+        "commit": "74cebdfbb0a6751ea60764e874656b119a3e2416",
+        "status": "PASS",
+        "workflow_run": 36016190096
+      },
+      "java": {
+        "commit": "1d4d717cd9f5bd93bdcf1403d86b840517c208f3",
+        "status": "PASS",
+        "workflow_run": 36016205611
+      },
+      "rust": {
+        "commit": "0ff638fdb0a3d7e8e061205d5b5bc2e3f1e68a31",
+        "status": "PASS",
+        "workflow_run": 36016169261
+      },
+      "swift": {
+        "commit": "bbc4e6e6d7cfa4517e90ca2f9477f784e29c72f1",
+        "status": "PASS",
+        "workflow_run": 36016560914
+      },
+      "typescript": {
+        "commit": "6582532af2af6a9bcf458aa2e80a841f64f51094",
+        "status": "PASS",
+        "workflow_run": 36016179311
+      }
+    },
     "date": "2026-09-24",
     "external_remaining": [
       "unrelated third-party v3.3 implementation and independent live interoperability",
@@ -166,7 +198,7 @@
       "provider custody does not create ENTITY authority",
       "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
     ],
-    "qualified_source_commit": "b89ded63bd0df6a201dd80685625e2ee6346e4df",
+    "qualified_source_commit": "8d0d60948c584de9bdff665ed034480c08254509",
     "regression": {
       "environment": "_venv_entity_v3",
       "passed": 144,
@@ -174,6 +206,7 @@
       "total": 144
     },
     "schema": "entity-v3-3-0-release-qualification-v1",
+    "six_language_controlled_conformance": true,
     "status": "BTG_INTERNAL_QUALIFIED_VERIFIABLE_REALITY_RELEASE_CANDIDATE",
     "targeted_verifiable_reality_tests": {
       "passed": 16,
@@ -201,14 +234,14 @@
     },
     "version": "3.3.0"
   },
-  "qualified_source_commit": "b89ded63bd0df6a201dd80685625e2ee6346e4df",
+  "qualified_source_commit": "8d0d60948c584de9bdff665ed034480c08254509",
   "release_chain": {
     "v3.1.0_protected_base": "b985b7cf875bdeeadb228d4d1885395cbcaf19f1",
     "v3.2.0_protected_base": "512665096cef3771a3a8307d6dc955015ee0efbc",
-    "v3.3.0_qualified_source": "b89ded63bd0df6a201dd80685625e2ee6346e4df"
+    "v3.3.0_qualified_source": "8d0d60948c584de9bdff665ed034480c08254509"
   },
   "release_date": "2026-09-24",
-  "release_snapshot_sha256": "a5b19ae2e698b7170dc060d468f0b6f27fe462204c80d0f3b61ba6ffc7779642",
+  "release_snapshot_sha256": "31f8b60e269dab34bf26f2004bba650ee0be7c94588adc500660309306f175f4",
   "repository": "blackmore-technology-group/ENTITY",
   "schema": "entity-v3-3-0-release-manifest-v1",
   "status": "BTG_INTERNAL_QUALIFIED_VERIFIABLE_REALITY_RELEASE_CANDIDATE",
