@@ -1,5 +1,5 @@
 name: Reproducible bug
-about: Report a behavior you can reproduce in ENTITY.
+description: Report a behavior you can reproduce in ENTITY.
 title: "[BUG] "
 labels:
   - bug

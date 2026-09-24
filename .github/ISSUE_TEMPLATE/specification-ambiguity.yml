@@ -1,5 +1,5 @@
 name: Specification ambiguity or counterexample
-about: Challenge a rule, schema, vector, truth boundary or protocol interpretation.
+description: Challenge a rule, schema, vector, truth boundary or protocol interpretation.
 title: "[SPEC] "
 labels:
   - specification

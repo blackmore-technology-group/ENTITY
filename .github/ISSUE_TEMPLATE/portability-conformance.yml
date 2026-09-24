@@ -1,0 +1,61 @@
+name: Portability or conformance report
+description: Verify an ENTITY release, test vector, hash or workflow on a specific platform/runtime.
+title: "[PORTABILITY] "
+labels:
+  - portability
+  - evidence
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Independent reproduction reports are useful whether the result is PASS or FAIL. A failure with a precise reproduction is especially valuable.
+  - type: input
+    id: target
+    attributes:
+      label: Release / commit / kit verified
+      description: Give the exact tag, commit SHA or conformance-kit revision.
+      placeholder: v3.3.0 / 9c79f987... / ENTITY_V3_3_REALITY_CLEANROOM_KIT.min.json
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Platform and runtime
+      description: OS, architecture and language/runtime/compiler versions.
+      placeholder: Ubuntu 24.04 x86_64, Rust 1.xx
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands or procedure
+      description: Provide the shortest exact reproduction path.
+      render: shell
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - PASS - reproduced expected result
+        - FAIL - reproducible mismatch
+        - PARTIAL - blocked before completion
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Include relevant hashes, vector IDs, failing assertions or output. Do not include credentials/private state.
+    validations:
+      required: true
+  - type: checkboxes
+    id: clean
+    attributes:
+      label: Reproduction quality
+      options:
+        - label: I tested from a clean checkout or clearly described any local modifications.
+          required: true
+        - label: I removed credentials, private keys, recovery material and private user/business data.
+          required: true
