@@ -32,9 +32,16 @@ Depending on the contribution, recognition may appear in one or more of:
 - a release evidence record;
 - interoperability status records;
 - repository acknowledgements;
+- the public [External Contribution Ledger](EXTERNAL_CONTRIBUTIONS.md);
 - a future contributors/maintainers roster if sustained project participation develops.
 
 Recognition should link to public evidence when possible rather than relying on an unsupported attribution statement.
+
+## External contribution ledger
+
+The [External Contribution Ledger](EXTERNAL_CONTRIBUTIONS.md) records attributable work from people or organizations outside BTG control together with the evidence class and claim boundary for each entry.
+
+This lets the project recognize real outside participation without turning an external bug report, portability result or pull request into a stronger claim such as independent protocol validation, interoperability, security audit or endorsement.
 
 ## Independent contributors and organizations
 
