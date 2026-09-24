@@ -1,39 +1,54 @@
-## What changed?
+## Summary
 
-<!-- Describe the smallest useful summary of the change. -->
+Describe the smallest useful change this PR makes.
 
-## Why?
+## Why
 
-<!-- Link the issue/specification requirement or explain the reproducible problem. -->
+What reproducible problem, issue, specification requirement, portability gap, evidence gap or implementation need does this address?
+
+## Scope
+
+- Affected requirement / profile / schema / component:
+- Protocol-semantic change: yes / no
+- Authority, rights or truth boundary affected:
+- Compatibility impact:
+- Public conformance-vector / sealed-kit impact:
 
 ## Evidence
 
-<!-- Tests, vectors, hashes, reproduction output, benchmarks, screenshots, etc. -->
+List the tests, vectors, hashes, reproductions or benchmarks added or run.
 
-- [ ] Relevant tests added or updated
-- [ ] Full regression run when the change can affect protocol/runtime behavior
-- [ ] No credentials, private keys, production state or private user/business data included
+```text
+paste concise commands/results here
+```
+
+- [ ] Relevant tests were added or updated where behavior changed.
+- [ ] Full regression was run when the change can affect protocol/runtime behavior.
+- [ ] No credentials, private keys, recovery material, production state or private user/business data are included.
 
 ## Boundary check
 
-Does this change affect any of the following?
+Check any area affected by this change:
 
 - [ ] Identity / authority
 - [ ] Rights / entitlement
 - [ ] Evidence / claim-state semantics
-- [ ] Provider or resolver authority boundary
+- [ ] Provider / resolver / external-anchor authority boundary
 - [ ] Market / settlement / economic state
 - [ ] Cryptographic or canonicalization behavior
 - [ ] Public conformance vectors / sealed kit
 - [ ] None of the above
 
-If checked, explain how the existing boundary is preserved or intentionally versioned:
-
-## Compatibility
-
-<!-- Note protocol-semantic vs implementation-only changes and compatibility impact. -->
+Explain how each checked boundary is preserved or intentionally versioned.
 
 ## Claim discipline
 
+- [ ] This PR does not turn registration, provenance, custody, hosting or external evidence into sovereign authority.
+- [ ] This PR does not treat a valid signature or protocol-valid record as objective external truth.
+- [ ] Historical signed interpretation is preserved rather than silently rewritten.
 - [ ] The PR description distinguishes implemented/tested behavior from proposed or external claims.
 - [ ] If this is independently authored conformance work, BTG did not author the implementation or final qualification evidence.
+
+## Reviewer notes
+
+Call out anything that deserves especially careful review. Small, reviewable PRs are preferred; a PR does not need to solve an entire protocol area to be useful.
