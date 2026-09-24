@@ -1,0 +1,217 @@
+{
+  "base_commit": "512665096cef3771a3a8307d6dc955015ee0efbc",
+  "base_release_manifest_sha256": "b6a584d074bfca37c6e633f908ff2535db67d9edbed3dfedaec8dd00af65da82",
+  "base_release_snapshot_sha256": "31662691cbe3a2d08ee5bd54c72b73cf56b49acc3dd9133dc45672eff4042d36",
+  "external_remaining": [
+    "unrelated third-party v3.3 implementation and independent live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+    "real external issuers, buyers, repeat transactions and market liquidity"
+  ],
+  "overlay_files": [
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "57bbb1bec26bdc24fb06317b6f710710d4d12332702316be1ae30539ae489a64"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ae72a44c23066e0f6d04a88b7393c05967871a0b615f658a529be05b4adbb421"
+    },
+    {
+      "path": "RELEASE_NOTES_v3.3.0.md",
+      "sha256": "2d939ee6c33173ea051e3e7c9ab33bb17ba760d81d0dd3865c5f875bc02f890f"
+    },
+    {
+      "path": "START_HERE.md",
+      "sha256": "1f0e6b90fc7fc50695ade075852eea054530183dedde60034b495590b25d4985"
+    },
+    {
+      "path": "docs/ENGINEERING_EVIDENCE.md",
+      "sha256": "729043210dd50c57b60090280b5cdb89500c6f1ed0c96f3e1c1e238abf4fd121"
+    },
+    {
+      "path": "docs/INTEROPERABILITY_CHALLENGE.md",
+      "sha256": "20d3a5b45d6dfecaf6009adbc889f05ea5daec55d699ac74475a7deec87f2339"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_3_0_RELEASE_QUALIFICATION_2026-09-24.json",
+      "sha256": "4bc4d23ea2a3670ad7282e30a025e1011a8e74dfb0d3507f6908b72944922cc2"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_3_0_RELEASE_QUALIFICATION_2026-09-24.md",
+      "sha256": "f989b39327d551a78cf3dca03dd35848ae144f64523fad833f1b1d73f51db8e9"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_3_REALITY_CLEANROOM_KIT.min.json",
+      "sha256": "f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46"
+    },
+    {
+      "path": "protocol/v3/ENTITY_VERIFIABLE_REALITY.schema.json",
+      "sha256": "6e1c7e621e0aa84627e009febf8999503b7a61f92627b885ed10a19f2ef7d767"
+    },
+    {
+      "path": "src/37_Verifiable_Reality/attestation_authority.py",
+      "sha256": "10184f945d6c843114f6c2b588067e98a57dfaaa2b45bf6d6ba4296e44da5b01"
+    },
+    {
+      "path": "src/37_Verifiable_Reality/causal_economic_graph.py",
+      "sha256": "65b60f8a026a568e62883233da2a93e8d1a92741ca1572191b586a9f677d1c74"
+    },
+    {
+      "path": "src/37_Verifiable_Reality/evidence_objects.py",
+      "sha256": "96bd06e9d69d20bec5ba309902b324a7d36fd0c2ebbdd4d6325fafd37518eea3"
+    },
+    {
+      "path": "src/37_Verifiable_Reality/reality_anchors.py",
+      "sha256": "009cd170a3df58aff3c7811220777315edeeefc248a025f859d45a0afd8347b1"
+    },
+    {
+      "path": "src/37_Verifiable_Reality/reality_conformance.py",
+      "sha256": "a41871fd484689299845a271009580a86a073ad64d801188eb4105cbfd715311"
+    },
+    {
+      "path": "src/37_Verifiable_Reality/reality_profile.py",
+      "sha256": "3d092eaf89be3390da2fd9cc7ec1c20864e65cb5d77b3211b51206a4ebb1dd77"
+    },
+    {
+      "path": "tests/test_v3_verifiable_reality.py",
+      "sha256": "1f9f90e27ca5f6945efd2c27cb42cbb886d8d8abe55eb738d6e04f4818de0616"
+    },
+    {
+      "path": "tools/build_v3_3_0_release.py",
+      "sha256": "f50fbd81bde45d75849cfcf659f0f6f30ccb89540e4d0bbb837cab51dc8bce51"
+    },
+    {
+      "path": "tools/build_v3_3_reality_cleanroom_kit.py",
+      "sha256": "1a0fe7d0cde83756752c7aeb98d805997dba24d2189176745777382d5185233d"
+    },
+    {
+      "path": "tools/run_v3_3_0_release_gate.ps1",
+      "sha256": "d787688d1884126625dddc4f4e78a4d61226a7e1f2d477c629fea4010710cf33"
+    },
+    {
+      "path": "tools/verify_v3_3_0_release_manifest.py",
+      "sha256": "b832a11002932cbf646d5538db53f5cde4245f16f51316cc225f99531fab55e3"
+    },
+    {
+      "path": "tools/verify_v3_3_reality_release.py",
+      "sha256": "7f46e4c592882146b251a27c22d9ce0b36e19f5e53dceb26271a464ba5b87657"
+    }
+  ],
+  "overlay_snapshot_sha256": "35dcb51846abda0d7ced7aa5e40c95f34c2504a2393bd1222f5d21ceb0427c26",
+  "permanent_truth_boundaries": [
+    "cryptographic verification proves integrity/attribution, not objective external truth",
+    "protocol verification proves ENTITY semantic validity, not objective external truth",
+    "evidence and attestations remain attributable and contestable",
+    "external registries, sensors, laboratories, banks and other anchors do not automatically become ENTITY authority",
+    "protocol records do not determine legal title",
+    "protocol records do not declare market or accounting fair value",
+    "causal economic attribution is evidence-bound and is not an accounting fair-value determination",
+    "provider custody does not create ENTITY authority",
+    "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+  ],
+  "qualification": {
+    "base_commit": "512665096cef3771a3a8307d6dc955015ee0efbc",
+    "base_release": "v3.2.0",
+    "base_release_snapshot_sha256": "31662691cbe3a2d08ee5bd54c72b73cf56b49acc3dd9133dc45672eff4042d36",
+    "date": "2026-09-24",
+    "external_remaining": [
+      "unrelated third-party v3.3 implementation and independent live interoperability",
+      "independent external security/cryptographic review",
+      "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+      "real external issuers, buyers, repeat transactions and market liquidity"
+    ],
+    "inherited_v3_2_evidence": {
+      "adoption_vectors_passed": 16,
+      "adoption_vectors_total": 16,
+      "protected_release_commit": "512665096cef3771a3a8307d6dc955015ee0efbc",
+      "regression_passed": 128,
+      "regression_total": 128,
+      "six_language_controlled_interoperability": true,
+      "v3_2_cleanroom_result_sha256": "1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18"
+    },
+    "market_structure_preserved": [
+      "DCO",
+      "INSTRUMENT",
+      "LISTING",
+      "DISCLOSURE",
+      "ORDER_RFQ_AUCTION",
+      "PRICE_DISCOVERY",
+      "TRADE",
+      "CLEARING",
+      "SETTLEMENT",
+      "ENTITLEMENT",
+      "USAGE",
+      "DERIVED_OUTPUT",
+      "ECONOMIC_CONSEQUENCE"
+    ],
+    "new_v3_3_capabilities": [
+      "first-class signed Evidence Objects",
+      "typed claim/truth-state taxonomy",
+      "scope-limited and revocable attestation authority",
+      "external reality anchors and attributed snapshots without automatic ENTITY authority",
+      "contestability and supersession with preserved history",
+      "evidence-backed causal economic attribution graph",
+      "sealed v3.3 verifiable-reality clean-room campaign",
+      "developer/evidence gateway documenting qualification and external claim boundaries"
+    ],
+    "permanent_truth_boundaries": [
+      "cryptographic verification proves integrity/attribution, not objective external truth",
+      "protocol verification proves ENTITY semantic validity, not objective external truth",
+      "evidence and attestations remain attributable and contestable",
+      "external registries, sensors, laboratories, banks and other anchors do not automatically become ENTITY authority",
+      "protocol records do not determine legal title",
+      "protocol records do not declare market or accounting fair value",
+      "causal economic attribution is evidence-bound and is not an accounting fair-value determination",
+      "provider custody does not create ENTITY authority",
+      "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+    ],
+    "qualified_source_commit": "b89ded63bd0df6a201dd80685625e2ee6346e4df",
+    "regression": {
+      "environment": "_venv_entity_v3",
+      "passed": 144,
+      "runner": "python -m unittest discover -s tests -v",
+      "total": 144
+    },
+    "schema": "entity-v3-3-0-release-qualification-v1",
+    "status": "BTG_INTERNAL_QUALIFIED_VERIFIABLE_REALITY_RELEASE_CANDIDATE",
+    "targeted_verifiable_reality_tests": {
+      "passed": 16,
+      "total": 16
+    },
+    "v3_3_invariants": [
+      "CORE_PRIMITIVES_UNCHANGED",
+      "MARKET_ENGINE_PRESERVED",
+      "SIGNED_IS_NOT_OBJECTIVE_TRUTH",
+      "PROTOCOL_VALIDITY_IS_NOT_OBJECTIVE_TRUTH",
+      "CLAIMS_ARE_EVIDENCE_BOUND",
+      "ATTESTATION_AUTHORITY_IS_SCOPE_LIMITED",
+      "EXTERNAL_ANCHOR_IS_NOT_ENTITY_AUTHORITY",
+      "DISPUTES_PRESERVE_HISTORY",
+      "CAUSALITY_IS_EVIDENCE_BOUND_NOT_ASSUMED",
+      "ECONOMIC_ATTRIBUTION_IS_NOT_ACCOUNTING_FAIR_VALUE"
+    ],
+    "verifiable_reality_conformance_vectors": {
+      "expected_result_sha256": "82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d",
+      "invalid": 10,
+      "schema_sha256": "6e1c7e621e0aa84627e009febf8999503b7a61f92627b885ed10a19f2ef7d767",
+      "sealed_kit_sha256": "f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46",
+      "total": 20,
+      "valid": 10
+    },
+    "version": "3.3.0"
+  },
+  "qualified_source_commit": "b89ded63bd0df6a201dd80685625e2ee6346e4df",
+  "release_chain": {
+    "v3.1.0_protected_base": "b985b7cf875bdeeadb228d4d1885395cbcaf19f1",
+    "v3.2.0_protected_base": "512665096cef3771a3a8307d6dc955015ee0efbc",
+    "v3.3.0_qualified_source": "b89ded63bd0df6a201dd80685625e2ee6346e4df"
+  },
+  "release_date": "2026-09-24",
+  "release_snapshot_sha256": "a5b19ae2e698b7170dc060d468f0b6f27fe462204c80d0f3b61ba6ffc7779642",
+  "repository": "blackmore-technology-group/ENTITY",
+  "schema": "entity-v3-3-0-release-manifest-v1",
+  "status": "BTG_INTERNAL_QUALIFIED_VERIFIABLE_REALITY_RELEASE_CANDIDATE",
+  "supersedes": "v3.2.0",
+  "version": "3.3.0"
+}

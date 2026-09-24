@@ -1,0 +1,91 @@
+{
+  "base_commit": "512665096cef3771a3a8307d6dc955015ee0efbc",
+  "base_release": "v3.2.0",
+  "base_release_snapshot_sha256": "31662691cbe3a2d08ee5bd54c72b73cf56b49acc3dd9133dc45672eff4042d36",
+  "date": "2026-09-24",
+  "external_remaining": [
+    "unrelated third-party v3.3 implementation and independent live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+    "real external issuers, buyers, repeat transactions and market liquidity"
+  ],
+  "inherited_v3_2_evidence": {
+    "adoption_vectors_passed": 16,
+    "adoption_vectors_total": 16,
+    "protected_release_commit": "512665096cef3771a3a8307d6dc955015ee0efbc",
+    "regression_passed": 128,
+    "regression_total": 128,
+    "six_language_controlled_interoperability": true,
+    "v3_2_cleanroom_result_sha256": "1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18"
+  },
+  "market_structure_preserved": [
+    "DCO",
+    "INSTRUMENT",
+    "LISTING",
+    "DISCLOSURE",
+    "ORDER_RFQ_AUCTION",
+    "PRICE_DISCOVERY",
+    "TRADE",
+    "CLEARING",
+    "SETTLEMENT",
+    "ENTITLEMENT",
+    "USAGE",
+    "DERIVED_OUTPUT",
+    "ECONOMIC_CONSEQUENCE"
+  ],
+  "new_v3_3_capabilities": [
+    "first-class signed Evidence Objects",
+    "typed claim/truth-state taxonomy",
+    "scope-limited and revocable attestation authority",
+    "external reality anchors and attributed snapshots without automatic ENTITY authority",
+    "contestability and supersession with preserved history",
+    "evidence-backed causal economic attribution graph",
+    "sealed v3.3 verifiable-reality clean-room campaign",
+    "developer/evidence gateway documenting qualification and external claim boundaries"
+  ],
+  "permanent_truth_boundaries": [
+    "cryptographic verification proves integrity/attribution, not objective external truth",
+    "protocol verification proves ENTITY semantic validity, not objective external truth",
+    "evidence and attestations remain attributable and contestable",
+    "external registries, sensors, laboratories, banks and other anchors do not automatically become ENTITY authority",
+    "protocol records do not determine legal title",
+    "protocol records do not declare market or accounting fair value",
+    "causal economic attribution is evidence-bound and is not an accounting fair-value determination",
+    "provider custody does not create ENTITY authority",
+    "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+  ],
+  "qualified_source_commit": "b89ded63bd0df6a201dd80685625e2ee6346e4df",
+  "regression": {
+    "environment": "_venv_entity_v3",
+    "passed": 144,
+    "runner": "python -m unittest discover -s tests -v",
+    "total": 144
+  },
+  "schema": "entity-v3-3-0-release-qualification-v1",
+  "status": "BTG_INTERNAL_QUALIFIED_VERIFIABLE_REALITY_RELEASE_CANDIDATE",
+  "targeted_verifiable_reality_tests": {
+    "passed": 16,
+    "total": 16
+  },
+  "v3_3_invariants": [
+    "CORE_PRIMITIVES_UNCHANGED",
+    "MARKET_ENGINE_PRESERVED",
+    "SIGNED_IS_NOT_OBJECTIVE_TRUTH",
+    "PROTOCOL_VALIDITY_IS_NOT_OBJECTIVE_TRUTH",
+    "CLAIMS_ARE_EVIDENCE_BOUND",
+    "ATTESTATION_AUTHORITY_IS_SCOPE_LIMITED",
+    "EXTERNAL_ANCHOR_IS_NOT_ENTITY_AUTHORITY",
+    "DISPUTES_PRESERVE_HISTORY",
+    "CAUSALITY_IS_EVIDENCE_BOUND_NOT_ASSUMED",
+    "ECONOMIC_ATTRIBUTION_IS_NOT_ACCOUNTING_FAIR_VALUE"
+  ],
+  "verifiable_reality_conformance_vectors": {
+    "expected_result_sha256": "82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d",
+    "invalid": 10,
+    "schema_sha256": "6e1c7e621e0aa84627e009febf8999503b7a61f92627b885ed10a19f2ef7d767",
+    "sealed_kit_sha256": "f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46",
+    "total": 20,
+    "valid": 10
+  },
+  "version": "3.3.0"
+}
