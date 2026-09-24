@@ -3,9 +3,9 @@
   "base_release_manifest_sha256": "1e4fa980507f20168be44b7644a3ccfaa6cd369c08d05ff7c7c2fcb2956ff85c",
   "base_release_snapshot_sha256": "a5b19ae2e698b7170dc060d468f0b6f27fe462204c80d0f3b61ba6ffc7779642",
   "continuous_provenance_ingest": {
-    "files": 21,
+    "files": 20,
     "historical_provenance_before_v3_4_claimed": false,
-    "inventory_sha256": "875971e1d7d7130b4b8f54637729b08362f50ddbc4e2c31766c8ecfa09f1c019"
+    "inventory_sha256": "33039e5124a6d1a7c8fc295a51dbb21d4b5de01f5a24e3fc0722b2dbf0989823"
   },
   "external_remaining": [
     "unrelated third-party independent v3.4 implementation and live interoperability",
@@ -14,7 +14,7 @@
     "real external issuers, buyers, repeat transactions and market liquidity",
     "standards/profile governance adoption outside BTG"
   ],
-  "implementation_package_bundle_sha256": "5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7",
+  "implementation_package_registry_sha256": "d59e93c0569b0c21bbb214da1afb567ad02324f581e1a2bfb2460a9c38ca7295",
   "overlay_files": [
     {
       "path": "RELEASE_NOTES_v3.4.0.md",
@@ -22,23 +22,19 @@
     },
     {
       "path": "docs/qualification/ENTITY_V3_4_0_CONTINUOUS_PROVENANCE_INGEST_2026-09-24.json",
-      "sha256": "7144fb0c6c1075b1bdbb10c9d9d03a0f43243d3691007a1eb642d74e2fefaf05"
+      "sha256": "82b28e63e11bc1b77dfae2879259f272a4fdba5c65a539eb93abb53e6ce5cc46"
     },
     {
       "path": "docs/qualification/ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.json",
-      "sha256": "b517796ecd46b7c4d841cd413b2815031954a1ae1e2fbb1e0a327d9d358fb311"
+      "sha256": "e5b3aabf30770cd09fe7e0c141039745e3a7a04fc4a53620724a1e1e1bf13a3c"
     },
     {
       "path": "docs/qualification/ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.md",
-      "sha256": "335a1e7795afc21c3ec4b1fdaedbd82d1d0ac30c5634ce12841d16ca2cccb0e8"
-    },
-    {
-      "path": "profiles/ENTITY_V3_4_IMPLEMENTATION_PACKAGES.json",
-      "sha256": "5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7"
+      "sha256": "ccd46a522140723756203f52c9f0170a1ceaf46316c756e88c47dcc47bf96749"
     },
     {
       "path": "profiles/registry.json",
-      "sha256": "9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0"
+      "sha256": "d59e93c0569b0c21bbb214da1afb567ad02324f581e1a2bfb2460a9c38ca7295"
     },
     {
       "path": "protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json",
@@ -50,7 +46,7 @@
     },
     {
       "path": "sdk/global_passport_sdk/README.md",
-      "sha256": "31135d402e7db2cad3e7c228f202a8bc67d41a40ab82ad17da593f26cdab10b3"
+      "sha256": "9981c36e7b44de00a2a2627376620da3716eebe7f64ff260f1fd0a1290838be4"
     },
     {
       "path": "sdk/global_passport_sdk/canonical_global_passport_sdk.py",
@@ -58,7 +54,7 @@
     },
     {
       "path": "src/38_Global_Passports/continuous_ingestion.py",
-      "sha256": "7bcbf6b942d72a35020d148d8bc1797d3817e38b29a765db78b53c886621e5df"
+      "sha256": "6ebe6ff361ad42e6703d78fafbf2970bc6ffcce5da64b326df3cb51d6cb44b62"
     },
     {
       "path": "src/38_Global_Passports/global_passport.py",
@@ -70,7 +66,7 @@
     },
     {
       "path": "src/38_Global_Passports/industry_profiles.py",
-      "sha256": "4cf82c16788b9f888e4162de9de0a756bd7633bf6e992223d7997d1cd79f75ff"
+      "sha256": "a409c74d4a5535191eac102c18f04df24a9ea89c467939355da03a7b73111d25"
     },
     {
       "path": "src/38_Global_Passports/passport_conformance.py",
@@ -78,19 +74,19 @@
     },
     {
       "path": "src/38_Global_Passports/profile_registry.py",
-      "sha256": "66186c1f6a479b325bd6c085f981f63a695a96d71bafbb7d0aee638cce872f94"
+      "sha256": "3c94afc44c515a9313559a114ed073dad5bb6fc91b083cea57191cbdbbbe36ca"
     },
     {
       "path": "src/39_Implementation_Packages/industry_packages.py",
-      "sha256": "2ccde1cef6c7520288ccac47e2b16cf86039e40ee60e76e89f3788d635d13428"
+      "sha256": "cd75a4aa24daf798e97632a8fca2ed0f2c1ce031bcefc3938ff066b830f7d8a1"
     },
     {
       "path": "tests/test_v3_global_passports.py",
-      "sha256": "ba41bcc365044409e8c7200a84997f44096f8009759f3ce37ad2c674cc2aa3fb"
+      "sha256": "922f11f692a5992b1211632a0b625ba51c2d30a4d71dc49e91ae323b109dbe6b"
     },
     {
       "path": "tools/build_v3_4_0_release.py",
-      "sha256": "6486e7b5f04b89aa8629e89e3c104bfb93e829e7e36b31def32788cb8826ac44"
+      "sha256": "f51f2cefa916c29eb671b5cfae70833355622221515aa9c2a74732c5333603fc"
     },
     {
       "path": "tools/build_v3_4_cleanroom_kit.py",
@@ -102,7 +98,7 @@
     },
     {
       "path": "tools/build_v3_4_qualification.py",
-      "sha256": "546067356a3b6b0222610ffd51bd8ec19a165246415b3c4565baec6c35d2d329"
+      "sha256": "cb5ac3b9e4a20299aa6c68b4012b79e373a6a5553c7041108ed27fe1bbc9ed99"
     },
     {
       "path": "tools/entity_v3_4_cli.py",
@@ -110,7 +106,7 @@
     },
     {
       "path": "tools/ingest_v3_4_release.py",
-      "sha256": "8f53dc6f8202d8d8fc71affd6ac13ad5f2db22960869017f82b30016c82f70ad"
+      "sha256": "ddea429260f673daef32a62c97948aaac924e25e752f3bfbb0691cac3bb649e9"
     },
     {
       "path": "tools/run_v3_4_0_release_gate.ps1",
@@ -118,7 +114,7 @@
     },
     {
       "path": "tools/verify_v3_4_0_release_manifest.py",
-      "sha256": "b399af7ce669692d1568548d3aba224c863f4204f038344e1a8f42a7ec5653c6"
+      "sha256": "ed1398bd1629d56eb4bc4ec9ebb53ea6a2da60c8f0722f6f27942e92521f93ea"
     },
     {
       "path": "tools/verify_v3_4_global_passport_release.py",
@@ -126,10 +122,10 @@
     },
     {
       "path": "tools/verify_v3_4_implementation_packages.py",
-      "sha256": "65683056d38d222383fdcc73c713c119394f3ce2ab676bd908ac00b48b281666"
+      "sha256": "c20ddf9b2f750f1a6a7905b0930fce979069279d7551dc81ac647820ff1e556f"
     }
   ],
-  "overlay_snapshot_sha256": "d236e0afa4a5a536cccb8b687d5b00fae46a858260f098471be69b64ee77dd0a",
+  "overlay_snapshot_sha256": "b3d679da48ba598c13ec014ca68ca35c8c1bb88b20004320da4eab589b5fff31",
   "permanent_truth_boundaries": [
     "cryptographic verification proves integrity/attribution, not objective external truth",
     "protocol verification proves ENTITY semantic validity, not objective external truth",
@@ -169,8 +165,15 @@
       "valid": 12
     },
     "implementation_packages": {
-      "bundle_sha256": "5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7",
       "developer_configures_not_redesigns": true,
+      "domain_repositories": {
+        "ai": "blackmore-technology-group/ENTITY-AI",
+        "defence-public": "blackmore-technology-group/ENTITY-DEFENCE",
+        "finance": "blackmore-technology-group/ENTITY-FINANCE",
+        "healthcare": "blackmore-technology-group/ENTITY-HEALTHCARE",
+        "manufacturing": "blackmore-technology-group/ENTITY-MANUFACTURING",
+        "robotics": "blackmore-technology-group/ENTITY-ROBOTICS"
+      },
       "packages": {
         "ai": "4877cb5bc76ef0803eace931ca1a9cba516c01ba94a2e0b4bc71bcb5dc1b0440",
         "defence-public": "7edc52344822e370f937b12d05258b5cb3283756dadb5c1885dd93f126cf9887",
@@ -180,7 +183,8 @@
         "robotics": "3a0e68fa6c63b2ef9cf79ccf463335af72d49ffb3cd028c88b6a998d8678f38f"
       },
       "profiles_are_executable_implementation_assets": true,
-      "registry_sha256": "9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0"
+      "publication_model": "core registry plus six dedicated domain repositories",
+      "registry_sha256": "d59e93c0569b0c21bbb214da1afb567ad02324f581e1a2bfb2460a9c38ca7295"
     },
     "permanent_truth_boundaries": [
       "cryptographic verification proves integrity/attribution, not objective external truth",
@@ -240,7 +244,7 @@
     "v3.4.0_qualified_source": "854529e6cb88e77f29cce581beb74b530768224c"
   },
   "release_date": "2026-09-24",
-  "release_snapshot_sha256": "81d0b4381703d908f774b1834effee2594db13f182846117845827c6b5c5fcb7",
+  "release_snapshot_sha256": "3ff0e51ca2daabf50bc517e9c6e3438e8c150f1560cca6c99621621e3c855a90",
   "repository": "blackmore-technology-group/ENTITY",
   "schema": "entity-v3-4-0-release-manifest-v1",
   "six_language_controlled_interoperability": {
