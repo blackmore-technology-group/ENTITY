@@ -1,0 +1,262 @@
+{
+  "base_commit": "9c79f987207592cb6791e1a8956f23351cdfb2d3",
+  "base_release_manifest_sha256": "1e4fa980507f20168be44b7644a3ccfaa6cd369c08d05ff7c7c2fcb2956ff85c",
+  "base_release_snapshot_sha256": "a5b19ae2e698b7170dc060d468f0b6f27fe462204c80d0f3b61ba6ffc7779642",
+  "continuous_provenance_ingest": {
+    "files": 21,
+    "historical_provenance_before_v3_4_claimed": false,
+    "inventory_sha256": "875971e1d7d7130b4b8f54637729b08362f50ddbc4e2c31766c8ecfa09f1c019"
+  },
+  "external_remaining": [
+    "unrelated third-party independent v3.4 implementation and live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+    "real external issuers, buyers, repeat transactions and market liquidity",
+    "standards/profile governance adoption outside BTG"
+  ],
+  "implementation_package_bundle_sha256": "5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7",
+  "overlay_files": [
+    {
+      "path": "RELEASE_NOTES_v3.4.0.md",
+      "sha256": "b1b036ffeb9a4e8f86e88874d59cf854acf7fa62ef05543d72db416abec3361b"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_4_0_CONTINUOUS_PROVENANCE_INGEST_2026-09-24.json",
+      "sha256": "7144fb0c6c1075b1bdbb10c9d9d03a0f43243d3691007a1eb642d74e2fefaf05"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.json",
+      "sha256": "b517796ecd46b7c4d841cd413b2815031954a1ae1e2fbb1e0a327d9d358fb311"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.md",
+      "sha256": "335a1e7795afc21c3ec4b1fdaedbd82d1d0ac30c5634ce12841d16ca2cccb0e8"
+    },
+    {
+      "path": "profiles/ENTITY_V3_4_IMPLEMENTATION_PACKAGES.json",
+      "sha256": "5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7"
+    },
+    {
+      "path": "profiles/registry.json",
+      "sha256": "9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json",
+      "sha256": "4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_4_GLOBAL_PASSPORT_CLEANROOM_KIT.min.json",
+      "sha256": "5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230"
+    },
+    {
+      "path": "sdk/global_passport_sdk/README.md",
+      "sha256": "31135d402e7db2cad3e7c228f202a8bc67d41a40ab82ad17da593f26cdab10b3"
+    },
+    {
+      "path": "sdk/global_passport_sdk/canonical_global_passport_sdk.py",
+      "sha256": "50d40713fe7f8462f54388bd7650705fd3f17027f7692a7cf87bf3ad59230e64"
+    },
+    {
+      "path": "src/38_Global_Passports/continuous_ingestion.py",
+      "sha256": "7bcbf6b942d72a35020d148d8bc1797d3817e38b29a765db78b53c886621e5df"
+    },
+    {
+      "path": "src/38_Global_Passports/global_passport.py",
+      "sha256": "78377698ed2021862757dd3f5bc8622e959c21fe43dc8085a6b83c502e047dfa"
+    },
+    {
+      "path": "src/38_Global_Passports/global_passport_profile.py",
+      "sha256": "bc55797c9297ab567b04dc31a31021927df821ff4ad404a562df22d78c1cc1fb"
+    },
+    {
+      "path": "src/38_Global_Passports/industry_profiles.py",
+      "sha256": "4cf82c16788b9f888e4162de9de0a756bd7633bf6e992223d7997d1cd79f75ff"
+    },
+    {
+      "path": "src/38_Global_Passports/passport_conformance.py",
+      "sha256": "7be41341e74bb7f841e47e53097482daf31030adb1c8115126a6417850c01473"
+    },
+    {
+      "path": "src/38_Global_Passports/profile_registry.py",
+      "sha256": "66186c1f6a479b325bd6c085f981f63a695a96d71bafbb7d0aee638cce872f94"
+    },
+    {
+      "path": "src/39_Implementation_Packages/industry_packages.py",
+      "sha256": "2ccde1cef6c7520288ccac47e2b16cf86039e40ee60e76e89f3788d635d13428"
+    },
+    {
+      "path": "tests/test_v3_global_passports.py",
+      "sha256": "ba41bcc365044409e8c7200a84997f44096f8009759f3ce37ad2c674cc2aa3fb"
+    },
+    {
+      "path": "tools/build_v3_4_0_release.py",
+      "sha256": "6486e7b5f04b89aa8629e89e3c104bfb93e829e7e36b31def32788cb8826ac44"
+    },
+    {
+      "path": "tools/build_v3_4_cleanroom_kit.py",
+      "sha256": "f8a42497336233c358f2582386365790783c221646cc3f15b5600d888503a009"
+    },
+    {
+      "path": "tools/build_v3_4_industry_packages.py",
+      "sha256": "49585a6cf986214b2472805b8959bfef7d7f71354d70402205034958d67d3af7"
+    },
+    {
+      "path": "tools/build_v3_4_qualification.py",
+      "sha256": "546067356a3b6b0222610ffd51bd8ec19a165246415b3c4565baec6c35d2d329"
+    },
+    {
+      "path": "tools/entity_v3_4_cli.py",
+      "sha256": "01bc1becab44cceedd5b35a50733fab7dbc0128fbdc32c4769b9fbeaff62d55d"
+    },
+    {
+      "path": "tools/ingest_v3_4_release.py",
+      "sha256": "8f53dc6f8202d8d8fc71affd6ac13ad5f2db22960869017f82b30016c82f70ad"
+    },
+    {
+      "path": "tools/run_v3_4_0_release_gate.ps1",
+      "sha256": "716cdaa545044a282825f56004eeb0973b9f590b205e3b7839442189b627ce13"
+    },
+    {
+      "path": "tools/verify_v3_4_0_release_manifest.py",
+      "sha256": "b399af7ce669692d1568548d3aba224c863f4204f038344e1a8f42a7ec5653c6"
+    },
+    {
+      "path": "tools/verify_v3_4_global_passport_release.py",
+      "sha256": "7c94147c3f65605192e12dc0a161de40293260e6bdbac91e4ff3d595092087fe"
+    },
+    {
+      "path": "tools/verify_v3_4_implementation_packages.py",
+      "sha256": "65683056d38d222383fdcc73c713c119394f3ce2ab676bd908ac00b48b281666"
+    }
+  ],
+  "overlay_snapshot_sha256": "d236e0afa4a5a536cccb8b687d5b00fae46a858260f098471be69b64ee77dd0a",
+  "permanent_truth_boundaries": [
+    "cryptographic verification proves integrity/attribution, not objective external truth",
+    "protocol verification proves ENTITY semantic validity, not objective external truth",
+    "evidence and attestations remain attributable and contestable",
+    "profile composition does not create sovereign authority",
+    "external standards are mapped, not redefined or made subordinate to ENTITY",
+    "profile/package validation does not establish regulatory compliance",
+    "protocol records do not determine legal title or accounting fair value",
+    "provider custody does not create ENTITY authority",
+    "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+  ],
+  "qualification": {
+    "base_commit": "9c79f987207592cb6791e1a8956f23351cdfb2d3",
+    "base_release": "v3.3.0",
+    "base_release_manifest_sha256": "1e4fa980507f20168be44b7644a3ccfaa6cd369c08d05ff7c7c2fcb2956ff85c",
+    "claim_boundary": "Six native implementations are BTG-controlled controlled-interoperability evidence; they are not unrelated third-party independence.",
+    "cli_deployment_smoke": {
+      "legal_compliance_claimed": false,
+      "objective_truth_claimed": false,
+      "passport_valid": true,
+      "valid": true
+    },
+    "date": "2026-09-24",
+    "external_remaining": [
+      "unrelated third-party independent v3.4 implementation and live interoperability",
+      "independent external security/cryptographic review",
+      "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+      "real external issuers, buyers, repeat transactions and market liquidity",
+      "standards/profile governance adoption outside BTG"
+    ],
+    "global_passport_conformance": {
+      "expected_result_sha256": "ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba",
+      "invalid": 12,
+      "schema_sha256": "4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd",
+      "sealed_kit_sha256": "5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230",
+      "total": 24,
+      "valid": 12
+    },
+    "implementation_packages": {
+      "bundle_sha256": "5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7",
+      "developer_configures_not_redesigns": true,
+      "packages": {
+        "ai": "4877cb5bc76ef0803eace931ca1a9cba516c01ba94a2e0b4bc71bcb5dc1b0440",
+        "defence-public": "7edc52344822e370f937b12d05258b5cb3283756dadb5c1885dd93f126cf9887",
+        "finance": "768dd87fd5a29c7e2679fc2b0d4b172b8613712b148336d8fba91a3b92d0d466",
+        "healthcare": "b4e901ce37f696fa10666839cb8d3cacbd1fe663070667ca1767a6245e7cf939",
+        "manufacturing": "bc29a0de024cea22552078ff1913fa3df2b189436cb853cc2f4e08974325c4bc",
+        "robotics": "3a0e68fa6c63b2ef9cf79ccf463335af72d49ffb3cd028c88b6a998d8678f38f"
+      },
+      "profiles_are_executable_implementation_assets": true,
+      "registry_sha256": "9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0"
+    },
+    "permanent_truth_boundaries": [
+      "cryptographic verification proves integrity/attribution, not objective external truth",
+      "protocol verification proves ENTITY semantic validity, not objective external truth",
+      "evidence and attestations remain attributable and contestable",
+      "profile composition does not create sovereign authority",
+      "external standards are mapped, not redefined or made subordinate to ENTITY",
+      "profile/package validation does not establish regulatory compliance",
+      "protocol records do not determine legal title or accounting fair value",
+      "provider custody does not create ENTITY authority",
+      "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+    ],
+    "qualified_source_commit": "854529e6cb88e77f29cce581beb74b530768224c",
+    "regression": {
+      "environment": "_venv_entity_v3",
+      "passed": 177,
+      "runner": "python -m unittest discover -s tests -p 'test_*.py' -v",
+      "total": 177
+    },
+    "schema": "entity-v3-4-0-release-qualification-v1",
+    "six_language_controlled_interoperability": {
+      "implementations": {
+        "csharp": "2cf64646cb70c8d89698f3f474a0a2a532c83b2d",
+        "go": "d878229a5256bf7c06a1da84dfb9ba0297f0c946",
+        "java": "da2520429f8dab7a2752b2b6b6fc653c6ae173b6",
+        "rust": "5420f724495722019b1f8624f02fe8a02df7bfbf",
+        "swift": "2f40118999beceb6c34f2ea1c583dd12cfe81368",
+        "typescript": "48e7f606740819379eee2e0fa663d41044b1d899"
+      },
+      "independent_third_party_interoperability": false,
+      "result_sha256": "ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba",
+      "status": "PASS"
+    },
+    "status": "BTG_INTERNAL_QUALIFIED_GLOBAL_PASSPORT_CONTINUOUS_PROVENANCE_RELEASE_CANDIDATE",
+    "targeted_global_passport_tests": {
+      "passed": 33,
+      "total": 33
+    },
+    "v3_4_invariants": [
+      "CORE_PRIMITIVES_UNCHANGED",
+      "MARKET_ENGINE_PRESERVED",
+      "GLOBAL_PASSPORT_BINDS_EXISTING_RIGHTS",
+      "PROFILE_COMPOSITION_DOES_NOT_CREATE_AUTHORITY",
+      "EXTERNAL_STANDARDS_MAPPED_NOT_REDEFINED",
+      "PASSPORT_IS_NOT_OBJECTIVE_TRUTH",
+      "LEGAL_COMPLIANCE_NOT_IMPLIED",
+      "CONTINUOUS_PROVENANCE",
+      "CUSTODY_IS_NOT_AUTHORITY",
+      "ECONOMIC_VALUE_NOT_INVENTED",
+      "INDUSTRY_PACKAGES_DO_NOT_CREATE_SILOS"
+    ],
+    "version": "3.4.0"
+  },
+  "qualified_source_commit": "854529e6cb88e77f29cce581beb74b530768224c",
+  "release_chain": {
+    "v3.3.0_protected_base": "9c79f987207592cb6791e1a8956f23351cdfb2d3",
+    "v3.4.0_qualified_source": "854529e6cb88e77f29cce581beb74b530768224c"
+  },
+  "release_date": "2026-09-24",
+  "release_snapshot_sha256": "81d0b4381703d908f774b1834effee2594db13f182846117845827c6b5c5fcb7",
+  "repository": "blackmore-technology-group/ENTITY",
+  "schema": "entity-v3-4-0-release-manifest-v1",
+  "six_language_controlled_interoperability": {
+    "implementations": {
+      "csharp": "2cf64646cb70c8d89698f3f474a0a2a532c83b2d",
+      "go": "d878229a5256bf7c06a1da84dfb9ba0297f0c946",
+      "java": "da2520429f8dab7a2752b2b6b6fc653c6ae173b6",
+      "rust": "5420f724495722019b1f8624f02fe8a02df7bfbf",
+      "swift": "2f40118999beceb6c34f2ea1c583dd12cfe81368",
+      "typescript": "48e7f606740819379eee2e0fa663d41044b1d899"
+    },
+    "independent_third_party_interoperability": false,
+    "result_sha256": "ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba",
+    "status": "PASS"
+  },
+  "status": "BTG_INTERNAL_QUALIFIED_GLOBAL_PASSPORT_CONTINUOUS_PROVENANCE_RELEASE_CANDIDATE",
+  "supersedes": "v3.3.0",
+  "version": "3.4.0"
+}

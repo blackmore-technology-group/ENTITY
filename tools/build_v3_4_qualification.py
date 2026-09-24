@@ -1,0 +1,96 @@
+from __future__ import annotations
+import json, pathlib
+
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+QDIR=ROOT/"docs/qualification"; QDIR.mkdir(parents=True,exist_ok=True)
+qualification={
+  "schema":"entity-v3-4-0-release-qualification-v1",
+  "version":"3.4.0",
+  "status":"BTG_INTERNAL_QUALIFIED_GLOBAL_PASSPORT_CONTINUOUS_PROVENANCE_RELEASE_CANDIDATE",
+  "date":"2026-09-24",
+  "base_release":"v3.3.0",
+  "base_commit":"9c79f987207592cb6791e1a8956f23351cdfb2d3",
+  "base_release_manifest_sha256":"1e4fa980507f20168be44b7644a3ccfaa6cd369c08d05ff7c7c2fcb2956ff85c",
+  "qualified_source_commit":"854529e6cb88e77f29cce581beb74b530768224c",
+  "regression":{"environment":"_venv_entity_v3","runner":"python -m unittest discover -s tests -p 'test_*.py' -v","passed":177,"total":177},
+  "targeted_global_passport_tests":{"passed":33,"total":33},
+  "cli_deployment_smoke":{"valid":True,"passport_valid":True,"objective_truth_claimed":False,"legal_compliance_claimed":False},
+  "global_passport_conformance":{"total":24,"valid":12,"invalid":12,
+    "sealed_kit_sha256":"5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230",
+    "schema_sha256":"4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd",
+    "expected_result_sha256":"ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba"},
+  "six_language_controlled_interoperability":{
+    "status":"PASS","independent_third_party_interoperability":False,
+    "result_sha256":"ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba",
+    "implementations":{
+      "rust":"5420f724495722019b1f8624f02fe8a02df7bfbf",
+      "typescript":"48e7f606740819379eee2e0fa663d41044b1d899",
+      "go":"d878229a5256bf7c06a1da84dfb9ba0297f0c946",
+      "csharp":"2cf64646cb70c8d89698f3f474a0a2a532c83b2d",
+      "java":"da2520429f8dab7a2752b2b6b6fc653c6ae173b6",
+      "swift":"2f40118999beceb6c34f2ea1c583dd12cfe81368"}},
+  "implementation_packages":{
+    "bundle_sha256":"5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7",
+    "registry_sha256":"9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0",
+    "packages":{
+      "ai":"4877cb5bc76ef0803eace931ca1a9cba516c01ba94a2e0b4bc71bcb5dc1b0440",
+      "defence-public":"7edc52344822e370f937b12d05258b5cb3283756dadb5c1885dd93f126cf9887",
+      "finance":"768dd87fd5a29c7e2679fc2b0d4b172b8613712b148336d8fba91a3b92d0d466",
+      "healthcare":"b4e901ce37f696fa10666839cb8d3cacbd1fe663070667ca1767a6245e7cf939",
+      "manufacturing":"bc29a0de024cea22552078ff1913fa3df2b189436cb853cc2f4e08974325c4bc",
+      "robotics":"3a0e68fa6c63b2ef9cf79ccf463335af72d49ffb3cd028c88b6a998d8678f38f"},
+    "profiles_are_executable_implementation_assets":True,
+    "developer_configures_not_redesigns":True},
+  "v3_4_invariants":[
+    "CORE_PRIMITIVES_UNCHANGED","MARKET_ENGINE_PRESERVED","GLOBAL_PASSPORT_BINDS_EXISTING_RIGHTS",
+    "PROFILE_COMPOSITION_DOES_NOT_CREATE_AUTHORITY","EXTERNAL_STANDARDS_MAPPED_NOT_REDEFINED",
+    "PASSPORT_IS_NOT_OBJECTIVE_TRUTH","LEGAL_COMPLIANCE_NOT_IMPLIED","CONTINUOUS_PROVENANCE",
+    "CUSTODY_IS_NOT_AUTHORITY","ECONOMIC_VALUE_NOT_INVENTED","INDUSTRY_PACKAGES_DO_NOT_CREATE_SILOS"],
+  "permanent_truth_boundaries":[
+    "cryptographic verification proves integrity/attribution, not objective external truth",
+    "protocol verification proves ENTITY semantic validity, not objective external truth",
+    "evidence and attestations remain attributable and contestable",
+    "profile composition does not create sovereign authority",
+    "external standards are mapped, not redefined or made subordinate to ENTITY",
+    "profile/package validation does not establish regulatory compliance",
+    "protocol records do not determine legal title or accounting fair value",
+    "provider custody does not create ENTITY authority",
+    "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"],
+  "external_remaining":[
+    "unrelated third-party independent v3.4 implementation and live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+    "real external issuers, buyers, repeat transactions and market liquidity",
+    "standards/profile governance adoption outside BTG"],
+  "claim_boundary":"Six native implementations are BTG-controlled controlled-interoperability evidence; they are not unrelated third-party independence."
+}
+json_path=QDIR/"ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.json"
+json_path.write_text(json.dumps(qualification,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+md=f'''# ENTITY v3.4.0 Release Qualification — 2026-09-24
+
+**Status:** {qualification["status"]}
+
+**Qualified source:** `{qualification["qualified_source_commit"]}`  
+**Base:** ENTITY v3.3.0 at `{qualification["base_commit"]}`
+
+## Qualification result
+
+- Complete regression: **177/177 PASS**.
+- v3.4 targeted Global Passport / implementation-package tests: **33/33 PASS**.
+- Sealed Global Passport campaign: **24/24 vectors** (12 valid, 12 invalid).
+- Canonical result SHA-256: `{qualification["global_passport_conformance"]["expected_result_sha256"]}`.
+- Six BTG-controlled native implementations: **Rust, TypeScript, Go, C#, Java, Swift — PASS**.
+- CLI deployment path: initialize → package plan → ingest → passport verify — **PASS**.
+
+## Release architecture
+
+ENTITY v3.4 preserves `ENTITY → AUTHORITY → RIGHT → EVENT → VALUE`. It adds one Global Passport, composable profiles, a versioned profile registry, explicit external-standard mappings, continuous provenance and executable implementation packages for Healthcare, Finance, Manufacturing, AI, Robotics and public/unclassified Defence.
+
+Industry packages populate the one Global Passport. They do not define incompatible industry-specific passports, create authority, declare truth, or establish regulatory compliance.
+
+## Evidence boundary
+
+The six native implementations are all BTG-controlled. Their common result is meaningful controlled-interoperability evidence, but **unrelated third-party implementation/interoperability remains pending**. External security review and deployment-specific legal/regulatory determinations also remain external work.
+'''
+(QDIR/"ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.md").write_text(md,encoding="utf-8")
+print(json.dumps({"qualified_source_commit":qualification["qualified_source_commit"],"regression":"177/177","targeted":"33/33","vectors":"24/24","six_language":"PASS"},indent=2))
