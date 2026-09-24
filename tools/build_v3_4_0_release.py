@@ -14,7 +14,7 @@ overlay={
  "docs/qualification/ENTITY_V3_4_0_CONTINUOUS_PROVENANCE_INGEST_2026-09-24.json",
  "protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json",
  "protocol/v3/ENTITY_V3_4_GLOBAL_PASSPORT_CLEANROOM_KIT.min.json",
- "profiles/registry.json","profiles/ENTITY_V3_4_IMPLEMENTATION_PACKAGES.json",
+ "profiles/registry.json",
  "src/38_Global_Passports/profile_registry.py","src/38_Global_Passports/industry_profiles.py",
  "src/38_Global_Passports/global_passport.py","src/38_Global_Passports/continuous_ingestion.py",
  "src/38_Global_Passports/global_passport_profile.py","src/38_Global_Passports/passport_conformance.py",
@@ -45,13 +45,13 @@ manifest={
    "historical_provenance_before_v3_4_claimed":ingest["historical_provenance_before_v3_4_claimed"]},
  "external_remaining":qualification["external_remaining"],"permanent_truth_boundaries":qualification["permanent_truth_boundaries"],
  "overlay_files":entries,"overlay_snapshot_sha256":overlay_snapshot,"release_snapshot_sha256":release_snapshot,
- "implementation_package_bundle_sha256":qualification["implementation_packages"]["bundle_sha256"],
+ "implementation_package_registry_sha256":qualification["implementation_packages"]["registry_sha256"],
  "six_language_controlled_interoperability":qualification["six_language_controlled_interoperability"],
  "release_chain":{"v3.3.0_protected_base":"9c79f987207592cb6791e1a8956f23351cdfb2d3",
                   "v3.4.0_qualified_source":qualification["qualified_source_commit"]}
 }
 out=ROOT/"ENTITY_V3_4_0_RELEASE_MANIFEST.json"
-out.write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+out.write_bytes((json.dumps(manifest,indent=2,sort_keys=True)+"\n").encode("utf-8"))
 print(json.dumps({"version":manifest["version"],"status":manifest["status"],"overlay_files":len(entries),
                   "overlay_snapshot_sha256":overlay_snapshot,"release_snapshot_sha256":release_snapshot,
                   "qualified_source_commit":manifest["qualified_source_commit"]},indent=2,sort_keys=True))
