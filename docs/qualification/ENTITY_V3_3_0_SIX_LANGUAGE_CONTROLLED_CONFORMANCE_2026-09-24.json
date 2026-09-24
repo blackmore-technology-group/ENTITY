@@ -1,0 +1,72 @@
+{
+  "schema": "entity-v3-3-0-six-language-controlled-conformance-addendum-v1",
+  "version": "3.3.0",
+  "date": "2026-09-24",
+  "status": "PASS",
+  "evidence_type": "BTG_CONTROLLED_CROSS_LANGUAGE_REPRODUCIBILITY",
+  "release_tag": "v3.3.0",
+  "release_commit": "9c79f987207592cb6791e1a8956f23351cdfb2d3",
+  "release_tag_moved": false,
+  "post_release_addendum": true,
+  "sealed_kit_sha256": "f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46",
+  "schema_sha256": "6e1c7e621e0aa84627e009febf8999503b7a61f92627b885ed10a19f2ef7d767",
+  "expected_result_sha256": "82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d",
+  "vectors": {
+    "total": 20,
+    "valid": 10,
+    "invalid": 10
+  },
+  "cleanrooms": {
+    "rust": {
+      "repository": "blackmore-technology-group/ENTITY-RUST-CLEANROOM",
+      "commit": "0ff638fdb0a3d7e8e061205d5b5bc2e3f1e68a31",
+      "workflow_run": 36016169261,
+      "status": "PASS"
+    },
+    "typescript": {
+      "repository": "blackmore-technology-group/ENTITY-TYPESCRIPT-CLEANROOM",
+      "commit": "6582532af2af6a9bcf458aa2e80a841f64f51094",
+      "workflow_run": 36016179311,
+      "status": "PASS"
+    },
+    "csharp": {
+      "repository": "blackmore-technology-group/ENTITY-CSHARP-CLEANROOM",
+      "commit": "5a1fb61380a788b98d7fccb9f138527f063c1d9f",
+      "workflow_run": 36016731801,
+      "status": "PASS"
+    },
+    "go": {
+      "repository": "blackmore-technology-group/ENTITY-GO-CLEANROOM",
+      "commit": "74cebdfbb0a6751ea60764e874656b119a3e2416",
+      "workflow_run": 36016190096,
+      "status": "PASS"
+    },
+    "swift": {
+      "repository": "blackmore-technology-group/ENTITY-SWIFT-CLEANROOM",
+      "commit": "bbc4e6e6d7cfa4517e90ca2f9477f784e29c72f1",
+      "workflow_run": 36016560914,
+      "status": "PASS"
+    },
+    "java": {
+      "repository": "blackmore-technology-group/ENTITY-JAVA-CLEANROOM",
+      "commit": "1d4d717cd9f5bd93bdcf1403d86b840517c208f3",
+      "workflow_run": 36016205611,
+      "status": "PASS"
+    }
+  },
+  "invariants": [
+    "all six native implementations evaluated the same sealed v3.3 release semantics",
+    "all six accepted/rejected the same 20 records",
+    "all six converged on the exact expected result SHA-256",
+    "legacy, v3.1 and v3.2 campaigns remained required in each clean-room workflow",
+    "cryptographic or protocol verification does not establish objective external truth",
+    "the v3.3.0 published tag and release snapshot were not rewritten by this addendum"
+  ],
+  "claim_boundary": "The six implementations are BTG-controlled clean-room baselines. This is controlled cross-language reproducibility evidence, not unrelated third-party independent interoperability evidence.",
+  "external_remaining": [
+    "unrelated third-party v3.3 implementation and independent live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory validation where required",
+    "real external issuers, buyers, repeated transactions and demonstrated market liquidity"
+  ]
+}
