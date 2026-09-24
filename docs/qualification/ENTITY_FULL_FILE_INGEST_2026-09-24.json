@@ -1,0 +1,39 @@
+{
+  "backup": {
+    "bytes": 2553535,
+    "cipher": "AES-256-GCM",
+    "encrypted": true,
+    "sha256": "8571895bf3ff14730054d601528ecc84458a8d0dd06ebd1bf547c86193922c6c"
+  },
+  "campaign": "ENTITY full engineering corpus ingest",
+  "claim_boundary": "File hashes, repository references and signed evidence establish attributable engineering provenance; they do not independently establish legal ownership, market value or accounting fair value.",
+  "content_vault_files_verified_after_restore": 742,
+  "content_vault_files_verified_before_backup": 742,
+  "date": "2026-09-24",
+  "economic_boundary": {
+    "historical_contribution_weights_invented": false,
+    "monetary_value_asserted": false,
+    "royalties_asserted": false
+  },
+  "entity_objects": 750,
+  "evidence_objects": 750,
+  "full_catalog_sha256": "94b428bda7e9581564c13a1984844bf6370b125968190e0d4663700a91aac44e",
+  "inventory_sha256": "0d24dc5d8676d4e9fc4b8ff8151a464463dbbd6820007fe64c3f47ea954000a0",
+  "local_sovereign_bundle_file_sha256": "1423a2350a6e38a8e6334b06659bd4aa697b82d9ba10f68c17846687495ca417",
+  "private_recovery_material_published": false,
+  "provenance_edges": 1484,
+  "raw_content_vault_published": false,
+  "rights": 750,
+  "rights_passports": 750,
+  "root_object_id": "obj3-c310f8de7443fdce3e5a3c3e40d1b577a4f20e0a",
+  "schema": "entity-full-file-ingest-summary-v1",
+  "source_bytes": 3479081,
+  "source_files": 742,
+  "sovereign_bundle_semantic_sha256": "00b6d157fee24f1c8aa800bebc3edc6a83c9f801fcd86180da2567e157482b92",
+  "state_semantic_root_after_restore_test": "0596445056faecdf16b1ac9832b82e7308b23299ed15f297e383a9974ed0714b",
+  "state_semantic_root_before_restore_test": "0596445056faecdf16b1ac9832b82e7308b23299ed15f297e383a9974ed0714b",
+  "status": "PASS",
+  "unique_content_blobs": 466,
+  "value_records": 750,
+  "vault_bytes_after_deduplication": 2530319
+}
