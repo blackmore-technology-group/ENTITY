@@ -1,0 +1,67 @@
+name: Independent implementation / conformance result
+about: Share an independently authored implementation, partial result, or clean-room conformance finding.
+title: "[INTEROP] "
+labels:
+  - interoperability
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Independent attempts are useful whether they pass, fail, or expose ambiguity. BTG will not rewrite a contributor's evidence into a stronger claim than it supports.
+  - type: input
+    id: repository
+    attributes:
+      label: Independent repository
+      description: Link the repository controlled by the independent implementer or organization.
+      placeholder: https://github.com/...
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Exact ENTITY target
+      description: Release/tag/commit and sealed kit or specification used.
+      placeholder: v3.3.0 / exact clean-room material
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language / runtime
+      placeholder: Rust 1.xx, Go 1.xx, .NET 9, JVM 25, etc.
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Current stage
+      options:
+        - Reproduction / kit verification
+        - Partial semantic implementation
+        - Vector campaign complete
+        - Live interoperability attempted
+        - Sovereign export / recovery attempted
+        - Full independent qualification evidence available
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Results
+      description: Include pass/fail counts, hashes, CI links, unexpected behavior and unresolved questions.
+    validations:
+      required: true
+  - type: textarea
+    id: cleanroom
+    attributes:
+      label: Clean-room boundary
+      description: Briefly describe what public material was used and how BTG implementation code was excluded where independence is claimed.
+    validations:
+      required: true
+  - type: checkboxes
+    id: claim
+    attributes:
+      label: Claim boundary
+      options:
+        - label: I understand that partial conformance is welcome and will not be represented as full independent interoperability unless every required stage is evidenced.
+          required: true

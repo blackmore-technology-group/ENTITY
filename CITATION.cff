@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use ENTITY in research or engineering work, please cite the project and the exact release used."
+title: "ENTITY"
+type: software
+version: 3.3.0
+date-released: 2026-09-24
+license: Apache-2.0
+authors:
+  - family-names: Blackmore
+    given-names: Shawn
+repository-code: "https://github.com/blackmore-technology-group/ENTITY"
+url: "https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.3.0"
+abstract: "Provider-independent open infrastructure for sovereign digital authority, verifiable claims, data rights, evidence, interoperability and portable economic state."

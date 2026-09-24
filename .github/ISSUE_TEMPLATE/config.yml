@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: ENTITY Discussions
+    url: https://github.com/blackmore-technology-group/ENTITY/discussions
+    about: Ask architecture questions, discuss larger ideas, or narrow a possible contribution before opening an issue.
+  - name: Security policy
+    url: https://github.com/blackmore-technology-group/ENTITY/security/policy
+    about: Use the security policy for sensitive vulnerability reports rather than a public issue.
+  - name: Independent interoperability challenge
+    url: https://github.com/blackmore-technology-group/ENTITY/blob/main/docs/INTEROPERABILITY_CHALLENGE.md
+    about: Read the graduated clean-room implementation and interoperability path.

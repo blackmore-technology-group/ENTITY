@@ -1,0 +1,58 @@
+name: Specification ambiguity or counterexample
+about: Challenge a rule, schema, vector, truth boundary or protocol interpretation.
+title: "[SPEC] "
+labels:
+  - specification
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A concrete ambiguity or counterexample is a valuable contribution. You do not need to propose the final fix.
+  - type: input
+    id: version
+    attributes:
+      label: Version / exact material
+      description: Identify the release, commit, file, schema, section or vector.
+      placeholder: v3.3.0 - protocol/v3/ENTITY_VERIFIABLE_REALITY.schema.json
+    validations:
+      required: true
+  - type: textarea
+    id: reading
+    attributes:
+      label: Current interpretation
+      description: What does the published material appear to require or permit?
+    validations:
+      required: true
+  - type: textarea
+    id: ambiguity
+    attributes:
+      label: Ambiguity or counterexample
+      description: Show the concrete case where two interpretations are possible or a stated boundary may not hold.
+    validations:
+      required: true
+  - type: textarea
+    id: consequence
+    attributes:
+      label: Why it matters
+      description: What implementation, authority, evidence, interoperability or compatibility consequence follows?
+    validations:
+      required: true
+  - type: dropdown
+    id: verification
+    attributes:
+      label: Verification layer most affected
+      options:
+        - Cryptographic verification
+        - Protocol verification
+        - Reality / evidence verification
+        - Authority / rights semantics
+        - Economic / market semantics
+        - Cross-layer ambiguity
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Possible clarification (optional)
+      description: A proposed wording/test is welcome, but finding the ambiguity is enough.
