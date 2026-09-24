@@ -26,8 +26,15 @@
     "valid": 12
   },
   "implementation_packages": {
-    "bundle_sha256": "5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7",
     "developer_configures_not_redesigns": true,
+    "domain_repositories": {
+      "ai": "blackmore-technology-group/ENTITY-AI",
+      "defence-public": "blackmore-technology-group/ENTITY-DEFENCE",
+      "finance": "blackmore-technology-group/ENTITY-FINANCE",
+      "healthcare": "blackmore-technology-group/ENTITY-HEALTHCARE",
+      "manufacturing": "blackmore-technology-group/ENTITY-MANUFACTURING",
+      "robotics": "blackmore-technology-group/ENTITY-ROBOTICS"
+    },
     "packages": {
       "ai": "4877cb5bc76ef0803eace931ca1a9cba516c01ba94a2e0b4bc71bcb5dc1b0440",
       "defence-public": "7edc52344822e370f937b12d05258b5cb3283756dadb5c1885dd93f126cf9887",
@@ -37,6 +44,7 @@
       "robotics": "3a0e68fa6c63b2ef9cf79ccf463335af72d49ffb3cd028c88b6a998d8678f38f"
     },
     "profiles_are_executable_implementation_assets": true,
+    "publication_model": "core registry plus six dedicated domain repositories",
     "registry_sha256": "9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0"
   },
   "permanent_truth_boundaries": [
