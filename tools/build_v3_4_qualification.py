@@ -1,8 +1,9 @@
 from __future__ import annotations
-import json, pathlib
+import hashlib, json, pathlib
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 QDIR=ROOT/"docs/qualification"; QDIR.mkdir(parents=True,exist_ok=True)
+registry_sha256=hashlib.sha256((ROOT/"profiles/registry.json").read_bytes()).hexdigest()
 qualification={
   "schema":"entity-v3-4-0-release-qualification-v1",
   "version":"3.4.0",
@@ -30,7 +31,7 @@ qualification={
       "java":"da2520429f8dab7a2752b2b6b6fc653c6ae173b6",
       "swift":"2f40118999beceb6c34f2ea1c583dd12cfe81368"}},
   "implementation_packages":{
-    "registry_sha256":"9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0",
+    "registry_sha256":registry_sha256,
     "packages":{
       "ai":"4877cb5bc76ef0803eace931ca1a9cba516c01ba94a2e0b4bc71bcb5dc1b0440",
       "defence-public":"7edc52344822e370f937b12d05258b5cb3283756dadb5c1885dd93f126cf9887",
