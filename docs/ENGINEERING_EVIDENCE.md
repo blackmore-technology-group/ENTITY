@@ -70,9 +70,19 @@ The release-candidate branch is based directly on the protected v3.2.0 commit. T
 - `protocol/v3/ENTITY_V3_3_REALITY_CLEANROOM_KIT.min.json`
 - `tests/test_v3_verifiable_reality.py`
 
-Targeted release-candidate qualification currently records **16/16 PASS** for the v3.3 verifiable-reality suite.
+Release qualification records:
 
-Until protected PR #18 is complete, this document intentionally does **not** describe v3.3 as a protected public release. The final protected commit, complete regression count, sealed release manifest, tag and GitHub Release should be recorded here before the PR is marked ready.
+- complete regression: **144/144 PASS**;
+- targeted v3.3 verifiable-reality tests: **16/16 PASS**;
+- sealed verifiable-reality vectors: **20/20 PASS** (10 valid / 10 invalid);
+- sealed kit SHA-256: `e0d6ba26baa405557bc2990e39d3022ebb8cda00ae797fab0100773cf304a6fd`;
+- schema SHA-256: `8aa990bc74b154b16204e36a60a265bfdb768c72f07dc70f6230d64d4e2b05d6`;
+- required deterministic result SHA-256: `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`;
+- v3.3 release overlay: **22 release-critical files**.
+
+The exact overlay and composed release snapshot hashes are recorded in `ENTITY_V3_3_0_RELEASE_MANIFEST.json`; the manifest is the machine-readable authority for those values so this human evidence page does not create a self-referential hash dependency.
+
+The qualification JSON/manifest deliberately records the state before publication as a BTG-internal qualified release candidate. Public release status is established separately by the protected `main` merge, `v3.3.0` tag and GitHub Release; that chronology should not be rewritten after publication.
 
 ---
 
