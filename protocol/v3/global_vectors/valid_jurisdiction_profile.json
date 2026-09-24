@@ -1,0 +1,32 @@
+{
+  "expect": "VALID",
+  "record": {
+    "authority_entity_id": "ent-example",
+    "created_at_ms": 1,
+    "domain": "DATA",
+    "effective_from_ms": 1,
+    "effective_to_ms": null,
+    "jurisdiction_code": "CA-BC",
+    "legal_effect_is_deployment_specific": true,
+    "parent_profile_id": null,
+    "precedence": 100,
+    "profile_id": "jprof3-example",
+    "rules": [
+      {
+        "actions": [
+          "TRAIN"
+        ],
+        "authority_basis": null,
+        "conditions": {},
+        "effect": "REQUIRE",
+        "obligations": [
+          "DISCLOSURE"
+        ]
+      }
+    ],
+    "schema": "entity-v3-jurisdiction-profile-v1",
+    "schema_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "status": "ACTIVE",
+    "version": "1.0"
+  }
+}

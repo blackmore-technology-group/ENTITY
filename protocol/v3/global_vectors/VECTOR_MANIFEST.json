@@ -1,0 +1,90 @@
+{
+  "invalid_vectors": 8,
+  "schema": "entity-v3-global-vector-manifest-v1",
+  "schema_file": "ENTITY_GLOBAL_INFRASTRUCTURE.schema.json",
+  "schema_sha256": "e15d8f5b07c6801d108c1b15f73dd115548d4dd5f882ba4e5dfd2a9c73fea7ba",
+  "status": "DEVELOPMENT",
+  "valid_vectors": 8,
+  "vectors": [
+    {
+      "expect": "VALID",
+      "file": "valid_jurisdiction_profile.json",
+      "sha256": "295aab036de9327b7fd054db61f1c772f31657d0d194ccf7e388b57155d66b54"
+    },
+    {
+      "expect": "VALID",
+      "file": "valid_semantic_term.json",
+      "sha256": "7b109084c6c778dd2671c227fb3e2c4eee85c68528215c1414964e20b7d4ca8d"
+    },
+    {
+      "expect": "VALID",
+      "file": "valid_topology_node.json",
+      "sha256": "d38bbff9973fb59e5556065ee019321068c9cd34def76733a62b05dfb7e5435d"
+    },
+    {
+      "expect": "VALID",
+      "file": "valid_purpose_grant.json",
+      "sha256": "69e7d9275576e044ec008d2e9e745ae2690f60243da26a6cd57f942fad94185a"
+    },
+    {
+      "expect": "VALID",
+      "file": "valid_offline_envelope.json",
+      "sha256": "6eec6e81945c23ca337037f8339ce70ef892156b16332436538ccc56477eaf90"
+    },
+    {
+      "expect": "VALID",
+      "file": "valid_crypto_transition.json",
+      "sha256": "d81c04bcdefff972bdfad4967184171c7fe7e53eacaf92e22a2582b8048a272d"
+    },
+    {
+      "expect": "VALID",
+      "file": "valid_data_economic_capital.json",
+      "sha256": "bd0de4e335ad8acfa352b93f22db5ff802490134398e9c7b7208a82151db900e"
+    },
+    {
+      "expect": "VALID",
+      "file": "valid_bounded_economic_interest.json",
+      "sha256": "981e18e65a27b41ac9845e91773100975c849095141e9b8cdd1724d1f1c25b18"
+    },
+    {
+      "expect": "INVALID",
+      "file": "invalid_jurisdiction_effect.json",
+      "sha256": "3b6a634ad6f079f12a999a9b4bd228e02d59d929396fd48b72987b5f29ede72d"
+    },
+    {
+      "expect": "INVALID",
+      "file": "invalid_semantic_kind.json",
+      "sha256": "8a195734eaf55bc81767787564bfbb0354c483addd86507a91c8a7d5a8a02a3e"
+    },
+    {
+      "expect": "INVALID",
+      "file": "invalid_topology_class.json",
+      "sha256": "7dd537b99d79e0efef1d8f1eb64d18ce4a9374f1b80b0bcaa8190ae065e5b3ba"
+    },
+    {
+      "expect": "INVALID",
+      "file": "invalid_purpose_empty_actions.json",
+      "sha256": "51661a5c98aa20b1838fb67ecc6d2734f494eda4f67a1426fda070193bc86d70"
+    },
+    {
+      "expect": "INVALID",
+      "file": "invalid_offline_payload_hash.json",
+      "sha256": "fed60a5c78d3de2a7331c06ea61f1d69f6654842281b51a0696f696d2d684f96"
+    },
+    {
+      "expect": "INVALID",
+      "file": "invalid_transition_truth_flag.json",
+      "sha256": "b14c5c3e2ec76f94acd8479828605114c3f8f8eb2059eb93e49bcc028d9013b2"
+    },
+    {
+      "expect": "INVALID",
+      "file": "invalid_data_capital_scarcity_flag.json",
+      "sha256": "0af047d58efb37e24ee151d7cafc4d80347b635bd14ed01c5adddabbe1d37e03"
+    },
+    {
+      "expect": "INVALID",
+      "file": "invalid_interest_nonrival_flag.json",
+      "sha256": "9c67c719c9e96436f26b4942d2974b92048470196781a14fca00080e9af1ea74"
+    }
+  ]
+}

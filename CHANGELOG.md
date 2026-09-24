@@ -1,5 +1,27 @@
 # Changelog
 
+## 3.1.0 - 2026-09-24
+
+BTG internally qualified feature release adding global-infrastructure profiles and the Data Economic Sovereignty Doctrine on the v3.0.1 security-hardened base.
+
+### Added
+- Signed/effective-dated jurisdiction and domain profiles with fail-closed conflict handling.
+- Governed semantic/ontology registries with explicit signed crosswalks and no silent coercion.
+- Multi-stakeholder standards governance with stakeholder-class diversity and recusal.
+- Purpose-bound privacy, selective retention, confidential provenance and fail-closed proof-verifier adapters.
+- Partition/offline topology semantics plus cryptographic-suite migration and downgrade resistance.
+- Data Economic Sovereignty Doctrine: non-rival information with explicit bounded rights-based economic scarcity.
+
+### Qualification
+- 116/116 complete regression tests PASS.
+- 22/22 targeted global/doctrine tests PASS.
+- 8 valid + 8 invalid global conformance vectors.
+- Rust, TypeScript, C#, Go, Swift and Java canonical clean-room mains reproduce common result SHA-256 `879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5`.
+
+### Claim boundary
+- Unrelated third-party v3 implementation/interoperability, independent external security review and deployment-specific legal/regulatory determinations remain external.
+- ENTITY does not determine legal title, fair value, regulatory classification or objective external-payment truth.
+
 ## 3.0.1 - 2026-09-23
 
 Security-hardening maintenance release and BTG-controlled post-release qualification closeout.

@@ -1,0 +1,14 @@
+{
+  "expect": "VALID",
+  "record": {
+    "actor_entity_id": "ent-example",
+    "created_at_ms": 1,
+    "envelope_id": "offline3-example",
+    "expires_at_ms": 2,
+    "node_id": "sat-1",
+    "partition_id": "P1",
+    "payload_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "schema": "entity-v3-offline-envelope-v1",
+    "sequence": 1
+  }
+}

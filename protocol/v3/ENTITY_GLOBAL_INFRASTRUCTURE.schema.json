@@ -1,0 +1,1159 @@
+{
+  "$defs": {
+    "bounded_economic_interest": {
+      "additionalProperties": false,
+      "properties": {
+        "actions": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "additional_bounds": {
+          "type": "object"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "dco_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "derivation_allowed": {
+          "type": "boolean"
+        },
+        "duration_ms": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "holder_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "interest_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "jurisdiction": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "participation_bps": {
+          "maximum": 10000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scarcity_sources": {
+          "items": {
+            "enum": [
+              "RIGHT",
+              "ENTITLEMENT",
+              "CAPACITY",
+              "DURATION",
+              "JURISDICTION",
+              "USAGE_QUANTITY",
+              "DERIVATION",
+              "PARTICIPATION",
+              "TRANSFERABILITY"
+            ]
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "schema": {
+          "const": "entity-v3-bounded-economic-interest-v1"
+        },
+        "transferable": {
+          "type": "boolean"
+        },
+        "underlying_information_remains_nonrival": {
+          "const": true
+        }
+      },
+      "required": [
+        "schema",
+        "interest_id",
+        "dco_ref",
+        "holder_entity_id",
+        "actions",
+        "quantity",
+        "duration_ms",
+        "jurisdiction",
+        "transferable",
+        "derivation_allowed",
+        "participation_bps",
+        "additional_bounds",
+        "scarcity_sources",
+        "underlying_information_remains_nonrival",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "confidential_provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "child_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "confidential_metadata_not_public_provenance": {
+          "const": true
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "edge_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "encrypted_metadata": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "metadata_commitment_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "parent_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relationship": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-confidential-provenance-v1"
+        }
+      },
+      "required": [
+        "schema",
+        "edge_id",
+        "actor",
+        "parent_ref",
+        "child_ref",
+        "relationship",
+        "evidence_sha256",
+        "metadata_commitment_sha256",
+        "encrypted_metadata",
+        "created_at_ms",
+        "confidential_metadata_not_public_provenance"
+      ],
+      "type": "object"
+    },
+    "crypto_suite": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "deprecate_at_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "governance_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "not_before_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "retire_at_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema": {
+          "const": "entity-v3-crypto-suite-v1"
+        },
+        "security_bits": {
+          "minimum": 64,
+          "type": "integer"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "suite_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "verifier_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "suite_id",
+        "governance_entity_id",
+        "algorithm",
+        "security_bits",
+        "verifier_sha256",
+        "not_before_ms",
+        "deprecate_at_ms",
+        "retire_at_ms",
+        "status",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "crypto_transition": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "downgrade_after_transition_prohibited": {
+          "const": true
+        },
+        "dual_sign_from_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "governance_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "new_suite_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "old_retire_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "old_suite_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-crypto-transition-v1"
+        },
+        "transition_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "transition_id",
+        "governance_entity_id",
+        "old_suite_id",
+        "new_suite_id",
+        "dual_sign_from_ms",
+        "old_retire_at_ms",
+        "created_at_ms",
+        "downgrade_after_transition_prohibited"
+      ],
+      "type": "object"
+    },
+    "data_economic_capital": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_class": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "dco_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "information_bytes_are_not_declared_scarce": {
+          "const": true
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "originator_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "provenance_root": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-data-economic-capital-v1"
+        }
+      },
+      "required": [
+        "schema",
+        "dco_ref",
+        "originator_entity_id",
+        "asset_class",
+        "provenance_root",
+        "content_sha256",
+        "metadata",
+        "information_bytes_are_not_declared_scarce",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "governance_body": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_threshold": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "body_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "charter_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "min_approval_classes": {
+          "minimum": 2,
+          "type": "integer"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-governance-body-v1"
+        },
+        "single_implementation_is_not_standard_authority": {
+          "const": true
+        },
+        "stakeholder_classes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 2,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "steward_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "body_id",
+        "steward_entity_id",
+        "name",
+        "charter_sha256",
+        "stakeholder_classes",
+        "approval_threshold",
+        "min_approval_classes",
+        "status",
+        "created_at_ms",
+        "single_implementation_is_not_standard_authority"
+      ],
+      "type": "object"
+    },
+    "jurisdiction_profile": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "domain": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "effective_from_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "effective_to_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "jurisdiction_code": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "legal_effect_is_deployment_specific": {
+          "const": true
+        },
+        "parent_profile_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "precedence": {
+          "type": "integer"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rules": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actions": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "authority_basis": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "conditions": {
+                "type": "object"
+              },
+              "effect": {
+                "enum": [
+                  "ALLOW",
+                  "REQUIRE",
+                  "PROHIBIT"
+                ]
+              },
+              "obligations": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "effect",
+              "actions",
+              "conditions",
+              "obligations",
+              "authority_basis"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "const": "entity-v3-jurisdiction-profile-v1"
+        },
+        "schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "profile_id",
+        "jurisdiction_code",
+        "domain",
+        "version",
+        "authority_entity_id",
+        "schema_sha256",
+        "rules",
+        "effective_from_ms",
+        "effective_to_ms",
+        "precedence",
+        "parent_profile_id",
+        "status",
+        "created_at_ms",
+        "legal_effect_is_deployment_specific"
+      ],
+      "type": "object"
+    },
+    "offline_envelope": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "envelope_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "expires_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "node_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "partition_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-offline-envelope-v1"
+        },
+        "sequence": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schema",
+        "envelope_id",
+        "actor_entity_id",
+        "node_id",
+        "partition_id",
+        "sequence",
+        "payload_sha256",
+        "created_at_ms",
+        "expires_at_ms"
+      ],
+      "type": "object"
+    },
+    "partition_checkpoint": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoint_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "epoch": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "node_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "operator_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "partition_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "previous_checkpoint_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema": {
+          "const": "entity-v3-partition-checkpoint-v1"
+        },
+        "sequence": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "state_root_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "vector_clock": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema",
+        "checkpoint_id",
+        "node_id",
+        "operator_entity_id",
+        "partition_id",
+        "sequence",
+        "epoch",
+        "previous_checkpoint_sha256",
+        "state_root_sha256",
+        "vector_clock",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "proof_suite": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "governance_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "registration_does_not_certify_cryptographic_security": {
+          "const": true
+        },
+        "schema": {
+          "const": "entity-v3-proof-suite-v1"
+        },
+        "security_claim": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "suite_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "verifier_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "suite_id",
+        "governance_entity_id",
+        "algorithm",
+        "verifier_sha256",
+        "security_claim",
+        "status",
+        "created_at_ms",
+        "registration_does_not_certify_cryptographic_security"
+      ],
+      "type": "object"
+    },
+    "purpose_grant": {
+      "additionalProperties": false,
+      "properties": {
+        "actions": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "controller": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "expires_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "grant_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "grantee": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "max_uses": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "purposes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "resource_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-purpose-bound-access-v1"
+        },
+        "status": {
+          "const": "ACTIVE"
+        }
+      },
+      "required": [
+        "schema",
+        "grant_id",
+        "controller",
+        "grantee",
+        "resource_ref",
+        "purposes",
+        "actions",
+        "max_uses",
+        "expires_at_ms",
+        "status",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "retention_record": {
+      "additionalProperties": false,
+      "properties": {
+        "controller": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "destruction_mode": {
+          "enum": [
+            "DELETE_PAYLOAD",
+            "REDACT_SOURCE",
+            "DESTROY_EXTERNAL_COPY",
+            "LEGAL_HOLD"
+          ]
+        },
+        "jurisdiction": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "purpose": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "raw_payload_stored_in_ledger": {
+          "const": false
+        },
+        "record_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "retain_until_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "schema": {
+          "const": "entity-v3-retention-record-v1"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "storage_ref_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subject_ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "record_id",
+        "controller",
+        "subject_ref",
+        "payload_sha256",
+        "storage_ref_sha256",
+        "purpose",
+        "jurisdiction",
+        "retain_until_ms",
+        "destruction_mode",
+        "status",
+        "created_at_ms",
+        "raw_payload_stored_in_ledger"
+      ],
+      "type": "object"
+    },
+    "semantic_crosswalk": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "confidence_bps": {
+          "maximum": 10000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "crosswalk_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "evidence_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "jurisdiction_scope": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "mapping_is_attestation_not_identity": {
+          "const": true
+        },
+        "relation": {
+          "enum": [
+            "EXACT",
+            "BROADER",
+            "NARROWER",
+            "RELATED",
+            "INCOMPATIBLE"
+          ]
+        },
+        "schema": {
+          "const": "entity-v3-semantic-crosswalk-v1"
+        },
+        "silent_semantic_coercion_prohibited": {
+          "const": true
+        },
+        "source_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "target_ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "crosswalk_id",
+        "actor_entity_id",
+        "source_ref",
+        "target_ref",
+        "relation",
+        "evidence_sha256",
+        "jurisdiction_scope",
+        "confidence_bps",
+        "created_at_ms",
+        "mapping_is_attestation_not_identity",
+        "silent_semantic_coercion_prohibited"
+      ],
+      "type": "object"
+    },
+    "semantic_term": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "definition": {
+          "type": "object"
+        },
+        "definition_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "RIGHT",
+            "EVENT",
+            "CAPABILITY",
+            "ASSET_CLASS",
+            "TRUST_FRAMEWORK",
+            "DISPUTE_AUTHORITY",
+            "ATTESTATION_CLASS"
+          ]
+        },
+        "namespace_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-semantic-term-v1"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "supersedes_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "term_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "namespace_id",
+        "kind",
+        "term_id",
+        "version",
+        "definition_sha256",
+        "definition",
+        "status",
+        "supersedes_ref",
+        "created_at_ms"
+      ],
+      "type": "object"
+    },
+    "topology_node": {
+      "additionalProperties": false,
+      "properties": {
+        "capabilities": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "created_at_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "infrastructure_membership_is_not_sovereign_authority": {
+          "const": true
+        },
+        "jurisdiction": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "operator_entity_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema": {
+          "const": "entity-v3-topology-node-v1"
+        },
+        "status": {
+          "const": "ACTIVE"
+        },
+        "topology_class": {
+          "enum": [
+            "CORE",
+            "REGIONAL",
+            "EDGE",
+            "SATELLITE",
+            "OFFLINE"
+          ]
+        },
+        "trust_domain": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "node_id",
+        "operator_entity_id",
+        "topology_class",
+        "jurisdiction",
+        "trust_domain",
+        "capabilities",
+        "status",
+        "created_at_ms",
+        "infrastructure_membership_is_not_sovereign_authority"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://entity.invalid/protocol/v3/ENTITY_GLOBAL_INFRASTRUCTURE.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/jurisdiction_profile"
+    },
+    {
+      "$ref": "#/$defs/semantic_term"
+    },
+    {
+      "$ref": "#/$defs/semantic_crosswalk"
+    },
+    {
+      "$ref": "#/$defs/governance_body"
+    },
+    {
+      "$ref": "#/$defs/purpose_grant"
+    },
+    {
+      "$ref": "#/$defs/retention_record"
+    },
+    {
+      "$ref": "#/$defs/confidential_provenance"
+    },
+    {
+      "$ref": "#/$defs/topology_node"
+    },
+    {
+      "$ref": "#/$defs/partition_checkpoint"
+    },
+    {
+      "$ref": "#/$defs/offline_envelope"
+    },
+    {
+      "$ref": "#/$defs/proof_suite"
+    },
+    {
+      "$ref": "#/$defs/crypto_suite"
+    },
+    {
+      "$ref": "#/$defs/crypto_transition"
+    },
+    {
+      "$ref": "#/$defs/data_economic_capital"
+    },
+    {
+      "$ref": "#/$defs/bounded_economic_interest"
+    }
+  ],
+  "title": "ENTITY Global Infrastructure Profile Records"
+}

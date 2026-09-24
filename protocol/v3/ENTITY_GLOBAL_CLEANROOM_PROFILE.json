@@ -1,0 +1,21 @@
+{
+  "base_release": "v3.0.1",
+  "doctrine_invariants": [
+    "DATA_MAY_BE_PRODUCTIVE_CAPITAL",
+    "INFORMATION_SCARCITY_NOT_REQUIRED",
+    "SCARCITY_MUST_BE_EXPLICITLY_BOUNDED",
+    "ORIGINATOR_PARTICIPATION_MUST_BE_ESTABLISHED_BY_TERMS",
+    "PROVENANCE_LINKS_RIGHT_USE_DERIVATION_VALUE",
+    "PROTOCOL_DOES_NOT_DETERMINE_LEGAL_TITLE",
+    "PROTOCOL_DOES_NOT_DETERMINE_FAIR_VALUE",
+    "PROTOCOL_DOES_NOT_DETERMINE_REGULATORY_CLASSIFICATION"
+  ],
+  "expected_result_sha256": "879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5",
+  "invalid_vectors": 8,
+  "release_candidate": "v3.1.0",
+  "result_schema": "entity-v3.1-global-cleanroom-result-v1",
+  "schema": "entity-v3.1-global-cleanroom-profile-v1",
+  "schema_sha256": "e15d8f5b07c6801d108c1b15f73dd115548d4dd5f882ba4e5dfd2a9c73fea7ba",
+  "valid_vectors": 8,
+  "vector_manifest_sha256": "96aafd431a393b27dce3666b96c8f83289f799428bf685c8c4e742f8494e4631"
+}

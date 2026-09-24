@@ -1,0 +1,14 @@
+{
+  "expect": "INVALID",
+  "record": {
+    "asset_class": "DATASET",
+    "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "created_at_ms": 1,
+    "dco_ref": "obj3-data",
+    "information_bytes_are_not_declared_scarce": false,
+    "metadata": {},
+    "originator_entity_id": "ent-originator",
+    "provenance_root": "0000000000000000000000000000000000000000000000000000000000000000",
+    "schema": "entity-v3-data-economic-capital-v1"
+  }
+}

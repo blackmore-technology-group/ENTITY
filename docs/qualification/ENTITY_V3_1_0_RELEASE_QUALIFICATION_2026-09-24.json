@@ -1,0 +1,88 @@
+{
+  "schema": "entity-v3-1-0-release-qualification-v1",
+  "version": "3.1.0",
+  "date": "2026-09-24",
+  "status": "BTG_INTERNAL_QUALIFIED_FEATURE_RELEASE",
+  "base_release": "v3.0.1",
+  "base_commit": "a977b013cb29504f04953c4fce33d2372e91097b",
+  "base_release_manifest_sha256": "bded186da812a5e1c8969724b04415545f199cf0e91ba49b5316e2cce95833a7",
+  "base_release_snapshot_sha256": "12bbc2c8228009ec557d5a253377f0ac19b8941484ac6146b9dfe669e3825783",
+  "feature_manifest_snapshot_sha256": "a26be5480b94f7669d41158cbceb1e8d31146afbbcba88f3ee4857c323cf25fc",
+  "regression": {
+    "passed": 116,
+    "total": 116
+  },
+  "targeted_global_doctrine_tests": {
+    "passed": 22,
+    "total": 22
+  },
+  "global_conformance_vectors": {
+    "valid": 8,
+    "invalid": 8,
+    "total": 16
+  },
+  "cleanroom_result_sha256": "879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5",
+  "cleanrooms": {
+    "rust": {
+      "commit": "1dd9d4d35a5ff582f1a38ad5f2f537728c58e062",
+      "workflow_run": 35950910738,
+      "status": "PASS"
+    },
+    "typescript": {
+      "commit": "795a15c463f6f685282892bcdea480fb79ef311d",
+      "workflow_run": 35950918876,
+      "status": "PASS"
+    },
+    "csharp": {
+      "commit": "e5ee834ae3b59bf28358a7279dba8a197928c107",
+      "workflow_run": 35950928130,
+      "status": "PASS"
+    },
+    "go": {
+      "commit": "5be40a675cf3bd9d7d2a6bd39d39ef437839d28c",
+      "workflow_run": 35950936069,
+      "status": "PASS"
+    },
+    "swift": {
+      "commit": "830355d2c850bec6abdd62e8274d81afa5a8101e",
+      "workflow_run": 35950945169,
+      "status": "PASS"
+    },
+    "java": {
+      "commit": "2d230ea09388149f3829275e88324616469f8e0f",
+      "workflow_run": 35953170903,
+      "status": "PASS"
+    }
+  },
+  "new_v3_1_capabilities": [
+    "signed effective-dated jurisdiction profiles with fail-closed conflict handling",
+    "governed semantic and ontology registries with explicit crosswalks",
+    "multi-stakeholder standards governance with stakeholder-class diversity and recusal",
+    "purpose-bound privacy, selective retention, confidential provenance and proof-verifier adapters",
+    "partition/offline topology semantics and cryptographic-suite migration",
+    "Data Economic Sovereignty Doctrine with bounded rights-based scarcity"
+  ],
+  "inherited_v3_0_1_evidence": {
+    "assets": 1000000,
+    "events": 3000000,
+    "market_settled_trades": 4000,
+    "operational_soak_seconds": 900,
+    "operational_soak_settled_trades": 7231,
+    "eep_adversarial_cases": 5400,
+    "key_lifecycle_random_signature_cases": 10000,
+    "privacy_assertions": 3000,
+    "signed_merkle_receipts": 200
+  },
+  "external_remaining": [
+    "unrelated third-party v3 implementation and independent live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required"
+  ],
+  "permanent_truth_boundaries": [
+    "protocol records do not determine legal title",
+    "protocol records do not declare market or accounting fair value",
+    "external payment evidence is attestation, not objective bank truth",
+    "internal performance qualification is not an external SLA",
+    "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+  ]
+}

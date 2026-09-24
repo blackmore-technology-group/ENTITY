@@ -1,0 +1,18 @@
+{
+  "expect": "INVALID",
+  "record": {
+    "actions": [],
+    "controller": "ent-controller",
+    "created_at_ms": 1,
+    "expires_at_ms": 9999999999999,
+    "grant_id": "pgrant3-example",
+    "grantee": "ent-user",
+    "max_uses": 10,
+    "purposes": [
+      "RESEARCH"
+    ],
+    "resource_ref": "dataset:A",
+    "schema": "entity-v3-purpose-bound-access-v1",
+    "status": "ACTIVE"
+  }
+}

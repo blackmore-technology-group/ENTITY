@@ -1,0 +1,691 @@
+{
+  "base_commit": "a977b013cb29504f04953c4fce33d2372e91097b",
+  "base_release_manifest_sha256": "bded186da812a5e1c8969724b04415545f199cf0e91ba49b5316e2cce95833a7",
+  "base_release_snapshot_sha256": "12bbc2c8228009ec557d5a253377f0ac19b8941484ac6146b9dfe669e3825783",
+  "external_remaining": [
+    "unrelated third-party v3 implementation and independent live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required"
+  ],
+  "feature_manifest_snapshot_sha256": "a26be5480b94f7669d41158cbceb1e8d31146afbbcba88f3ee4857c323cf25fc",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "2111e9c415f00c401de89270a64e25c94143aa25834ee78b52a6051a4cc8f0fb"
+    },
+    {
+      "path": "ENTITY_V3_0_1_RELEASE_MANIFEST.json",
+      "sha256": "bded186da812a5e1c8969724b04415545f199cf0e91ba49b5316e2cce95833a7"
+    },
+    {
+      "path": "ENTITY_V3_DEVELOPMENT_MANIFEST.json",
+      "sha256": "13e400e663726184df363e72e9e510d82a62328a40e914dce1afdd465e1d140e"
+    },
+    {
+      "path": "ENTITY_V3_ECONOMIC_PARTICIPATION_MANIFEST.json",
+      "sha256": "baa9e48c7a507075ff35cc0b72e60079875a81218fa4bc5a8963a39bb3ce5eb4"
+    },
+    {
+      "path": "ENTITY_V3_EEP_CONFORMANCE_MANIFEST.json",
+      "sha256": "07700ba28c78f9d7d5c65f946fc5a320f05f32918721f0e9efda75f054d34053"
+    },
+    {
+      "path": "ENTITY_V3_EEP_HARDENING_MANIFEST.json",
+      "sha256": "91090ee36f2d6469ac120bee3fa7dbecf5a516fc420e4c8635a8c99a36e563a3"
+    },
+    {
+      "path": "ENTITY_V3_EOPP_HARDENING_MANIFEST.json",
+      "sha256": "ecbb035a6fef8accfd68ca36bd2e7425957420b47c7f387c17dfd84341bdb3c4"
+    },
+    {
+      "path": "ENTITY_V3_GLOBAL_INFRASTRUCTURE_MANIFEST.json",
+      "sha256": "6c04489bf2a57e27e101bab257eda4b1ea6f2ec292001516f1a0814fcda6d5d7"
+    },
+    {
+      "path": "ENTITY_V3_MARKET_RECOVERY_MANIFEST.json",
+      "sha256": "06689bfc335779eb88e91e8029c1469c9cc336a9f747ed3bdfd7096f8ccb2357"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2749c35e5506cac55af263e27420896479fc59dd2a6648927e3121147cea0744"
+    },
+    {
+      "path": "RELEASE_NOTES_v3.0.0.md",
+      "sha256": "ca02f923f28f985a6d00cf9e5c5ceb6762c6a107f87a9f183b4b6402205daa92"
+    },
+    {
+      "path": "RELEASE_NOTES_v3.0.1.md",
+      "sha256": "5e44cfcf665e75ce3eb393dda515735c57064fa9e44c672c315549455a3440ec"
+    },
+    {
+      "path": "RELEASE_NOTES_v3.1.0.md",
+      "sha256": "06bdda3b9b0b435b2778622a6212c0108b1315686790b61d01f1a829556fc412"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "fcbc475abf88b280b488c8283d9db147e46d0110adcb422b46965f7b67cf25f2"
+    },
+    {
+      "path": "docs/compliance/ENTITY_V3_REGULATORY_ENGINEERING_MATRIX_2026-09-23.json",
+      "sha256": "b2e5ee90641d34a141f777b955616a1ad3143fea3bf64008b7b8e1654230b2e9"
+    },
+    {
+      "path": "docs/compliance/ENTITY_V3_REGULATORY_ENGINEERING_MATRIX_2026-09-23.md",
+      "sha256": "613b2eb6c9deb166a22b617e1008380b65e4f1c663c994d46fe3636dabba916a"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_0_0_RELEASE_QUALIFICATION_2026-09-23.json",
+      "sha256": "fe5bf040721fb560f5fc7dd0303c46ab16a6e9b423c027adb7e06d9f13252b81"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_0_0_RELEASE_QUALIFICATION_2026-09-23.md",
+      "sha256": "3b892720d67bd2cf04f81f8aac836cb630e627a8023569023d71bd1210e2e684"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_0_1_RELEASE_QUALIFICATION_2026-09-23.json",
+      "sha256": "5ac2735e291b82264df9bf122a458ef2ba9a2de04325aea08f606e98bb2674ed"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_0_1_RELEASE_QUALIFICATION_2026-09-23.md",
+      "sha256": "82f8f04788c54df1c817d8dcf05b8f617c90a8eabeab51206b935d8e81a32fed"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_1_0_RELEASE_QUALIFICATION_2026-09-24.json",
+      "sha256": "d4ff62b1a51594de128435b8825247bad6143d63ed4b3b8da3e287f71ba87918"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_1_0_RELEASE_QUALIFICATION_2026-09-24.md",
+      "sha256": "65289d5339c8b8d0e2bc555921a63eaae6da9fde9c62207b3e373406a76aeb0b"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_BTG_POLYGLOT_QUALIFICATION_2026-09-23.json",
+      "sha256": "5425831b20756a320905c37e5f24133c4efa37783cbea9fd0ad5c05163e00d9a"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_INTERNAL_CRYPTO_ASSURANCE_2026-09-23.json",
+      "sha256": "b797ba9ff3078b4dd27389e7b85c4321b61bbe0d67faf6e10569c0669666d991"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_INTERNAL_KEY_LIFECYCLE_CRYPTO_ASSURANCE_2026-09-23.json",
+      "sha256": "5b687bd27f2b6d3b20f20e1512f62933a707cd15d9e4c5d108cd2789bcf10fb6"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_INTERNAL_MARKET_SCALE_QUALIFICATION_2026-09-23.json",
+      "sha256": "d709b2d4e5be027d5f807c279f72b0dc6fda59ffeab15a4d2b3e3164f075af5b"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_INTERNAL_OPERATIONAL_SOAK_2026-09-23.json",
+      "sha256": "325516656b8ec7a392f1d43f8ba73006f7d2ec147aa608fc35448589a2cfedbc"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_INTERNAL_PRIVACY_CRYPTO_ASSURANCE_2026-09-23.json",
+      "sha256": "364eb5976ca8a0d9238ecf33fec5225fb95745d5611439e8deba340ea362d3ac"
+    },
+    {
+      "path": "docs/qualification/ENTITY_V3_INTERNAL_PRODUCTION_SCALE_2026-09-23.json",
+      "sha256": "090b554617c130a6baad788c756903f6e65f12d3a8c3f65acebe427d723f7a3e"
+    },
+    {
+      "path": "protocol/v3/BTG_TREASURY_DEPLOYMENT_REQUIREMENTS.md",
+      "sha256": "5d4157c537124b432027ef77d6bb891093074d5965a91b9ad3865b617f142cee"
+    },
+    {
+      "path": "protocol/v3/ENTITY_DATA_ECONOMIC_SOVEREIGNTY_DOCTRINE.md",
+      "sha256": "f35894cba22f4a482d2612419c0078b132dc58e9d2d87eea8244456fcec6d7cf"
+    },
+    {
+      "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL.schema.json",
+      "sha256": "146932a4598797e295ad7d86ac3ee3ee80261fc1675b1bfb4724df0e05fa3218"
+    },
+    {
+      "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL_3_0.md",
+      "sha256": "91c253620d95241dbc4ee7d6803b6881d1eeda0cb5d33c88fc5d1c30fca08bc2"
+    },
+    {
+      "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL_DRAFT.md",
+      "sha256": "1733dcf2055a4353abd611344582438a04cbae08b358451290885697c665dbd7"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_CLEANROOM_PROFILE.json",
+      "sha256": "efbce93382598626e47923b4020352a89a0ca3e199db2b361fce20c8633228a2"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_INFRASTRUCTURE.schema.json",
+      "sha256": "e15d8f5b07c6801d108c1b15f73dd115548d4dd5f882ba4e5dfd2a9c73fea7ba"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_INFRASTRUCTURE_GAP_CLOSURE.md",
+      "sha256": "ee455c969aed9a87f554304624e65e044c6cd92825ae93f03a6848d24064179f"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_INFRASTRUCTURE_PROFILE.md",
+      "sha256": "653c0e79625941645999e4c0aee57019056bb3be049686e3395b904b24bf742b"
+    },
+    {
+      "path": "protocol/v3/ENTITY_MARKET_STATE_RECOVERY_PROFILE.md",
+      "sha256": "70be04b633a305b7c09d1873533370b1b059a2bc4227ae64c5b74320545df8c4"
+    },
+    {
+      "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION.schema.json",
+      "sha256": "4a8d4341e86f3d41eb41e16255d10cac8c0505ef216a6286ffbf76ac94b5a832"
+    },
+    {
+      "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION_PROFILE.md",
+      "sha256": "d2e28bc76b8dfe65ecdbf0df9bc839777a913a75ffbee35e05b7a530203431d0"
+    },
+    {
+      "path": "protocol/v3/ENTITY_PROTOCOL_3_0.md",
+      "sha256": "1545d54cc76b91016c8c76f91a9dec1539b8b7925f1d9264b15d70913c4a4fa1"
+    },
+    {
+      "path": "protocol/v3/ENTITY_PROTOCOL_3_0_DRAFT.md",
+      "sha256": "c164e8b12f6b85e4296a5584461d7158f7446980beac99ae645e388a28a70fc4"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_GAP_CLOSURE_MATRIX.md",
+      "sha256": "9b026fb2f29059fe8cb2bfac34f16845dae863dd420622738de224188828775c"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_PRIMITIVES.schema.json",
+      "sha256": "84d587e28b3ea18f9e3987e5d7dd42ddb4fe724ab22252ec7376814e9db38d50"
+    },
+    {
+      "path": "protocol/v3/ENTITY_V3_PROFILE_ARCHITECTURE.md",
+      "sha256": "6a4d10dc5887282b316a7a64f43f90be8d7c2e8710f2b80bf6aa5f4b11676f33"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/README.md",
+      "sha256": "ff734344b2be9e523109c677b4aa746b19eb7e505bd4ba01be8f11ef44ca030e"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/SHA256SUMS.txt",
+      "sha256": "68989a573a74046e55d6b2713f9fdee8304d8b709d22dd5ccd17f32791d927b7"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/VECTOR_MANIFEST.json",
+      "sha256": "08fe381309dc122e0efb8544490e23287e53b3d37cea868b5cd359cc736c4b53"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_disclosure_uppercase_sha.json",
+      "sha256": "0a2eae7d2c1d1a10f1ad5e173890f33bee5d4c7fd65fb4388996f01bbfddd017"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_entitlement_underlying_ownership_flag.json",
+      "sha256": "0c7a7488ff4959f25f19682607fdede978228e2eedeecd85cca59c522ee35e6a"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_instrument_duplicate_actions.json",
+      "sha256": "8c15398f90e40bdfb67bc663d359bdb8be52a7fa5baaa4ae405ca74ef88d382e"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_instrument_unsorted_actions.json",
+      "sha256": "e2c6dd771249139633b10b2819fdb9b650f4c9290f6cd823f042c451da147c8f"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_instrument_zero_duration.json",
+      "sha256": "e6e9a1beda19b768ca82e38ed3305bedff0fe772473e9267e44c4a78a0907a7f"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_order_extra_property.json",
+      "sha256": "d45496e6d8e58f324a8cbad389dabc67413dc2b7edef559f1a39ffde6ea7daf1"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_order_lowercase_side.json",
+      "sha256": "9ba6ce95fa570fdddad9c65c4a70736c97aff8891a5b15daefbe0c8491e040f1"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_order_quantity_string.json",
+      "sha256": "dcbda46a8b3fd6bf29f7355f5cd2cc79144cce4630b61640f7569784d0000c68"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_payment_truth_boundary.json",
+      "sha256": "9497b0f3e15c109adbd7c49f12ae40af2ed7a151cf595721bb5a3851f925a0d5"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_quote_expiry_before_creation.json",
+      "sha256": "ff6ba466dfeb51b9e88f631963748b4dbb2bd5781447844f9f67b9b742267690"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_revenue_total_over_10000.json",
+      "sha256": "79aee3480c99433f20460d9963b64c72a4291fdcf42cfccb543a2b91f22c0776"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_rfq_expiry_not_after_creation.json",
+      "sha256": "8c9b7ec97d91cc00ece20faf52d949a15daffd11b8c3adbeaf1aeed548d37f59"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_usage_lowercase_action.json",
+      "sha256": "fc15918b166bb5770558fe304b232d60ec4eb925984c91f1962384660bad0af2"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/invalid_venue_execution_model.json",
+      "sha256": "238ae657e7bd18369e583ab3c1e88e5f5fe9aaa5ac0c391279038d585a173b37"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_cancellation.json",
+      "sha256": "52befe85b79b79af0b5928c0b26c191d0b9add0bfeaeed346030d802407570f6"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_disclosure.json",
+      "sha256": "9716d582307d2368925a8a5e2ce87f724ab864eeb9cd912d4dc391211ec5a45d"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_entitlement.json",
+      "sha256": "710c0dfe8a73fc2ec89425fd6d2625385ed7dfdc54e6990f8d98290d7e1d1655"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_instrument.json",
+      "sha256": "6572cfd3cda124cec50b192d67b995e76cef567586b657256655385113ac6b11"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_listing.json",
+      "sha256": "2290177d72705ebc8bccf8aba25be6b87dfbf9ef0a54cc078a7dee50353ec9f7"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_order.json",
+      "sha256": "c053c18377320c6c7e35cb3309e7478aad60685836973be4db43484ab4d6b78f"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_payment_attestation.json",
+      "sha256": "7f5a7d0ec5710b406c2bfadfd9ce7fda23be670a02a777c140d286d7faefcadb"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_quote.json",
+      "sha256": "53ff64411b11b9b4edb9e03c144b4b2240a66b6d72ce94bbde24bcbf2a95bf5b"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_quote_acceptance.json",
+      "sha256": "013bc1b216df7787a219bf655e4b616ff38c57e9a21e3e9c1074cb74092022aa"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_revenue_rule_set.json",
+      "sha256": "9519a03d86d19bc71d73f7ac810836e966630bf78da91511dae206e524529f82"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_rfq.json",
+      "sha256": "2c2f061c876c757ef7e0c7485fb9455b9ca72b9d187d2ee178f44cb0e817d4bd"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_usage.json",
+      "sha256": "f7dbcefdd56b672b8f1f7d5aa132c522401be60e6f2e8d9d624b1d2d91b97e92"
+    },
+    {
+      "path": "protocol/v3/eep_vectors/valid_venue.json",
+      "sha256": "56c5cec07cda7f5ad0ba54f2c4c6e140146cda70c9e40cc11055249bf249848f"
+    },
+    {
+      "path": "protocol/v3/global_vectors/SHA256SUMS.txt",
+      "sha256": "49bea1b843dea1fe467337cd68eabbfdfb0291d31c7432d7454d6d0684fadcee"
+    },
+    {
+      "path": "protocol/v3/global_vectors/VECTOR_MANIFEST.json",
+      "sha256": "96aafd431a393b27dce3666b96c8f83289f799428bf685c8c4e742f8494e4631"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_data_capital_scarcity_flag.json",
+      "sha256": "0af047d58efb37e24ee151d7cafc4d80347b635bd14ed01c5adddabbe1d37e03"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_interest_nonrival_flag.json",
+      "sha256": "9c67c719c9e96436f26b4942d2974b92048470196781a14fca00080e9af1ea74"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_jurisdiction_effect.json",
+      "sha256": "3b6a634ad6f079f12a999a9b4bd228e02d59d929396fd48b72987b5f29ede72d"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_offline_payload_hash.json",
+      "sha256": "fed60a5c78d3de2a7331c06ea61f1d69f6654842281b51a0696f696d2d684f96"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_purpose_empty_actions.json",
+      "sha256": "51661a5c98aa20b1838fb67ecc6d2734f494eda4f67a1426fda070193bc86d70"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_semantic_kind.json",
+      "sha256": "8a195734eaf55bc81767787564bfbb0354c483addd86507a91c8a7d5a8a02a3e"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_topology_class.json",
+      "sha256": "7dd537b99d79e0efef1d8f1eb64d18ce4a9374f1b80b0bcaa8190ae065e5b3ba"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_transition_truth_flag.json",
+      "sha256": "b14c5c3e2ec76f94acd8479828605114c3f8f8eb2059eb93e49bcc028d9013b2"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_bounded_economic_interest.json",
+      "sha256": "981e18e65a27b41ac9845e91773100975c849095141e9b8cdd1724d1f1c25b18"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_crypto_transition.json",
+      "sha256": "d81c04bcdefff972bdfad4967184171c7fe7e53eacaf92e22a2582b8048a272d"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_data_economic_capital.json",
+      "sha256": "bd0de4e335ad8acfa352b93f22db5ff802490134398e9c7b7208a82151db900e"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_jurisdiction_profile.json",
+      "sha256": "295aab036de9327b7fd054db61f1c772f31657d0d194ccf7e388b57155d66b54"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_offline_envelope.json",
+      "sha256": "6eec6e81945c23ca337037f8339ce70ef892156b16332436538ccc56477eaf90"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_purpose_grant.json",
+      "sha256": "69e7d9275576e044ec008d2e9e745ae2690f60243da26a6cd57f942fad94185a"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_semantic_term.json",
+      "sha256": "7b109084c6c778dd2671c227fb3e2c4eee85c68528215c1414964e20b7d4ca8d"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_topology_node.json",
+      "sha256": "d38bbff9973fb59e5556065ee019321068c9cd34def76733a62b05dfb7e5435d"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "ba36584e5af40e46435d63315f94fb6d600e3d18af53d123e321763f98f22668"
+    },
+    {
+      "path": "src/01_Core_Runtime/identity/canonical_identity.py",
+      "sha256": "bcf2a3693cab651adec577dc58df94a5350bf78d7412fd062f63e23266bd27ea"
+    },
+    {
+      "path": "src/30_Universal_Transaction_Fabric/canonical_universal_fabric.py",
+      "sha256": "1305c9d5076d0671fbf8f9c2fe820418ed5b78bb1c8bd3e05dbcfff92923d8ac"
+    },
+    {
+      "path": "src/31_Profiles/exchange_protocol.py",
+      "sha256": "cca451e553ea70a778c983805d155f05bb92baab5f481f75a60084a92e48d9f6"
+    },
+    {
+      "path": "src/31_Profiles/governance_privacy.py",
+      "sha256": "9e2d48b6720a00cc5b6aac95a1c47c4ffb115babe30480ea3338ea3051a27db8"
+    },
+    {
+      "path": "src/31_Profiles/profile_core.py",
+      "sha256": "36e5bf598d6bdfccf25b961dcc2b7a8c1c4af90f27d92aa49cfb286ec05318be"
+    },
+    {
+      "path": "src/31_Profiles/resilience_interop.py",
+      "sha256": "a8e5b9a4704f87710fa7b36159ae68daf82ea45ad35dc53c04c6f0f6745fb848"
+    },
+    {
+      "path": "src/32_V3_Hardening/exchange_protocol.py",
+      "sha256": "a631e259d2f0d7e4c4abf3acf1c04586e22bf5072928e5f9a9ddc3c130713637"
+    },
+    {
+      "path": "src/32_V3_Hardening/hardening_profiles.py",
+      "sha256": "c11198451947a557cd3fd0090c26629a60e7e84bc20c09768dc2bf37c123b2a7"
+    },
+    {
+      "path": "src/33_Economic_Participation/btg_deployment.py",
+      "sha256": "e6ecfe044ea3d5516f3fe3649252b0c23d3ec22a252e4cb8fc98880c98d1ff26"
+    },
+    {
+      "path": "src/33_Economic_Participation/economic_participation.py",
+      "sha256": "3d805ab601bbf46001175796b601c3c66190c704408f86beb21f942f1de6a9d5"
+    },
+    {
+      "path": "src/34_Market_Recovery/market_recovery.py",
+      "sha256": "97d084fdcece2289a5860e6a16007c40f39cd95f27693c961d702fdd1b388cd9"
+    },
+    {
+      "path": "src/35_Global_Infrastructure/data_economic_sovereignty.py",
+      "sha256": "1d078b5ae13ed8b71c3499b3010fcb5db9052764741447ffc2e7ad44574915ce"
+    },
+    {
+      "path": "src/35_Global_Infrastructure/institutional_semantics.py",
+      "sha256": "39844e07cf7e2443613da5762e3762f94a850322ebcaa5ec8d04ecd37a63221b"
+    },
+    {
+      "path": "src/35_Global_Infrastructure/privacy_provenance.py",
+      "sha256": "04596fd872a9776ca84c1e28c1b1b9ddf88adfd14c5196f4b0f33dd071069a12"
+    },
+    {
+      "path": "src/35_Global_Infrastructure/topology_crypto.py",
+      "sha256": "8eae91134a87ac563270c0b60b2e0c19c6daae4e6722f5693ef0341c9cb9f855"
+    },
+    {
+      "path": "tests/test_v3_crypto_assurance.py",
+      "sha256": "50620c794ce3de0833491fcee11982fa6a78338e8f8b08d08f51e4438f258545"
+    },
+    {
+      "path": "tests/test_v3_data_economic_sovereignty.py",
+      "sha256": "cc6a3ca20d8560a868c201c7d3dfd9ba59f9e46758ef10435ac8a1f86b90a4a6"
+    },
+    {
+      "path": "tests/test_v3_economic_participation.py",
+      "sha256": "35c376010c209108aa0c314f531c06739c8af929c0bfea6af1753d5452f1c093"
+    },
+    {
+      "path": "tests/test_v3_eep_conformance.py",
+      "sha256": "d832cc585662a8722bb3ac95763c6f487285983818794a314826792a6c11390f"
+    },
+    {
+      "path": "tests/test_v3_exchange_convergence.py",
+      "sha256": "079767d481e2dd09582bbf8b5e97a0ea4334d3fe06acbcc32e99c03caddf29fd"
+    },
+    {
+      "path": "tests/test_v3_global_conformance.py",
+      "sha256": "96917f3e5240e8446ac3022a32619527305b98e74fbe6f351c865da2a3b9157a"
+    },
+    {
+      "path": "tests/test_v3_global_infrastructure.py",
+      "sha256": "89936ff77d5fb534c502ec835bb1e8b3fa384799db7842d99032acfcf11ca7df"
+    },
+    {
+      "path": "tests/test_v3_hardening_exchange.py",
+      "sha256": "f7a7ecf9fa7d748d3953eb68c426945273c42fcf3a952048f21f0def773ecd17"
+    },
+    {
+      "path": "tests/test_v3_market_recovery.py",
+      "sha256": "e7a89fa2381421b21b37b6238217f72f8cc9cdf91259e82688128327b9b940ff"
+    },
+    {
+      "path": "tests/test_v3_profiles.py",
+      "sha256": "4b173e0a40c31858cbf95cef53ccb8128ea2694fec55511e4ea7acf3fcd2c151"
+    },
+    {
+      "path": "tests/test_v3_universal_fabric.py",
+      "sha256": "89751c9ac0570fc50cb5ec00f1b15b9d026c5b6da3fbfee757a4d91847f4e9dc"
+    },
+    {
+      "path": "tools/bootstrap_v3_env.ps1",
+      "sha256": "d9fefb6c9a5448f597d1ea40c5d29af8ae6f190b8fd83da4106c913b2e279b96"
+    },
+    {
+      "path": "tools/build_v3_0_1_release.py",
+      "sha256": "9a7cbf3a0b24b4c01e5cfc128a76b3590f32ae197250363c49cbd1ee63da8789"
+    },
+    {
+      "path": "tools/build_v3_1_0_release.py",
+      "sha256": "87dfa01922c4f04c1b08feb36cd9896aecbaa522b4bbd3f0b090fb5b4c9c7c93"
+    },
+    {
+      "path": "tools/build_v3_global_cleanroom_profile.py",
+      "sha256": "c4e22bb93d59578658482efbd56bb63f33735396564be813c9041bb62c995da2"
+    },
+    {
+      "path": "tools/build_v3_global_conformance.py",
+      "sha256": "b17eab64691e3bc4526d548e53eaabbc9f7c4db5e1a995918f6b8389b8d69d26"
+    },
+    {
+      "path": "tools/qualify_v3_internal_crypto.py",
+      "sha256": "0e30cd3028002bd7dcf273a0aa9b08cac170a68e21f50ea97505310a39eb6f0e"
+    },
+    {
+      "path": "tools/qualify_v3_internal_market_scale.py",
+      "sha256": "a9e19346d0f11ff182b247c378c47848237bf860800c8d4a014dda96abc96821"
+    },
+    {
+      "path": "tools/qualify_v3_internal_privacy_crypto.py",
+      "sha256": "c250f7afcdd11fb219661dfa9d59e5bf86f68a96ce00487f0c08f0cf07be0862"
+    },
+    {
+      "path": "tools/qualify_v3_internal_soak.py",
+      "sha256": "5ca3b3fdb18a83f0e08d12920e7ba78800d17275415a0ecbaa115ce2d09e3b8d"
+    },
+    {
+      "path": "tools/qualify_v3_release.py",
+      "sha256": "bb03f8dc7297410891667934b0d997c4f061829618567828a7e649157cfd3575"
+    },
+    {
+      "path": "tools/run_v3_0_1_release_gate.ps1",
+      "sha256": "105657b6539831a23dfdeabec16dc2d61bc90329b1d1355a5c5c65bd2d27d8da"
+    },
+    {
+      "path": "tools/run_v3_1_0_release_gate.ps1",
+      "sha256": "61d13610aae8214803db0dad932ac78d760e83a2a0e362734e10aa2d12cc3fec"
+    },
+    {
+      "path": "tools/run_v3_regression.ps1",
+      "sha256": "0bc9f4acc6d1fb8b6b274c305bd89750b78e68ad5568887ee46a577385d5f5f9"
+    },
+    {
+      "path": "tools/run_v3_release_gate.ps1",
+      "sha256": "886a719643df6e786d8c94554fc4cafb2034fe1bad882912e0645e1842f937ff"
+    },
+    {
+      "path": "tools/seal_v3_global_infrastructure.py",
+      "sha256": "af94f744185d68d7f5654d634c0f20d7af1646a9e0b7a8977826d7c6663f3c4e"
+    },
+    {
+      "path": "tools/verify_v3_0_1_qualification.py",
+      "sha256": "55a961295dfc48fa10a677be107849d89b72e26a6bc31f8f4e7541f33abd06cb"
+    },
+    {
+      "path": "tools/verify_v3_0_1_release_manifest.py",
+      "sha256": "222b78f1d55ba75fdd85c5906d3dd5b84b0dd1254bdda1df932bc0b10b74f43a"
+    },
+    {
+      "path": "tools/verify_v3_1_0_release_manifest.py",
+      "sha256": "5cc5bbf6d716db0f56133ce65935a487c912e75e4325090a34110d1fef44986e"
+    },
+    {
+      "path": "tools/verify_v3_btg_polyglot.py",
+      "sha256": "364294b2789e3512c56312614c455ccbfcc8080816d18f8f18e21a7696701bf8"
+    },
+    {
+      "path": "tools/verify_v3_bundle.py",
+      "sha256": "5f5dc297d69bffb2f75b024c843663998ba61295ee9b0e02c7e03be595163838"
+    },
+    {
+      "path": "tools/verify_v3_development_manifest.py",
+      "sha256": "61b1ba62839f8af47dc7ebe5bdfde3b971eaf0d71aa29d9c7cb52e13cd0a9d13"
+    },
+    {
+      "path": "tools/verify_v3_global_infrastructure_manifest.py",
+      "sha256": "501687344d734536e6113ec68c33d598f3843d64e12b4f9bef318def2ae71cbb"
+    },
+    {
+      "path": "tools/verify_v3_release_manifest.py",
+      "sha256": "70e6f58e3301c04e06d34cb230bd1f13e86c76e2b8b9f7ba83a7f30920fdc4f4"
+    }
+  ],
+  "permanent_truth_boundaries": [
+    "protocol records do not determine legal title",
+    "protocol records do not declare market or accounting fair value",
+    "external payment evidence is attestation, not objective bank truth",
+    "internal performance qualification is not an external SLA",
+    "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+  ],
+  "qualification": {
+    "base_commit": "a977b013cb29504f04953c4fce33d2372e91097b",
+    "base_release": "v3.0.1",
+    "base_release_manifest_sha256": "bded186da812a5e1c8969724b04415545f199cf0e91ba49b5316e2cce95833a7",
+    "base_release_snapshot_sha256": "12bbc2c8228009ec557d5a253377f0ac19b8941484ac6146b9dfe669e3825783",
+    "cleanroom_result_sha256": "879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5",
+    "cleanrooms": {
+      "csharp": {
+        "commit": "e5ee834ae3b59bf28358a7279dba8a197928c107",
+        "status": "PASS",
+        "workflow_run": 35950928130
+      },
+      "go": {
+        "commit": "5be40a675cf3bd9d7d2a6bd39d39ef437839d28c",
+        "status": "PASS",
+        "workflow_run": 35950936069
+      },
+      "java": {
+        "commit": "2d230ea09388149f3829275e88324616469f8e0f",
+        "status": "PASS",
+        "workflow_run": 35953170903
+      },
+      "rust": {
+        "commit": "1dd9d4d35a5ff582f1a38ad5f2f537728c58e062",
+        "status": "PASS",
+        "workflow_run": 35950910738
+      },
+      "swift": {
+        "commit": "830355d2c850bec6abdd62e8274d81afa5a8101e",
+        "status": "PASS",
+        "workflow_run": 35950945169
+      },
+      "typescript": {
+        "commit": "795a15c463f6f685282892bcdea480fb79ef311d",
+        "status": "PASS",
+        "workflow_run": 35950918876
+      }
+    },
+    "date": "2026-09-24",
+    "external_remaining": [
+      "unrelated third-party v3 implementation and independent live interoperability",
+      "independent external security/cryptographic review",
+      "deployment-specific legal/regulatory classification, licensing, recognition or approval where required"
+    ],
+    "feature_manifest_snapshot_sha256": "a26be5480b94f7669d41158cbceb1e8d31146afbbcba88f3ee4857c323cf25fc",
+    "global_conformance_vectors": {
+      "invalid": 8,
+      "total": 16,
+      "valid": 8
+    },
+    "inherited_v3_0_1_evidence": {
+      "assets": 1000000,
+      "eep_adversarial_cases": 5400,
+      "events": 3000000,
+      "key_lifecycle_random_signature_cases": 10000,
+      "market_settled_trades": 4000,
+      "operational_soak_seconds": 900,
+      "operational_soak_settled_trades": 7231,
+      "privacy_assertions": 3000,
+      "signed_merkle_receipts": 200
+    },
+    "new_v3_1_capabilities": [
+      "signed effective-dated jurisdiction profiles with fail-closed conflict handling",
+      "governed semantic and ontology registries with explicit crosswalks",
+      "multi-stakeholder standards governance with stakeholder-class diversity and recusal",
+      "purpose-bound privacy, selective retention, confidential provenance and proof-verifier adapters",
+      "partition/offline topology semantics and cryptographic-suite migration",
+      "Data Economic Sovereignty Doctrine with bounded rights-based scarcity"
+    ],
+    "permanent_truth_boundaries": [
+      "protocol records do not determine legal title",
+      "protocol records do not declare market or accounting fair value",
+      "external payment evidence is attestation, not objective bank truth",
+      "internal performance qualification is not an external SLA",
+      "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+    ],
+    "regression": {
+      "passed": 116,
+      "total": 116
+    },
+    "schema": "entity-v3-1-0-release-qualification-v1",
+    "status": "BTG_INTERNAL_QUALIFIED_FEATURE_RELEASE",
+    "targeted_global_doctrine_tests": {
+      "passed": 22,
+      "total": 22
+    },
+    "version": "3.1.0"
+  },
+  "release_date": "2026-09-24",
+  "release_snapshot_sha256": "0241c75e7f28481db0bfdf27a67a482c431032beedb2491b13dd5927dc344255",
+  "repository": "blackmore-technology-group/ENTITY",
+  "schema": "entity-v3-1-0-release-manifest-v1",
+  "status": "BTG_INTERNAL_QUALIFIED_FEATURE_RELEASE",
+  "supersedes": "v3.0.1",
+  "version": "3.1.0"
+}
