@@ -1,0 +1,57 @@
+{
+  "backup": {
+    "bytes": 77606,
+    "cipher": "AES-256-GCM",
+    "encrypted": true,
+    "sha256": "adc4de05f597b9caaf3a22ff909f630c8c9c559cd2a6598e8b513c1f99a32137"
+  },
+  "campaign": "ENTITY governs ENTITY — recursive sovereign provenance and economic lineage",
+  "causal_economic_graph_root": "0de207802b2a0b3526be8269c80917c76570e135c27befa5261d5c14edb3d132",
+  "claim_boundary": "ENTITY records attributable evidence, provenance, rights and causal-economic lineage; it does not turn repository records into objective legal truth or accounting fair value.",
+  "cleanroom_campaign_chain": {
+    "legacy_v1": "PASS",
+    "v3.1": "879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5",
+    "v3.2": "1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18",
+    "v3.3": "82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d"
+  },
+  "cleanrooms": {
+    "csharp": {"commit":"5a1fb61380a788b98d7fccb9f138527f063c1d9f","legacy_v1_campaign":"PASS","result_object_id":"obj3-42072d5e6b53c779b9a33c4a25f362757c87a077","run":36016731801,"status":"PASS","v3_1_result_sha256":"879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5","v3_2_result_sha256":"1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18","v3_3_result_sha256":"82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d"},
+    "go": {"commit":"74cebdfbb0a6751ea60764e874656b119a3e2416","legacy_v1_campaign":"PASS","result_object_id":"obj3-e1cf32c38a66b1b12dff94e084cb04c4d325530b","run":36016190096,"status":"PASS","v3_1_result_sha256":"879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5","v3_2_result_sha256":"1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18","v3_3_result_sha256":"82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d"},
+    "java": {"commit":"1d4d717cd9f5bd93bdcf1403d86b840517c208f3","legacy_v1_campaign":"PASS","result_object_id":"obj3-c53796bd08b770d6b3916e83191910624f151c12","run":36016205611,"status":"PASS","v3_1_result_sha256":"879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5","v3_2_result_sha256":"1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18","v3_3_result_sha256":"82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d"},
+    "rust": {"commit":"0ff638fdb0a3d7e8e061205d5b5bc2e3f1e68a31","legacy_v1_campaign":"PASS","result_object_id":"obj3-640e53b6d83a78cd6a3523eeca6225d444385af8","run":36016169261,"status":"PASS","v3_1_result_sha256":"879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5","v3_2_result_sha256":"1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18","v3_3_result_sha256":"82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d"},
+    "swift": {"commit":"bbc4e6e6d7cfa4517e90ca2f9477f784e29c72f1","legacy_v1_campaign":"PASS","result_object_id":"obj3-a28b3ea81e897383d7dbbe73a4275e764a8a67f8","run":36016560914,"status":"PASS","v3_1_result_sha256":"879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5","v3_2_result_sha256":"1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18","v3_3_result_sha256":"82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d"},
+    "typescript": {"commit":"6582532af2af6a9bcf458aa2e80a841f64f51094","legacy_v1_campaign":"PASS","result_object_id":"obj3-d49d4afaf84fdf983f0f09c77a95d344d7bf3722","run":36016179311,"status":"PASS","v3_1_result_sha256":"879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5","v3_2_result_sha256":"1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18","v3_3_result_sha256":"82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d"}
+  },
+  "date": "2026-09-24",
+  "destructive_recovery_identical": true,
+  "economic_boundary": {"historical_contribution_weights_invented":false,"lineage_ready_for_future_economic_participation":true,"monetary_value_asserted":false,"potential_value_records_are_zero":true},
+  "evidence_objects": 26,
+  "fabric_counts": {"attestations":0,"authorities":0,"entities":32,"events":0,"provenance_edges":42,"resolution_records":0,"rights":9,"trust_policies":0,"values":9},
+  "registered_cleanroom_results": 6,
+  "registered_release_objects": 9,
+  "release_ancestry_backward_v3_3_to_v1": ["v3.3.0","v3.2.0","v3.1.0","v3.0.1","v3.0.0","v2.0.0-alpha1","v1.0.0-rc2.2","v1.0.0-rc2.1","v1.0.0-rc2"],
+  "release_lineage": [
+    {"commit":"7726290d698a41d48663f144310b4720d06e62aa","object_id":"obj3-1484b85bc0fb0a93d6d2b6d8764b848f4cb12094","stage":"PUBLIC_RC","version":"v1.0.0-rc2"},
+    {"commit":"92d63a455a71a064681fef30fafe20de753cb4fc","object_id":"obj3-fda31704d835b0a24d8f179a338eaf2beb34c5c4","stage":"PUBLIC_RC_MAINTENANCE","version":"v1.0.0-rc2.1"},
+    {"commit":"03b318392d7dd52e99b3c402058e5c5be3c603b5","object_id":"obj3-1a30d26ddc3fab3f0bd6b862a80aac37fe216a65","stage":"PUBLIC_RC_MAINTENANCE","version":"v1.0.0-rc2.2"},
+    {"commit":"ad153c6a3447bc1e8479ce7fd3af94af2e97cee2","object_id":"obj3-8583ee703cb02087ccce4aa079bbcd36bee4b715","stage":"DEVELOPMENT_ALPHA","version":"v2.0.0-alpha1"},
+    {"commit":"63acd0962965eda1f80bc8afc6259029daaec7aa","object_id":"obj3-8d6513fa6df7d272abfeb61dd162d76c861c6d57","stage":"PUBLIC_RELEASE","version":"v3.0.0"},
+    {"commit":"a977b013cb29504f04953c4fce33d2372e91097b","object_id":"obj3-650c19fa509865453f542b790c7424d973e38b95","stage":"PUBLIC_RELEASE","version":"v3.0.1"},
+    {"commit":"b985b7cf875bdeeadb228d4d1885395cbcaf19f1","object_id":"obj3-f8b26a2b7aa798b3918f77bc41fb4922b75749ff","stage":"PUBLIC_RELEASE","version":"v3.1.0"},
+    {"commit":"512665096cef3771a3a8307d6dc955015ee0efbc","object_id":"obj3-0ca1feca3136045cbca7da5f3dd270e4c0fad952","stage":"PUBLIC_RELEASE","version":"v3.2.0"},
+    {"commit":"9c79f987207592cb6791e1a8956f23351cdfb2d3","object_id":"obj3-8aa544638da1f51903595c757a8d30b066c6af3f","stage":"PUBLIC_RELEASE","version":"v3.3.0"}
+  ],
+  "rights_passports": 9,
+  "schema": "entity-recursive-sovereign-provenance-qualification-v1",
+  "source_release": "v3.3.0",
+  "source_release_commit": "9c79f987207592cb6791e1a8956f23351cdfb2d3",
+  "sovereign_bundle_semantic_sha256": "aa81b0d1d84d70ab414183558d3ac2ce0b8204697c2fcb6914b7b91d3e3c78a6",
+  "state_semantic_root_after_recovery": "b3e4a87fc5e3790fb2fe54ee780d2fa66734b86091d2b2fba53b5cd6fb5c0f48",
+  "state_semantic_root_before_destruction": "b3e4a87fc5e3790fb2fe54ee780d2fa66734b86091d2b2fba53b5cd6fb5c0f48",
+  "status": "PASS",
+  "v1_forward_reaches_six_language_convergence": true,
+  "v1_forward_reaches_v3_3": true,
+  "v3_3_kit_sha256": "f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46",
+  "v3_3_result_sha256": "82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d",
+  "v3_3_schema_sha256": "6e1c7e621e0aa84627e009febf8999503b7a61f92627b885ed10a19f2ef7d767"
+}
