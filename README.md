@@ -170,6 +170,17 @@ You do **not** need to commit to a full implementation to contribute. Useful sta
 - improve documentation or error reporting;
 - build a small candidate CLI before attempting full interoperability.
 
+### Pick a live contributor task
+
+If you want to evaluate the project without taking on a full implementation, these are open now:
+
+- [Verify the v3.3 sealed reality kit on Linux](https://github.com/blackmore-technology-group/ENTITY/issues/20) — bounded portability/reproduction task.
+- [Verify the v3.3 sealed reality kit on macOS](https://github.com/blackmore-technology-group/ENTITY/issues/21) — bounded portability/reproduction task.
+- [Add a minimal Evidence Object and claim-transition example](https://github.com/blackmore-technology-group/ENTITY/issues/22) — small documentation/code contribution.
+- [Audit the Start Here path from a fresh clone](https://github.com/blackmore-technology-group/ENTITY/issues/26) — onboarding/usability review.
+- [Build a narrow independent v3.3 reality-vector classifier](https://github.com/blackmore-technology-group/ENTITY/issues/27) — clean-room interoperability evidence without implementing all of ENTITY.
+
+A reproducible failure, counterexample or specification ambiguity is a useful result.
 For the full path, see [ENTITY Interoperability Challenge](docs/INTEROPERABILITY_CHALLENGE.md).
 
 The separately sealed [ENTITY Protocol 1.0 Conformance Kit](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit) remains the authoritative clean-room target for Protocol 1.0 campaigns.
