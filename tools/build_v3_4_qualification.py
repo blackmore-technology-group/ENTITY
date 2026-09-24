@@ -30,7 +30,6 @@ qualification={
       "java":"da2520429f8dab7a2752b2b6b6fc653c6ae173b6",
       "swift":"2f40118999beceb6c34f2ea1c583dd12cfe81368"}},
   "implementation_packages":{
-    "bundle_sha256":"5cb051c982a025a9fbcf713b3c5a4090ec4ffb645d335d518d896f53eb4560c7",
     "registry_sha256":"9b8c2c58a139934cc4beb211504de2de9834ac2338bf8970eacfb354d469cfc0",
     "packages":{
       "ai":"4877cb5bc76ef0803eace931ca1a9cba516c01ba94a2e0b4bc71bcb5dc1b0440",
@@ -40,7 +39,15 @@ qualification={
       "manufacturing":"bc29a0de024cea22552078ff1913fa3df2b189436cb853cc2f4e08974325c4bc",
       "robotics":"3a0e68fa6c63b2ef9cf79ccf463335af72d49ffb3cd028c88b6a998d8678f38f"},
     "profiles_are_executable_implementation_assets":True,
-    "developer_configures_not_redesigns":True},
+    "developer_configures_not_redesigns":True,
+    "publication_model":"core registry plus six dedicated domain repositories",
+    "domain_repositories":{
+      "ai":"blackmore-technology-group/ENTITY-AI",
+      "defence-public":"blackmore-technology-group/ENTITY-DEFENCE",
+      "finance":"blackmore-technology-group/ENTITY-FINANCE",
+      "healthcare":"blackmore-technology-group/ENTITY-HEALTHCARE",
+      "manufacturing":"blackmore-technology-group/ENTITY-MANUFACTURING",
+      "robotics":"blackmore-technology-group/ENTITY-ROBOTICS"}},
   "v3_4_invariants":[
     "CORE_PRIMITIVES_UNCHANGED","MARKET_ENGINE_PRESERVED","GLOBAL_PASSPORT_BINDS_EXISTING_RIGHTS",
     "PROFILE_COMPOSITION_DOES_NOT_CREATE_AUTHORITY","EXTERNAL_STANDARDS_MAPPED_NOT_REDEFINED",
@@ -65,7 +72,7 @@ qualification={
   "claim_boundary":"Six native implementations are BTG-controlled controlled-interoperability evidence; they are not unrelated third-party independence."
 }
 json_path=QDIR/"ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.json"
-json_path.write_text(json.dumps(qualification,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+json_path.write_bytes((json.dumps(qualification,indent=2,sort_keys=True)+"\n").encode("utf-8"))
 md=f'''# ENTITY v3.4.0 Release Qualification — 2026-09-24
 
 **Status:** {qualification["status"]}
@@ -92,5 +99,5 @@ Industry packages populate the one Global Passport. They do not define incompati
 
 The six native implementations are all BTG-controlled. Their common result is meaningful controlled-interoperability evidence, but **unrelated third-party implementation/interoperability remains pending**. External security review and deployment-specific legal/regulatory determinations also remain external work.
 '''
-(QDIR/"ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.md").write_text(md,encoding="utf-8")
+(QDIR/"ENTITY_V3_4_0_RELEASE_QUALIFICATION_2026-09-24.md").write_bytes(md.encode("utf-8"))
 print(json.dumps({"qualified_source_commit":qualification["qualified_source_commit"],"regression":"177/177","targeted":"33/33","vectors":"24/24","six_language":"PASS"},indent=2))
