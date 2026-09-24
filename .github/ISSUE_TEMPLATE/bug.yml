@@ -1,0 +1,73 @@
+name: Reproducible bug
+about: Report a behavior you can reproduce in ENTITY.
+title: "[BUG] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to reproduce a problem. A precise failure report is useful engineering evidence.
+  - type: input
+    id: version
+    attributes:
+      label: ENTITY version / commit
+      description: Release tag or exact commit SHA where you observed the problem.
+      placeholder: v3.3.0 or 9c79f987...
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, runtime/compiler and any relevant tool versions.
+      placeholder: Windows 11, Python 3.11, or Ubuntu 24.04 / Rust 1.xx
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest sequence that reproduces the issue.
+      placeholder: |
+        1. Clone ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include relevant output, hashes or failing test/vector IDs. Remove credentials and private data.
+    validations:
+      required: true
+  - type: dropdown
+    id: boundary
+    attributes:
+      label: Area
+      options:
+        - Build / installation / portability
+        - Identity / authority
+        - Rights / entitlement
+        - Evidence / verifiable reality
+        - Market / settlement / economic state
+        - Conformance / vectors / hashes
+        - SDK / developer interface
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, private keys, recovery material and private user/business data from this report.
+          required: true
