@@ -1,0 +1,116 @@
+{
+  "schema": "entity-v3-2-0-release-qualification-v1",
+  "version": "3.2.0",
+  "date": "2026-09-24",
+  "status": "BTG_INTERNAL_QUALIFIED_ADOPTION_RELEASE_CANDIDATE",
+  "base_release": "v3.1.0",
+  "base_commit": "b985b7cf875bdeeadb228d4d1885395cbcaf19f1",
+  "base_release_snapshot_sha256": "0241c75e7f28481db0bfdf27a67a482c431032beedb2491b13dd5927dc344255",
+  "qualified_source_commit": "ee3587a6e65c2565eaab2e815e85415ab705ea47",
+  "regression": {
+    "passed": 128,
+    "total": 128,
+    "runner": "tools/run_v3_regression.ps1",
+    "environment": "_venv_entity_v3"
+  },
+  "targeted_adoption_tests": {
+    "passed": 12,
+    "total": 12
+  },
+  "adoption_conformance_vectors": {
+    "valid": 8,
+    "invalid": 8,
+    "total": 16,
+    "vector_manifest_sha256": "40b081b3a5099aed375ad2f1095e589e56847f32790f40a30a864f45e4b9b093",
+    "schema_sha256": "d474f1262166a4518399c841da93a806f5d849949f17005699200e37bcf7c321",
+    "sealed_kit_sha256": "44e7a00f910c89aced3b3c1b5e9cba486809ca313e9bfb4b7bc9266095c10c14",
+    "cleanroom_result_sha256": "1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18"
+  },
+  "cleanrooms": {
+    "rust": {
+      "commit": "13787e20dd9b52cf34c7bcc6262863a2a62b2a4e",
+      "workflow_run": 35957428814,
+      "status": "PASS"
+    },
+    "typescript": {
+      "commit": "2766c68dec8914ce000123ea3281cf190dddadfc",
+      "workflow_run": 35957273170,
+      "status": "PASS"
+    },
+    "csharp": {
+      "commit": "9f4d33c5b5c553644cd9c73a5c9cf09040083fe3",
+      "workflow_run": 35957627266,
+      "status": "PASS"
+    },
+    "go": {
+      "commit": "ff8a733b8271ac655eac8a3302b4f6cd9acadacf",
+      "workflow_run": 35957338729,
+      "status": "PASS"
+    },
+    "swift": {
+      "commit": "f55809a85cc763d2430b046b3a60f177b30de6d8",
+      "workflow_run": 35957491341,
+      "status": "PASS"
+    },
+    "java": {
+      "commit": "ea58105b6c90a5b7bb5169cdf8701c880822bdae",
+      "workflow_run": 35957541838,
+      "status": "PASS"
+    }
+  },
+  "adoption_invariants": [
+    "CORE_PRIMITIVES_UNCHANGED",
+    "MARKET_ENGINE_PRESERVED",
+    "RIGHTS_ARE_TRADED_NOT_BYTES",
+    "PROVIDER_CUSTODY_IS_NOT_AUTHORITY",
+    "EXTERNAL_STANDARDS_ARE_NOT_ENTITY_AUTHORITY",
+    "LEGAL_CLASSIFICATION_IS_EXTERNAL_ASSERTION",
+    "RESOLVER_IS_NOT_AUTHORITY",
+    "NO_SILENT_SEMANTIC_EQUIVALENCE"
+  ],
+  "new_v3_2_capabilities": [
+    "signed immutable ENTITY Rights Passports bound to existing ENTITY objects",
+    "provider-neutral custody connectors for AWS S3, Azure Blob, Google Cloud Storage, Snowflake, Databricks, PostgreSQL, SQL Server, local filesystems and HTTP APIs",
+    "explicit ODRL, W3C Verifiable Credential, DID, Gaia-X and IDS translation/evidence adapters without silent semantic equivalence",
+    "developer-facing adoption SDK that composes existing rights, jurisdiction, resolver and exchange profiles without acquiring authority",
+    "federated resolver deployment profile requiring at least two resolvers and fail-closed operation",
+    "legal-classification assertion envelopes that preserve deployment-specific legal authority",
+    "sealed six-language v3.2 adoption conformance campaign"
+  ],
+  "market_structure_preserved": [
+    "DCO",
+    "INSTRUMENT",
+    "LISTING",
+    "DISCLOSURE",
+    "ORDER_RFQ_AUCTION",
+    "PRICE_DISCOVERY",
+    "TRADE",
+    "CLEARING",
+    "SETTLEMENT",
+    "ENTITLEMENT",
+    "USAGE",
+    "DERIVED_OUTPUT",
+    "ECONOMIC_CONSEQUENCE"
+  ],
+  "inherited_v3_1_0_evidence": {
+    "regression_passed": 116,
+    "regression_total": 116,
+    "v3_1_cleanroom_result_sha256": "879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5",
+    "six_language_controlled_interoperability": true,
+    "global_doctrine_profiles_preserved": true
+  },
+  "external_remaining": [
+    "unrelated third-party v3 implementation and independent live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+    "real external issuers, buyers, repeat transactions and market liquidity"
+  ],
+  "permanent_truth_boundaries": [
+    "protocol records do not determine legal title",
+    "protocol records do not declare market or accounting fair value",
+    "external payment evidence is attestation, not objective bank truth",
+    "provider custody does not create ENTITY authority",
+    "external standards and credentials are evidence or mappings, not automatic ENTITY authority",
+    "information itself need not be scarce; economic scarcity resides in explicitly bounded rights or interests"
+  ]
+}
