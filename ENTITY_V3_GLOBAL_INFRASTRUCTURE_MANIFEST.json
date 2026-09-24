@@ -1,0 +1,172 @@
+{
+  "base_commit": "a977b013cb29504f04953c4fce33d2372e91097b",
+  "base_release": "v3.0.1",
+  "claim_boundaries": [
+    "release publication state is recorded by the v3.1.0 top-level release manifest",
+    "not unrelated third-party interoperability",
+    "not independent cryptographic review",
+    "not deployment-specific legal or regulatory approval",
+    "not billion/trillion-scale production certification"
+  ],
+  "conformance_vectors": {
+    "invalid": 8,
+    "valid": 8
+  },
+  "files": [
+    {
+      "path": "protocol/v3/ENTITY_DATA_ECONOMIC_SOVEREIGNTY_DOCTRINE.md",
+      "sha256": "f35894cba22f4a482d2612419c0078b132dc58e9d2d87eea8244456fcec6d7cf"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_CLEANROOM_PROFILE.json",
+      "sha256": "efbce93382598626e47923b4020352a89a0ca3e199db2b361fce20c8633228a2"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_INFRASTRUCTURE.schema.json",
+      "sha256": "e15d8f5b07c6801d108c1b15f73dd115548d4dd5f882ba4e5dfd2a9c73fea7ba"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_INFRASTRUCTURE_GAP_CLOSURE.md",
+      "sha256": "ee455c969aed9a87f554304624e65e044c6cd92825ae93f03a6848d24064179f"
+    },
+    {
+      "path": "protocol/v3/ENTITY_GLOBAL_INFRASTRUCTURE_PROFILE.md",
+      "sha256": "653c0e79625941645999e4c0aee57019056bb3be049686e3395b904b24bf742b"
+    },
+    {
+      "path": "protocol/v3/global_vectors/SHA256SUMS.txt",
+      "sha256": "49bea1b843dea1fe467337cd68eabbfdfb0291d31c7432d7454d6d0684fadcee"
+    },
+    {
+      "path": "protocol/v3/global_vectors/VECTOR_MANIFEST.json",
+      "sha256": "96aafd431a393b27dce3666b96c8f83289f799428bf685c8c4e742f8494e4631"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_data_capital_scarcity_flag.json",
+      "sha256": "0af047d58efb37e24ee151d7cafc4d80347b635bd14ed01c5adddabbe1d37e03"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_interest_nonrival_flag.json",
+      "sha256": "9c67c719c9e96436f26b4942d2974b92048470196781a14fca00080e9af1ea74"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_jurisdiction_effect.json",
+      "sha256": "3b6a634ad6f079f12a999a9b4bd228e02d59d929396fd48b72987b5f29ede72d"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_offline_payload_hash.json",
+      "sha256": "fed60a5c78d3de2a7331c06ea61f1d69f6654842281b51a0696f696d2d684f96"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_purpose_empty_actions.json",
+      "sha256": "51661a5c98aa20b1838fb67ecc6d2734f494eda4f67a1426fda070193bc86d70"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_semantic_kind.json",
+      "sha256": "8a195734eaf55bc81767787564bfbb0354c483addd86507a91c8a7d5a8a02a3e"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_topology_class.json",
+      "sha256": "7dd537b99d79e0efef1d8f1eb64d18ce4a9374f1b80b0bcaa8190ae065e5b3ba"
+    },
+    {
+      "path": "protocol/v3/global_vectors/invalid_transition_truth_flag.json",
+      "sha256": "b14c5c3e2ec76f94acd8479828605114c3f8f8eb2059eb93e49bcc028d9013b2"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_bounded_economic_interest.json",
+      "sha256": "981e18e65a27b41ac9845e91773100975c849095141e9b8cdd1724d1f1c25b18"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_crypto_transition.json",
+      "sha256": "d81c04bcdefff972bdfad4967184171c7fe7e53eacaf92e22a2582b8048a272d"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_data_economic_capital.json",
+      "sha256": "bd0de4e335ad8acfa352b93f22db5ff802490134398e9c7b7208a82151db900e"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_jurisdiction_profile.json",
+      "sha256": "295aab036de9327b7fd054db61f1c772f31657d0d194ccf7e388b57155d66b54"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_offline_envelope.json",
+      "sha256": "6eec6e81945c23ca337037f8339ce70ef892156b16332436538ccc56477eaf90"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_purpose_grant.json",
+      "sha256": "69e7d9275576e044ec008d2e9e745ae2690f60243da26a6cd57f942fad94185a"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_semantic_term.json",
+      "sha256": "7b109084c6c778dd2671c227fb3e2c4eee85c68528215c1414964e20b7d4ca8d"
+    },
+    {
+      "path": "protocol/v3/global_vectors/valid_topology_node.json",
+      "sha256": "d38bbff9973fb59e5556065ee019321068c9cd34def76733a62b05dfb7e5435d"
+    },
+    {
+      "path": "src/35_Global_Infrastructure/data_economic_sovereignty.py",
+      "sha256": "1d078b5ae13ed8b71c3499b3010fcb5db9052764741447ffc2e7ad44574915ce"
+    },
+    {
+      "path": "src/35_Global_Infrastructure/institutional_semantics.py",
+      "sha256": "39844e07cf7e2443613da5762e3762f94a850322ebcaa5ec8d04ecd37a63221b"
+    },
+    {
+      "path": "src/35_Global_Infrastructure/privacy_provenance.py",
+      "sha256": "04596fd872a9776ca84c1e28c1b1b9ddf88adfd14c5196f4b0f33dd071069a12"
+    },
+    {
+      "path": "src/35_Global_Infrastructure/topology_crypto.py",
+      "sha256": "8eae91134a87ac563270c0b60b2e0c19c6daae4e6722f5693ef0341c9cb9f855"
+    },
+    {
+      "path": "tests/test_v3_data_economic_sovereignty.py",
+      "sha256": "cc6a3ca20d8560a868c201c7d3dfd9ba59f9e46758ef10435ac8a1f86b90a4a6"
+    },
+    {
+      "path": "tests/test_v3_global_conformance.py",
+      "sha256": "96917f3e5240e8446ac3022a32619527305b98e74fbe6f351c865da2a3b9157a"
+    },
+    {
+      "path": "tests/test_v3_global_infrastructure.py",
+      "sha256": "89936ff77d5fb534c502ec835bb1e8b3fa384799db7842d99032acfcf11ca7df"
+    },
+    {
+      "path": "tools/build_v3_global_cleanroom_profile.py",
+      "sha256": "c4e22bb93d59578658482efbd56bb63f33735396564be813c9041bb62c995da2"
+    },
+    {
+      "path": "tools/build_v3_global_conformance.py",
+      "sha256": "b17eab64691e3bc4526d548e53eaabbc9f7c4db5e1a995918f6b8389b8d69d26"
+    },
+    {
+      "path": "tools/seal_v3_global_infrastructure.py",
+      "sha256": "af94f744185d68d7f5654d634c0f20d7af1646a9e0b7a8977826d7c6663f3c4e"
+    },
+    {
+      "path": "tools/verify_v3_global_infrastructure_manifest.py",
+      "sha256": "501687344d734536e6113ec68c33d598f3843d64e12b4f9bef318def2ae71cbb"
+    }
+  ],
+  "full_regression": {
+    "passed": 116,
+    "total": 116
+  },
+  "implemented_pressures": [
+    "jurisdictional diversity",
+    "semantic and ontology diversity",
+    "multi-stakeholder governance mechanics",
+    "privacy versus provenance controls",
+    "distributed topology, partition handling and cryptographic migration",
+    "data economic sovereignty and bounded rights-based scarcity"
+  ],
+  "schema": "entity-v3-global-infrastructure-manifest-v1",
+  "snapshot_sha256": "a26be5480b94f7669d41158cbceb1e8d31146afbbcba88f3ee4857c323cf25fc",
+  "status": "V3_1_0_BTG_INTERNAL_QUALIFIED_RELEASE_CANDIDATE",
+  "targeted_global_tests": {
+    "passed": 22,
+    "total": 22
+  }
+}

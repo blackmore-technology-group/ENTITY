@@ -1,0 +1,17 @@
+{
+  "expect": "VALID",
+  "record": {
+    "created_at_ms": 1,
+    "definition": {
+      "meaning": "training"
+    },
+    "definition_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "kind": "RIGHT",
+    "namespace_id": "btg",
+    "schema": "entity-v3-semantic-term-v1",
+    "status": "ACTIVE",
+    "supersedes_ref": null,
+    "term_id": "TRAIN",
+    "version": "1.0"
+  }
+}

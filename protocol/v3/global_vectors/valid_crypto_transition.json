@@ -1,0 +1,14 @@
+{
+  "expect": "VALID",
+  "record": {
+    "created_at_ms": 1,
+    "downgrade_after_transition_prohibited": true,
+    "dual_sign_from_ms": 100,
+    "governance_entity_id": "ent-gov",
+    "new_suite_id": "NEW",
+    "old_retire_at_ms": 200,
+    "old_suite_id": "OLD",
+    "schema": "entity-v3-crypto-transition-v1",
+    "transition_id": "cryptotransition3-example"
+  }
+}

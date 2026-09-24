@@ -1,0 +1,31 @@
+{
+  "expect": "INVALID",
+  "record": {
+    "actions": [
+      "READ",
+      "TRAIN"
+    ],
+    "additional_bounds": {},
+    "created_at_ms": 1,
+    "dco_ref": "obj3-data",
+    "derivation_allowed": true,
+    "duration_ms": 86400000,
+    "holder_entity_id": "ent-holder",
+    "interest_id": "interest3-example",
+    "jurisdiction": "CA-BC",
+    "participation_bps": 125,
+    "quantity": 100,
+    "scarcity_sources": [
+      "DERIVATION",
+      "DURATION",
+      "JURISDICTION",
+      "PARTICIPATION",
+      "RIGHT",
+      "TRANSFERABILITY",
+      "USAGE_QUANTITY"
+    ],
+    "schema": "entity-v3-bounded-economic-interest-v1",
+    "transferable": true,
+    "underlying_information_remains_nonrival": false
+  }
+}
