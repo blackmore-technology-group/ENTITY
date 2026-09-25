@@ -1,0 +1,132 @@
+{
+  "campaign": "ENTITY v3.4.0 complete post-publication recursive closure",
+  "claim_boundary": {
+    "accounting_fair_value_claimed": false,
+    "btg_controlled_evidence_is_not_independent_third_party_validation": true,
+    "custody_is_authority": false,
+    "economic_value_invented": false,
+    "independent_security_review_claimed": false,
+    "legal_or_regulatory_compliance_claimed": false,
+    "market_adoption_or_liquidity_claimed": false,
+    "objective_external_truth_claimed": false
+  },
+  "closure_definition": {
+    "immutable_target_is_v3_4_0_release_and_captured_external_repository_heads": true,
+    "later_publication_of_this_closure_report_is_not_part_of_the_frozen_target": true,
+    "reason": "Requiring a closure record to ingest the event that publishes that same record would create non-terminating self-reference."
+  },
+  "controller_entity_id": "ent2-pylbl7za6lhtytbui4drgko6p5qwzzka4uvaoxuwnqs6ca3lxyfq",
+  "coverage": {
+    "category_counts": {
+      "git_blob": 984,
+      "github_evidence": 45,
+      "release_evidence": 11
+    },
+    "closure_anchor_objects": 1,
+    "constituent_bytes": 5136474,
+    "constituents": 1040,
+    "git_tracked_files": 984,
+    "github_api_evidence_records": 45,
+    "release_evidence_artifacts": 11,
+    "total_ingested_objects": 1041
+  },
+  "date": "2026-09-24",
+  "destructive_recovery": {
+    "all_objects_evidence_rights_passports_global_passports_and_vault_bytes_reverified": true,
+    "encrypted_backup": {
+      "bytes": 3567691,
+      "cipher": "AES-256-GCM",
+      "encrypted": true,
+      "sha256": "f2b2a4231fb688762f6e055eabea8ca4f0c801b8685060ddbb5c76860ec23e60"
+    },
+    "identical_content_vault": true,
+    "identical_sqlite_semantics": true,
+    "identical_state_tree": true,
+    "performed": true
+  },
+  "entity_native_records": {
+    "evidence_objects": 1041,
+    "global_passports": 1041,
+    "objects": 1041,
+    "provenance_edges": 1040,
+    "rights": 1041,
+    "rights_passports": 1041,
+    "values": 1041
+  },
+  "release_evidence": {
+    "cleanroom_v3_4_result_sha256": "ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba",
+    "final_codeql_run": 36074203138,
+    "final_public_conformance_run": 36074202905,
+    "publisher_run": 36074265814
+  },
+  "roots": {
+    "capture_manifest_sha256": "5be369fc320c43b66afbc103fccf04246e78441c3a93e5cdad85028af742cfa2",
+    "content_vault_after_recovery": {
+      "bytes": 4361212,
+      "files": 656,
+      "sha256": "6ffc454b88c06f9da72db5854c3018a8fc5e0f3a334d829eafafeb0f9dbd4280"
+    },
+    "content_vault_before_destruction": {
+      "bytes": 4361212,
+      "files": 656,
+      "sha256": "6ffc454b88c06f9da72db5854c3018a8fc5e0f3a334d829eafafeb0f9dbd4280"
+    },
+    "entity_ingested_constituent_root_sha256": "4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06",
+    "frozen_constituent_root_sha256": "4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06",
+    "git_blob_inventory_sha256": "2c4c535f1d0378b37f493a0a14e5f51f5cbb13741233c184037760e2dcc3bf44",
+    "sovereign_export_manifest_sha256": "72b3012b5db0eda931fb6bbf4476f342dcdaedceb91290c57fdd5b4018275e96",
+    "sovereign_export_tree": {
+      "bytes": 11716165,
+      "files": 7,
+      "sha256": "ce155ac3755d37292b69dd97aa24a4e9635e23950de016529640555f23b79149"
+    },
+    "sqlite_semantic_after_recovery": {
+      "databases": 5,
+      "rows": 7293,
+      "sha256": "9c8ed4e767adf37abad6f0a2492e8a8007126fc1264218d0d184a4f6e7fa4231",
+      "tables": 16
+    },
+    "sqlite_semantic_before_destruction": {
+      "databases": 5,
+      "rows": 7293,
+      "sha256": "9c8ed4e767adf37abad6f0a2492e8a8007126fc1264218d0d184a4f6e7fa4231",
+      "tables": 16
+    },
+    "state_tree_after_recovery": {
+      "bytes": 16724654,
+      "files": 665,
+      "sha256": "6e054beaa96c089b3958973c834b3ddb2dda2466961c7ac67a748c7813c22925"
+    },
+    "state_tree_before_destruction": {
+      "bytes": 16724654,
+      "files": 665,
+      "sha256": "6e054beaa96c089b3958973c834b3ddb2dda2466961c7ac67a748c7813c22925"
+    }
+  },
+  "schema": "entity-v3-4-post-release-recursive-closure-v1",
+  "status": "PASS",
+  "target": {
+    "captured_repository_heads": {
+      "ENTITY": "2db5bff64507b8d67642122a5ff2fc73dfef9152",
+      "ENTITY-AI": "b7ead617f6710862feeac11e3b998131e8196b71",
+      "ENTITY-CSHARP-CLEANROOM": "2cf64646cb70c8d89698f3f474a0a2a532c83b2d",
+      "ENTITY-DEFENCE": "8018ed7ead3654b39b3ee4bea85a1b8b0844ea64",
+      "ENTITY-FINANCE": "2f0839e29ea8d1b8ebd422ece363b0c5cdfceb2e",
+      "ENTITY-GITHUB-APP": "7ef6b33b5d586cabd1f912491152fcff10e0ad47",
+      "ENTITY-GO-CLEANROOM": "d878229a5256bf7c06a1da84dfb9ba0297f0c946",
+      "ENTITY-HEALTHCARE": "249da1e0583591cf5e8cfc69d57af5afc331d154",
+      "ENTITY-JAVA-CLEANROOM": "da2520429f8dab7a2752b2b6b6fc653c6ae173b6",
+      "ENTITY-MANUFACTURING": "808a1ab50d02d00ab22348dd29f491db96c03fac",
+      "ENTITY-ROBOTICS": "861e8b688ef80945d39bdedf3044f189ffcbfb19",
+      "ENTITY-RUST-CLEANROOM": "5420f724495722019b1f8624f02fe8a02df7bfbf",
+      "ENTITY-SWIFT-CLEANROOM": "2f40118999beceb6c34f2ea1c583dd12cfe81368",
+      "ENTITY-TYPESCRIPT-CLEANROOM": "48e7f606740819379eee2e0fa663d41044b1d899"
+    },
+    "commit": "2db5bff64507b8d67642122a5ff2fc73dfef9152",
+    "pull_request": 41,
+    "release_id": 396162815,
+    "repository": "blackmore-technology-group/ENTITY",
+    "tag": "v3.4.0"
+  },
+  "version": "3.4.0"
+}
