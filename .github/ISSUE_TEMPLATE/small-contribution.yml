@@ -12,7 +12,7 @@ body:
     id: scope
     attributes:
       label: Proposed scope
-      placeholder: Add a minimal Evidence Object example for v3.3
+      placeholder: Add a minimal Global Passport or evidence-bound claim example for v3.4
     validations:
       required: true
   - type: textarea
