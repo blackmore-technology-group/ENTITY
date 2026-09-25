@@ -11,7 +11,7 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > **Infrastructure possession does not become sovereign authority.**
 
-[Start here](START_HERE.md) · [v3.4.0 Global Passport](docs/v3.4/README.md) · [Domain packages](docs/v3.4/DOMAIN_PACKAGES.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Roadmap](ROADMAP.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Governance](GOVERNANCE.md) · [Contributing](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
+[Documentation portal](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [Start here](START_HERE.md) · [v3.4.0 Global Passport](docs/v3.4/README.md) · [Domain packages](docs/v3.4/DOMAIN_PACKAGES.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Roadmap](ROADMAP.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Governance](GOVERNANCE.md) · [Contributing](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
 
 ---
 
@@ -31,7 +31,7 @@ The release adds:
 - **Executable Domain Packages** — Healthcare, Finance, Manufacturing, AI, Robotics and Defence/Public-Unclassified;
 - **Developer SDK/CLI** — select a package, configure organization facts, ingest, verify and deploy.
 
-[v3.4.0 documentation portal](docs/v3.4/README.md) · [Global Passport](docs/v3.4/GLOBAL_PASSPORT.md) · [Six domain packages](docs/v3.4/DOMAIN_PACKAGES.md)
+[Complete operator & developer documentation](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [In-repo v3.4 source docs](docs/v3.4/README.md) · [Global Passport](docs/v3.4/GLOBAL_PASSPORT.md) · [Six domain packages](docs/v3.4/DOMAIN_PACKAGES.md)
 
 ### Inherited v3.3 evidence layer
 
