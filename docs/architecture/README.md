@@ -38,6 +38,24 @@ VERIFICATION
 AUTHORITATIVE ENTITY STATE
 ```
 
+v3.4 adds one Global Passport over that architecture:
+
+```text
+ENTITY state + rights + evidence
+        ↓
+Global Passport envelope
+        ↓
+Composable profile stack
+        ↓
+Versioned profile / standards mappings
+        ↓
+Continuous provenance + derivation
+        ↓
+Domain deployment packages
+```
+
+Profiles add context and constraints; they do not create sovereign authority or redefine external standards.
+
 The project deliberately separates **cryptographic verification**, **protocol verification** and **reality/evidence verification**. See [Technical Note 001 — Three Verification Boundaries](../papers/TECHNICAL_NOTE_001_THREE_VERIFICATION_BOUNDARIES.md).
 
 ## Major implementation surfaces
@@ -50,7 +68,12 @@ The project deliberately separates **cryptographic verification**, **protocol ve
 - `33_Economic_Participation` — economic participation and consequence surfaces.
 - `36_Adoption_Layer` — Rights Passports and adoption-layer interfaces.
 - `37_Verifiable_Reality` — evidence objects, attestation, external anchors, contestability and causal attribution.
-- `sdk/` — provider-neutral application integration and principal/device/application binding.
+- `38_Global_Passports` — Global Passport envelope, profiles, registry, continuous provenance and conformance.
+- `39_Implementation_Packages` — deployable industry-package machinery and configuration planning.
+- `profiles/` — versioned Global Passport/domain profile registry assets.
+- `sdk/` — provider-neutral application integration, Global Passport SDK and principal/device/application binding.
+
+See [v3.4.0 architecture and domain packages](../v3.4/README.md).
 
 ## Architecture Decision Records
 

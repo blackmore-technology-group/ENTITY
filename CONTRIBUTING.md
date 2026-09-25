@@ -35,15 +35,15 @@ Changes must not silently turn:
 - aliases into cryptographic identity;
 - a disputed historical claim into deleted history.
 
-## v3.3 evidence discipline
+## v3.4 evidence, passport and profile discipline
 
-For verifiable-reality work, keep these distinct:
+v3.4 inherits the v3.3 verification boundaries. For Global Passport/profile work, keep these distinct:
 
 - **cryptographic verification** — signature/commitment integrity;
 - **protocol verification** — valid ENTITY semantics/state transition;
 - **reality/evidence verification** — attributed evidence supporting an external-world claim.
 
-Code or documentation that collapses these layers should be treated as a semantic defect.
+Code or documentation that collapses these layers should be treated as a semantic defect. Profile composition must not create authority; external standards must be mapped rather than redefined; and industry packages must not create separate sovereignty silos.
 
 ## Protocol changes
 

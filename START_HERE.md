@@ -1,34 +1,25 @@
 # Start Here
 
-If you are new to ENTITY, do not begin by reading the entire requirements corpus.
-
-Start with the question you want to answer.
-
-## I want to understand ENTITY in 10 minutes
-
-ENTITY is a provider-independent authority and rights protocol built around five primitives:
+ENTITY is a provider-independent authority, rights, evidence and economic-state protocol built around five primitives:
 
 **ENTITY · AUTHORITY · RIGHT · EVENT · VALUE**
 
-The core design rule is:
-
 > Infrastructure possession does not become sovereign authority.
 
-In v3.3, ENTITY also distinguishes a signed assertion from evidence about external reality:
+## Understand the current release
 
-```text
-Reality → Observation → Claim → Evidence → Attestation → Verification
-        → Authoritative ENTITY State → Right → Usage → Economic Consequence
-```
+**ENTITY v3.4.0 — Global Passport & Continuous Provenance** is the current protected release. It retains the v3.3 evidence/truth boundaries and adds one universal Global Passport with composable jurisdiction, industry, privacy, trust and technical profiles.
 
-Read next:
+Read in this order:
 
 1. [README](README.md)
-2. [Sovereign Authority Doctrine](docs/architecture/ADR-0004-SOVEREIGN-AUTHORITY-DOCTRINE.md)
-3. `protocol/v3/ENTITY_VERIFIABLE_REALITY.schema.json`
-4. [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md)
+2. [v3.4.0 portal](docs/v3.4/README.md)
+3. [Global Passport architecture](docs/v3.4/GLOBAL_PASSPORT.md)
+4. [Six domain packages](docs/v3.4/DOMAIN_PACKAGES.md)
+5. [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md)
+6. [Sovereign Authority Doctrine](docs/architecture/ADR-0004-SOVEREIGN-AUTHORITY-DOCTRINE.md)
 
-## I want to run the project
+## Run ENTITY
 
 ```bash
 git clone https://github.com/blackmore-technology-group/ENTITY.git
@@ -38,53 +29,20 @@ python -m compileall -q src sdk protocol
 python -m unittest discover -s tests -v
 ```
 
-For v3.3 specifically, inspect:
+For v3.4.0 inspect `src/38_Global_Passports/`, `src/39_Implementation_Packages/`, `profiles/registry.json`, `protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json`, `sdk/global_passport_sdk/` and `tests/test_v3_global_passports.py`.
 
-```text
-src/37_Verifiable_Reality/
-tests/test_v3_verifiable_reality.py
-protocol/v3/ENTITY_VERIFIABLE_REALITY.schema.json
-protocol/v3/ENTITY_V3_3_REALITY_CLEANROOM_KIT.min.json
-```
+## Deploy a domain package
 
-## I want a small contribution first
+Choose Healthcare, Finance, Manufacturing, AI, Robotics or Defence/Public-Unclassified from [Domain Packages](docs/v3.4/DOMAIN_PACKAGES.md), configure organization-specific facts, connect governed systems/data, ingest, verify the passport and run package conformance.
 
-You do not need to implement ENTITY from scratch.
+## Independent implementation
 
-Good first contributions include:
+Use the [Interoperability Challenge](docs/INTEROPERABILITY_CHALLENGE.md). BTG-controlled implementations are reproducibility baselines, not independent external validation.
 
-- reproduce a documented setup on another OS;
-- review one schema for ambiguity;
-- test a valid or invalid vector;
-- improve an error message;
-- add a minimal example;
-- benchmark a verification path;
-- challenge a truth/authority boundary with a concrete counterexample;
-- improve developer documentation.
+## Evaluate the engineering
 
-Open an issue before large changes when scope is uncertain. Questions about the published semantics are welcome.
+Start with [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md) and the [v3.4 post-release closure](docs/v3.4/RECURSIVE_CLOSURE.md).
 
-## I want to attempt independent implementation
+## Found a problem?
 
-Use the [Interoperability Challenge](docs/INTEROPERABILITY_CHALLENGE.md).
-
-For an implementation to count as **independent external evidence**, do not copy, port or inspect BTG-controlled implementation code while building the candidate. The independent repository should document the exact public specification/kit it used.
-
-BTG can clarify public specifications and vector intent, but should not write the independent implementation or its final qualification report.
-
-## I want to evaluate the engineering
-
-Start with [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md), then inspect the release manifests, qualification records, protected release commits, tests and sealed kits directly.
-
-Do not infer external validation from BTG-controlled evidence. ENTITY explicitly distinguishes internal qualification from unrelated third-party validation.
-
-## I found a problem
-
-That is useful.
-
-- Security-sensitive issue: follow [SECURITY.md](SECURITY.md).
-- Specification ambiguity: open an issue with the exact section/vector involved.
-- Reproducible bug: include environment, command, expected behavior and actual behavior.
-- Contributor idea: open a discussion or a narrowly scoped issue before investing in a large implementation.
-
-The project values reproducible criticism. A failing vector or ambiguous rule is more useful than a generic endorsement.
+Security-sensitive findings belong in private vulnerability reporting. Specification ambiguities and reproducible bugs belong in issues with the exact version/commit, expected result and actual result.

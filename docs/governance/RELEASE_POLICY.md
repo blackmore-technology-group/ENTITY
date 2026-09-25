@@ -103,10 +103,8 @@ This policy is intended to keep public version numbers tied to engineering evide
 
 ## Current release
 
-As of 2026-09-24, the current protected release is **ENTITY v3.3.0 — Verifiable Reality, Evidence and Economic Causality**.
+As of 2026-09-25, the current protected release is **ENTITY v3.4.0 — Global Passport & Continuous Provenance**.
 
-Protected release commit:
+Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
-`9c79f987207592cb6791e1a8956f23351cdfb2d3`
-
-See [ROADMAP.md](../../ROADMAP.md), [docs/ENGINEERING_EVIDENCE.md](../ENGINEERING_EVIDENCE.md) and the [GitHub Releases](https://github.com/blackmore-technology-group/ENTITY/releases) page for current evidence and open external milestones.
+Later documentation/evidence commits on `main` do not move or redefine the immutable `v3.4.0` tag. See [ROADMAP.md](../../ROADMAP.md), [v3.4.0 documentation](../v3.4/README.md), [Engineering Evidence](../ENGINEERING_EVIDENCE.md) and [GitHub Releases](https://github.com/blackmore-technology-group/ENTITY/releases).

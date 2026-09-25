@@ -6,22 +6,13 @@ It is not a promise that every future version will follow a fixed feature schedu
 
 ## Current protected release
 
-**ENTITY v3.3.0 — Verifiable Reality, Evidence and Economic Causality**
+**ENTITY v3.4.0 — Global Passport & Continuous Provenance**
 
-Protected release commit:
+Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
-`9c79f987207592cb6791e1a8956f23351cdfb2d3`
+Release qualification: **177/177** regression, **33/33** targeted v3.4 tests, **24/24** sealed Global Passport vectors, six BTG-controlled native implementations, six executable domain repositories, protected GitHub checks/CodeQL PASS, and post-release recursive closure PASS.
 
-Release qualification:
-
-- complete regression: **144/144 PASS**;
-- targeted v3.3 tests: **16/16 PASS**;
-- sealed v3.3 reality vectors: **20/20 PASS** (10 valid / 10 invalid);
-- canonical sealed kit SHA-256: `f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46`;
-- deterministic result SHA-256: `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`;
-- protected GitHub checks and CodeQL: **PASS**.
-
-See [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md) for the evidence hierarchy and claim boundaries.
+See [v3.4.0 Portal](docs/v3.4/README.md) and [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md).
 
 ## What is already engineered
 

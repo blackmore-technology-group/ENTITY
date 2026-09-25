@@ -26,21 +26,13 @@ ENTITY is designed so that protocol conformance, verification and interoperabili
 
 ## Current protected release
 
-**ENTITY v3.3.0 — Verifiable Reality, Evidence and Economic Causality**
+**ENTITY v3.4.0 — Global Passport & Continuous Provenance**
 
-Protected release commit:
+Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
-`9c79f987207592cb6791e1a8956f23351cdfb2d3`
+Public qualification evidence includes 177/177 regression tests, 33/33 targeted v3.4 tests, 24/24 sealed vectors, six BTG-controlled native implementations converging on `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`, six published executable domain packages, and a completed post-release recursive closure.
 
-Public qualification evidence includes:
-
-- complete regression: **144/144 PASS**;
-- targeted v3.3 suite: **16/16 PASS**;
-- sealed v3.3 reality vectors: **20/20 PASS** — 10 valid / 10 invalid;
-- canonical sealed kit SHA-256: `f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46`;
-- deterministic result SHA-256: `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`.
-
-These results are BTG-controlled engineering evidence. They are **not** described as unrelated third-party validation.
+Start with the [v3.4.0 portal](docs/v3.4/README.md) and [Domain Packages](docs/v3.4/DOMAIN_PACKAGES.md). These results are BTG-controlled engineering evidence, not unrelated third-party validation.
 
 ## Engineering tracks
 

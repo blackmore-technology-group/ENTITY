@@ -11,64 +11,35 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > **Infrastructure possession does not become sovereign authority.**
 
-[Start here](START_HERE.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Roadmap](ROADMAP.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Governance](GOVERNANCE.md) · [Contributing](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
+[Start here](START_HERE.md) · [v3.4.0 Global Passport](docs/v3.4/README.md) · [Domain packages](docs/v3.4/DOMAIN_PACKAGES.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Roadmap](ROADMAP.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Governance](GOVERNANCE.md) · [Contributing](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
 
 ---
 
-## ENTITY v3.3 — Verifiable Reality, Evidence and Economic Causality
+## ENTITY v3.4.0 — Global Passport & Continuous Provenance
 
-ENTITY v3.3 adds a formal bridge between claims about the external world and authoritative ENTITY state without pretending that a signature makes a claim objectively true.
+ENTITY v3.4.0 turns the existing sovereign identity, authority, rights, evidence and economic architecture into a directly deployable **Global Passport** surface.
 
-```text
-REALITY
-  ↓
-OBSERVATION
-  ↓
-CLAIM
-  ↓
-EVIDENCE
-  ↓
-ATTESTATION
-  ↓
-VERIFICATION
-  ↓
-AUTHORITATIVE ENTITY STATE
-  ↓
-RIGHT
-  ↓
-USAGE
-  ↓
-ECONOMIC CONSEQUENCE
-```
+> **One ENTITY Passport. Many jurisdictions, industries, standards and contexts. No new sovereignty silos.**
 
-The v3.3 layer adds:
+The release adds:
 
-- **Evidence Objects** — signed, typed evidence that can reference sensors, documents, registries, laboratory results, receipts, APIs and institutional records.
-- **Typed claim states** — `OBSERVED`, `ASSERTED`, `INFERRED`, `ATTESTED`, `EXTERNALLY_VERIFIED`, `ADJUDICATED`, `DISPUTED`, `REVOKED`, `UNKNOWN`.
-- **Attestation authority** — authority can be scoped to specific classes of facts and revoked without granting general sovereignty.
-- **External reality anchors** — external systems may provide attributed evidence without silently becoming ENTITY authority.
-- **Contestability and supersession** — challenges, decisions and superseding claims preserve the history they replace.
-- **Causal economic attribution** — evidence can be carried through derivation and economic consequence rather than stopping at provenance.
+- **Global Passport Envelope** — one portable envelope binding existing ENTITY identity, rights, evidence and provenance;
+- **Composable Profile Stack** — jurisdiction, industry, privacy, trust and technical profiles compose fail-closed;
+- **Versioned Global Profile Registry** — signed/profile-controlled registration without silently creating authority;
+- **Standards Mapping Framework** — mappings describe correspondence and never redefine external standards;
+- **Continuous Provenance** — governed ingestion and passport derivation over evolving artifacts;
+- **Executable Domain Packages** — Healthcare, Finance, Manufacturing, AI, Robotics and Defence/Public-Unclassified;
+- **Developer SDK/CLI** — select a package, configure organization facts, ingest, verify and deploy.
 
-The governing thesis is deliberately bounded:
+[v3.4.0 documentation portal](docs/v3.4/README.md) · [Global Passport](docs/v3.4/GLOBAL_PASSPORT.md) · [Six domain packages](docs/v3.4/DOMAIN_PACKAGES.md)
 
-> **ENTITY does not make reality indisputable. It makes claims about reality attributable, evidentiary, contestable, machine-verifiable and economically traceable.**
+### Inherited v3.3 evidence layer
 
-### Three kinds of verification
-
-ENTITY keeps three questions separate:
-
-1. **Cryptographic verification** — did this key sign this exact record?
-2. **Protocol verification** — does this state transition obey ENTITY rules?
-3. **Reality/evidence verification** — what evidence supports the claim about the external world, who supplied it, under what authority, and what is its current status?
-
-A successful answer to one does not silently imply the others.
-
----
+v3.4.0 retains v3.3's Verifiable Reality, Evidence and Economic Causality model. ENTITY still keeps cryptographic verification, protocol verification and reality/evidence verification distinct. A valid Global Passport therefore does not make an external assertion objectively true.
 
 ## The market architecture is preserved
 
-v3.3 does not replace ENTITY's market model:
+v3.4.0 preserves ENTITY's market model:
 
 ```text
 DCO
@@ -130,16 +101,16 @@ ENTITY publishes evidence separately from claims about the project.
 
 | Evidence boundary | Current public position |
 | --- | --- |
-| Current release line | **v3.3.0 — Verifiable Reality, Evidence and Economic Causality** |
-| Complete v3.3 regression | **144/144 PASS** |
-| v3.2 targeted adoption tests | **12/12 PASS** |
-| v3.2 sealed adoption vectors | **16/16 PASS** — 8 valid / 8 invalid |
-| v3.2 BTG-controlled native convergence | **Rust · TypeScript · C# · Go · Swift · Java** |
-| v3.2 common result SHA-256 | `1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18` |
-| v3.3 targeted verifiable-reality suite | **16/16 PASS** |
-| v3.3 sealed reality vectors | **20/20 PASS** — 10 valid / 10 invalid |
-| v3.3 deterministic result SHA-256 | `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d` |
-| Protected predecessor | **v3.2.0** — commit `512665096cef3771a3a8307d6dc955015ee0efbc` |
+| Current protected release | **v3.4.0 — Global Passport & Continuous Provenance** |
+| Protected release commit | `2db5bff64507b8d67642122a5ff2fc73dfef9152` |
+| Full regression | **177/177 PASS** |
+| v3.4 targeted Global Passport/package suite | **33/33 PASS** |
+| v3.4 sealed Global Passport vectors | **24/24 PASS** — 12 valid / 12 invalid |
+| v3.4 sealed kit SHA-256 | `5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230` |
+| Global Passport schema SHA-256 | `4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd` |
+| Six-language BTG-controlled result SHA-256 | `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba` |
+| Executable domain packages | **6/6 published and verified** |
+| Post-release recursive closure | **PASS** — 1,040 frozen constituents / 1,041 ENTITY records |
 | Unrelated third-party implementation | **OPEN / PENDING** |
 | Independent external security review | **PENDING** |
 | Deployment-specific legal/regulatory determination | **Outside ENTITY protocol claims** |
@@ -225,7 +196,10 @@ ENTITY/
 │   ├── 31_Profiles/             # v3 profile machinery
 │   ├── 33_Economic_Participation/
 │   ├── 36_Adoption_Layer/       # v3.2 rights passports/adoption surfaces
-│   └── 37_Verifiable_Reality/   # v3.3 evidence, attestation, anchors and causality
+│   ├── 37_Verifiable_Reality/   # v3.3 evidence, attestation, anchors and causality
+│   ├── 38_Global_Passports/     # v3.4 Global Passport, profiles and continuous provenance
+│   └── 39_Implementation_Packages/ # v3.4 deployable domain package machinery
+├── profiles/                    # versioned global/domain profile registry
 ├── protocol/
 │   └── v3/                      # schemas, profiles and sealed v3 materials
 ├── sdk/                         # public developer interfaces

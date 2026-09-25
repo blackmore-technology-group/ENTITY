@@ -21,6 +21,28 @@ No lower layer silently upgrades itself into a higher one.
 
 ---
 
+## v3.4.0 — current protected release
+
+**Release:** `v3.4.0`  
+**Protected release commit:** `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+
+v3.4.0 introduces the Global Passport, composable profile stack, versioned profile registry, standards mappings, continuous provenance/passport derivation and executable domain deployment packages while preserving the five core primitives and inherited v3.3 evidence/truth boundaries.
+
+Qualification:
+
+- complete regression: **177/177 PASS**;
+- targeted Global Passport/package suite: **33/33 PASS**;
+- sealed v3.4 vectors: **24/24 PASS** — 12 valid / 12 invalid;
+- sealed kit SHA-256: `5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230`;
+- schema SHA-256: `4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd`;
+- six-language BTG-controlled result SHA-256: `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`;
+- six executable domain packages published and verified;
+- post-release recursive closure: **PASS**, frozen constituent root `4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06`.
+
+See [v3.4.0 portal](v3.4/README.md), [domain packages](v3.4/DOMAIN_PACKAGES.md) and the post-release closure records below.
+
+---
+
 ## v3.2.0 — protected public release
 
 **Release:** `v3.2.0`  

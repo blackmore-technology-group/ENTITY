@@ -60,15 +60,11 @@ This is the strongest review class described by this program, but it is still di
 
 ## Current review target
 
-Current protected release:
+Current protected release: **ENTITY v3.4.0 — Global Passport & Continuous Provenance**
 
-**ENTITY v3.3.0 — Verifiable Reality, Evidence and Economic Causality**
+Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
-Protected release commit:
-
-`9c79f987207592cb6791e1a8956f23351cdfb2d3`
-
-Reviewers should pin findings to an exact commit, tag or release artifact rather than reviewing an unspecified moving branch.
+The review scope should include Global Passport/profile composition, profile-registry integrity, standards-mapping boundaries, continuous provenance, passport derivation, domain-package deployment semantics, and the inherited v3.3 evidence/attestation surfaces. Reviewers should pin findings to an exact commit, tag or release artifact rather than reviewing an unspecified moving branch.
 
 ## Evidence expected from reviewers
 
