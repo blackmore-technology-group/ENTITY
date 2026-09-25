@@ -13,32 +13,30 @@ It is intentionally conservative: a repository, implementation or test is listed
 
 ## Current release evidence
 
-Release: **ENTITY v3.3.0 — Verifiable Reality, Evidence and Economic Causality**
+Release: **ENTITY v3.4.0 — Global Passport & Continuous Provenance**
 
-Protected release commit:
+Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
-`9c79f987207592cb6791e1a8956f23351cdfb2d3`
+Sealed v3.4 Global Passport kit SHA-256: `5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230`
 
-Canonical v3.3 sealed kit SHA-256:
+Deterministic v3.4 result SHA-256: `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`
 
-`f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46`
+Schema SHA-256: `4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd`
 
-Deterministic v3.3 result SHA-256:
-
-`82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`
+The v3.4 campaign contains 24 vectors (12 valid / 12 invalid) and the six BTG-controlled native implementations converge on the same result. The six executable domain packages are separately published and package-verified.
 
 ## BTG-controlled cross-language reproducibility baselines
 
 These implementations are controlled by Blackmore Technology Group Limited. They demonstrate cross-language reproducibility against the stated public vector target, but **do not constitute unrelated external validation**.
 
-| Implementation | Control | v3.3 vector target | Native CI | Evidence class |
+| Implementation | Control | v3.4 vector target | Native CI | Evidence class |
 | --- | --- | --- | --- | --- |
-| Rust | BTG-controlled | 20/20 | **PASS** | Controlled cross-language reproducibility |
-| TypeScript | BTG-controlled | 20/20 | **PASS** | Controlled cross-language reproducibility |
-| C# | BTG-controlled | 20/20 | **PASS** | Controlled cross-language reproducibility |
-| Go | BTG-controlled | 20/20 | **PASS** | Controlled cross-language reproducibility |
-| Swift | BTG-controlled | 20/20 | **PASS** | Controlled cross-language reproducibility |
-| Java | BTG-controlled | 20/20 | **PASS** | Controlled cross-language reproducibility |
+| Rust | BTG-controlled | 24/24 | **PASS** | Controlled cross-language reproducibility |
+| TypeScript | BTG-controlled | 24/24 | **PASS** | Controlled cross-language reproducibility |
+| C# | BTG-controlled | 24/24 | **PASS** | Controlled cross-language reproducibility |
+| Go | BTG-controlled | 24/24 | **PASS** | Controlled cross-language reproducibility |
+| Swift | BTG-controlled | 24/24 | **PASS** | Controlled cross-language reproducibility |
+| Java | BTG-controlled | 24/24 | **PASS** | Controlled cross-language reproducibility |
 
 Repositories:
 
@@ -53,9 +51,9 @@ Repositories:
 
 | Milestone | Current status | Evidence required to change status |
 | --- | --- | --- |
-| Unrelated developer reproduces the v3.3 public vector result | **PENDING** | Public independently authored implementation/evidence from a party outside BTG control |
-| Unrelated implementation accepts all valid v3.3 vectors | **PENDING** | Reproducible public candidate result |
-| Unrelated implementation rejects all invalid/tampered v3.3 vectors | **PENDING** | Reproducible public candidate result |
+| Unrelated developer reproduces the v3.4 public vector result | **PENDING** | Public independently authored implementation/evidence from a party outside BTG control |
+| Unrelated implementation accepts all valid v3.4 vectors | **PENDING** | Reproducible public candidate result |
+| Unrelated implementation rejects all invalid/tampered v3.4 vectors | **PENDING** | Reproducible public candidate result |
 | Reproducible CI in unrelated repository | **PENDING** | Public CI tied to independently authored implementation |
 | Bidirectional live interoperability with BTG reference implementation | **PENDING** | Public test evidence covering both directions |
 | Sovereign export/recovery survival across independent implementation boundary | **PENDING** | Recovery evidence showing preservation of the same authoritative result/root |
@@ -66,7 +64,7 @@ Repositories:
 
 The separately published [ENTITY Protocol 1.0 Conformance Kit](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit) remains the authoritative sealed target for Protocol 1.0 external conformance campaigns.
 
-That historical target must not be silently rewritten to match later ENTITY versions. Protocol 1.0 and v3.3 evidence should be reported separately.
+That historical target must not be silently rewritten to match later ENTITY versions. Protocol 1.0, v3.3 historical evidence and current v3.4 evidence should be reported separately.
 
 ## How a new external result is added
 

@@ -4,19 +4,15 @@ ENTITY handles identity, authority, provenance, evidence, rights, cryptographic 
 
 ## Supported public release
 
-The current protected public source/reference release is **ENTITY v3.3.0 — Verifiable Reality, Evidence and Economic Causality**.
+The current protected public source/reference release is **ENTITY v3.4.0 — Global Passport & Continuous Provenance**.
 
-Protected release commit:
+Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
-`9c79f987207592cb6791e1a8956f23351cdfb2d3`
+The separately published Windows x64 `1.0.0-rc2` binary remains a historical product build. ENTITY Protocol 1.0 remains **FROZEN_FOR_EXTERNAL_CONFORMANCE** as its separately sealed historical conformance scope.
 
-The separately published Windows x64 `1.0.0-rc2` binary remains a historical product build and should not be confused with the current v3 protocol/reference-source release line.
+Current v3.4 qualification and claim boundaries are published in [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md) and the [v3.4.0 portal](docs/v3.4/README.md). Independent external security review remains a separate **PENDING** milestone.
 
-ENTITY Protocol 1.0 remains **FROZEN_FOR_EXTERNAL_CONFORMANCE** as its separately sealed historical conformance scope.
-
-Current v3.3 qualification and claim boundaries are published in [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md). Independent external security review remains a separate **PENDING** milestone.
-
-## Security model additions through v3.3
+## Security model additions through v3.4
 
 ENTITY v3.0.1 hardened operational signing-key creation, retirement/revocation cutoffs and recovery/rotation behavior while preserving valid historical signatures under the applicable signed-time semantics.
 
@@ -27,7 +23,12 @@ Later releases add further security-sensitive protocol surfaces, including:
 - scoped and revocable attestation authority;
 - external reality anchors that remain evidence rather than automatic sovereign authority;
 - contestability and supersession;
-- evidence-linked economic causality.
+- evidence-linked economic causality;
+- Global Passport/profile composition and fail-closed parent requirements;
+- signed/versioned profile registry integrity;
+- standards mappings that do not acquire sovereign authority;
+- continuous-provenance and passport-derivation integrity;
+- executable domain-package configuration boundaries.
 
 A signer-controlled timestamp is evidence from the signer, not an objective trusted timestamp. Authoritative temporal claims require the applicable independent anchoring/evidence semantics.
 
