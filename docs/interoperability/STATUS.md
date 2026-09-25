@@ -6,14 +6,14 @@ It is intentionally conservative: a repository, implementation or test is listed
 
 ## Status vocabulary
 
-- **PASS** â€” the stated test/evidence requirement was completed successfully.
-- **PARTIAL** â€” useful evidence exists, but the stated end-to-end milestone is incomplete.
-- **PENDING** â€” no qualifying public result has yet been recorded.
-- **FAILED / COUNTEREXAMPLE** â€” a reproducible result demonstrates non-conformance, ambiguity or failure. This is useful evidence and should remain visible until resolved or superseded.
+- **PASS** — the stated test/evidence requirement was completed successfully.
+- **PARTIAL** — useful evidence exists, but the stated end-to-end milestone is incomplete.
+- **PENDING** — no qualifying public result has yet been recorded.
+- **FAILED / COUNTEREXAMPLE** — a reproducible result demonstrates non-conformance, ambiguity or failure. This is useful evidence and should remain visible until resolved or superseded.
 
 ## Current release evidence
 
-Release: **ENTITY v3.4.0 â€” Global Passport & Continuous Provenance**
+Release: **ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**
 
 Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 

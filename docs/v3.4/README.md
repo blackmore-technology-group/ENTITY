@@ -1,11 +1,11 @@
-# ENTITY v3.4.0 â€” Global Passport & Continuous Provenance
+# ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap
 
 **Protected release:** [`v3.4.1`](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.1)
 **Release commit:** `9822b1b65f8269ebc17208a342809720729ae2f8`
 
 ENTITY v3.4.1 preserves the universal **ENTITY Global Passport**, composable profile stacks, versioned profile registry, standards mappings, continuous provenance, passport derivation and executable industry deployment packages introduced in v3.4.0, while adding canonical protocol-origin lineage and sovereign-user bootstrap separation without changing the five core primitives:
 
-**ENTITY â†’ AUTHORITY â†’ RIGHT â†’ EVENT â†’ VALUE**
+**ENTITY → AUTHORITY → RIGHT → EVENT → VALUE**
 
 > One ENTITY Passport. Many jurisdictions, industries, standards and contexts. No new sovereignty silos.
 
@@ -25,7 +25,7 @@ ENTITY v3.4.1 preserves the universal **ENTITY Global Passport**, composable pro
 | Full regression | **185/185 PASS** |
 | Protocol-origin / migration / economic-lineage | **8/8 PASS** |
 | v3.4 targeted tests | **33/33 PASS** |
-| Sealed Global Passport vectors | **24/24 PASS** â€” 12 valid / 12 invalid |
+| Sealed Global Passport vectors | **24/24 PASS** — 12 valid / 12 invalid |
 | Sealed kit SHA-256 | `f95c2b347da97742fed3f20611f0eec2fd3df48694fed9494fb07163c537cfb7` |
 | Global Passport schema SHA-256 | `3d72b4e67ec9929c5d960cee8fc52db35d85ba5103e361f3a61a8f5078079c5d` |
 | Signed v3.4.1 release-origin sidecar SHA-256 | `d81bc3bdd6fab5acf8d923eccf24210ac1c65970826ad1f11fbe03f07aa0caa8` |

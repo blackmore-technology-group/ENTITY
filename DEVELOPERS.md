@@ -26,7 +26,7 @@ ENTITY is designed so that protocol conformance, verification and interoperabili
 
 ## Current protected release
 
-**ENTITY v3.4.0 â€” Global Passport & Continuous Provenance**
+**ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**
 
 Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
@@ -81,7 +81,7 @@ This track begins after an independently authored implementation can classify th
 
 The target progression is:
 
-`sealed material â†’ independent implementation â†’ vector conformance â†’ reproducible CI â†’ bidirectional live interoperability â†’ sovereign export/recovery survival â†’ independently authored evidence`
+`sealed material → independent implementation → vector conformance → reproducible CI → bidirectional live interoperability → sovereign export/recovery survival → independently authored evidence`
 
 Partial results are published as partial results. A failed vector, ambiguity or non-interoperable result is useful evidence and must not be upgraded into a success claim.
 
@@ -116,7 +116,7 @@ ENTITY development follows several rules that contributors should be able to aud
 
 A typical contribution moves through:
 
-`issue/discussion â†’ bounded proposal â†’ implementation or evidence â†’ pull request â†’ automated checks â†’ review â†’ merge â†’ release qualification where applicable`
+`issue/discussion → bounded proposal → implementation or evidence → pull request → automated checks → review → merge → release qualification where applicable`
 
 Changes that affect identity, authority, signature meaning, provider independence, recovery, portability, evidence semantics or wire compatibility receive architecture/governance review in addition to ordinary code review.
 
@@ -132,9 +132,9 @@ The strongest long-term evidence for that boundary is external reproduction and 
 
 ## Where to participate
 
-- [Issues](https://github.com/blackmore-technology-group/ENTITY/issues) â€” bounded engineering work, defects, portability findings and specification questions.
-- [Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) â€” architecture, design review, implementation questions and broader engineering discussion.
-- [Pull requests](https://github.com/blackmore-technology-group/ENTITY/pulls) â€” code, documentation and reproducible evidence.
-- [Releases](https://github.com/blackmore-technology-group/ENTITY/releases) â€” protected public release artifacts and release notes.
+- [Issues](https://github.com/blackmore-technology-group/ENTITY/issues) — bounded engineering work, defects, portability findings and specification questions.
+- [Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) — architecture, design review, implementation questions and broader engineering discussion.
+- [Pull requests](https://github.com/blackmore-technology-group/ENTITY/pulls) — code, documentation and reproducible evidence.
+- [Releases](https://github.com/blackmore-technology-group/ENTITY/releases) — protected public release artifacts and release notes.
 
 If you are evaluating ENTITY for the first time, start with [START_HERE.md](START_HERE.md), then choose one bounded task before attempting a complete implementation.

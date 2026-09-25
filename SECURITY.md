@@ -4,7 +4,7 @@ ENTITY handles identity, authority, provenance, evidence, rights, cryptographic 
 
 ## Supported public release
 
-The current protected public source/reference release is **ENTITY v3.4.0 â€” Global Passport & Continuous Provenance**.
+The current protected public source/reference release is **ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**.
 
 Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
@@ -94,7 +94,7 @@ Security-critical semantic changes require an auditable protocol/governance chan
 
 A security finding should normally progress through:
 
-`report â†’ reproduce â†’ classify â†’ contain where necessary â†’ remediate â†’ regression test â†’ semantic/governance review â†’ release or errata decision â†’ remediation verification â†’ disclosure`
+`report → reproduce → classify → contain where necessary → remediate → regression test → semantic/governance review → release or errata decision → remediation verification → disclosure`
 
 The project may delay publication of exploit details when immediate disclosure would materially increase risk before a fix or mitigation is available.
 

@@ -11,13 +11,13 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > **Infrastructure possession does not become sovereign authority.**
 
-[Documentation portal](https://blackmore-technology-group.github.io/ENTITY-DOCS/) Â· [Start here](START_HERE.md) Â· [Developer portal](DEVELOPERS.md) Â· [v3.4.1 release](docs/v3.4/README.md) Â· [Domain packages](docs/v3.4/DOMAIN_PACKAGES.md) Â· [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) Â· [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) Â· [Contributing](CONTRIBUTING.md) Â· [Security](SECURITY.md) Â· [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
+[Documentation portal](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [Start here](START_HERE.md) · [Developer portal](DEVELOPERS.md) · [v3.4.1 release](docs/v3.4/README.md) · [Domain packages](docs/v3.4/DOMAIN_PACKAGES.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
 
 ---
 
 ## Choose your path
 
-| You want toâ€¦ | Start here |
+| You want to… | Start here |
 | --- | --- |
 | Understand ENTITY quickly | [START_HERE.md](START_HERE.md) |
 | Run the reference implementation | [Quick start](#quick-start) |
@@ -26,10 +26,10 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 | Inspect qualification evidence | [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) |
 | Contribute without implementing the whole protocol | [Live contributor tasks](#pick-a-live-contributor-task) |
 | Attempt an unrelated clean-room implementation | [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) |
-| Review architecture/governance | [Architecture](docs/architecture/README.md) Â· [Governance](GOVERNANCE.md) |
+| Review architecture/governance | [Architecture](docs/architecture/README.md) · [Governance](GOVERNANCE.md) |
 | Report a vulnerability | [SECURITY.md](SECURITY.md) |
 
-## ENTITY v3.4.0 â€” Global Passport & Continuous Provenance
+## ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap
 
 ENTITY v3.4.1 preserves the v3.4 Global Passport surface and corrects protocol-origin lineage so a fresh user's sovereign identity cannot become the issuer/originator of canonical ENTITY profiles.
 
@@ -37,15 +37,15 @@ ENTITY v3.4.1 preserves the v3.4 Global Passport surface and corrects protocol-o
 
 The release adds:
 
-- **Global Passport Envelope** â€” one portable envelope binding existing ENTITY identity, rights, evidence and provenance;
-- **Composable Profile Stack** â€” jurisdiction, industry, privacy, trust and technical profiles compose fail-closed;
-- **Versioned Global Profile Registry** â€” signed/profile-controlled registration without silently creating authority;
-- **Standards Mapping Framework** â€” mappings describe correspondence and never redefine external standards;
-- **Continuous Provenance** â€” governed ingestion and passport derivation over evolving artifacts;
-- **Executable Domain Packages** â€” Healthcare, Finance, Manufacturing, AI, Robotics and Defence/Public-Unclassified;
-- **Developer SDK/CLI** â€” select a package, configure organization facts, ingest, verify and deploy.
+- **Global Passport Envelope** — one portable envelope binding existing ENTITY identity, rights, evidence and provenance;
+- **Composable Profile Stack** — jurisdiction, industry, privacy, trust and technical profiles compose fail-closed;
+- **Versioned Global Profile Registry** — signed/profile-controlled registration without silently creating authority;
+- **Standards Mapping Framework** — mappings describe correspondence and never redefine external standards;
+- **Continuous Provenance** — governed ingestion and passport derivation over evolving artifacts;
+- **Executable Domain Packages** — Healthcare, Finance, Manufacturing, AI, Robotics and Defence/Public-Unclassified;
+- **Developer SDK/CLI** — select a package, configure organization facts, ingest, verify and deploy.
 
-[Complete operator & developer documentation](https://blackmore-technology-group.github.io/ENTITY-DOCS/) Â· [In-repo v3.4 docs](docs/v3.4/README.md) Â· [Global Passport](docs/v3.4/GLOBAL_PASSPORT.md) Â· [Six domain packages](docs/v3.4/DOMAIN_PACKAGES.md)
+[Complete operator & developer documentation](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [In-repo v3.4 docs](docs/v3.4/README.md) · [Global Passport](docs/v3.4/GLOBAL_PASSPORT.md) · [Six domain packages](docs/v3.4/DOMAIN_PACKAGES.md)
 
 ### What can I build or evaluate?
 
@@ -53,12 +53,12 @@ ENTITY is designed for systems that need portable authority, rights, provenance 
 
 ENTITY v3.4.1 continues to expose six public domain packages, whose sealed v3.4.0 payloads were requalified unchanged against the patch release:
 
-- [Healthcare](https://github.com/blackmore-technology-group/ENTITY-HEALTHCARE) â€” HL7 FHIR and DICOM mapping context;
-- [Finance](https://github.com/blackmore-technology-group/ENTITY-FINANCE) â€” ISO 20022, FIX and LEI mapping context;
-- [Manufacturing](https://github.com/blackmore-technology-group/ENTITY-MANUFACTURING) â€” OPC UA and Asset Administration Shell mapping context;
-- [AI](https://github.com/blackmore-technology-group/ENTITY-AI) â€” NIST AI RMF, SPDX 3 and CycloneDX mapping context;
-- [Robotics](https://github.com/blackmore-technology-group/ENTITY-ROBOTICS) â€” ROS 2 and Open-RMF mapping context;
-- [Defence/Public-Unclassified](https://github.com/blackmore-technology-group/ENTITY-DEFENCE) â€” public/unclassified originator, custody and provenance patterns.
+- [Healthcare](https://github.com/blackmore-technology-group/ENTITY-HEALTHCARE) — HL7 FHIR and DICOM mapping context;
+- [Finance](https://github.com/blackmore-technology-group/ENTITY-FINANCE) — ISO 20022, FIX and LEI mapping context;
+- [Manufacturing](https://github.com/blackmore-technology-group/ENTITY-MANUFACTURING) — OPC UA and Asset Administration Shell mapping context;
+- [AI](https://github.com/blackmore-technology-group/ENTITY-AI) — NIST AI RMF, SPDX 3 and CycloneDX mapping context;
+- [Robotics](https://github.com/blackmore-technology-group/ENTITY-ROBOTICS) — ROS 2 and Open-RMF mapping context;
+- [Defence/Public-Unclassified](https://github.com/blackmore-technology-group/ENTITY-DEFENCE) — public/unclassified originator, custody and provenance patterns.
 
 Each package configures the **same Global Passport**. The packages do not create separate sovereignty systems and do not redefine external standards.
 
@@ -146,18 +146,18 @@ ENTITY publishes engineering evidence separately from claims about the project.
 
 | Evidence boundary | Current public position |
 | --- | --- |
-| Current protected release | **v3.4.0 â€” Global Passport & Continuous Provenance** |
+| Current protected release | **v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap** |
 | Protected release commit | `9822b1b65f8269ebc17208a342809720729ae2f8` |
 | Signed release-origin sidecar SHA-256 | `d81bc3bdd6fab5acf8d923eccf24210ac1c65970826ad1f11fbe03f07aa0caa8` |
 | Full regression | **185/185 PASS** |
 | Protocol-origin / migration / economic-lineage | **8/8 PASS** |
 | v3.4 targeted Global Passport/package suite | **33/33 PASS** |
-| v3.4 sealed Global Passport vectors | **24/24 PASS** â€” 12 valid / 12 invalid |
+| v3.4 sealed Global Passport vectors | **24/24 PASS** — 12 valid / 12 invalid |
 | v3.4.1 sealed kit SHA-256 | `f95c2b347da97742fed3f20611f0eec2fd3df48694fed9494fb07163c537cfb7` |
 | Global Passport schema SHA-256 | `3d72b4e67ec9929c5d960cee8fc52db35d85ba5103e361f3a61a8f5078079c5d` |
 | Six-language BTG-controlled result SHA-256 | `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba` |
 | Executable domain packages | **6/6 published and verified** |
-| Post-release recursive closure | **PASS** â€” 1,040 frozen constituents / 1,041 ENTITY records |
+| v3.4.0 post-release recursive closure | **PASS** — 1,040 frozen constituents / 1,041 ENTITY records |
 | Unrelated third-party implementation | **OPEN / PENDING** |
 | Independent external security review | **PENDING** |
 | Deployment-specific legal/regulatory determination | **Outside ENTITY protocol claims** |
@@ -173,12 +173,12 @@ You do **not** need to understand or implement all of ENTITY before contributing
 
 Current bounded entry points:
 
-- [Verify the v3.4.1 Global Passport kit on Linux](https://github.com/blackmore-technology-group/ENTITY/issues/20) â€” clean reproduction/portability task.
-- [Verify the v3.4.1 Global Passport kit on macOS](https://github.com/blackmore-technology-group/ENTITY/issues/21) â€” clean reproduction/portability task.
-- [Verify the v3.4.1 Global Passport kit on Windows](https://github.com/blackmore-technology-group/ENTITY/issues/45) â€” Windows reproduction/portability task.
-- [Audit the v3.4.1 Start Here path from a fresh clone](https://github.com/blackmore-technology-group/ENTITY/issues/26) â€” onboarding/usability review.
-- [Try one v3.4.1-compatible domain package from a clean clone](https://github.com/blackmore-technology-group/ENTITY/issues/46) â€” bounded package-adoption test.
-- [Build a narrow independent v3.4.1 Global Passport classifier](https://github.com/blackmore-technology-group/ENTITY/issues/27) â€” clean-room interoperability evidence without implementing all of ENTITY.
+- [Verify the v3.4.1 Global Passport kit on Linux](https://github.com/blackmore-technology-group/ENTITY/issues/20) — clean reproduction/portability task.
+- [Verify the v3.4.1 Global Passport kit on macOS](https://github.com/blackmore-technology-group/ENTITY/issues/21) — clean reproduction/portability task.
+- [Verify the v3.4.1 Global Passport kit on Windows](https://github.com/blackmore-technology-group/ENTITY/issues/45) — Windows reproduction/portability task.
+- [Audit the v3.4.1 Start Here path from a fresh clone](https://github.com/blackmore-technology-group/ENTITY/issues/26) — onboarding/usability review.
+- [Try one v3.4.1-compatible domain package from a clean clone](https://github.com/blackmore-technology-group/ENTITY/issues/46) — bounded package-adoption test.
+- [Build a narrow independent v3.4.1 Global Passport classifier](https://github.com/blackmore-technology-group/ENTITY/issues/27) — clean-room interoperability evidence without implementing all of ENTITY.
 
 For the full external path, see [ENTITY Interoperability Challenge](docs/INTEROPERABILITY_CHALLENGE.md).
 
@@ -190,7 +190,7 @@ The separately sealed [ENTITY Protocol 1.0 Conformance Kit](https://github.com/b
 
 ENTITY v3 preserves five core primitives:
 
-**ENTITY Â· AUTHORITY Â· RIGHT Â· EVENT Â· VALUE**
+**ENTITY · AUTHORITY · RIGHT · EVENT · VALUE**
 
 The implementation is built around several non-negotiable boundaries:
 
@@ -214,29 +214,29 @@ ENTITY preserves the following data-rights/economic lifecycle:
 
 ```text
 DCO
- â†“
+ ↓
 Instrument
- â†“
+ ↓
 Listing
- â†“
+ ↓
 Disclosure
- â†“
+ ↓
 Order / RFQ / Auction
- â†“
+ ↓
 Price Discovery
- â†“
+ ↓
 Trade
- â†“
+ ↓
 Clearing
- â†“
+ ↓
 Settlement
- â†“
+ ↓
 Entitlement
- â†“
+ ↓
 Usage
- â†“
+ ↓
 Derived Output
- â†“
+ ↓
 Economic Consequence
 ```
 
@@ -248,24 +248,24 @@ The evidence layer sits before and around that lifecycle so a participant can as
 
 ```text
 ENTITY/
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ 01_Core_Runtime/              # identity and canonical authority primitives
-â”‚   â”œâ”€â”€ 04_Entity_Registry/           # registry surfaces
-â”‚   â”œâ”€â”€ 08_Data_Vaults/               # governed storage/vault interfaces
-â”‚   â”œâ”€â”€ 22_Sovereign_Domain/          # provider-independent domain semantics
-â”‚   â”œâ”€â”€ 31_Profiles/                  # v3 profile machinery
-â”‚   â”œâ”€â”€ 33_Economic_Participation/
-â”‚   â”œâ”€â”€ 36_Adoption_Layer/            # v3.2 rights passports/adoption surfaces
-â”‚   â”œâ”€â”€ 37_Verifiable_Reality/        # v3.3 evidence, attestation, anchors and causality
-â”‚   â”œâ”€â”€ 38_Global_Passports/          # v3.4 Global Passport, profiles and provenance
-â”‚   â””â”€â”€ 39_Implementation_Packages/   # v3.4 deployable domain package machinery
-â”œâ”€â”€ profiles/                         # versioned global/domain profile registry
-â”œâ”€â”€ protocol/v3/                      # schemas, profiles and sealed v3 materials
-â”œâ”€â”€ sdk/                              # public developer interfaces
-â”œâ”€â”€ docs/                             # architecture, qualification, requirements and guides
-â”œâ”€â”€ tests/                            # regression and targeted qualification tests
-â”œâ”€â”€ examples/
-â””â”€â”€ tools/                            # verification/release tooling
+├── src/
+│   ├── 01_Core_Runtime/              # identity and canonical authority primitives
+│   ├── 04_Entity_Registry/           # registry surfaces
+│   ├── 08_Data_Vaults/               # governed storage/vault interfaces
+│   ├── 22_Sovereign_Domain/          # provider-independent domain semantics
+│   ├── 31_Profiles/                  # v3 profile machinery
+│   ├── 33_Economic_Participation/
+│   ├── 36_Adoption_Layer/            # v3.2 rights passports/adoption surfaces
+│   ├── 37_Verifiable_Reality/        # v3.3 evidence, attestation, anchors and causality
+│   ├── 38_Global_Passports/          # v3.4 Global Passport, profiles and provenance
+│   └── 39_Implementation_Packages/   # v3.4 deployable domain package machinery
+├── profiles/                         # versioned global/domain profile registry
+├── protocol/v3/                      # schemas, profiles and sealed v3 materials
+├── sdk/                              # public developer interfaces
+├── docs/                             # architecture, qualification, requirements and guides
+├── tests/                            # regression and targeted qualification tests
+├── examples/
+└── tools/                            # verification/release tooling
 ```
 
 The repository intentionally excludes production databases, private keys, machine-specific principal bindings, recovery secrets, operational backups, BTG production state, generated installers and private qualification environments.

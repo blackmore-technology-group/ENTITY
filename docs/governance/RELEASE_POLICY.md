@@ -8,9 +8,9 @@ ENTITY does not use a calendar promise as evidence of readiness. Releases are **
 
 ENTITY uses semantic versioning as a public coordination convention:
 
-- **PATCH** â€” implementation fixes, documentation corrections, tooling improvements or other changes intended to preserve published semantics and compatibility.
-- **MINOR** â€” additive protocol/reference capabilities that preserve the stated compatibility boundary of the release line.
-- **MAJOR** â€” changes that intentionally alter compatibility, controlling semantics or public protocol assumptions in a way that cannot be treated as an additive extension.
+- **PATCH** — implementation fixes, documentation corrections, tooling improvements or other changes intended to preserve published semantics and compatibility.
+- **MINOR** — additive protocol/reference capabilities that preserve the stated compatibility boundary of the release line.
+- **MAJOR** — changes that intentionally alter compatibility, controlling semantics or public protocol assumptions in a way that cannot be treated as an additive extension.
 
 A version number does not override the actual protocol documents, manifests, release notes or qualification evidence. Where a frozen protocol target exists, its freeze/governance material controls that target.
 
@@ -103,7 +103,7 @@ This policy is intended to keep public version numbers tied to engineering evide
 
 ## Current release
 
-As of 2026-09-25, the current protected release is **ENTITY v3.4.0 â€” Global Passport & Continuous Provenance**.
+As of 2026-09-25, the current protected release is **ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**.
 
 Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 

@@ -2,13 +2,13 @@
 
 ENTITY is a provider-independent authority, rights, evidence and economic-state protocol built around five primitives:
 
-**ENTITY Â· AUTHORITY Â· RIGHT Â· EVENT Â· VALUE**
+**ENTITY · AUTHORITY · RIGHT · EVENT · VALUE**
 
 > Infrastructure possession does not become sovereign authority.
 
 ## Understand the current release
 
-**ENTITY v3.4.0 â€” Global Passport & Continuous Provenance** is the current protected release. It retains the v3.3 evidence/truth boundaries and adds one universal Global Passport with composable jurisdiction, industry, privacy, trust and technical profiles.
+**ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap** is the current protected release. It retains the v3.4 Global Passport/domain architecture and v3.3 evidence/truth boundaries while adding canonical protocol-origin lineage and sovereign-user bootstrap separation.
 
 Read in this order:
 
