@@ -131,6 +131,31 @@ The full local qualification harness is retained on the qualification host; its 
 
 ---
 
+## v3.4.0 post-publication recursive closure
+
+A post-release closure campaign was completed against the immutable `v3.4.0` tag at `2db5bff64507b8d67642122a5ff2fc73dfef9152` plus the captured heads of the six v3.4 clean-room repositories, `ENTITY-GITHUB-APP`, and six published domain repositories. The frozen capture contains 984 exact Git blobs, 45 GitHub API evidence records and 11 release-evidence artifacts: 1,040 constituents / 5,136,474 bytes.
+
+- frozen constituent root: `4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06`;
+- ENTITY-ingested constituent root: `4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06`;
+- 1,041 ENTITY objects, Evidence Objects, rights records, Rights Passports, Global Passports and zero-value records;
+- 1,040 zero-weight closure-membership provenance edges;
+- exact state tree before/after destructive recovery: `6e054beaa96c089b3958973c834b3ddb2dda2466961c7ac67a748c7813c22925`;
+- canonical SQLite semantic root before/after: `9c8ed4e767adf37abad6f0a2492e8a8007126fc1264218d0d184a4f6e7fa4231`;
+- content-vault root before/after: `6ffc454b88c06f9da72db5854c3018a8fc5e0f3a334d829eafafeb0f9dbd4280`;
+- sovereign export tree: `ce155ac3755d37292b69dd97aa24a4e9635e23950de016529640555f23b79149`;
+- all 1,041 registered objects reverified after AES-256-GCM backup, destructive state deletion and recovery.
+
+The closure target is finite and immutable: the `v3.4.0` release plus the captured external repository heads. The later commit that publishes the closure evidence is not defined as a constituent of that already-frozen target, because requiring a record to ingest the event that publishes itself would create non-terminating self-reference. This remains BTG-controlled evidence and does not establish independent third-party validation, objective truth, legal/regulatory approval, market adoption or accounting fair value.
+
+Authoritative records:
+
+- `docs/qualification/ENTITY_V3_4_0_POST_RELEASE_RECURSIVE_CLOSURE_2026-09-24.json`
+- `docs/qualification/ENTITY_V3_4_0_POST_RELEASE_RECURSIVE_CLOSURE_2026-09-24.md`
+- `docs/qualification/ENTITY_V3_4_0_POST_RELEASE_RECURSIVE_CLOSURE_CATALOG_2026-09-24.json`
+- `tools/verify_v3_4_post_release_closure.py`
+
+---
+
 ## What the tests are intended to prove
 
 Tests can support claims such as:
