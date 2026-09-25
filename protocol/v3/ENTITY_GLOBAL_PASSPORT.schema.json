@@ -4,78 +4,284 @@
   "title": "ENTITY v3.4 Global Passport",
   "type": "object",
   "required": [
-    "schema", "passport_id", "object_id", "controller_entity_id", "version",
-    "core_primitives", "rights_passport_id", "rights_passport_sha256", "profile_stack",
-    "evidence_refs", "provenance_refs", "standards_mappings", "economic_state",
-    "one_passport_many_profiles", "profile_composition_does_not_create_authority",
-    "standards_mapping_is_not_normative_equivalence", "evidence_does_not_establish_objective_truth",
-    "legal_effect_is_deployment_specific", "underlying_information_remains_nonrival"
+    "schema",
+    "passport_id",
+    "object_id",
+    "controller_entity_id",
+    "version",
+    "core_primitives",
+    "rights_passport_id",
+    "rights_passport_sha256",
+    "profile_stack",
+    "evidence_refs",
+    "provenance_refs",
+    "standards_mappings",
+    "economic_state",
+    "one_passport_many_profiles",
+    "profile_composition_does_not_create_authority",
+    "standards_mapping_is_not_normative_equivalence",
+    "evidence_does_not_establish_objective_truth",
+    "legal_effect_is_deployment_specific",
+    "underlying_information_remains_nonrival"
   ],
   "properties": {
-    "schema": {"const": "entity-v3-global-passport-v1"},
-    "passport_id": {"type": "string", "minLength": 8},
-    "object_id": {"type": "string", "minLength": 8},
-    "controller_entity_id": {"type": "string", "minLength": 8},
-    "version": {"type": "string", "minLength": 1},
-    "core_primitives": {"const": ["ENTITY", "AUTHORITY", "RIGHT", "EVENT", "VALUE"]},
-    "rights_passport_id": {"type": "string", "minLength": 8},
-    "rights_passport_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-    "profile_stack": {"$ref": "#/$defs/profileStack"},
-    "evidence_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "provenance_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "jurisdiction_profile_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "schema": {
+      "const": "entity-v3-global-passport-v1"
+    },
+    "passport_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "controller_entity_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "core_primitives": {
+      "const": [
+        "ENTITY",
+        "AUTHORITY",
+        "RIGHT",
+        "EVENT",
+        "VALUE"
+      ]
+    },
+    "rights_passport_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "rights_passport_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "profile_stack": {
+      "$ref": "#/$defs/profileStack"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "provenance_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "jurisdiction_profile_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
     "standards_mappings": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["standard", "normative_equivalence_claimed"],
+        "required": [
+          "standard",
+          "normative_equivalence_claimed"
+        ],
         "properties": {
-          "standard": {"type": "string", "minLength": 1},
-          "normative_equivalence_claimed": {"const": false}
+          "standard": {
+            "type": "string",
+            "minLength": 1
+          },
+          "normative_equivalence_claimed": {
+            "const": false
+          }
         },
         "additionalProperties": true
       }
     },
     "economic_state": {
       "type": "object",
-      "required": ["state", "amount_units", "currency", "market_observation_is_not_accounting_fair_value"],
+      "required": [
+        "state",
+        "amount_units",
+        "currency",
+        "market_observation_is_not_accounting_fair_value"
+      ],
       "properties": {
-        "state": {"enum": ["POTENTIAL", "OFFER", "CONTRACTED", "ACCRUED", "SETTLED", "REALIZED"]},
-        "amount_units": {"type": "integer", "minimum": 0},
-        "currency": {"type": "string", "minLength": 1},
-        "market_observation_is_not_accounting_fair_value": {"const": true}
+        "state": {
+          "enum": [
+            "POTENTIAL",
+            "OFFER",
+            "CONTRACTED",
+            "ACCRUED",
+            "SETTLED",
+            "REALIZED"
+          ]
+        },
+        "amount_units": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "market_observation_is_not_accounting_fair_value": {
+          "const": true
+        }
       },
       "additionalProperties": true
     },
-    "industry_context": {"type": "object"},
-    "one_passport_many_profiles": {"const": true},
-    "profile_composition_does_not_create_authority": {"const": true},
-    "standards_mapping_is_not_normative_equivalence": {"const": true},
-    "evidence_does_not_establish_objective_truth": {"const": true},
-    "legal_effect_is_deployment_specific": {"const": true},
-    "underlying_information_remains_nonrival": {"const": true},
-    "created_at_ms": {"type": "integer", "minimum": 0}
+    "industry_context": {
+      "type": "object"
+    },
+    "one_passport_many_profiles": {
+      "const": true
+    },
+    "profile_composition_does_not_create_authority": {
+      "const": true
+    },
+    "standards_mapping_is_not_normative_equivalence": {
+      "const": true
+    },
+    "evidence_does_not_establish_objective_truth": {
+      "const": true
+    },
+    "legal_effect_is_deployment_specific": {
+      "const": true
+    },
+    "underlying_information_remains_nonrival": {
+      "const": true
+    },
+    "created_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "protocol_origin": {
+      "$ref": "#/$defs/protocolOrigin"
+    },
+    "protocol_origin_is_not_asset_provenance": {
+      "const": true
+    }
   },
   "$defs": {
     "profileStack": {
       "type": "object",
-      "required": ["schema", "profile_refs", "profile_hashes", "fail_closed", "profile_composition_does_not_create_authority"],
+      "required": [
+        "schema",
+        "profile_refs",
+        "profile_hashes",
+        "fail_closed",
+        "profile_composition_does_not_create_authority"
+      ],
       "properties": {
-        "schema": {"const": "entity-v3-profile-stack-resolution-v1"},
+        "schema": {
+          "const": "entity-v3-profile-stack-resolution-v1"
+        },
         "profile_refs": {
           "type": "array",
-          "contains": {"const": "entity-profile:global@1.0"},
+          "contains": {
+            "const": "entity-profile:global@1.0"
+          },
           "minItems": 1,
           "uniqueItems": true
         },
         "profile_hashes": {
           "type": "array",
-          "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
           "minItems": 1
         },
-        "fail_closed": {"const": true},
-        "profile_composition_does_not_create_authority": {"const": true},
-        "standards_mapping_is_not_normative_equivalence": {"const": true}
+        "fail_closed": {
+          "const": true
+        },
+        "profile_composition_does_not_create_authority": {
+          "const": true
+        },
+        "standards_mapping_is_not_normative_equivalence": {
+          "const": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "protocolOrigin": {
+      "type": "object",
+      "required": [
+        "release_ref",
+        "release_tag",
+        "release_commit_sha1",
+        "release_tree_sha1",
+        "origin_lineage_id",
+        "origin_lineage_sha256",
+        "protocol_entity_id",
+        "steward_entity_id",
+        "root_originator_entity_id",
+        "asset_provenance_is_separate_from_protocol_origin",
+        "protocol_origin_does_not_transfer_authority",
+        "protocol_origin_does_not_transfer_user_asset_ownership",
+        "economic_participation_requires_explicit_terms",
+        "automatic_protocol_royalty_bps"
+      ],
+      "properties": {
+        "release_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "release_tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "release_commit_sha1": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "release_tree_sha1": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "origin_lineage_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin_lineage_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "protocol_entity_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "steward_entity_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "root_originator_entity_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "asset_provenance_is_separate_from_protocol_origin": {
+          "const": true
+        },
+        "protocol_origin_does_not_transfer_authority": {
+          "const": true
+        },
+        "protocol_origin_does_not_transfer_user_asset_ownership": {
+          "const": true
+        },
+        "economic_participation_requires_explicit_terms": {
+          "const": true
+        },
+        "automatic_protocol_royalty_bps": {
+          "const": 0
+        }
       },
       "additionalProperties": true
     }

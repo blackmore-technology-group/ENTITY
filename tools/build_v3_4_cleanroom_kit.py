@@ -52,8 +52,8 @@ for case in cases:
 rows=[{"id":c["id"],"actual":"VALID" if conf.validate_global_passport_record(c["record"]) else "INVALID"} for c in cases]
 result_sha=hashlib.sha256(json.dumps(rows,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode()).hexdigest()
 schema_path=ROOT/"protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json"
-kit={"schema":"entity-v3.4-global-passport-cleanroom-kit-v1","version":"3.4.0","base_release":"v3.3.0",
-     "base_commit":"9c79f987207592cb6791e1a8956f23351cdfb2d3","schema_sha256":hashlib.sha256(schema_path.read_bytes()).hexdigest(),
+kit={"schema":"entity-v3.4-global-passport-cleanroom-kit-v1","version":"3.4.1","base_release":"v3.4.0",
+     "base_commit":"2db5bff64507b8d67642122a5ff2fc73dfef9152","schema_sha256":hashlib.sha256(schema_path.read_bytes()).hexdigest(),
      "doctrine":"One ENTITY Passport. Many jurisdictions, industries, standards and contexts. No new sovereignty silos.",
      "valid_vectors":sum(c["expect"]=="VALID" for c in cases),"invalid_vectors":sum(c["expect"]=="INVALID" for c in cases),
      "expected_result_sha256":result_sha,"cases":cases}

@@ -1,0 +1,123 @@
+{
+  "base_commit": "2db5bff64507b8d67642122a5ff2fc73dfef9152",
+  "base_release": "v3.4.0",
+  "claim_boundary": "Six native implementations are BTG-controlled reproducibility evidence; unrelated third-party independence remains pending.",
+  "current_release_origin": {
+    "new_issuance_fails_closed_without_v3_4_1_sidecar": true,
+    "post_tag_signed_sidecar_required": true,
+    "source_tree_self_anchor": false
+  },
+  "data_economy_lineage": {
+    "data_originator_remains_instrument_and_policy_originator": true,
+    "protocol_tax_bps": 0,
+    "status": "PASS",
+    "trade_capture_reconciliation_complete": true,
+    "treasury_recipient_not_replaced_by_protocol_origin": true
+  },
+  "date": "2026-09-25",
+  "external_remaining": [
+    "unrelated third-party independent v3.4.1 implementation and live interoperability",
+    "independent external security/cryptographic review",
+    "deployment-specific legal/regulatory classification, licensing, recognition or approval where required",
+    "real external issuers, buyers, repeat transactions and market liquidity",
+    "standards/profile governance adoption outside BTG"
+  ],
+  "global_passport_conformance": {
+    "expected_result_sha256": "ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba",
+    "invalid": 12,
+    "schema_sha256": "3d72b4e67ec9929c5d960cee8fc52db35d85ba5103e361f3a61a8f5078079c5d",
+    "sealed_kit_sha256": "f95c2b347da97742fed3f20611f0eec2fd3df48694fed9494fb07163c537cfb7",
+    "total": 24,
+    "valid": 12
+  },
+  "implementation_packages": {
+    "developer_configures_not_redesigns": true,
+    "package_sha256": {
+      "ai": "4877cb5bc76ef0803eace931ca1a9cba516c01ba94a2e0b4bc71bcb5dc1b0440",
+      "defence-public": "7edc52344822e370f937b12d05258b5cb3283756dadb5c1885dd93f126cf9887",
+      "finance": "768dd87fd5a29c7e2679fc2b0d4b172b8613712b148336d8fba91a3b92d0d466",
+      "healthcare": "b4e901ce37f696fa10666839cb8d3cacbd1fe663070667ca1767a6245e7cf939",
+      "manufacturing": "bc29a0de024cea22552078ff1913fa3df2b189436cb853cc2f4e08974325c4bc",
+      "robotics": "3a0e68fa6c63b2ef9cf79ccf463335af72d49ffb3cd028c88b6a998d8678f38f"
+    },
+    "packages": 6,
+    "profiles_are_executable_implementation_assets": true,
+    "registry_sha256": "d59e93c0569b0c21bbb214da1afb567ad02324f581e1a2bfb2460a9c38ca7295",
+    "status": "PASS"
+  },
+  "protocol_origin": {
+    "asset_provenance_separate_from_protocol_origin": true,
+    "automatic_protocol_royalty_bps": 0,
+    "fresh_user_never_canonical_profile_issuer": true,
+    "historical_release_anchors": 9,
+    "origin_chain_sha256": "9d3bdc0ef2e6a27de5368541f6bc014fdec93b2c7af9770d163c804521b9efff"
+  },
+  "qualified_source_commit": "04d7386c70ef1665ea44824d16e1bb09f5329ca8",
+  "regression": {
+    "environment": "_venv_entity_v3",
+    "passed": 185,
+    "total": 185
+  },
+  "schema": "entity-v3-4-1-release-qualification-v1",
+  "six_language_controlled_interoperability": {
+    "implementations": {
+      "csharp": {
+        "commit": "bfbddb7af2a32b4851a123e875bbf4792af29d1f",
+        "conclusion": "success",
+        "run": 36166127944,
+        "url": "https://github.com/blackmore-technology-group/ENTITY-CSHARP-CLEANROOM/actions/runs/36166127944"
+      },
+      "go": {
+        "commit": "7ef2dbcf64205f2bb86589e373fef550d2e82922",
+        "conclusion": "success",
+        "run": 36166124241,
+        "url": "https://github.com/blackmore-technology-group/ENTITY-GO-CLEANROOM/actions/runs/36166124241"
+      },
+      "java": {
+        "commit": "c1bd4e503ed520f7d563d62914f6e8acee2b596e",
+        "conclusion": "success",
+        "run": 36166132361,
+        "url": "https://github.com/blackmore-technology-group/ENTITY-JAVA-CLEANROOM/actions/runs/36166132361"
+      },
+      "rust": {
+        "commit": "6647e3a8f3adf3fab4d305f47613a24362fc7d67",
+        "conclusion": "success",
+        "run": 36166115869,
+        "url": "https://github.com/blackmore-technology-group/ENTITY-RUST-CLEANROOM/actions/runs/36166115869"
+      },
+      "swift": {
+        "commit": "d92a30fa202c2c981c41d9020f6a866d587b34b4",
+        "conclusion": "success",
+        "run": 36166136838,
+        "url": "https://github.com/blackmore-technology-group/ENTITY-SWIFT-CLEANROOM/actions/runs/36166136838"
+      },
+      "typescript": {
+        "commit": "32ce64654690f8dba0d74e60f042cc636784edb8",
+        "conclusion": "success",
+        "run": 36166120488,
+        "url": "https://github.com/blackmore-technology-group/ENTITY-TYPESCRIPT-CLEANROOM/actions/runs/36166120488"
+      }
+    },
+    "independent_third_party_interoperability": false,
+    "result_sha256": "ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba",
+    "status": "PASS"
+  },
+  "status": "BTG_INTERNAL_QUALIFIED_PROTOCOL_ORIGIN_LINEAGE_SOVEREIGN_BOOTSTRAP_PATCH",
+  "targeted_global_passport_tests": {
+    "passed": 33,
+    "total": 33
+  },
+  "targeted_protocol_origin_tests": {
+    "passed": 8,
+    "total": 8
+  },
+  "v3_4_0_migration": {
+    "canonical_profiles_rebound": 7,
+    "historical_global_passport_verifies": true,
+    "legacy_profile_variants_preserved": true,
+    "rights_passports_unchanged": true,
+    "user_entity_unchanged": true,
+    "user_objects_unchanged": true
+  },
+  "version": "3.4.1"
+}

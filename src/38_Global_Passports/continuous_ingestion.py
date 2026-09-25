@@ -23,11 +23,13 @@ def object_type_for(path:Path)->str:
 
 class ContinuousProvenanceEngine:
     """Registers artifacts at creation time and stores recoverable content-addressed custody without making custody authoritative."""
-    def __init__(self,state_root,identity,fabric,evidence_registry,rights_passports,global_passports):
+    def __init__(self,state_root,identity,fabric,evidence_registry,rights_passports,global_passports,protocol_release_ref=None):
         self.root=Path(state_root); self.vault=self.root/"content_vault"/"sha256"; self.vault.mkdir(parents=True,exist_ok=True)
         self.identity=identity; self.fabric=fabric; self.evidence=evidence_registry; self.rights=rights_passports; self.global_passports=global_passports
+        self.protocol_release_ref=protocol_release_ref
     def ingest_file(self,path,controller_entity_id:str,profile_refs:list[str],*,logical_path:str|None=None,
-                    previous_object_id:str|None=None,rights_actions:list[str]|None=None,version:str="1.0")->dict:
+                    previous_object_id:str|None=None,rights_actions:list[str]|None=None,version:str="1.0",
+                    protocol_release_ref:str|None=None)->dict:
         src=Path(path).resolve()
         if not src.is_file(): raise FileNotFoundError(src)
         content_sha=sha256_file(src); vault_path=self.vault/content_sha[:2]/content_sha
@@ -49,7 +51,8 @@ class ContinuousProvenanceEngine:
         gp=self.global_passports.issue(controller_entity_id,obj["object_id"],rp["passport_id"],profile_refs,version=version,
             evidence_refs=[ev["evidence_id"]],provenance_refs=[p["edge_id"] for p in prov],
             standards_mappings=[],economic_state={"state":"POTENTIAL","amount_units":0,"currency":"UNSPECIFIED"},
-            industry_context={"continuous_ingestion":True,"logical_path":descriptor["logical_path"]})
+            industry_context={"continuous_ingestion":True,"logical_path":descriptor["logical_path"]},
+            protocol_release_ref=protocol_release_ref or self.protocol_release_ref)
         val=self.fabric.record_value(controller_entity_id,obj["object_id"],0,"UNSPECIFIED",state="POTENTIAL",
             basis_ref="v3.4-zero-value-baseline-no-market-or-accounting-value-asserted")
         return {"object":obj,"evidence":ev,"right":right,"rights_passport":rp,"global_passport":gp,

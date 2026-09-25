@@ -188,6 +188,20 @@ class EntityIdentityVault:
             raise RuntimeError("Entity manifest signature verification failed")
         return data
 
+    def import_public_manifest(self, signed: dict) -> dict:
+        data=dict(signed or {})
+        entity_id=str(data.get("entity_id") or "")
+        if not self.verify_manifest(data):
+            raise ValueError("invalid public Entity manifest")
+        path=self._manifest_path(entity_id)
+        if path.exists():
+            existing=json.loads(path.read_text(encoding="utf-8"))
+            if canonical_json(existing)!=canonical_json(data):
+                raise ValueError("public Entity manifest conflicts with local manifest")
+            return existing
+        path.write_text(json.dumps(data,indent=2,sort_keys=True),encoding="utf-8")
+        return data
+
     def _active_key(self, entity_id: str) -> tuple[dict, Ed25519PrivateKey]:
         manifest = self.load_manifest(entity_id)
         if manifest.get("schema") == "sovereign-entity-manifest-v1":

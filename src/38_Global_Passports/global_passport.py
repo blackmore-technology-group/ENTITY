@@ -11,9 +11,10 @@ def rid(prefix:str)->str: return prefix+"-"+secrets.token_hex(12)
 
 class GlobalPassportRegistry:
     """One passport envelope, many composable profiles. It binds existing rights/evidence rather than replacing them."""
-    def __init__(self,root:str|Path,identity,fabric,rights_passports,profile_registry):
+    def __init__(self,root:str|Path,identity,fabric,rights_passports,profile_registry,origin_registry=None,required_release_ref:str|None=None):
         self.path=Path(root)/"entity_v3_4_global_passports.sqlite"; self.path.parent.mkdir(parents=True,exist_ok=True)
-        self.identity=identity; self.fabric=fabric; self.rights=rights_passports; self.profiles=profile_registry
+        self.identity=identity; self.fabric=fabric; self.rights=rights_passports; self.profiles=profile_registry; self.origin=origin_registry
+        self.required_release_ref=str(required_release_ref) if required_release_ref else None
         with sqlite3.connect(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS global_passports(
             passport_id TEXT PRIMARY KEY, object_id TEXT NOT NULL, controller_entity_id TEXT NOT NULL,
@@ -23,7 +24,7 @@ class GlobalPassportRegistry:
     def issue(self,controller_entity_id:str,object_id:str,rights_passport_id:str,profile_refs:list[str],*,
               version:str="1.0",evidence_refs:list[str]|None=None,provenance_refs:list[str]|None=None,
               jurisdiction_profile_refs:list[str]|None=None,standards_mappings:list[dict]|None=None,
-              economic_state:dict|None=None,industry_context:dict|None=None)->dict:
+              economic_state:dict|None=None,industry_context:dict|None=None,protocol_release_ref:str|None=None)->dict:
         self.identity.load_manifest(controller_entity_id); obj=self.fabric.get_object(object_id)
         if obj["controller_entity_id"]!=controller_entity_id: raise PermissionError("object controller required")
         right=self.rights.get(rights_passport_id)
@@ -38,6 +39,12 @@ class GlobalPassportRegistry:
         econ=dict(economic_state or {"state":"POTENTIAL","amount_units":0,"currency":"UNSPECIFIED"})
         if int(econ.get("amount_units",0))<0: raise ValueError("economic amount cannot be negative")
         econ["market_observation_is_not_accounting_fair_value"]=True
+        origin_binding=None
+        if self.origin is not None:
+            ref=protocol_release_ref or self.origin.default_release_ref
+            if not ref: raise ValueError("protocol release origin required")
+            if self.required_release_ref and ref!=self.required_release_ref: raise ValueError("current release origin attestation required")
+            origin_binding=self.origin.passport_binding(ref)
         body={"schema":"entity-v3-global-passport-v1","passport_id":rid("gpassport3"),"object_id":object_id,
               "controller_entity_id":controller_entity_id,"version":str(version),"core_primitives":list(CORE_PRIMITIVES),
               "rights_passport_id":rights_passport_id,"rights_passport_sha256":right["passport_sha256"],
@@ -46,6 +53,7 @@ class GlobalPassportRegistry:
               "jurisdiction_profile_refs":sorted({str(x) for x in (jurisdiction_profile_refs or [])}),
               "standards_mappings":sorted(mappings,key=lambda x:json.dumps(x,sort_keys=True)),
               "economic_state":econ,"industry_context":dict(industry_context or {}),
+              "protocol_origin":origin_binding,"protocol_origin_is_not_asset_provenance":True if origin_binding else False,
               "one_passport_many_profiles":True,"profile_composition_does_not_create_authority":True,
               "standards_mapping_is_not_normative_equivalence":True,"evidence_does_not_establish_objective_truth":True,
               "legal_effect_is_deployment_specific":True,"underlying_information_remains_nonrival":True,"created_at_ms":now_ms()}
@@ -70,9 +78,14 @@ class GlobalPassportRegistry:
                 if body.get(flag) is not True: raise ValueError(flag)
             right=self.rights.get(body["rights_passport_id"])
             if right["passport_sha256"]!=body["rights_passport_sha256"] or not self.rights.verify(right)["valid"]: raise ValueError("rights passport")
-            stack=self.profiles.resolve_stack(body["profile_stack"]["profile_refs"])
+            stack=self.profiles.resolve_stack(body["profile_stack"]["profile_refs"],body["profile_stack"]["profile_hashes"])
             if stack["profile_hashes"]!=body["profile_stack"]["profile_hashes"]: raise ValueError("profile stack")
             if any(m.get("normative_equivalence_claimed") is not False for m in body.get("standards_mappings",[])): raise ValueError("standards equivalence")
+            origin_binding=body.get("protocol_origin")
+            if origin_binding is not None:
+                if body.get("protocol_origin_is_not_asset_provenance") is not True: raise ValueError("origin boundary")
+                if self.origin is None: raise ValueError("origin registry required")
+                if canon(self.origin.passport_binding(origin_binding["release_ref"]))!=canon(origin_binding): raise ValueError("protocol origin")
             expected=digest(body)
             if passport.get("body_sha256")!=expected: raise ValueError("hash")
             manifest=self.identity.load_manifest(body["controller_entity_id"])

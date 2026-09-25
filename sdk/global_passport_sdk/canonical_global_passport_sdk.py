@@ -37,6 +37,7 @@ class EntityGlobalPassportSDK:
                 "global_passport_id":result["global_passport"]["passport_id"],
                 "global_passport_sha256":result["global_passport"]["body_sha256"],
                 "evidence_id":result["evidence"]["evidence_id"],"profile_refs":stack["profile_refs"],
+                "protocol_origin":result["global_passport"].get("protocol_origin"),
                 "custody_is_not_authority":True,"economic_value_invented":False}
 
     def package_plan(self,package:str,config:dict,asset_kind:str)->dict:
@@ -53,7 +54,8 @@ class EntityGlobalPassportSDK:
                                           rights_actions=plan["rights_actions"],**kwargs)
         return {"deployment_plan":plan,"object_id":result["object"]["object_id"],
                 "global_passport_id":result["global_passport"]["passport_id"],
-                "content_sha256":result["object"]["content_sha256"],"economic_value_invented":False}
+                "content_sha256":result["object"]["content_sha256"],
+                "protocol_origin":result["global_passport"].get("protocol_origin"),"economic_value_invented":False}
     def verify_passport(self,passport_or_id)->dict:
         passport=self.passports.get(passport_or_id) if isinstance(passport_or_id,str) else passport_or_id
         return self.passports.verify(passport)
@@ -63,4 +65,5 @@ class EntityGlobalPassportSDK:
         return {"schema":"entity-v3-global-passport-sdk-status-v1","sdk_does_not_create_authority":True,
                 "profile_is_not_regulatory_compliance":True,"external_standards_are_mapped_not_redefined":True,
                 "continuous_provenance_supported":True,"industry_packages_supported":True,
+                "protocol_origin_lineage_supported":True,"user_asset_provenance_separate":True,
                 "developer_configures_not_redesigns":True,"built_in_profile_aliases":sorted(PROFILE_ALIASES)}
