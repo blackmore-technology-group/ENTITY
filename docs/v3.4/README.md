@@ -1,9 +1,9 @@
-# ENTITY v3.4.0 — Global Passport & Continuous Provenance
+# ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap
 
-**Protected release:** [`v3.4.0`](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.0)  
-**Release commit:** `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+**Protected release:** [`v3.4.1`](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.1)
+**Release commit:** `9822b1b65f8269ebc17208a342809720729ae2f8`
 
-ENTITY v3.4.0 adds a universal **ENTITY Global Passport**, composable profile stacks, a versioned profile registry, standards mappings, continuous provenance, passport derivation, and executable industry deployment packages without changing the five core primitives:
+ENTITY v3.4.1 preserves the universal **ENTITY Global Passport**, composable profile stacks, versioned profile registry, standards mappings, continuous provenance, passport derivation and executable industry deployment packages introduced in v3.4.0, while adding canonical protocol-origin lineage and sovereign-user bootstrap separation without changing the five core primitives:
 
 **ENTITY → AUTHORITY → RIGHT → EVENT → VALUE**
 
@@ -15,19 +15,21 @@ ENTITY v3.4.0 adds a universal **ENTITY Global Passport**, composable profile st
 - [Six executable domain packages](DOMAIN_PACKAGES.md)
 - [Deployment model](DEPLOYMENT_MODEL.md)
 - [Post-release recursive closure](RECURSIVE_CLOSURE.md)
-- [Release notes](../../RELEASE_NOTES_v3.4.0.md)
+- [Release notes](../../RELEASE_NOTES_v3.4.1.md)
 - [Engineering evidence](../ENGINEERING_EVIDENCE.md)
 
 ## Qualification snapshot
 
 | Evidence | Result |
 | --- | --- |
-| Full regression | **177/177 PASS** |
+| Full regression | **185/185 PASS** |
+| Protocol-origin / migration / economic-lineage | **8/8 PASS** |
 | v3.4 targeted tests | **33/33 PASS** |
 | Sealed Global Passport vectors | **24/24 PASS** — 12 valid / 12 invalid |
-| Sealed kit SHA-256 | `5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230` |
-| Global Passport schema SHA-256 | `4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd` |
+| Sealed kit SHA-256 | `f95c2b347da97742fed3f20611f0eec2fd3df48694fed9494fb07163c537cfb7` |
+| Global Passport schema SHA-256 | `3d72b4e67ec9929c5d960cee8fc52db35d85ba5103e361f3a61a8f5078079c5d` |
+| Signed v3.4.1 release-origin sidecar SHA-256 | `d81bc3bdd6fab5acf8d923eccf24210ac1c65970826ad1f11fbe03f07aa0caa8` |
 | Canonical six-language result | `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba` |
-| Post-release constituent root | `4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06` |
+| v3.4.0 post-release constituent root | `4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06` |
 
 The six native implementations and all domain-package qualification are BTG-controlled engineering evidence. They are not represented as unrelated third-party validation.

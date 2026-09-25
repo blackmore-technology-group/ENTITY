@@ -4,13 +4,13 @@ ENTITY handles identity, authority, provenance, evidence, rights, cryptographic 
 
 ## Supported public release
 
-The current protected public source/reference release is **ENTITY v3.4.0 — Global Passport & Continuous Provenance**.
+The current protected public source/reference release is **ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**.
 
-Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
 The separately published Windows x64 `1.0.0-rc2` binary remains a historical product build. ENTITY Protocol 1.0 remains **FROZEN_FOR_EXTERNAL_CONFORMANCE** as its separately sealed historical conformance scope.
 
-Current v3.4 qualification and claim boundaries are published in [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md) and the [v3.4.0 portal](docs/v3.4/README.md). Independent external security review remains a separate **PENDING** milestone.
+Current v3.4 qualification and claim boundaries are published in [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md) and the [v3.4.1 portal](docs/v3.4/README.md). Independent external security review remains a separate **PENDING** milestone.
 
 ## Security model additions through v3.4
 

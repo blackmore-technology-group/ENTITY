@@ -26,13 +26,13 @@ ENTITY is designed so that protocol conformance, verification and interoperabili
 
 ## Current protected release
 
-**ENTITY v3.4.0 — Global Passport & Continuous Provenance**
+**ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**
 
-Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
-Public qualification evidence includes 177/177 regression tests, 33/33 targeted v3.4 tests, 24/24 sealed vectors, six BTG-controlled native implementations converging on `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`, six published executable domain packages, and a completed post-release recursive closure.
+Public qualification evidence includes 185/185 regression tests, 8/8 protocol-origin/migration/economic-lineage tests, 33/33 targeted v3.4 tests, 24/24 sealed vectors, six BTG-controlled native implementations converging on `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`, six published executable domain packages, and a completed post-release recursive closure.
 
-Start with the [v3.4.0 portal](docs/v3.4/README.md) and [Domain Packages](docs/v3.4/DOMAIN_PACKAGES.md). These results are BTG-controlled engineering evidence, not unrelated third-party validation.
+Start with the [v3.4.1 portal](docs/v3.4/README.md) and [Domain Packages](docs/v3.4/DOMAIN_PACKAGES.md). These results are BTG-controlled engineering evidence, not unrelated third-party validation.
 
 ## Engineering tracks
 

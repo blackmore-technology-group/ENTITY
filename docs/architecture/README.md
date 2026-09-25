@@ -73,7 +73,7 @@ The project deliberately separates **cryptographic verification**, **protocol ve
 - `profiles/` — versioned Global Passport/domain profile registry assets.
 - `sdk/` — provider-neutral application integration, Global Passport SDK and principal/device/application binding.
 
-See [v3.4.0 architecture and domain packages](../v3.4/README.md).
+See [v3.4.1 current release / v3.4 architecture and domain packages](../v3.4/README.md).
 
 ## Architecture Decision Records
 

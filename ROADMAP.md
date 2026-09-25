@@ -6,13 +6,13 @@ It is not a promise that every future version will follow a fixed feature schedu
 
 ## Current protected release
 
-**ENTITY v3.4.0 — Global Passport & Continuous Provenance**
+**ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**
 
-Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
-Release qualification: **177/177** regression, **33/33** targeted v3.4 tests, **24/24** sealed Global Passport vectors, six BTG-controlled native implementations, six executable domain repositories, protected GitHub checks/CodeQL PASS, and post-release recursive closure PASS.
+Release qualification: **185/185** regression, **8/8** protocol-origin/migration/economic-lineage tests, **33/33** targeted Global Passport/package tests, **24/24** sealed Global Passport vectors, six BTG-controlled native implementations, six executable domain repositories requalified unchanged, and protected GitHub checks/CodeQL PASS.
 
-See [v3.4.0 Portal](docs/v3.4/README.md) and [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md).
+See [v3.4.1 Portal](docs/v3.4/README.md) and [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md).
 
 ## What is already engineered
 

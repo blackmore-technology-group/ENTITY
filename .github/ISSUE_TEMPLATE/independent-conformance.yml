@@ -21,7 +21,7 @@ body:
     attributes:
       label: Exact ENTITY target
       description: Release/tag/commit and sealed kit or specification used.
-      placeholder: v3.4.0 / ENTITY_V3_4_GLOBAL_PASSPORT_CLEANROOM_KIT.min.json / exact public specification material
+      placeholder: v3.4.1 / ENTITY_V3_4_GLOBAL_PASSPORT_CLEANROOM_KIT.min.json / exact public specification material
     validations:
       required: true
   - type: input

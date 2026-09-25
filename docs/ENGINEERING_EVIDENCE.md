@@ -21,9 +21,35 @@ No lower layer silently upgrades itself into a higher one.
 
 ---
 
-## v3.4.0 — current protected release
+## v3.4.1 — current protected release
 
-**Release:** `v3.4.0`  
+**Release:** `v3.4.1`
+
+**Protected release commit:** `9822b1b65f8269ebc17208a342809720729ae2f8`
+
+v3.4.1 corrects the v3.4.0 fresh-bootstrap lineage defect: a new user's sovereign Entity remains independent from the canonical ENTITY protocol/profile issuer, while the protocol release is bound to the signed Shawn Blackmore → Blackmore Technology Group Limited → ENTITY → release ancestry. Existing v3.4.0 user identities, objects, Rights Passports and signed Global Passports remain immutable and verifiable.
+
+Qualification:
+
+- complete regression: **185/185 PASS**;
+- protocol-origin / migration / economic-lineage: **8/8 PASS**;
+- targeted Global Passport/package suite: **33/33 PASS**;
+- sealed vectors: **24/24 PASS** — 12 valid / 12 invalid;
+- sealed kit SHA-256: `f95c2b347da97742fed3f20611f0eec2fd3df48694fed9494fb07163c537cfb7`;
+- schema SHA-256: `3d72b4e67ec9929c5d960cee8fc52db35d85ba5103e361f3a61a8f5078079c5d`;
+- six-language BTG-controlled result SHA-256: `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`;
+- six v3.4.0 executable domain package payloads requalified unchanged: **6/6 PASS**;
+- `ENTITY_CURRENT_RELEASE_ORIGIN.json` SHA-256: `d81bc3bdd6fab5acf8d923eccf24210ac1c65970826ad1f11fbe03f07aa0caa8`.
+
+Protocol origin remains separate from user asset provenance and does not create an automatic royalty; protocol tax remains 0 bps and economic participation still requires explicit terms.
+
+See [v3.4.1 release notes](../RELEASE_NOTES_v3.4.1.md), the [v3.4 family portal](v3.4/README.md), and the [GitHub release](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.1).
+
+---
+
+## v3.4.0 — previous protected release
+
+**Release:** `v3.4.0`
 **Protected release commit:** `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
 v3.4.0 introduces the Global Passport, composable profile stack, versioned profile registry, standards mappings, continuous provenance/passport derivation and executable domain deployment packages while preserving the five core primitives and inherited v3.3 evidence/truth boundaries.
@@ -45,7 +71,7 @@ See [v3.4.0 portal](v3.4/README.md), [domain packages](v3.4/DOMAIN_PACKAGES.md) 
 
 ## v3.2.0 — protected public release
 
-**Release:** `v3.2.0`  
+**Release:** `v3.2.0`
 **Protected commit:** `512665096cef3771a3a8307d6dc955015ee0efbc`
 
 Documented BTG-controlled qualification:

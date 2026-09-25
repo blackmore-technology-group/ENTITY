@@ -11,7 +11,7 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 > **Infrastructure possession does not become sovereign authority.**
 
-[Documentation portal](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [Start here](START_HERE.md) · [Developer portal](DEVELOPERS.md) · [v3.4.0 Global Passport](docs/v3.4/README.md) · [Domain packages](docs/v3.4/DOMAIN_PACKAGES.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
+[Documentation portal](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [Start here](START_HERE.md) · [Developer portal](DEVELOPERS.md) · [v3.4.1 release](docs/v3.4/README.md) · [Domain packages](docs/v3.4/DOMAIN_PACKAGES.md) · [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) · [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Releases](https://github.com/blackmore-technology-group/ENTITY/releases)
 
 ---
 
@@ -21,7 +21,7 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 | --- | --- |
 | Understand ENTITY quickly | [START_HERE.md](START_HERE.md) |
 | Run the reference implementation | [Quick start](#quick-start) |
-| Build with ENTITY v3.4.0 | [v3.4 Global Passport](docs/v3.4/README.md) |
+| Build with ENTITY v3.4.1 | [v3.4 Global Passport](docs/v3.4/README.md) |
 | Start from a healthcare, finance, manufacturing, AI, robotics or defence package | [Domain packages](docs/v3.4/DOMAIN_PACKAGES.md) |
 | Inspect qualification evidence | [Engineering evidence](docs/ENGINEERING_EVIDENCE.md) |
 | Contribute without implementing the whole protocol | [Live contributor tasks](#pick-a-live-contributor-task) |
@@ -29,9 +29,9 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 | Review architecture/governance | [Architecture](docs/architecture/README.md) · [Governance](GOVERNANCE.md) |
 | Report a vulnerability | [SECURITY.md](SECURITY.md) |
 
-## ENTITY v3.4.0 — Global Passport & Continuous Provenance
+## ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap
 
-ENTITY v3.4.0 turns the existing sovereign identity, authority, rights, evidence and economic architecture into a directly deployable **Global Passport** surface.
+ENTITY v3.4.1 preserves the v3.4 Global Passport surface and corrects protocol-origin lineage so a fresh user's sovereign identity cannot become the issuer/originator of canonical ENTITY profiles.
 
 > **One ENTITY Passport. Many jurisdictions, industries, standards and contexts. No new sovereignty silos.**
 
@@ -51,7 +51,7 @@ The release adds:
 
 ENTITY is designed for systems that need portable authority, rights, provenance or evidence to survive changes in provider, host, application or custody. Examples include governed data workflows, rights-bearing digital assets, evidence-backed claims, continuous provenance chains, interoperable identity/authority state and domain-specific Global Passport deployments.
 
-ENTITY v3.4.0 also exposes six public domain packages:
+ENTITY v3.4.1 continues to expose six public domain packages, whose sealed v3.4.0 payloads were requalified unchanged against the patch release:
 
 - [Healthcare](https://github.com/blackmore-technology-group/ENTITY-HEALTHCARE) — HL7 FHIR and DICOM mapping context;
 - [Finance](https://github.com/blackmore-technology-group/ENTITY-FINANCE) — ISO 20022, FIX and LEI mapping context;
@@ -64,7 +64,7 @@ Each package configures the **same Global Passport**. The packages do not create
 
 ### Inherited v3.3 evidence layer
 
-v3.4.0 retains v3.3's Verifiable Reality, Evidence and Economic Causality model. ENTITY keeps cryptographic verification, protocol verification and evidence supporting external-world claims distinct. A valid Global Passport therefore does not make an external assertion objectively true.
+v3.4.1 retains v3.3's Verifiable Reality, Evidence and Economic Causality model. ENTITY keeps cryptographic verification, protocol verification and evidence supporting external-world claims distinct. A valid Global Passport therefore does not make an external assertion objectively true.
 
 ---
 
@@ -82,7 +82,7 @@ python -m unittest discover -s tests -v
 
 Then read [START_HERE.md](START_HERE.md).
 
-For v3.4.0 inspect:
+For v3.4.1 inspect:
 
 ```text
 src/38_Global_Passports/
@@ -100,6 +100,7 @@ Useful v3.4 verification tools include:
 tools/verify_v3_4_global_passport_release.py
 tools/verify_v3_4_implementation_packages.py
 tools/verify_v3_4_0_release_manifest.py
+tools/verify_v3_4_1_release_manifest.py
 ```
 
 ### Developer surfaces
@@ -124,7 +125,7 @@ The Open SDK separates producer applications from asset controllers and requires
 
 BTG publishes controlled native implementations so developers can inspect cross-language reproducibility and CI evidence:
 
-| Language | Repository | v3.4 command |
+| Language | Repository | v3.4.1 campaign command |
 | --- | --- | --- |
 | Rust | [ENTITY-RUST-CLEANROOM](https://github.com/blackmore-technology-group/ENTITY-RUST-CLEANROOM) | `cargo run --locked --release --bin passport_v34` |
 | TypeScript | [ENTITY-TYPESCRIPT-CLEANROOM](https://github.com/blackmore-technology-group/ENTITY-TYPESCRIPT-CLEANROOM) | `node dist/passport_v34.js` after build |
@@ -145,16 +146,18 @@ ENTITY publishes engineering evidence separately from claims about the project.
 
 | Evidence boundary | Current public position |
 | --- | --- |
-| Current protected release | **v3.4.0 — Global Passport & Continuous Provenance** |
-| Protected release commit | `2db5bff64507b8d67642122a5ff2fc73dfef9152` |
-| Full regression | **177/177 PASS** |
+| Current protected release | **v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap** |
+| Protected release commit | `9822b1b65f8269ebc17208a342809720729ae2f8` |
+| Signed release-origin sidecar SHA-256 | `d81bc3bdd6fab5acf8d923eccf24210ac1c65970826ad1f11fbe03f07aa0caa8` |
+| Full regression | **185/185 PASS** |
+| Protocol-origin / migration / economic-lineage | **8/8 PASS** |
 | v3.4 targeted Global Passport/package suite | **33/33 PASS** |
 | v3.4 sealed Global Passport vectors | **24/24 PASS** — 12 valid / 12 invalid |
-| v3.4 sealed kit SHA-256 | `5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230` |
-| Global Passport schema SHA-256 | `4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd` |
+| v3.4.1 sealed kit SHA-256 | `f95c2b347da97742fed3f20611f0eec2fd3df48694fed9494fb07163c537cfb7` |
+| Global Passport schema SHA-256 | `3d72b4e67ec9929c5d960cee8fc52db35d85ba5103e361f3a61a8f5078079c5d` |
 | Six-language BTG-controlled result SHA-256 | `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba` |
 | Executable domain packages | **6/6 published and verified** |
-| Post-release recursive closure | **PASS** — 1,040 frozen constituents / 1,041 ENTITY records |
+| v3.4.0 post-release recursive closure | **PASS** — 1,040 frozen constituents / 1,041 ENTITY records |
 | Unrelated third-party implementation | **OPEN / PENDING** |
 | Independent external security review | **PENDING** |
 | Deployment-specific legal/regulatory determination | **Outside ENTITY protocol claims** |
@@ -170,12 +173,12 @@ You do **not** need to understand or implement all of ENTITY before contributing
 
 Current bounded entry points:
 
-- [Verify the v3.4 Global Passport kit on Linux](https://github.com/blackmore-technology-group/ENTITY/issues/20) — clean reproduction/portability task.
-- [Verify the v3.4 Global Passport kit on macOS](https://github.com/blackmore-technology-group/ENTITY/issues/21) — clean reproduction/portability task.
-- [Verify the v3.4 Global Passport kit on Windows](https://github.com/blackmore-technology-group/ENTITY/issues/45) — Windows reproduction/portability task.
-- [Audit the v3.4 Start Here path from a fresh clone](https://github.com/blackmore-technology-group/ENTITY/issues/26) — onboarding/usability review.
-- [Try one v3.4 domain package from a clean clone](https://github.com/blackmore-technology-group/ENTITY/issues/46) — bounded package-adoption test.
-- [Build a narrow independent v3.4 Global Passport classifier](https://github.com/blackmore-technology-group/ENTITY/issues/27) — clean-room interoperability evidence without implementing all of ENTITY.
+- [Verify the v3.4.1 Global Passport kit on Linux](https://github.com/blackmore-technology-group/ENTITY/issues/20) — clean reproduction/portability task.
+- [Verify the v3.4.1 Global Passport kit on macOS](https://github.com/blackmore-technology-group/ENTITY/issues/21) — clean reproduction/portability task.
+- [Verify the v3.4.1 Global Passport kit on Windows](https://github.com/blackmore-technology-group/ENTITY/issues/45) — Windows reproduction/portability task.
+- [Audit the v3.4.1 Start Here path from a fresh clone](https://github.com/blackmore-technology-group/ENTITY/issues/26) — onboarding/usability review.
+- [Try one v3.4.1-compatible domain package from a clean clone](https://github.com/blackmore-technology-group/ENTITY/issues/46) — bounded package-adoption test.
+- [Build a narrow independent v3.4.1 Global Passport classifier](https://github.com/blackmore-technology-group/ENTITY/issues/27) — clean-room interoperability evidence without implementing all of ENTITY.
 
 For the full external path, see [ENTITY Interoperability Challenge](docs/INTEROPERABILITY_CHALLENGE.md).
 
@@ -305,5 +308,5 @@ A conforming published protocol version is not intended to require BTG hosting, 
 
 ---
 
-**Blackmore Technology Group Limited**  
+**Blackmore Technology Group Limited**
 Primary repository: `blackmore-technology-group/ENTITY`
