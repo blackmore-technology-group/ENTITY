@@ -8,22 +8,46 @@ The purpose is not to turn test counts into marketing claims. It is to make the 
 
 From strongest release evidence downward, ENTITY treats these as distinct artifacts:
 
-1. **Protected release commit** — merged through the protected `main` branch with required checks.
-2. **Immutable release tag / GitHub Release** — points at the protected release commit.
-3. **Cryptographic release manifest / snapshots** — binds the qualified release material.
-4. **Regression and targeted qualification tests** — exercise documented behavior and invariants.
-5. **Sealed conformance vectors / clean-room kits** — give reproducible external test targets.
-6. **BTG-controlled cross-language implementations** — test reproducibility across languages/runtimes while remaining BTG-controlled.
-7. **Unrelated external implementation** — separate authorship/control; required before calling the result independent external interoperability evidence.
-8. **Independent security review / deployment / market evidence** — separate external milestones, not implied by repository tests.
+1. **Protected release commit** â€” merged through the protected `main` branch with required checks.
+2. **Immutable release tag / GitHub Release** â€” points at the protected release commit.
+3. **Cryptographic release manifest / snapshots** â€” binds the qualified release material.
+4. **Regression and targeted qualification tests** â€” exercise documented behavior and invariants.
+5. **Sealed conformance vectors / clean-room kits** â€” give reproducible external test targets.
+6. **BTG-controlled cross-language implementations** â€” test reproducibility across languages/runtimes while remaining BTG-controlled.
+7. **Unrelated external implementation** â€” separate authorship/control; required before calling the result independent external interoperability evidence.
+8. **Independent security review / deployment / market evidence** â€” separate external milestones, not implied by repository tests.
 
 No lower layer silently upgrades itself into a higher one.
 
 ---
 
-## v3.4.0 — current protected release
+## v3.4.1 â€” current protected release
 
-**Release:** `v3.4.0`  
+**Release:** `v3.4.1`
+**Protected release commit:** `9822b1b65f8269ebc17208a342809720729ae2f8`
+**Signed release tag:** `v3.4.1`
+
+v3.4.1 corrects the v3.4.0 fresh-bootstrap lineage defect: a new user's sovereign Entity remains independent from the canonical ENTITY protocol/profile issuer, while the protocol release is bound to the signed Shawn Blackmore â†’ Blackmore Technology Group Limited â†’ ENTITY â†’ release ancestry. Existing v3.4.0 user identities, objects, Rights Passports and signed Global Passports remain immutable and verifiable.
+
+Qualification:
+- complete regression: **185/185 PASS**;
+- protocol-origin / migration / economic-lineage: **8/8 PASS**;
+- targeted Global Passport/package suite: **33/33 PASS**;
+- sealed vectors: **24/24 PASS** â€” 12 valid / 12 invalid;
+- sealed kit SHA-256: `f95c2b347da97742fed3f20611f0eec2fd3df48694fed9494fb07163c537cfb7`;
+- schema SHA-256: `3d72b4e67ec9929c5d960cee8fc52db35d85ba5103e361f3a61a8f5078079c5d`;
+- six-language BTG-controlled result SHA-256: `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`;
+- six v3.4.0 executable domain package payloads requalified unchanged: **6/6 PASS**;
+- `ENTITY_CURRENT_RELEASE_ORIGIN.json` SHA-256: `d81bc3bdd6fab5acf8d923eccf24210ac1c65970826ad1f11fbe03f07aa0caa8`.
+
+Protocol origin remains separate from user asset provenance and does not create an automatic royalty; protocol tax remains 0 bps and economic participation still requires explicit terms.
+
+See [v3.4.1 release notes](../RELEASE_NOTES_v3.4.1.md), the [v3.4 family portal](v3.4/README.md), and the [GitHub release](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.1).
+
+---
+## v3.4.0 â€” previous protected release
+
+**Release:** `v3.4.0`
 **Protected release commit:** `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
 v3.4.0 introduces the Global Passport, composable profile stack, versioned profile registry, standards mappings, continuous provenance/passport derivation and executable domain deployment packages while preserving the five core primitives and inherited v3.3 evidence/truth boundaries.
@@ -32,7 +56,7 @@ Qualification:
 
 - complete regression: **177/177 PASS**;
 - targeted Global Passport/package suite: **33/33 PASS**;
-- sealed v3.4 vectors: **24/24 PASS** — 12 valid / 12 invalid;
+- sealed v3.4 vectors: **24/24 PASS** â€” 12 valid / 12 invalid;
 - sealed kit SHA-256: `5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230`;
 - schema SHA-256: `4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd`;
 - six-language BTG-controlled result SHA-256: `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`;
@@ -43,9 +67,9 @@ See [v3.4.0 portal](v3.4/README.md), [domain packages](v3.4/DOMAIN_PACKAGES.md) 
 
 ---
 
-## v3.2.0 — protected public release
+## v3.2.0 â€” protected public release
 
-**Release:** `v3.2.0`  
+**Release:** `v3.2.0`
 **Protected commit:** `512665096cef3771a3a8307d6dc955015ee0efbc`
 
 Documented BTG-controlled qualification:
@@ -76,7 +100,7 @@ All six produced the same documented v3.2 result hash. Because BTG controlled th
 
 ---
 
-## v3.3.0 — release qualification
+## v3.3.0 â€” release qualification
 
 v3.3 introduces the Verifiable Reality, Evidence and Economic Causality layer.
 
@@ -106,7 +130,7 @@ The exact overlay and composed release snapshot hashes are recorded in `ENTITY_V
 
 The qualification JSON/manifest deliberately records the state before publication as a BTG-internal qualified release candidate. Public release status is established separately by the protected `main` merge, `v3.3.0` tag and GitHub Release; that chronology should not be rewritten after publication.
 
-## v3.3.0 — post-release six-language controlled conformance
+## v3.3.0 â€” post-release six-language controlled conformance
 
 After the protected `v3.3.0` release was published, BTG completed the same v3.3 sealed campaign in six native clean-room baselines: Rust, TypeScript, C#, Go, Swift and Java.
 
@@ -119,7 +143,7 @@ The authoritative post-release records are:
 
 This evidence does not move or rewrite the `v3.3.0` tag, protected release commit, release manifest or release snapshot. It is controlled cross-language reproducibility evidence, not unrelated third-party interoperability.
 
-## ENTITY governs ENTITY — recursive sovereign provenance and economic lineage
+## ENTITY governs ENTITY â€” recursive sovereign provenance and economic lineage
 
 BTG subsequently ran the released ENTITY v3.3.0 architecture against ENTITY's own development lineage. The campaign registered the v1.0 RC lineage, v2.0.0-alpha1, v3.0.0, v3.0.1, v3.1.0, v3.2.0 and v3.3.0 as ENTITY-governed digital objects, then connected the six final BTG-controlled clean-room baselines and their conformance evidence.
 

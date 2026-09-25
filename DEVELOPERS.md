@@ -26,13 +26,13 @@ ENTITY is designed so that protocol conformance, verification and interoperabili
 
 ## Current protected release
 
-**ENTITY v3.4.0 — Global Passport & Continuous Provenance**
+**ENTITY v3.4.0 â€” Global Passport & Continuous Provenance**
 
-Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
-Public qualification evidence includes 177/177 regression tests, 33/33 targeted v3.4 tests, 24/24 sealed vectors, six BTG-controlled native implementations converging on `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`, six published executable domain packages, and a completed post-release recursive closure.
+Public qualification evidence includes 185/185 regression tests, 8/8 protocol-origin/migration/economic-lineage tests, 33/33 targeted v3.4 tests, 24/24 sealed vectors, six BTG-controlled native implementations converging on `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`, six published executable domain packages, and a completed post-release recursive closure.
 
-Start with the [v3.4.0 portal](docs/v3.4/README.md) and [Domain Packages](docs/v3.4/DOMAIN_PACKAGES.md). These results are BTG-controlled engineering evidence, not unrelated third-party validation.
+Start with the [v3.4.1 portal](docs/v3.4/README.md) and [Domain Packages](docs/v3.4/DOMAIN_PACKAGES.md). These results are BTG-controlled engineering evidence, not unrelated third-party validation.
 
 ## Engineering tracks
 
@@ -81,7 +81,7 @@ This track begins after an independently authored implementation can classify th
 
 The target progression is:
 
-`sealed material → independent implementation → vector conformance → reproducible CI → bidirectional live interoperability → sovereign export/recovery survival → independently authored evidence`
+`sealed material â†’ independent implementation â†’ vector conformance â†’ reproducible CI â†’ bidirectional live interoperability â†’ sovereign export/recovery survival â†’ independently authored evidence`
 
 Partial results are published as partial results. A failed vector, ambiguity or non-interoperable result is useful evidence and must not be upgraded into a success claim.
 
@@ -116,7 +116,7 @@ ENTITY development follows several rules that contributors should be able to aud
 
 A typical contribution moves through:
 
-`issue/discussion → bounded proposal → implementation or evidence → pull request → automated checks → review → merge → release qualification where applicable`
+`issue/discussion â†’ bounded proposal â†’ implementation or evidence â†’ pull request â†’ automated checks â†’ review â†’ merge â†’ release qualification where applicable`
 
 Changes that affect identity, authority, signature meaning, provider independence, recovery, portability, evidence semantics or wire compatibility receive architecture/governance review in addition to ordinary code review.
 
@@ -132,9 +132,9 @@ The strongest long-term evidence for that boundary is external reproduction and 
 
 ## Where to participate
 
-- [Issues](https://github.com/blackmore-technology-group/ENTITY/issues) — bounded engineering work, defects, portability findings and specification questions.
-- [Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) — architecture, design review, implementation questions and broader engineering discussion.
-- [Pull requests](https://github.com/blackmore-technology-group/ENTITY/pulls) — code, documentation and reproducible evidence.
-- [Releases](https://github.com/blackmore-technology-group/ENTITY/releases) — protected public release artifacts and release notes.
+- [Issues](https://github.com/blackmore-technology-group/ENTITY/issues) â€” bounded engineering work, defects, portability findings and specification questions.
+- [Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) â€” architecture, design review, implementation questions and broader engineering discussion.
+- [Pull requests](https://github.com/blackmore-technology-group/ENTITY/pulls) â€” code, documentation and reproducible evidence.
+- [Releases](https://github.com/blackmore-technology-group/ENTITY/releases) â€” protected public release artifacts and release notes.
 
 If you are evaluating ENTITY for the first time, start with [START_HERE.md](START_HERE.md), then choose one bounded task before attempting a complete implementation.

@@ -2,18 +2,18 @@
 
 ENTITY is a provider-independent authority, rights, evidence and economic-state protocol built around five primitives:
 
-**ENTITY · AUTHORITY · RIGHT · EVENT · VALUE**
+**ENTITY Â· AUTHORITY Â· RIGHT Â· EVENT Â· VALUE**
 
 > Infrastructure possession does not become sovereign authority.
 
 ## Understand the current release
 
-**ENTITY v3.4.0 — Global Passport & Continuous Provenance** is the current protected release. It retains the v3.3 evidence/truth boundaries and adds one universal Global Passport with composable jurisdiction, industry, privacy, trust and technical profiles.
+**ENTITY v3.4.0 â€” Global Passport & Continuous Provenance** is the current protected release. It retains the v3.3 evidence/truth boundaries and adds one universal Global Passport with composable jurisdiction, industry, privacy, trust and technical profiles.
 
 Read in this order:
 
 1. [README](README.md)
-2. [v3.4.0 portal](docs/v3.4/README.md)
+2. [v3.4.1 portal](docs/v3.4/README.md)
 3. [Global Passport architecture](docs/v3.4/GLOBAL_PASSPORT.md)
 4. [Six domain packages](docs/v3.4/DOMAIN_PACKAGES.md)
 5. [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md)
@@ -29,7 +29,7 @@ python -m compileall -q src sdk protocol
 python -m unittest discover -s tests -v
 ```
 
-For v3.4.0 inspect `src/38_Global_Passports/`, `src/39_Implementation_Packages/`, `profiles/registry.json`, `protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json`, `sdk/global_passport_sdk/` and `tests/test_v3_global_passports.py`.
+For v3.4.1 inspect `src/38_Global_Passports/`, `src/39_Implementation_Packages/`, `profiles/registry.json`, `protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json`, `sdk/global_passport_sdk/` and `tests/test_v3_global_passports.py`.
 
 ## Deploy a domain package
 

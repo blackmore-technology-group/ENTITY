@@ -6,22 +6,22 @@ It is intentionally conservative: a repository, implementation or test is listed
 
 ## Status vocabulary
 
-- **PASS** — the stated test/evidence requirement was completed successfully.
-- **PARTIAL** — useful evidence exists, but the stated end-to-end milestone is incomplete.
-- **PENDING** — no qualifying public result has yet been recorded.
-- **FAILED / COUNTEREXAMPLE** — a reproducible result demonstrates non-conformance, ambiguity or failure. This is useful evidence and should remain visible until resolved or superseded.
+- **PASS** â€” the stated test/evidence requirement was completed successfully.
+- **PARTIAL** â€” useful evidence exists, but the stated end-to-end milestone is incomplete.
+- **PENDING** â€” no qualifying public result has yet been recorded.
+- **FAILED / COUNTEREXAMPLE** â€” a reproducible result demonstrates non-conformance, ambiguity or failure. This is useful evidence and should remain visible until resolved or superseded.
 
 ## Current release evidence
 
-Release: **ENTITY v3.4.0 — Global Passport & Continuous Provenance**
+Release: **ENTITY v3.4.0 â€” Global Passport & Continuous Provenance**
 
-Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
-Sealed v3.4 Global Passport kit SHA-256: `5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230`
+Sealed v3.4 Global Passport kit SHA-256: `f95c2b347da97742fed3f20611f0eec2fd3df48694fed9494fb07163c537cfb7`
 
 Deterministic v3.4 result SHA-256: `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`
 
-Schema SHA-256: `4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd`
+Schema SHA-256: `3d72b4e67ec9929c5d960cee8fc52db35d85ba5103e361f3a61a8f5078079c5d`
 
 The v3.4 campaign contains 24 vectors (12 valid / 12 invalid) and the six BTG-controlled native implementations converge on the same result. The six executable domain packages are separately published and package-verified.
 

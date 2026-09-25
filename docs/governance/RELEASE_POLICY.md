@@ -8,9 +8,9 @@ ENTITY does not use a calendar promise as evidence of readiness. Releases are **
 
 ENTITY uses semantic versioning as a public coordination convention:
 
-- **PATCH** — implementation fixes, documentation corrections, tooling improvements or other changes intended to preserve published semantics and compatibility.
-- **MINOR** — additive protocol/reference capabilities that preserve the stated compatibility boundary of the release line.
-- **MAJOR** — changes that intentionally alter compatibility, controlling semantics or public protocol assumptions in a way that cannot be treated as an additive extension.
+- **PATCH** â€” implementation fixes, documentation corrections, tooling improvements or other changes intended to preserve published semantics and compatibility.
+- **MINOR** â€” additive protocol/reference capabilities that preserve the stated compatibility boundary of the release line.
+- **MAJOR** â€” changes that intentionally alter compatibility, controlling semantics or public protocol assumptions in a way that cannot be treated as an additive extension.
 
 A version number does not override the actual protocol documents, manifests, release notes or qualification evidence. Where a frozen protocol target exists, its freeze/governance material controls that target.
 
@@ -103,8 +103,8 @@ This policy is intended to keep public version numbers tied to engineering evide
 
 ## Current release
 
-As of 2026-09-25, the current protected release is **ENTITY v3.4.0 — Global Passport & Continuous Provenance**.
+As of 2026-09-25, the current protected release is **ENTITY v3.4.0 â€” Global Passport & Continuous Provenance**.
 
-Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
-Later documentation/evidence commits on `main` do not move or redefine the immutable `v3.4.0` tag. See [ROADMAP.md](../../ROADMAP.md), [v3.4.0 documentation](../v3.4/README.md), [Engineering Evidence](../ENGINEERING_EVIDENCE.md) and [GitHub Releases](https://github.com/blackmore-technology-group/ENTITY/releases).
+Historical release tags remain immutable. `v3.4.1` supersedes `v3.4.0` without moving or redefining the older tag. See [ROADMAP.md](../../ROADMAP.md), [v3.4.1 current documentation](../v3.4/README.md), [Engineering Evidence](../ENGINEERING_EVIDENCE.md) and [GitHub Releases](https://github.com/blackmore-technology-group/ENTITY/releases).
