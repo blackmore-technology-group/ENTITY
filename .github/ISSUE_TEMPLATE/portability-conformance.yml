@@ -14,7 +14,7 @@ body:
     attributes:
       label: Release / commit / kit verified
       description: Give the exact tag, commit SHA or conformance-kit revision.
-      placeholder: v3.3.0 / 9c79f987... / ENTITY_V3_3_REALITY_CLEANROOM_KIT.min.json
+      placeholder: v3.4.0 / 2db5bff6... / ENTITY_V3_4_GLOBAL_PASSPORT_CLEANROOM_KIT.min.json
     validations:
       required: true
   - type: input
