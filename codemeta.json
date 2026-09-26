@@ -1,0 +1,41 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "ENTITY",
+  "version": "3.4.2",
+  "datePublished": "2026-09-26",
+  "description": "Open protocol and reference implementation for persistent digital identity, delegated authority, provenance and evidence, data rights, portable recovery, interoperable economic state, and the Blackmore Technology Data Universe (BTDU).",
+  "codeRepository": "https://github.com/blackmore-technology-group/ENTITY",
+  "issueTracker": "https://github.com/blackmore-technology-group/ENTITY/issues",
+  "license": "https://spdx.org/licenses/Apache-2.0.html",
+  "programmingLanguage": ["Python"],
+  "runtimePlatform": "Python 3",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Shawn",
+      "familyName": "Blackmore",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Blackmore Technology Group Limited"
+      }
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blackmore Technology Group Limited"
+  },
+  "url": "https://blackmore-technology-group.github.io/ENTITY-DOCS/",
+  "keywords": [
+    "digital identity",
+    "data provenance",
+    "data governance",
+    "data rights",
+    "sovereign data",
+    "knowledge graph",
+    "AI governance",
+    "interoperability",
+    "open protocol",
+    "BTDU"
+  ]
+}
