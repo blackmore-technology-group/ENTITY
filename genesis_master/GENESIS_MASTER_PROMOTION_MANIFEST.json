@@ -61,8 +61,8 @@
   "compiled_binaries_included": false,
   "databases_included": false,
   "files": 1349,
-  "generated_at_ms": 1790379520521,
-  "inventory_sha256": "17d3e8d84ec9b56b5133788459881026ef32884f0e890c2843cc254a543c66eb",
+  "generated_at_ms": 1790434668621,
+  "inventory_sha256": "6c77e7e693e7233e2452bee33186ec06ad997233780bdf103011de0ddb7469d9",
   "private_key_material_included": false,
   "public_safe_source_only": true,
   "records": [
@@ -1250,11 +1250,11 @@
       "source_sha256": "d0046e18849c82b883f12493411783a8dd720061e4e3fdaf2aaa209cbcbebcfe"
     },
     {
-      "bytes": 1159,
+      "bytes": 1163,
       "path": "02_Peer_Network/BECP_Control_Plane/source/pyproject.toml",
-      "promoted_sha256": "3669f58cc84c39b3af912ea275977e7248afcacb5732eba7cb423f7ae38781d8",
+      "promoted_sha256": "45a78cc10d832eb0d71f041f5a8e27f68af6cc11e2ec2bd5d1027a9443975323",
       "public_normalization_applied": false,
-      "source_sha256": "3669f58cc84c39b3af912ea275977e7248afcacb5732eba7cb423f7ae38781d8"
+      "source_sha256": "45a78cc10d832eb0d71f041f5a8e27f68af6cc11e2ec2bd5d1027a9443975323"
     },
     {
       "bytes": 60,
