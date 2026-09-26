@@ -1,13 +1,31 @@
 cff-version: 1.2.0
-message: "If you use ENTITY in research or engineering work, please cite the project and the exact release used."
-title: "ENTITY"
+message: "If you use ENTITY in research, engineering, evaluation, or derivative work, please cite this software release."
+title: "ENTITY: Sovereign Digital Authority, Provenance, Data Rights, Recovery and BTDU"
 type: software
-version: 3.3.0
-date-released: 2026-09-24
-license: Apache-2.0
 authors:
   - family-names: Blackmore
     given-names: Shawn
+    affiliation: "Blackmore Technology Group Limited"
+version: 3.4.2
+date-released: 2026-09-26
+license: Apache-2.0
 repository-code: "https://github.com/blackmore-technology-group/ENTITY"
-url: "https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.3.0"
-abstract: "Provider-independent open infrastructure for sovereign digital authority, verifiable claims, data rights, evidence, interoperability and portable economic state."
+url: "https://blackmore-technology-group.github.io/ENTITY-DOCS/"
+abstract: >-
+  ENTITY is an open protocol and reference implementation for persistent digital
+  identity, delegated authority, provenance and evidence, rights, portable
+  recovery, and interoperable economic state. ENTITY v3.4.2 introduces the
+  Blackmore Technology Data Universe (BTDU), an ENTITY-governed atom/bond
+  information substrate that preserves protocol authority, rights, provenance,
+  recovery, and economic boundaries.
+keywords:
+  - digital identity
+  - data provenance
+  - data governance
+  - data rights
+  - sovereign data
+  - knowledge graph
+  - AI governance
+  - interoperability
+  - open protocol
+  - BTDU
