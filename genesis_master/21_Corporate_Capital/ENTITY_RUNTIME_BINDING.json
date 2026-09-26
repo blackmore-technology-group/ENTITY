@@ -1,0 +1,18 @@
+{
+  "abi_version": "1",
+  "authority": "corporate_capital_evidence",
+  "canonical_owner": "21_Corporate_Capital\\capital_structure",
+  "declared_scope": "CORPORATE_CAPITAL_SECTION_170_GOLDEN_SCENARIO",
+  "implementation_sha256": "15f3b2d008a5e117f010f4e8c252dd6199221cec5e15880d13f1f40f97319164",
+  "implementation_version": "2.2.0-signed-commodity",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+      "sha256": "1918775d0a3484ccbe7e77023bb2aaa2e2fa9d2c1b416bc936ee9747c771149f"
+    }
+  ],
+  "regulated_execution_enabled": false,
+  "requirements_sha256": "40dce36d844fb1b34c46386d6fd2ff322084ed1fbeec159e575cfca8cd670993",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

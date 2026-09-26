@@ -1,0 +1,48 @@
+{
+  "claim_boundary": "Operations One records are real temporal application events; generated physical regimes are not represented as field sensor recordings.",
+  "generated_sensor": {
+    "abstained": 0,
+    "accuracy": 1.0,
+    "by_source": {
+      "generated_physical_regime": {
+        "abstained": 0,
+        "correct": 960,
+        "total": 960
+      }
+    },
+    "correct": 960,
+    "examples": 960,
+    "holdout_examples": 960,
+    "model_id": "d1c16c5955c8110f0090087a38c0642f6c2dd5711ce153d506800188ff2b95cb",
+    "ood": {
+      "abstained": true,
+      "confidence": 0.0,
+      "feature_digest": "32014b9b0abfa6c443222948176a11bc2af8537b2e105920a0b2c86ed22441dc",
+      "label": null,
+      "model_id": "d1c16c5955c8110f0090087a38c0642f6c2dd5711ce153d506800188ff2b95cb",
+      "ood_score": 846.83465612
+    },
+    "training_examples": 3840
+  },
+  "operations_one_real_events": {
+    "abstained": 0,
+    "accuracy": 0.9444444444444444,
+    "by_source": {
+      "operations_one_real_export": {
+        "abstained": 0,
+        "correct": 17,
+        "total": 18
+      }
+    },
+    "correct": 17,
+    "examples": 18,
+    "holdout_examples": 18,
+    "labels": [
+      "EVENT_ON_TIME",
+      "EVENT_OPEN"
+    ],
+    "model_id": "8eb4b87ed2982b784c9bc77aaae2adb5ac2904db0bd866cd1b61380743cb1ff2",
+    "total_examples": 85,
+    "training_examples": 67
+  }
+}

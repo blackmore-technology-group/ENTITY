@@ -1,0 +1,22 @@
+{
+  "build": "PASS",
+  "format": "ADAM-v0.50.1-wheel-qualification",
+  "import_smoke": "PASS",
+  "install_to_isolated_target": "PASS",
+  "note": "Built without build isolation or dependency downloads; locally installed setuptools satisfied the build backend.",
+  "package_imports": [
+    "adam_v41",
+    "adam_v42",
+    "adam_v43",
+    "adam_v44",
+    "adam_v45",
+    "adam_v46",
+    "adam_v47",
+    "adam_v48",
+    "adam_v49",
+    "adam_v50"
+  ],
+  "sha256": "f8bd377e33c2d810bc01836b1267887a312289a5d1236b4fe56245b9cdd99508",
+  "version": "0.50.1.dev4",
+  "wheel": "artifacts/wheel_v501/adam_sovereign_artificial_living_universe-0.50.1.dev4-py3-none-any.whl"
+}

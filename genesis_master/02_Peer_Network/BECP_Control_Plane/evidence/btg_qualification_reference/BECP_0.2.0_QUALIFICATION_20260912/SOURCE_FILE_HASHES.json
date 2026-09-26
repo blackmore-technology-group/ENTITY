@@ -1,0 +1,177 @@
+[
+  {
+    "bytes": 51,
+    "path": "adapters/__init__.py",
+    "sha256": "919384b051146db5797f4486b154610a1f9ce644d1f5482c55e8a8c36ae1ad54"
+  },
+  {
+    "bytes": 4468,
+    "path": "adapters/niki_remote_adapter.py",
+    "sha256": "7d3918dff122c4acdc447a7e75335021f4d52457d0f0325053c6e3c8a4d5d926"
+  },
+  {
+    "bytes": 5500,
+    "path": "agents/windows_engineering_workstation_agent.py",
+    "sha256": "9aaf05e1b590158924657e22d0757e101a455a6a984f68e49f22a503f04d2656"
+  },
+  {
+    "bytes": 36,
+    "path": "api/__init__.py",
+    "sha256": "b729351b64bc55ce72228d5b212494b504d3b67334758f4a04f63a335040b28d"
+  },
+  {
+    "bytes": 18808,
+    "path": "api/gateway.py",
+    "sha256": "7e41decab104bf786240624ee298c28746bc283cb68f4b705ddfed3cf5d738f8"
+  },
+  {
+    "bytes": 73,
+    "path": "blackmore_ecp/__init__.py",
+    "sha256": "27df8d71269bc3c73aa6dd0233d896218a82a2787dc8cbd482c5cd008dd92262"
+  },
+  {
+    "bytes": 2897,
+    "path": "blackmore_ecp/ai_session.py",
+    "sha256": "7dbdd1d3a86b2192400fcf58ca911af8e29e6d9a415591e369cab7131220c199"
+  },
+  {
+    "bytes": 1596,
+    "path": "blackmore_ecp/audit.py",
+    "sha256": "c3b43f22a13a13239c4268a7e5b40e4993c46b51a94bcf55f375ae02ec6357e2"
+  },
+  {
+    "bytes": 7148,
+    "path": "blackmore_ecp/capabilities.py",
+    "sha256": "09b7049beb63f431894d96950ffeff1a79c9907e3dd73c0292046ace12b5ffce"
+  },
+  {
+    "bytes": 1671,
+    "path": "blackmore_ecp/config.py",
+    "sha256": "5b1b59e46b3651874cdfa125c39afe3f9d70adba6780a784f9797bf2ca9edabd"
+  },
+  {
+    "bytes": 4700,
+    "path": "blackmore_ecp/device_registry.py",
+    "sha256": "ed79ef710a16e731cade104bae5404ecec1652aaad83c3813373d9ad43a3c197"
+  },
+  {
+    "bytes": 6643,
+    "path": "blackmore_ecp/engineering_terminal.py",
+    "sha256": "9a97c12741aba7b53d8f4b0f5330b0cd94d39793d8fe9c44c39e8c5cc7b10bce"
+  },
+  {
+    "bytes": 4340,
+    "path": "blackmore_ecp/mcp_adapter.py",
+    "sha256": "3b9154e9b3d31b42a07f6611af556750be6b537359d4d6ddae5cca6692dff40b"
+  },
+  {
+    "bytes": 900,
+    "path": "blackmore_ecp/models.py",
+    "sha256": "a0dfa1feb46b4adc336028047d2e909e75aef0d2eca59f2a74b1eea79cf2eee1"
+  },
+  {
+    "bytes": 6672,
+    "path": "blackmore_ecp/pki.py",
+    "sha256": "8f7e54b3e9c4ce691601451ba0ab734ee629ca30a1d50674df1c5d28466f0637"
+  },
+  {
+    "bytes": 1979,
+    "path": "blackmore_ecp/policy.py",
+    "sha256": "d33c258f60aa0032f8580fcf81739d9cb9bfa26b41211f1110d58a9daa4b63ae"
+  },
+  {
+    "bytes": 3369,
+    "path": "blackmore_ecp/router.py",
+    "sha256": "ef8036b8e556e36e55543f835c938dc92edd948641646602bc4fbbc6e9eaec4f"
+  },
+  {
+    "bytes": 3997,
+    "path": "blackmore_ecp/runtime.py",
+    "sha256": "5417f724db127ced49170673c3b5e7e7fafccb7371aa98bbc1871d674b579cf4"
+  },
+  {
+    "bytes": 3500,
+    "path": "blackmore_ecp/security.py",
+    "sha256": "d6d9552c68bab2fe8674cc693c7fb71bd53bf575e37610d5fcf00404051bb4a1"
+  },
+  {
+    "bytes": 947,
+    "path": "config/BTG_ENGINEERING_WORKSTATION.json",
+    "sha256": "1d981f97242042c9b91642a6eef8ecc2fad358a3223f072a8c27dbf333d7c87a"
+  },
+  {
+    "bytes": 960,
+    "path": "config/ENG_SIM_01.json",
+    "sha256": "565bc9e9293e530c57e4732c8a13d00577684998b9142da11704ea3ccc5f4ac2"
+  },
+  {
+    "bytes": 962,
+    "path": "config/ENGINEERING_WORKSTATION_TEMPLATE.json",
+    "sha256": "0aa2f9b92df98170e87aa19f752055d9107ee1c5ac6fbda0fca3f3864c0c0ff8"
+  },
+  {
+    "bytes": 1173,
+    "path": "config/GATEWAY_LOCAL_QUALIFICATION.json",
+    "sha256": "60f6a3d73bcbbc420b7bf14fcaac61c39b5ccaa4ec8ad257a626f9b0144b099e"
+  },
+  {
+    "bytes": 7728,
+    "path": "docs/ENGINEERING_WORKSTATION_TERMINAL_REQUIREMENTS.md",
+    "sha256": "cf0f4f19c7e5bfab6aec657aa186f3b73fabd0002151a50ea5e31b237468a725"
+  },
+  {
+    "bytes": 37,
+    "path": "docs/MCP_LOCAL_PACKAGE_INIT_REMOVED.txt",
+    "sha256": "3684692b442fd6ff71899be58d46c2a6d951e468bef06b410b021466671b2f7b"
+  },
+  {
+    "bytes": 418,
+    "path": "pyproject.toml",
+    "sha256": "ea7d49e42e7b40d55cdefc129fab695bcb6ebccf5183bbba15a851c25e58bb54"
+  },
+  {
+    "bytes": 4205,
+    "path": "scripts/enroll_engineering_workstation.py",
+    "sha256": "f3778f462e6af675eca458f846d0082eadae4473cbe6de18b78ee199b8d18b56"
+  },
+  {
+    "bytes": 2271,
+    "path": "scripts/generate_pki.py",
+    "sha256": "dbc0123c1b1a838e018ff8a14a8d669a6761b15aa46dbf3ff7eb3535341370d5"
+  },
+  {
+    "bytes": 18028,
+    "path": "scripts/generate_qa_evidence.py",
+    "sha256": "83dadf4a8776917fb7a611ac9b9c1467c8b2dc8906b02bca03c9d63bbb04045f"
+  },
+  {
+    "bytes": 1361,
+    "path": "scripts/issue_client_token.py",
+    "sha256": "41cc5ebbfa8a30084f3e60658e51b58c0d1c46f889b07c7783364a9cfb7fce15"
+  },
+  {
+    "bytes": 3209,
+    "path": "scripts/run_gateway.py",
+    "sha256": "57e4c842c487ab259d41feb0a51032523fbce217ac7bacd739d400377e6f7aec"
+  },
+  {
+    "bytes": 19642,
+    "path": "tests/live_remote_qualification.py",
+    "sha256": "bd6999a4ee914d26a9f8b388ae44bd8cabc7fa92c6440f784b0479473f2f9734"
+  },
+  {
+    "bytes": 1674,
+    "path": "tests/test_device_registry_and_ai_session.py",
+    "sha256": "320bda34897b842c224cde3141a7dacda6ed9baaf8fc62a60b5cd63214a133d3"
+  },
+  {
+    "bytes": 1683,
+    "path": "tests/test_engineering_terminal.py",
+    "sha256": "53a15e3e8a694aeb2480de1bef03db78e06514bedc6210c2e4ed14086cacd6b8"
+  },
+  {
+    "bytes": 1595,
+    "path": "tests/test_privileged_terminal_policy.py",
+    "sha256": "bbad46588fa820f1735a5dd707fcccad6702103fe624e748a4640cb8c508d276"
+  }
+]

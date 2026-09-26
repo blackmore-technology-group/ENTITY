@@ -1,0 +1,51 @@
+{
+  "abi_version": "1",
+  "authorities": {
+    "data_pools": {
+      "exports": [
+        "DataPoolManager"
+      ],
+      "implementation_sha256": "0b8e439eb033529886a9c58759837ae23d73109ee6ed46cdc3a95e8aec2b05e1",
+      "python_file": "canonical_data_economy.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+          "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+        }
+      ],
+      "status": "READY"
+    },
+    "data_spaces": {
+      "exports": [
+        "DataSpaceGateway"
+      ],
+      "implementation_sha256": "0b8e439eb033529886a9c58759837ae23d73109ee6ed46cdc3a95e8aec2b05e1",
+      "python_file": "canonical_data_economy.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+          "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+        }
+      ],
+      "status": "READY"
+    },
+    "settlement": {
+      "exports": [
+        "SettlementEngine"
+      ],
+      "implementation_sha256": "72c906a71f1606bb2c9fb2c4ee87029817fc2cf218c3a4df6ae454eae7229987",
+      "python_file": "canonical_economics.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_ECONOMIC_QUALIFICATION_CURRENT.json",
+          "sha256": "8b5004213b10b6da88142be814066949621be57036695d2723778c77b0ddc855"
+        }
+      ],
+      "status": "READY"
+    }
+  },
+  "implementation_version": "2.2.0-canonical",
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

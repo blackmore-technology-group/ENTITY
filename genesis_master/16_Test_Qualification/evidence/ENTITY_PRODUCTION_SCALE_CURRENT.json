@@ -1,0 +1,71 @@
+{
+  "asset_ingest": {
+    "assets_completed": 10000,
+    "per_second": 1927.2953649273632,
+    "run_id": "BENCH-10K",
+    "seconds": 5.188618300016969
+  },
+  "counts": {
+    "assets": 10000,
+    "ledger_events": 30000,
+    "provenance_bindings": 10000,
+    "rights_claims": 10000,
+    "rights_events": 10000
+  },
+  "database_evidence": {
+    "assets": {
+      "bytes": 3686400,
+      "path": "<LOCAL_DRIVE>/ENTITY_SCALE_LAB\\benchmark_10k\\asset_registry\\assets.sqlite",
+      "sha256": "30310d80f43edd5df281d93a8406ffb99f951519afe9364ab246b866264a51a8"
+    },
+    "bulk_receipts": {
+      "bytes": 20480,
+      "path": "<LOCAL_DRIVE>/ENTITY_SCALE_LAB\\benchmark_10k\\bulk_ingest\\bulk_ingest.sqlite",
+      "sha256": "615bcd5fb2bf140ee481dbde9f489e8ad13744084c2d7b2d127299d0d6f90ed5"
+    },
+    "ledger": {
+      "bytes": 32477184,
+      "path": "<LOCAL_DRIVE>/ENTITY_SCALE_LAB\\benchmark_10k\\event_ledger\\ledger.sqlite",
+      "sha256": "439e634db0a5a53ed22d2ed698ef14dfbc1a9c46ee454f94b43f60e1920006b8"
+    },
+    "provenance": {
+      "bytes": 7409664,
+      "path": "<LOCAL_DRIVE>/ENTITY_SCALE_LAB\\benchmark_10k\\asset_provenance\\asset_provenance.sqlite",
+      "sha256": "891b7ecf6ca655260e267a522cfd745e2fa8cec1807963b6582fe7144bb735aa"
+    },
+    "rights": {
+      "bytes": 20131840,
+      "path": "<LOCAL_DRIVE>/ENTITY_SCALE_LAB\\benchmark_10k\\rights_claims\\rights_claims.sqlite",
+      "sha256": "ac6b8ad06253c0345ecf8708d1d586eb3f2bfc69b71bb1c1e16636ee768aab83"
+    }
+  },
+  "elapsed_seconds": 9.502,
+  "evidence_sha256": "a7dd3da789f3b64d3ad3b0c72325920764c849a833881413371430290c3f1ecf",
+  "extra_event_ingest": {
+    "events_completed": 20000,
+    "per_second": 6389.008247355672,
+    "seconds": 3.1303763003088534
+  },
+  "failures": [],
+  "generated_at_ms": 1789589746047,
+  "ledger_verification": {
+    "events_scanned": 30000,
+    "failures": [],
+    "full_hash_chain_verified": true,
+    "head_hash": "e7b3fcd50ca6924710bb1bacfb875e07f1a78120184b33027844b7a89e976847",
+    "sampled_signatures_verified": 4
+  },
+  "limitations": [
+    "volume/throughput qualification executed on one workstation; distributed multi-machine storm is a separate qualification gate"
+  ],
+  "qualification_complete": true,
+  "schema": "entity-production-scale-qualification-v1",
+  "scope_status": "PASS_SCALE_VOLUME_SINGLE_WORKSTATION",
+  "semantic_mismatches": 0,
+  "state_root": "<LOCAL_DRIVE>/ENTITY_SCALE_LAB\\benchmark_10k",
+  "status": "PASS",
+  "targets": {
+    "assets": 10000,
+    "canonical_ledger_events": 30000
+  }
+}

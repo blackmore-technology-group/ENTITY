@@ -1,0 +1,11 @@
+{
+  "expected_reason": null,
+  "expected_valid": true,
+  "material": {
+    "expected": "REJECT_CURRENT",
+    "known_version": 2,
+    "presented_version": 1
+  },
+  "name": "rollback_detection",
+  "schema": "entity-domain-test-vector-v1"
+}

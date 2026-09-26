@@ -1,0 +1,322 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d8891c4b94010031208a76ee1cf3aeaa396d1050bfd6604c255b4c6c9d5d4a03"
+        }
+      ],
+      "name": "adam-v1-complete-software-reference",
+      "purl": "pkg:pypi/adam-v1-complete-software-reference@1.0.0rc2",
+      "type": "application",
+      "version": "1.0.0rc2"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c9fc401ecb1367aed4a651f1f0ef1d86f2c636f8d90c258c1dee63b6a8727c12"
+        }
+      ],
+      "name": "cffi",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/cffi@2.0.0",
+      "type": "library",
+      "version": "2.0.0"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "081dffd9e29be736d4d8ff5059186028496b246c935e954d1a5ee43b65b24bec"
+        }
+      ],
+      "name": "coverage",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/coverage@7.13.3",
+      "type": "library",
+      "version": "7.13.3"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b780a82447958d921a7997f62c1ff14c6778ceab8e8c21701c28019bac882394"
+        }
+      ],
+      "name": "cryptography",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/cryptography@46.0.4",
+      "type": "library",
+      "version": "46.0.4"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bce7bde3d4a76cfdfb56952819e9fe472a2fbd2971db89ae0d60294349a08221"
+        }
+      ],
+      "name": "iniconfig",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/iniconfig@2.3.0",
+      "type": "library",
+      "version": "2.3.0"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0f4cf5335d96d603c72dfa1e3b0a0870fdda7900fb4dd96ec89bfaceb63ca94d"
+        }
+      ],
+      "name": "mpmath",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/mpmath@1.3.0",
+      "type": "library",
+      "version": "1.3.0"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5cc43a1cfced8e9b582a691a3a01348e9af69d568c80207e0cdb3d25461dbcc4"
+        }
+      ],
+      "name": "msgpack",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/msgpack@1.1.2",
+      "type": "library",
+      "version": "1.1.2"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ba817dbe7956675c96b6a6db71abd5aee5fb9cfbbfdc455f62bf965680bcab9d"
+        }
+      ],
+      "name": "numpy",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/numpy@2.3.5",
+      "type": "library",
+      "version": "2.3.5"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "33f8e2967fd01f4009c9e79e707ca6542c57614fd5712518ba13a3d128be54ea"
+        }
+      ],
+      "name": "packaging",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/packaging@25.0",
+      "type": "library",
+      "version": "25.0"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e457a609f49fe1404bf19149d241a0c77262b68f18db27c74c25bbdf2a401e2a"
+        }
+      ],
+      "name": "pillow",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/pillow@12.2.0",
+      "type": "library",
+      "version": "12.2.0"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0c8682d7c6fd3a7f07ad76320a4d9bde682e8bd84dec21b8d2736c4bd1d0d4e5"
+        }
+      ],
+      "name": "pip",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/pip@25.1.1",
+      "type": "library",
+      "version": "25.1.1"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9fe786b7433c520e4542502117c0e7c2dbbfdc0a3feb9429bd2f6b7d4e8455f9"
+        }
+      ],
+      "name": "pluggy",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/pluggy@1.6.0",
+      "type": "library",
+      "version": "1.6.0"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c9a47ea7c049cd198d5c676e54e9c1e2e6bbfce5417557ef05321a121dc4430e"
+        }
+      ],
+      "name": "pycparser",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/pycparser@3.0",
+      "type": "library",
+      "version": "3.0"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9e0d9e37baf9529cdcb49657df13c8400b281bf4099bc2d3cc6603cb8464eacf"
+        }
+      ],
+      "name": "Pygments",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/pygments@2.20.0",
+      "type": "library",
+      "version": "2.20.0"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4508d77b3a9dc5ec1b58ff0831b735b910768fc0bddaa5995af9ef92b2907c15"
+        }
+      ],
+      "name": "pytest",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/pytest@9.0.2",
+      "type": "library",
+      "version": "9.0.2"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "982612203fcd825c64ee72f25669d43e0528e427f4968bced1bd0e0a856fe501"
+        }
+      ],
+      "name": "setuptools",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/setuptools@82.0.1",
+      "type": "library",
+      "version": "82.0.1"
+    },
+    {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "01897f08b8f0f2e5b529516fe63732afe3d6aa16fdef8dc31643d4f67600af3d"
+        }
+      ],
+      "name": "sympy",
+      "properties": [
+        {
+          "name": "adam:hash-kind",
+          "value": "qualified-host-installed-tree"
+        }
+      ],
+      "purl": "pkg:pypi/sympy@1.14.0",
+      "type": "library",
+      "version": "1.14.0"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d8891c4b94010031208a76ee1cf3aeaa396d1050bfd6604c255b4c6c9d5d4a03"
+        }
+      ],
+      "name": "adam-v1-complete-software-reference",
+      "purl": "pkg:pypi/adam-v1-complete-software-reference@1.0.0rc2",
+      "type": "application",
+      "version": "1.0.0rc2"
+    }
+  },
+  "serialNumber": "urn:uuid:2af8428a60b7555bc0a39d8eb49a2fc8",
+  "specVersion": "1.5",
+  "version": 1
+}

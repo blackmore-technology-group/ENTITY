@@ -1,0 +1,32 @@
+{
+  "abi_version": "1",
+  "authority": "service_api",
+  "crypto_suites": [
+    "SHA-256"
+  ],
+  "exports": [
+    "entity_bootstrap_v1",
+    "sers_acceptance_v1",
+    "canonical_core_status_v1",
+    "ensure_bootstrap_secret_v1",
+    "canonical_service_api_v1"
+  ],
+  "implementation_sha256": "3bb1b158472adf67c0b41a6ba29648b5beea29ff8db87053043f4d50cd68bb26",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_service.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CANONICAL_CORE_QUALIFICATION_CURRENT.json",
+      "sha256": "5b104a759fb3de039d01395737eb1625ca7bd7dac6b8bf01bfda0e2fd1f39c1f",
+      "status": "PASS"
+    }
+  ],
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-canonical-bootstrap-v1",
+    "entity-sers-acceptance-v1",
+    "entity-canonical-service-api-v1"
+  ],
+  "status": "READY"
+}

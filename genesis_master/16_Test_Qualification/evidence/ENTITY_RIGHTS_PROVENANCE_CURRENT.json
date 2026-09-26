@@ -1,0 +1,24 @@
+{
+  "evidence_sha256": "164dd43e31d4be3695e373fd5c0a20f980ed7619bf9da8347c3614c058d9875f",
+  "generated_at_ms": 1789570261302,
+  "implementation_sha256": {
+    "04_Entity_Registry\\ownership_graphs\\canonical_rights_claims.py": "3007b78ee8edcfa65f70c78c33aef1c11514009de256a292050363745879a49c",
+    "04_Entity_Registry\\provenance\\canonical_provenance.py": "493a7d681087e7f1ce2003e5a3ac6d43b8102914190bbacc794bb886cb4d8b56"
+  },
+  "invariants": [
+    "claims are many-to-many and may conflict",
+    "fractional share, territory and jurisdiction are explicit",
+    "registration/signature does not establish legal truth",
+    "UNKNOWN/DERIVED_INFERENCE do not silently authorize licensing",
+    "independent verification is distinct from claimant assertion",
+    "C2PA/provenance validity, signer trust, truth and rights remain distinct",
+    "lineage preserves parent/child derivation evidence",
+    "tampered signed records fail verification"
+  ],
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": ".......                                                                  [100%]\n7 passed in 1.70s",
+  "qualification_complete": true,
+  "schema": "entity-rights-provenance-qualification-v1",
+  "status": "PASS"
+}

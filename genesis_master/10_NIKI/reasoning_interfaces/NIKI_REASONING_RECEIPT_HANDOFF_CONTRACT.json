@@ -1,0 +1,16 @@
+{
+  "schema": "niki-reasoning-receipt-handoff-contract-v1",
+  "owner": "NIKI",
+  "input_schema": "niki-reasoning-receipt-v1",
+  "canonical_authority": "knowledge_capital",
+  "canonical_export": "niki_ingest_reasoning_receipt_v1",
+  "rules": [
+    "NIKI receipt content remains commitments/metadata rather than hidden reasoning",
+    "NIKI verifies the receipt self-hash before handoff",
+    "canonical Knowledge Capital decides durable ingestion and ledger policy",
+    "if canonical Knowledge Capital is not READY the receipt remains pending adoption",
+    "a READY but broken canonical binding fails closed",
+    "handoff does not change the original Evidence Boundary"
+  ],
+  "noncanonical_status": "PENDING_CANONICAL_KNOWLEDGE_CAPITAL"
+}

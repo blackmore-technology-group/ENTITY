@@ -1,0 +1,114 @@
+{
+  "training": {
+    "model_id": "5d399fb0a9f5f501d56020f72d534478e9f4c63d0f9c0ad345b4b98017f7b7b5",
+    "dataset_root": "ce4c48d316360f14eb1801bb2916830d49c43414f209fd75849e17b80c2892fd",
+    "validation_accuracy": 1.0,
+    "test_accuracy": 1.0,
+    "calibration_error": 0.01126217572653676,
+    "authority_commit_enabled": false
+  },
+  "status": {
+    "classification": "ADAM v1.0 Production Qualification Candidate",
+    "universe": {
+      "physics_root": "c5a894332df55ec3f4d0dabc3890a3daab83a0cf63021008b498b2074d03576f",
+      "logical_time": 0,
+      "models": {
+        "masked_bond": null,
+        "masked_atom": null,
+        "dynamics": null
+      },
+      "applications": {
+        "applications": 0,
+        "events": 0,
+        "evidence_objects": 0,
+        "physics_root": "c5a894332df55ec3f4d0dabc3890a3daab83a0cf63021008b498b2074d03576f"
+      },
+      "devices": 0,
+      "chemistry_active": null,
+      "secure_atoms": 0,
+      "witnesses": 3
+    },
+    "custody": {
+      "provider": "ENCRYPTED_SOFTWARE_REFERENCE",
+      "instance": "adam-v1-candidate-local",
+      "hardware_backed": false,
+      "keys": 8,
+      "states": {
+        "ACTIVE": 8
+      },
+      "audit_exists": true
+    },
+    "network_reference": null,
+    "devices": {
+      "bounded-pump-1": {
+        "stage": "SIMULATION",
+        "root": "40f97bcac72973109b91c01554bd7fde8f7f8d5394e6c63cca8f1e5fa4f42f12"
+      }
+    },
+    "models": {
+      "sensor-anomaly": "5d399fb0a9f5f501d56020f72d534478e9f4c63d0f9c0ad345b4b98017f7b7b5"
+    },
+    "candidate": null,
+    "wall_clock": null,
+    "promotion": {
+      "production_build_hash": "46415f1ea4b797772694ba2090132f0f4a1ed9bdff3c06dcf905a36373575431",
+      "promotable_to_v1": false,
+      "blockers": [
+        "external gate not passed: RUST_COMPILED_QUALIFIED",
+        "external gate not passed: HSM_HARDWARE_CUSTODY",
+        "external gate not passed: PHYSICAL_MULTI_HOST",
+        "external gate not passed: CERTIFIED_DEVICE_PILOT",
+        "external gate not passed: REAL_WORLD_TRAINING",
+        "external gate not passed: THIRTY_DAY_WALL_CLOCK",
+        "external gate not passed: INDEPENDENT_SECURITY_AUDIT",
+        "no independent assessor receipt"
+      ],
+      "gates": {
+        "CERTIFIED_DEVICE_PILOT": {
+          "gate_id": "CERTIFIED_DEVICE_PILOT",
+          "description": "physical device and functional-safety certification",
+          "evidence_hash": null,
+          "passed": false,
+          "independently_verified": false
+        },
+        "HSM_HARDWARE_CUSTODY": {
+          "gate_id": "HSM_HARDWARE_CUSTODY",
+          "description": "non-exportable hardware custody and ceremonies",
+          "evidence_hash": null,
+          "passed": false,
+          "independently_verified": false
+        },
+        "PHYSICAL_MULTI_HOST": {
+          "gate_id": "PHYSICAL_MULTI_HOST",
+          "description": "physically independent host deployment and WAN faults",
+          "evidence_hash": null,
+          "passed": false,
+          "independently_verified": false
+        },
+        "REAL_WORLD_TRAINING": {
+          "gate_id": "REAL_WORLD_TRAINING",
+          "description": "large licensed multimodal and field sensor training",
+          "evidence_hash": null,
+          "passed": false,
+          "independently_verified": false
+        },
+        "RUST_COMPILED_QUALIFIED": {
+          "gate_id": "RUST_COMPILED_QUALIFIED",
+          "description": "compiled, fuzzed, Miri and cross-platform Rust authority kernel",
+          "evidence_hash": null,
+          "passed": false,
+          "independently_verified": false
+        },
+        "THIRTY_DAY_WALL_CLOCK": {
+          "gate_id": "THIRTY_DAY_WALL_CLOCK",
+          "description": "thirty actual elapsed days under frozen candidate",
+          "evidence_hash": null,
+          "passed": false,
+          "independently_verified": false
+        }
+      },
+      "findings": [],
+      "assessor_receipt": null
+    }
+  }
+}

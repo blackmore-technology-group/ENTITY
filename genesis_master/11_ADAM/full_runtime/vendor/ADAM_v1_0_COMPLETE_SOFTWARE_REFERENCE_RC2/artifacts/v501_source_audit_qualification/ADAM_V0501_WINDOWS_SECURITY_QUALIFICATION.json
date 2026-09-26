@@ -1,0 +1,35 @@
+{
+  "forced_spawn_process_tests": {
+    "failed": 0,
+    "log": "artifacts/v501_source_audit_qualification/windows_forced_spawn.log",
+    "log_sha256": "f70fb25e0ba759f7050888cdac34c94c7f624f75c05b30917e7181615808ad55",
+    "passed": 4
+  },
+  "format": "ADAM-v0.50.1-windows-security-portability-qualification",
+  "key_module_sha256": {
+    "adam_v41/authority.py": "a5cb5865d17e47bef94ee69e66b413e5f3f25b3b85c96afde4c8c609373b3fbe",
+    "adam_v41/cognition.py": "0cff739cd0f0183cf2c0cdb5d1e6c291d757670bdc383d8a97a24d58acdad9d9",
+    "adam_v42/formal.py": "a95b5c4af50a38637b4f94dd1abd8f86463c7f6747b0378e02626e01bfb07e74",
+    "adam_v42/safe_expression.py": "90e23eb5864c7746ed3c9c77ed2be90ffea6c4740c7b5a35082125762baebb0f",
+    "adam_v44/bond_algebra.py": "b2a67e3014f1159ff0759979fabd2ba327eb3561672032a4e0b0db790b272c4d",
+    "adam_v44/physics.py": "8d3cf4f3ce40554d2a7dd50a0f532a49e2c2a6eca3093c3853ffefa826031857",
+    "native_authority_reference/authority_reference.py": "6a76a9b5367b8b978fd1bf467c55445a87088924ff882827cdea8ae699833375"
+  },
+  "launcher_r2": {
+    "install_dependencies_uses_test_extra": "PASS",
+    "powershell_colon_interpolation": "PASS",
+    "standard_mode_coverage_optional": "PASS"
+  },
+  "source_security": {
+    "content_addressed_bond_supersession": "immutable successor map",
+    "pickle_deserialization_present": false,
+    "runtime_eval_or_exec_present": false
+  },
+  "status": "PASS",
+  "version": "0.50.1.dev2",
+  "windows_portability_tests": {
+    "failed": 0,
+    "passed": 5,
+    "path": "tests_source_audit/test_windows_portability.py"
+  }
+}

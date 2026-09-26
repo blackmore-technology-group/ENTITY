@@ -1,0 +1,10 @@
+{
+  "expected_reason": "anti_rollback",
+  "expected_valid": false,
+  "material": {
+    "known_domain_version": 2,
+    "presented_domain_version": 1
+  },
+  "name": "rollback",
+  "schema": "entity-domain-test-vector-v1"
+}

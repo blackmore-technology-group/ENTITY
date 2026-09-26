@@ -1,0 +1,17 @@
+{
+  "schema": "niki-reasoning-receipt-contract-v1",
+  "owner": "NIKI",
+  "purpose": "observable reasoning provenance without hidden chain-of-thought",
+  "required": ["receipt_id", "request_hash", "response_hash", "evidence_commitment", "authority_boundary", "contract_hashes", "created_at_ms", "receipt_sha256"],
+  "evidence_boundary": "ENTITY_OBSERVABLE_OUTPUT_ONLY",
+  "hidden_reasoning": "NOT_EXPOSED_NOT_RECORDED",
+  "raw_vault_content": false,
+  "mutation_authority": false,
+  "invariants": [
+    "receipt proves the observable transformation, not hidden model reasoning",
+    "evidence commitment is deterministic over bounded evidence identifiers/hashes",
+    "contract hashes identify the NIKI interface/policy rules in force",
+    "receipt never implies execution occurred",
+    "receipt is suitable for later Knowledge Capital ingestion"
+  ]
+}

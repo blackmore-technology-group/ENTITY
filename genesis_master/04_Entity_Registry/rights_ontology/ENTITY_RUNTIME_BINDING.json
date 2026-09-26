@@ -1,0 +1,23 @@
+{
+  "abi_version": "1",
+  "authority": "rights_ontology",
+  "exports": [
+    "RightsOntology",
+    "rights_ontology_v1"
+  ],
+  "implementation_sha256": "8eff1df3e0391f024369621774c8d37d3766b4e62f5357dd0a524f80ec0c2134",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_ontology.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_V2_ASSURANCE_CORE_CURRENT.json",
+      "sha256": "b3b5b2023b0db81531e6386181dbf5229ef8e9da6c1d4e8b73adfd812328951e"
+    }
+  ],
+  "requirements_sha256": "a3cba409b3b96f84f43d394ae4a1468279875fe78b69a91d15fab83094a45226",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-rights-ontology-v1"
+  ],
+  "status": "READY"
+}

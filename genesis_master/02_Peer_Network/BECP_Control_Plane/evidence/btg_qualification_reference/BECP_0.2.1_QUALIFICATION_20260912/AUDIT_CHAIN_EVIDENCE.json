@@ -1,0 +1,20 @@
+[
+  {
+    "errors": [],
+    "exists": true,
+    "file_sha256": "8d368d0189f2ef922d990e3da8a920995ff43247b09dd4312f14022da8cdff6a",
+    "ok": true,
+    "path": "runtime/qualification/becp_0.2.1/gateway_audit.jsonl",
+    "records": 7,
+    "terminal_record_hash": "bc6b93dd91cba2e7b40e4775a4ba89be5266e941e6cdee46552155d46bf00897"
+  },
+  {
+    "errors": [],
+    "exists": true,
+    "file_sha256": "b68f68eec9babb285a717a4157ab5c1b0ad798097dde7ffe87dd89b9bafe9c67",
+    "ok": true,
+    "path": "runtime/qualification/becp_0.2.1/btg_agent_audit.jsonl",
+    "records": 17,
+    "terminal_record_hash": "caf1adfa14acd98322678ff6f817bbc0658f708ac44f0aee7e3478f38dfb3143"
+  }
+]

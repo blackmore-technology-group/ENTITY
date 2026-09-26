@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "c2pa",
+  "exports": [
+    "CanonicalC2paVerifier"
+  ],
+  "implementation_sha256": "5cc05b18f116e4b08ee7d2e01120c0e2302a2300e0eb034a8efdd6d80e3bce4c",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_c2pa.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+      "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+    }
+  ],
+  "requirements_sha256": "03df075064bccb0a27c916fdb74407a56f7c0ac3cefbbdff93880eb65fc74a6a",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

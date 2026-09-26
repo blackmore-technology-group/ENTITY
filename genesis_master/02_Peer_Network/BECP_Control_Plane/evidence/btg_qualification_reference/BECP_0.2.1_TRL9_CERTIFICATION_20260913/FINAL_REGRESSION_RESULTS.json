@@ -1,0 +1,34 @@
+{
+  "compileall": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "core": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "........                                                                 [100%]\n8 passed in 2.72s\n"
+  },
+  "product_integrations": {
+    "HIKEAR": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".                                                                        [100%]\n1 passed in 0.50s\n"
+    },
+    "HUNTAR": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".                                                                        [100%]\n1 passed in 0.74s\n"
+    },
+    "NIKI": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".                                                                        [100%]\n1 passed in 0.82s\n"
+    },
+    "SEARCHAR": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".                                                                        [100%]\n1 passed in 0.85s\n"
+    }
+  }
+}

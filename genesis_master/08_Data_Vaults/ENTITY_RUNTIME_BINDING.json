@@ -1,0 +1,37 @@
+{
+  "abi_version": "1",
+  "authorities": {
+    "data_sources": {
+      "exports": [
+        "DataSourceGateway"
+      ],
+      "implementation_sha256": "950487c66c695e8c2e398d7242414ff4505292293027399a24bd6637e3e748c0",
+      "python_file": "canonical_data_source_gateway.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_PHASE1_STORAGE_PORTABILITY_CURRENT.json",
+          "sha256": "7d4767bca6a19d5d66c754f3e923dafa38b4b5852c6783041fee456ed3211984"
+        }
+      ],
+      "status": "READY"
+    },
+    "data_vault": {
+      "exports": [
+        "EncryptedDataVault"
+      ],
+      "implementation_sha256": "1f9311820a7dabc7efd90a16da0b0a18b3db19d59d62e99220302b4c275bdf58",
+      "python_file": "canonical_encrypted_vault.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_PHASE1_STORAGE_PORTABILITY_CURRENT.json",
+          "sha256": "7d4767bca6a19d5d66c754f3e923dafa38b4b5852c6783041fee456ed3211984"
+        }
+      ],
+      "status": "READY"
+    }
+  },
+  "implementation_version": "2.2.0-canonical",
+  "requirements_sha256": "16c26e2d181fba5b9c957257a558ca1b8a39eb9912ffb842e941685c2c776c19",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

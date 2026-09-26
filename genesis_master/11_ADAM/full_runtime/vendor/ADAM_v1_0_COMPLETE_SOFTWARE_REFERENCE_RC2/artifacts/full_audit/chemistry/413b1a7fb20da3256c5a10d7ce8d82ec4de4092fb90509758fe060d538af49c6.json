@@ -1,0 +1,9 @@
+{
+  "approvals": [],
+  "candidate_id": "413b1a7fb20da3256c5a10d7ce8d82ec4de4092fb90509758fe060d538af49c6",
+  "equivalence_failures": 50,
+  "historical_states_replayed": 50,
+  "promoted_ns": null,
+  "receipt_id": "33dab18e9bdbf0b7a6647f57cd5fe5ee846b673fabb12634a6c635f3ce1d9147",
+  "status": "REJECTED_EQUIVALENCE"
+}

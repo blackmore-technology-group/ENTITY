@@ -1,0 +1,33 @@
+{
+  "allowed_patterns": [
+    "app/build.gradle.kts",
+    "app/src/main/java/com/blackmore/huntar/HuntARNativeBridge.kt",
+    "app/src/main/java/com/blackmore/huntar/HuntAREntityClient.kt"
+  ],
+  "artifact_after": {
+    "bytes": 26883050,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HUNT_AR\\HuntAR_v4.3.0\\mobile\\android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+    "sha256": "d8409890c3fc43f49cef993657ae797b1f2d9a951685bdc221ff06995af30f05"
+  },
+  "artifact_before": {
+    "bytes": 26823769,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/BTG_BUILT_SYSTEMS_2026-09-14\\BUILT_APPS\\HuntAR\\HuntAR_v4.3.0-debug.apk",
+    "sha256": "e9b22eb018b55d66f1745d68174ca8e48a70319c8d2c29d4a759a70a58ee42e7"
+  },
+  "changed_existing": [
+    "app/build.gradle.kts",
+    "app/src/main/java/com/blackmore/huntar/HuntARNativeBridge.kt"
+  ],
+  "deleted_files": [],
+  "new_files": [
+    "app/src/main/java/com/blackmore/huntar/HuntAREntityClient.kt"
+  ],
+  "pass": true,
+  "post_aggregate_sha256": "53e181b3bb4c4886e565212cc94f95db8dc30aafaf452dec8551624795a97a61",
+  "pre_aggregate_sha256": "e10642feb642b8a6b265af4db3aa81572e1cea395b1f9e26609198575d3e3c17",
+  "product": "HUNTAR",
+  "schema": "btg-product-entity-source-diff-v1",
+  "unexpected_changes": []
+}

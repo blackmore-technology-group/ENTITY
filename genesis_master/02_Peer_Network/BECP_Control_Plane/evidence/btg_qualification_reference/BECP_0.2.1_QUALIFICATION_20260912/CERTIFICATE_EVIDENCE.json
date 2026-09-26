@@ -1,0 +1,26 @@
+[
+  {
+    "device_id": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+    "fingerprint_sha256": "3603103a05398cf80f76ed1d8406cfcd08fc94242d513fbd8ed7870d7fe3aa06",
+    "issuer": "CN=Blackmore BECP Root CA",
+    "not_valid_after_utc": "2028-12-15T18:58:35+00:00",
+    "not_valid_before_utc": "2026-09-12T18:53:35+00:00",
+    "path": "runtime/pki/devices/56d7ed92-c5b4-4cca-addd-02ab1384ca74/device.cert.pem",
+    "pem_sha256": "42406ca152165d2e50d7cfe6222263864f398f3c46403251c1b33dbd50556f90",
+    "registry_fingerprint": "3603103a05398cf80f76ed1d8406cfcd08fc94242d513fbd8ed7870d7fe3aa06",
+    "registry_match": true,
+    "subject": "CN=BECP Device BTG"
+  },
+  {
+    "device_id": "55546079-959f-4557-a49b-84659d2ebb2e",
+    "fingerprint_sha256": "73986bf29eb31e52a7eab2f0bb5415713de4f879b2bf42d37c6b7e3c92420f3a",
+    "issuer": "CN=Blackmore BECP Root CA",
+    "not_valid_after_utc": "2028-12-15T18:59:14+00:00",
+    "not_valid_before_utc": "2026-09-12T18:54:14+00:00",
+    "path": "runtime/pki/devices/55546079-959f-4557-a49b-84659d2ebb2e/device.cert.pem",
+    "pem_sha256": "1edf22763eb709cc3479ef05b0c02525739f7601d04729e9ac02284c1dc21d1f",
+    "registry_fingerprint": "73986bf29eb31e52a7eab2f0bb5415713de4f879b2bf42d37c6b7e3c92420f3a",
+    "registry_match": true,
+    "subject": "CN=BECP Device ENG-SIM-01"
+  }
+]

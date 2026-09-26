@@ -1,0 +1,291 @@
+{
+  "audit": {
+    "checks": [
+      {
+        "detail": {
+          "groups": [
+            {
+              "passed": 26,
+              "path": "artifacts/v43_test_logs/group1.log",
+              "sha256": "eba15574479c8f5db78adaa4582fbbabf1284e1c947aaf04caba31a441cf61e3"
+            },
+            {
+              "passed": 23,
+              "path": "artifacts/v43_test_logs/group2.log",
+              "sha256": "38f7e1d461066749e28583cbc976e4f1a19a1e530a469b58f6ed2253efc931e4"
+            },
+            {
+              "passed": 8,
+              "path": "artifacts/v43_test_logs/group3.log",
+              "sha256": "7527a73095d6ff4fe7811aa7caf974f4cd4c1558f79654b786d1ef1b6ecf3a04"
+            }
+          ],
+          "passed": 57,
+          "tests": 57
+        },
+        "elapsed_seconds": 0.001052,
+        "name": "all_v040_v041_v042_and_v043_tests",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "abstained": 0,
+          "accuracy": 1.0,
+          "authoritative_inference": false,
+          "checkpoint_restored": true,
+          "correct": 112,
+          "holdout_examples": 112,
+          "model_vault": {
+            "bytes": 4637,
+            "claim_id": "504a16bac0606a891f865e4f136aabda5301af1bf3c9e15f9595ccc0b3284ad7",
+            "evidence_object_id": "df6c707f4159db6310cdc771ad0d544d2d6cbd1bf345ae6aec2282010d0a324b",
+            "proof_id": "b6ca90b99da5d20d8eca3a40e7052eb2493dbff60f69c72f73ea65edd9f08b59"
+          },
+          "models": {
+            "audio": "324c5abf8f8e5a9bd8848ae138e9786ead362491b34135139f33b416989edb9c",
+            "image": "40cc38247a377ca29f1187fa11762e00aa9f0f21e9c38d2dd2fe96c0ee72849e",
+            "program": "1cbf7a4fc1b195011d719f02a28a6774f6cabb1a1e1fc3a94767881ac4d4877d",
+            "tabular": "d411e388053d958487593bb276038077d82c4edbaf9a2b8151c4d258a259913e",
+            "text": "e580f3b4cf18cf1855ee4d98175fab83afa1b5fdf23cfdc17b57bcb59ba6744e"
+          },
+          "ood_cases": 2,
+          "ood_rejected": 2,
+          "per_modality": {
+            "audio": {
+              "abstained": 0,
+              "correct": 20,
+              "total": 20
+            },
+            "image": {
+              "abstained": 0,
+              "correct": 30,
+              "total": 30
+            },
+            "program": {
+              "abstained": 0,
+              "correct": 16,
+              "total": 16
+            },
+            "tabular": {
+              "abstained": 0,
+              "correct": 16,
+              "total": 16
+            },
+            "text": {
+              "abstained": 0,
+              "correct": 30,
+              "total": 30
+            }
+          },
+          "training_examples": 598,
+          "universe_root": "56d507c723baf9162fa585730d5b62c105fb76a0875d3fceb48713500f1016e2"
+        },
+        "elapsed_seconds": 2.939271,
+        "name": "evidence_linked_open_world_semantic_training",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "claim_boundary": "Operations One records are real temporal application events; generated physical regimes are not represented as field sensor recordings.",
+          "generated_sensor": {
+            "abstained": 0,
+            "accuracy": 1.0,
+            "by_source": {
+              "generated_physical_regime": {
+                "abstained": 0,
+                "correct": 960,
+                "total": 960
+              }
+            },
+            "correct": 960,
+            "examples": 960,
+            "holdout_examples": 960,
+            "model_id": "d1c16c5955c8110f0090087a38c0642f6c2dd5711ce153d506800188ff2b95cb",
+            "ood": {
+              "abstained": true,
+              "confidence": 0.0,
+              "feature_digest": "32014b9b0abfa6c443222948176a11bc2af8537b2e105920a0b2c86ed22441dc",
+              "label": null,
+              "model_id": "d1c16c5955c8110f0090087a38c0642f6c2dd5711ce153d506800188ff2b95cb",
+              "ood_score": 846.83465612
+            },
+            "training_examples": 3840
+          },
+          "operations_one_real_events": {
+            "abstained": 0,
+            "accuracy": 0.9444444444444444,
+            "by_source": {
+              "operations_one_real_export": {
+                "abstained": 0,
+                "correct": 17,
+                "total": 18
+              }
+            },
+            "correct": 17,
+            "examples": 18,
+            "holdout_examples": 18,
+            "labels": [
+              "EVENT_ON_TIME",
+              "EVENT_OPEN"
+            ],
+            "model_id": "8eb4b87ed2982b784c9bc77aaae2adb5ac2904db0bd866cd1b61380743cb1ff2",
+            "total_examples": 85,
+            "training_examples": 67
+          }
+        },
+        "elapsed_seconds": 1.794418,
+        "name": "larger_temporal_sensor_and_real_event_training",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "counterexamples_found": 1,
+          "methods": [
+            "HORN_FORWARD_CHAINING",
+            "SYMPY_IDENTITY",
+            "SYMBOLIC_CONSERVATION",
+            "FINITE_EXHAUSTION"
+          ],
+          "proofs_passed": 3
+        },
+        "elapsed_seconds": 0.046229,
+        "name": "proof_carrying_symbolic_horn_and_bounded_theorems",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "hardware_backed": false,
+          "isolated_processes": [
+            16262,
+            16263,
+            16264
+          ],
+          "private_keys_in_application_process": false,
+          "production_adapters": [
+            "PKCS#11",
+            "AWS KMS",
+            "GCP KMS",
+            "Azure Key Vault",
+            "Vault Transit"
+          ],
+          "quorum": "2-of-3",
+          "rotation_verified": true,
+          "verified": true
+        },
+        "elapsed_seconds": 0.035466,
+        "name": "isolated_quorum_key_custody_and_production_adapters",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "cargo_available": false,
+          "native_binary_sha256": "5309d6e2b3f7ae7e80434b72037edc91b60af23314c3eee75873295884d42034",
+          "native_protocol_output": [
+            "READY ADAM43-NATIVE-FRAMING-REFERENCE 0",
+            "OK ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+            "OK 1 ff26c000fff8e8e1e940b4b94a9add0d2d657496f8b3051cf772b51710e95e69",
+            "OK 1 ff26c000fff8e8e1e940b4b94a9add0d2d657496f8b3051cf772b51710e95e69",
+            "OK BYE"
+          ],
+          "native_reference_compiled": true,
+          "rust_compiled_in_this_environment": false,
+          "rust_source_complete": true,
+          "rust_static_gates": {
+            "ed25519": true,
+            "fsync": true,
+            "replay_integrity": true,
+            "sha256": true,
+            "stale_root": true,
+            "zeroize": true
+          },
+          "rustc_available": false
+        },
+        "elapsed_seconds": 0.229056,
+        "name": "compiled_native_authority_protocol_reference",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "cycles": 9,
+          "early_certification_rejected": true,
+          "production_controller_ready": true,
+          "real_elapsed_seconds": 1.04731974,
+          "smoke_passed": true,
+          "thirty_day_completed": false
+        },
+        "elapsed_seconds": 1.108708,
+        "name": "real_wall_clock_qualification_controller_smoke",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "exists": true,
+          "path": "HSM_KMS_DEPLOYMENT_SPEC.md"
+        },
+        "elapsed_seconds": 6.3e-05,
+        "name": "production_hsm_kms_spec_present",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "exists": true,
+          "path": "RUST_AUTHORITY_EXTERNAL_BUILD_AND_ACCEPTANCE.md"
+        },
+        "elapsed_seconds": 1.8e-05,
+        "name": "rust_external_build_program_present",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "exists": true,
+          "path": "production_qualification/run_30_day_qualification.py"
+        },
+        "elapsed_seconds": 1.9e-05,
+        "name": "thirty_day_external_run_program_present",
+        "status": "PASS"
+      }
+    ],
+    "failed": 0,
+    "passed": 10
+  },
+  "build": "0.43.0.dev1",
+  "claim_boundary": "No result labels universal semantic understanding, hardware-backed custody, a compiled Rust binary or 30 elapsed days as complete when those external conditions were not available.",
+  "classification": "bounded runnable gap-closure prototype plus external production qualification package",
+  "gap_closure": {
+    "compiled_rust_authority_kernel": {
+      "implemented": "complete Rust authority source, CI, protocol contract, plus compiled native C conformance reference",
+      "remaining": "compile with Rust toolchain, reproducible builds, fuzzing and independent review",
+      "status": "SOURCE_COMPLETE_EXTERNAL_TOOLCHAIN_REQUIRED"
+    },
+    "general_theorem_proving": {
+      "implemented": "proof-producing Horn reasoning, symbolic algebra/conservation and finite exhaustive counterexample search",
+      "remaining": "complete general theorem proving is impossible in the unrestricted sense; domain provers and proof assistants require continued integration",
+      "status": "PARTIAL_RESEARCH_CLOSED"
+    },
+    "hsm_kms_production_key_custody": {
+      "implemented": "private keys isolated from the application process, 2-of-3 quorum, rotation, PKCS#11 and cloud-KMS contracts",
+      "remaining": "provision and attest actual HSM/KMS hardware and production access controls",
+      "status": "IMPLEMENTATION_READY_EXTERNAL_HARDWARE_REQUIRED"
+    },
+    "larger_real_world_temporal_and_sensor_training": {
+      "implemented": "4,800 multichannel physical-regime sequences plus real Operations One temporal event training and OOD rejection",
+      "remaining": "large rights-cleared field sensor corpus and long-horizon deployment feedback",
+      "status": "PARTIAL_RESEARCH_CLOSED"
+    },
+    "thirty_actual_wall_clock_days_and_production_sla": {
+      "implemented": "resumable real-time controller, early-certification rejection, signed reports, SLA gates, chaos/failover cycles and service launchers",
+      "remaining": "run for 30 actual days in the production target environment and independently review the resulting certificate",
+      "status": "CONTROLLER_COMPLETE_EXTERNAL_ELAPSED_TIME_REQUIRED"
+    },
+    "universal_open_world_semantic_understanding": {
+      "implemented": "pluggable evidence-linked learned semantics across text, image, audio, program and tabular modalities with ambiguity and OOD abstention",
+      "remaining": "unrestricted universal meaning and internet-scale foundation training",
+      "status": "PARTIAL_RESEARCH_CLOSED"
+    }
+  },
+  "name": "ADAM Research Gap Closure and Production Qualification",
+  "test_evidence": {
+    "pytest_passed": 57,
+    "pytest_total": 57
+  }
+}

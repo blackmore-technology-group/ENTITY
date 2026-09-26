@@ -1,0 +1,69 @@
+{
+  "campaign": "RTM_CLOSED_GENESIS_SOVEREIGN_CONTINUITY",
+  "checks": {
+    "block_device_loss_pass": true,
+    "block_device_loss_seal": true,
+    "corporate_capital_seal": true,
+    "domain_internal_seal": true,
+    "engineering_closure_seal": true,
+    "independent_transaction_seal": true,
+    "master_source_mirrored": true,
+    "million_live_seal": true,
+    "million_live_state_present": true,
+    "million_scale_1m_3m": true,
+    "million_scale_seal": true,
+    "provider_independence_pass": true,
+    "pytest_exit_zero": true,
+    "pytest_no_skips": true,
+    "rtm_1997_closed": true
+  },
+  "claim": "Genesis proves the complete internally executable sovereign/economic continuity chain with closed RTM, fresh end-to-end/adversarial verification, destructive recovery prerequisites and live million-scale state. External-party/device milestones remain separately unclaimed.",
+  "dependency_file_sha256": {
+    "block_device_loss": "369b2d0bf88d1fc9b30e82553174ad7a8e411988cdfaed3a950658250ee31e10",
+    "corporate_capital": "1918775d0a3484ccbe7e77023bb2aaa2e2fa9d2c1b416bc936ee9747c771149f",
+    "domain_internal": "0fa336744ca7d6bb5ecea29a717938d68c85d39efd5de7c4646a67e1f0170985",
+    "engineering_closure": "1c1e444e6a852a4cd344606cf561711b3e99c810055802ba80ee60da9ea721bf",
+    "independent_transaction": "39f7cbc5c9750f6875147ae098e45374e4e2a78ddf900bd0eb412eb9ed8de420",
+    "million_live": "746389f2a23d325a8d00cedc01ed76cfa6d2f3fc1896ecc5cc7fa9bb7cf58852",
+    "million_scale": "3ef5caf9e2827334d4335f27dbd1f99d2d2288be019963ace953653a61f7f5aa"
+  },
+  "evidence_sha256": "5bbd19e4292ea91a07f8131ff52d23de1aa0a06b0ea9bcf9cdb28f2096e1593d",
+  "external_validation_pending": [
+    "two independent physical user-controlled devices",
+    "independently authored non-BTG implementation/interoperability"
+  ],
+  "generated_at_ms": 1789657308339,
+  "pytest": {
+    "exit_code": 0,
+    "failed": 0,
+    "output": "..................................                                       [100%]\n34 passed in 20.37s\n",
+    "passed": 34,
+    "skipped": 0
+  },
+  "qualification_complete": true,
+  "rtm": {
+    "master_source_mirrored": true,
+    "qualified": 1997,
+    "requirement_count": 1997,
+    "rtm_sha256": "cc3d1163385394a3f362c27578148cc01d08ce7606d85ec7f9d0bcbb5d33a5f6"
+  },
+  "scale": {
+    "assets": 1000000,
+    "database_path": "<LOCAL_DRIVE>/ENTITY_QUALIFICATION_SCALE\\million_asset_v2\\store\\bulk_ingest.sqlite",
+    "database_size_bytes": 2311925760,
+    "events": 3000000
+  },
+  "schema": "entity-genesis-proof-v1",
+  "source_sha256": {
+    "16_Test_Qualification\\closure\\test_engineering_requirements_closure.py": "98de922262f6c943804b2fad4f5420d40255169ea0750cce24cfeb1976d323e7",
+    "16_Test_Qualification\\corporate_capital\\test_section170_corporate_capital_golden.py": "822998ee9e26d64fc7ac25be83ac6715a9724085003eb822cab0b4cbfe8587a1",
+    "16_Test_Qualification\\genesis\\test_genesis_composition.py": "4c2c0640d6175c8c63ad0b6dd4ba3ccb17f83ded88d9c2dbb515824644219dc1",
+    "16_Test_Qualification\\integration\\test_full_entity_golden_e2e.py": "c9cc12a39b3a6d6a94cbf2c426a33afa9fe00365fbe39be05582f73123b3e1d7",
+    "16_Test_Qualification\\integration\\test_independently_reproducible_transaction.py": "384f6d9cc0cc212235e5628d6e8a4d46dc02564a72ca63600bf1da9ae495250d",
+    "16_Test_Qualification\\recovery\\test_full_destructive_sovereignty.py": "a575a93c5205e9f836ea2491fc396b109aa4c22769d937f4319424b43c42bf48",
+    "16_Test_Qualification\\sovereign_domain\\test_sovereign_domain.py": "0feb12fa2fcae5162d44feadababe9a17b6655eefffee1b7b22d345cb1ce9e7b",
+    "16_Test_Qualification\\unit\\test_independent_verifier.py": "08a4998298c1ff3eeaca60c502626d9a01a352989a7f1e0d83fd330945baab2b",
+    "16_Test_Qualification\\unit\\test_independent_verifier_licence_usage.py": "9ac66e528122563aa6e94d81481fa133adb199d2629d3e3001f2bc88d6a14062"
+  },
+  "status": "PASS"
+}

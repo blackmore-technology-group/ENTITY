@@ -1,0 +1,294 @@
+{
+  "status": "PASS",
+  "generated_utc": "2026-09-13T17:41:50Z",
+  "checks": {
+    "gateway_health": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "service": "BECP client gateway",
+        "registered_devices": 2,
+        "online_devices": 1
+      }
+    },
+    "gateway_version_0_2_1": {
+      "ok": true,
+      "evidence": {
+        "title": "Blackmore Engineering Control Plane",
+        "version": "0.2.1"
+      }
+    },
+    "unauthenticated_rejected": {
+      "ok": true,
+      "evidence": 401
+    },
+    "invalid_signature_rejected": {
+      "ok": true,
+      "evidence": 401
+    },
+    "expired_token_rejected": {
+      "ok": true,
+      "evidence": 401
+    },
+    "capability_scope_enforced": {
+      "ok": true,
+      "evidence": 403
+    },
+    "field_role_cannot_issue_approval": {
+      "ok": true,
+      "evidence": 403
+    },
+    "privileged_action_requires_approval": {
+      "ok": true,
+      "evidence": 403
+    },
+    "device_discovery": {
+      "ok": true,
+      "evidence": [
+        {
+          "device_id": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "hostname": "BTG",
+          "display_name": "BTG Primary Engineering Workstation",
+          "device_role": "PRIMARY_ENGINEERING_WORKSTATION",
+          "platform": "Windows",
+          "owner_principal": "BTG\\shawn",
+          "agent_version": "0.2.1",
+          "terminal_enabled": true,
+          "terminal_privilege_model": "INHERIT_AGENT_PROCESS_TOKEN_AND_WINDOWS_UAC",
+          "certificate_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.cert.pem",
+          "certificate_fingerprint": "3603103a05398cf80f76ed1d8406cfcd08fc94242d513fbd8ed7870d7fe3aa06",
+          "connected_session_id": "e8f11ba9-5734-42d0-a3fd-553ee17f0f11",
+          "capabilities": [
+            "system.health",
+            "file.hash",
+            "file.read_text",
+            "diagnostic.run_approved",
+            "change.run_approved",
+            "engineering.terminal.start",
+            "engineering.terminal.execute",
+            "engineering.terminal.cwd",
+            "engineering.terminal.close",
+            "engineering.terminal.drives"
+          ],
+          "tags": [
+            "engineering",
+            "windows"
+          ],
+          "online": true,
+          "last_seen_utc": "2026-09-13T17:41:41.729713+00:00",
+          "revoked": false,
+          "remote_access_enabled": true
+        }
+      ]
+    },
+    "routed_system_health": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "system.health",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "22592983-fd15-4b72-8ef6-fd9cd2123920",
+        "data": {
+          "hostname": "BTG",
+          "os": "Windows-10-10.0.26200-SP0",
+          "python": "3.11.9",
+          "pid": 48452,
+          "disk_free_bytes": 244756480
+        },
+        "error": null
+      }
+    },
+    "file_hash": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "file.hash",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "de32db79-0c3d-46c0-923b-a040fa7bf64d",
+        "data": {
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.1\\release\\BECP_0.2.1\\README_RELEASE.md",
+          "sha256": "4aa1c2cb45e3d447b07d3e3a4b01d094db6ea7a1e2bdd6c7250802d0d143d981",
+          "bytes": 670
+        },
+        "error": null
+      }
+    },
+    "file_read_text": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "file.read_text",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "1af92b68-d261-4866-817b-860ce8405cee",
+        "data": {
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.1\\release\\BECP_0.2.1\\README_RELEASE.md",
+          "text": "\ufeff# BECP 0.2.1 Release\n\nCorrected qualified release of the Blackmore Engineering Control Plane with additive Remote Desktop Commander -> BECP bridge support.\n\nDirect Remote Desktop Commander PowerShell remains unchanged. The BECP bridge is an explicit second path that routes actions through BECP authentication, device selection, scoped approval, terminal ownership, and audit.\n\nDo not copy runtime private keys from the development tree into distribution packages. This release contains no private signing keys.\n\nQualification: qa_evidence/QUALIFICATION_RELEASE_STATUS.json\nIndependent verification: python qa_evidence/VERIFY_EVIDENCE.py <external qa_seal.key path>\r\n",
+          "truncated": false
+        },
+        "error": null
+      }
+    },
+    "file_root_boundary": {
+      "ok": true,
+      "evidence": {
+        "ok": false,
+        "capability": "file.read_text",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "f0c39757-eb1a-4827-ada0-5e3ef1e09eb6",
+        "data": {},
+        "error": "path outside authorized roots"
+      }
+    },
+    "approved_diagnostic": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "diagnostic.run_approved",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "30862fb8-dc87-47c5-895d-baf4bc8d5553",
+        "data": {
+          "command_id": "system_python_version",
+          "returncode": 0,
+          "stdout": "Python 3.11.9\n",
+          "stderr": ""
+        },
+        "error": null
+      }
+    },
+    "approved_change_path": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "change.run_approved",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "44d9633e-e667-44df-b3b5-5fc6494a6675",
+        "data": {
+          "command_id": "system_windows_version",
+          "returncode": 0,
+          "stdout": "\nMicrosoft Windows [Version 10.0.26200.9168]\n",
+          "stderr": ""
+        },
+        "error": null
+      }
+    },
+    "approval_replay_rejected": {
+      "ok": true,
+      "evidence": 403
+    },
+    "terminal_start": {
+      "ok": true,
+      "evidence": "19fce56d-4fa1-4b8b-b04e-a15a3685fd25"
+    },
+    "terminal_drives": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "engineering.terminal.drives",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "b448679e-6d7c-4d8f-84c6-279a1d33da14",
+        "data": {
+          "drives": [
+            "<LOCAL_DRIVE>/",
+            "<LOCAL_DRIVE>/",
+            "<LOCAL_DRIVE>/",
+            "<LOCAL_DRIVE>/",
+            "<LOCAL_DRIVE>/",
+            "<LOCAL_DRIVE>/"
+          ]
+        },
+        "error": null
+      }
+    },
+    "terminal_cwd": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "engineering.terminal.cwd",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "6bdf3b8f-9904-4df8-8c43-b8dd59303d79",
+        "data": {
+          "session_id": "19fce56d-4fa1-4b8b-b04e-a15a3685fd25",
+          "actor": "trl9-admin",
+          "shell": "powershell.exe",
+          "cwd": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP"
+        },
+        "error": null
+      }
+    },
+    "terminal_execute": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "engineering.terminal.execute",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "5725e14f-94c1-4f36-b501-6c48a8934fca",
+        "data": {
+          "session_id": "19fce56d-4fa1-4b8b-b04e-a15a3685fd25",
+          "returncode": 0,
+          "stdout": "BECP_TRL9_OPERATIONAL_OK\r\nBTG\r\n",
+          "stderr": "",
+          "stdout_truncated": false,
+          "stderr_truncated": false,
+          "duration_seconds": 0.563
+        },
+        "error": null
+      }
+    },
+    "terminal_ownership_isolation": {
+      "ok": true,
+      "evidence": 403
+    },
+    "terminal_close": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "engineering.terminal.close",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "9c83387c-8988-4f08-9bcb-3a66ba170602",
+        "data": {
+          "closed": true,
+          "session_id": "19fce56d-4fa1-4b8b-b04e-a15a3685fd25"
+        },
+        "error": null
+      }
+    },
+    "kill_switch_disconnect": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "service": "BECP client gateway",
+        "registered_devices": 2,
+        "online_devices": 0
+      }
+    },
+    "kill_switch_blocks_action": {
+      "ok": true,
+      "evidence": 403
+    },
+    "kill_switch_recovery": {
+      "ok": true,
+      "evidence": {
+        "ok": true,
+        "capability": "system.health",
+        "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+        "correlation_id": "8bc59ac1-ea7b-418c-8721-b17006feb72b",
+        "data": {
+          "hostname": "BTG",
+          "os": "Windows-10-10.0.26200-SP0",
+          "python": "3.11.9",
+          "pid": 48452,
+          "disk_free_bytes": 244760576
+        },
+        "error": null
+      }
+    },
+    "session_cleanup": {
+      "ok": true,
+      "evidence": [
+        200,
+        200
+      ]
+    }
+  },
+  "check_count": 26
+}

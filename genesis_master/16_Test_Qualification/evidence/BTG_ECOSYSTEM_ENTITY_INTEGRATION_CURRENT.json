@@ -1,0 +1,126 @@
+{
+  "canonical_authorities": {
+    "ready": 55,
+    "total": 55
+  },
+  "claim": "Every discovered BTG ecosystem system is now integrated into ENTITY using the integration mode appropriate to its role. Runtime-native qualification is claimed only for applications that actually embed/emit ENTITY integration; engineering/release tools are provenance-integrated rather than mislabelled as runtime-native.",
+  "counts": {
+    "artifact_provenance": 7,
+    "canonical_subsystem": 4,
+    "runtime_native": 4,
+    "total_systems": 15
+  },
+  "evidence_sha256": "27573b05c2f0c1f50b98f40fe25f6e111fdb2796d398725965786866cfbfe4b7",
+  "external_validation": {
+    "independent_non_btg_implementation": "PENDING",
+    "multi_host_distributed_storm": "PENDING",
+    "two_physical_devices": "PENDING"
+  },
+  "generated_at_ms": 1789679473561,
+  "integration_modes": {
+    "artifact_provenance": [
+      {
+        "application_entity_id": "ent2-ttx6tj2jl4ga4aqpulc7myhqu75hq43deipmshlyjnhm6vs64piq",
+        "mode": "ARTIFACT_PROVENANCE",
+        "status": "PASS",
+        "system": "AR_BUILDER"
+      },
+      {
+        "application_entity_id": "ent2-xdclrlwyrgc4wp2fblyovqxs5qxyfcvjx6u6jhiogjot37yvrxka",
+        "mode": "ARTIFACT_PROVENANCE",
+        "status": "PASS",
+        "system": "BLACKMORE CODESEAL"
+      },
+      {
+        "application_entity_id": "ent2-2dlt24a4pa7e4dykqaakdbhrkhn4vshyftjcnkf4r43th36oj5ua",
+        "mode": "ARTIFACT_PROVENANCE",
+        "status": "PASS",
+        "system": "BLACKMORE FABRIC"
+      },
+      {
+        "application_entity_id": "ent2-qd2t557felyfkf2k7wtrrnryaqan6fd2sghbplr4jqx5lppmbx7a",
+        "mode": "ARTIFACT_PROVENANCE",
+        "status": "PASS",
+        "system": "BLACKMORE SOFTWARE"
+      },
+      {
+        "application_entity_id": "ent2-cj7sfijhrwm7h45q6mh7l4voxrpy5gefhewwzshcrqdgb6zykdmq",
+        "mode": "ARTIFACT_PROVENANCE",
+        "status": "PASS",
+        "system": "BLACKMORE UNIFIED DIGITAL SYSTEM"
+      },
+      {
+        "application_entity_id": "ent2-gqmdfld64cdktmenqzaccxnh47cpob6qtvikapgjxp6z3rvxhfza",
+        "mode": "ARTIFACT_PROVENANCE",
+        "status": "PASS",
+        "system": "SDK"
+      },
+      {
+        "application_entity_id": "ent2-qjwztwxpi5qdeytyh4yy74m4cc5lkfehbbpx4cgl5bdhppt57myq",
+        "mode": "ARTIFACT_PROVENANCE",
+        "status": "PASS",
+        "system": "STUDIO"
+      }
+    ],
+    "canonical_subsystem": [
+      {
+        "evidence": "10_NIKI/ENTITY_SYSTEM_COMPLETION_MATRIX.json",
+        "mode": "CANONICAL_SUBSYSTEM",
+        "status": "PASS",
+        "system": "NIKI"
+      },
+      {
+        "evidence": "10_NIKI/ENTITY_SYSTEM_COMPLETION_MATRIX.json",
+        "mode": "CANONICAL_SUBSYSTEM",
+        "status": "PASS",
+        "system": "ADAM"
+      },
+      {
+        "evidence": "10_NIKI/ENTITY_SYSTEM_COMPLETION_MATRIX.json",
+        "mode": "CANONICAL_SUBSYSTEM",
+        "status": "PASS",
+        "system": "BSIE"
+      },
+      {
+        "evidence": "10_NIKI/ENTITY_SYSTEM_COMPLETION_MATRIX.json",
+        "mode": "CANONICAL_SUBSYSTEM",
+        "status": "PASS",
+        "system": "BECP"
+      }
+    ],
+    "runtime_native": [
+      {
+        "evidence": "HUNTAR_ENTITY_INTEGRATION_CURRENT.json",
+        "mode": "RUNTIME_NATIVE",
+        "status": "PASS",
+        "system": "HUNTAR"
+      },
+      {
+        "evidence": "HIKEAR_ENTITY_INTEGRATION_CURRENT.json",
+        "mode": "RUNTIME_NATIVE",
+        "status": "PASS",
+        "system": "HIKEAR"
+      },
+      {
+        "evidence": "SEARCHAR_ENTITY_INTEGRATION_CURRENT.json",
+        "mode": "RUNTIME_NATIVE",
+        "status": "PASS",
+        "system": "SEARCHAR"
+      },
+      {
+        "evidence": "BOUNDARYS_BEST_ENTITY_NATIVE_RELEASE_CURRENT.json",
+        "mode": "RUNTIME_NATIVE",
+        "status": "PASS",
+        "system": "BOUNDARY'S BEST"
+      }
+    ]
+  },
+  "schema": "btg-ecosystem-entity-closure-v2",
+  "signed_distribution": {
+    "manifest_sha256": "b50b61c4b3f0fdbda2a6d88435a8888afa1b73dc9c966e6e34cff16625409bbf",
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "whole_btg_ecosystem_integrated": true,
+  "whole_btg_ecosystem_native_qualified": false
+}

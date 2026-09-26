@@ -1,0 +1,13 @@
+{
+  "schema": "niki-high-risk-warning-contract-v1",
+  "owner": "NIKI",
+  "authority_owner": "ENTITY",
+  "purpose": "consequence-specific warning projection for materially irreversible or broad actions",
+  "risk_classes": ["LOSS_OF_PRIVACY", "BROAD_PLATFORM_LICENCE", "EXCLUSIVE_LICENCE", "PERPETUAL_LICENCE", "AI_TRAINING_RIGHTS", "SUBLICENSING", "PUBLIC_DISCLOSURE", "HIGH_VALUE_TRANSFER", "UNVERIFIED_OWNERSHIP_CLAIM"],
+  "invariants": [
+    "warning text describes concrete consequences",
+    "warning generation never authorizes the action",
+    "unknown ownership verification produces a warning rather than a verification claim",
+    "high-risk warning state is suitable for canonical approval workflows"
+  ]
+}

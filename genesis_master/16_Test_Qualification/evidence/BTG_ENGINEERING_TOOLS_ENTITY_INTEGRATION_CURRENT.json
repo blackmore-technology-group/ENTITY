@@ -1,0 +1,254 @@
+{
+  "economic_value_not_inferred": true,
+  "evidence_sha256": "847721010d545d61d88d42e5e1e010f96dce35392aac55b271dea5ac9723e7c4",
+  "generated_at_ms": 1789679427839,
+  "passed": 7,
+  "products": [
+    {
+      "application_entity_id": "ent2-ttx6tj2jl4ga4aqpulc7myhqu75hq43deipmshlyjnhm6vs64piq",
+      "binding_sha256": "9baf134a2cbb6129588bc9cbeac846481d465fbb148119aa086eaaa554639f8a",
+      "display_alias": "ar.builder.entity",
+      "generated_at_ms": 1789679422775,
+      "organization_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+      "product": "AR_BUILDER",
+      "registered_software_artifacts": [
+        {
+          "asset_id": "asset1-ef20256b143041aea04656514a8f5800",
+          "bytes": 7203328,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\AR_BUILDER\\Blackmore_AR_App_Builder.exe",
+          "sha256": "5f61df3b3ee439c3dc8369ba9c508b5e0498ed28d7f4c0a8c215fbff341d9dfb"
+        },
+        {
+          "asset_id": "asset1-6bfd1d0c79824e1987e4cd57c23b91ae",
+          "bytes": 50015053,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\AR_BUILDER\\Blackmore_AR_App_Builder_v0.3.0.zip",
+          "sha256": "cfc63f6220a78e24921e4c9f6431daa998c193a3d4875094391179bea0676672"
+        },
+        {
+          "asset_id": "asset1-26987589e2094c238f063f872de2b0d4",
+          "bytes": 19005087,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\AR_BUILDER\\Blackmore_AR_App_Builder_v0.2.0.zip",
+          "sha256": "134eeb58851c8545a2634489084a105b29584d46736a67919e9a6c6ffdfb1e4d"
+        }
+      ],
+      "registration_not_ownership": true,
+      "runtime_principal_binding_required": false,
+      "schema": "btg-product-entity-integration-binding-v1",
+      "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\AR_BUILDER",
+      "status": "PASS"
+    },
+    {
+      "application_entity_id": "ent2-xdclrlwyrgc4wp2fblyovqxs5qxyfcvjx6u6jhiogjot37yvrxka",
+      "binding_sha256": "66ba7de74b8fc7bc260414dd4d6a989db29bfc013ecbb85efc5407a329e4920e",
+      "display_alias": "blackmore.codeseal.entity",
+      "generated_at_ms": 1789679424105,
+      "organization_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+      "product": "BLACKMORE CODESEAL",
+      "registered_software_artifacts": [
+        {
+          "asset_id": "asset1-c5526b8682c049999430c3fa4e87c3d2",
+          "bytes": 11367,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE CODESEAL\\BLACKMORE_CODESEAL_v1.0.0_RELEASE_EVIDENCE.json",
+          "sha256": "be75f640e321ba143376326e48d971b376df3a2d861e61c58aa323f065a3af6e"
+        },
+        {
+          "asset_id": "asset1-4bffbca9db71437dab94a03b41eae7bd",
+          "bytes": 4587,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE CODESEAL\\BLACKMORE_CODESEAL_v1.0.0_QUALIFICATION_MATRIX.json",
+          "sha256": "e9d23b04c1bb7aa91302793b4e89a078334c8edc8ddeb34e32d1651f9a42f8be"
+        },
+        {
+          "asset_id": "asset1-ce610902b404458ba30c6749aa906794",
+          "bytes": 176585,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE CODESEAL\\BLACKMORE_CODESEAL_v1.0.0_QUALIFICATION_CANDIDATE.zip",
+          "sha256": "8bda5b62e3653d4af97a7e68edac533f8225876680e60a0e8caaafa8f946f698"
+        },
+        {
+          "asset_id": "asset1-e51509d06974495c8c727d99c6489181",
+          "bytes": 1245,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE CODESEAL\\V1_QUALIFICATION_CHECKLIST.md",
+          "sha256": "106f4940515f38900e3985a5ed44a18f751184072ddd362e58aec584887ecaa5"
+        }
+      ],
+      "registration_not_ownership": true,
+      "runtime_principal_binding_required": false,
+      "schema": "btg-product-entity-integration-binding-v1",
+      "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE CODESEAL",
+      "status": "PASS"
+    },
+    {
+      "application_entity_id": "ent2-2dlt24a4pa7e4dykqaakdbhrkhn4vshyftjcnkf4r43th36oj5ua",
+      "binding_sha256": "ecc180cb9951b7abb005170cae3d796587930042a27483c53fcc17f84d6833e6",
+      "display_alias": "blackmore.fabric.entity",
+      "generated_at_ms": 1789679424171,
+      "organization_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+      "product": "BLACKMORE FABRIC",
+      "registered_software_artifacts": [
+        {
+          "asset_id": "asset1-5615d30d0ec4436c827eff6c3ce49a7b",
+          "bytes": 393891,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE FABRIC\\BLACKMORE_FABRIC_1_2_DIGITAL_UNIVERSE_ALPHA.zip",
+          "sha256": "bdd4c7b8a24bd26a9675b11d70a8e381da185dbb48369d3be6cdb0eb2dd30ca0"
+        },
+        {
+          "asset_id": "asset1-1d8028dcbf704ddebd0e1b9bb2ac6844",
+          "bytes": 124,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE FABRIC\\BLACKMORE_FABRIC_1_2_DIGITAL_UNIVERSE_ALPHA.zip.sha256",
+          "sha256": "36881f5e65bdb5f58d2b9be930a4d6308c13475345192ee1ac9bc033f7022672"
+        },
+        {
+          "asset_id": "asset1-8e8bbae6259f47f3a663e6ef192b29dd",
+          "bytes": 111,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE FABRIC\\BLACKMORE_FABRIC_1_0_FULL_IMPLEMENTATION.zip.sha256",
+          "sha256": "a206b4c7db79452e8ae76f9fa5886e2736b38822347e8b4605b8b6c52bf699be"
+        },
+        {
+          "asset_id": "asset1-9528ffae535b4bc0bbbb8b4006eaf12a",
+          "bytes": 124,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE FABRIC\\BLACKMORE_FABRIC_1_1_PHYSICAL_CLUSTER_ALPHA.zip.sha256",
+          "sha256": "7a75e24b229c81d2788fbf3ccfab124f5c47985f58033291026b36f4cb161246"
+        },
+        {
+          "asset_id": "asset1-1edbb66f532a410b93e06f8b8562d6f2",
+          "bytes": 415277,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE FABRIC\\BLACKMORE_FABRIC_1_1_PHYSICAL_CLUSTER_ALPHA.zip",
+          "sha256": "7fa79ffc4a90bf649e8a4d441c1c56415fec932bfded05515d436c8ec73375d4"
+        },
+        {
+          "asset_id": "asset1-85fd36f4dc5444efad7df8851f44e8cb",
+          "bytes": 289047,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE FABRIC\\BLACKMORE_FABRIC_1_0_FULL_IMPLEMENTATION.zip",
+          "sha256": "f9b2f733aaf241ce4bcc86cb7d238f1c9b28e001b5887f9682060ff77aa38fb2"
+        }
+      ],
+      "registration_not_ownership": true,
+      "runtime_principal_binding_required": false,
+      "schema": "btg-product-entity-integration-binding-v1",
+      "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE FABRIC",
+      "status": "PASS"
+    },
+    {
+      "application_entity_id": "ent2-qd2t557felyfkf2k7wtrrnryaqan6fd2sghbplr4jqx5lppmbx7a",
+      "binding_sha256": "d760366562858a5faf5d2450dc82f0105d98f664598923832d968201d880dabe",
+      "display_alias": "blackmore.software.entity",
+      "generated_at_ms": 1789679424216,
+      "organization_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+      "product": "BLACKMORE SOFTWARE",
+      "registered_software_artifacts": [],
+      "registration_not_ownership": true,
+      "runtime_principal_binding_required": false,
+      "schema": "btg-product-entity-integration-binding-v1",
+      "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE SOFTWARE",
+      "status": "PASS"
+    },
+    {
+      "application_entity_id": "ent2-cj7sfijhrwm7h45q6mh7l4voxrpy5gefhewwzshcrqdgb6zykdmq",
+      "binding_sha256": "e97dc6455975d33b62a7e6c3970a2975e055a754e7d685aa7455ed0c821e552d",
+      "display_alias": "blackmore.unified.digital.system.entity",
+      "generated_at_ms": 1789679424284,
+      "organization_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+      "product": "BLACKMORE UNIFIED DIGITAL SYSTEM",
+      "registered_software_artifacts": [
+        {
+          "asset_id": "asset1-75d441c5cdf0441b87bc8d47059a2a13",
+          "bytes": 144,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE UNIFIED DIGITAL SYSTEM\\BLACKMORE_UNIFIED_DIGITAL_SYSTEM_v0.1.0_ALPHA_MANUAL_SUITE_v1.0.zip.sha256",
+          "sha256": "c6d22ca0b10f92142183022d27e2003ca7cb336d8a225a8ee6da09df3934321b"
+        },
+        {
+          "asset_id": "asset1-67454d101b1e449fba814f9b1c959b74",
+          "bytes": 35719,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE UNIFIED DIGITAL SYSTEM\\INTEGRATED_QUALIFICATION.json",
+          "sha256": "bbcf3da309b68561304ea8ca6b7a61f06770fbcf99cd2dc25be1f2e762544896"
+        },
+        {
+          "asset_id": "asset1-98d146c5fa0c4ff79ec9ed35070138b9",
+          "bytes": 1928,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE UNIFIED DIGITAL SYSTEM\\INTEGRATED_ARCHITECTURE.md",
+          "sha256": "1f0b9cb80c2697b4c8cf4d02a656d0a852b4719e142557e04ef10ac8dbcfdda1"
+        },
+        {
+          "asset_id": "asset1-c42c57a4e71248319a1024cc256cc57c",
+          "bytes": 6758266,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE UNIFIED DIGITAL SYSTEM\\BLACKMORE_UNIFIED_DIGITAL_SYSTEM_v0.1.0_ALPHA.zip",
+          "sha256": "fa01ff5d68f14b8e6dfd95077512b83c4a21513051c7b9e9ccd7e7dc81b503cc"
+        },
+        {
+          "asset_id": "asset1-cf8b3e22cfff474a90d52decc6a0116a",
+          "bytes": 1719,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE UNIFIED DIGITAL SYSTEM\\BUILD_REPORT.json",
+          "sha256": "48d0c4eb35e90cdc650b0195bad58f89a88503755e446b09081d1110565e52bf"
+        }
+      ],
+      "registration_not_ownership": true,
+      "runtime_principal_binding_required": false,
+      "schema": "btg-product-entity-integration-binding-v1",
+      "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BLACKMORE UNIFIED DIGITAL SYSTEM",
+      "status": "PASS"
+    },
+    {
+      "application_entity_id": "ent2-gqmdfld64cdktmenqzaccxnh47cpob6qtvikapgjxp6z3rvxhfza",
+      "binding_sha256": "ec6999329b8b0f712efe996e06b53b4e899e993a0383a7b1e229c0dae542f3b5",
+      "display_alias": "blackmore.sdk.entity",
+      "generated_at_ms": 1789679424513,
+      "organization_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+      "product": "SDK",
+      "registered_software_artifacts": [
+        {
+          "asset_id": "asset1-fafe533d2ff64d01adf5c0a0b1ad151a",
+          "bytes": 151732016,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\SDK\\Blackmore_Universal_SDK_v1.1.1_Blackmore_Edition_FULL.zip",
+          "sha256": "00c2f98a3afb7e6a37fed5482c3374a3b02102e5d44b0cacab54712cb154a594"
+        },
+        {
+          "asset_id": "asset1-bc09f6bcdc6c4c17ae5aa56c97192cb4",
+          "bytes": 124,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\SDK\\Blackmore_Universal_SDK_v1.1.1_Blackmore_Edition_FULL.zip.sha256",
+          "sha256": "6164613870e546dbe998d8a1f1419ed83f68a8f8c3539232d406cfaddf7a84c9"
+        }
+      ],
+      "registration_not_ownership": true,
+      "runtime_principal_binding_required": false,
+      "schema": "btg-product-entity-integration-binding-v1",
+      "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\SDK",
+      "status": "PASS"
+    },
+    {
+      "application_entity_id": "ent2-qjwztwxpi5qdeytyh4yy74m4cc5lkfehbbpx4cgl5bdhppt57myq",
+      "binding_sha256": "415623e830b8693a9a5616e57f221f4f5f2602b6039412b5c196c78a21176eac",
+      "display_alias": "blackmore.studio.entity",
+      "generated_at_ms": 1789679427838,
+      "organization_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+      "product": "STUDIO",
+      "registered_software_artifacts": [
+        {
+          "asset_id": "asset1-9c83802a7f5b4292afc60a80cb31ecc2",
+          "bytes": 32415966,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\STUDIO\\BMS355_FULL_FACTORY_PATH_SAFE.zip",
+          "sha256": "70fc2e273a86396be2715b545ae820af93af86e4addd6c6ed44833bc7de1d46c"
+        },
+        {
+          "asset_id": "asset1-0b46c91a1a374c24a704a1e74b4f9cef",
+          "bytes": 54127768,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\STUDIO\\BMS-v3.5.4.zip",
+          "sha256": "398983b8125a2890b407e6b310c9ecd5c5e647c08e68104977e31f94940beb70"
+        },
+        {
+          "asset_id": "asset1-d933a7893c8a416986b20a012cfe5df8",
+          "bytes": 207069,
+          "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\STUDIO\\Blackmore_Authoritative_Software_Document_Index_v1.1_FULL_COMPANY_CONTROL.zip",
+          "sha256": "ff96e22e59b9344c0ef53cb4a037b204b6470ddc1539b94e448b84875aa246a5"
+        }
+      ],
+      "registration_not_ownership": true,
+      "runtime_principal_binding_required": false,
+      "schema": "btg-product-entity-integration-binding-v1",
+      "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\STUDIO",
+      "status": "PASS"
+    }
+  ],
+  "registration_not_ownership": true,
+  "schema": "btg-engineering-tools-entity-integration-qualification-v1",
+  "status": "PASS",
+  "total": 7
+}

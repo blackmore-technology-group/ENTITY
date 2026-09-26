@@ -1,0 +1,11 @@
+from pathlib import Path
+R=Path(r'<LOCAL_DRIVE>/Sovereign_Entity_Network')
+p=R/'16_Test_Qualification/chaos/seal_ultimate_chaos.py'; s=p.read_text(encoding='utf-8')
+s=s.replace('million_path=EV/"ENTITY_MILLION_ASSET_SCALE_CURRENT.json"','million_path=EV/"ENTITY_MILLION_ASSET_SCALE_CURRENT.json"; million_reval_path=EV/"ENTITY_MILLION_SCALE_REVALIDATION_CURRENT.json"')
+s=s.replace('media=load(media_path); million=load(million_path)','media=load(media_path); million=load(million_path); million_reval=load(million_reval_path)')
+s=s.replace('internal_ok &= million.get("status")=="PASS" and million.get("qualification_complete") is True and million.get("targets",{}).get("assets")==1_000_000 and million.get("targets",{}).get("events")>=3_000_000 and million.get("verification",{}).get("pass") is True and million.get("verification",{}).get("row_level_verified") is True and sealed(million)','internal_ok &= million.get("status")=="PASS" and million.get("qualification_complete") is True and million.get("targets",{}).get("assets")==1_000_000 and million.get("targets",{}).get("events")>=3_000_000 and million.get("verification",{}).get("pass") is True and million.get("verification",{}).get("row_level_verified") is True and sealed(million)\ninternal_ok &= million_reval.get("status")=="PASS" and million_reval.get("qualification_complete") is True and sealed(million_reval)')
+s=s.replace('"million_scale":evidence_ref(million_path),"chaos_test_source"','"million_scale":evidence_ref(million_path),"million_scale_live_revalidation":evidence_ref(million_reval_path),"chaos_test_source"')
+p.write_text(s,encoding='utf-8')
+q=R/'17_Release/builds/evaluate_build_readiness.py'; t=q.read_text(encoding='utf-8')
+t=t.replace("'million_asset_multi_million_event_scale':'ENTITY_MILLION_ASSET_SCALE_CURRENT.json',","'million_asset_multi_million_event_scale':'ENTITY_MILLION_ASSET_SCALE_CURRENT.json',\n    'million_scale_live_revalidation':'ENTITY_MILLION_SCALE_REVALIDATION_CURRENT.json',")
+q.write_text(t,encoding='utf-8'); print('live million-scale revalidation is now mandatory')

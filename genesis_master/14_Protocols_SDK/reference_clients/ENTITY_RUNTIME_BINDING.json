@@ -1,0 +1,22 @@
+{
+  "abi_version": "1",
+  "authority": "protocol_conformance",
+  "exports": [
+    "validate_did_document",
+    "validate_vc20",
+    "verify_entity_vc_extension",
+    "validate_odrl22"
+  ],
+  "implementation_sha256": "5999c8069b83cb4e92afb1c9c3ff60ef03e4e76cbbe045bb46c48e8cae8e3dd0",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "standards_reference_client.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_STANDARDS_INTEROP_CURRENT.json",
+      "sha256": "803e05eda37e75f808bc63543f78fe9d93261420c300566e0f4727d10441cf18"
+    }
+  ],
+  "requirements_sha256": "03df075064bccb0a27c916fdb74407a56f7c0ac3cefbbdff93880eb65fc74a6a",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

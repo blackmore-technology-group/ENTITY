@@ -1,0 +1,16 @@
+{
+  "299f9d6a9f61bc1365195522b2611adc4bce8312d45694e0a05465880320b7d0": {
+    "erased": true,
+    "erasure_tombstone": {
+      "authority": "records officer",
+      "ciphertext_retained": true,
+      "reason": "retention expired",
+      "time_ns": 1785872197191275767
+    },
+    "metadata": {},
+    "nonce": "1fff721549ab768f6aace600",
+    "payload_sha256": "fffb75b0e2af2ed9c6ab74b984e05d7ad3394acc9188c8a0953bb9a2d9a51f92",
+    "wrap_nonce": null,
+    "wrapped_key": null
+  }
+}

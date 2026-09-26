@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adam-v1-complete-software-reference"
+version = "1.0.0rc2"
+description = "ADAM v1.0 complete bounded software reference with RC2 authority-trust hardening"
+requires-python = ">=3.11"
+dependencies = ["cryptography>=41", "msgpack>=1.0", "numpy>=1.26", "Pillow>=10", "sympy>=1.12"]
+
+[project.optional-dependencies]
+test = ["coverage>=7", "pytest>=8", "packaging>=24"]
+
+[tool.setuptools]
+packages = ["adam_v41", "adam_v42", "adam_v43", "adam_v44", "adam_v45", "adam_v46", "adam_v47", "adam_v48", "adam_v49", "adam_v50", "adam_v52", "adam_v53", "adam_v54", "adam_v55", "adam_v56", "adam_v57", "adam_v58", "adam_v1", "native_authority_reference"]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+
+[project.scripts]
+adam-v1 = "adam_v1.cli:main"

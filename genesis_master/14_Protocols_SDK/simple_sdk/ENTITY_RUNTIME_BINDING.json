@@ -1,0 +1,30 @@
+{
+  "abi_version": "1",
+  "authority": "entity_simple_sdk",
+  "delegates_to_canonical_authorities": true,
+  "developer_surface": [
+    "create_entity",
+    "create_application",
+    "pair_device",
+    "register_asset",
+    "record_event",
+    "export_entity"
+  ],
+  "economic_mutation_not_exposed": true,
+  "exports": [
+    "SimpleEntitySDK"
+  ],
+  "implementation_sha256": "3279540dd28738d517915a9f7d43fcf7292c5dd59843e78cc74ab41774112976",
+  "implementation_version": "1.0.0",
+  "provider_neutral": true,
+  "python_file": "canonical_simple_entity_sdk.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_SIMPLE_SDK_CURRENT.json",
+      "sha256": "9ad1ab418509727394631c73cd0878729957fa86cf6a401cf3deef8e80fc0db9"
+    }
+  ],
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY",
+  "ux_profile": "ENTITY_USER_EXPERIENCE_PROFILE_v1.json"
+}

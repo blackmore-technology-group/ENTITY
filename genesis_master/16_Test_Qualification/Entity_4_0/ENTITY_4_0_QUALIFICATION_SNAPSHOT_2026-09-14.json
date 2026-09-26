@@ -1,0 +1,142 @@
+{
+  "assurance_level": 1,
+  "c2pa": {
+    "status": {
+      "provenance_integrity_supported": true,
+      "ready": true,
+      "schema": "entity-c2pa-verifier-v1",
+      "signer_trust_reported_separately": true,
+      "tool_path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\14_Protocols_SDK\\c2pa\\c2patool-v0.27.22\\c2patool\\c2patool.exe",
+      "tool_version": "c2patool 0.27.22",
+      "truth_verification_claimed": false
+    },
+    "tool_sha256": "2d7ddd2072e7591b16f6cc9b374e91119a1a64e4451cec08e109f2814c74e7a8"
+  },
+  "created_at_ms": 1789430620893,
+  "critical_module_sha256": {
+    "blackmore_ci\\ar_projection.py": "450083b78c03d38a747d80f9a30927786bf93e2e97be989285b7ecf029e86bc8",
+    "blackmore_ci\\asset_provenance.py": "696ed19807a23583928ca0db5bdc2c542f0065c16ea01f6468d59c16881344a4",
+    "blackmore_ci\\becp_auto_ingest.py": "0b97b5bb5f1357d9fb8d6f716237050cac4c67821aacdf3bf0160ec7cf59842e",
+    "blackmore_ci\\c2pa_verifier.py": "1d90b5a9861bc577d60b26e5bb2f79fa238e27a8dd5944daa2a994f7ea02a227",
+    "blackmore_ci\\credential_trust.py": "425986fa9f821b27600c502f47b450b3409e95bcfcb5eb299a3dc8b67d6e0bb8",
+    "blackmore_ci\\data_spaces.py": "b047e82021ee8bbbca8e884c0fbf1bc8014ba80e7cd9b2cf32707020c2dd82bd",
+    "blackmore_ci\\entity_identity.py": "b007b95f877dba04ea0d4c2dd1689f05bab208cde7b796599db5a868714fab3f",
+    "blackmore_ci\\entity_service.py": "4fd0b028b64a9056e98290bb0807d5567c7714fd4a9ea5eb7b5904231a98d464",
+    "blackmore_ci\\federation.py": "62b901f6a7eb1b4a4b0fe824414a1a4b194213dcd9891100556c3c181f4cd0d8",
+    "blackmore_ci\\guardian_recovery.py": "8379a7d9bb9baa7094619556663899710faff8d5ecc404af2d3a947e0c4b80d2",
+    "blackmore_ci\\hosting_registry.py": "15fd29f6fe2ffb69d61623df4b40cdbd618b229efb6c846cbe2a048184299a14",
+    "blackmore_ci\\nat_traversal.py": "bbff59364d1c99081831794c94092d67a23911183817971b45cf4aab60c780cc",
+    "blackmore_ci\\recovery_custody.py": "868686d3d27aa17867cbc67e5befe34678dc2b9310b8dfc5746888544ad3350f",
+    "blackmore_ci\\rights_claims.py": "22a9e5d6b0eb8cbd1f8c7c1b84ad3bbc68fcf1943805fefafd118491dd0db9c4"
+  },
+  "entity_signed": false,
+  "entity_world": {
+    "active_relations": 0,
+    "authority": "BSIE",
+    "database": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\runtime_data\\entity\\bsie_entity_world\\entity_world.sqlite",
+    "entities": 0,
+    "event_chain": {
+      "events": 0,
+      "head_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "pass": true
+    },
+    "head_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "local_entities": 0,
+    "ready": true,
+    "schema": "bsie-sovereign-entity-world-v1"
+  },
+  "evidence_origin": "EXTERNAL_RECORD",
+  "full_regression": {
+    "command": "python -m pytest -q",
+    "duration_seconds": 33.82,
+    "failed": 0,
+    "passed": 62,
+    "warning_scope": "upstream starlette python_multipart pending deprecation",
+    "warnings": 1
+  },
+  "next_action": "INGEST_SNAPSHOT_AFTER_CONTROLLER_BOOTSTRAP",
+  "not_claimed": [
+    "TRL9",
+    "field_qualification",
+    "authenticated_turn_allocation",
+    "full_ice",
+    "hardware_attestation",
+    "clean_room_attestation",
+    "independent_multi_implementation_interop"
+  ],
+  "protected_paths": [
+    "<LOCAL_DRIVE>/Blackmore_Technology_Group\\NIKI\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\compatibility_baseline\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE"
+  ],
+  "public_peer_prebootstrap": {
+    "authenticated_turn_allocation": false,
+    "entity_signed": false,
+    "file_sha256": "13b3d3de1ee75d0731f09635a4141dd6b2dda9f7282740fc7b65107026d71b21",
+    "full_ice_qualified": false,
+    "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\Public_Peer\\ENTITY_PUBLIC_PEER_QUALIFICATION_PREBOOTSTRAP.json"
+  },
+  "qualification_claim": "LOCAL_INTEGRATED_TEST_EVIDENCE",
+  "record_sha256": "7ccf144f74684642f65eb9c7cce2b8ced37cbe9210486c8ecef033f0073fcd7b",
+  "runtime_tree": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime",
+  "schema": "entity-4-qualification-snapshot-v1",
+  "subsystems": {
+    "becp_auto_ingest": {
+      "assurance_level": 2,
+      "controller_entity_id": null,
+      "enabled": false,
+      "evidence_origin": "DIRECT_OBSERVATION",
+      "hidden_model_reasoning_captured": false,
+      "interval_s": 5.0,
+      "last_run": null,
+      "ready": true,
+      "running": false,
+      "schema": "entity-becp-auto-ingest-v1",
+      "source_chain_must_verify": true
+    },
+    "data_spaces": {
+      "active_spaces": 0,
+      "allowed_operations": [
+        "BYTE_COUNT",
+        "JSON_NUMERIC_SUMMARY",
+        "JSON_RECORD_COUNT",
+        "LINE_COUNT",
+        "SET_INTERSECTION_COUNT",
+        "SHA256"
+      ],
+      "arbitrary_remote_code_allowed": false,
+      "clean_room_claimed": false,
+      "completed_jobs": 0,
+      "hardware_attestation_commissioned": false,
+      "raw_data_exported_by_runner": false,
+      "ready": true,
+      "schema": "entity-data-space-v1"
+    },
+    "federation": {
+      "active_profiles": 0,
+      "central_registry_required": false,
+      "downgrade_protection": true,
+      "local_trust_rules": 0,
+      "owner_policy_authoritative": true,
+      "protocol": "ENTITY-FED-v1",
+      "ready": true,
+      "replay_protected": true,
+      "schema": "entity-federation-v1",
+      "security_rules": 0,
+      "semantic_version_negotiation": true
+    },
+    "nat_traversal": {
+      "host_candidate_gathering": true,
+      "ice_full_state_machine_implemented": false,
+      "public_nat_traversal_qualified": false,
+      "ready": true,
+      "schema": "entity-nat-traversal-v1",
+      "stun_commissioned": false,
+      "stun_rfc8489_binding_client": true,
+      "stun_server_configured": false,
+      "turn_authenticated_allocation_implemented": false,
+      "turn_commissioned": false,
+      "turn_rfc8656_allocate_probe": true
+    }
+  },
+  "target": "ENTITY_4_0"
+}

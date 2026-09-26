@@ -1,0 +1,102 @@
+{
+  "binding_files": {
+    "canonical_runtime_abi": "031cb7ecf830b450a97fc4db60fc8676a1230b87c4b3e3f6b46ff6eaf693beb7",
+    "completion_matrix": "137748d0d38177810a154040f0f3e03295587894468698c353fbf380d442ab79",
+    "platform_bindings": "46cf021bc67b6621daf30c4307012242ab7fb8d5c32b4077925ec47468a87b3c",
+    "ready_queue": "06d375f5156fa70164711138ec2a7f55fa559956ce04b668191054d7f4b5e50f",
+    "runtime_binding_schema": "6c80c639e04f3cc1ce72b60496c72b261ee17d8392832bef8497f0e14b0e817f"
+  },
+  "canonical_runtime": {
+    "authority_count": 56,
+    "permanent_bootstrap_allowed": true,
+    "production_required_count": 13,
+    "production_required_ready": 13,
+    "ready_count": 56,
+    "system_acceptance_status": "CANONICAL_RUNTIME_READY"
+  },
+  "code_hashes": {
+    "RUN_ENTITY_NIKI.ps1": "35f30e15c493c2f8f1150ab1c57c02827c00f2d59afe7d398e7e62485eee6894",
+    "central_runtime\\blackmore_ci\\bsie23.py": "5002197f926886a511db4b303455312503818868ee638239984f70c9f3762336",
+    "central_runtime\\blackmore_ci\\causal_intelligence.py": "1968e394d09accdf6e377b857286e475df3a25c84fe8699f9e4df0ad2b0443f1",
+    "central_runtime\\blackmore_ci\\cognition_router.py": "3bb5d0878061b7c5ec0affc24675134051a1498d8e93507871ef50eaa36ba545",
+    "central_runtime\\blackmore_ci\\entity_service.py": "29fc8739529f1e23f72d67bea902fd09f6daa9328818cf0135237d51760eddd4",
+    "central_runtime\\blackmore_ci\\intelligence_core.py": "c934208f3b1a5cf7585f7996f2d4b2d5d6e645aeb2aa84cfcfd7c4dd68d91599",
+    "central_runtime\\blackmore_ci\\models.py": "17e8d3f84a336035c8f5e6d654b1f989ecbbaeac43b92ab7509645b117b06526",
+    "central_runtime\\blackmore_ci\\niki.py": "e2fd8de6269acc4d9aa13ba37eb04c3764c655c67f3a047d5d54586d56215678",
+    "central_runtime\\blackmore_ci\\niki_handoffs.py": "f28840e84fe6fdbc0a6e676189536bdb7a3872cc0377b7a5b441e5d13efc38f4",
+    "central_runtime\\blackmore_ci\\service.py": "1ebf8c6ed8edbfae782648bbb7338f8c4abbc4bf3cb745adea79cd796bb2560b",
+    "central_runtime\\blackmore_ci\\sovereign_authority_gate.py": "6e91de614636a1fedc7b2c5be427fe87d0c27864f6dcea18c638b3fbdb40c8b5",
+    "central_runtime\\blackmore_ci\\system_completion_matrix.py": "347429fa7fff1d31773ef02bd857e737cecf179077edee019966ab60acc47c7a",
+    "central_runtime\\blackmore_ci\\unified_service.py": "a00426e98595361f7c38416dfcd6a9c979296a66602d237f88425c09a698da6c",
+    "central_runtime\\blackmore_ci\\validation.py": "81f488d0e74df829eb8104e07c6a7332378e0958491ea354b69ea7fb40926d6d",
+    "central_runtime\\tests\\test_causal_intelligence_v130.py": "21d9d026ff4296e73f352193d0718d53c2df39343221ae1a7de7de7463e1cc7a",
+    "central_runtime\\tests\\test_niki_handoffs.py": "f7427860287dfebc357d0c28f4790cb03eff865dcb8ebaba88de5cb30156af91",
+    "central_runtime\\tests\\test_unified_entity_authority.py": "ed3bf8edc0fb353c6e29ff74809185069a0d21b6999d6395742803f67b672b5f"
+  },
+  "code_manifest_root_sha256": "9685ae82ca9dbfff9a00dcdfdd6ddc5e304516ccf1ec0361bacbd023cdd03c26",
+  "contracts": {
+    "context_adapters\\CANONICAL_CONTEXT_PROVIDER_CONTRACT.json": "3a13713eadc0b2760c41543586b4dc10cbe8919176f2fbd591ade2e7f97da3cc",
+    "context_adapters\\ENTITY_CONTEXT_PROJECTION_CONTRACT.json": "eb437827774456de59358d03c83edc7db630891b59989b52ab41a000c4e097fa",
+    "entity_intelligence\\ENTITY_INTELLIGENCE_PROJECTION_CONTRACT.json": "8fe18d311a43e09fd030c67d82c7ef97c0bbcf00dc72e0e57d9dcd4b8f915e4e",
+    "overlay_generation\\NIKI_AR_OVERLAY_OUTPUT_CONTRACT.json": "1beb3eaa991331e043ebcd4cc28d620a947e61eaf7f6ec6a164afe2a63924958",
+    "policy_constraints\\NIKI_AI_DISCLOSURE_GATE_CONTRACT.json": "1e3f04ad5251ac6574b3dae061daab7f2e09ed91c446d6a1f32191431d7290ca",
+    "policy_constraints\\NIKI_EVIDENCE_REASONING_CONTRACT.json": "1f726e9a023e46100897e32aa3e8f206f0824fbfd3714f1f26c61df8a4afc270",
+    "policy_constraints\\NIKI_HIGH_RISK_WARNING_CONTRACT.json": "cf78ba217fc48e12035f323d998e45da1d47fa3f7824a64b1bfe3331730a7e75",
+    "policy_constraints\\NIKI_REASONING_POLICY_CONSTRAINTS.json": "71e844db5f411c47107919565827e16908d1d2c7dfff4c13ca5a0dbddfdc065d",
+    "policy_constraints\\NIKI_UNTRUSTED_CONTENT_CONTRACT.json": "19739feab585e18f3839c4e23da66a6e86e6ada821789d2aa6fb74eb24299a49",
+    "reasoning_interfaces\\NIKI_ACTION_HANDOFF_CONTRACT.json": "8ac74528968b19ddb56792684cae8c38aad158773620395f9de3b006e094a975",
+    "reasoning_interfaces\\NIKI_ACTION_HANDOFF_CONTRACT_V2.json": "2176e89eebc09fa9dccbef8da6b54c14013f1142cc39fe13c821a83ccc3ec9ba",
+    "reasoning_interfaces\\NIKI_ACTION_PROPOSAL_CONTRACT.json": "7cda7e93868cb88e6d7ea07628ce0db360d67239887f606f97cebe71c7bbd1ba",
+    "reasoning_interfaces\\NIKI_POLICY_EXPLANATION_CONTRACT.json": "b7e8d7d39d210d5f0ac70ad40a86d29ca620e8a1765962c2a58e81c8705b87bf",
+    "reasoning_interfaces\\NIKI_REASONING_RECEIPT_CONTRACT.json": "e39f1301cb02547abf4283a2791c73a6dcd35f06c32042ddb945a7ae99074b0f",
+    "reasoning_interfaces\\NIKI_REASONING_RECEIPT_HANDOFF_CONTRACT.json": "1fa9fd19b01ca477996242a7e312beb996e90ed8af0fbb4b534d4132d74d363e"
+  },
+  "date": "2026-09-18",
+  "evidence_sha256": "ad0f7ae040a39baf065f7e6265c1ad3560f4bb28fa7deef26bc3a81f9da1e03e",
+  "full_suite": {
+    "duration_seconds": 65.74,
+    "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\tests\\evidence\\FULL_PYTEST_NIKI_ENTITY2_CAUSAL_HARNESS.txt",
+    "evidence_sha256": "126d2c24444a0d355532e023a0ee24c3819477fb6497533cc4354aa78661e92d",
+    "failed": 0,
+    "passed": 278,
+    "skipped": 0,
+    "summary": "278 passed, 1 warning in 65.74s (0:01:05)",
+    "warning_count": 1
+  },
+  "generated_at_ms": 1789745100323,
+  "invariants": [
+    "NIKI is not an ENTITY authority owner",
+    "NIKI reasons/proposes; canonical ENTITY authorities mutate sovereign state",
+    "legacy AR remains compatible outside sovereign Entity context",
+    "embedded fallbacks cannot satisfy production acceptance",
+    "production bootstrap is canonical-only",
+    "full original NIKI route surface is preserved in unified runtime",
+    "NIKI causal intelligence uses bounded equation types and does not execute arbitrary model code",
+    "adaptive cognition routing selects reasoning stages but never grants action authority"
+  ],
+  "limitations": [],
+  "qualification_complete": true,
+  "schema": "niki-entity-integration-qualification-v5",
+  "scope": "NIKI_ENTITY_UNIFIED_INTERNAL_INTEGRATION",
+  "security_controls": [
+    "ENTITY_CORE requires sovereign_context",
+    "private content requires canonical capability and consent",
+    "retained learning requires separate PROFILE_BUILDING consent",
+    "cross-Entity context requires subject consent",
+    "external reasoner disclosure is denied by default for canonical ENTITY requests",
+    "NIKI action handoff resolves canonical ADAM authority but never executes directly",
+    "canonical operation dispatch is explicit allowlist only",
+    "causal model activation is explicit ENTITY-approved and never autonomous",
+    "counterfactual analysis has no sovereign mutation authority"
+  ],
+  "sovereign_domain": {
+    "external_validation_pending": true,
+    "full_sers_evidence_sha256": "97045dee1d9fa804500d691fde01e269b51a3ff5e2c8166b05b45480d48d640f",
+    "full_sers_qualification_complete": false,
+    "full_sers_status": "BLOCKED",
+    "internal_evidence_sha256": "0fa336744ca7d6bb5ecea29a717938d68c85d39efd5de7c4646a67e1f0170985",
+    "internal_qualification_complete": true,
+    "internal_status": "PASS"
+  },
+  "status": "PASS"
+}

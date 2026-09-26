@@ -1,0 +1,43 @@
+{
+  "schema": "entity-btdu-architecture-contract-v1",
+  "release_target": "v3.4.2",
+  "component": "BTDU — Blackmore Technology Data Universe",
+  "architecture": {
+    "authority_and_rights": "ENTITY",
+    "deterministic_state_engine": "ADAM",
+    "reasoning_consumer": "NIKI",
+    "btdu_role": "governed universal information substrate"
+  },
+  "canonical_btg_universe": {
+    "sovereign_entity_id": "ent2-6eoiiztjyhmyh2tbr5psmofcduwvjledubhoiqwo6mjfoqkn6ica",
+    "human_alias": "shawn.blackmore.entity",
+    "steward_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+    "protocol_entity_id": "ent2-m3nofxtv3zwldhwuonw3h67hqjh2zambrhj4kaaulncpt4amkcua"
+  },
+  "adam_genesis_pin": {
+    "version": "1.0.0-rc2",
+    "authoritative_inner_sha256": "3cc6541f2d00dd0580989cc7fe6e8abd56974d1069f61c710e230568e00b8da3",
+    "design_is_not_rewritten_by_btdu": true
+  },
+  "genesis_primitives_preserved": ["ENTITY", "AUTHORITY", "RIGHT", "EVENT", "VALUE"],
+  "genesis_market_lifecycle_preserved": ["DCO", "INSTRUMENT", "LISTING", "DISCLOSURE", "ORDER_RFQ_AUCTION", "PRICE_DISCOVERY", "TRADE", "CLEARING", "SETTLEMENT", "ENTITLEMENT", "USAGE", "DERIVED_OUTPUT", "ECONOMIC_CONSEQUENCE"],
+  "boundaries": {
+    "protocol_origin_is_not_asset_provenance": true,
+    "topology_does_not_create_ownership": true,
+    "topology_does_not_create_rights": true,
+    "topology_does_not_create_economic_entitlement": true,
+    "economic_participation_requires_explicit_terms": true,
+    "automatic_protocol_royalty_bps": 0,
+    "historical_release_semantics_remain_interpretable": true,
+    "raw_compression_replacement_claimed": false,
+    "one_billion_bond_result_is_projection_only": true
+  },
+  "level3_proof_sha256": {
+    "sealed_level3": "7be669e110171fe51dab52b33346cbd0c9f701013f463b01f527b4146c8f1ecd",
+    "level2": "76deb5b5ece3d92cf5350dc5f236319c6eb2a2d0cfa4db235038431bb3c1bd6b",
+    "scale_250m": "545dc0aa689924a8fdaa1ff8e2f34ac54450d6e0de8f25936a1e375384bfba60",
+    "live_inference_rag_btdu": "69d22db3cab39ad4edbd5f7555f171d89ceabad7790b215eee391f4884ce9852",
+    "destructive_recovery": "adf11122bc58b7b5a74458d198cb991d672f2648b45edf5610aaefe202da1b88",
+    "update_cost": "8bf7bd36cfa51f83695b715980ea5024275fcb2daee6f01dc16df5f7fe16f202"
+  }
+}

@@ -9,10 +9,14 @@ def _stack_ok(r:dict)->bool:
     refs=r.get("profile_refs") or []; hashes=r.get("profile_hashes") or []
     return bool(refs) and "entity-profile:global@1.0" in refs and len(refs)==len(hashes) and all(_sha(x) for x in hashes) and r.get("fail_closed") is True and r.get("profile_composition_does_not_create_authority") is True and r.get("standards_mapping_is_not_normative_equivalence") is True
 
+def _btdu_ok(r:dict)->bool:
+    if not isinstance(r,dict): return False
+    return r.get("schema")=="entity-btdu-passport-binding-v1" and r.get("btdu_version")=="3.4.2" and bool(r.get("universe_root")) and bool(r.get("object_ref")) and _sha(r.get("content_sha256")) and bool(r.get("sovereign_entity_id")) and r.get("protocol_origin_is_not_asset_provenance") is True and r.get("topology_does_not_create_ownership") is True and r.get("topology_does_not_create_economic_entitlement") is True and int(r.get("automatic_protocol_royalty_bps",-1))==0
+
 def _passport_ok(r:dict)->bool:
     flags=("one_passport_many_profiles","profile_composition_does_not_create_authority","standards_mapping_is_not_normative_equivalence","evidence_does_not_establish_objective_truth","legal_effect_is_deployment_specific","underlying_information_remains_nonrival")
     econ=r.get("economic_state") or {}; mappings=r.get("standards_mappings") or []
-    return r.get("core_primitives")==CORE and bool(r.get("rights_passport_id")) and _sha(r.get("rights_passport_sha256")) and isinstance(r.get("profile_stack"),dict) and _stack_ok(r["profile_stack"]) and all(r.get(x) is True for x in flags) and all(m.get("normative_equivalence_claimed") is False for m in mappings) and int(econ.get("amount_units",-1))>=0 and econ.get("market_observation_is_not_accounting_fair_value") is True
+    return (r.get("btdu_binding") is None or _btdu_ok(r.get("btdu_binding"))) and r.get("core_primitives")==CORE and bool(r.get("rights_passport_id")) and _sha(r.get("rights_passport_sha256")) and isinstance(r.get("profile_stack"),dict) and _stack_ok(r["profile_stack"]) and all(r.get(x) is True for x in flags) and all(m.get("normative_equivalence_claimed") is False for m in mappings) and int(econ.get("amount_units",-1))>=0 and econ.get("market_observation_is_not_accounting_fair_value") is True
 
 def validate_global_passport_record(r:dict)->bool:
     try:

@@ -1,0 +1,31 @@
+{
+  "evidence_sha256": "ab9ecd6a51ca2cff017961539371676bc139f019a854d48f345969e3afd64477",
+  "generated_at_ms": 1789570293536,
+  "implementation_sha256": {
+    "01_Core_Runtime\\information_projection\\canonical_projection.py": "a215bfe0dcf6e58c9cb7a4cdaed291298dc52375a53dc65755beae9c42513426",
+    "04_Entity_Registry\\evidence_assertions\\canonical_evidence.py": "09d38b618a8b833e7ab2e4be7a93f33536f7a41ffc902b3f2db9ea825c697350",
+    "04_Entity_Registry\\ownership_graphs\\canonical_rights_claims.py": "3007b78ee8edcfa65f70c78c33aef1c11514009de256a292050363745879a49c",
+    "04_Entity_Registry\\rights_ontology\\ENTITY_RIGHTS_ONTOLOGY_v1.json": "af3aea37f10cb2c9e25083b79cfe0470dc961c5e2a89172c5de71933c82c556f",
+    "04_Entity_Registry\\rights_ontology\\canonical_ontology.py": "8eff1df3e0391f024369621774c8d37d3766b4e62f5357dd0a524f80ec0c2134"
+  },
+  "invariants": [
+    "sensitive transfers use minimum-disclosure projection",
+    "metadata permission never implies content permission",
+    "restricted external disclosure fails closed",
+    "unknown rights require review instead of disclosure",
+    "UNKNOWN and DERIVED_INFERENCE cannot silently become VERIFIED",
+    "strong evidence transitions require qualifying observed/attested/authoritative evidence",
+    "rights ontology verification and dispute state remain separate"
+  ],
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "........                                                                 [100%]\n8 passed in 0.63s",
+  "qualification_complete": true,
+  "requirements": {
+    "evidence_assertion": "SERS-ENTITY-002-125",
+    "information_projection": "SERS-ENTITY-002-124",
+    "rights_ontology": "SERS-ENTITY-002-126"
+  },
+  "schema": "entity-v2-assurance-core-qualification-v1",
+  "status": "PASS"
+}

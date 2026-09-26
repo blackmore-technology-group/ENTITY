@@ -1,0 +1,12 @@
+{
+  "archive_bytes": 717397279,
+  "archive_path": "<LOCAL_DRIVE>/BTG_Qualification_Staging\\WildByNatureSoapStudio\\BoundarysBest_WildByNature_ENTITY_Qualified_20260917.zip",
+  "archive_sha256": "4489582cd8cae819a8f069213bf080dc4469a4fdfd532004bbeee1579ca580fb",
+  "critical_hash_mismatches": [],
+  "critical_missing": [],
+  "generated_at_ms": 1789672510620,
+  "schema": "boundarys-best-entity-transfer-archive-qualification-v1",
+  "status": "PASS",
+  "zip_entry_count": 3047,
+  "zip_test_bad_entry": null
+}

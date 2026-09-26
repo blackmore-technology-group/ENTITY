@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "audit_hash_chains": true,
+    "binary_chain": true,
+    "btg_agent_version": true,
+    "btg_online": true,
+    "build_hashes_match": true,
+    "certificate_fingerprints": true,
+    "compileall": true,
+    "direct_rdc_preserved": true,
+    "mcp_v2": true,
+    "regression_8_of_8": true,
+    "runtime_versions": true,
+    "wheel_install_and_entrypoint": true
+  },
+  "disposition": "QUALIFIED_PASS",
+  "generated_utc": "2026-09-13T01:04:35.330977+00:00",
+  "physical_device_scope": "BTG physical workstation; bridge credential is intentionally scoped to BTG only.",
+  "product": "Blackmore Engineering Control Plane",
+  "product_id": "BTG-PLAT-010",
+  "production_0_2_0_runtime_modified": false,
+  "qualification_id": "BECP_0.2.1_QUALIFICATION_20260912",
+  "qualification_ports": [
+    9175,
+    9176,
+    9177
+  ],
+  "version": "0.2.1"
+}

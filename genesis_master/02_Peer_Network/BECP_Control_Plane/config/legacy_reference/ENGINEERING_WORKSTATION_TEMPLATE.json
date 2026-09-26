@@ -1,0 +1,24 @@
+{
+  "device_id": "GENERATE_AT_ENROLLMENT",
+  "device_alias": "ASSIGN_HUMAN_READABLE_NAME",
+  "device_role": "ENGINEERING_WORKSTATION",
+  "owner_principal": "ASSIGN_ENGINEER_IDENTITY",
+  "audit_path": "./runtime/audit/becp_audit.jsonl",
+  "device_registry_path": "./runtime/registry/devices.json",
+  "engineering_terminal": {
+    "enabled": true,
+    "bound_device": "USE_ACTUAL_WINDOWS_HOSTNAME_OR_DEVICE_ID",
+    "default_shell": "powershell.exe",
+    "allowed_shells": ["powershell.exe", "pwsh.exe", "cmd.exe"],
+    "default_cwd": "<LOCAL_DRIVE>/",
+    "max_timeout_seconds": 600,
+    "max_output_bytes": 1048576,
+    "full_filesystem_scope": true
+  },
+  "terminal_mode": "FULL_ENGINEERING_COMPUTER_ACCESS",
+  "os_privilege_model": "INHERIT_AGENT_PROCESS_TOKEN_AND_WINDOWS_UAC",
+  "network_mode": "OUTBOUND_AUTHENTICATED_AGENT_CONNECTION",
+  "discovery_mode": "CENTRAL_BECP_DEVICE_REGISTRY",
+  "certificate_identity": "PROVISION_DURING_ENROLLMENT",
+  "revocable": true
+}

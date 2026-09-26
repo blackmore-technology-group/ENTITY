@@ -1,0 +1,16 @@
+{
+  "schema": "niki-canonical-context-provider-contract-v1",
+  "owner": "NIKI",
+  "purpose": "bind NIKI reasoning projections to canonical ENTITY/BSIE authorities when READY",
+  "providers": {
+    "bsie_entity_world": {"export": "niki_project_entity_context_v1", "fallback": "embedded_entity_world.context"},
+    "data_universe": {"export": "niki_project_data_summary_v1", "fallback": "embedded_data_universe.summary"}
+  },
+  "rules": [
+    "canonical READY binding wins over embedded fallback",
+    "READY binding must pin current authority requirements hash",
+    "READY binding missing its declared NIKI projection export fails closed",
+    "non-READY or absent canonical binding uses tested embedded fallback",
+    "NIKI receives bounded projections and never acquires source authority"
+  ]
+}

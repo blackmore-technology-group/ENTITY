@@ -1,0 +1,122 @@
+{
+  "authority_invariants": {
+    "economic_value_not_inferred_from_creation": true,
+    "niki_preserves_source_controller_through_derivation": true,
+    "open_protocol_not_dependent_on_btg_hosting": true,
+    "registration_not_ownership": true,
+    "user_generated_app_data_defaults_to_user_entity": true
+  },
+  "claim_boundary": "Internal BTG ecosystem qualification does not constitute independent external protocol validation.",
+  "components": {
+    "ADAM": {
+      "alias": "adam.entity",
+      "details": {
+        "evidence_status": null,
+        "qualification_complete": null
+      },
+      "entity_id": "ent2-ihzsw37ykxrn4njv3c6xtvttqbu5tt7gpdotkz4cg5p4l22lfura",
+      "evidence": "ADAM_ENTITY_INTEGRATION_CURRENT.json",
+      "identity_present": true,
+      "integrated_qualified": false
+    },
+    "BECP": {
+      "alias": "becp.entity",
+      "details": {
+        "evidence_status": null,
+        "qualification_complete": null
+      },
+      "entity_id": "ent2-rw2tsasrxzmovtjok76t7xep6ngn76za6qwvjn7vgzj64suva3oa",
+      "evidence": "BECP_ENTITY_INTEGRATION_CURRENT.json",
+      "identity_present": true,
+      "integrated_qualified": false
+    },
+    "BOUNDARYS_BEST": {
+      "alias": "boundarys.best.entity",
+      "details": {
+        "evidence_status": "PASS",
+        "qualification_complete": true
+      },
+      "entity_id": "ent2-7vagebjtkzw5i3t6jbuk5ws65xywh63ucserwbqfgmzt7pd2xo5q",
+      "evidence": "BOUNDARYS_BEST_ENTITY_NATIVE_RELEASE_CURRENT.json",
+      "identity_present": true,
+      "integrated_qualified": true
+    },
+    "BSIE": {
+      "alias": "bsie.entity",
+      "details": {
+        "evidence_status": null,
+        "qualification_complete": null
+      },
+      "entity_id": "ent2-hcsi4rxnpch5hless7gtzanj2j3ptmtf2xq4mdfilfblbf56g55q",
+      "evidence": "BSIE_ENTITY_INTEGRATION_CURRENT.json",
+      "identity_present": true,
+      "integrated_qualified": false
+    },
+    "ENTITY": {
+      "alias": "entity.entity",
+      "details": {
+        "core": true,
+        "open_sdk": "PASS",
+        "principal_binding": "PASS"
+      },
+      "entity_id": "ent2-m3nofxtv3zwldhwuonw3h67hqjh2zambrhj4kaaulncpt4amkcua",
+      "evidence": null,
+      "identity_present": true,
+      "integrated_qualified": true
+    },
+    "HIKEAR": {
+      "alias": "hikear.entity",
+      "details": {
+        "evidence_status": "PASS",
+        "qualification_complete": true
+      },
+      "entity_id": "ent2-427vybtr5qa35uf6qwrda75e2gbwqw7wzjxz2yjtciewfgopzr7a",
+      "evidence": "HIKEAR_ENTITY_INTEGRATION_CURRENT.json",
+      "identity_present": true,
+      "integrated_qualified": true
+    },
+    "HUNTAR": {
+      "alias": "huntar.entity",
+      "details": {
+        "evidence_status": "PASS",
+        "qualification_complete": true
+      },
+      "entity_id": "ent2-vkesuqie2o5ldzvon6zro2c5rilor4u6x5lsqrrsw5ypxni73qba",
+      "evidence": "HUNTAR_ENTITY_INTEGRATION_CURRENT.json",
+      "identity_present": true,
+      "integrated_qualified": true
+    },
+    "NIKI": {
+      "alias": "niki.entity",
+      "details": {
+        "evidence_status": null,
+        "qualification_complete": null
+      },
+      "entity_id": "ent2-cwvhbzgs5m2dxlleoopfasby3b3nbq4vhu4hovq5xk4jj7opgbqq",
+      "evidence": "NIKI_ENTITY_BRIDGE_FULL_CURRENT.json",
+      "identity_present": true,
+      "integrated_qualified": false
+    },
+    "SEARCHAR": {
+      "alias": "searchar.entity",
+      "details": {
+        "evidence_status": null,
+        "qualification_complete": null
+      },
+      "entity_id": "ent2-ruiyq6kfvzgjisic7ndo6r4saojc35s5rxqxtd42ddpkexmshs6a",
+      "evidence": "SEARCHAR_ENTITY_INTEGRATION_CURRENT.json",
+      "identity_present": true,
+      "integrated_qualified": false
+    }
+  },
+  "external_pending": [
+    "two independent physical user-controlled devices",
+    "multi-host independent-machine storm",
+    "independently authored non-BTG implementation/interoperability"
+  ],
+  "external_protocol_status": "PENDING_EXTERNAL_VALIDATION",
+  "generated_at_ms": 1789673881202,
+  "internal_ecosystem_complete": false,
+  "schema": "btg-entity-ecosystem-qualification-v1",
+  "status": "INCOMPLETE"
+}

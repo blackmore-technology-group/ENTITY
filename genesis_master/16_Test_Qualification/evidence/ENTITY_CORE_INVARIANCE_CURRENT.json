@@ -1,0 +1,15 @@
+{
+  "baseline_aggregate_sha256": "eb5b05b6e76bd143472e156cc9552dddc0dd2fbc46ff58f7db9c886e2e1aa9fe",
+  "baseline_missing_files": [],
+  "baseline_path_mismatches": [],
+  "critical_core_unchanged": true,
+  "current_scanner_file_count": 48,
+  "extra_nonbaseline_files": [
+    "15_Operations/btg_deployment/bootstrap_btg_entity_graph.py"
+  ],
+  "generated_at_ms": 1789671736976,
+  "note": "Invariance applies to the exact 47-file protected baseline. Extra files are reported separately and do not redefine the protected baseline.",
+  "protected_baseline_file_count": 47,
+  "schema": "entity-core-invariance-verification-v2",
+  "status": "PASS"
+}

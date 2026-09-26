@@ -1,0 +1,20 @@
+........................................................................ [ 19%]
+........................................................................ [ 38%]
+........................................................................ [ 58%]
+........................................................................ [ 77%]
+........................................................................ [ 97%]
+...........                                                              [100%]
+============================== warnings summary ===============================
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\site-packages\starlette\formparsers.py:12
+  <LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\site-packages\starlette\formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.
+    import multipart
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+371 passed, 1 warning in 49.79s
+<LOCAL_DRIVE>/Blackmore_Technology_Group\Software Development\HUNT_AR\HuntAR_v4.3.0\outputs\geospatial_selftest_v09.json
+<LOCAL_DRIVE>/Blackmore_Technology_Group\Software Development\HUNT_AR\HuntAR_v4.3.0\outputs\dense_selftest_v32.json
+<LOCAL_DRIVE>/Blackmore_Technology_Group\Software Development\HUNT_AR\HuntAR_v4.3.0\outputs\surface_selftest_v09.json
+<LOCAL_DRIVE>/Blackmore_Technology_Group\Software Development\HUNT_AR\HuntAR_v4.3.0\outputs\training_selftest_v09.json
+{"ok":true,"fallback_regions":3,"dense_hit_test":true,"boundary_points":4,"label":"High Probability Edge Habitat"}
+<LOCAL_DRIVE>/Blackmore_Technology_Group\Software Development\HUNT_AR\HuntAR_v4.3.0\outputs\verification_v24.json
+passed True tests 371 checks 36

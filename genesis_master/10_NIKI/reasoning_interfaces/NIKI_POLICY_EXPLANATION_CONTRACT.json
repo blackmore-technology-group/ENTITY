@@ -1,0 +1,14 @@
+{
+  "schema": "niki-policy-explanation-contract-v1",
+  "owner": "NIKI",
+  "authority_owner": "ENTITY",
+  "purpose": "human-readable explanation of authoritative ENTITY rights, policy, contract and evidence projections",
+  "questions": ["WHO_CAN_USE", "PURPOSE", "EXPIRY", "PRICE", "AI_TRAINING", "SUBLICENSE", "REVOCATION_EFFECT", "PLATFORM_RIGHTS", "DENIAL_REASON", "CLAIM_EVIDENCE"],
+  "invariants": [
+    "unknown authoritative state is reported as UNKNOWN",
+    "NIKI does not adjudicate legal ownership",
+    "NIKI does not invent platform terms",
+    "explanations cite projected evidence identifiers when supplied",
+    "explanation is not an authorization decision"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "core_aggregate_hash_unchanged": true,
+    "core_file_count_unchanged": true,
+    "module_present": true,
+    "schema_present": true,
+    "sdk_tests_9_of_9": true
+  },
+  "claim": "The additive BTG Application SDK strengthens application-origin provenance/data capture without modifying the pre-existing critical ENTITY core implementation set or changing sovereign/rights/economic semantics.",
+  "core_invariance": {
+    "after_sha256": "eb5b05b6e76bd143472e156cc9552dddc0dd2fbc46ff58f7db9c886e2e1aa9fe",
+    "before_sha256": "eb5b05b6e76bd143472e156cc9552dddc0dd2fbc46ff58f7db9c886e2e1aa9fe",
+    "source_file_count": 47
+  },
+  "evidence_sha256": "f29ce1587d69b838d555d5da5b058ec55735078eb87f22447c371495c703ac98",
+  "generated_at_ms": 1789660321554,
+  "implementation": {
+    "module_sha256": "7c2a88518891a1907a90863f768295eb524a3bf2f39e42844aa680f0176ccbc4",
+    "schema_sha256": "6a9ff7673d3f75a64e69341ae27b5bd71b766d6dedca79da5b3599b56a9490e5"
+  },
+  "limitations": [],
+  "preserved_invariants": [
+    "registration is not ownership",
+    "provenance is not rights or truth",
+    "rights require explicit evidence basis",
+    "rights claims are not independently verified by claimant",
+    "application authorization is default deny",
+    "raw content is not required in ledger envelopes",
+    "application events cannot bypass canonical rights/consent/licence/settlement/capital/economic subsystems",
+    "application Entity is distinct from BTG organization Entity",
+    "provider/storage possession does not escalate sovereign authority"
+  ],
+  "pytest": {
+    "file_sha256": "c4b105ef9cd7ca7ea8c2e0a0bc3384a3d6a73be9aceda78c92581259fb03b181",
+    "passed": 9
+  },
+  "qualification_complete": true,
+  "schema": "entity-btg-application-sdk-qualification-v1",
+  "status": "PASS"
+}

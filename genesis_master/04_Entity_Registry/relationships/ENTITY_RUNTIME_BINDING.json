@@ -1,0 +1,37 @@
+{
+  "abi_version": "1",
+  "authorities": {
+    "relationship_identity": {
+      "exports": [
+        "RelationshipIdentityAuthority"
+      ],
+      "implementation_sha256": "65d9a54997bb8511f1678d5049307853abfd34c048f0eac666dc3a458ba5779f",
+      "python_file": "canonical_relationship_identity.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+          "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+        }
+      ],
+      "status": "READY"
+    },
+    "sovereign_authority_relationships": {
+      "canonical_owner": "04_Entity_Registry\\relationships",
+      "declared_scope": "SERS_ENTITY_003_SECTION_172_PROVIDER_NON_AUTHORITY_AND_REPLACEABILITY",
+      "implementation_sha256": "04f0a1fa085c518e18997f53e4c48ec9cbf58bad89f4099a936c0fb3be97977e",
+      "provider_possession_implies_authority": false,
+      "provider_replaceability": true,
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_SOVEREIGN_AUTHORITY_DOCTRINE_CURRENT.json",
+          "sha256": "e03ff23058ad24b4d575cec5672a9273d36ef5b8d5cb370ed61b11ec532d776e"
+        }
+      ],
+      "status": "READY"
+    }
+  },
+  "implementation_version": "2.2.0-canonical",
+  "requirements_sha256": "a3cba409b3b96f84f43d394ae4a1468279875fe78b69a91d15fab83094a45226",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

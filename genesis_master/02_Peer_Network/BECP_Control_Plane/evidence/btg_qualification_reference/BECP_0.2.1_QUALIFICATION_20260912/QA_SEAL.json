@@ -1,0 +1,10 @@
+{
+  "disposition": "QUALIFIED_PASS",
+  "generated_utc": "2026-09-13T01:04:35.330977+00:00",
+  "hmac_key_location": "runtime/secrets/qa_seal.key (not included in evidence package)",
+  "manifest_hmac_sha256": "c05248513961b9b5c3ab9dcc8d1e53b9de43386b42b98b62b7bc22422e40983f",
+  "manifest_sha256": "cfc20f97606708a01654f22839d6c54555a7b1518632276cc90ca6a2702d5284",
+  "qa_seal_key_id_sha256_prefix": "511522d3492c9250",
+  "qualification_id": "BECP_0.2.1_QUALIFICATION_20260912",
+  "schema_version": 1
+}

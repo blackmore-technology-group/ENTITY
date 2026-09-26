@@ -1,0 +1,32 @@
+{
+  "actual_30_day_qualification_completed": false,
+  "authority_target": "Rust v0.44 source-hardened target (uncompiled here); compiled native C framing/hash-chain reference; Python bounded reference runtime",
+  "baseline": "0.42.0.dev2",
+  "classification": "Complete Bounded Artificial Living Data Universe / Production Finalization Required",
+  "finalization_status": "source complete for bounded reference; external production qualification outstanding",
+  "hardware_hsm_kms_qualified": false,
+  "intermediate_gap_closure": "0.43.0.dev1",
+  "lineage": [
+    "0.40",
+    "0.41",
+    "0.42",
+    "0.43",
+    "0.44",
+    "0.45",
+    "0.46",
+    "0.47",
+    "0.48",
+    "0.49",
+    "0.50"
+  ],
+  "mechanical_source_audit_completed": true,
+  "name": "ADAM v0.50.1 Final Bounded Artificial Living Data Universe",
+  "parent_release": "0.50.1.dev3",
+  "production_certified": false,
+  "r4_correction": "production soak clock begins after cluster initialization; smoke qualification uses measured remaining duration rather than a fixed host-speed assumption",
+  "rust_compiled_in_this_environment": false,
+  "source_security_remediations": 16,
+  "version": "0.50.1.dev4",
+  "windows_portability_qualification": "R4: forced spawn semantics plus machine-speed-independent production-soak gate; Windows-host rerun required",
+  "windows_process_start_method": "spawn by default; explicit supported override only"
+}

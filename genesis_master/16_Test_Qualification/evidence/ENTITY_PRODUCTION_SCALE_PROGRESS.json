@@ -1,0 +1,9 @@
+{
+  "assets": 0,
+  "elapsed_seconds": 6.99,
+  "extra": {},
+  "free_gb": 1585.548,
+  "ledger_events": 0,
+  "phase": "runtime_initialized",
+  "schema": "entity-production-scale-progress-v1"
+}

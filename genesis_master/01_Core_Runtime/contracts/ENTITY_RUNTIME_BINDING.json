@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "contracts",
+  "exports": [
+    "ContractLicensingEngine"
+  ],
+  "implementation_sha256": "ff8ab5e982ad549475f71bfa28677fdf0fee20b81c37b370c0026030c0187872",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_contracts.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CONTRACTS_USAGE_CURRENT.json",
+      "sha256": "0d880502a0094e50ef98ed43b43cb9cb5007f920d488489f59a0866942008216"
+    }
+  ],
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

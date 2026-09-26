@@ -1,0 +1,37 @@
+{
+  "abi_version": "1",
+  "authorities": {
+    "federation": {
+      "exports": [
+        "FederationTrustStore"
+      ],
+      "implementation_sha256": "56f4f4633cb7cd393fe9c3b19923b265d721f925ff0911c1b67fd4ef3b2f0b32",
+      "python_file": "canonical_peer_network.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+          "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+        }
+      ],
+      "status": "READY"
+    },
+    "transparency_witness": {
+      "exports": [
+        "TransparencyWitness"
+      ],
+      "implementation_sha256": "56f4f4633cb7cd393fe9c3b19923b265d721f925ff0911c1b67fd4ef3b2f0b32",
+      "python_file": "canonical_peer_network.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+          "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+        }
+      ],
+      "status": "READY"
+    }
+  },
+  "implementation_version": "2.2.0-canonical",
+  "requirements_sha256": "a32965633a03800b0f651e3274a1aec3538025eb2bee744d01ff6c2c243b7c7e",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

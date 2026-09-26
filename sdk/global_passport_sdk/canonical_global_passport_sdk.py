@@ -28,16 +28,16 @@ class EntityGlobalPassportSDK:
             text=str(item); refs.append(text if text.startswith("entity-profile:") else self.profile_ref(text))
         return self.profiles.resolve_stack(refs)
     def register_file(self,path,controller_entity_id:str,*profiles:str,logical_path:str|None=None,
-                      previous_object_id:str|None=None,version:str="1.0")->dict:
+                      previous_object_id:str|None=None,version:str="1.0",btdu_binding:dict|None=None)->dict:
         stack=self.compose_profiles(*profiles)
         result=self.ingestion.ingest_file(path,controller_entity_id,stack["profile_refs"],logical_path=logical_path,
-                                          previous_object_id=previous_object_id,version=version)
+                                          previous_object_id=previous_object_id,version=version,btdu_binding=btdu_binding)
         return {"object_id":result["object"]["object_id"],"content_sha256":result["object"]["content_sha256"],
                 "rights_passport_id":result["rights_passport"]["passport_id"],
                 "global_passport_id":result["global_passport"]["passport_id"],
                 "global_passport_sha256":result["global_passport"]["body_sha256"],
                 "evidence_id":result["evidence"]["evidence_id"],"profile_refs":stack["profile_refs"],
-                "protocol_origin":result["global_passport"].get("protocol_origin"),
+                "protocol_origin":result["global_passport"].get("protocol_origin"),"btdu_binding":result["global_passport"].get("btdu_binding"),
                 "custody_is_not_authority":True,"economic_value_invented":False}
 
     def package_plan(self,package:str,config:dict,asset_kind:str)->dict:
@@ -55,7 +55,7 @@ class EntityGlobalPassportSDK:
         return {"deployment_plan":plan,"object_id":result["object"]["object_id"],
                 "global_passport_id":result["global_passport"]["passport_id"],
                 "content_sha256":result["object"]["content_sha256"],
-                "protocol_origin":result["global_passport"].get("protocol_origin"),"economic_value_invented":False}
+                "protocol_origin":result["global_passport"].get("protocol_origin"),"btdu_binding":result["global_passport"].get("btdu_binding"),"economic_value_invented":False}
     def verify_passport(self,passport_or_id)->dict:
         passport=self.passports.get(passport_or_id) if isinstance(passport_or_id,str) else passport_or_id
         return self.passports.verify(passport)
@@ -65,5 +65,5 @@ class EntityGlobalPassportSDK:
         return {"schema":"entity-v3-global-passport-sdk-status-v1","sdk_does_not_create_authority":True,
                 "profile_is_not_regulatory_compliance":True,"external_standards_are_mapped_not_redefined":True,
                 "continuous_provenance_supported":True,"industry_packages_supported":True,
-                "protocol_origin_lineage_supported":True,"user_asset_provenance_separate":True,
+                "protocol_origin_lineage_supported":True,"btdu_binding_supported":True,"user_asset_provenance_separate":True,
                 "developer_configures_not_redesigns":True,"built_in_profile_aliases":sorted(PROFILE_ALIASES)}

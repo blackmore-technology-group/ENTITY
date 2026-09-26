@@ -205,4 +205,37 @@ class V34GlobalPassportTests(unittest.TestCase):
         data=__import__("json").loads(registry_path.read_text(encoding="utf-8"))
         self.assertEqual(len(data["packages"]),6); self.assertTrue(data["one_global_passport"])
 
+
+    def test_34_v342_btdu_binding_is_additive_and_verified(self):
+        rp=self._rights_passport()
+        binding={"schema":"entity-btdu-passport-binding-v1","btdu_version":"3.4.2","universe_root":"a"*64,
+                 "object_ref":"btdu-object:"+"b"*64,"object_atom_id":"c"*64,"content_sha256":"d"*64,
+                 "sovereign_entity_id":self.owner,"controller_entity_id":self.owner,"source_entity_id":self.owner,
+                 "rights_holder_entity_id":self.owner,"protocol_origin_is_not_asset_provenance":True,
+                 "topology_does_not_create_ownership":True,"topology_does_not_create_economic_entitlement":True,
+                 "automatic_protocol_royalty_bps":0}
+        gp=self.globals.issue(self.owner,self.dco["object_id"],rp["passport_id"],["entity-profile:global@1.0"],
+                              btdu_binding=binding,version="btdu-1")
+        self.assertTrue(self.globals.verify(gp)["valid"]); self.assertEqual(gp["btdu_binding"]["content_sha256"],"d"*64)
+        tampered=dict(gp); tampered["btdu_binding"]=dict(gp["btdu_binding"],topology_does_not_create_ownership=False)
+        self.assertFalse(self.globals.verify(tampered)["valid"])
+        status=sdk_mod.EntityGlobalPassportSDK.capability_status(); self.assertTrue(status["btdu_binding_supported"])
+
+
+    def test_35_v341_passport_survives_v342_btdu_migration_without_rewrite(self):
+        rp=self._rights_passport()
+        old=self.globals.issue(self.owner,self.dco["object_id"],rp["passport_id"],["entity-profile:global@1.0"],version="3.4.1")
+        old_sha=old["body_sha256"]
+        binding={"schema":"entity-btdu-passport-binding-v1","btdu_version":"3.4.2","universe_root":"e"*64,
+                 "object_ref":"btdu-object:"+"f"*64,"object_atom_id":"a"*64,"content_sha256":"b"*64,
+                 "sovereign_entity_id":self.owner,"controller_entity_id":self.owner,"source_entity_id":self.owner,
+                 "rights_holder_entity_id":self.owner,"protocol_origin_is_not_asset_provenance":True,
+                 "topology_does_not_create_ownership":True,"topology_does_not_create_economic_entitlement":True,
+                 "automatic_protocol_royalty_bps":0}
+        new=self.globals.issue(self.owner,self.dco["object_id"],rp["passport_id"],["entity-profile:global@1.0"],version="3.4.2",btdu_binding=binding)
+        self.assertEqual(self.globals.get(old["passport_id"])["body_sha256"],old_sha)
+        self.assertTrue(self.globals.verify(old)["valid"]); self.assertTrue(self.globals.verify(new)["valid"])
+        self.assertNotIn("btdu_binding",old); self.assertEqual(new["btdu_binding"]["btdu_version"],"3.4.2")
+        self.assertEqual(old["controller_entity_id"],new["controller_entity_id"]); self.assertEqual(old["object_id"],new["object_id"])
+
 if __name__=="__main__": unittest.main()

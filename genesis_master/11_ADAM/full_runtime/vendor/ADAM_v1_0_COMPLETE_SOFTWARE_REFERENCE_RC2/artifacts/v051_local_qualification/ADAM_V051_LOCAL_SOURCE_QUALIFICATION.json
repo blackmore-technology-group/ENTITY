@@ -1,0 +1,99 @@
+{
+  "claim": "Local source qualification passed; Rust compilation and promotion gates remain external.",
+  "classification": "RUST_AUTHORITY_SOURCE_QUALIFICATION_CANDIDATE",
+  "format": "ADAM-v0.51-local-source-qualification-v1",
+  "integrated_logic": {
+    "failed": 0,
+    "passed": 9
+  },
+  "r4_regression": {
+    "failed": 0,
+    "logs_verified": 21,
+    "passed": 117
+  },
+  "rust_execution": {
+    "cargo_available": false,
+    "cargo_lock_present": false,
+    "compiled": false,
+    "rustc_available": false
+  },
+  "source_audit": {
+    "blocking_findings": 0,
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "steps": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "tools_v051",
+        "tests_v051"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/v051_local_qualification/compileall.log",
+      "name": "compileall",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "tools_v051/generate_conformance_vectors.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/v051_local_qualification/conformance.log",
+      "name": "regenerate_conformance",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "tools_v051/audit_v051_source.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/v051_local_qualification/source_audit.log",
+      "name": "source_audit",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests_v051"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/v051_local_qualification/v051_tests.log",
+      "name": "v051_source_adversarial",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "tools_v051/verify_r4_oracle_evidence.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/v051_local_qualification/r4_evidence.log",
+      "name": "r4_evidence_verification",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "run_v50_full_audit.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/v051_local_qualification/integrated_audit.log",
+      "name": "inherited_integrated_audit",
+      "status": "PASS"
+    }
+  ],
+  "v051_source_tests": {
+    "failed": 0,
+    "passed": 8
+  },
+  "version": "0.51.0.dev1"
+}

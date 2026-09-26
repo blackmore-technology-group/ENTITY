@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "capital_instrument_classification",
+  "exports": [
+    "InstrumentClassificationRegistry"
+  ],
+  "implementation_sha256": "a1d84c7be24c8b3c7f2883b4387fc176616cad604537e71efdce9a2754ed4bb3",
+  "implementation_version": "2.2.0",
+  "python_file": "canonical_instrument_classification.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+      "sha256": "1918775d0a3484ccbe7e77023bb2aaa2e2fa9d2c1b416bc936ee9747c771149f"
+    }
+  ],
+  "requirements_sha256": "4bd1cc7fd52f37ffc6e32b2a8b72787e58d47d4a247fd10685a8d1bdff83e87e",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

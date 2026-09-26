@@ -1,0 +1,45 @@
+{
+    "authoritative_baseline":  {
+                                   "id":  "SERS-ENTITY-003",
+                                   "sha256":  "4efe4372d2e815fccf2720c1446b2b0423749c24f2d05819283babfe94304cde",
+                                   "version":  "v2.2"
+                               },
+    "external_release_status":  "BLOCKED_PENDING_SOVEREIGN_DOMAIN_EXTERNAL",
+    "generated_at_ms":  1789682175344,
+    "master_rtm":  {
+                       "full_internal_requirements_closed":  true,
+                       "master_source_mirrored":  true,
+                       "path":  "16_Test_Qualification/traceability/MASTER_RTM.json",
+                       "qualified":  1997,
+                       "requirements":  1997,
+                       "sha256":  "c53fcfd9a11064241d47c39a2d5da08fcac9d36ea3c81d71974f9c125f31ea4f"
+                   },
+    "protocol_freeze":  "00_Governance/protocol/ENTITY_PROTOCOL_1_0_FREEZE.json",
+    "release_gate":  {
+                         "internal_passed":  33,
+                         "internal_total":  33,
+                         "passed":  33,
+                         "path":  "17_Release/manifests/ENTITY_10_10_RELEASE_GATE_CURRENT.json",
+                         "sha256":  "64b855799986d285e3bbc314dbb2852817253276e7ca1e7f6e2f9259bae338e1",
+                         "status":  "BLOCKED",
+                         "total":  34
+                     },
+    "schema":  "entity-canonical-state-v1",
+    "sovereign_domain_baseline":  {
+                                      "id":  "SERS-ENTITY-DOMAIN-001",
+                                      "sha256":  "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f",
+                                      "version":  "v1.0"
+                                  },
+    "status":  "CURRENT",
+    "supersession_policy":  "Older evidence remains historical evidence; CURRENT artifacts control present claims. Historical files are never silently rewritten.",
+    "product_candidate":  {
+                              "release_id":  "ENTITY_1.0.0_RC1_WINDOWS_SIGNED",
+                              "version":  "1.0.0-rc1",
+                              "platform":  "Windows x64",
+                              "status":  "INTERNALLY_QUALIFIED_SIGNED_EXTERNAL_VALIDATION_PENDING",
+                              "evidence_path":  "16_Test_Qualification/evidence/ENTITY_WINDOWS_PRODUCT_BUILD_CURRENT.json",
+                              "evidence_sha256":  "1f581c33652e895c2e0bfa1ccccc991ded61f4cd740f5ad36a02bb3c7d8fca6f",
+                              "release_path":  "17_Release/packages/ENTITY_1.0.0_RC1_WINDOWS_SIGNED",
+                              "installer_sha256":  "3e4d23acb4c5510e8d2d5a90f02843c8479f86aa86c4e6c90e652562c72ca317"
+                          }
+}

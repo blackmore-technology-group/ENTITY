@@ -1,0 +1,10 @@
+{
+  "expected_reason": "root_domain_binding",
+  "expected_valid": false,
+  "material": {
+    "domain_id": "domain1-51186588bab8349f5f7a5e8b294697c6ef3444bc",
+    "entity_root": "ent2-attacker"
+  },
+  "name": "domain_restore",
+  "schema": "entity-domain-test-vector-v1"
+}

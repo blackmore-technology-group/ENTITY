@@ -1,0 +1,36 @@
+{"device":"DEMO-1","protocol":"ADAM-IOT-1","provenance":"dcf5d55c0d0da62e766541456b086b16f66de1eb156a5fe4f761c6a6e5831833","telemetry":{"device_id":"DEMO-1","telemetry":{"temperature":21.5}}}
+{
+  "spawn_id": "48f39a1c43b4f0a6b3f62e17d637fcd058be3e96a72514a4f2650d02728a4c78",
+  "artifact_id": "cb32b4f82e4461a0d5b9129d5d9599bdb93faf84fbee9dafe0323d907abb04fd",
+  "application_id": "demo_iot",
+  "target_format": "application/x-adam-iot-telemetry+json",
+  "content_sha256": "fe0ea74b437e60df83449712bb38aed935f3c6fd5f51544df184cf91ce44806b",
+  "bytes": 191,
+  "materialized_path": null,
+  "authoritative": false,
+  "universe_root_before": "8bc3a2b078a0b65f8bd8756bac4183e19d99abf405daf153897c9167b53493e2",
+  "universe_root_after": "8bc3a2b078a0b65f8bd8756bac4183e19d99abf405daf153897c9167b53493e2",
+  "created_ns": 1785866719229477480,
+  "released": false
+}
+{
+  "pass": true,
+  "artifacts": 1,
+  "recipes": 1,
+  "universe": {
+    "pass": true,
+    "sequence": 2,
+    "root_hash": "8bc3a2b078a0b65f8bd8756bac4183e19d99abf405daf153897c9167b53493e2",
+    "atoms": 26,
+    "bonds": 4,
+    "compounds": 6,
+    "dangling": [],
+    "bad_compounds": [],
+    "journal_bytes": 10110,
+    "recovered_torn_bytes": 0,
+    "checkpoint_sequence": 0,
+    "checkpoint_root": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "recreation_failures": [],
+  "classification": "living recreation fabric; materializations are disposable"
+}

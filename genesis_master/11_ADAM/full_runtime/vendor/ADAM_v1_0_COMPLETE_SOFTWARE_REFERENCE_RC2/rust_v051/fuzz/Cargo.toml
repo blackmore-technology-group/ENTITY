@@ -1,0 +1,118 @@
+[package]
+name = "adam-v051-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+adam-v051-kernel = { path = "../crates/adam-v051-kernel" }
+libfuzzer-sys = "0.4"
+serde_json = "1.0"
+
+[[bin]]
+name = "canonical_decoder"
+path = "fuzz_targets/canonical_decoder.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "atom_parser"
+path = "fuzz_targets/atom_parser.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "bond_parser"
+path = "fuzz_targets/bond_parser.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "hyperbond_parser"
+path = "fuzz_targets/hyperbond_parser.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "reaction_parser"
+path = "fuzz_targets/reaction_parser.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "proof_verifier"
+path = "fuzz_targets/proof_verifier.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "quorum_certificate_verifier"
+path = "fuzz_targets/quorum_certificate_verifier.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "witness_chain_verifier"
+path = "fuzz_targets/witness_chain_verifier.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "event_log_replay"
+path = "fuzz_targets/event_log_replay.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "checkpoint_restoration"
+path = "fuzz_targets/checkpoint_restoration.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "application_manifest_parser"
+path = "fuzz_targets/application_manifest_parser.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "inference_authorization_parser"
+path = "fuzz_targets/inference_authorization_parser.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "novelty_closure_exchange"
+path = "fuzz_targets/novelty_closure_exchange.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "truncated_journal_records"
+path = "fuzz_targets/truncated_journal_records.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "corrupted_authority_records"
+path = "fuzz_targets/corrupted_authority_records.rs"
+test = false
+doc = false
+bench = false

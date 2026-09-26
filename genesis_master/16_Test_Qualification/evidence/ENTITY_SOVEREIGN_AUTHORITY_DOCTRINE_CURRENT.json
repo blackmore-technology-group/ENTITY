@@ -1,0 +1,28 @@
+{
+  "evidence_sha256": "4cd56d523737866e0f97be5d27672983d97a528e0464f0f7c15042cb4cc84e9d",
+  "excluded_scope": [
+    "legal adjudication of ownership",
+    "remote deletion guarantees outside available evidence",
+    "physical destruction of former provider copies"
+  ],
+  "generated_at_ms": 1789570312349,
+  "implementation_sha256": "04f0a1fa085c518e18997f53e4c48ec9cbf58bad89f4099a936c0fb3be97977e",
+  "invariants": [
+    "custody is not authority",
+    "storage is not ownership",
+    "processing is not consent",
+    "access is not a licence",
+    "economic participation requires explicit basis",
+    "provider authority is explicit and revocable",
+    "provider replacement preserves sovereign Entity root",
+    "provider replacement preserves sovereign authority semantics"
+  ],
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": ".                                                                        [100%]\n1 passed in 0.68s",
+  "qualification_complete": true,
+  "requirements_sha256": "e28f8530653634013711df3406f031e2fa8a3d33e854d17d99a78cfbdf1ef116",
+  "schema": "entity-sovereign-authority-doctrine-qualification-v1",
+  "scope": "SERS_ENTITY_003_SECTION_172_PROVIDER_NON_AUTHORITY_AND_REPLACEABILITY",
+  "status": "PASS"
+}

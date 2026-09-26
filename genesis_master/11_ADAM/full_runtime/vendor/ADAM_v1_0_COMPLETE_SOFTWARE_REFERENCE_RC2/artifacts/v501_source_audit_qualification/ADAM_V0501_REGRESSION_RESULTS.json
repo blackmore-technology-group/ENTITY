@@ -1,0 +1,226 @@
+{
+  "compileall_passed": true,
+  "failed": 0,
+  "format": "ADAM-v0.50.1-regression-qualification",
+  "groups": [
+    {
+      "expected": 12,
+      "files": [
+        {
+          "elapsed_seconds": 3.168635,
+          "group": "v0501_source_audit",
+          "log": "artifacts/v501_source_audit_qualification/v0501_source_audit__tests_source_audit_test_source_hardening.log",
+          "log_sha256": "42e1e3445c712f9e97efa151f0dd122e04a93cce5ee370c285c44fc49982310e",
+          "passed": 7,
+          "path": "tests_source_audit/test_source_hardening.py"
+        },
+        {
+          "elapsed_seconds": 5.340483,
+          "group": "v0501_source_audit",
+          "log": "artifacts/v501_source_audit_qualification/v0501_source_audit__tests_source_audit_test_windows_portability.log",
+          "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+          "passed": 5,
+          "path": "tests_source_audit/test_windows_portability.py"
+        }
+      ],
+      "name": "v0501_source_audit",
+      "passed": 12,
+      "status": "PASS"
+    },
+    {
+      "expected": 47,
+      "files": [
+        {
+          "elapsed_seconds": 4.682185,
+          "group": "v044_v050",
+          "log": "artifacts/v501_source_audit_qualification/v044_v050__tests_v44_v50_test_v44_physics.log",
+          "log_sha256": "cf0b4334edc38784cb5c566ff581dc577c4525620ec485d15dba7cb8f2cce28b",
+          "passed": 14,
+          "path": "tests_v44_v50/test_v44_physics.py"
+        },
+        {
+          "elapsed_seconds": 2.54871,
+          "group": "v044_v050",
+          "log": "artifacts/v501_source_audit_qualification/v044_v050__tests_v44_v50_test_v45_cognition.log",
+          "log_sha256": "42e1e3445c712f9e97efa151f0dd122e04a93cce5ee370c285c44fc49982310e",
+          "passed": 7,
+          "path": "tests_v44_v50/test_v45_cognition.py"
+        },
+        {
+          "elapsed_seconds": 2.525819,
+          "group": "v044_v050",
+          "log": "artifacts/v501_source_audit_qualification/v044_v050__tests_v44_v50_test_v46_apps.log",
+          "log_sha256": "a35793c43ba2650e6ec3f1f5c4884993377fe998f34097ffffffb9eeca4fdea0",
+          "passed": 4,
+          "path": "tests_v44_v50/test_v46_apps.py"
+        },
+        {
+          "elapsed_seconds": 2.569959,
+          "group": "v044_v050",
+          "log": "artifacts/v501_source_audit_qualification/v044_v050__tests_v44_v50_test_v47_world.log",
+          "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+          "passed": 5,
+          "path": "tests_v44_v50/test_v47_world.py"
+        },
+        {
+          "elapsed_seconds": 3.106081,
+          "group": "v044_v050",
+          "log": "artifacts/v501_source_audit_qualification/v044_v050__tests_v44_v50_test_v48_embodied.log",
+          "log_sha256": "a35793c43ba2650e6ec3f1f5c4884993377fe998f34097ffffffb9eeca4fdea0",
+          "passed": 4,
+          "path": "tests_v44_v50/test_v48_embodied.py"
+        },
+        {
+          "elapsed_seconds": 2.632046,
+          "group": "v044_v050",
+          "log": "artifacts/v501_source_audit_qualification/v044_v050__tests_v44_v50_test_v49_evolution.log",
+          "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+          "passed": 5,
+          "path": "tests_v44_v50/test_v49_evolution.py"
+        },
+        {
+          "elapsed_seconds": 2.55751,
+          "group": "v044_v050",
+          "log": "artifacts/v501_source_audit_qualification/v044_v050__tests_v44_v50_test_v50_security_runtime.log",
+          "log_sha256": "5ea008c440de7c56e2067dea9861a05eb8fc90e916b48ea88a6d949358c01a8f",
+          "passed": 8,
+          "path": "tests_v44_v50/test_v50_security_runtime.py"
+        }
+      ],
+      "name": "v044_v050",
+      "passed": 47,
+      "status": "PASS"
+    },
+    {
+      "expected": 9,
+      "files": [
+        {
+          "elapsed_seconds": 14.78475,
+          "group": "v043_gap_closure",
+          "log": "artifacts/v501_source_audit_qualification/v043_gap_closure__tests_v43_test_production_soak.log",
+          "log_sha256": "301b7230cbff5f5fb1473cc9d29f5b177b11ac8ffd11c49b82e0e48d8488df45",
+          "passed": 2,
+          "path": "tests_v43/test_production_soak.py"
+        },
+        {
+          "elapsed_seconds": 3.77809,
+          "group": "v043_gap_closure",
+          "log": "artifacts/v501_source_audit_qualification/v043_gap_closure__tests_v43_test_semantic_temporal.log",
+          "log_sha256": "301b7230cbff5f5fb1473cc9d29f5b177b11ac8ffd11c49b82e0e48d8488df45",
+          "passed": 2,
+          "path": "tests_v43/test_semantic_temporal.py"
+        },
+        {
+          "elapsed_seconds": 13.053553,
+          "group": "v043_gap_closure",
+          "log": "artifacts/v501_source_audit_qualification/v043_gap_closure__tests_v43_test_theorem_custody_native.log",
+          "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+          "passed": 5,
+          "path": "tests_v43/test_theorem_custody_native.py"
+        }
+      ],
+      "name": "v043_gap_closure",
+      "passed": 9,
+      "status": "PASS"
+    },
+    {
+      "expected": 13,
+      "files": [
+        {
+          "elapsed_seconds": 3.182562,
+          "group": "v042_core",
+          "log": "artifacts/v501_source_audit_qualification/v042_core__tests_test_v42_distributed.log",
+          "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+          "passed": 5,
+          "path": "tests/test_v42_distributed.py"
+        },
+        {
+          "elapsed_seconds": 2.631983,
+          "group": "v042_core",
+          "log": "artifacts/v501_source_audit_qualification/v042_core__tests_test_v42_perception_time_formal.log",
+          "log_sha256": "de911d5bb9ee4492fcff6e770ddfd057cfb783503fb74b6943a01ca2a4874a69",
+          "passed": 3,
+          "path": "tests/test_v42_perception_time_formal.py"
+        },
+        {
+          "elapsed_seconds": 3.633381,
+          "group": "v042_core",
+          "log": "artifacts/v501_source_audit_qualification/v042_core__tests_test_v42_reactions_soak.log",
+          "log_sha256": "301b7230cbff5f5fb1473cc9d29f5b177b11ac8ffd11c49b82e0e48d8488df45",
+          "passed": 2,
+          "path": "tests/test_v42_reactions_soak.py"
+        },
+        {
+          "elapsed_seconds": 10.459461,
+          "group": "v042_core",
+          "log": "artifacts/v501_source_audit_qualification/v042_core__tests_test_v42_o1_chemistry_query.log",
+          "log_sha256": "de911d5bb9ee4492fcff6e770ddfd057cfb783503fb74b6943a01ca2a4874a69",
+          "passed": 3,
+          "path": "tests/test_v42_o1_chemistry_query.py"
+        }
+      ],
+      "name": "v042_core",
+      "passed": 13,
+      "status": "PASS"
+    },
+    {
+      "expected": 23,
+      "files": [
+        {
+          "elapsed_seconds": 6.27231,
+          "group": "v042_recreation_security",
+          "log": "artifacts/v501_source_audit_qualification/v042_recreation_security__tests_test_v42_security.log",
+          "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+          "passed": 5,
+          "path": "tests/test_v42_security.py"
+        },
+        {
+          "elapsed_seconds": 3.072067,
+          "group": "v042_recreation_security",
+          "log": "artifacts/v501_source_audit_qualification/v042_recreation_security__tests_test_v42_recreation.log",
+          "log_sha256": "d6e45e475d3a32f138662b1442b504f994ae60bc0aaae73b53d2e1081194b771",
+          "passed": 18,
+          "path": "tests/test_v42_recreation.py"
+        }
+      ],
+      "name": "v042_recreation_security",
+      "passed": 23,
+      "status": "PASS"
+    },
+    {
+      "expected": 13,
+      "files": [
+        {
+          "elapsed_seconds": 2.560006,
+          "group": "v040_v041",
+          "log": "artifacts/v501_source_audit_qualification/v040_v041__tests_test_v40_compat.log",
+          "log_sha256": "de911d5bb9ee4492fcff6e770ddfd057cfb783503fb74b6943a01ca2a4874a69",
+          "passed": 3,
+          "path": "tests/test_v40_compat.py"
+        },
+        {
+          "elapsed_seconds": 2.867527,
+          "group": "v040_v041",
+          "log": "artifacts/v501_source_audit_qualification/v040_v041__tests_test_v41_universe.log",
+          "log_sha256": "42e1e3445c712f9e97efa151f0dd122e04a93cce5ee370c285c44fc49982310e",
+          "passed": 7,
+          "path": "tests/test_v41_universe.py"
+        },
+        {
+          "elapsed_seconds": 3.766676,
+          "group": "v040_v041",
+          "log": "artifacts/v501_source_audit_qualification/v040_v041__tests_test_v41_adversarial.log",
+          "log_sha256": "de911d5bb9ee4492fcff6e770ddfd057cfb783503fb74b6943a01ca2a4874a69",
+          "passed": 3,
+          "path": "tests/test_v41_adversarial.py"
+        }
+      ],
+      "name": "v040_v041",
+      "passed": 13,
+      "status": "PASS"
+    }
+  ],
+  "passed": 117,
+  "source_audit_sha256": "4792a6253049813d1439c2fed68e5b94c897ec615fc9112b9bdfaad44621b384",
+  "version": "0.50.1.dev4"
+}

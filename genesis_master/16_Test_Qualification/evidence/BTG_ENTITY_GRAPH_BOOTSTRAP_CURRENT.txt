@@ -1,0 +1,128 @@
+{
+  "status": "READY",
+  "state_root": "<LOCAL_DRIVE>/BTG_ENTITY_PRODUCTION_STATE",
+  "entities": {
+    "shawn": {
+      "display_name": "Shawn Blackmore",
+      "alias": "shawn.blackmore.entity",
+      "entity_id": "ent2-6eoiiztjyhmyh2tbr5psmofcduwvjledubhoiqwo6mjfoqkn6ica",
+      "domain_id": "domain1-6bb8a427c2b9a5902fdf191395cd28a071d23030",
+      "alias_binding_sha256": "c0c43d725684fdd92a90f53fafc0e8dbdf5790970881e61a38fbbb28cadc2371",
+      "collision_safe_display": "shawn.blackmore.entity~c0c43d725684"
+    },
+    "nicole": {
+      "display_name": "Nicole Best",
+      "alias": "nicole.best.entity",
+      "entity_id": "ent2-g6kxs2xn6wj6vojicfejtplzyklzft3hioti3myrss5tcxduoz5q",
+      "domain_id": "domain1-81d5d8d412c9696d99116e2aad632f29b66c902e",
+      "alias_binding_sha256": "9d3182425f61c3e65ddf6ce10c8d4aace05e8c8595e653a7801f52dc12eee3c3",
+      "collision_safe_display": "nicole.best.entity~9d3182425f61"
+    },
+    "btg": {
+      "display_name": "Blackmore Technology Group Limited",
+      "alias": "btg.entity",
+      "entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+      "domain_id": "domain1-b85be1c4546dcc0be728cebff6171045e5184d8e",
+      "alias_binding_sha256": "c85fa516f979ba737bd0817dd7a69923809cb0f1d353b8a4c5027ce42bb54c64",
+      "collision_safe_display": "btg.entity~c85fa516f979"
+    },
+    "entity": {
+      "display_name": "ENTITY",
+      "alias": "entity.entity",
+      "entity_id": "ent2-m3nofxtv3zwldhwuonw3h67hqjh2zambrhj4kaaulncpt4amkcua",
+      "domain_id": "domain1-dce5459e8aea8f41d22f65950cd469456f96c1e3",
+      "alias_binding_sha256": "bdc17273ff6130ca57f02ad648419a2d10e888f4a6017d4a22fb2faee86c8548",
+      "collision_safe_display": "entity.entity~bdc17273ff61"
+    },
+    "huntar": {
+      "display_name": "HUNTAR",
+      "alias": "huntar.entity",
+      "entity_id": "ent2-vkesuqie2o5ldzvon6zro2c5rilor4u6x5lsqrrsw5ypxni73qba",
+      "domain_id": "domain1-b409815387f97d5189f0b387d2384d4eb2e45aa7",
+      "alias_binding_sha256": "8566b4de33c53c19a6c68f6bab30c2a8ae0ee1548070a13282969dbb235d3800",
+      "collision_safe_display": "huntar.entity~8566b4de33c5"
+    },
+    "searchar": {
+      "display_name": "SEARCHAR",
+      "alias": "searchar.entity",
+      "entity_id": "ent2-ruiyq6kfvzgjisic7ndo6r4saojc35s5rxqxtd42ddpkexmshs6a",
+      "domain_id": "domain1-d24cbf9e61b9229d7abf964c843fbef751368312",
+      "alias_binding_sha256": "6ce36bc17b36baf6eb4eb0a83f1cfdf32f88e4fad353f341e99ad24f513efb8a",
+      "collision_safe_display": "searchar.entity~6ce36bc17b36"
+    },
+    "hikear": {
+      "display_name": "HIKEAR",
+      "alias": "hikear.entity",
+      "entity_id": "ent2-427vybtr5qa35uf6qwrda75e2gbwqw7wzjxz2yjtciewfgopzr7a",
+      "domain_id": "domain1-aecdd3bd1157bad9e48af1642e07dc844da166fc",
+      "alias_binding_sha256": "cf5eee7dd7640a2eb6745167eac1b930b59742d9efabcc268689cb3d30cb85a1",
+      "collision_safe_display": "hikear.entity~cf5eee7dd764"
+    },
+    "niki": {
+      "display_name": "NIKI",
+      "alias": "niki.entity",
+      "entity_id": "ent2-cwvhbzgs5m2dxlleoopfasby3b3nbq4vhu4hovq5xk4jj7opgbqq",
+      "domain_id": "domain1-8b583ab2843c6afbd4041a956a193e48d9fed3c8",
+      "alias_binding_sha256": "50a0eb5523c1e6f2eb227b11f63764f2c28ea912e66b0d4e456bb350dfc5f29b",
+      "collision_safe_display": "niki.entity~50a0eb5523c1"
+    },
+    "bsie": {
+      "display_name": "BSIE",
+      "alias": "bsie.entity",
+      "entity_id": "ent2-hcsi4rxnpch5hless7gtzanj2j3ptmtf2xq4mdfilfblbf56g55q",
+      "domain_id": "domain1-70197025fe2a58525567acb3a8a50c0223157ff7",
+      "alias_binding_sha256": "81e2f6d90c7c4beddff93e460b66b0be4af0057fa3eaacb84037c7fcd3d92653",
+      "collision_safe_display": "bsie.entity~81e2f6d90c7c"
+    },
+    "adam": {
+      "display_name": "ADAM",
+      "alias": "adam.entity",
+      "entity_id": "ent2-ihzsw37ykxrn4njv3c6xtvttqbu5tt7gpdotkz4cg5p4l22lfura",
+      "domain_id": "domain1-19c7adec9fde92d207783794a40c4c9a13a3f4f2",
+      "alias_binding_sha256": "aef1c0a189537595f231e7138e5135b2790d76e1e1dd5bf9dee6b228a0837a4e",
+      "collision_safe_display": "adam.entity~aef1c0a18953"
+    },
+    "becp": {
+      "display_name": "BECP",
+      "alias": "becp.entity",
+      "entity_id": "ent2-rw2tsasrxzmovtjok76t7xep6ngn76za6qwvjn7vgzj64suva3oa",
+      "domain_id": "domain1-f4ceaff85846ca1813050cc4c0f20a42e5a7aba4",
+      "alias_binding_sha256": "f97f6c155ff30735a9c93478d956479736f7889251c030396825e9ec406bf094",
+      "collision_safe_display": "becp.entity~f97f6c155ff3"
+    },
+    "boundarys": {
+      "display_name": "Boundarys Best",
+      "alias": "boundarys.best.entity",
+      "entity_id": "ent2-7vagebjtkzw5i3t6jbuk5ws65xywh63ucserwbqfgmzt7pd2xo5q",
+      "domain_id": "domain1-771cb9d89832e2fd9415c8d07e32afc8cc0322f4",
+      "alias_binding_sha256": "e9fc412249ba4308c93ed42e3605c4c777f84825d5aa271c201b8af008ce5f47",
+      "collision_safe_display": "boundarys.best.entity~e9fc412249ba"
+    },
+    "soapstudio": {
+      "display_name": "Boundarys Best Soap Studio",
+      "alias": "soapstudio.boundarys.best.entity",
+      "entity_id": "ent2-isbeasjuagcyxt7odac5gdckdumuf6t5uccg6jptqqxa6yavitjq",
+      "domain_id": "domain1-e376a2f4933ea586bd54e4a6334f4a8ac214e43b",
+      "alias_binding_sha256": "34d1d64e00abbd7ead7d9411c85770f3434e171c78652c1dec42b2d2bb982fdd",
+      "collision_safe_display": "soapstudio.boundarys.best.entity~34d1d64e00ab"
+    },
+    "formulations": {
+      "display_name": "Boundarys Best Formulations",
+      "alias": "formulations.boundarys.best.entity",
+      "entity_id": "ent2-dti2dsfsgzwl2libxgznejjy7lzeh3a33zbwpe7vd6uzf4yxu5eq",
+      "domain_id": "domain1-81c6917147aa0f0601f9bb06202d5676f10ea7f9",
+      "alias_binding_sha256": "2b3d656e78235d873f5ed16a9b3bd37b978ea7df6daaf519c2eac202cff5a8b3",
+      "collision_safe_display": "formulations.boundarys.best.entity~2b3d656e7823"
+    },
+    "products": {
+      "display_name": "Boundarys Best Products",
+      "alias": "products.boundarys.best.entity",
+      "entity_id": "ent2-htomks4yhit6cel2tdtyrpxrlnbetdnkdoujjwaa57d6f6kbw5ba",
+      "domain_id": "domain1-a88e01440d661fc5ba249c24ecc811e01effad2b",
+      "alias_binding_sha256": "a654faa99bba8f22e222f41687e8402b978f2b5e366226ce5dd37d88382f3ad7",
+      "collision_safe_display": "products.boundarys.best.entity~a654faa99bba"
+    }
+  },
+  "graph_manifest": "<LOCAL_DRIVE>/BTG_ENTITY_PRODUCTION_STATE\\BTG_ENTITY_GRAPH.json",
+  "graph_manifest_sha256": "5c73b7499b1295cbac20cc84f22889e354ae4d0bfd454628094a6945cf9a2b26"
+}

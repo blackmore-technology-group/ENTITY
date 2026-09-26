@@ -1,0 +1,60 @@
+{
+  "advisories": [
+    "SERS-003 source is hash-pinned and independently verified in the user Library but is not yet mirrored inside this repository."
+  ],
+  "artifact_checks": {
+    "domain_internal": {
+      "file_sha256": "a17e16bab6fd491ba988e4a58fde2122fe0faa6f9be032c283725005cf4f4bf5",
+      "pass": true,
+      "path": "16_Test_Qualification\\evidence\\ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+    },
+    "full_e2e": {
+      "file_sha256": "7e1248e3effb15fdbdcae74bbee0625e6debf91949bf4cd5f1195419c824b0f8",
+      "pass": true,
+      "path": "16_Test_Qualification\\evidence\\ENTITY_FULL_E2E_QUALIFICATION_CURRENT.json"
+    },
+    "niki_entity": {
+      "file_sha256": "8ab08b6596b302c5d329058f45b5bea14aef2f898086fef21a33e24394674a9e",
+      "pass": true,
+      "path": "10_NIKI\\tests\\evidence\\NIKI_ENTITY_INTEGRATION_QUALIFICATION_CURRENT.json"
+    },
+    "repository_regression": {
+      "file_sha256": "d12813cc7f7941652dd1eb5c7ffe7d481bbab391640e2e0f68ef6366319016a9",
+      "pass": true,
+      "path": "16_Test_Qualification\\evidence\\ENTITY_REPOSITORY_REGRESSION_CURRENT.json"
+    }
+  },
+  "canonical_architecture": {
+    "production_required_ready": 12,
+    "production_required_total": 12,
+    "ready": 55,
+    "total": 55
+  },
+  "chaos_campaign_authorized_by_evidence": true,
+  "evidence_sha256": "ddb37f0fc6f374dc470678370a0cd6d1188c5d3722f88bfa89ef611aa174d32d",
+  "external_release_blockers": [
+    "two_physical_user_controlled_devices_not_executed_in_this_single_host_session",
+    "independent_non_btg_implementation_interoperability_not_executed"
+  ],
+  "generated_at_ms": 1789582087201,
+  "internal_release_gates": {
+    "passed": 28,
+    "total": 28
+  },
+  "limitations": [],
+  "master_rtm": {
+    "master_source_mirrored": false,
+    "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\traceability\\MASTER_RTM.json",
+    "requirement_count": 1997,
+    "rtm_sha256": "4b260f5327635be98bb2a2734c4e2e85368b8e2f1d98791c51edac8f7a5f0cd1"
+  },
+  "qualification_complete": true,
+  "release_gate": {
+    "file_sha256": "cdcc5722a5804e96fd821af9fe5776b1873afd471b661d9c6ec2318b3c63cd42",
+    "gate_evidence_sha256": "d38d7f197e1c9e12031108a90b2ecbf9b3a7fd7e618b6593b6e547fe86db2df2",
+    "status": "BLOCKED"
+  },
+  "rule": "PASS authorizes execution of the internal Ultimate CHAOS campaign; it does not authorize a final external release claim.",
+  "schema": "entity-chaos-preflight-v1",
+  "status": "PASS"
+}

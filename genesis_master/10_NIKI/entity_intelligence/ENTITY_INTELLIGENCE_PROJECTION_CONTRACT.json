@@ -1,0 +1,34 @@
+{
+  "authority": {
+    "ADAM": "deterministic atoms/compounds/bonds, exact evidence, reaction-governed state transitions, history/reconstruction, governed execution evidence",
+    "BSIE": "world/entity relationship state",
+    "ENTITY": "identity/authority/rights/policy/contracts/usage/value",
+    "NIKI": "reasoning/fusion/continuity/uncertainty/proposals"
+  },
+  "default_content_mode": "METADATA_ONLY",
+  "invariant": "projection never transfers ENTITY sovereignty or ADAM mutation authority to NIKI",
+  "max_entity_graph_depth": 3,
+  "max_entity_relations": 256,
+  "minimum_necessary": true,
+  "owner": "NIKI",
+  "projection_type": "BOUNDED_REASONING_CONTEXT_V2",
+  "redact_recursive": [
+    "secret",
+    "token",
+    "password",
+    "private_key",
+    "credential",
+    "source_path",
+    "vault_locator",
+    "raw_content",
+    "content_bytes"
+  ],
+  "revision": "ENTITY2_ADAM_FULL_RUNTIME",
+  "schema": "entity-intelligence-projection-contract-v1",
+  "sources": [
+    "ENTITY",
+    "BSIE",
+    "ADAM v1.0 full atomic/evidence runtime",
+    "application domain intelligence"
+  ]
+}

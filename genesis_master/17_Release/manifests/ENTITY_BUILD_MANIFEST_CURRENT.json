@@ -1,0 +1,36 @@
+{
+  "claim": "ENTITY may proceed to software build from this source tree; deferred device/external-party qualification remains unclaimed.",
+  "deferred_non_build_blockers": [
+    {
+      "classification": "DEFERRED_DEVICE_REQUIRED",
+      "item": "multi-host distributed storm across independent physical machines",
+      "reason": "additional devices/hosts unavailable"
+    },
+    {
+      "classification": "DEFERRED_DEVICE_REQUIRED",
+      "item": "two physical user-controlled devices for sovereign-domain field qualification",
+      "reason": "additional independent device unavailable"
+    },
+    {
+      "classification": "DEFERRED_EXTERNAL_PARTY_REQUIRED",
+      "item": "independently developed non-BTG verifier/interoperable implementation",
+      "reason": "independent external organization required"
+    }
+  ],
+  "evidence": {
+    "16_Test_Qualification\\evidence\\ENTITY_BTG_APPLICATION_SDK_CURRENT.json": "b066cde512012d3e1514716cd5af30b8c9942ba646ab17062407cb2a13fe3c0c",
+    "16_Test_Qualification\\evidence\\ENTITY_POST_CHAOS_CLOSURE_CURRENT.json": "d004c63b5e002ee7d527aefe6d3f02c1c02056951dbae1dbc64bd0fb7aa4f348",
+    "16_Test_Qualification\\evidence\\ENTITY_REPOSITORY_REGRESSION_CURRENT.json": "7ee24378922e5278788e96344934035440e989775134d6d52764fb8d197aa52f",
+    "16_Test_Qualification\\evidence\\ENTITY_ULTIMATE_CHAOS_QUALIFICATION_CURRENT.json": "a44cb327c45b892e1a8478bd006658132547c6c18f51fffc0131e6c218c6dea6",
+    "17_Release\\manifests\\ENTITY_10_10_RELEASE_GATE_CURRENT.json": "64b855799986d285e3bbc314dbb2852817253276e7ca1e7f6e2f9259bae338e1",
+    "17_Release\\manifests\\ENTITY_BUILD_READINESS_CURRENT.json": "f676dd2f3f4d0020bd0b61ddf552da4d42336dc326890ae96c8839c90e57cf73"
+  },
+  "evidence_sha256": "5f238f17d06fc3dd07793148483264731cf46e04aed3a95177c15c2f41286cd5",
+  "full_external_release_status": "BLOCKED",
+  "generated_at_ms": 1789660507497,
+  "packaging_mode": "IN_PLACE_SOURCE_BUILD",
+  "reason": "repository is ~41.8 GB and healthy local build volumes lack safe duplicate-package capacity",
+  "schema": "entity-build-manifest-v1",
+  "source_root": "<LOCAL_DRIVE>/Sovereign_Entity_Network",
+  "status": "BUILD_READY"
+}

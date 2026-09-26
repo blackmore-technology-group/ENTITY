@@ -1,0 +1,196 @@
+{
+  "aggregate_sha256": "cf327bf9efc5d95b03c40047bdee54a879304c57f17d0c81cdc5236c89f5ef70",
+  "artifact": {
+    "bytes": 23567526,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HIKE_AR\\HikeAR_v0.1.0\\mobile\\android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+    "sha256": "40847ea7d22d92edc7db3624ea28dc9b26fdd2d9a8553ebf1dcdc5529618e91b"
+  },
+  "file_count": 36,
+  "files": [
+    {
+      "bytes": 3648,
+      "path": "app/build.gradle.kts",
+      "sha256": "b77a342672031397e628616bc2ad9b14285182ff8f118e156ad97a84748a1f98"
+    },
+    {
+      "bytes": 1497,
+      "path": "app/build.gradle.kts.pre_agp911.bak",
+      "sha256": "546ce121e3622d47e3678202484ea2d23482b11de03f20bff9fb3ea53929e189"
+    },
+    {
+      "bytes": 2833,
+      "path": "app/build.gradle.kts.pre_android_commissioning_20260914.bak",
+      "sha256": "fd7b102cfb5b56952a37e73e5603263243622de1a67212043324ac95c77488c7"
+    },
+    {
+      "bytes": 1600,
+      "path": "app/build.gradle.kts.pre_niki_mobile.bak",
+      "sha256": "c326b06e7b9c14cc7581a14b154b04cb0dc2515d61701028458fcd40213a0b5f"
+    },
+    {
+      "bytes": 1522,
+      "path": "app/build.gradle.kts.pre_version_sync_20260910_1745",
+      "sha256": "35edc38c6c7e8c0db666f84afc31ab9dba710d6ffd52dc31210a5cabc7bff6ea"
+    },
+    {
+      "bytes": 263463,
+      "path": "app/libs/NIKI_Mobile_Runtime_0.8.0_android_arm64.aar",
+      "sha256": "625dd37f34255f6cd5cf04c7d07a25b4d2d385ad82d2589a6422fb24f54ae6b1"
+    },
+    {
+      "bytes": 1188,
+      "path": "app/src/main/AndroidManifest.xml",
+      "sha256": "0aa207365c6947234f42f6879cd3f235cedc82576df916053ce967a4dd95360e"
+    },
+    {
+      "bytes": 2009,
+      "path": "app/src/main/cpp/CMakeLists.txt",
+      "sha256": "70d08eee67b5d67a589312c27abab8ff80b017a0b7d94133487a3cc6ec061577"
+    },
+    {
+      "bytes": 1264,
+      "path": "app/src/main/cpp/CMakeLists.txt.pre_android_openssl_20260910_2350",
+      "sha256": "d0f92f651dcc0247b42dca043af58c0989c7ca4312df980afd8f24c5f7c26979"
+    },
+    {
+      "bytes": 1633,
+      "path": "app/src/main/cpp/CMakeLists.txt.pre_arcore_link_20260910_1730",
+      "sha256": "d174a5bad39cf923fe311f9cfa05e774bbb4d3af541d66c6888c91c5869d0b30"
+    },
+    {
+      "bytes": 13772,
+      "path": "app/src/main/cpp/hikear_jni.cpp",
+      "sha256": "8f22fd8ac3b17f4ddf7231e47528d9e3a384e5b8d17d1d27a220ef4f58373222"
+    },
+    {
+      "bytes": 4630,
+      "path": "app/src/main/cpp/hikear_jni.cpp.pre_android_commissioning_20260914.bak",
+      "sha256": "656b19e984079e827eaf522391a70d9f39cf4d6b4c8c39bcae0295fc2020e0f9"
+    },
+    {
+      "bytes": 6845,
+      "path": "app/src/main/java/com/blackmore/hikear/BSIECommissioningPanel.kt",
+      "sha256": "14b97e3ff1bce689b4e892cbc87f66b87e0d78482166f2f9033dff7780d81d6d"
+    },
+    {
+      "bytes": 3159,
+      "path": "app/src/main/java/com/blackmore/hikear/ControlCourse.kt",
+      "sha256": "c60b4efbdb00df07a0e0a70abf6d1c7f9ba0c251398611c47caafc7d796c6da6"
+    },
+    {
+      "bytes": 8098,
+      "path": "app/src/main/java/com/blackmore/hikear/DeviceProvenance.kt",
+      "sha256": "2f670752f5f42508f0df62f104c65cee4a173dbcbc1cd99da136df98893534d6"
+    },
+    {
+      "bytes": 1345,
+      "path": "app/src/main/java/com/blackmore/hikear/HikeARDeliveryPolicy.kt",
+      "sha256": "6e7e470b549bd3e2545d7dbd0686286226bf0322bbdb0b498ee986509261638e"
+    },
+    {
+      "bytes": 7541,
+      "path": "app/src/main/java/com/blackmore/hikear/HikeAREntityClient.kt",
+      "sha256": "d04daa4035b94a39b060e8ce9229e0c50ed4fef14c1ffcdbe8fd8cf8f13a1844"
+    },
+    {
+      "bytes": 3770,
+      "path": "app/src/main/java/com/blackmore/hikear/HikeARMobileStore.kt",
+      "sha256": "b8b5d1f690ac7f3465308b125c9d83b8d8c4cd51b405ab3637cad6b6b5eb5825"
+    },
+    {
+      "bytes": 9971,
+      "path": "app/src/main/java/com/blackmore/hikear/HikeARNativeBridge.kt",
+      "sha256": "52878a1980488913def6825f739aa6d316f7a99b68cdebfff28e4b5797b549a3"
+    },
+    {
+      "bytes": 8555,
+      "path": "app/src/main/java/com/blackmore/hikear/HikeARNativeBridge.kt.pre_android_commissioning_20260914.bak",
+      "sha256": "a0ecf0a43acf391180f41052a535a9d80654208c0caeea870f0d70cf07b29e78"
+    },
+    {
+      "bytes": 7632,
+      "path": "app/src/main/java/com/blackmore/hikear/HikeARNativeBridge.kt.pre_niki_mobile.bak",
+      "sha256": "a7896650f323b40263d90bb9f6715b8abc902a98253f1ec598749e2634beb6cc"
+    },
+    {
+      "bytes": 14582,
+      "path": "app/src/main/java/com/blackmore/hikear/MainActivity.kt",
+      "sha256": "c849954deabc53e8e28774ec74df7a15f38ace65d2981cb4a1493673ba315d13"
+    },
+    {
+      "bytes": 11964,
+      "path": "app/src/main/java/com/blackmore/hikear/MainActivity.kt.pre_android_commissioning_20260914.bak",
+      "sha256": "d2415f87bdd059ccc6e58617921a665f2040989da43890e7b506f0039d13489f"
+    },
+    {
+      "bytes": 1326,
+      "path": "app/src/main/java/com/blackmore/hikear/TelemetrySampler.kt",
+      "sha256": "8b9d89aee305a3eae5a5aa7cd4e231b45bee39860a05320fbdead96a66dc3cb2"
+    },
+    {
+      "bytes": 1163,
+      "path": "app/src/main/res/drawable/hikear_launcher.xml",
+      "sha256": "219b4c471da7c411cb36aef019c722228de786286c6030b3d9beb094998aef5a"
+    },
+    {
+      "bytes": 411,
+      "path": "app/src/main/res/values/styles.xml",
+      "sha256": "dbc5ca273925eb07132f6a1dbea8e444ce52b5a29198b0d10d51d691e8e9db80"
+    },
+    {
+      "bytes": 2345,
+      "path": "app/src/test/java/com/blackmore/hikear/HikeARDeliveryPolicyTest.kt",
+      "sha256": "11171cd1e6c8f400f84a2b4c7140e6fcecfae24d54c10c4d2bbba621d4e44f7b"
+    },
+    {
+      "bytes": 74,
+      "path": "build.gradle.kts",
+      "sha256": "9280b4610fd317014ebe7698a96c0e2bb23894699d1e15401f4089576dfe6523"
+    },
+    {
+      "bytes": 74,
+      "path": "build.gradle.kts.pre_agp911.bak",
+      "sha256": "3a47e0cb9a666961e0c602dee4b6108135529f44f1ee1be4adddafd2df83a9d4"
+    },
+    {
+      "bytes": 45457,
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "76805e32c009c0cf0dd5d206bddc9fb22ea42e84db904b764f3047de095493f3"
+    },
+    {
+      "bytes": 338,
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "d5a126c1543eaca3214bc82958ced8a32592bb4c4542316e5993d8b83eb08cfc"
+    },
+    {
+      "bytes": 338,
+      "path": "gradle/wrapper/gradle-wrapper.properties.pre_931.bak",
+      "sha256": "11deb251eb0c33e399cd5babeff5d7bfe813096144798ab2ca4d5236296912bb"
+    },
+    {
+      "bytes": 263,
+      "path": "gradle.properties",
+      "sha256": "002817286fe15060098a9cf079cb3ad7915acb6c02579cfdeca2ef27dcae0942"
+    },
+    {
+      "bytes": 8640,
+      "path": "gradlew",
+      "sha256": "b2fe376b143a459ba5d0bd290dc89beed5399fc6d159cd1214bd642ea94bcf07"
+    },
+    {
+      "bytes": 2825,
+      "path": "gradlew.bat",
+      "sha256": "9386e790d58b9368ca8e034536a5baa688643d51cb37bfa462503d36fd0291a6"
+    },
+    {
+      "bytes": 267,
+      "path": "settings.gradle.kts",
+      "sha256": "b5541b8fd2d49f47ee5f9448ee6827e1f4f420249699f15a69583901ef104ec1"
+    }
+  ],
+  "generated_at_ms": 1789673385645,
+  "product": "HIKEAR",
+  "schema": "btg-product-entity-integration-snapshot-v1",
+  "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HIKE_AR\\HikeAR_v0.1.0\\mobile\\android"
+}

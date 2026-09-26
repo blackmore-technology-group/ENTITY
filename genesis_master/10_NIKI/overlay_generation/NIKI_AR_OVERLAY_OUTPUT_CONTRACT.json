@@ -1,0 +1,21 @@
+{
+  "schema": "niki-ar-overlay-output-contract-v1",
+  "owner": "NIKI",
+  "role": "annotation and layer reasoning only",
+  "surfaces": ["CAMERA_AR", "MIRRORED_AR", "VIRTUAL_AR"],
+  "camera_ar_preserved": true,
+  "shared_renderer_contract": true,
+  "raw_camera_through_niki_http": false,
+  "spatial_authority": "BSIE",
+  "rights_authority": "ENTITY",
+  "output_classes": [
+    "annotation", "confidence", "warning", "relationship_hint",
+    "policy_explanation", "provenance_explanation", "action_proposal"
+  ],
+  "required_fields": ["layer_id", "surface", "source_evidence", "confidence", "authority", "expires_at"],
+  "forbidden": [
+    "authoritative rights mutation", "raw private camera forwarding through NIKI",
+    "unbounded vault content", "unverified truth promotion", "direct side effects"
+  ],
+  "invariant": "rendering a NIKI overlay never mutates ENTITY or BSIE authority state"
+}

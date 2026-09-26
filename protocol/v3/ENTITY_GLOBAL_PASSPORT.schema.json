@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://entity.btg.example/protocol/v3/ENTITY_GLOBAL_PASSPORT.schema.json",
-  "title": "ENTITY v3.4 Global Passport",
+  "title": "ENTITY v3.4.2 Global Passport",
   "type": "object",
   "required": [
     "schema",
@@ -168,6 +168,9 @@
     },
     "protocol_origin_is_not_asset_provenance": {
       "const": true
+    },
+    "btdu_binding": {
+      "$ref": "#/$defs/btduBinding"
     }
   },
   "$defs": {
@@ -277,6 +280,76 @@
           "const": true
         },
         "economic_participation_requires_explicit_terms": {
+          "const": true
+        },
+        "automatic_protocol_royalty_bps": {
+          "const": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "btduBinding": {
+      "type": "object",
+      "required": [
+        "schema",
+        "btdu_version",
+        "universe_root",
+        "object_ref",
+        "content_sha256",
+        "sovereign_entity_id",
+        "protocol_origin_is_not_asset_provenance",
+        "topology_does_not_create_ownership",
+        "topology_does_not_create_economic_entitlement",
+        "automatic_protocol_royalty_bps"
+      ],
+      "properties": {
+        "schema": {
+          "const": "entity-btdu-passport-binding-v1"
+        },
+        "btdu_version": {
+          "const": "3.4.2"
+        },
+        "universe_root": {
+          "type": "string",
+          "minLength": 16
+        },
+        "object_ref": {
+          "type": "string",
+          "minLength": 8
+        },
+        "object_atom_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "sovereign_entity_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "controller_entity_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "source_entity_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "rights_holder_entity_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "protocol_origin_is_not_asset_provenance": {
+          "const": true
+        },
+        "topology_does_not_create_ownership": {
+          "const": true
+        },
+        "topology_does_not_create_economic_entitlement": {
           "const": true
         },
         "automatic_protocol_royalty_bps": {

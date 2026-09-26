@@ -1,0 +1,24 @@
+{
+  "schema": "entity-runtime-binding-v1",
+  "authority": "open_entity_developer_sdk",
+  "abi_version": "1",
+  "implementation_version": "1.0.0-open",
+  "python_file": "canonical_open_entity_sdk.py",
+  "implementation_sha256": "5a25edd87ab5d1e1acef54794d15e10423d458bee052b559b9948a9ac29c3654",
+  "exports": ["OpenEntityDeveloperSDK", "address_descriptor", "make_asset_envelope", "make_event_envelope"],
+  "schema_versions": ["entity-address-descriptor-v1", "entity-open-sdk-asset-envelope-v1", "entity-open-sdk-event-envelope-v1"],
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_OPEN_SDK_CURRENT.json",
+      "sha256": "a280683ce75e5eaacc88d1fe3610bff9a022ef73bc95f9c47ac694ca3631af03"
+    }
+  ],
+  "status": "READY",
+  "open_source_profile": true,
+  "provider_neutral": true,
+  "btg_dependency_required": false,
+  "alias_is_not_authority": true,
+  "canonical_entity_address": "ent1/ent2 Entity root",
+  "registration_not_ownership": true,
+  "economic_mutation_not_exposed": true
+}

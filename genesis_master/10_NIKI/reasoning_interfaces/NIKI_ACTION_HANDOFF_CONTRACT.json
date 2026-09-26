@@ -1,0 +1,16 @@
+{
+  "schema": "niki-action-handoff-contract-v1",
+  "owner": "NIKI",
+  "input_schema": "niki-action-proposal-v1",
+  "canonical_authorities": ["core_permissions", "adam_actions"],
+  "canonical_export": "niki_accept_action_proposal_v1",
+  "rules": [
+    "NIKI validates and hands off proposals but never executes them",
+    "canonical ENTITY authorization must be current at execution time",
+    "ADAM execution requires an explicit governed capability/approval path",
+    "if canonical action authority is not READY the handoff remains validation-only",
+    "a READY but broken canonical binding fails closed",
+    "handoff acknowledgement never proves execution occurred"
+  ],
+  "noncanonical_status": "VALIDATED_PENDING_CANONICAL_AUTHORITY"
+}

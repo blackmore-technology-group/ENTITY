@@ -1,0 +1,5 @@
+  Determining projects to restore...
+  Restored <LOCAL_DRIVE>/BTG_BUILD\WBN110_ENTITY_INSTALLER_SRC\BoundarysBest.WildByNature.Setup.csproj (in 436 ms).
+  BoundarysBest.WildByNature.Setup -> <LOCAL_DRIVE>/BTG_BUILD\WBN110_ENTITY_INSTALLER_SRC\bin\Release\net10.0-windows\win-x64\BoundarysBest_WildByNature_Setup.dll
+  BoundarysBest.WildByNature.Setup -> <LOCAL_DRIVE>/BTG_BUILD\WBN110_ENTITY_SETUP\
+BUILD SUCCESSFUL | setup publish exit=0

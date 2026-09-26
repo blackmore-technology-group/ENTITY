@@ -1,0 +1,26 @@
+{
+  "registry_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\registry\\devices.json",
+  "audit_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\gateway_audit.jsonl",
+  "client_signing_key_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\secrets\\client_signing.key",
+  "approval_signing_key_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\secrets\\approval_signing.key",
+  "ai_session_ttl_minutes": 60,
+  "log_level": "warning",
+  "client_listener": {
+    "host": "127.0.0.1",
+    "port": 8765
+  },
+  "agent_listener": {
+    "host": "127.0.0.1",
+    "port": 8766
+  },
+  "mcp_listener": {
+    "host": "127.0.0.1",
+    "port": 8767
+  },
+  "mcp_resource_url": "https://127.0.0.1:8767/mcp",
+  "tls": {
+    "ca_cert": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\ca\\ca.cert.pem",
+    "server_cert": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\server\\gateway.cert.pem",
+    "server_key": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\server\\gateway.key.pem"
+  }
+}

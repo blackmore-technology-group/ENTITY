@@ -1,0 +1,37 @@
+PASS | Frozen NIKI intelligence seal | available=True; version=1.0.0; manifest=2db83a661fdded65e712db10ef88ed9de94723b597a0924e43732c62016d6bbf; corpus=db2480683f0075b5dc9f75fa7566d12533ffd1c730e160e7fc246fe56992e07c
+PASS | Canonical intelligence files | all canonical files present
+PASS | Supplier reviewed-equivalence retrieval | offers=6; reviewed=6
+PASS | Local botanical formulation materials | materials=193; fireweed=True
+PASS | Full WBN library exposure | materials=304; botanicals=193; scents=24; aroma=138; supplierProducts=11106; supplierVariants=79614; corpus=5000000
+PASS | Advanced skincare product coverage | all six dedicated modes present
+PASS | Product template availability | templates=25
+PASS | Soap calculation and cure forecast | NaOH=137.51; water=279.19; cure=52d
+PASS | WBN policy optimizer and complete operator instructions | oils=Olive Oil,Coconut Oil 76 Degree,Castor Oil,Shea Butter,Cocoa Butter,Rice Bran Oil; score=98.0; scent=Forest  Wood  Earth; botanical=1; weights=True; instructions=9463
+PASS | Formula library draft round-trip | found=SOAP DRAFT; lines=2; instructions=6087
+PASS | Product formula library instructions and reload round-trip | found=PRODUCT DRAFT; product=Wild Mint Lip Balm; lines=6; instructions=3237
+PASS | Known stock-entry catalog covers scents and special materials | catalog=335; scents=24; missing=
+PASS | Authoritative formulation stock ledger round-trip | onhand=123.45; released=False; cleaned=true
+PASS | Soap inclusion and decorative material library | inclusions=25; poppy=True; petals=5
+PASS | Multi-product starter formulation and complete instructions | qualified=11 product families
+PASS | Shared mica dye seed petal needle formulation materials | special=44; routed=True; missing=
+PASS | Special colors and inclusions can participate in product formula | total=100.000; additions=5; instructions=5828
+PASS | Liquid milk replacement cure accounting | NaOH=140.10; water=170.00; milk=115.00; cure=42; rationale=115.0 g qualified liquid-phase replacement included in cure calculation
+PASS | Soap fingerprint determinism | F906EB9D093BE198
+PASS | Complete soap scent-botanical-BOM-instruction lineage | base=56D6B0AEC82837F4; enriched=C893CC8C2BC00396; bomLines=7; scent=Forest  Wood  Earth; botanical=LOCAL - Common Lavender - Aromatic Pomade
+PASS | Manufacturing database initialization | db=<LOCAL_DRIVE>/BTG_WBN_ENTITY_INSTALL_TEST_DATA\wild_by_nature_manufacturing.db; products=40
+PASS | D-drive runtime and migration control | root=<LOCAL_DRIVE>/BTG_WBN_ENTITY_INSTALL_TEST_DATA; Legacy migration complete: 0 imported, 2 conflicts archived.
+PASS | Frontend behavioral parity | Full frontend capability parity PASS; saved Formula Library exposes complete how-to/weigh sheet; targets=18; scent/botanical fingerprint+instructions PASS; unified lab libraries searchable; supplier scent/oil catalog fully exposed; NIKI viewer scrollable; controlled label fields read-only; theme resources present
+PASS | 5M corpus paging, preview and deterministic routing | total=5,000,000; pages=10,000; p2first=501; soapIngredients=8; productIngredients=8
+PASS | Controlled Product-Formula-Revision-BOM-QA lineage | product=WBN-P-001; formulaR=2; productR=2; bom=WBN-BOM-95ADEFFEC3; qa=4a0b8fdb10e34cf7951e04b3e6c07639
+PASS | Controlled soap Batch/Cure/QA PDF library | template=True; batch=TIMBER-VEIL-2026-09-16-001; revision=1; gate=True; doc=BQA-DOC-TIMBER-VEIL-2026-09-16-001; Batch QA record BQA-TIMBER-VEIL-2026-09-16-001; revision 1; SHA-256 verified.
+PASS | Locked label template registry | templates=4; hashLocked=True
+PASS | Installed V11 centered Canada-mark template | status=HASH VERIFIED - EXACT CANONICAL PDF; hash=7f35076f364c1d666c375a4b93c3c154f5a3b97ca98b2f82e151678fd2a20442
+PASS | Installed V2 soap-band template | status=HASH VERIFIED - EXACT CANONICAL PDF; hash=1efbaae7cfb4f769024da167e4025c9c22ed29c8edb43280797bcab513517330
+PASS | Installed candle-band template | status=HASH VERIFIED - EXACT CANONICAL PDF; hash=99057d2c2f6906fbd23a076cc9eca54ae784513831bf4d29d3614bdde2e47a8b
+PASS | Installed V3 continuous soap-band template | status=HASH VERIFIED - EXACT CANONICAL PDF; hash=fcb3298d29bf8a9407a4e1c25ef7d00729790445b660873e35fb0e525545ca2f
+PASS | Boundary's Best NIKI dependency contract | hash=c4bcd175c3ea5ec797ea3c47640602e62f0dc763e40f46d1a911c9826e2d266d; boundarys_best_build_invoked=false
+PASS | Qualified NIKI runtime package | ok=True; version=0.8.0; release=NIKI-Mobile-0.8.0-PREDEVICE-R1; exe=043d20b5316e2a61e680af925a3a683527b39733024b8edae46a76d18a04ba84; sig=d1d1a27679f2d3cb3520ce4c91e2b60eb689e0c1b67f5cc90d57c651e33308fd; root=<LOCAL_DRIVE>/BTG_BUILD\WBN110_ENTITY_INSTALL_TEST\runtime\NIKI
+PASS | NIKI sidecar startup/ready | Qualified NIKI runtime already ready at http://127.0.0.1:8768.
+PASS | NIKI health/ready/app-key integration | NIKI is reachable and production-ready.
+PASS | Authenticated Wild by Nature formulation-context NIKI query | evidence=12; signals=25; assessment=HOLD
+RESULT | PASS | passed=36 failed=0 | <LOCAL_DRIVE>/BTG_BUILD\WBN110_ENTITY_INSTALL_TEST\Evidence\WBN_SOAPSTUDIO_REGRESSION.json | sha256=caab96ad8a486f3fdb73b2bffc05987c023df67f8e23f6c2bd0e858c4db9ad19

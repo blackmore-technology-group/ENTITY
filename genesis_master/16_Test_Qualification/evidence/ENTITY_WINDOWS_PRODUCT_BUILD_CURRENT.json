@@ -1,0 +1,34 @@
+{
+    "schema":  "entity-windows-product-build-v1",
+    "product":  "ENTITY",
+    "version":  "1.0.0-rc1",
+    "status":  "INTERNALLY_QUALIFIED_SIGNED_EXTERNAL_VALIDATION_PENDING",
+    "protocol":  "ENTITY 1.0 FROZEN",
+    "release_id":  "ENTITY_1.0.0_RC1_WINDOWS_SIGNED",
+    "release_dir":  "<LOCAL_DRIVE>/Sovereign_Entity_Network\\17_Release\\packages\\ENTITY_1.0.0_RC1_WINDOWS_SIGNED",
+    "installer":  {
+                      "path":  "<LOCAL_DRIVE>/Sovereign_Entity_Network\\17_Release\\packages\\ENTITY_1.0.0_RC1_WINDOWS_SIGNED\\ENTITY_Setup.exe",
+                      "sha256":  "3e4d23acb4c5510e8d2d5a90f02843c8479f86aa86c4e6c90e652562c72ca317",
+                      "bytes":  61282225
+                  },
+    "runtime_gui":  {
+                        "sha256":  "4717807d5e5d213dc1bb57792db9fc93fa27546e749d894ee959c05ec08c7544",
+                        "bytes":  15799714
+                    },
+    "runtime_cli":  {
+                        "sha256":  "42f5de2ede21f05e6bb4394bae117a85168b9bac7787de9abacd9bba7dfb5f26",
+                        "bytes":  15804105
+                    },
+    "product_manifest_sha256":  "6ad19e2637cf9aeca55d22f3280af86bb01d767b4cbd6813bcf64eb4203b2206",
+    "signed_release_manifest_sha256":  "4dd5f429d47115db0e8e7d5d571f715d5b2d2d97052ef3f313b10f2a433c524a",
+    "lifecycle_evidence_sha256":  "013e3b4af5990bf13e593d64d92ce61d94b1efd0bf91829cdb7975650b4aeb06",
+    "clean_install":  "PASS_ISOLATED_SAME_PHYSICAL_PC",
+    "create_pair_data_export_restore_verify":  "PASS",
+    "btg_app_identity_connection":  "PASS_HUNTAR_SEARCHAR_HIKEAR_BOUNDARYS_BEST",
+    "offline_release_verification":  "PASS",
+    "external_pending":  [
+                             "two independent physical user-controlled devices",
+                             "multi-host independent-machine storm",
+                             "independently authored non-BTG implementation/interoperability"
+                         ]
+}

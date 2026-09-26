@@ -1,0 +1,46 @@
+{
+  "abi_version": "1",
+  "authority": "independent_verifier",
+  "exports": [
+    "verify_manifest",
+    "verify_signature_record",
+    "verify_hash_chain",
+    "verify_merkle_proof",
+    "verify_release_manifest",
+    "verify_file_inventory",
+    "verify_external_authority_evidence",
+    "verify_corporate_capital_tables",
+    "verify_corporate_action_tables",
+    "verify_capital_accounting_tables",
+    "verify_licence_record",
+    "verify_usage_receipt"
+  ],
+  "implementation_sha256": "235c2a573e87f95679055616afa207240ad3b4936eea6d223622fefa00ed4e1f",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "independent_verifier.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_INDEPENDENT_VERIFIER_CURRENT.json",
+      "sha256": "083e19cde4bf7b7eae96f8920f56abb55a7cde29e16d8ec9b9bb247ae201b66a"
+    },
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+      "sha256": "1918775d0a3484ccbe7e77023bb2aaa2e2fa9d2c1b416bc936ee9747c771149f"
+    },
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_INDEPENDENT_TRANSACTION_CURRENT.json",
+      "sha256": "39f7cbc5c9750f6875147ae098e45374e4e2a78ddf900bd0eb412eb9ed8de420"
+    }
+  ],
+  "requirements_sha256": "c3b765ae6ba65356899c5e655a41f5cb7e16d71539cd94eae88e607e02953ede",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-corporate-capital-evidence-qualification-v3",
+    "entity-independent-verifier-v1",
+    "entity-transaction-evidence-bundle-v1",
+    "entity-transaction-independent-verification-v1"
+  ],
+  "standalone_transaction_verifier_file": "standalone_transaction_verifier.py",
+  "standalone_transaction_verifier_sha256": "29b5b5a49fc6149c937430a25a798dfbe3d5eb24bf7e13c513ba5eb9bbd0bfc7",
+  "status": "READY"
+}

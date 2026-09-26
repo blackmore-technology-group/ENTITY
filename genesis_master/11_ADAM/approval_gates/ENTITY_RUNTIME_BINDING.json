@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "adam_capabilities",
+  "exports": [
+    "AdamCapabilityGate"
+  ],
+  "implementation_sha256": "95a54c788a1871f00de61f92c5d8d08f86843eba19f89880394fc22be47e7f7d",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_adam_capabilities.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_ADAM_FULL_INTEGRATION_QUALIFICATION_CURRENT.json",
+      "sha256": "9f95490cb553d9910eec102eda57adc82860da260b1b4d33486ce31510b7b122"
+    }
+  ],
+  "requirements_sha256": "dda98896f71cf65e2678b707b7b862033131fa8c5751e5d873ece613b9f8f7a0",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

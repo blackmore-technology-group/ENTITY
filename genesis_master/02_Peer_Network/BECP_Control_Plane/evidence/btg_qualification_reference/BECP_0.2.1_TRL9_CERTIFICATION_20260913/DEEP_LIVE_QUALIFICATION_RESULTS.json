@@ -1,0 +1,47 @@
+{
+  "started_utc": 1789264783.4192917,
+  "checks": {
+    "two_agents_online": {
+      "ok": true,
+      "service": "BECP client gateway",
+      "registered_devices": 2,
+      "online_devices": 2
+    },
+    "new_chat_discovery": [
+      "55546079-959f-4557-a49b-84659d2ebb2e",
+      "56d7ed92-c5b4-4cca-addd-02ab1384ca74"
+    ],
+    "btg_remote_terminal": {
+      "ok": true,
+      "stdout": "BECP_REMOTE_E2E_OK\r\nBTG"
+    },
+    "terminal_ownership": {
+      "blocked": true,
+      "status": 403
+    },
+    "second_workstation_routing": {
+      "ok": true,
+      "device_id": "55546079-959f-4557-a49b-84659d2ebb2e"
+    },
+    "kill_switch": {
+      "disconnect_enforced": true,
+      "action_blocked": true
+    },
+    "kill_switch_recovery": {
+      "reconnected": true,
+      "health_ok": true
+    },
+    "mcp_v2": {
+      "tool_count": 8,
+      "health_ok": true,
+      "session_closed": true
+    },
+    "niki_adapter": {
+      "session_id": "1c35664d-a38c-42c2-b604-968142aaf3e6",
+      "devices": 2,
+      "terminal_ok": true
+    }
+  },
+  "completed_utc": 1789264789.7981377,
+  "status": "PASS"
+}

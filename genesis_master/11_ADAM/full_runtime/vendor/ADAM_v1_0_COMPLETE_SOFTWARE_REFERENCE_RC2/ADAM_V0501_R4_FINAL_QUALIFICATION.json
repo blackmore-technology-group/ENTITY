@@ -1,0 +1,56 @@
+{
+  "claim_boundary": "Complete bounded source-audited reference; Windows-host R4 rerun and external Rust/HSM/WAN/device/30-day certification remain external.",
+  "evidence": {
+    "combined": {
+      "path": "ADAM_V0501_COMBINED_QUALIFICATION.json",
+      "sha256": "18ab93516bb988f161267e745c0985ab01bba5d56fa8ff23ab8ff0a850d05cce"
+    },
+    "integrated": {
+      "path": "artifacts/v501_source_audit_qualification/ADAM_V0501_INTEGRATED_LOGIC_AUDIT_RESULTS.json",
+      "sha256": "9275a32798bf51b520779f7eca112c721f3d369a5eb3e6a2d189ba5f0d694c65"
+    },
+    "regression": {
+      "path": "artifacts/v501_source_audit_qualification/ADAM_V0501_REGRESSION_RESULTS.json",
+      "sha256": "410ad830d5bf21bf0415697f0de062bcdd29e08a8d7e576d6510d6a4e4a60bc7"
+    },
+    "source_audit": {
+      "path": "artifacts/source_audit/ADAM_V0501_SOURCE_AUDIT_RESULTS.json",
+      "sha256": "70831bb33593b6e52a42ed9d53bc34e9b45de41407f61195920097bc1088620a"
+    }
+  },
+  "fix": {
+    "root_cause": "R3 wall-clock smoke test assumed nine authority cycles always completed before 0.864 seconds",
+    "runtime_correction": "new production soak timing begins after initial authority-cluster construction",
+    "skips_added": 0,
+    "test_correction": "one-day independent pre-duration rejection plus measured-remainder post-duration completion",
+    "xfails_added": 0
+  },
+  "format": "ADAM-v0.50.1-R4-final-qualification",
+  "integrated_logic": {
+    "failed": 0,
+    "passed": 9
+  },
+  "production_soak": {
+    "failed": 0,
+    "machine_speed_independent": true,
+    "passed": 2
+  },
+  "regression": {
+    "failed": 0,
+    "files": 21,
+    "passed": 117,
+    "process_model": "forced spawn"
+  },
+  "source_audit": {
+    "blocking_open_findings": 0
+  },
+  "status": "PASS",
+  "version": "0.50.1.dev4",
+  "wheel": {
+    "build": "PASS",
+    "import_smoke": "PASS",
+    "isolated_install": "PASS",
+    "path": "artifacts/wheel_v501/adam_sovereign_artificial_living_universe-0.50.1.dev4-py3-none-any.whl",
+    "sha256": "f8bd377e33c2d810bc01836b1267887a312289a5d1236b4fe56245b9cdd99508"
+  }
+}

@@ -1,0 +1,8 @@
+from pathlib import Path
+p=Path(r'<LOCAL_DRIVE>/Sovereign_Entity_Network\17_Release\product\entity_windows_v1\entity_runtime.py')
+s=p.read_text(encoding='utf-8')
+old='''    mod=_gateway_module(state); server=uvicorn.Server(uvicorn.Config(mod.app,host="127.0.0.1",port=port,log_level="warning",access_log=False))\n    threading.Thread(target=server.run,name="ENTITY-OpenSDK-Gateway",daemon=True).start()\n    for _ in range(60):\n        health=gateway_health(port)\n        if health: return {"active":True,"reused":False,"port":port,"state_dir":health.get("state_dir")}\n        time.sleep(0.1)\n    raise RuntimeError("ENTITY Open SDK gateway failed to start")\n'''
+new='''    if getattr(sys,"frozen",False):\n        cli=install_root()/"ENTITY_CLI.exe"\n        if not cli.is_file(): raise RuntimeError(f"ENTITY_CLI.exe missing: {cli}")\n        flags=getattr(subprocess,"CREATE_NO_WINDOW",0)\n        subprocess.Popen([str(cli),"--state",str(state),"serve","--port",str(port)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,creationflags=flags)\n    else:\n        mod=_gateway_module(state); server=uvicorn.Server(uvicorn.Config(mod.app,host="127.0.0.1",port=port,log_level="warning",access_log=False))\n        threading.Thread(target=server.run,name="ENTITY-OpenSDK-Gateway",daemon=True).start()\n    for _ in range(150):\n        health=gateway_health(port)\n        if health: return {"active":True,"reused":False,"port":port,"state_dir":health.get("state_dir")}\n        time.sleep(0.1)\n    raise RuntimeError("ENTITY Open SDK gateway failed to start")\n'''
+if old not in s: raise SystemExit('target block not found')
+p.write_text(s.replace(old,new),encoding='utf-8')
+print('SPAWN_PATCH_OK')

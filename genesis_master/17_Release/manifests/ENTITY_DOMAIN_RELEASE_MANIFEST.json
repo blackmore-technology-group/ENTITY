@@ -1,0 +1,37 @@
+{
+  "evidence_sha256": "f4e3114c15c37ab971c9db573e0ad55b1efb5f2aae7a8ee3bba19322f3495e52",
+  "external_validation_pending": [
+    "two_physical_user_controlled_devices_not_executed_in_this_single_host_session",
+    "independent_non_btg_implementation_interoperability_not_executed"
+  ],
+  "full_release_status": "BLOCKED",
+  "generated_at_ms": 1789579608538,
+  "internal_evidence": {
+    "evidence_sha256": "f5265a7686aac10eff46f4cede9d1b844db35b86750c94ffae77e7531ea74266",
+    "file_sha256": "a17e16bab6fd491ba988e4a58fde2122fe0faa6f9be032c283725005cf4f4bf5",
+    "path": "16_Test_Qualification\\evidence\\ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+  },
+  "internal_reference_status": "PASS",
+  "overall_evidence": {
+    "evidence_sha256": "a3025c1eee81debad774bd68138fb3f71a1414617c85eb2b5f9176e797283c78",
+    "file_sha256": "18ee73849065846dec188855874c72969b119303e2abb0d73e2e4f9d420923e5",
+    "path": "16_Test_Qualification\\evidence\\ENTITY_DOMAIN_QUALIFICATION_CURRENT.json"
+  },
+  "protocol_sha256": "c03d0a297bc1d60012f43cdf0810061535d3bd575ec11bcbd2dd6833aa8b09b2",
+  "qualification_boundary": "Internal reference implementation is release-candidate evidence; full SERS release claim remains blocked until external physical-device and non-BTG interoperability milestones are demonstrated.",
+  "qualification_complete": false,
+  "release_claim_allowed": false,
+  "rtm": {
+    "file_sha256": "63f6ebdf52d22734b7ab0103ddf7e85ae70622f16807cb6df70393a97358ee16",
+    "path": "16_Test_Qualification\\evidence\\ENTITY_DOMAIN_RTM.json",
+    "rtm_sha256": "5592e2abb4a01e8c671ef084313e3d552f14a98172227afbd882235f0b74f2d9"
+  },
+  "runtime_binding": {
+    "file_sha256": "d52bff8aade99f89fb2460215369949baa7b46de4329e6d39e78a0b163dd776f",
+    "path": "22_Sovereign_Domain\\ENTITY_RUNTIME_BINDING.json",
+    "status": "READY"
+  },
+  "schema": "entity-domain-release-manifest-v1",
+  "scope": "SERS-ENTITY-DOMAIN-001_v1.0",
+  "sers_sha256": "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f"
+}

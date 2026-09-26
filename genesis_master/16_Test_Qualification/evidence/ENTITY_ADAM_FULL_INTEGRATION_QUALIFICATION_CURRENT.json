@@ -1,0 +1,88 @@
+{
+  "adam_reference": {
+    "authoritative_inner_sha256": "3cc6541f2d00dd0580989cc7fe6e8abd56974d1069f61c710e230568e00b8da3",
+    "inner_sidecar_matches": true,
+    "outer_wrapper_sidecar_matches": false,
+    "packaging_revision": "RC2-R2",
+    "trust_root": "verified inner signed release",
+    "version": "1.0.0-rc2"
+  },
+  "adam_reference_qualification": {
+    "external_gates": {
+      "certified_physical_device_pilot": "OPEN",
+      "hardware_hsm_kms_pkcs11": "OPEN",
+      "independent_security_safety_operational_audit": "OPEN",
+      "large_licensed_real_world_training": "OPEN",
+      "physically_independent_multi_host_wan": "OPEN",
+      "thirty_actual_wall_clock_days": "OPEN"
+    },
+    "integrated_gates": {
+      "artifact": "artifacts/v1_qualification/ADAM_V1_RC2_LOCAL_QUALIFICATION_RESULTS.json",
+      "failed": 0,
+      "passed": 12,
+      "sha256": "bc7c6397b1e9d1ff4795f22d7f4a356527cf7b2c0e5b09032be28c78f93f689a"
+    },
+    "regression": {
+      "artifact": "artifacts/v1_qualification/regression_packaged/ADAM_V1_PACKAGED_REGRESSION.json",
+      "expected": 148,
+      "failed": 0,
+      "passed": 148,
+      "sha256": "4ff20f2d9e0c267ba5c808358e93f165c67d17a0eab01d588595f1bed1589f9e"
+    },
+    "source_audit": {
+      "artifact": "artifacts/source_audit/ADAM_V1_RC2_SOURCE_AUDIT_RESULTS.json",
+      "blocking_open_findings": 0,
+      "findings_classified": 92,
+      "sha256": "f77edf3f2cc3d5e5ec02259e48b807d718c63e2e4cab36d507f7580c85648a53"
+    },
+    "status": "PASS"
+  },
+  "classification": "ENTITY_2_DEVELOPMENT_FULL_ADAM_INTEGRATED_EXTERNAL_GATES_REMAIN_OPEN",
+  "completion_matrix": {
+    "authority_count": 56,
+    "canonical_not_ready_count": 0,
+    "canonical_ready_count": 56,
+    "production_required_count": 13,
+    "production_required_ready": 13,
+    "sha256": "a1c37232784aea30a87242b198fd8cd2088c3d232f12bd4d263fda85610a5fdc",
+    "system_acceptance_status": "CANONICAL_RUNTIME_READY"
+  },
+  "entity_adam_bridge": {
+    "exact_evidence_roundtrip": true,
+    "history_retained": true,
+    "niki_projection_authority_transfer": false,
+    "package_pin_verified": true,
+    "reaction_commit": true,
+    "semantic_claim_alignment": true,
+    "unauthorized_transition_rejected": true
+  },
+  "external_claim_boundary": [
+    "ADAM HSM/KMS hardware remains open",
+    "ADAM physical multi-host remains open",
+    "ADAM certified device pilot remains open",
+    "ADAM real-world training remains open",
+    "ADAM thirty wall-clock days remains open",
+    "ADAM independent security/safety/operations audit remains open",
+    "ENTITY independent non-BTG interoperability remains a separate external gate"
+  ],
+  "full_runtime_smoke": {
+    "log": "16_Test_Qualification/evidence/ENTITY_ADAM_V2_FULL_RUNTIME_SMOKE_CURRENT.log",
+    "passed": true,
+    "sha256": "81ccda39d182e966320e3e016501e31115c3b6a561102a51588fe2e1a6ce4092"
+  },
+  "generated_at_unix": 1789743337,
+  "niki_regression": {
+    "failed": 0,
+    "log": "16_Test_Qualification/evidence/ENTITY_ADAM_V2_NIKI_REGRESSION_CURRENT.log",
+    "passed": 269,
+    "sha256": "20fe39ff2cdeb95521800c50b7ebd3255b1715ac6778ee98cc9bc9e5f3abf1e9"
+  },
+  "protocol_boundary": {
+    "entity_2_0": "DEVELOPMENT",
+    "entity_protocol_1_0": "FROZEN_UNCHANGED",
+    "reason": "full ADAM expands evidence/state semantics and is not silently backported into Protocol 1.0"
+  },
+  "requirements_sha256": "dda98896f71cf65e2678b707b7b862033131fa8c5751e5d873ece613b9f8f7a0",
+  "schema": "entity-adam-full-integration-qualification-v1",
+  "status": "PASS"
+}

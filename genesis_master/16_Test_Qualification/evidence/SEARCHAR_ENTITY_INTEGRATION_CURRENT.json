@@ -1,0 +1,52 @@
+{
+  "artifact": {
+    "bytes": 27499144,
+    "path": "<LOCAL_DRIVE>/BTG_BUILT_SYSTEMS_2026-09-17_ENTITY_NATIVE\\BUILT_APPS\\SearchAR\\SearchAR_v0.12.0-ENTITY-debug.apk",
+    "sha256": "65783a00f6e7f81e9a1a523205084c2a390b45466b2b4dcd0886c9d2f8a1bab0"
+  },
+  "checks": {
+    "artifact_exists": true,
+    "build_successful": true,
+    "entity_core_unchanged": true,
+    "principal_binding_qualified": true,
+    "regression_198_passed": true,
+    "release_integrity_v2_passed": true,
+    "source_diff_clean": true
+  },
+  "claim": "Application gained ENTITY principal-bound provenance/data-economy integration; bounded mobile source changes passed the 198-test SearchAR regression, Android build, current release-integrity-v2 seal, and protected ENTITY core invariance.",
+  "evidence_refs": {
+    "android_build": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\SEARCHAR_ENTITY_ANDROID_BUILD.txt",
+    "core_invariance": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CORE_INVARIANCE_CURRENT.json",
+    "diff": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\SEARCHAR_ENTITY_SOURCE_DIFF_CURRENT.json",
+    "integrity_v2": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\SEARCHAR_RELEASE_INTEGRITY_V2.txt",
+    "principal_binding": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_PRINCIPAL_BINDING_CURRENT.json",
+    "regression": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\SEARCHAR_ENTITY_POST_REGRESSION_UTF8.txt"
+  },
+  "evidence_sha256": "0bffc69c8de8ea9dac2ca39cd083a57039e59c78c31395f64df3b6278cf78ef4",
+  "generated_at_ms": 1789679367090,
+  "limitations": [
+    "Physical-device principal pairing remains separately device-qualified; this integration evidence does not claim the external sovereign-domain gate."
+  ],
+  "post_source_aggregate_sha256": "9d9d67d4d5940e36afc7641ae7a921da34a30a034c62259ef9df2dbf9f8744c2",
+  "pre_source_aggregate_sha256": "cc9256c72b92f32b61cd34dbf555a8dfe00c83fd19c2586e7f02b71e770e2dd0",
+  "product": "SEARCHAR",
+  "qualification_complete": true,
+  "qualification_harness_changes_after_runtime_regression": [
+    "scripts/release_integrity.py",
+    "tools/verify_release.py",
+    "scripts/run_tests.ps1",
+    "backend/requirements-qualification.txt"
+  ],
+  "runtime_source_changes": {
+    "changed_existing": [
+      "app/build.gradle.kts",
+      "app/src/main/java/com/blackmore/searchar/SearchARNativeBridge.kt"
+    ],
+    "deleted_files": [],
+    "new_files": [
+      "app/src/main/java/com/blackmore/searchar/SearchAREntityClient.kt"
+    ]
+  },
+  "schema": "btg-product-entity-integration-qualification-v1",
+  "status": "PASS"
+}

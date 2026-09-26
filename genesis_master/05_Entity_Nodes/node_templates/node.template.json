@@ -1,0 +1,18 @@
+{
+  "node_id": "GENERATE_NODE_ID",
+  "device_id": "",
+  "host_type": "windows|linux|mobile|appliance|other",
+  "authorized_entity_ids": [],
+  "network_endpoints": [],
+  "peer_capabilities": [],
+  "public_bridge_enabled": false,
+  "relay_allowed": true,
+  "offline_mesh_enabled": false,
+  "hosted_sites": [],
+  "hosted_apps": [],
+  "data_vault_refs": [],
+  "ar_projection_capabilities": ["camera_ar", "dashboard_ar", "remote_camera_projection", "virtual_camera"],
+  "security_policy_ref": "",
+  "created_utc": "",
+  "status": "inactive_until_enrolled"
+}

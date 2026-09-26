@@ -1,0 +1,24 @@
+{
+  "device_id": "GENERATE_AT_ENTITY_ENROLLMENT",
+  "device_alias": "ENTITY_HOST",
+  "device_role": "ENTITY_ENGINEERING_HOST",
+  "owner_principal": "ASSIGN_ENTITY_CONTROLLER",
+  "audit_path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\audit\\becp_audit.jsonl",
+  "device_registry_path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\registry\\devices.json",
+  "engineering_terminal": {
+    "enabled": true,
+    "bound_device": "USE_ACTUAL_WINDOWS_HOSTNAME_OR_ENTITY_DEVICE_ID",
+    "default_shell": "powershell.exe",
+    "allowed_shells": ["powershell.exe", "pwsh.exe", "cmd.exe"],
+    "default_cwd": "<LOCAL_DRIVE>/Sovereign_Entity_Network",
+    "max_timeout_seconds": 600,
+    "max_output_bytes": 1048576,
+    "full_filesystem_scope": true
+  },
+  "terminal_mode": "FULL_ENGINEERING_COMPUTER_ACCESS",
+  "os_privilege_model": "INHERIT_AGENT_PROCESS_TOKEN_AND_WINDOWS_UAC",
+  "network_mode": "OUTBOUND_AUTHENTICATED_AGENT_CONNECTION",
+  "discovery_mode": "ENTITY_BECP_DEVICE_REGISTRY",
+  "certificate_identity": "PROVISION_DURING_ENTITY_ENROLLMENT",
+  "revocable": true
+}

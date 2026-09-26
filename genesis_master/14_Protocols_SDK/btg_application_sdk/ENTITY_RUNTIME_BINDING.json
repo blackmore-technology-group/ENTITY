@@ -1,0 +1,25 @@
+{
+  "schema": "entity-runtime-binding-v1",
+  "authority": "btg_application_sdk",
+  "status": "READY",
+  "implementation_version": "1.0.0-additive",
+  "abi_version": "1",
+  "python_file": "canonical_btg_application_sdk.py",
+  "implementation_sha256": "7c2a88518891a1907a90863f768295eb524a3bf2f39e42844aa680f0176ccbc4",
+  "exports": [
+    "BTGApplicationSDK",
+    "make_asset_envelope",
+    "make_event_envelope"
+  ],
+  "schema_versions": [
+    "entity-btg-app-ingest-envelope-v1",
+    "entity-btg-app-event-envelope-v1"
+  ],
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_BTG_APPLICATION_SDK_CURRENT.json",
+      "sha256": "b066cde512012d3e1514716cd5af30b8c9942ba646ab17062407cb2a13fe3c0c"
+    }
+  ],
+  "design_effect": "ADDITIVE_ONLY_NO_SERS_SEMANTIC_CHANGE"
+}

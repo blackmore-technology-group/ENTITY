@@ -1,0 +1,21 @@
+{
+  "schema": "niki-reasoning-policy-constraints-v1",
+  "owner": "NIKI",
+  "default": "FAIL_CLOSED",
+  "content_projection": "METADATA_ONLY_BY_DEFAULT",
+  "raw_vault_content": "DENIED_UNLESS_SEPARATE_GOVERNED_CHANNEL",
+  "hidden_provider_reasoning": "UNKNOWN_NOT_ASSUMED",
+  "required_checks": [
+    "application capability",
+    "domain permission",
+    "AI metadata/content permission",
+    "purpose and minimum necessary context",
+    "Entity authority remains external",
+    "current execution authorization is rechecked outside NIKI"
+  ],
+  "never_authoritative_for": [
+    "identity ownership", "legal rights", "consent", "contracts",
+    "settlement finality", "vault access", "world truth", "execution"
+  ],
+  "evidence_rule": "NIKI may reason over evidence but may not upgrade its origin or assurance level"
+}

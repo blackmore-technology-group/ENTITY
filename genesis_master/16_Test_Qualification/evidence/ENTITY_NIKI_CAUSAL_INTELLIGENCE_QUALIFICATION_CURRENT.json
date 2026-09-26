@@ -1,0 +1,68 @@
+{
+  "architecture_boundary": {
+    "ADAM": "exact evidence/atomic state/governed execution/history",
+    "BSIE": "authoritative spatial/world state",
+    "ENTITY": "sovereign identity/authority/rights/policy/authorization",
+    "NIKI": "reasoning/causal intervention/counterfactual analysis/adaptive cognition routing",
+    "execution_authority": "ENTITY",
+    "executor": "ADAM"
+  },
+  "claim_boundaries": [
+    "Counterfactual results are model-dependent analysis, not proof of real-world causation.",
+    "NIKI cannot authorize or execute sovereign state mutation.",
+    "Persisted causal models require explicit ENTITY approval.",
+    "Production usefulness depends on qualified domain causal models and evidence.",
+    "Independent real-world causal validation remains open."
+  ],
+  "classification": "ENTITY_2_DEVELOPMENT_CAUSAL_NIKI_INTEGRATED_EXTERNAL_CAUSAL_VALIDATION_PENDING",
+  "excluded_from_migration": [
+    "speech/TTS/voice",
+    "emotional companion/personality",
+    "avatar/HUD",
+    "legacy superintelligence scoring",
+    "legacy certification claims",
+    "arbitrary executable causal equations",
+    "autonomous source mutation",
+    "duplicate sovereignty/policy authority"
+  ],
+  "generated_at_ms": 1789745614800,
+  "implemented_capabilities": [
+    "bounded structural causal models",
+    "hard do-style interventions",
+    "counterfactual recomputation",
+    "maximize/minimize objective ranking without negative-effect mislabeling",
+    "cycle rejection",
+    "explicit ENTITY-approved persistent causal model activation",
+    "adaptive cognition routing",
+    "empirical cross-environment stability heuristic explicitly not claimed as IRM proof",
+    "end-to-end NIKI response embedding causal analysis with no mutation authority"
+  ],
+  "niki": {
+    "authority": "NIKI_REASONING_ONLY",
+    "role": "reasoning/counterfactual analysis only",
+    "version": "1.3-entity-causal"
+  },
+  "regression": {
+    "failed": 0,
+    "log": "16_Test_Qualification\\evidence\\ENTITY_NIKI_CAUSAL_V2_REGRESSION_CURRENT.log",
+    "passed": 278,
+    "sha256": "126d2c24444a0d355532e023a0ee24c3819477fb6497533cc4354aa78661e92d",
+    "skipped": 0,
+    "warnings": 1
+  },
+  "schema": "entity-niki-causal-intelligence-qualification-v1",
+  "sealed_niki_integration": {
+    "handoff": "10_NIKI\\NIKI_INTERFACE_HANDOFF_CURRENT.json",
+    "handoff_sha256": "c5372aa93bb67b719b58108e667662fdb8943edf9e967da1906f95701f3fbd6d",
+    "qualification": "10_NIKI\\tests\\evidence\\NIKI_ENTITY_INTEGRATION_QUALIFICATION_CURRENT.json",
+    "qualification_sha256": "be70bb4eafafbaa8dd0fd0c2d08bc8b46a814c4ced82ebd0818db44756035165"
+  },
+  "source_hashes": {
+    "10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\causal_intelligence.py": "1968e394d09accdf6e377b857286e475df3a25c84fe8699f9e4df0ad2b0443f1",
+    "10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\cognition_router.py": "3bb5d0878061b7c5ec0affc24675134051a1498d8e93507871ef50eaa36ba545",
+    "10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\intelligence_core.py": "c934208f3b1a5cf7585f7996f2d4b2d5d6e645aeb2aa84cfcfd7c4dd68d91599",
+    "10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\niki.py": "e2fd8de6269acc4d9aa13ba37eb04c3764c655c67f3a047d5d54586d56215678",
+    "10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\tests\\test_causal_intelligence_v130.py": "21d9d026ff4296e73f352193d0718d53c2df39343221ae1a7de7de7463e1cc7a"
+  },
+  "status": "PASS"
+}

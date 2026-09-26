@@ -1,0 +1,33 @@
+{
+  "files": {
+    "ENTITY_DOMAIN_PROTOCOLS_v1.md": "c03d0a297bc1d60012f43cdf0810061535d3bd575ec11bcbd2dd6833aa8b09b2",
+    "README.md": "35899fad41ee4bcf2a2ade2acb1e3a321ddaaa8baf6d039f133d8d54065c0fa6",
+    "SERS-ENTITY-DOMAIN-001_v1.0.md": "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f",
+    "invalid_vectors\\domain_export.json": "ae40777cf082864044241a43b63da318e317c9c53702957db81f9b315b9ec9e7",
+    "invalid_vectors\\domain_restore.json": "bbffa553e4f0a0afe16c6fd3cf817fdb764ede632fb26cfadbbcb24247bc038a",
+    "invalid_vectors\\entity_root.json": "c58cd46447d09019414ae3f2971aac2172a7b173dd90bb61693319617d87e0aa",
+    "invalid_vectors\\name_binding.json": "6a9dfe014f2f7fa9e76f453af4ed2593bf27dd12fb3eae45749014f214500073",
+    "invalid_vectors\\name_conflict.json": "955f277a6e230c2222c6daedf3ba1491323e45c9a8f40c24abb72f2159036ac1",
+    "invalid_vectors\\node_authorization.json": "b6662cc673c475a4c2a47f335bd4b673d624046aab0bae36c99578abba77766f",
+    "invalid_vectors\\node_revocation.json": "f37c95a81b5753588eeb806da4ba067aa3c158fbc6235c5ff63eafeea00d1d1d",
+    "invalid_vectors\\relay_authorization.json": "e33530f4b71d0f66cd523ffbc54fa9a51db4ae7b41910623dca4e8f0a5e767be",
+    "invalid_vectors\\resolution_proof.json": "8252554ad4d25ab87651b80c3aabb7915069ed09fc2c61885e351045f6d492c7",
+    "invalid_vectors\\rollback.json": "436fbfdf51cd7b1ac22692a656d140527f4bf1518992722b43f68cc4434e8039",
+    "invalid_vectors\\service_manifest.json": "2f9aafe9a99ab2cda3c9e4f112c39adfee57154ad4e894f07c34e1dcf8fb5918",
+    "invalid_vectors\\stale_state.json": "4ae74f0faf6ba3526219ec8699692f58fe3af3d52b3b23cbdad2bfe326f91d69",
+    "valid_vectors\\domain_export.json": "adfab72ee82624946ed75aebeac18824f56695cb591619d2350f8ccd87d35640",
+    "valid_vectors\\domain_restore.json": "b148fad9304fda81c984da851e0649e7ba9cbf36cd7f208f81b3f72ab095948a",
+    "valid_vectors\\entity_root.json": "0b3a0dd1acced6bc84d9291639f0474b247eafa085e2e1d8ec24300894d94abc",
+    "valid_vectors\\name_binding.json": "858d7692c1b5487cbb47ba49e7ed8c386d35cec3f201ee3118055160cc902d17",
+    "valid_vectors\\name_conflict.json": "4fc061f3782e9ee1df7815d07986fe366545231cf9b4926c5c46d18e3af60c83",
+    "valid_vectors\\node_authorization.json": "fd90b4eb80d2ac8c8f9038f6b4f5ca3d401ec5f76b7708465cddcbc8104229ac",
+    "valid_vectors\\node_revocation.json": "1ce378c5023acc32790cc38fc449138b399ce9b8b88e030f0d6edc8598045417",
+    "valid_vectors\\relay_authorization.json": "c0e0d67cb445132d236d22e400e8bd4b068f40c537fccd86fd6bfbba7c3de9f4",
+    "valid_vectors\\resolution_proof.json": "a083c33211a519874663838576a6e115c3a9a7ccd80a712454f17dc3885b53bd",
+    "valid_vectors\\rollback_detection.json": "a022362a247f045919d1ab808cd8ddebc956f3d39656921eb68fcc3398108ac5",
+    "valid_vectors\\service_manifest.json": "a968b9742173500ca1a538073228c890c6c9a7d16bafd2b8c660d97116324473",
+    "valid_vectors\\stale_state_history.json": "07f06aa290b18eef11ce937e58c3371dfd6ba9f70a9cb8b0382c33c3a435cf9d"
+  },
+  "kit_sha256": "af233657bc2bb04e628b7d479995c11be28b7a69e8042b37ea9b900326103192",
+  "schema": "entity-external-domain-conformance-kit-v1"
+}

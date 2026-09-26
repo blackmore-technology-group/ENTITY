@@ -1,0 +1,6 @@
+{
+  "algorithm": "HMAC-SHA256",
+  "key_location": "external runtime secret; not included in evidence package",
+  "manifest_hmac_sha256": "4d2963d1063abc529487d74d31378d0364db230044f58b2f64358a1a686c397a",
+  "manifest_sha256": "d5236ae91986561b2a5453374eb36e61b490f1c833a4757f604e64514532a1f8"
+}

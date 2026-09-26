@@ -1,0 +1,412 @@
+{
+  "audit": {
+    "checks": [
+      {
+        "duration_ms": 948.563,
+        "evidence": {
+          "compiled": true
+        },
+        "name": "source_tree_compiles",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 0.818,
+        "evidence": {
+          "expected_passed": 13,
+          "log": "artifacts/test_logs/v040_v041.log",
+          "sha256": "6250948fae3e03b33e2785f444df1b642efe53d7faf1ba7c237d1d5d9a97fef5",
+          "tail": "13 passed in 2.08s"
+        },
+        "name": "pytest_v040_v041_regression_13",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 0.386,
+        "evidence": {
+          "expected_passed": 15,
+          "log": "artifacts/test_logs/v042_core.log",
+          "sha256": "818c6e014a38f8f08a177e92d27f8985dbd42cb08e87ac216864fbf67f146721",
+          "tail": "15 passed, 1 warning in 1.90s"
+        },
+        "name": "pytest_v042_core_15",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 0.538,
+        "evidence": {
+          "expected_passed": 3,
+          "log": "artifacts/test_logs/v042_o1.log",
+          "sha256": "959ee198029c8a3be4759528c17383c65b8f42a0e4727d9c72583cce76f41f55",
+          "tail": "3 passed in 7.41s"
+        },
+        "name": "pytest_v042_o1_3",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 157.187,
+        "evidence": {
+          "index": 2,
+          "leader": "n1",
+          "nodes": 3,
+          "quorum": 2,
+          "term": 2,
+          "votes_first": 3,
+          "votes_second": 2
+        },
+        "name": "majority_consensus_failover_recovery",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 0.385,
+        "evidence": {
+          "tamper_rejected": true
+        },
+        "name": "byzantine_signature_tamper_rejection",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 58.357,
+        "evidence": {
+          "bytes": 65537,
+          "geometry": "3+2",
+          "jurisdictions": [
+            "CA"
+          ],
+          "losses_tolerated": 2,
+          "object_id": "497f6a96c372f77bb0ecc7b93d701b730749a9046669619e9da8bddccef81756"
+        },
+        "name": "sovereignty_and_reed_solomon_two_loss_recovery",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 1.028,
+        "evidence": {
+          "direct_allowed": true,
+          "restricted_inference_denied": true
+        },
+        "name": "purpose_bound_inference_closure_authorization",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 40.842,
+        "evidence": {
+          "pid": 10512,
+          "raw_mutation_endpoint": false,
+          "status": "ASSIGNED"
+        },
+        "name": "os_process_authority_isolation",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 34.38,
+        "evidence": {
+          "aligned_claims": 5,
+          "modalities": [
+            "text",
+            "image",
+            "audio",
+            "program",
+            "tabular"
+          ],
+          "root": "f57a9e9704d9686292e3fac7386d5c071806046d66d9cdccfbd68ee7ab9bce4e"
+        },
+        "name": "multimodal_exact_semantic_alignment",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 1.636,
+        "evidence": {
+          "low_confidence_authority_denied": true
+        },
+        "name": "low_confidence_semantic_authority_rejection",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 1386.373,
+        "evidence": {
+          "aligned_entities": 148,
+          "domains": 9,
+          "evidence_object_id": "ec26b2f76d342f45f64c5b0a483b3977ed51d9b748ef69b3d8b17e95ff1a053f",
+          "exact_roundtrip": true,
+          "records_migrated": 148,
+          "source_sha256": "4784eb4e1416acf3d9f02967cfb03ad9948fddea3fed28aae948e67a53dc3e1a",
+          "universe_root": "99798df21f5e2f17eda1d9c6251a71af3f1aa87a3020792b2527bae81a76930b",
+          "universe_sequence": 454,
+          "view_equivalence": true
+        },
+        "name": "operations_one_selected_domains_sole_authority",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 262.989,
+        "evidence": {
+          "accuracy": 1.0,
+          "classes": [
+            "CRM Opportunities",
+            "Change Order Log",
+            "Fleet Register",
+            "HR Employee Master",
+            "Invoice Register",
+            "Project Controls Monthly",
+            "Purchase Order Register",
+            "RFI Log"
+          ],
+          "model_digest": "e9952375626415c1475596788852b6446aa6a3df4823105d7f82339feca1f794",
+          "rejected_ood": true,
+          "test_records": 38,
+          "train_records": 111
+        },
+        "name": "operations_one_real_data_training",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 32.466,
+        "evidence": {
+          "estimated_rows": 24,
+          "returned": 24,
+          "shards": [
+            "Invoice Register"
+          ],
+          "strategy": "SHARD_PRUNED_SCAN"
+        },
+        "name": "declarative_shard_pruned_aql",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 36.026,
+        "evidence": {
+          "approvals": 3,
+          "bad_failures": 50,
+          "promoted": "ed7c9be27bb5a0adc22ea1f4593d5fdd842b1bf82d25126fc87b7aff26c218de",
+          "replayed": 50
+        },
+        "name": "chemistry_shadow_replay_independent_promotion",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 0.488,
+        "evidence": {
+          "cases": 75,
+          "counterexample_detection": true,
+          "proof_id": "0b87281f1cf7351287c164a73250d6f4e3a277f817cb899e31526380604c6c3c"
+        },
+        "name": "machine_checked_bounded_conservation_proofs",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 345.838,
+        "evidence": {
+          "encrypted_at_rest": true,
+          "generation": 2,
+          "new_key": "c2ad2c6e4cc18f0ad3814b1226ee12adc3639f5af1f9a0c6c4d2eb7a50e5037c",
+          "old_key": "0cea987af0490aabdff306c67c1c34b2cae2a872d04ab012e87a09b022df5b22"
+        },
+        "name": "encrypted_key_storage_rotation_history",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 0.95,
+        "evidence": {
+          "object_id": "467c8bb5786cc2dbf124392004c5b4612a13b0c5bfa325aebb91e7dc551413cc",
+          "tombstone": {
+            "authority": "records officer",
+            "ciphertext_retained": true,
+            "reason": "retention expired",
+            "time_ns": 1785870201891010562
+          },
+          "unreadable": true
+        },
+        "name": "cryptographic_erasure_with_audit_tombstone",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 0.085,
+        "evidence": {
+          "a1": {
+            "logical": 0,
+            "node_id": "a",
+            "physical_ns": 100
+          },
+          "a2": {
+            "logical": 2,
+            "node_id": "a",
+            "physical_ns": 100
+          },
+          "b1": {
+            "logical": 1,
+            "node_id": "b",
+            "physical_ns": 100
+          },
+          "interval_algebra": true
+        },
+        "name": "hybrid_logical_time_interval_uncertainty",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 14.584,
+        "evidence": {
+          "aggregate_guard": true,
+          "arithmetic_effect": true,
+          "balance": 85.0
+        },
+        "name": "extended_aggregate_temporal_arithmetic_reaction_language",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 3912.228,
+        "evidence": {
+          "commits": 120,
+          "cycles": 120,
+          "elapsed_seconds": 3.8443318229992656,
+          "failovers": 1,
+          "final_index": 120,
+          "final_state_digest": "45044ee8489bc8929ed80d47c11d99f379d519a79331a74f8c08422fdf0b1f93",
+          "final_term": 2,
+          "invariant_failures": 0,
+          "logical_days": 30,
+          "peak_memory_bytes": 2102146,
+          "recoveries": 1
+        },
+        "name": "accelerated_30_logical_day_distributed_soak",
+        "status": "PASS"
+      },
+      {
+        "duration_ms": 0.012,
+        "evidence": {
+          "commits": 120,
+          "commits_per_second": 31.215,
+          "peak_memory_bytes": 2102146,
+          "seconds": 3.8443318229992656
+        },
+        "name": "bounded_distributed_performance",
+        "status": "PASS"
+      }
+    ],
+    "failed": 0,
+    "passed": 22
+  },
+  "build": "0.42.0.dev2",
+  "claim_boundary": "The build materially closes or mitigates all 18 v0.41 gaps at bounded prototype level, but does not prove a complete universal artificial living universe, production Byzantine consensus, universal perception, arbitrary theorem proving, HSM deployment, 30 wall-clock days, or production SLAs.",
+  "classification": "bounded distributed cognitive-universe research prototype",
+  "gap_status": {
+    "bounded_closed": 12,
+    "fully_universal_closed": 0,
+    "gaps": [
+      {
+        "id": "H-001",
+        "remaining": "Rust kernel not compiled; HSM boundary still pending",
+        "v041": "HIGH OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-002",
+        "remaining": "Not a production Raft/BFT/WAN implementation",
+        "v041": "CRITICAL OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-003",
+        "remaining": "Five codecs implemented; universal semantic understanding remains unsolved",
+        "v041": "CRITICAL OPEN",
+        "v042": "PARTIAL"
+      },
+      {
+        "id": "H-004",
+        "remaining": "Policy graph tested; arbitrary learned side-channel inference remains open",
+        "v041": "CRITICAL OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-005",
+        "remaining": "Real O1 records train cognition; real temporal sensor trajectories remain limited",
+        "v041": "CRITICAL OPEN",
+        "v042": "PARTIAL"
+      },
+      {
+        "id": "H-006",
+        "remaining": "Selected O1 domains only, not complete production deployment",
+        "v041": "CRITICAL OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-007",
+        "remaining": "Aggregate/arithmetic/temporal wrapper is not a universal reaction language",
+        "v041": "HIGH OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-008",
+        "remaining": "Bounded proof checker is not a general theorem prover",
+        "v041": "HIGH OPEN",
+        "v042": "PARTIAL"
+      },
+      {
+        "id": "H-009",
+        "remaining": "Enforced on v0.42 claims/migrated entities, not retroactive legacy content",
+        "v041": "HIGH OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-010",
+        "remaining": "Promotion/replay implemented; autonomous discovery remains bounded",
+        "v041": "HIGH OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-011",
+        "remaining": "Deterministic vocabulary OOD gate, not formal open-world calibration",
+        "v041": "HIGH OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-012",
+        "remaining": "Encrypted rotating keys implemented; no HSM/KMS integration",
+        "v041": "HIGH OPEN",
+        "v042": "PARTIAL"
+      },
+      {
+        "id": "H-013",
+        "remaining": "Cryptographic erasure implemented; legal workflow certification pending",
+        "v041": "HIGH OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-014",
+        "remaining": "30 logical days executed; 30 wall-clock days not executed",
+        "v041": "HIGH OPEN",
+        "v042": "PARTIAL"
+      },
+      {
+        "id": "H-015",
+        "remaining": "AQL shard pruning/cache implemented; production cost optimizer pending",
+        "v041": "MEDIUM OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-016",
+        "remaining": "HLC/interval uncertainty implemented; global clock qualification pending",
+        "v041": "MEDIUM OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-017",
+        "remaining": "Integer model matched independent processes; cross-OS/hardware lab pending",
+        "v041": "MEDIUM OPEN",
+        "v042": "BOUNDED CLOSED"
+      },
+      {
+        "id": "H-018",
+        "remaining": "Measured bounded performance only; production SLA unproven",
+        "v041": "MEDIUM OPEN",
+        "v042": "PARTIAL"
+      }
+    ],
+    "partial": 6
+  },
+  "metadata_correction": {
+    "corrected_to_package_version": "0.42.0.dev2",
+    "original_internal_version": "0.42.0.dev1",
+    "qualification_results_changed": false,
+    "reason": "Package BUILD_INFO and combined qualification identify 0.42.0.dev2; internal audit label was stale."
+  }
+}

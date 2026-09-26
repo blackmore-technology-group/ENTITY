@@ -1,0 +1,120 @@
+{
+  "assessment": "NOT_FULL_ENGINEERING_REQUIREMENTS_QUALIFIED",
+  "domain_specification": {
+    "baseline": "SERS-ENTITY-DOMAIN-001 v1.0",
+    "external_validation_required": 3,
+    "requirement_count": 189,
+    "state_counts": {
+      "DESIGNED_OR_REFERENCE_IMPLEMENTED": 22,
+      "EXTERNAL_VALIDATION_PENDING": 3,
+      "QUALIFIED_INTERNAL": 164
+    }
+  },
+  "evidence_sha256": "3431c92dd91bee9bff0a538fbdd76fc89441f6c13091a94c552769bc4384a8ce",
+  "generated_at_ms": 1789616312636,
+  "master_specification": {
+    "baseline": "SERS-ENTITY-003 v2.2",
+    "master_source_mirrored": false,
+    "production_ready_declared": false,
+    "requirement_count": 1997,
+    "source_sha256": "4efe4372d2e815fccf2720c1446b2b0423749c24f2d05819283babfe94304cde",
+    "state_counts": {
+      "QUALIFIED": 847,
+      "SPECIFIED": 1119,
+      "UNIT_VERIFIED": 31
+    },
+    "unique_high_risk_not_qualified": 82,
+    "unique_not_qualified": 226,
+    "unique_requirement_texts": 600
+  },
+  "reason": "Master RTM is not closed and sovereign-domain external SHALL milestones remain pending; internal qualified/build-ready scope remains valid.",
+  "release": {
+    "all_gates_passed": 29,
+    "all_gates_total": 30,
+    "build_ready": true,
+    "full_release_status": "BLOCKED",
+    "internal_gates_passed": 29,
+    "internal_gates_total": 29
+  },
+  "schema": "entity-full-engineering-requirements-audit-v1",
+  "top_level_master_states": {
+    "00_Governance": {
+      "QUALIFIED": 7,
+      "SPECIFIED": 56
+    },
+    "01_Core_Runtime": {
+      "QUALIFIED": 86,
+      "SPECIFIED": 33
+    },
+    "02_Peer_Network": {
+      "QUALIFIED": 133
+    },
+    "03_Public_Internet_Bridge": {
+      "QUALIFIED": 32,
+      "SPECIFIED": 56
+    },
+    "04_Entity_Registry": {
+      "QUALIFIED": 137
+    },
+    "05_Entity_Nodes": {
+      "SPECIFIED": 71
+    },
+    "06_Hosted_Sites": {
+      "SPECIFIED": 71
+    },
+    "07_Hosted_Apps": {
+      "SPECIFIED": 83
+    },
+    "08_Data_Vaults": {
+      "QUALIFIED": 78
+    },
+    "09_Spatial_AR_Dashboard": {
+      "QUALIFIED": 97
+    },
+    "11_ADAM": {
+      "QUALIFIED": 30,
+      "SPECIFIED": 58
+    },
+    "12_BSIE": {
+      "QUALIFIED": 14,
+      "SPECIFIED": 70
+    },
+    "13_Security": {
+      "QUALIFIED": 15,
+      "SPECIFIED": 102
+    },
+    "14_Protocols_SDK": {
+      "QUALIFIED": 44,
+      "SPECIFIED": 71
+    },
+    "15_Operations": {
+      "QUALIFIED": 63,
+      "SPECIFIED": 83
+    },
+    "16_Test_Qualification": {
+      "QUALIFIED": 23,
+      "SPECIFIED": 94,
+      "UNIT_VERIFIED": 22
+    },
+    "17_Release": {
+      "QUALIFIED": 6,
+      "SPECIFIED": 77
+    },
+    "18_Research_Design": {
+      "SPECIFIED": 78
+    },
+    "19_Sandbox": {
+      "SPECIFIED": 59,
+      "UNIT_VERIFIED": 9
+    },
+    "20_Archive": {
+      "SPECIFIED": 57
+    },
+    "21_Corporate_Capital": {
+      "QUALIFIED": 51
+    },
+    "22_Sovereign_Domain": {
+      "QUALIFIED": 31
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "assertions": [
+    "relay authority assertion rejected",
+    "ciphertext modification rejected by AEAD",
+    "relay ownership not inferred"
+  ],
+  "generated_at_ms": 1789595477993,
+  "scenario": "relay",
+  "schema": "entity-domain-scenario-evidence-v1",
+  "status": "PASS",
+  "test": "test_malicious_relay_cannot_manufacture_authority_or_modify_ciphertext",
+  "test_file": "16_Test_Qualification\\sovereign_domain\\test_sovereign_domain.py",
+  "test_sha256": "0feb12fa2fcae5162d44feadababe9a17b6655eefffee1b7b22d345cb1ce9e7b"
+}

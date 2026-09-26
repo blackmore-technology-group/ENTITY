@@ -1,0 +1,11 @@
+{
+  "expected_reason": null,
+  "expected_valid": true,
+  "material": {
+    "domain_id": "domain1-a703f0e6a0dc8c06ec01a829fab31d809b186c78",
+    "entity_root": "ent2-zh4ddcozm2kpe6ld3uoyjiyvth4h3klbarf3hxnaabtg2gjnbqna",
+    "same_identity_required": true
+  },
+  "name": "domain_restore",
+  "schema": "entity-domain-test-vector-v1"
+}

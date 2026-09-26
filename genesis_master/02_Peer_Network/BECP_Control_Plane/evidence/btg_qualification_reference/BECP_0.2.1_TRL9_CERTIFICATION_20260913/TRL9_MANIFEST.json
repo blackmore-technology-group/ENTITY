@@ -1,0 +1,149 @@
+{
+  "disposition": "TRL9_CERTIFIED_PASS",
+  "files": [
+    {
+      "bytes": 66,
+      "name": "AGENT_CONFIG_POST_TRL9.sha256",
+      "sha256": "3561ad13c9759a3f606290d14047fc31b37288ca0b25bc6b523460cd5da38c8d"
+    },
+    {
+      "bytes": 66,
+      "name": "AGENT_CONFIG_PRE_TRL9.sha256",
+      "sha256": "47b24c082182e6f0b737c6d71114925acabaa4c90f25ea6e52e3d1afc24fec6e"
+    },
+    {
+      "bytes": 454,
+      "name": "AGENT_RESTART_RECOVERY.json",
+      "sha256": "2ca047a6951260708504b438e97cdaffc41f12f98264a444abd67cc9f7e819cb"
+    },
+    {
+      "bytes": 1240,
+      "name": "AUDIT_LOG_ROTATION_MANIFEST.json",
+      "sha256": "05ceb5b80dca527a7fe393f1123afdb03a2b6fa950eeaa821f61425c8583f8cb"
+    },
+    {
+      "bytes": 1147,
+      "name": "DEEP_LIVE_QUALIFICATION_RESULTS.json",
+      "sha256": "1e811fc15ef18116f9e129e5b4da060578d11ed9b24d1d70064f4fdb0f99c801"
+    },
+    {
+      "bytes": 1398,
+      "name": "FINAL_ARTIFACT_HASH_VERIFICATION.json",
+      "sha256": "df83caaf04c49b613e28ecd5b6a23b80511c16f03f55594a25666cdb2923a5eb"
+    },
+    {
+      "bytes": 509,
+      "name": "FINAL_AUDIT_CHAIN_VERIFICATION.json",
+      "sha256": "ebdb0f4c88729621409c2aee573d08489d43b8010e74bfb2191976edbfb710bd"
+    },
+    {
+      "bytes": 33,
+      "name": "FINAL_COMPILE_STATUS.txt",
+      "sha256": "d68b5b0e924c40fadc77f8b35e09f3f1ed2456be41261ae369ccbd3b6beb577e"
+    },
+    {
+      "bytes": 11,
+      "name": "FINAL_COMPILEALL_RESULTS.txt",
+      "sha256": "b85c6baaf55b0d9153852953bea2fdef7deed34d0af558bc5b953c72fd023af0"
+    },
+    {
+      "bytes": 1467,
+      "name": "FINAL_PRODUCTION_STATE.json",
+      "sha256": "9606b8848cc2cf0f5693de5023c40dd175498ef7dbf75121a28d7b12c133ab0d"
+    },
+    {
+      "bytes": 585,
+      "name": "FINAL_PRODUCTION_VERIFY.json",
+      "sha256": "f035e7ce9853b2af6d2f1c9250cc55a9fd36dbe5e85074dea38a754ef9bd3680"
+    },
+    {
+      "bytes": 1059,
+      "name": "FINAL_REGRESSION_RESULTS.json",
+      "sha256": "172de8bd8e076c118a750514e75b367ba825c4da22ef8c8e73b178b235d13f62"
+    },
+    {
+      "bytes": 111,
+      "name": "FINAL_REGRESSION_RESULTS.txt",
+      "sha256": "3259281739445da3435352fea2b83910e6e93dcfa0cbbc35f925696ddc373af0"
+    },
+    {
+      "bytes": 2023,
+      "name": "FINAL_SUPPORT_HASHES.json",
+      "sha256": "ef88cfad29450ed869c0c7fc215b65beacfa7c893e3a0706bc5d946e36c3d9d7"
+    },
+    {
+      "bytes": 833,
+      "name": "GATEWAY_RESTART_RECOVERY.json",
+      "sha256": "80f985def537b63e2ba204facd86f13c96c480f70bbdbd936449de00cf4e97b9"
+    },
+    {
+      "bytes": 30,
+      "name": "GATEWAY_RESTART_START.txt",
+      "sha256": "0f1fb3ac80ac090124c3d5400226ecb704af3d317a6b62b558431917d8b90036"
+    },
+    {
+      "bytes": 7577,
+      "name": "PRE_DEPLOYMENT_STATE.json",
+      "sha256": "081fbb672ed1850ca3fa2baba2b058d135520ec1f0d8aa4576cc0e4a7fbfc191"
+    },
+    {
+      "bytes": 9754,
+      "name": "PRODUCT_INTEGRATION_LIVE_RESULTS.json",
+      "sha256": "3586e932c7a64c07f9af0be47084e4dea420bd20b60ad572c3453412090458b1"
+    },
+    {
+      "bytes": 9516,
+      "name": "PRODUCTION_API_SECURITY_RESULTS.json",
+      "sha256": "2e743f6f2daa3b26d396615c1d211509504f9d3b3dd7572a6ebbb00249dd239f"
+    },
+    {
+      "bytes": 781,
+      "name": "PRODUCTION_AUDIT_CHAIN_VERIFICATION.json",
+      "sha256": "7537b81600933acbe1db1603609237364f2297bffe449819b2849d9e908b4fef"
+    },
+    {
+      "bytes": 356,
+      "name": "PRODUCTION_MCP_RESULTS.json",
+      "sha256": "c9f37c54247b570811a45d6366ba8805c2a7821e3e4aee5a92f9c938279c23da"
+    },
+    {
+      "bytes": 3059,
+      "name": "RDC_DUAL_PATH_FINAL_RESULTS.json",
+      "sha256": "577b4e828b152038e01c5ef595942802fcbf47fea43069dd3b49cd0a7a17a4f8"
+    },
+    {
+      "bytes": 3046,
+      "name": "RDC_DUAL_PATH_RESULTS.json",
+      "sha256": "34b23b23d8f4fbc885d9b43425c6bac9d95084dbc14d50a1bf2ed9993b3b0432"
+    },
+    {
+      "bytes": 855,
+      "name": "TRL9_CERTIFICATE.json",
+      "sha256": "ea9ee0878ab8aba85c93a394449448ef95706c3b0f84d4345edeb4b62a44dc56"
+    },
+    {
+      "bytes": 615,
+      "name": "TRL9_CERTIFICATE.md",
+      "sha256": "f22c8f7ef0f236df374d9fa1002702ab12c75b84d25820e2718c6d91b0b7dc77"
+    }
+  ],
+  "gates": {
+    "agent_recovery": true,
+    "api_security_26": true,
+    "artifact_hashes": true,
+    "audit_chains": true,
+    "compileall": true,
+    "core_regression": true,
+    "deep_live": true,
+    "documentation_support": true,
+    "gateway_recovery": true,
+    "mcp_v2": true,
+    "product_live": true,
+    "product_regressions": true,
+    "production_state": true,
+    "rdc_dual_path": true
+  },
+  "generated_utc": "2026-09-14T00:35:17.516625+00:00",
+  "product_id": "BTG-PLAT-010",
+  "version": "0.2.1"
+}

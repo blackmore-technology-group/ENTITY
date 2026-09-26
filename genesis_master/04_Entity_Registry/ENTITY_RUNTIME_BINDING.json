@@ -1,0 +1,20 @@
+{
+  "abi_version": "1",
+  "authority": "knowledge_capital",
+  "exports": [
+    "KnowledgeCapitalRegistry",
+    "niki_ingest_reasoning_receipt_v1"
+  ],
+  "implementation_sha256": "007bd3dc6590cf798acd4ccd892a2c0443c99abb3afaddbdaa27f0b83f186b24",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_knowledge_capital.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+      "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+    }
+  ],
+  "requirements_sha256": "a3cba409b3b96f84f43d394ae4a1468279875fe78b69a91d15fab83094a45226",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

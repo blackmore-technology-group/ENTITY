@@ -1,0 +1,62 @@
+[
+  {
+    "bytes": 1173,
+    "path": "config\\GATEWAY_LOCAL_QUALIFICATION.json",
+    "sha256": "60f6a3d73bcbbc420b7bf14fcaac61c39b5ccaa4ec8ad257a626f9b0144b099e"
+  },
+  {
+    "bytes": 1618,
+    "path": "config\\BTG_ENGINEERING_WORKSTATION.json",
+    "sha256": "cfe56f75cc0a3d7d76df56f3be42740f67649f1582e3ca6eccf191e2a0290551"
+  },
+  {
+    "bytes": 263,
+    "path": "scripts\\START_BECP_PRODUCTION_GATEWAY_021.ps1",
+    "sha256": "3e6f2134ffdc4f75f2e6ea15cfc5d451aed7584572c251d8b5d89b2af7080db3"
+  },
+  {
+    "bytes": 651,
+    "path": "scripts\\START_BECP_PRODUCTION_AGENT_021.ps1",
+    "sha256": "37e6f73f81b3b620e0b547eaf3826fded7b62f2ae223f26da63b453f680f1b39"
+  },
+  {
+    "bytes": 911,
+    "path": "scripts\\STOP_BECP_PRODUCTION_021.ps1",
+    "sha256": "f740d7428253bbefc08dd8f9a89de8384caa3f5f1a1fb0b8fcc18010e86ed13b"
+  },
+  {
+    "bytes": 1267,
+    "path": "scripts\\VERIFY_BECP_PRODUCTION_021.ps1",
+    "sha256": "d132d0f858475dc8c5f8251fe4442c13356403cab4fa3b71cfa52e1591fb767c"
+  },
+  {
+    "bytes": 2892,
+    "path": "docs\\OPERATIONS_AND_USER_GUIDE.md",
+    "sha256": "43967fe35cc982743ff5c47a3165663c83d7b558064f39e57a4b89eddede331c"
+  },
+  {
+    "bytes": 3480,
+    "path": "docs\\SECURITY_ADMINISTRATION_GUIDE.md",
+    "sha256": "92c3dae22a173f7020c67487cece7a7e2f9dfbb7a3a2a676410ef6d66fe0fd2b"
+  },
+  {
+    "bytes": 3299,
+    "path": "docs\\MAINTENANCE_RECOVERY_ROLLBACK_GUIDE.md",
+    "sha256": "2b29126cf622b97e1bd9d043f900ab1aa4d3eeffc27f18717be77b866e41580a"
+  },
+  {
+    "bytes": 2973,
+    "path": "docs\\OPERATOR_TRAINING_GUIDE.md",
+    "sha256": "ca02ce30f9847235b7f394a8828dab71574a9d00554df4988d6da12d9a80b1ca"
+  },
+  {
+    "bytes": 3667,
+    "path": "docs\\SUSTAINING_ENGINEERING_PLAN.md",
+    "sha256": "b01ff777cde73da429046641a34fdebd34e4d6a0bc0416c966f9e71936fc4b31"
+  },
+  {
+    "bytes": 2020,
+    "path": "docs\\TRL9_CERTIFICATION_BASIS.md",
+    "sha256": "5c44ae545555d752177d6b13ea07c433b641f89b3b4eb245c160a18ff2c574bf"
+  }
+]

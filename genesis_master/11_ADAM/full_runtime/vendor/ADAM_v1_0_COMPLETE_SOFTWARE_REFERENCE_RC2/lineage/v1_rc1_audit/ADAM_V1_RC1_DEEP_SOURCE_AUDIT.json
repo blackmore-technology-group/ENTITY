@@ -1,0 +1,52 @@
+{
+  "archive": "ADAM_v1_0.zip",
+  "archive_sha256": "d82113a03ab2f38ec4a8ed73dcd730e0fe3ceb8525bf2af1590b989e2f87d8c9",
+  "blocking_findings": [
+    {
+      "id": "V1-BLOCK-001",
+      "severity": "CRITICAL",
+      "title": "Persistent runtime cannot restart"
+    },
+    {
+      "id": "V1-BLOCK-002",
+      "severity": "CRITICAL",
+      "title": "Thirty-day qualification state can be edited into a pass"
+    },
+    {
+      "id": "V1-BLOCK-003",
+      "severity": "CRITICAL",
+      "title": "Assurance promotion accepts arbitrary self-declared assessor"
+    },
+    {
+      "id": "V1-BLOCK-004",
+      "severity": "HIGH",
+      "title": "Network certificate proves prepare, not durable commit"
+    },
+    {
+      "id": "V1-BLOCK-005",
+      "severity": "HIGH",
+      "title": "Candidate and release signatures are self-authenticating"
+    },
+    {
+      "id": "V1-BLOCK-006",
+      "severity": "HIGH",
+      "title": "Packaged manifest verifier checks SHA256SUMS_V0501 rather than v1"
+    }
+  ],
+  "declared_version": "1.0.0-rc1",
+  "dedicated_v1_tests": {
+    "failed": 0,
+    "passed": 20
+  },
+  "format": "ADAM-v1-rc1-deep-source-audit",
+  "local_gates": {
+    "failed": 0,
+    "passed": 11
+  },
+  "manifest": {
+    "entries": 538,
+    "listed_mismatches": 0
+  },
+  "recommended_next_version": "1.0.0-rc2",
+  "verdict": "PRODUCTION_QUALIFICATION_CANDIDATE_REQUIRES_RC2_HARDENING"
+}

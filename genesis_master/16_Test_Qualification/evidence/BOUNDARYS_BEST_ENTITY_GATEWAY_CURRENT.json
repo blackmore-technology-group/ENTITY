@@ -1,0 +1,11 @@
+{
+  "accepted_count": 80,
+  "asset_count": 80,
+  "failure_count": 0,
+  "failures": [],
+  "metadata_error_count": 0,
+  "metadata_errors": [],
+  "outbox_count": 80,
+  "schema": "boundarys-best-entity-gateway-qualification-v1",
+  "status": "PASS"
+}

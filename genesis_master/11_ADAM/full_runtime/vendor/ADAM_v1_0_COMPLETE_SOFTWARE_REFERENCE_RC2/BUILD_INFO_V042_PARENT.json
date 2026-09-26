@@ -1,0 +1,16 @@
+{
+  "bounded_closed_gaps": 12,
+  "built_at_utc": "2026-08-04T18:05:20.090147+00:00",
+  "core_audit_passed": 22,
+  "modalities_exactly_recreated": 10,
+  "name": "ADAM Distributed Living Recreation Universe",
+  "operations_one_records_recreated": 27,
+  "partial_gaps": 6,
+  "pytest_passed": 49,
+  "recreation_audit_passed": 11,
+  "recreation_targeted_coverage_percent": 83,
+  "rust_kernel_compiled": false,
+  "rust_toolchain_available": false,
+  "universal_closed_gaps": 0,
+  "version": "0.42.0.dev2"
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "niki-ai-disclosure-gate-contract-v1",
+  "owner": "NIKI",
+  "authority_owner": "ENTITY",
+  "purpose": "fail-closed secondary guard before sensitive context is disclosed to an AI provider",
+  "required_inputs": ["ai_permissions", "classification", "provider", "purpose", "external_disclosure_policy"],
+  "decisions": ["ALLOW", "DENY"],
+  "invariants": [
+    "AI_CONTENT_READ is required before private content projection",
+    "AI_DISCLOSE is additionally required for external provider disclosure",
+    "ENTITY external disclosure policy must explicitly allow external disclosure",
+    "unknown policy state fails closed",
+    "minimum necessary projection is mandatory",
+    "this guard never grants authority absent from ENTITY"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "tool_count": 8,
+  "tools": [
+    "becp_action",
+    "becp_approval_issue",
+    "becp_device_describe",
+    "becp_device_select",
+    "becp_devices_list",
+    "becp_session_bootstrap",
+    "becp_session_close",
+    "becp_session_status"
+  ],
+  "authorized_devices": 1,
+  "health_ok": true,
+  "session_closed": true
+}

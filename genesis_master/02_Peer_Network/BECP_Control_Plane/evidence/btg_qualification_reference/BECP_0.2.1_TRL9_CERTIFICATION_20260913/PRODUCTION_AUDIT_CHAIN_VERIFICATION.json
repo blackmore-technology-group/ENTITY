@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "chains": {
+    "gateway": {
+      "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\gateway_audit.jsonl",
+      "records": 36,
+      "hmac_records": 0,
+      "hmac_key_present": false,
+      "ok": true,
+      "errors": [],
+      "last_record_hash": "2b8f4ecdf8d0909c931040e0a0519192fa7c5506a7cf56862ffb702d00d3531a"
+    },
+    "btg_agent": {
+      "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\56d7ed92-c5b4-4cca-addd-02ab1384ca74.jsonl",
+      "records": 79,
+      "hmac_records": 0,
+      "hmac_key_present": false,
+      "ok": true,
+      "errors": [],
+      "last_record_hash": "e642d028e58c4e392a488a61db84e093c2ee955effe99161b40855e8b3a7bc54"
+    }
+  }
+}

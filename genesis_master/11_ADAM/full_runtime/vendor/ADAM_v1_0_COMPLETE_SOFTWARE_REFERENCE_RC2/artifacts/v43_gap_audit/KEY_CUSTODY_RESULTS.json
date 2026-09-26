@@ -1,0 +1,19 @@
+{
+  "hardware_backed": false,
+  "isolated_processes": [
+    16262,
+    16263,
+    16264
+  ],
+  "private_keys_in_application_process": false,
+  "production_adapters": [
+    "PKCS#11",
+    "AWS KMS",
+    "GCP KMS",
+    "Azure Key Vault",
+    "Vault Transit"
+  ],
+  "quorum": "2-of-3",
+  "rotation_verified": true,
+  "verified": true
+}

@@ -1,0 +1,1421 @@
+
+=================================== ERRORS ====================================
+_ ERROR collecting 02_Peer_Network/BECP_Control_Plane/RDC_Bridge/test_desktop_commander_bridge.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\02_Peer_Network\BECP_Control_Plane\RDC_Bridge\test_desktop_commander_bridge.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+02_Peer_Network\BECP_Control_Plane\RDC_Bridge\test_desktop_commander_bridge.py:6: in <module>
+    from blackmore_ecp.desktop_commander_bridge import BridgeConfig, requires_approval
+E   ModuleNotFoundError: No module named 'blackmore_ecp'
+_ ERROR collecting 02_Peer_Network/BECP_Control_Plane/source/tests/test_desktop_commander_bridge.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\02_Peer_Network\BECP_Control_Plane\source\tests\test_desktop_commander_bridge.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+02_Peer_Network\BECP_Control_Plane\source\tests\test_desktop_commander_bridge.py:6: in <module>
+    from blackmore_ecp.desktop_commander_bridge import BridgeConfig, requires_approval
+E   ModuleNotFoundError: No module named 'blackmore_ecp'
+_ ERROR collecting 02_Peer_Network/BECP_Control_Plane/source/tests/test_device_registry_and_ai_session.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\02_Peer_Network\BECP_Control_Plane\source\tests\test_device_registry_and_ai_session.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+02_Peer_Network\BECP_Control_Plane\source\tests\test_device_registry_and_ai_session.py:3: in <module>
+    from blackmore_ecp.ai_session import AISessionManager
+E   ModuleNotFoundError: No module named 'blackmore_ecp'
+_ ERROR collecting 02_Peer_Network/BECP_Control_Plane/source/tests/test_engineering_terminal.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\02_Peer_Network\BECP_Control_Plane\source\tests\test_engineering_terminal.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+02_Peer_Network\BECP_Control_Plane\source\tests\test_engineering_terminal.py:4: in <module>
+    from blackmore_ecp.audit import AuditLog
+E   ModuleNotFoundError: No module named 'blackmore_ecp'
+_ ERROR collecting 02_Peer_Network/BECP_Control_Plane/source/tests/test_privileged_terminal_policy.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\02_Peer_Network\BECP_Control_Plane\source\tests\test_privileged_terminal_policy.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+02_Peer_Network\BECP_Control_Plane\source\tests\test_privileged_terminal_policy.py:5: in <module>
+    from blackmore_ecp.models import ActionRequest
+E   ModuleNotFoundError: No module named 'blackmore_ecp'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_adam_v11_optional.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_adam_v11_optional.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_adam_v11_optional.py:2: in <module>
+    from blackmore_ci.adam import AdamV11Gateway
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_ar_intelligence_v061.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_ar_intelligence_v061.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_ar_intelligence_v061.py:4: in <module>
+    from blackmore_ci.intelligence_core import NikiIntelligenceCore
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_brip_canonical_schema_20260911.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_brip_canonical_schema_20260911.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_brip_canonical_schema_20260911.py:3: in <module>
+    from blackmore_ci.regional_packs import RegionalPackManager as LearningPackManager
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_bsie23_platform.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_bsie23_platform.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_bsie23_platform.py:2: in <module>
+    from blackmore_ci.bsie23 import Bsie23Platform
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_bsie23_real_trail_grounding_v1.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_bsie23_real_trail_grounding_v1.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_bsie23_real_trail_grounding_v1.py:3: in <module>
+    from blackmore_ci.bsie23 import Bsie23Platform
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_bsie_native.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_bsie_native.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_bsie_native.py:2: in <module>
+    from blackmore_ci.bsie_native import BsieNativeHost
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_central.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_central.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_central.py:3: in <module>
+    from blackmore_ci.models import AtomEnvelope,NikiRequest
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_hardening.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_hardening.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_hardening.py:3: in <module>
+    from blackmore_ci.models import AtomEnvelope,NikiRequest
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_intelligence_core_v060.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_intelligence_core_v060.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_intelligence_core_v060.py:3: in <module>
+    from blackmore_ci.intelligence_core import NikiIntelligenceCore
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_intelligent_reality_layer_v061.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_intelligent_reality_layer_v061.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_intelligent_reality_layer_v061.py:3: in <module>
+    from blackmore_ci.reality.engine import IntelligentRealityLayer
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_intelligent_reality_remediation_v070.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_intelligent_reality_remediation_v070.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_intelligent_reality_remediation_v070.py:2: in <module>
+    from blackmore_ci.reality.engine import IntelligentRealityLayer
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_native_aion_reasoner.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_native_aion_reasoner.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_native_aion_reasoner.py:3: in <module>
+    from blackmore_ci.aion_subsystem import AionCognitiveSubsystem
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_bsie_trail_grounding_v1.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_bsie_trail_grounding_v1.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_bsie_trail_grounding_v1.py:3: in <module>
+    from blackmore_ci.adam import JsonAtomicGateway
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_os.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_os.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_os.py:3: in <module>
+    from blackmore_ci.cognition_kernel import NikiCognitionKernel
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_perception_bridge_v061.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_perception_bridge_v061.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_perception_bridge_v061.py:2: in <module>
+    from blackmore_ci.perception_bridge import validate_structured_observation, PerceptionValidationError, PerceptionBridge
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_physical_intelligence_v2.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_physical_intelligence_v2.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_physical_intelligence_v2.py:4: in <module>
+    from blackmore_ci.sensor_quality import SensorQualityEngine
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_physical_intelligence_v3.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_physical_intelligence_v3.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_physical_intelligence_v3.py:3: in <module>
+    from blackmore_ci.cross_sensor_fusion import CrossSensorFusionEngine
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_platform_v080.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_platform_v080.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_platform_v080.py:5: in <module>
+    from blackmore_ci.platform_v080 import WebsiteCapabilityPlatformV080
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_reality_attention_v061.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_reality_attention_v061.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_reality_attention_v061.py:2: in <module>
+    from blackmore_ci.reality.attention import AttentionEngine
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_recommendations_v4.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_recommendations_v4.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_recommendations_v4.py:5: in <module>
+    from blackmore_ci.semantic_ingress import DurableSemanticIngress
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_release_v052.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_release_v052.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_release_v052.py:3: in <module>
+    from blackmore_ci.capabilities import CapabilityRegistry
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_release_v053.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_release_v053.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_release_v053.py:3: in <module>
+    from blackmore_ci.adam import JsonAtomicGateway
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_semantic_throughput_v1.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_semantic_throughput_v1.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_semantic_throughput_v1.py:5: in <module>
+    from blackmore_ci.adam import AdamV11Gateway
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_sensory_abc_v1.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_sensory_abc_v1.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_sensory_abc_v1.py:4: in <module>
+    from blackmore_ci.cross_sensor_fusion import CrossSensorFusionEngine
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_sensory_memory_v1.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_sensory_memory_v1.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_sensory_memory_v1.py:3: in <module>
+    from blackmore_ci.memory_retention import MemoryRetentionService
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_travel_evidence.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_travel_evidence.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_travel_evidence.py:13: in <module>
+    from blackmore_ci import travel_intelligence as travel
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_travel_intelligence_v2.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_travel_intelligence_v2.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_travel_intelligence_v2.py:1: in <module>
+    from blackmore_ci.travel_intelligence import (
+E   ModuleNotFoundError: No module named 'blackmore_ci'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/perception_runtime/tests/test_perception_remediation_v070.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\perception_runtime\tests\test_perception_remediation_v070.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\perception_runtime\tests\test_perception_remediation_v070.py:3: in <module>
+    from blackmore_perception.geometry3d import Observation3DFuser
+E   ModuleNotFoundError: No module named 'blackmore_perception'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/perception_runtime/tests/test_sensory_audio_v1.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\perception_runtime\tests\test_sensory_audio_v1.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\perception_runtime\tests\test_sensory_audio_v1.py:4: in <module>
+    from blackmore_perception.audio import BlackmoreAudioRuntime, AudioEventModel, extract_audio_features
+E   ModuleNotFoundError: No module named 'blackmore_perception'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/qa_evidence/patch_semantic_throughput_test.py _
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\qa_evidence\patch_semantic_throughput_test.py:6: in <module>
+    assert old in s, 'target block not found'
+E   AssertionError: target block not found
+E   assert "        q=DurableSemanticIngress(td,sensory,perception,batch_context=batch)\n        job=q.enqueue('huntar',[{'observation_id':'s1','app_id':'huntar'}],[{'observation_id':'p1','app_id':'huntar'}])\n" in "from contextlib import contextmanager\nfrom pathlib import Path\nimport tempfile, time\n\nfrom blackmore_ci.adam impo...eption','p1')]\n            assert q.status()['batch_transactions'] is True\n        finally:\n            q.close()\n"
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/qa_evidence/trl8_completion_20260912/followup_backups_1789229580/hikear/tests/test_get_me_out_live_frontend.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\qa_evidence\trl8_completion_20260912\followup_backups_1789229580\hikear\tests\test_get_me_out_live_frontend.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\qa_evidence\trl8_completion_20260912\followup_backups_1789229580\hikear\tests\test_get_me_out_live_frontend.py:4: in <module>
+    from app.main import app
+E   ModuleNotFoundError: No module named 'app'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v1_runtime.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v1_runtime.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v1_runtime.py:9: in <module>
+    from adam_v1 import ArtificialLivingUniverseV1Candidate
+E   ModuleNotFoundError: No module named 'adam_v1'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v52_custody.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v52_custody.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v52_custody.py:7: in <module>
+    from adam_v52 import AuthorityKeyHierarchy, CustodyError, EncryptedSoftwareCustodyProvider
+E   ModuleNotFoundError: No module named 'adam_v52'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v53_network.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v53_network.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v53_network.py:9: in <module>
+    from adam_v53 import GovernedMembership, MembershipApproval, NetworkAuthorityCluster, NetworkAuthorityError
+E   ModuleNotFoundError: No module named 'adam_v53'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v54_devices.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v54_devices.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v54_devices.py:5: in <module>
+    from adam_v54 import (
+E   ModuleNotFoundError: No module named 'adam_v54'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v55_training.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v55_training.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v55_training.py:5: in <module>
+    from adam_v55 import DriftMonitor, NearestCentroidOrgan, ShadowDeployment, TrainingGovernanceError, synthetic_sensor_dataset
+E   ModuleNotFoundError: No module named 'adam_v55'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v56_v58_qualification.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v56_v58_qualification.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v56_v58_qualification.py:10: in <module>
+    from adam_v56 import CandidateFreezer, MetricSample, QualificationRecorder, SLOThresholds
+E   ModuleNotFoundError: No module named 'adam_v56'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v11 _
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1204: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1176: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1147: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:690: in _load_unlocked
+    ???
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\site-packages\_pytest\assertion\rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v11\conftest.py:5: in <module>
+    from adam_v11 import AutonomyLevel, IntelligentUniverseCentre
+E   ModuleNotFoundError: No module named 'adam_v11'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/earth_observation/test_cdem_terrain_tiles.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\earth_observation\test_cdem_terrain_tiles.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+ImportError: <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\earth_observation\test_cdem_terrain_tiles.py
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/intelligence_platform/test_intelligence_platform.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\intelligence_platform\test_intelligence_platform.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+ImportError: <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\intelligence_platform\test_intelligence_platform.py
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_bc_source_policy.py _
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\test_bc_source_policy.py:5: in <module>
+    policy=json.loads((ROOT/'data/trails/BC_TRAIL_SOURCE_POLICY.json').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\pathlib.py:1044: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\compatibility_baseline\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\runtime_components\\BSIE\\Blackmore_BSIE_2.3_Virtual_Spatial_World\\data\\trails\\BC_TRAIL_SOURCE_POLICY.json'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_bc_trail_semantics.py _
+10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\test_bc_trail_semantics.py:5: in <module>
+    spec=importlib.util.spec_from_file_location('bsie_trails',p);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1130: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\compatibility_baseline\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\runtime_components\\BSIE\\Blackmore_BSIE_2.3_Virtual_Spatial_World\\trail_pipeline\\13_TEMPORAL_GRAPH\\build_temporal_graph.py'
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/virtual_world/test_virtual_spatial_world_pack.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\virtual_world\test_virtual_spatial_world_pack.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+ImportError: <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\virtual_world\test_virtual_spatial_world_pack.py
+_ ERROR collecting 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/virtual_world/test_virtual_world_authoring.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\virtual_world\test_virtual_world_authoring.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+ImportError: <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\virtual_world\test_virtual_world_authoring.py
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_ar_projection.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_ar_projection.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_ar_projection.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_becp_auto_ingest.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_becp_auto_ingest.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_becp_auto_ingest.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_c2pa_service.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_c2pa_service.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_c2pa_service.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_c2pa_verifier.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_c2pa_verifier.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_c2pa_verifier.py:3: in <module>
+    from blackmore_ci.c2pa_verifier import C2PAVerifier
+E   ModuleNotFoundError: No module named 'blackmore_ci.c2pa_verifier'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_canonical_context_provider.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_canonical_context_provider.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_canonical_context_provider.py:1: in <module>
+    from blackmore_ci.canonical_context_provider import NikiCanonicalContextProvider
+E   ModuleNotFoundError: No module named 'blackmore_ci.canonical_context_provider'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_data_space_authority.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_data_space_authority.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_data_space_authority.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_data_universe.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_data_universe.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_data_universe.py:3: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_entity_identity_world.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_entity_identity_world.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_entity_identity_world.py:3: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_entity_runtime.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_entity_runtime.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_entity_runtime.py:2: in <module>
+    from blackmore_ci.entity_service import CAPS, NIKI, health
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_service'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_event_projection_conformance.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_event_projection_conformance.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_event_projection_conformance.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_evidence_and_sources.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_evidence_and_sources.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_evidence_and_sources.py:5: in <module>
+    from blackmore_ci.evidence_boundary import describe_evidence, unknown_evidence
+E   ModuleNotFoundError: No module named 'blackmore_ci.evidence_boundary'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_federation.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_federation.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_federation.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_federation_credentials.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_federation_credentials.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_federation_credentials.py:3: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_federation_downgrade.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_federation_downgrade.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_federation_downgrade.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_foundational_corrections.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_foundational_corrections.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_foundational_corrections.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_guardian_custody_integration.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_guardian_custody_integration.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_guardian_custody_integration.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_guardian_recovery.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_guardian_recovery.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_guardian_recovery.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_hosting_registry.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_hosting_registry.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_hosting_registry.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_hosting_service.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_hosting_service.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_hosting_service.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_lan_nat.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_lan_nat.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_lan_nat.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_multi_authority_bindings.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_multi_authority_bindings.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_multi_authority_bindings.py:2: in <module>
+    from blackmore_ci.entity_platform_bindings import EntityPlatformBindingResolver
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_platform_bindings'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_network_carrier.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_network_carrier.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_network_carrier.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_bootstrap_handoff.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_bootstrap_handoff.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_bootstrap_handoff.py:2: in <module>
+    from blackmore_ci.niki_handoffs import NikiBootstrapHandoff
+E   ModuleNotFoundError: No module named 'blackmore_ci.niki_handoffs'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_entity_context_adapter.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_entity_context_adapter.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_entity_context_adapter.py:2: in <module>
+    from blackmore_ci.entity_context_adapter import EntityContextProjectionAdapter
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_context_adapter'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_evidence_boundary_reasoning.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_evidence_boundary_reasoning.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_evidence_boundary_reasoning.py:1: in <module>
+    from blackmore_ci.niki_evidence_policy import NikiEvidencePolicy
+E   ModuleNotFoundError: No module named 'blackmore_ci.niki_evidence_policy'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_handoffs.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_handoffs.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_handoffs.py:1: in <module>
+    from blackmore_ci.niki_handoffs import NikiActionHandoff, NikiReasoningReceiptHandoff
+E   ModuleNotFoundError: No module named 'blackmore_ci.niki_handoffs'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_interface_contracts.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_interface_contracts.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_interface_contracts.py:2: in <module>
+    from blackmore_ci.niki_interface_contracts import NikiInterfaceContractRegistry
+E   ModuleNotFoundError: No module named 'blackmore_ci.niki_interface_contracts'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_overlay_contract_registry.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_overlay_contract_registry.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_overlay_contract_registry.py:1: in <module>
+    from blackmore_ci.niki_interface_contracts import NikiInterfaceContractRegistry
+E   ModuleNotFoundError: No module named 'blackmore_ci.niki_interface_contracts'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_policy_overlay_controls.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_policy_overlay_controls.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_policy_overlay_controls.py:1: in <module>
+    from blackmore_ci.niki_policy_guard import NikiEvidencePolicyGuard
+E   ModuleNotFoundError: No module named 'blackmore_ci.niki_policy_guard'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_reasoning_receipt.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_reasoning_receipt.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_reasoning_receipt.py:2: in <module>
+    from blackmore_ci.niki_interface_contracts import NikiInterfaceContractRegistry
+E   ModuleNotFoundError: No module named 'blackmore_ci.niki_interface_contracts'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_sers_controls.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_sers_controls.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_niki_sers_controls.py:1: in <module>
+    from blackmore_ci.niki_disclosure_guard import NikiDisclosureGuard
+E   ModuleNotFoundError: No module named 'blackmore_ci.niki_disclosure_guard'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_peer_crypto_data_pools.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_peer_crypto_data_pools.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_peer_crypto_data_pools.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_phase1_sovereign_core.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_phase1_sovereign_core.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_phase1_sovereign_core.py:5: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_phase2_economy.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_phase2_economy.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_phase2_economy.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_phase2_peer_contracts.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_phase2_peer_contracts.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_phase2_peer_contracts.py:5: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_platform_bindings.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_platform_bindings.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_platform_bindings.py:2: in <module>
+    from blackmore_ci.entity_platform_bindings import EntityPlatformBindingResolver
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_platform_bindings'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_pool_licensing.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_pool_licensing.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_pool_licensing.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_prebootstrap_evidence.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_prebootstrap_evidence.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_prebootstrap_evidence.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault, canonical_json
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_purpose_keys.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_purpose_keys.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_purpose_keys.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_quality_pool_economics.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_quality_pool_economics.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_quality_pool_economics.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_recovery_custody.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_recovery_custody.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_recovery_custody.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_sers_e2e_harness.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_sers_e2e_harness.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_sers_e2e_harness.py:4: in <module>
+    from blackmore_ci.entity_platform_bindings import EntityPlatformBindingResolver
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_platform_bindings'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_system_completion_matrix.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_system_completion_matrix.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_system_completion_matrix.py:1: in <module>
+    from blackmore_ci.entity_platform_bindings import EntityPlatformBindingResolver
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_platform_bindings'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_transparency_witness.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_transparency_witness.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_transparency_witness.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_transport_data_spaces.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_transport_data_spaces.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_transport_data_spaces.py:4: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_unified_entity_authority.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_unified_entity_authority.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\central_runtime\tests\test_unified_entity_authority.py:10: in <module>
+    from blackmore_ci.entity_platform_bindings import EntityPlatformBindingResolver
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_platform_bindings'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/integrations/becp/tests/test_becp_integration.py _
+import file mismatch:
+imported module 'integrations.becp.tests.test_becp_integration' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\integrations\becp\tests\test_becp_integration.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\integrations\becp\tests\test_becp_integration.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/perception_runtime/tests/test_perception_remediation_v070.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\perception_runtime\tests\test_perception_remediation_v070.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\perception_runtime\tests\test_perception_remediation_v070.py:3: in <module>
+    from blackmore_perception.geometry3d import Observation3DFuser
+E   ModuleNotFoundError: No module named 'blackmore_perception'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/perception_runtime/tests/test_sensory_audio_v1.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\perception_runtime\tests\test_sensory_audio_v1.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\perception_runtime\tests\test_sensory_audio_v1.py:4: in <module>
+    from blackmore_perception.audio import BlackmoreAudioRuntime, AudioEventModel, extract_audio_features
+E   ModuleNotFoundError: No module named 'blackmore_perception'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v40_compat.py _
+import file mismatch:
+imported module 'test_v40_compat' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v40_compat.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v40_compat.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v41_adversarial.py _
+import file mismatch:
+imported module 'test_v41_adversarial' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v41_adversarial.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v41_adversarial.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v41_universe.py _
+import file mismatch:
+imported module 'test_v41_universe' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v41_universe.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v41_universe.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_distributed.py _
+import file mismatch:
+imported module 'test_v42_distributed' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_distributed.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_distributed.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_o1_chemistry_query.py _
+import file mismatch:
+imported module 'test_v42_o1_chemistry_query' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_o1_chemistry_query.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_o1_chemistry_query.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_perception_time_formal.py _
+import file mismatch:
+imported module 'test_v42_perception_time_formal' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_perception_time_formal.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_perception_time_formal.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_reactions_soak.py _
+import file mismatch:
+imported module 'test_v42_reactions_soak' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_reactions_soak.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_reactions_soak.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_recreation.py _
+import file mismatch:
+imported module 'test_v42_recreation' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_recreation.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_recreation.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_security.py _
+import file mismatch:
+imported module 'test_v42_security' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_security.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests\test_v42_security.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_source_audit/test_source_hardening.py _
+import file mismatch:
+imported module 'test_source_hardening' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_source_audit\test_source_hardening.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_source_audit\test_source_hardening.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_source_audit/test_windows_portability.py _
+import file mismatch:
+imported module 'test_windows_portability' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_source_audit\test_windows_portability.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_source_audit\test_windows_portability.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v051/test_v051_source_candidate.py _
+import file mismatch:
+imported module 'test_v051_source_candidate' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v051\test_v051_source_candidate.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v051\test_v051_source_candidate.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v1_runtime.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v1_runtime.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v1_runtime.py:9: in <module>
+    from adam_v1 import ArtificialLivingUniverseV1Candidate
+E   ModuleNotFoundError: No module named 'adam_v1'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v52_custody.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v52_custody.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v52_custody.py:7: in <module>
+    from adam_v52 import AuthorityKeyHierarchy, CustodyError, EncryptedSoftwareCustodyProvider
+E   ModuleNotFoundError: No module named 'adam_v52'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v53_network.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v53_network.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v53_network.py:9: in <module>
+    from adam_v53 import GovernedMembership, MembershipApproval, NetworkAuthorityCluster, NetworkAuthorityError
+E   ModuleNotFoundError: No module named 'adam_v53'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v54_devices.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v54_devices.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v54_devices.py:5: in <module>
+    from adam_v54 import (
+E   ModuleNotFoundError: No module named 'adam_v54'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v55_training.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v55_training.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v55_training.py:5: in <module>
+    from adam_v55 import DriftMonitor, NearestCentroidOrgan, ShadowDeployment, TrainingGovernanceError, synthetic_sensor_dataset
+E   ModuleNotFoundError: No module named 'adam_v55'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v56_v58_qualification.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v56_v58_qualification.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v1\test_v56_v58_qualification.py:10: in <module>
+    from adam_v56 import CandidateFreezer, MetricSample, QualificationRecorder, SLOThresholds
+E   ModuleNotFoundError: No module named 'adam_v56'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v11 _
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1204: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1176: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1147: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:690: in _load_unlocked
+    ???
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\site-packages\_pytest\assertion\rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v11\conftest.py:5: in <module>
+    from adam_v11 import AutonomyLevel, IntelligentUniverseCentre
+E   ModuleNotFoundError: No module named 'adam_v11'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v43/test_production_soak.py _
+import file mismatch:
+imported module 'test_production_soak' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v43\test_production_soak.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v43\test_production_soak.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v43/test_semantic_temporal.py _
+import file mismatch:
+imported module 'test_semantic_temporal' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v43\test_semantic_temporal.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v43\test_semantic_temporal.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v43/test_theorem_custody_native.py _
+import file mismatch:
+imported module 'test_theorem_custody_native' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v43\test_theorem_custody_native.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v43\test_theorem_custody_native.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v44_physics.py _
+import file mismatch:
+imported module 'test_v44_physics' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v44_physics.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v44_physics.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v45_cognition.py _
+import file mismatch:
+imported module 'test_v45_cognition' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v45_cognition.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v45_cognition.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v46_apps.py _
+import file mismatch:
+imported module 'test_v46_apps' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v46_apps.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v46_apps.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v47_world.py _
+import file mismatch:
+imported module 'test_v47_world' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v47_world.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v47_world.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v48_embodied.py _
+import file mismatch:
+imported module 'test_v48_embodied' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v48_embodied.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v48_embodied.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v49_evolution.py _
+import file mismatch:
+imported module 'test_v49_evolution' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v49_evolution.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v49_evolution.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v50_security_runtime.py _
+import file mismatch:
+imported module 'test_v50_security_runtime' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v50_security_runtime.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\ADAM\ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE\tests_v44_v50\test_v50_security_runtime.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/runtime/python/tests/test_shared_terrain.py _
+import file mismatch:
+imported module 'test_shared_terrain' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\runtime\python\tests\test_shared_terrain.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\runtime\python\tests\test_shared_terrain.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/earth_observation/test_arcgis_snapshot.py _
+import file mismatch:
+imported module 'test_arcgis_snapshot' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\earth_observation\test_arcgis_snapshot.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\earth_observation\test_arcgis_snapshot.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/earth_observation/test_terrain_math.py _
+import file mismatch:
+imported module 'test_terrain_math' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\earth_observation\test_terrain_math.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\earth_observation\test_terrain_math.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/intelligence_platform/test_intelligence_platform.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\intelligence_platform\test_intelligence_platform.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+ImportError: <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\intelligence_platform\test_intelligence_platform.py
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_bc_source_policy.py _
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\test_bc_source_policy.py:5: in <module>
+    policy=json.loads((ROOT/'data/trails/BC_TRAIL_SOURCE_POLICY.json').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\pathlib.py:1044: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\runtime_components\\BSIE\\Blackmore_BSIE_2.3_Virtual_Spatial_World\\data\\trails\\BC_TRAIL_SOURCE_POLICY.json'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_bc_trail_semantics.py _
+10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\test_bc_trail_semantics.py:5: in <module>
+    spec=importlib.util.spec_from_file_location('bsie_trails',p);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1130: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\runtime_components\\BSIE\\Blackmore_BSIE_2.3_Virtual_Spatial_World\\trail_pipeline\\13_TEMPORAL_GRAPH\\build_temporal_graph.py'
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_world_graph_export.py _
+import file mismatch:
+imported module 'test_world_graph_export' has this __file__ attribute:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\compatibility_baseline\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\test_world_graph_export.py
+which is not the same as the test file we want to collect:
+  <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\test_world_graph_export.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_ ERROR collecting 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/virtual_world/test_virtual_spatial_world_pack.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\virtual_world\test_virtual_spatial_world_pack.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+ImportError: <LOCAL_DRIVE>/Sovereign_Entity_Network\10_NIKI\sovereign_adapted\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\runtime_components\BSIE\Blackmore_BSIE_2.3_Virtual_Spatial_World\tools\virtual_world\test_virtual_spatial_world_pack.py
+_ ERROR collecting 16_Test_Qualification/adversarial/test_privacy_adversarial.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\16_Test_Qualification\adversarial\test_privacy_adversarial.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+16_Test_Qualification\adversarial\test_privacy_adversarial.py:9: in <module>
+    from blackmore_ci.data_source_gateway import DataSourceGateway
+E   ModuleNotFoundError: No module named 'blackmore_ci.data_source_gateway'
+_ ERROR collecting 16_Test_Qualification/adversarial/test_security_adversarial.py _
+ImportError while importing test module '<LOCAL_DRIVE>/Sovereign_Entity_Network\16_Test_Qualification\adversarial\test_security_adversarial.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+16_Test_Qualification\adversarial\test_security_adversarial.py:9: in <module>
+    from blackmore_ci.entity_identity import EntityIdentityVault
+E   ModuleNotFoundError: No module named 'blackmore_ci.entity_identity'
+============================== warnings summary ===============================
+<LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\site-packages\starlette\formparsers.py:12
+  <LOCAL_DRIVE>/Users\shawn\AppData\Local\Programs\Python\Python311\Lib\site-packages\starlette\formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.
+    import multipart
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+ERROR 02_Peer_Network/BECP_Control_Plane/RDC_Bridge/test_desktop_commander_bridge.py
+ERROR 02_Peer_Network/BECP_Control_Plane/source/tests/test_desktop_commander_bridge.py
+ERROR 02_Peer_Network/BECP_Control_Plane/source/tests/test_device_registry_and_ai_session.py
+ERROR 02_Peer_Network/BECP_Control_Plane/source/tests/test_engineering_terminal.py
+ERROR 02_Peer_Network/BECP_Control_Plane/source/tests/test_privileged_terminal_policy.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_adam_v11_optional.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_ar_intelligence_v061.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_brip_canonical_schema_20260911.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_bsie23_platform.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_bsie23_real_trail_grounding_v1.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_bsie_native.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_central.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_hardening.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_intelligence_core_v060.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_intelligent_reality_layer_v061.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_intelligent_reality_remediation_v070.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_native_aion_reasoner.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_bsie_trail_grounding_v1.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_os.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_perception_bridge_v061.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_physical_intelligence_v2.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_physical_intelligence_v3.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_platform_v080.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_reality_attention_v061.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_recommendations_v4.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_release_v052.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_release_v053.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_semantic_throughput_v1.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_sensory_abc_v1.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_sensory_memory_v1.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_travel_evidence.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_travel_intelligence_v2.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/perception_runtime/tests/test_perception_remediation_v070.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/perception_runtime/tests/test_sensory_audio_v1.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/qa_evidence/patch_semantic_throughput_test.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/qa_evidence/trl8_completion_20260912/followup_backups_1789229580/hikear/tests/test_get_me_out_live_frontend.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v1_runtime.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v52_custody.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v53_network.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v54_devices.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v55_training.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v56_v58_qualification.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v11
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/earth_observation/test_cdem_terrain_tiles.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/intelligence_platform/test_intelligence_platform.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_bc_source_policy.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_bc_trail_semantics.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/virtual_world/test_virtual_spatial_world_pack.py
+ERROR 10_NIKI/compatibility_baseline/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/virtual_world/test_virtual_world_authoring.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_ar_projection.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_becp_auto_ingest.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_c2pa_service.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_c2pa_verifier.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_canonical_context_provider.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_data_space_authority.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_data_universe.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_entity_identity_world.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_entity_runtime.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_event_projection_conformance.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_evidence_and_sources.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_federation.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_federation_credentials.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_federation_downgrade.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_foundational_corrections.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_guardian_custody_integration.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_guardian_recovery.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_hosting_registry.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_hosting_service.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_lan_nat.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_multi_authority_bindings.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_network_carrier.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_bootstrap_handoff.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_entity_context_adapter.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_evidence_boundary_reasoning.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_handoffs.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_interface_contracts.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_overlay_contract_registry.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_policy_overlay_controls.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_reasoning_receipt.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_niki_sers_controls.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_peer_crypto_data_pools.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_phase1_sovereign_core.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_phase2_economy.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_phase2_peer_contracts.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_platform_bindings.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_pool_licensing.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_prebootstrap_evidence.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_purpose_keys.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_quality_pool_economics.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_recovery_custody.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_sers_e2e_harness.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_system_completion_matrix.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_transparency_witness.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_transport_data_spaces.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/central_runtime/tests/test_unified_entity_authority.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/integrations/becp/tests/test_becp_integration.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/perception_runtime/tests/test_perception_remediation_v070.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/perception_runtime/tests/test_sensory_audio_v1.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v40_compat.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v41_adversarial.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v41_universe.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_distributed.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_o1_chemistry_query.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_perception_time_formal.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_reactions_soak.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_recreation.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests/test_v42_security.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_source_audit/test_source_hardening.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_source_audit/test_windows_portability.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v051/test_v051_source_candidate.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v1_runtime.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v52_custody.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v53_network.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v54_devices.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v55_training.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v1/test_v56_v58_qualification.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v11
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v43/test_production_soak.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v43/test_semantic_temporal.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v43/test_theorem_custody_native.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v44_physics.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v45_cognition.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v46_apps.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v47_world.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v48_embodied.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v49_evolution.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/ADAM/ADAM_v1_1_INTELLIGENT_UNIVERSE_CENTRE/tests_v44_v50/test_v50_security_runtime.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/runtime/python/tests/test_shared_terrain.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/earth_observation/test_arcgis_snapshot.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/earth_observation/test_terrain_math.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/intelligence_platform/test_intelligence_platform.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_bc_source_policy.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_bc_trail_semantics.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/test_world_graph_export.py
+ERROR 10_NIKI/sovereign_adapted/Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE/runtime_components/BSIE/Blackmore_BSIE_2.3_Virtual_Spatial_World/tools/virtual_world/test_virtual_spatial_world_pack.py
+ERROR 16_Test_Qualification/adversarial/test_privacy_adversarial.py
+ERROR 16_Test_Qualification/adversarial/test_security_adversarial.py
+!!!!!!!!!!!!!!!!!! Interrupted: 137 errors during collection !!!!!!!!!!!!!!!!!!
+1 warning, 137 errors in 22.63s
+

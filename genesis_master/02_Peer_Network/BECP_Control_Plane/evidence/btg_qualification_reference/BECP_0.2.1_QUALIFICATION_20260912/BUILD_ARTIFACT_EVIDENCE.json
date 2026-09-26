@@ -1,0 +1,22 @@
+[
+  {
+    "bytes": 61284075,
+    "path": "build/BECP_0.2.1/server/BECP_Gateway_v0.2.1.exe",
+    "sha256": "5591713bc4615fffe25f42a2b90e1150518d7e00c5795d733ffb7384c2b5ff68"
+  },
+  {
+    "bytes": 58098754,
+    "path": "build/BECP_0.2.1/agent/BECP_Workstation_Agent_v0.2.1.exe",
+    "sha256": "0ff18f87b3fc826018b4ee81b3ed478d450040ca41309711c829d4141ba12eab"
+  },
+  {
+    "bytes": 36255484,
+    "path": "build/BECP_0.2.1/bridge/BECP_RDC_Bridge_v0.2.1.exe",
+    "sha256": "155c6bf7201a79f0675386c5e9d84a70a0f9186f1ed3f912746b6603689dd35b"
+  },
+  {
+    "bytes": 152809,
+    "path": "build/BECP_0.2.1/packages/blackmore_ecp-0.2.1-py3-none-any.whl",
+    "sha256": "b483216e04354d68e4724f880e9bac06280260484f9a829610c812924abed7ae"
+  }
+]

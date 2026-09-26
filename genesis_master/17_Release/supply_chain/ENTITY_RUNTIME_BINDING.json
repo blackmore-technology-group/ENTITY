@@ -1,0 +1,28 @@
+{
+  "abi_version": "1",
+  "authority": "release_attestation",
+  "exports": [
+    "create_release_attestation",
+    "build_sbom",
+    "build_rbom",
+    "build_pbom"
+  ],
+  "implementation_sha256": "91a6269002e9d041b8c8bf33a169a38bae508ca795af48b786bd6f26f1024530",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_release_attestation.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_ATTESTATION_CURRENT.json",
+      "sha256": "dd44112310f235d40d3f72a0fdee73f5544a6148096ed914ff6214ce47e63ae7"
+    }
+  ],
+  "requirements_sha256": "8056f1d4d5bfaef8e103b3652b7dda2fe122ac92707c709dd4e36e888449025f",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-release-attestation-v1",
+    "entity-sbom-v1",
+    "entity-rbom-v1",
+    "entity-pbom-v1"
+  ],
+  "status": "READY"
+}

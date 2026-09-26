@@ -1,0 +1,52 @@
+{
+  "abstained": 0,
+  "accuracy": 1.0,
+  "authoritative_inference": false,
+  "checkpoint_restored": true,
+  "correct": 112,
+  "holdout_examples": 112,
+  "model_vault": {
+    "bytes": 4637,
+    "claim_id": "504a16bac0606a891f865e4f136aabda5301af1bf3c9e15f9595ccc0b3284ad7",
+    "evidence_object_id": "df6c707f4159db6310cdc771ad0d544d2d6cbd1bf345ae6aec2282010d0a324b",
+    "proof_id": "b6ca90b99da5d20d8eca3a40e7052eb2493dbff60f69c72f73ea65edd9f08b59"
+  },
+  "models": {
+    "audio": "324c5abf8f8e5a9bd8848ae138e9786ead362491b34135139f33b416989edb9c",
+    "image": "40cc38247a377ca29f1187fa11762e00aa9f0f21e9c38d2dd2fe96c0ee72849e",
+    "program": "1cbf7a4fc1b195011d719f02a28a6774f6cabb1a1e1fc3a94767881ac4d4877d",
+    "tabular": "d411e388053d958487593bb276038077d82c4edbaf9a2b8151c4d258a259913e",
+    "text": "e580f3b4cf18cf1855ee4d98175fab83afa1b5fdf23cfdc17b57bcb59ba6744e"
+  },
+  "ood_cases": 2,
+  "ood_rejected": 2,
+  "per_modality": {
+    "audio": {
+      "abstained": 0,
+      "correct": 20,
+      "total": 20
+    },
+    "image": {
+      "abstained": 0,
+      "correct": 30,
+      "total": 30
+    },
+    "program": {
+      "abstained": 0,
+      "correct": 16,
+      "total": 16
+    },
+    "tabular": {
+      "abstained": 0,
+      "correct": 16,
+      "total": 16
+    },
+    "text": {
+      "abstained": 0,
+      "correct": 30,
+      "total": 30
+    }
+  },
+  "training_examples": 598,
+  "universe_root": "56d507c723baf9162fa585730d5b62c105fb76a0875d3fceb48713500f1016e2"
+}

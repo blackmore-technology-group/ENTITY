@@ -1,0 +1,215 @@
+{
+  "evidence_sha256": "cf0d1263cd71ad0a0ba87a65c61d2f421be56cf344b72f277c6c8d67dd161d96",
+  "external_non_btg_organization_claimed": false,
+  "forbidden_runtime_imports": [
+    "blackmore_ci",
+    "canonical_domain",
+    "Sovereign_Entity_Network\\01_Core_Runtime",
+    "Sovereign_Entity_Network\\22_Sovereign_Domain"
+  ],
+  "implementation_source_sha256": "befffeb308e811021d7592f69f7a0f76cb313fb4e6dc1fc55d6fba23cc198b3b",
+  "invalid_vectors": 12,
+  "limitations": [
+    "BTG/ChatGPT-authored clean-room implementation; independent external organization authorship/run remains a separate milestone"
+  ],
+  "qualification_complete": true,
+  "results": [
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "package_hash",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "domain_export.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "root_domain_binding",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "domain_restore.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "identity_manifest_signature",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "entity_root.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "name_claim_signature",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "name_binding.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "name_claim_signature",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "name_conflict.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "node_authorization_signature",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "node_authorization.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "node_revocation_signature",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "node_revocation.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "relay_non_authority",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "relay_authorization.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "resolution_binding",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "resolution_proof.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "anti_rollback",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "rollback_detection.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "service_manifest_signature",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "service_manifest.json"
+    },
+    {
+      "expected_valid": true,
+      "observed_valid": true,
+      "pass": true,
+      "reason": "anti_rollback",
+      "set": "ENTITY_DOMAIN_VALID_VECTORS",
+      "vector": "stale_state_history.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "package_hash",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "domain_export.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "root_domain_binding",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "domain_restore.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "identity_manifest_signature",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "entity_root.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "name_claim_signature",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "name_binding.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "name_claim_signature",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "name_conflict.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "node_authorization_signature",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "node_authorization.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "node_revocation_signature",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "node_revocation.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "relay_non_authority",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "relay_authorization.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "resolution_binding",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "resolution_proof.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "anti_rollback",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "rollback.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "service_manifest_signature",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "service_manifest.json"
+    },
+    {
+      "expected_valid": false,
+      "observed_valid": false,
+      "pass": true,
+      "reason": "anti_rollback",
+      "set": "ENTITY_DOMAIN_INVALID_VECTORS",
+      "vector": "stale_state.json"
+    }
+  ],
+  "runtime_import_independence": true,
+  "schema": "entity-cleanroom-interop-v1",
+  "status": "PASS_INTERNAL_CLEANROOM",
+  "total_vectors": 24,
+  "valid_vectors": 12
+}

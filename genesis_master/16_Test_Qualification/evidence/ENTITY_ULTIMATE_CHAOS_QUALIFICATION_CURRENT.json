@@ -1,0 +1,183 @@
+{
+  "attack_scope": [
+    "identity/key abuse",
+    "rights/authority escalation",
+    "privacy/exfiltration",
+    "prompt injection",
+    "capability escalation",
+    "settlement replay/concurrency",
+    "double-entry duplication",
+    "threshold vote abuse",
+    "consent expiry/revocation",
+    "failure-state fail-closed",
+    "evidence tamper",
+    "destructive sovereignty",
+    "whole-block-device loss surrogate",
+    "million-asset/multi-million-event production scale",
+    "provider replacement",
+    "independent transaction verification",
+    "sovereign-domain resolver/relay/recovery/storm",
+    "NIKI sovereign authority boundaries",
+    "BECP control plane"
+  ],
+  "evidence_files": {
+    "becp_pytest": {
+      "file_sha256": "0cf141a71e41bfe00a06f72e5b372a63b17875db62ab9c13bcfd0e6b3eaa2aa6",
+      "path": "16_Test_Qualification\\evidence\\CHAOS_BECP_PYTEST.txt"
+    },
+    "block_device_loss": {
+      "file_sha256": "369b2d0bf88d1fc9b30e82553174ad7a8e411988cdfaed3a950658250ee31e10",
+      "path": "16_Test_Qualification\\evidence\\ENTITY_BLOCK_DEVICE_LOSS_CURRENT.json"
+    },
+    "chaos_preflight": {
+      "file_sha256": "c9cbe58a365efd6c475852b75bb8d5d181d4afdfb05cdc46960549db3f41d6af",
+      "path": "16_Test_Qualification\\evidence\\ENTITY_CHAOS_PREFLIGHT_CURRENT.json"
+    },
+    "chaos_test_source": {
+      "file_sha256": "0726da259a1fd017de69ac146208a5d4955a930f0b411dd20c6c6781209d4dc4",
+      "path": "16_Test_Qualification\\chaos\\test_ultimate_chaos_red_team.py"
+    },
+    "entity_pytest": {
+      "file_sha256": "379bf962ea93a14c6ce1f6a56de615cef3cb57f6975046fedd6081f62e934568",
+      "path": "16_Test_Qualification\\evidence\\CHAOS_ENTITY_PYTEST.txt"
+    },
+    "generated_invariants": {
+      "file_sha256": "c2f3d74650df9e4a7bb896255f04643b91343fd46de91172e11a3f668db7fead",
+      "path": "16_Test_Qualification\\evidence\\ENTITY_GENERATED_INVARIANTS_CURRENT.json"
+    },
+    "million_scale": {
+      "file_sha256": "3ef5caf9e2827334d4335f27dbd1f99d2d2288be019963ace953653a61f7f5aa",
+      "path": "16_Test_Qualification\\evidence\\ENTITY_MILLION_ASSET_SCALE_CURRENT.json"
+    },
+    "million_scale_live_revalidation": {
+      "file_sha256": "746389f2a23d325a8d00cedc01ed76cfa6d2f3fc1896ecc5cc7fa9bb7cf58852",
+      "path": "16_Test_Qualification\\evidence\\ENTITY_MILLION_SCALE_REVALIDATION_CURRENT.json"
+    },
+    "niki_pytest": {
+      "file_sha256": "390813711bd9825a656195ac6d904b8a3f7b7a059ddce81446db34615206ccc2",
+      "path": "16_Test_Qualification\\evidence\\CHAOS_NIKI_PYTEST.txt"
+    },
+    "scale_probe": {
+      "file_sha256": "faec95c452df6e65e18d2d209462798ee1643b10af098677a7f168389758d917",
+      "path": "16_Test_Qualification\\evidence\\ENTITY_CHAOS_SCALE_PROBE_CURRENT.json"
+    },
+    "scale_probe_source": {
+      "file_sha256": "f67919bafe98dd1bd2994b2d34718951b3d858c85a737e8591032d2cf80b1df5",
+      "path": "16_Test_Qualification\\chaos\\run_scale_probe.py"
+    }
+  },
+  "evidence_sha256": "829d888d37ef802485a96600c539f54ead83eff8433722b8d7454e294d175f70",
+  "executed_pytest_legs": {
+    "becp": {
+      "failed": 0,
+      "passed": 8,
+      "skipped": 0
+    },
+    "entity": {
+      "failed": 0,
+      "passed": 134,
+      "skipped": 0
+    },
+    "niki": {
+      "failed": 0,
+      "passed": 266,
+      "skipped": 0
+    }
+  },
+  "executed_pytest_total": {
+    "failed": 0,
+    "passed": 408,
+    "skipped": 0
+  },
+  "external_validation_pending": [
+    "two physical user-controlled devices",
+    "independently developed non-BTG interoperable implementation"
+  ],
+  "generated_at_ms": 1789657727713,
+  "generated_invariants": {
+    "evidence_sha256": "df00b170b95cef5387a542029df72b063cdf80d0e013944d691570a839fee82c",
+    "failures": 0,
+    "generated_cases": 11926
+  },
+  "internal_final_gates": {
+    "ai_authority_boundary": true,
+    "capital_integrity": true,
+    "disaster_recovery": true,
+    "economic": true,
+    "evidence": true,
+    "functional": true,
+    "independent_verification_internal": true,
+    "interoperability_internal": true,
+    "provider_replaceability_internal": true,
+    "security": true,
+    "sovereignty": true
+  },
+  "limitations": [],
+  "million_scale": {
+    "database": {
+      "path": "<LOCAL_DRIVE>/ENTITY_QUALIFICATION_SCALE\\million_asset_v2\\store\\bulk_ingest.sqlite",
+      "sha256": "8d560a8ad7da423e584d026dfb9025673950c53081b6e58c6cc3882207016efe",
+      "size_bytes": 2311925760
+    },
+    "evidence_sha256": "457abf9f5733d1dbb69998e7d9f77df2473515dd9a3b6ef9a22066d66e7e7fa4",
+    "observed": {
+      "asset_ingest_per_second": 69.96,
+      "assets": 1000000,
+      "batches": 100,
+      "event_ingest_per_second": 209.87,
+      "events": 3000000,
+      "index_build_seconds": 1816.324,
+      "ingestion_seconds": 14294.253,
+      "total_seconds": 17642.575,
+      "verification_seconds": 1531.998
+    },
+    "status": "PASS",
+    "targets": {
+      "assets": 1000000,
+      "batch_size": 10000,
+      "events": 3000000
+    },
+    "verification": {
+      "batch_head": "8b4a359bc9d3ad301da24abd8a6b73d7f2e5abb7960704ff0dc1d2e8112991f4",
+      "batches": 100,
+      "pass": true,
+      "row_level_verified": true
+    }
+  },
+  "not_executed_not_claimed": [
+    "multi-host 10,000+ client distributed storm across independent machines"
+  ],
+  "qualification_complete": true,
+  "release_claim": "ENTITY FULL SYSTEM QUALIFIED is NOT asserted by this artifact; this artifact permits PASS only within the explicitly executed internal CHAOS scope.",
+  "scale_probe": {
+    "declared_limitation": "progressive workstation probe; does not claim million-asset/multi-million-event production scale",
+    "evidence_sha256": "a5f0f6335e5aa1e3139252d0cdbc731f16ca41e8bb8c74959ca1010d551b94a3",
+    "results": {
+      "asset_registration": {
+        "count": 2000,
+        "per_second": 9.54,
+        "seconds": 209.659
+      },
+      "entity_creation": {
+        "count": 2000,
+        "per_second": 100.27,
+        "seconds": 19.9468
+      },
+      "fail_closed_authorization": {
+        "count": 100000,
+        "per_second": 533.83,
+        "seconds": 187.3256
+      },
+      "settlement_finalization": {
+        "count": 1000,
+        "per_second": 10.88,
+        "seconds": 91.9274
+      }
+    },
+    "status": "PASS"
+  },
+  "schema": "entity-ultimate-chaos-qualification-v1",
+  "scope": "single authorized workstation; canonical repository; internal executable red-team, recovery, domain, NIKI, BECP and progressive scale scope",
+  "scope_status": "PASS_INTERNAL_SCOPE",
+  "status": "PASS"
+}

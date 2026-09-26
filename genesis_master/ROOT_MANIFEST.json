@@ -1,0 +1,68 @@
+{
+  "ar_model": {
+    "camera_ar_preserved": true,
+    "dashboard_ar_added": true,
+    "remote_camera_projection_added": true,
+    "shared_renderer": true,
+    "virtual_camera_added": true
+  },
+  "architecture_baseline": {
+    "normative_sections": 172,
+    "sers": "SERS-ENTITY-003",
+    "source_sha256": "4efe4372d2e815fccf2720c1446b2b0423749c24f2d05819283babfe94304cde",
+    "version": "v2.2"
+  },
+  "canonical_authority_count": 55,
+  "canonical_state": "CANONICAL_STATE_CURRENT.json",
+  "corporate_capital": {
+    "authorities": [
+      "corporate_capital_evidence",
+      "external_capital_authority_verification",
+      "capital_instrument_classification",
+      "corporate_action_reconciliation",
+      "capital_accounting_reconciliation"
+    ],
+    "canonical_owner": "21_Corporate_Capital\\capital_structure",
+    "declared_scope": "CORPORATE_CAPITAL_SECTION_170_GOLDEN_SCENARIO",
+    "regulated_execution_enabled": false,
+    "runtime_binding_status": "READY",
+    "sers": "SERS-ENTITY-003"
+  },
+  "external_release_status": "BLOCKED_PENDING_SOVEREIGN_DOMAIN_EXTERNAL",
+  "identity_model": "persistent_cryptographic_entity",
+  "independent_from": "<LOCAL_DRIVE>/Blackmore_Technology_Group",
+  "intelligence_roles": {
+    "ADAM": "authorized execution, actions and rollback",
+    "BSIE": "authoritative world and entity state",
+    "NIKI": "reasoning, interpretation, contextual intelligence and overlays"
+  },
+  "internal_release_status": "BUILD_READY",
+  "master_rtm": {
+    "full_internal_requirements_closed": true,
+    "master_source_mirrored": true,
+    "qualified": 1997,
+    "requirements": 1997
+  },
+  "network_model": [
+    "peer_to_peer",
+    "public_internet_bridge"
+  ],
+  "protocol_freeze": "00_Governance/protocol/ENTITY_PROTOCOL_1_0_FREEZE.json",
+  "root": "<LOCAL_DRIVE>/Sovereign_Entity_Network",
+  "runtime_model": "many_entities_many_nodes_per_host",
+  "sovereign_authority_doctrine": {
+    "authority": "sovereign_authority_relationships",
+    "canonical_owner": "04_Entity_Registry\\relationships",
+    "qualification_evidence": "16_Test_Qualification/evidence/ENTITY_SOVEREIGN_AUTHORITY_DOCTRINE_CURRENT.json",
+    "runtime_binding_status": "READY"
+  },
+  "status": "INTERNALLY_QUALIFIED_REFERENCE_IMPLEMENTATION",
+  "system_name": "Sovereign Entity Network",
+  "transaction_evidence_bundle": {
+    "authority": "transaction_evidence_bundle_v1",
+    "canonical_owner": "15_Operations\\transaction_evidence",
+    "protocol": "14_Protocols_SDK/schemas/ENTITY_TRANSACTION_EVIDENCE_BUNDLE_v1.md",
+    "qualification_evidence": "16_Test_Qualification/evidence/ENTITY_INDEPENDENT_TRANSACTION_CURRENT.json",
+    "runtime_binding_status": "READY"
+  }
+}

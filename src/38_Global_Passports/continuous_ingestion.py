@@ -29,7 +29,7 @@ class ContinuousProvenanceEngine:
         self.protocol_release_ref=protocol_release_ref
     def ingest_file(self,path,controller_entity_id:str,profile_refs:list[str],*,logical_path:str|None=None,
                     previous_object_id:str|None=None,rights_actions:list[str]|None=None,version:str="1.0",
-                    protocol_release_ref:str|None=None)->dict:
+                    protocol_release_ref:str|None=None,btdu_binding:dict|None=None)->dict:
         src=Path(path).resolve()
         if not src.is_file(): raise FileNotFoundError(src)
         content_sha=sha256_file(src); vault_path=self.vault/content_sha[:2]/content_sha
@@ -52,7 +52,7 @@ class ContinuousProvenanceEngine:
             evidence_refs=[ev["evidence_id"]],provenance_refs=[p["edge_id"] for p in prov],
             standards_mappings=[],economic_state={"state":"POTENTIAL","amount_units":0,"currency":"UNSPECIFIED"},
             industry_context={"continuous_ingestion":True,"logical_path":descriptor["logical_path"]},
-            protocol_release_ref=protocol_release_ref or self.protocol_release_ref)
+            protocol_release_ref=protocol_release_ref or self.protocol_release_ref,btdu_binding=btdu_binding)
         val=self.fabric.record_value(controller_entity_id,obj["object_id"],0,"UNSPECIFIED",state="POTENTIAL",
             basis_ref="v3.4-zero-value-baseline-no-market-or-accounting-value-asserted")
         return {"object":obj,"evidence":ev,"right":right,"rights_passport":rp,"global_passport":gp,

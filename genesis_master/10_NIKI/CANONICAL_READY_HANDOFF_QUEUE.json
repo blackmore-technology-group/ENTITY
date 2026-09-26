@@ -1,0 +1,12 @@
+{
+  "generated_at_ms": 1789743360545,
+  "instructions": [
+    "Implement and qualify canonical authority outside 10_NIKI.",
+    "Publish entity-runtime-binding-v1 only after qualification evidence exists.",
+    "Pin current top-level ENTITY_REQUIREMENTS.md SHA-256.",
+    "For shared owner directories use the supported authorities object or separate per-authority owner directories.",
+    "Do not mark READY solely because files exist."
+  ],
+  "owner_groups": [],
+  "schema": "entity-canonical-ready-queue-v1"
+}

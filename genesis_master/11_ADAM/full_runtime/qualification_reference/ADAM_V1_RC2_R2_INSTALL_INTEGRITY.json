@@ -1,0 +1,12 @@
+{
+  "editable_installation_used": false,
+  "files_compared": 539,
+  "final_import_isolated_mode": true,
+  "format": "ADAM-v1-rc2-r2-install-integrity",
+  "generated_at_unix": 1785891379,
+  "installed_version": "1.0.0rc2",
+  "installed_wheel_import": "PASS",
+  "prebuilt_wheel_installed": true,
+  "signed_tree_mutated": false,
+  "status": "PASS"
+}

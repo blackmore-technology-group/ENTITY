@@ -1,0 +1,12 @@
+{
+  "evidence_sha256": "bf13d8b76e59d51a1cc8035d1a83d47823eab3d636412c6ec452a18cca26e244",
+  "generated_at_ms": 1789570286195,
+  "implementation_sha256": "91a6269002e9d041b8c8bf33a169a38bae508ca795af48b786bd6f26f1024530",
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "....                                                                     [100%]\n4 passed in 14.50s",
+  "qualification_complete": true,
+  "requirements_sha256": "8056f1d4d5bfaef8e103b3652b7dda2fe122ac92707c709dd4e36e888449025f",
+  "schema": "entity-release-attestation-qualification-v1",
+  "status": "PASS"
+}

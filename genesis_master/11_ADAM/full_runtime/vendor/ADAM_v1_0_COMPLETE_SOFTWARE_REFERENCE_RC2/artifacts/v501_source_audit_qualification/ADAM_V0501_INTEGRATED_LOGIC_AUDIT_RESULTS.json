@@ -1,0 +1,902 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "v042_core": {
+          "failed": 0,
+          "passed": 22,
+          "path": "/mnt/data/ADAM_v0_51_RUST_AUTHORITY_KERNEL_SOURCE_QUALIFICATION_CANDIDATE/artifacts/full_audit/ADAM_V042_AUDIT_RESULTS.json"
+        },
+        "v042_living_recreation": {
+          "failed": 0,
+          "passed": 11,
+          "path": "/mnt/data/ADAM_v0_51_RUST_AUTHORITY_KERNEL_SOURCE_QUALIFICATION_CANDIDATE/artifacts/living_recreation_audit/ADAM_V042_LIVING_RECREATION_AUDIT_RESULTS.json"
+        },
+        "v043_gap_closure": {
+          "failed": 0,
+          "passed": 10,
+          "path": "/mnt/data/ADAM_v0_51_RUST_AUTHORITY_KERNEL_SOURCE_QUALIFICATION_CANDIDATE/artifacts/v43_gap_audit/ADAM_V043_GAP_CLOSURE_AUDIT_RESULTS.json"
+        }
+      },
+      "elapsed_seconds": 0.000471,
+      "name": "inherited_v042_and_v043_audits",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "bond_families": 9,
+        "final_root": "0eb3434bbe5967b44b100c2ed4bc17522f4928485b0110d2e79e85cd17d18d51",
+        "hyperbonds": 40,
+        "proofs": 40,
+        "reactions": 40,
+        "standard_predicates": 48,
+        "worldline_states": 40
+      },
+      "elapsed_seconds": 0.373941,
+      "name": "v044_atomic_physics_bond_algebra_hyperbonds_reactions_worldlines",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "compound_candidates": 1,
+        "concept_id": "746b88f66de948b94dea93e44d030034497a5634d7b3cd20183680f0935b0f31",
+        "graph_model_id": "169b4df13468514d1a60e32085bd6c066df9a9b80b0656812f5873104402222c",
+        "model_bond_proposals": 4,
+        "training_runs": {
+          "graph_embedding": {
+            "authorization": "RESEARCH",
+            "dataset_id": "a39dbaebec86141e43fbf70c6f68dd0c433e0f06fc7c5a8bb3f3733ff230bb12",
+            "examples": 3,
+            "metrics": {
+              "training_top1_accuracy": 1.0
+            },
+            "organ": "graph_embedding",
+            "parent_model": null
+          },
+          "masked_atom": {
+            "authorization": "RESEARCH",
+            "dataset_id": "72c9dc2bc6a0b67d9503274062fbe3627974944b53d9a78794a1f0eb94b41c46",
+            "examples": 3,
+            "metrics": {
+              "contexts": 2.0
+            },
+            "organ": "masked_atom",
+            "parent_model": null
+          },
+          "masked_bond": {
+            "authorization": "RESEARCH",
+            "dataset_id": "cd503d81e0e32039a2bdd2d3a0ca873cfe5bf220979a899f98d7ae044dc2fc10",
+            "examples": 3,
+            "metrics": {
+              "coverage": 1.0,
+              "distinct_predicates": 2.0
+            },
+            "organ": "masked_bond",
+            "parent_model": null
+          }
+        }
+      },
+      "elapsed_seconds": 0.008447,
+      "name": "v045_neural_symbolic_cognitive_chemistry_and_model_embodiment",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "action_accepted": true,
+        "constructed_bytes": 222,
+        "event_id": "6cd0ad1fb16480ac23ac99dba3e1a7bf5c8a28af7fe49b30d27288a813074178",
+        "goal_id": "7f947d51cbcebc6e3a775a07226d99fd044cda0362ab2ffa4a00d05e86263557",
+        "incremental_affected": [
+          "VARIANCE"
+        ],
+        "prediction": [
+          "ASSIGNED"
+        ]
+      },
+      "elapsed_seconds": 0.010996,
+      "name": "v046_v047_v048_application_world_and_embodiment_fabric",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "chemistry_active": "3b01623e988e9b279f1972608edc5d30a0048bf2f1d4d0709b793d3075400268",
+        "crypto_erasure": true,
+        "distributed_commits": 30,
+        "replica_roots": [
+          "0148da323f7ec9517091540166295855c0d4d766cee1ef8103eb4ca228500093"
+        ],
+        "term": 2,
+        "witnesses": 3
+      },
+      "elapsed_seconds": 0.937225,
+      "name": "v049_v050_evolution_sovereignty_inference_security_and_distributed_authority",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "actual_30_day_run_completed": false,
+        "hsm_kms_hardware_exercised": false,
+        "native_framing_reference_compiled_and_restart_verified": true,
+        "native_reference_is_signing_authority": false,
+        "rust_targets": [
+          {
+            "cargo_available": false,
+            "compiled": false,
+            "lockfile_present": false,
+            "path": "rust_authority_kernel",
+            "rustc_available": false,
+            "source_present": true,
+            "static_gates": {
+              "durable_sync": true,
+              "integrity_error": true,
+              "no_todo_or_unimplemented_macros": true,
+              "persistent_key": true,
+              "signature_verify_on_replay": true,
+              "stale_root": true
+            },
+            "strict_required": false
+          },
+          {
+            "cargo_available": false,
+            "compiled": false,
+            "lockfile_present": false,
+            "path": "rust_authority_kernel_v44",
+            "rustc_available": false,
+            "source_present": true,
+            "static_gates": {
+              "durable_sync": true,
+              "integrity_error": true,
+              "no_todo_or_unimplemented_macros": true,
+              "persistent_key": true,
+              "signature_verify_on_replay": true,
+              "stale_root": true
+            },
+            "strict_required": false
+          }
+        ],
+        "source_audit": "/mnt/data/ADAM_v0_51_RUST_AUTHORITY_KERNEL_SOURCE_QUALIFICATION_CANDIDATE/artifacts/source_audit/ADAM_V0501_SOURCE_AUDIT_RESULTS.json"
+      },
+      "elapsed_seconds": 0.00025,
+      "name": "native_authority_rust_source_and_external_boundaries",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "corrected_to_package_version": "0.42.0.dev2",
+        "original_internal_version": "0.42.0.dev1",
+        "qualification_results_changed": false,
+        "reason": "Package BUILD_INFO and combined qualification identify 0.42.0.dev2; internal audit label was stale."
+      },
+      "elapsed_seconds": 4.7e-05,
+      "name": "v042_parent_metadata_correction",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "percent_covered": 88.27187916481564,
+        "report": "/mnt/data/ADAM_v0_51_RUST_AUTHORITY_KERNEL_SOURCE_QUALIFICATION_CANDIDATE/artifacts/v501_source_audit_qualification/coverage.json",
+        "source": "manifest_verified_existing_report",
+        "statements": 2251
+      },
+      "elapsed_seconds": 0.001356,
+      "name": "focused_v044_v050_coverage",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "claim_review": [
+          {
+            "line": 46,
+            "path": "ADAM_V042_LIVING_RECREATION_ENGINEERING_CONTRACT.md",
+            "status": "bounded_or_negated",
+            "text": "This build does not claim universal semantic understanding, a universal transcoder for formats that have no codec, production Byzantine or WAN consensus, certified physical robot operation, HSM-backed production key custody, a compiled Rust authority kernel in this environment, 30 wall-clock days of operation, or production service-level performance."
+          },
+          {
+            "line": 6,
+            "path": "ADAM_V0501_SOURCE_AUDIT_AND_REMEDIATION_REPORT.md",
+            "status": "bounded_or_negated",
+            "text": "**Production certified:** No"
+          },
+          {
+            "line": 153,
+            "path": "ADAM_V0501_SOURCE_AUDIT_AND_REMEDIATION_REPORT.md",
+            "status": "bounded_or_negated",
+            "text": "v0.50.1 is materially stronger than v0.50 and removes unsafe or misleading development mechanisms. It is a **source-audited bounded development release**, not a production-certified autonomous universe. The code and qualification plans support external production work; they do not substitute for hardware custody, real devices, multi-host deployment, large-scale training, independent review or elapsed-time certification."
+          },
+          {
+            "line": 5,
+            "path": "ADAM_V0501_WINDOWS_SECURITY_MERGE_REPORT.md",
+            "status": "bounded_or_negated",
+            "text": "**Production certified:** No"
+          },
+          {
+            "line": 77,
+            "path": "ARCHITECTURE_V042_LIVING_RECREATION_UNIVERSE.md",
+            "status": "bounded_or_negated",
+            "text": "An unfamiliar format is still exactly atomized and reconstructable. Meaningful transformation is withheld until a suitable codec or learned perception model exists. This gives ADAM universal exact digital recreation without pretending to have universal semantic understanding."
+          },
+          {
+            "line": 22,
+            "path": "ATOM_THEORY_IMPLEMENTATION_MATRIX.md",
+            "status": "bounded_or_negated",
+            "text": "| Universal semantic understanding | deterministic features and evidence alignment | text/image/audio/program/video codecs | Open research problem |"
+          },
+          {
+            "line": 49,
+            "path": "README_V042_PARENT.md",
+            "status": "bounded_or_negated",
+            "text": "The build proves a bounded exact recreation and governed construction mechanism. It does not prove universal semantic understanding, production WAN/BFT operation, certified physical robot control, a compiled Rust authority kernel, 30 wall-clock days, or production SLAs."
+          }
+        ],
+        "compileall_passed": true,
+        "dependency_audit": {
+          "declared_optional": [
+            "coverage",
+            "pytest"
+          ],
+          "declared_runtime": [
+            "cryptography",
+            "msgpack",
+            "numpy",
+            "pillow",
+            "sympy"
+          ],
+          "detected_qualification": [
+            "pytest"
+          ],
+          "detected_runtime": [
+            "cryptography",
+            "msgpack",
+            "numpy",
+            "pillow",
+            "sympy"
+          ],
+          "missing_qualification": [],
+          "missing_runtime": []
+        },
+        "findings": [
+          {
+            "category": "source_marker",
+            "line": 292,
+            "message": "\"gap\": \"Private-key handling is development-only\",",
+            "path": "adam_v41/audit.py",
+            "severity": "INFO",
+            "status": "historical_gap_label"
+          },
+          {
+            "category": "broad_exception",
+            "line": 64,
+            "message": "broad exception catch in _atomic_write",
+            "path": "adam_v41/authority.py",
+            "severity": "LOW",
+            "status": "review_required"
+          },
+          {
+            "category": "pass_statement",
+            "line": 37,
+            "message": "exception intentionally ignored",
+            "path": "adam_v41/authority.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 57,
+            "message": "exception intentionally ignored",
+            "path": "adam_v41/authority.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "broad_exception",
+            "line": 180,
+            "message": "broad exception catch in _load_private",
+            "path": "adam_v41/authority.py",
+            "severity": "LOW",
+            "status": "review_required"
+          },
+          {
+            "category": "pass_statement",
+            "line": 194,
+            "message": "exception intentionally ignored",
+            "path": "adam_v41/authority.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 75,
+            "message": "exception intentionally ignored",
+            "path": "adam_v41/authority.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "broad_exception",
+            "line": 94,
+            "message": "broad exception catch in _decode_kek",
+            "path": "adam_v41/authority.py",
+            "severity": "LOW",
+            "status": "review_required"
+          },
+          {
+            "category": "pass_statement",
+            "line": 71,
+            "message": "exception intentionally ignored",
+            "path": "adam_v41/authority.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 19,
+            "message": "empty class body: LogIntegrityError",
+            "path": "adam_v41/log.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 17,
+            "message": "empty class body: IntegrityError",
+            "path": "adam_v41/universe.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 21,
+            "message": "empty class body: ConflictError",
+            "path": "adam_v41/universe.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 25,
+            "message": "empty class body: AuthorityError",
+            "path": "adam_v41/universe.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 584,
+            "message": "broad exception catch in _load_checkpoint",
+            "path": "adam_v41/universe.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "pass_statement",
+            "line": 20,
+            "message": "empty class body: ConsensusError",
+            "path": "adam_v42/distributed.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 13,
+            "message": "empty class body: EmbodimentError",
+            "path": "adam_v42/embodiment.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 10,
+            "message": "empty class body: ErasureError",
+            "path": "adam_v42/erasure.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 12,
+            "message": "empty class body: EvidenceError",
+            "path": "adam_v42/evidence.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 12,
+            "message": "empty class body: ProofError",
+            "path": "adam_v42/formal.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 35,
+            "message": "empty class body: IsolatedKernelError",
+            "path": "adam_v42/isolation.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 67,
+            "message": "broad exception catch in _server",
+            "path": "adam_v42/isolation.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "pass_statement",
+            "line": 124,
+            "message": "exception intentionally ignored",
+            "path": "adam_v42/isolation.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 19,
+            "message": "empty class body: KeyStoreError",
+            "path": "adam_v42/key_management.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 23,
+            "message": "empty class body: O1QualificationError",
+            "path": "adam_v42/operations_one.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 149,
+            "message": "exception intentionally ignored",
+            "path": "adam_v42/perception.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 10,
+            "message": "empty class body: QueryError",
+            "path": "adam_v42/query.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 27,
+            "message": "empty class body: RecreationError",
+            "path": "adam_v42/recreation.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 596,
+            "message": "broad exception catch in verify",
+            "path": "adam_v42/recreation.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "pass_statement",
+            "line": 328,
+            "message": "exception intentionally ignored",
+            "path": "adam_v42/recreation.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 21,
+            "message": "empty class body: AuthorizationError",
+            "path": "adam_v42/security.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 56,
+            "message": "broad exception catch in run_logical_soak",
+            "path": "adam_v42/soak.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "pass_statement",
+            "line": 41,
+            "message": "empty class body: CustodyError",
+            "path": "adam_v43/key_custody.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "ellipsis_body",
+            "line": 67,
+            "message": "Protocol method contract",
+            "path": "adam_v43/key_custody.py",
+            "severity": "INFO",
+            "status": "intentional_protocol_contract"
+          },
+          {
+            "category": "ellipsis_body",
+            "line": 68,
+            "message": "Protocol method contract",
+            "path": "adam_v43/key_custody.py",
+            "severity": "INFO",
+            "status": "intentional_protocol_contract"
+          },
+          {
+            "category": "ellipsis_body",
+            "line": 69,
+            "message": "Protocol method contract",
+            "path": "adam_v43/key_custody.py",
+            "severity": "INFO",
+            "status": "intentional_protocol_contract"
+          },
+          {
+            "category": "ellipsis_body",
+            "line": 70,
+            "message": "Protocol method contract",
+            "path": "adam_v43/key_custody.py",
+            "severity": "INFO",
+            "status": "intentional_protocol_contract"
+          },
+          {
+            "category": "pass_statement",
+            "line": 191,
+            "message": "exception intentionally ignored",
+            "path": "adam_v43/key_custody.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 18,
+            "message": "empty class body: QualificationError",
+            "path": "adam_v43/production_soak.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 193,
+            "message": "broad exception catch in cycle",
+            "path": "adam_v43/production_soak.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "source_marker",
+            "line": 241,
+            "message": "raise QualificationError(\"test-only clock can never issue production certification\")",
+            "path": "adam_v43/production_soak.py",
+            "severity": "INFO",
+            "status": "intentional_qualification_guard"
+          },
+          {
+            "category": "pass_statement",
+            "line": 16,
+            "message": "empty class body: SemanticError",
+            "path": "adam_v43/semantic_world.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "ellipsis_body",
+            "line": 22,
+            "message": "Protocol method contract",
+            "path": "adam_v43/semantic_world.py",
+            "severity": "INFO",
+            "status": "intentional_protocol_contract"
+          },
+          {
+            "category": "pass_statement",
+            "line": 16,
+            "message": "empty class body: TemporalLearningError",
+            "path": "adam_v43/temporal_learning.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 296,
+            "message": "exception intentionally ignored",
+            "path": "adam_v43/temporal_learning.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 14,
+            "message": "empty class body: TheoremError",
+            "path": "adam_v43/theorem_proving.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 92,
+            "message": "broad exception catch in prove_identity",
+            "path": "adam_v43/theorem_proving.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "pass_statement",
+            "line": 34,
+            "message": "empty class body: AuthorityServiceError",
+            "path": "adam_v44/authority_service.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 64,
+            "message": "broad exception catch in _serve",
+            "path": "adam_v44/authority_service.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "pass_statement",
+            "line": 124,
+            "message": "exception intentionally ignored",
+            "path": "adam_v44/authority_service.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "pass_statement",
+            "line": 191,
+            "message": "empty class body: PhysicsError",
+            "path": "adam_v44/physics.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 91,
+            "message": "broad exception catch in simulate",
+            "path": "adam_v47/world_model.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "pass_statement",
+            "line": 14,
+            "message": "empty class body: DistributedPhysicsError",
+            "path": "adam_v50/distributed_physics.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "pass_statement",
+            "line": 15,
+            "message": "empty class body: QualificationError",
+            "path": "adam_v50/production_qualification.py",
+            "severity": "INFO",
+            "status": "intentional_exception_class"
+          },
+          {
+            "category": "broad_exception",
+            "line": 114,
+            "message": "broad exception catch in run_cycle",
+            "path": "adam_v50/production_qualification.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "source_marker",
+            "line": 157,
+            "message": "raise QualificationError(\"test-only qualification cannot certify production\")",
+            "path": "adam_v50/production_qualification.py",
+            "severity": "INFO",
+            "status": "intentional_qualification_guard"
+          },
+          {
+            "category": "broad_exception",
+            "line": 51,
+            "message": "broad exception catch in check",
+            "path": "run_v42_audit.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "pass_statement",
+            "line": 218,
+            "message": "exception intentionally ignored",
+            "path": "run_v42_audit.py",
+            "severity": "INFO",
+            "status": "intentional_best_effort_cleanup_or_parse"
+          },
+          {
+            "category": "broad_exception",
+            "line": 57,
+            "message": "broad exception catch in check",
+            "path": "run_v42_living_recreation_audit.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "broad_exception",
+            "line": 43,
+            "message": "broad exception catch in check",
+            "path": "run_v43_gap_closure_audit.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "broad_exception",
+            "line": 30,
+            "message": "broad exception catch in check",
+            "path": "run_v50_full_audit.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "broad_exception",
+            "line": 200,
+            "message": "broad exception catch in compile_c_reference",
+            "path": "tools/audit_source_tree.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "broad_exception",
+            "line": 275,
+            "message": "broad exception catch in rust_targets",
+            "path": "tools/audit_source_tree.py",
+            "severity": "INFO",
+            "status": "intentional_error_boundary"
+          },
+          {
+            "category": "rust_target",
+            "line": 1,
+            "message": "cargo/rustc unavailable; source static-audited only",
+            "path": "rust_authority_kernel/src/main.rs",
+            "severity": "EXTERNAL",
+            "status": "external_toolchain_required"
+          },
+          {
+            "category": "rust_target",
+            "line": 1,
+            "message": "cargo/rustc unavailable; source static-audited only",
+            "path": "rust_authority_kernel_v44/src/main.rs",
+            "severity": "EXTERNAL",
+            "status": "external_toolchain_required"
+          }
+        ],
+        "format": "ADAM-v0.50.1-source-tree-audit",
+        "native_reference": {
+          "append": "OK 1 ff26c000fff8e8e1e940b4b94a9add0d2d657496f8b3051cf772b51710e95e69",
+          "compiled": true,
+          "mode": "C",
+          "ready": "READY ADAM43-NATIVE-FRAMING-REFERENCE 0",
+          "restart_output": [
+            "READY ADAM43-NATIVE-FRAMING-REFERENCE 1",
+            "OK 1 ff26c000fff8e8e1e940b4b94a9add0d2d657496f8b3051cf772b51710e95e69",
+            "OK BYE"
+          ],
+          "restart_verified": true,
+          "source": "native_authority_reference/authority_reference.c"
+        },
+        "non_python_source_audit": {
+          "files_scanned": 19,
+          "findings": []
+        },
+        "python_files_scanned": 78,
+        "root": "/mnt/data/adam_r4_work/ADAM_v0_50_1_FINAL_WINDOWS_QUALIFIED_R3",
+        "rust_targets": [
+          {
+            "cargo_available": false,
+            "compiled": false,
+            "lockfile_present": false,
+            "path": "rust_authority_kernel",
+            "rustc_available": false,
+            "source_present": true,
+            "static_gates": {
+              "durable_sync": true,
+              "integrity_error": true,
+              "no_todo_or_unimplemented_macros": true,
+              "persistent_key": true,
+              "signature_verify_on_replay": true,
+              "stale_root": true
+            },
+            "strict_required": false
+          },
+          {
+            "cargo_available": false,
+            "compiled": false,
+            "lockfile_present": false,
+            "path": "rust_authority_kernel_v44",
+            "rustc_available": false,
+            "source_present": true,
+            "static_gates": {
+              "durable_sync": true,
+              "integrity_error": true,
+              "no_todo_or_unimplemented_macros": true,
+              "persistent_key": true,
+              "signature_verify_on_replay": true,
+              "stale_root": true
+            },
+            "strict_required": false
+          }
+        ],
+        "secret_file_audit": {
+          "exposed_files": [],
+          "passed": true,
+          "patterns": [
+            "*private*.key",
+            "*.pem",
+            "*.p12",
+            "*.pfx",
+            "*.ed25519"
+          ]
+        },
+        "summary": {
+          "blocking_open_findings": 0,
+          "by_category": {
+            "broad_exception": 18,
+            "ellipsis_body": 5,
+            "pass_statement": 36,
+            "rust_target": 2,
+            "source_marker": 3
+          },
+          "by_status": {
+            "external_toolchain_required": 2,
+            "historical_gap_label": 1,
+            "intentional_best_effort_cleanup_or_parse": 12,
+            "intentional_error_boundary": 15,
+            "intentional_exception_class": 24,
+            "intentional_protocol_contract": 5,
+            "intentional_qualification_guard": 2,
+            "review_required": 3
+          },
+          "findings": 64
+        },
+        "test_policy_audit": {
+          "files_scanned": 21,
+          "passed": true,
+          "skip_xfail_mock_hits": []
+        },
+        "version": "0.50.1.dev4"
+      },
+      "elapsed_seconds": 0.000119,
+      "name": "mechanical_source_tree_audit_and_adversarial_hardening",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": {
+    "bounded_development_implemented": [
+      "complete first-class bond algebra and recursive bond atoms",
+      "hyperbonds",
+      "reaction-only official mutation path",
+      "proof-carrying worldlines",
+      "neural-symbolic bond training",
+      "application nervous system",
+      "causal shadow universes",
+      "incremental dependency updates",
+      "governed embodiment",
+      "self-evolving chemistry laboratory",
+      "purpose-bound inference closure",
+      "domain encryption and cryptographic erasure",
+      "majority-certified physics cluster",
+      "safe cognition serialization",
+      "restricted proof expression evaluation",
+      "source-tree secret and claim audit"
+    ],
+    "external_completion_required": [
+      "compile and independently audit Rust authority kernel",
+      "exercise production HSM/KMS hardware",
+      "qualify real devices and multi-host WAN deployment",
+      "train on large licensed open-world multimodal and field sensor corpora",
+      "complete 30 real wall-clock days and SLA certification"
+    ]
+  },
+  "failed": 0,
+  "format": "ADAM-v0.50.1-integrated-logic-audit",
+  "passed": 9,
+  "version": "0.50.1.dev3"
+}

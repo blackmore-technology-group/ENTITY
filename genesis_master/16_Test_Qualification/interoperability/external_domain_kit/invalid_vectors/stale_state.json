@@ -1,0 +1,51 @@
+{
+  "expected_reason": "anti_rollback",
+  "expected_valid": false,
+  "material": {
+    "known_current_version": 2,
+    "service_manifest": {
+      "access_class": "PUBLIC",
+      "availability": {},
+      "capabilities": [
+        "ECHO"
+      ],
+      "created_at_ms": 1789576361881,
+      "data_classifications": [
+        "PUBLIC"
+      ],
+      "domain_id": "domain1-51186588bab8349f5f7a5e8b294697c6ef3444bc",
+      "domain_name": "owner.entity",
+      "economic_terms_ref": null,
+      "endpoint": {
+        "host": "127.0.0.1",
+        "port": 65284
+      },
+      "entity_root": "ent2-mroly75svkbt4iu2eyi2df5ezyygck6excenwdaaihmvurtyddjq",
+      "expires_at_ms": null,
+      "manifest_version": 1,
+      "node_id": "node-a",
+      "policy_refs": [
+        "policy:public-api"
+      ],
+      "protocol_version": "1",
+      "provider_authority_inferred": false,
+      "required_credentials": [],
+      "schema": "entity-service-manifest-v1",
+      "service_id": "svc-api",
+      "service_type": "API",
+      "signature": {
+        "entity_id": "ent2-mroly75svkbt4iu2eyi2df5ezyygck6excenwdaaihmvurtyddjq",
+        "key_id": "sig-d129ec849b293458",
+        "payload_sha256": "c9cde0ca5375567851342e61f4396f1f75515c363c3ab6ec2e3fcd5d3806b5fb",
+        "signature": "gvPUg96GZFIUbHb6MJ3SSvnY1LHfdSLmJA_0orNdjJ7hbSZILbIAlCv7Ll5tq-0p4FBKjhDx13gTMp6tg1PeAg",
+        "signature_schema": "entity-signature-record-v2",
+        "signed_at_ms": 1789576361889,
+        "suite": "ENTITY-SIG-ED25519-v1"
+      },
+      "source_data_custody_transferred": false,
+      "status": "ACTIVE"
+    }
+  },
+  "name": "stale_state",
+  "schema": "entity-domain-test-vector-v1"
+}

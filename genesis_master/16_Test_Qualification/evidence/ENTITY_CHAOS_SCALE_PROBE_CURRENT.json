@@ -1,0 +1,33 @@
+{
+  "evidence_sha256": "a5f0f6335e5aa1e3139252d0cdbc731f16ca41e8bb8c74959ca1010d551b94a3",
+  "failures": [],
+  "generated_at_ms": 1789583600534,
+  "limitations": [
+    "progressive workstation probe; does not claim million-asset/multi-million-event production scale"
+  ],
+  "qualification_complete": true,
+  "results": {
+    "asset_registration": {
+      "count": 2000,
+      "per_second": 9.54,
+      "seconds": 209.659
+    },
+    "entity_creation": {
+      "count": 2000,
+      "per_second": 100.27,
+      "seconds": 19.9468
+    },
+    "fail_closed_authorization": {
+      "count": 100000,
+      "per_second": 533.83,
+      "seconds": 187.3256
+    },
+    "settlement_finalization": {
+      "count": 1000,
+      "per_second": 10.88,
+      "seconds": 91.9274
+    }
+  },
+  "schema": "entity-chaos-scale-probe-v1",
+  "status": "PASS"
+}

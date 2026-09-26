@@ -1,0 +1,28 @@
+{
+  "evidence_sha256": "f97ac650d7462d00a1d2dc4902d189a05d922a8c0c2fc1a6ce407e9a8bca911a",
+  "generated_at_ms": 1789503974839,
+  "invariants": [
+    "NIKI proposals never self-authorize",
+    "permanent bootstrap requires canonical core",
+    "reasoning context is bounded/non-authoritative",
+    "evidence assurance is not silently upgraded",
+    "reasoning receipts exclude hidden chain-of-thought",
+    "untrusted content cannot grant authority",
+    "high-risk actions produce policy warnings",
+    "NIKI handoff fails closed when canonical authority is unavailable"
+  ],
+  "pytest_exit_code": 0,
+  "pytest_output": "..............................                                           [100%]\n30 passed in 4.05s",
+  "schema": "entity-ai-governance-qualification-v1",
+  "status": "PASS",
+  "test_files": [
+    "tests/test_niki_action_proposal_contract.py",
+    "tests/test_niki_bootstrap_handoff.py",
+    "tests/test_niki_entity_context_adapter.py",
+    "tests/test_niki_evidence_boundary_reasoning.py",
+    "tests/test_niki_handoffs.py",
+    "tests/test_niki_policy_overlay_controls.py",
+    "tests/test_niki_reasoning_receipt.py",
+    "tests/test_niki_sers_controls.py"
+  ]
+}

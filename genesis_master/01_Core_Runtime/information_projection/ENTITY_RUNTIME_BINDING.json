@@ -1,0 +1,23 @@
+{
+  "abi_version": "1",
+  "authority": "information_projection",
+  "exports": [
+    "InformationProjectionEngine"
+  ],
+  "implementation_sha256": "a215bfe0dcf6e58c9cb7a4cdaed291298dc52375a53dc65755beae9c42513426",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_projection.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_V2_ASSURANCE_CORE_CURRENT.json",
+      "sha256": "b3b5b2023b0db81531e6386181dbf5229ef8e9da6c1d4e8b73adfd812328951e"
+    }
+  ],
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-information-projection-v1",
+    "entity-disclosure-evidence-v1"
+  ],
+  "status": "READY"
+}

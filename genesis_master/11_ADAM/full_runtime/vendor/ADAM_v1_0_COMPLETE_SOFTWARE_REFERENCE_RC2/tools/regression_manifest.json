@@ -1,0 +1,63 @@
+{
+  "version": "0.50.1.dev4",
+  "total_expected": 117,
+  "groups": [
+    {
+      "name": "v0501_source_audit",
+      "expected": 12,
+      "files": [
+        "tests_source_audit/test_source_hardening.py",
+        "tests_source_audit/test_windows_portability.py"
+      ]
+    },
+    {
+      "name": "v044_v050",
+      "expected": 47,
+      "files": [
+        "tests_v44_v50/test_v44_physics.py",
+        "tests_v44_v50/test_v45_cognition.py",
+        "tests_v44_v50/test_v46_apps.py",
+        "tests_v44_v50/test_v47_world.py",
+        "tests_v44_v50/test_v48_embodied.py",
+        "tests_v44_v50/test_v49_evolution.py",
+        "tests_v44_v50/test_v50_security_runtime.py"
+      ]
+    },
+    {
+      "name": "v043_gap_closure",
+      "expected": 9,
+      "files": [
+        "tests_v43/test_production_soak.py",
+        "tests_v43/test_semantic_temporal.py",
+        "tests_v43/test_theorem_custody_native.py"
+      ]
+    },
+    {
+      "name": "v042_core",
+      "expected": 13,
+      "files": [
+        "tests/test_v42_distributed.py",
+        "tests/test_v42_perception_time_formal.py",
+        "tests/test_v42_reactions_soak.py",
+        "tests/test_v42_o1_chemistry_query.py"
+      ]
+    },
+    {
+      "name": "v042_recreation_security",
+      "expected": 23,
+      "files": [
+        "tests/test_v42_security.py",
+        "tests/test_v42_recreation.py"
+      ]
+    },
+    {
+      "name": "v040_v041",
+      "expected": 13,
+      "files": [
+        "tests/test_v40_compat.py",
+        "tests/test_v41_universe.py",
+        "tests/test_v41_adversarial.py"
+      ]
+    }
+  ]
+}

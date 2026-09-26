@@ -1,0 +1,27 @@
+{
+  "audit_hash_chains_pass": true,
+  "compileall_pass": true,
+  "device_registry_pass": true,
+  "disposition": "QUALIFIED_PASS",
+  "generated_utc": "2026-09-12T21:02:38.579658+00:00",
+  "live_checks": {
+    "btg_remote_terminal": true,
+    "kill_switch": true,
+    "kill_switch_recovery": true,
+    "mcp_v2": true,
+    "new_chat_discovery": true,
+    "niki_adapter": true,
+    "second_workstation_routing": true,
+    "terminal_ownership": true,
+    "two_agents_online": true
+  },
+  "live_e2e_pass": true,
+  "physical_device_scope": "BTG only; second workstation is a separate logical BECP identity simulated on BTG",
+  "product": "Blackmore Engineering Control Plane",
+  "product_id": "BTG-PLAT-010",
+  "qualification_id": "BECP_0.2.0_QUALIFICATION_20260912",
+  "registered_certificate_fingerprints_match": true,
+  "regression_pass": true,
+  "regression_summary": "5 passed",
+  "version": "0.2.0"
+}

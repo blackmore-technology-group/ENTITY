@@ -1,0 +1,98 @@
+{
+  "expected_reason": null,
+  "expected_valid": true,
+  "material": {
+    "auth_version": 1,
+    "created_at_ms": 1789595476965,
+    "data_scopes": [],
+    "delegation": {},
+    "domain_id": "domain1-a703f0e6a0dc8c06ec01a829fab31d809b186c78",
+    "effective_status": "ACTIVE",
+    "entity_root": "ent2-zh4ddcozm2kpe6ld3uoyjiyvth4h3klbarf3hxnaabtg2gjnbqna",
+    "expires_at_ms": null,
+    "network_scopes": [
+      "*"
+    ],
+    "node_id": "node-a",
+    "not_before_ms": 1789595476965,
+    "permitted_services": [
+      "API",
+      "DATA_OFFER"
+    ],
+    "public_key_b64": "5VDhq4bJDrs9gb5dqgF6HV50n03a6lVTQsIzV6qXkMs",
+    "publication_scopes": [
+      "API",
+      "DATA_OFFER"
+    ],
+    "revocation": null,
+    "schema": "entity-node-authorization-v1",
+    "signature": {
+      "entity_id": "ent2-zh4ddcozm2kpe6ld3uoyjiyvth4h3klbarf3hxnaabtg2gjnbqna",
+      "key_id": "sig-552245e6612ba12e",
+      "payload_sha256": "24d9055a07a91a2fbf07638fa06b9778b0ce593502246a709f8a2b341556bb18",
+      "signature": "nr9Nf-IZMcDHjuGLqqoRIKfXFIKk2TBc3Smh0LFIYi8fCjJO2636hc72AxKn0UnoR2LWlMRfGZPNqGUl1t3VAQ",
+      "signature_schema": "entity-signature-record-v2",
+      "signed_at_ms": 1789595476967,
+      "suite": "ENTITY-SIG-ED25519-v1"
+    },
+    "status": "ACTIVE"
+  },
+  "name": "node_authorization",
+  "schema": "entity-domain-test-vector-v1",
+  "trust_material": {
+    "active_signing_key_id": "sig-552245e6612ba12e",
+    "aliases": [],
+    "created_at_ms": 1789595476701,
+    "crypto_agility": {
+      "future_hybrid_allowed": true,
+      "manifest_suite": "ENTITY-SIG-ED25519-v1",
+      "supported_suites": [
+        "ENTITY-SIG-ED25519-v1"
+      ]
+    },
+    "display_name": "Vector Owner",
+    "entity_id": "ent2-zh4ddcozm2kpe6ld3uoyjiyvth4h3klbarf3hxnaabtg2gjnbqna",
+    "entity_type": "organization",
+    "manifest_revision": 1,
+    "metadata": {},
+    "recovery_policy": {
+      "authorities": [
+        "rec-625bf962fba3c971"
+      ],
+      "delayed_recovery_supported": true,
+      "threshold": 1
+    },
+    "schema": "sovereign-entity-manifest-v2",
+    "signature": {
+      "key_id": "sig-552245e6612ba12e",
+      "signature": "DslJRHSPYqHOJcpWHwbq4aaDHCqjA4Cl0OPUqyD9V4PVvsk_Yz8wWZzO1wN6zBv9o-V6kbs_9kzy1N2c7Jx9CA",
+      "suite": "ENTITY-SIG-ED25519-v1"
+    },
+    "verification_methods": [
+      {
+        "algorithm": "Ed25519",
+        "created_at_ms": 1789595476701,
+        "key_id": "sig-552245e6612ba12e",
+        "public_key": "1VppmUmbXbcUD6TNnU243RZnQ3c43iSkvcvJkSa3sIA",
+        "purpose": [
+          "assertion",
+          "authentication",
+          "contract"
+        ],
+        "status": "active",
+        "suite": "ENTITY-SIG-ED25519-v1"
+      },
+      {
+        "algorithm": "Ed25519",
+        "created_at_ms": 1789595476701,
+        "key_id": "rec-625bf962fba3c971",
+        "public_key": "ZBNYRuQSvBwWx5PAah7KogJgvuzjH74QjGTItYmV0I4",
+        "purpose": [
+          "recovery"
+        ],
+        "status": "active",
+        "suite": "ENTITY-SIG-ED25519-v1"
+      }
+    ]
+  }
+}

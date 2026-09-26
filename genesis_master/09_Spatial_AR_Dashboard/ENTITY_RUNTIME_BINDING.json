@@ -1,0 +1,20 @@
+{
+  "abi_version": "1",
+  "authority": "ar_projection",
+  "exports": [
+    "ArProjectionAuthority",
+    "niki_accept_overlay_layer_v1"
+  ],
+  "implementation_sha256": "01dbcd206fa0045a89a2b1c038ed53a144df43776bb0e20ad1a6118949ca43ba",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_ar_projection.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+      "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+    }
+  ],
+  "requirements_sha256": "116f0a88bce0ef2ac8ad1b15f11e2e32573b716c90ade0f53c04474eb7d3454b",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

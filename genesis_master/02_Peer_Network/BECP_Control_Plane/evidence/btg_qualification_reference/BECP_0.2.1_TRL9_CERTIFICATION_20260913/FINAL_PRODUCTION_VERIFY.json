@@ -1,0 +1,18 @@
+{
+    "status":  "PASS",
+    "gateway_health":  {
+                           "ok":  true,
+                           "service":  "BECP client gateway",
+                           "registered_devices":  2,
+                           "online_devices":  1
+                       },
+    "btg_online":  true,
+    "btg_agent_version":  "0.2.1",
+    "connected_session_id":  "ec04509b-e4f5-4a75-ac28-5586d901a27c",
+    "listeners":  {
+                      "8765":  46704,
+                      "8766":  46704,
+                      "8767":  46704
+                  }
+}
+

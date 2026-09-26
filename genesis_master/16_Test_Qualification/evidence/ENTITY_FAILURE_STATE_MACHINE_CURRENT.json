@@ -1,0 +1,27 @@
+{
+  "evidence_sha256": "86b0d0f5c50e1b37d600d371074c82c01b6da8362f03f5b4927daaefda1005a4",
+  "generated_at_ms": 1789570289442,
+  "high_impact_fail_closed": true,
+  "implementation_sha256": "d239c4b7b1f65f289fde99ec28fb012c4efcc3b0439185f2f9c8ef10e9b790b8",
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "...                                                                      [100%]\n3 passed in 1.54s",
+  "qualification_complete": true,
+  "qualified_authorities": [
+    "service_state_machine"
+  ],
+  "requirements_sha256": "54fbb2a92a63d4b7f9bde8119713eb13cf25778a294c4bd8a85c5c4c8b42fd41",
+  "schema": "entity-failure-degradation-state-machine-qualification-v1",
+  "states": [
+    "NORMAL",
+    "DEGRADED",
+    "OFFLINE",
+    "DEPENDENCY_UNAVAILABLE",
+    "MALICIOUS_INPUT",
+    "CONFLICTING_STATE",
+    "RECOVERY",
+    "QUARANTINED"
+  ],
+  "status": "PASS",
+  "unknown_operation_default_deny": true
+}

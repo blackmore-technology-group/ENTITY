@@ -1,0 +1,120 @@
+{
+  "artifacts": {
+    "binding_resolver": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\entity_platform_bindings.py",
+      "sha256": "b88cdb116d7f0cb2337d5b76a53acb3503efe76afb66bd0f5c6e76d56ee768a7"
+    },
+    "binding_schema": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\ENTITY_RUNTIME_BINDING_SCHEMA.json",
+      "sha256": "6c80c639e04f3cc1ce72b60496c72b261ee17d8392832bef8497f0e14b0e817f"
+    },
+    "binding_templates": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\CANONICAL_RUNTIME_BINDING_TEMPLATES.json",
+      "sha256": "6fe11cf5c66e86bd54aa89a16ec255a1db6bb0220f0c46dfe2bee9b4bbc9ac62"
+    },
+    "c2pa_verifier": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\c2pa_verifier.py",
+      "sha256": "4b3f8dd2b8390e3d1635fe0a8c07b1dcb3e7d5793de082422431cbb3720aeafa"
+    },
+    "canonical_abi": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\CANONICAL_RUNTIME_ABI.json",
+      "sha256": "884c3fe7040d49acb535416f9080029a3ac5885565c3d1e20686f8dcbbed28b2"
+    },
+    "completion_matrix": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\ENTITY_SYSTEM_COMPLETION_MATRIX.json",
+      "sha256": "c2907fb0f92d1bcc4389e132e4a5cf4d2fa4e45fc524a8df0c2c4095c84a1656"
+    },
+    "completion_matrix_code": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\system_completion_matrix.py",
+      "sha256": "321c86972d2577379b5b2c8796e99bf44622fe2cfabd48c1dc84c1e9fc4c43a1"
+    },
+    "entity_service": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\entity_service.py",
+      "sha256": "264be634ec3f005f5ac90da8d11967ed54f2283f84016e606683f139df3dbf06"
+    },
+    "full_pytest_evidence": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\tests\\evidence\\FULL_PYTEST_NIKI_FINAL.txt",
+      "sha256": "06b0e849ab1607dded85a5ee738826f3115996680825406fabb6ce9898912783"
+    },
+    "niki_core": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\blackmore_ci\\niki.py",
+      "sha256": "8a2bf115ffec0cffb5eafc03e80780da6e449ae09406851f2704850569acf0f0"
+    },
+    "platform_bindings": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\ENTITY_PLATFORM_BINDINGS.json",
+      "sha256": "586ab6554e3a1f5adb05bb8a3a4cb4ac0f5a771714486834748bfe9dea81b94c"
+    },
+    "ready_queue": {
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\CANONICAL_READY_HANDOFF_QUEUE.json",
+      "sha256": "490862b3b85228f43413661ca882dd4c82fc97da89cf6266ec5f6992b6ca3364"
+    }
+  },
+  "canonical_runtime": {
+    "authority_count": 35,
+    "not_ready_count": 35,
+    "permanent_bootstrap_allowed": false,
+    "ready_count": 0,
+    "system_acceptance_status": "BLOCKED_CANONICAL_RUNTIME"
+  },
+  "contracts": {
+    "CANONICAL_CONTEXT_PROVIDER_CONTRACT.json": "3a13713eadc0b2760c41543586b4dc10cbe8919176f2fbd591ade2e7f97da3cc",
+    "ENTITY_CONTEXT_PROJECTION_CONTRACT.json": "eb437827774456de59358d03c83edc7db630891b59989b52ab41a000c4e097fa",
+    "ENTITY_INTELLIGENCE_PROJECTION_CONTRACT.json": "c9d8a25dc63e43219382022f8770e093abfe4fd3cab0c3e8c5472d907e94448e",
+    "NIKI_ACTION_HANDOFF_CONTRACT.json": "8ac74528968b19ddb56792684cae8c38aad158773620395f9de3b006e094a975",
+    "NIKI_ACTION_PROPOSAL_CONTRACT.json": "7cda7e93868cb88e6d7ea07628ce0db360d67239887f606f97cebe71c7bbd1ba",
+    "NIKI_AI_DISCLOSURE_GATE_CONTRACT.json": "1e3f04ad5251ac6574b3dae061daab7f2e09ed91c446d6a1f32191431d7290ca",
+    "NIKI_AR_OVERLAY_OUTPUT_CONTRACT.json": "1beb3eaa991331e043ebcd4cc28d620a947e61eaf7f6ec6a164afe2a63924958",
+    "NIKI_EVIDENCE_REASONING_CONTRACT.json": "1f726e9a023e46100897e32aa3e8f206f0824fbfd3714f1f26c61df8a4afc270",
+    "NIKI_HIGH_RISK_WARNING_CONTRACT.json": "cf78ba217fc48e12035f323d998e45da1d47fa3f7824a64b1bfe3331730a7e75",
+    "NIKI_POLICY_EXPLANATION_CONTRACT.json": "b7e8d7d39d210d5f0ac70ad40a86d29ca620e8a1765962c2a58e81c8705b87bf",
+    "NIKI_REASONING_POLICY_CONSTRAINTS.json": "71e844db5f411c47107919565827e16908d1d2c7dfff4c13ca5a0dbddfdc065d",
+    "NIKI_REASONING_RECEIPT_CONTRACT.json": "e39f1301cb02547abf4283a2791c73a6dcd35f06c32042ddb945a7ae99074b0f",
+    "NIKI_REASONING_RECEIPT_HANDOFF_CONTRACT.json": "1fa9fd19b01ca477996242a7e312beb996e90ed8af0fbb4b534d4132d74d363e",
+    "NIKI_UNTRUSTED_CONTENT_CONTRACT.json": "19739feab585e18f3839c4e23da66a6e86e6ada821789d2aa6fb74eb24299a49"
+  },
+  "date": "2026-09-15",
+  "focused_gates": {
+    "c2pa_deterministic_cache": {
+      "failed": 0,
+      "passed": 5
+    },
+    "multi_authority_bindings": {
+      "failed": 0,
+      "passed": 15
+    },
+    "niki_sers_controls": {
+      "failed": 0,
+      "passed": 25
+    }
+  },
+  "full_suite": {
+    "evidence_file": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\tests\\evidence\\FULL_PYTEST_NIKI_FINAL.txt",
+    "evidence_sha256": "06b0e849ab1607dded85a5ee738826f3115996680825406fabb6ce9898912783",
+    "failed": 0,
+    "passed": 113,
+    "warning": "upstream starlette PendingDeprecationWarning for python_multipart import",
+    "warning_count": 1
+  },
+  "generated_at_ms": 1789497057041,
+  "invariants": [
+    "NIKI is not an ENTITY authority owner",
+    "permanent bootstrap executes only through canonical service_api unless explicit development override",
+    "NIKI proposals never self-authorize",
+    "NIKI context projection is minimum-necessary and non-authoritative",
+    "evidence assurance is never silently upgraded",
+    "camera frames do not traverse NIKI HTTP",
+    "C2PA provenance integrity, signer trust and truth remain distinct",
+    "C2PA timeouts fail closed and are never cached"
+  ],
+  "non_claims": [
+    "0 canonical root authorities are READY at seal time",
+    "production sovereign bootstrap is blocked",
+    "SERS end-to-end production qualification has not run",
+    "113 passing NIKI tests do not imply whole-system production/TRL qualification"
+  ],
+  "record_sha256": "455d60dd18005a6d7b3473e7c910527f534d49e833b587c470d4cfbeb5acfd24",
+  "result": "PASS",
+  "runtime_role": "NIKI_ENTITY_INTEGRATION_ADAPTER",
+  "schema": "niki-entity-integration-qualification-v1",
+  "workstream_owner": "10_NIKI"
+}

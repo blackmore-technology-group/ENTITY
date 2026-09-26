@@ -1,0 +1,45 @@
+{
+  "checks": {
+    "asset_total_1m": true,
+    "batch_head_match": true,
+    "bulk_source_match": true,
+    "database_size_match": true,
+    "event_total_3m": true,
+    "prior_full_qualification_seal": true,
+    "prior_row_level_verified": true,
+    "prior_status_pass": true,
+    "runner_source_match": true
+  },
+  "claim": "Live E: million-scale state remains bound to the previously completed full row-level qualification evidence.",
+  "database_path": "<LOCAL_DRIVE>/ENTITY_QUALIFICATION_SCALE\\million_asset_v2\\store\\bulk_ingest.sqlite",
+  "evidence_sha256": "8a5b9ef63f6c4f0d49e59e63cac4fb39a7e657d6071b7e3583ef19b5225656a1",
+  "generated_at_ms": 1789615591263,
+  "live_meta": {
+    "asset_total": 1000000,
+    "batch_head": "8b4a359bc9d3ad301da24abd8a6b73d7f2e5abb7960704ff0dc1d2e8112991f4",
+    "event_head": "d377568b578259cec37ed8795cf0a795efda5ee3513dc33504ec4f4a099a2d44",
+    "event_total": 3000000
+  },
+  "observed": {
+    "asset_ingest_per_second": 69.96,
+    "assets": 1000000,
+    "batches": 100,
+    "event_ingest_per_second": 209.87,
+    "events": 3000000,
+    "index_build_seconds": 1816.324,
+    "ingestion_seconds": 14294.253,
+    "total_seconds": 17642.575,
+    "verification_seconds": 1531.998
+  },
+  "prior_database_sha256": "8d560a8ad7da423e584d026dfb9025673950c53081b6e58c6cc3882207016efe",
+  "prior_evidence_sha256": "457abf9f5733d1dbb69998e7d9f77df2473515dd9a3b6ef9a22066d66e7e7fa4",
+  "qualification_complete": true,
+  "schema": "entity-million-scale-live-revalidation-v1",
+  "state_root": "<LOCAL_DRIVE>/ENTITY_QUALIFICATION_SCALE\\million_asset_v2",
+  "status": "PASS",
+  "targets": {
+    "assets": 1000000,
+    "batch_size": 10000,
+    "events": 3000000
+  }
+}

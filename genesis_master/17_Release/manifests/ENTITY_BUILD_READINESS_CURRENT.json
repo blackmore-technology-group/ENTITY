@@ -1,0 +1,48 @@
+{
+  "build_ready": true,
+  "checks": {
+    "all_internal_release_gates_pass": true,
+    "block_device_loss": true,
+    "btg_application_sdk": true,
+    "destructive_recovery": true,
+    "engineering_requirements_closure": true,
+    "full_e2e": true,
+    "genesis_proof": true,
+    "independent_verifier": true,
+    "internal_chaos_qualified": true,
+    "local_10000_storm": true,
+    "million_asset_multi_million_event_scale": true,
+    "million_scale_live_revalidation": true,
+    "production_scale": true,
+    "repository_regression": true,
+    "rtm_closed": true,
+    "ultimate_chaos": true
+  },
+  "claim": "Build readiness requires all current internal release gates, closed RTM, Genesis Proof, regression, scale, destructive recovery and independent verification. External/device milestones remain explicitly unclaimed.",
+  "deferred_non_build_blockers": [
+    {
+      "classification": "DEFERRED_DEVICE_REQUIRED",
+      "item": "multi-host distributed storm across independent physical machines",
+      "reason": "additional devices/hosts unavailable"
+    },
+    {
+      "classification": "DEFERRED_DEVICE_REQUIRED",
+      "item": "two physical user-controlled devices for sovereign-domain field qualification",
+      "reason": "additional independent device unavailable"
+    },
+    {
+      "classification": "DEFERRED_EXTERNAL_PARTY_REQUIRED",
+      "item": "independently developed non-BTG verifier/interoperable implementation",
+      "reason": "independent external organization required"
+    }
+  ],
+  "evidence_sha256": "ae8855f4e11342b9f8d668f98a4b75c3a5f333012604fb4fb4b6128c5a163b3c",
+  "full_external_release_qualification": "BLOCKED",
+  "generated_at_ms": 1789660448287,
+  "internal_release_gates": {
+    "passed": 33,
+    "total": 33
+  },
+  "schema": "entity-build-readiness-v2",
+  "status": "BUILD_READY"
+}

@@ -1,0 +1,77 @@
+{
+  "classification": "COMPLETE_BOUNDED_SOFTWARE_REFERENCE_EXTERNAL_CERTIFICATION_REQUIRED",
+  "coverage": {
+    "artifact": "artifacts/v1_qualification/ADAM_V1_RC2_COVERAGE.json",
+    "covered": 1522,
+    "missing": 412,
+    "percent": 78.69700103412616,
+    "sha256": "80392f225f61b4c91612c8ef5e493789c798fab4a0c86bf659b1a07508a25fba",
+    "statements": 1934
+  },
+  "dedicated_v1_tests": {
+    "artifact": "artifacts/v1_qualification/ADAM_V1_RC2_DEDICATED_TESTS.log",
+    "failed": 0,
+    "passed": 23,
+    "sha256": "06dfd53f4cf2746e2ffc1af00441dca72cf5033d1d704fbc3f34cb13084cd7cc"
+  },
+  "environment": {
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "python": "3.13.5"
+  },
+  "external_certification_gates": {
+    "certified_physical_device_pilot": "OPEN_EXTERNAL",
+    "hardware_hsm_kms_pkcs11": "OPEN_EXTERNAL",
+    "independent_security_safety_operational_audit": "OPEN_EXTERNAL",
+    "large_licensed_real_world_training": "OPEN_EXTERNAL",
+    "physically_independent_multi_host_wan": "OPEN_EXTERNAL",
+    "thirty_actual_wall_clock_days": "OPEN_EXTERNAL"
+  },
+  "format": "ADAM-v1.0-rc2-final-software-qualification",
+  "generated_at_unix": 1785887820,
+  "integrated_software_gates": {
+    "artifact": "artifacts/v1_qualification/ADAM_V1_RC2_LOCAL_QUALIFICATION_RESULTS.json",
+    "failed": 0,
+    "passed": 12,
+    "sha256": "cee7f13af94a00aa55b1e29edb5c477c22ada5193ea6f579435827b0a91771bb"
+  },
+  "mechanical_source_audit": {
+    "artifact": "artifacts/source_audit/ADAM_V1_RC2_SOURCE_AUDIT_RESULTS.json",
+    "blocking_open_findings": 0,
+    "compileall_passed": true,
+    "findings_classified": 92,
+    "secret_file_audit_passed": true,
+    "sha256": "72eaad79ea33794caf0ad3496ec8d0aefb31b6c5c312a518891a210d527cd114"
+  },
+  "production_certified": false,
+  "rc2_hardening": [
+    "restart-safe persistent custody and release identities",
+    "trusted release-signing roots for candidate verification",
+    "signed wall-clock state with independent pinned witness keys",
+    "pinned trusted assessor registry and scoped receipts",
+    "durable commit-phase quorum certificates",
+    "cryptographic membership approvals and membership-epoch enforcement",
+    "v1-specific signed manifest verification before imports"
+  ],
+  "regression": {
+    "artifact": "artifacts/v1_qualification/regression_packaged/ADAM_V1_PACKAGED_REGRESSION.json",
+    "expected": 148,
+    "failed": 0,
+    "passed": 148,
+    "sha256": "4ff20f2d9e0c267ba5c808358e93f165c67d17a0eab01d588595f1bed1589f9e"
+  },
+  "release_trust": {
+    "launcher_pinned": true,
+    "manifest_signature": "Ed25519",
+    "signer_sha256": "ff864bd4df2cf566a322c6616f72a459df19be051e33e146eb227c604b8d2485"
+  },
+  "software_complete": true,
+  "status": "PASS",
+  "version": "1.0.0-rc2",
+  "wheel": {
+    "build": "PASS",
+    "isolated_import": "PASS",
+    "isolated_install": "PASS",
+    "path": "dist/adam_v1_complete_software_reference-1.0.0rc2-py3-none-any.whl",
+    "sha256": "d8891c4b94010031208a76ee1cf3aeaa396d1050bfd6604c255b4c6c9d5d4a03"
+  }
+}

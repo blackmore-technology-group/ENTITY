@@ -1,0 +1,23 @@
+{
+  "abi_version": "1",
+  "authority": "event_ledger",
+  "exports": [
+    "CanonicalEventLedger"
+  ],
+  "implementation_sha256": "02b27cd9f2ef28c3c12536ed2ad6565bdd64919102dcfafbfcf905fd2d6ecad1",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_event_ledger.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_EVENT_LEDGER_ASSET_REGISTRY_CURRENT.json",
+      "sha256": "fd31783d8b885c699e4ee188354b2ce5da441b3b125a19aad985072f4dd14e35"
+    }
+  ],
+  "requirements_sha256": "a3cba409b3b96f84f43d394ae4a1468279875fe78b69a91d15fab83094a45226",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "ENTITY-EVENT-v1",
+    "entity-ledger-checkpoint-v1"
+  ],
+  "status": "READY"
+}

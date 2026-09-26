@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path(r'<LOCAL_DRIVE>/Sovereign_Entity_Network\17_Release\product\entity_windows_v1\entity_runtime.py')
+s=p.read_text(encoding='utf-8-sig')
+s=s.replace('VERSION = "1.0.0-rc1"','VERSION = "1.0.0-rc2"')
+s=s.replace('import dataclasses, datetime, typing\nimport cryptography', 'import dataclasses, datetime, typing\nimport urllib.request, urllib.error\nimport fastapi, uvicorn\nimport cryptography')
+anchor='def sdk_for(state: Path):\n'
+insert='''def gateway_health(port: int = 8787):\n    try:\n        with urllib.request.urlopen(f"http://127.0.0.1:{port}/health", timeout=0.75) as <LOCAL_DRIVE>/n            return json.loads(r.read().decode("utf-8"))\n    except Exception:\n        return None\n\ndef _gateway_module(state: Path):\n    os.environ["ENTITY_STATE_DIR"] = str(state.resolve())\n    return load_module(f"entity_product_gateway_{os.getpid()}_{int(time.time()*1000)}", core_root() / "14_Protocols_SDK" / "open_entity_sdk" / "entity_open_sdk_gateway.py")\n\ndef start_gateway_background(state: Path, port: int = 8787):\n    state=state.resolve(); current=gateway_health(port)\n    if current:\n        active=Path(str(current.get("state_dir") or "")).resolve()\n        if active != state: raise RuntimeError(f"ENTITY gateway port {port} already serves different state: {active}")\n        return {"active":True,"reused":True,"port":port,"state_dir":str(state)}\n    mod=_gateway_module(state); server=uvicorn.Server(uvicorn.Config(mod.app,host="127.0.0.1",port=port,log_level="warning",access_log=False))\n    threading.Thread(target=server.run,name="ENTITY-OpenSDK-Gateway",daemon=True).start()\n    for _ in range(60):\n        health=gateway_health(port)\n        if health: return {"active":True,"reused":False,"port":port,"state_dir":health.get("state_dir")}\n        time.sleep(0.1)\n    raise RuntimeError("ENTITY Open SDK gateway failed to start")\n\n'''
+if insert not in s: s=s.replace(anchor,insert+anchor)
+p.write_text(s,encoding='utf-8')
+print('PATCH1_OK')

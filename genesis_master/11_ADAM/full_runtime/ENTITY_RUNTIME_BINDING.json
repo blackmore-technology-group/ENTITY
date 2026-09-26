@@ -1,0 +1,38 @@
+{
+  "abi_version": "2",
+  "authority": "adam_full_runtime",
+  "exports": [
+    "EntityFullAdamRuntime",
+    "niki_project_adam_context_v2",
+    "entity_record_adam_transition_v1",
+    "entity_verify_adam_state_v1",
+    "niki_accept_action_proposal_v2"
+  ],
+  "implementation_manifest": "FULL_ADAM_IMPLEMENTATION_MANIFEST.json",
+  "implementation_manifest_sha256": "506eb1bc35cdcf216daecd92b5d47ad1af8be7ac8b1f5c0db389ce5256ad2bab",
+  "implementation_sha256": "21ab4c5fb46bfb8538fe9061fa4e5d3e9e1167a7c9b9393335cf55f85c715f9b",
+  "implementation_version": "2.0.0-adam-integration-dev1",
+  "python_file": "canonical_adam_v1_entity_runtime.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_ADAM_FULL_INTEGRATION_QUALIFICATION_CURRENT.json",
+      "sha256": "9f95490cb553d9910eec102eda57adc82860da260b1b4d33486ce31510b7b122"
+    },
+    {
+      "path": "11_ADAM/full_runtime/qualification_reference/ADAM_V1_RC2_R2_FINAL_QUALIFICATION.json",
+      "sha256": "2358ed5988edf3009b56fc3f44d15577a0e9e7fae2cfe25d1d09a4830d5b06fd"
+    },
+    {
+      "path": "11_ADAM/full_runtime/qualification_reference/ADAM_V1_RC2_R2_CLEANROOM_VERIFICATION.json",
+      "sha256": "d98a16be66f0a701dad28696b213c8f7f787975843d8b1b511d3cbf2a4f9e4e1"
+    },
+    {
+      "path": "11_ADAM/full_runtime/qualification_reference/ADAM_V1_RC2_R2_INSTALL_INTEGRITY.json",
+      "sha256": "41c2e48b25ed188aa16911aa00dea0dae011a6afa4618cc7604266dbca1a4a3c"
+    }
+  ],
+  "requirements_contract": "ENTITY_ADAM_FULL_RUNTIME_REQUIREMENTS.md",
+  "requirements_sha256": "dda98896f71cf65e2678b707b7b862033131fa8c5751e5d873ece613b9f8f7a0",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

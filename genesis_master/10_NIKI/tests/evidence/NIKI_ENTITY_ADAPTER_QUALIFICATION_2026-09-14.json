@@ -1,0 +1,23 @@
+{
+  "schema": "niki-entity-adapter-qualification-v1",
+  "date": "2026-09-14",
+  "scope": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted",
+  "architectural_role": "NIKI_ENTITY_INTEGRATION_ADAPTER",
+  "authority_owner": "<LOCAL_DRIVE>/Sovereign_Entity_Network canonical root directories",
+  "full_regression": {
+    "passed": 66,
+    "failed": 0,
+    "warnings": 1,
+    "warning_scope": "upstream Starlette python_multipart pending deprecation"
+  },
+  "binding_contract": {
+    "manifest": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\ENTITY_PLATFORM_BINDINGS.json",
+    "integration_contract": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\ENTITY_NIKI_INTEGRATION_CONTRACT.md",
+    "canonical_binding_count": 0,
+    "canonical_core_ready": false,
+    "permanent_bootstrap_allowed": false
+  },
+  "protected_originals_unchanged_by_this_alignment_pass": true,
+  "non_niki_parallel_workstream_overwritten": false,
+  "qualification_handoff_target": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification"
+}

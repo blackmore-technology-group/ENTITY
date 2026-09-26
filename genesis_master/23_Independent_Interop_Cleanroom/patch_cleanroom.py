@@ -1,0 +1,7 @@
+from pathlib import Path
+p=Path(r"<LOCAL_DRIVE>/Sovereign_Entity_Network\23_Independent_Interop_Cleanroom\independent_domain.py")
+s=p.read_text(encoding='utf-8')
+s=s.replace("ok=material.get('schema')=='entity-name-claim-v1' and material.get('entity_root')==root and verify_entity_record(material,identity)","ok=material.get('schema')=='entity-name-claim-v1' and material.get('entity_root')==root and verify_entity_record(material,identity)")
+s=s.replace("ok=material.get('schema')=='entity-node-authorization-v1' and material.get('entity_root')==root and material.get('status')=='ACTIVE' and verify_entity_record({k:v for k,v in material.items() if k!='effective_status'},identity)","signed={k:v for k,v in material.items() if k not in {'effective_status','revocation'}}\n        ok=material.get('schema')=='entity-node-authorization-v1' and material.get('entity_root')==root and material.get('status')=='ACTIVE' and verify_entity_record(signed,identity)")
+s=s.replace("ok=material.get('schema')=='entity-node-revocation-v1' and material.get('entity_root')==root and verify_entity_record(material,identity)","signed={k:v for k,v in material.items() if k not in {'entity_root_unchanged','historical_evidence_preserved','status'}}\n        ok=material.get('schema')=='entity-node-revocation-v1' and material.get('entity_root')==root and verify_entity_record(signed,identity)")
+p.write_text(s,encoding='utf-8'); print('cleanroom derived fields patched')

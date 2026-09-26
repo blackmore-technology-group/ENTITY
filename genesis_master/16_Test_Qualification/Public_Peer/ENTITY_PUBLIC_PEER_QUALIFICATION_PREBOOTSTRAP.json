@@ -1,0 +1,32 @@
+{
+  "assurance_level": 1,
+  "controller_entity_id": null,
+  "entity_signed": false,
+  "evidence_origin": "EXTERNAL_RECORD",
+  "next_action": "INGEST_AFTER_CONTROLLER_BOOTSTRAP",
+  "performed_at_ms": 1789430166186,
+  "public_nat_traversal_qualified": false,
+  "record_sha256": "bc4a5ecf2d37dd2475909ecf5cdb98e8ab816ceb65d3005c41bc47636ae31339",
+  "schema": "entity-prebootstrap-network-qualification-v1",
+  "standards": [
+    "RFC8489",
+    "RFC8656"
+  ],
+  "stun": {
+    "duration_ms": 118,
+    "mapped_ip_sha256": "c8471fa01c5668c0d2257312574e4e33967782c7e1f79f086c7c787889d15a91",
+    "mapped_port": 61639,
+    "reachable": true,
+    "server": "stun.cloudflare.com:3478/udp"
+  },
+  "turn": {
+    "authenticated_allocation": false,
+    "challenge_observed": true,
+    "duration_ms": 25,
+    "error_code": 401,
+    "nonce_sha256": "b606b0c4a6e5b9d3c78f67a475a81aa5c6a4b6cf8b9e2f113e45f7ee55831a8b",
+    "reachable": true,
+    "realm": "turn.cloudflare.com",
+    "server": "turn.cloudflare.com:3478/udp"
+  }
+}

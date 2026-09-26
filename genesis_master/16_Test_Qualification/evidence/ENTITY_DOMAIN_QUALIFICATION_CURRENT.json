@@ -1,0 +1,82 @@
+{
+  "automatic_fail_conditions_observed": [],
+  "engineering_implementation_complete_for_internal_reference_scope": true,
+  "evidence_sha256": "fed249d839b4995f598a2b984fa65ddfe46b17c26161d6fb4f54424cc54730be",
+  "gates": {
+    "DIRECT_CONNECT_GATE": {
+      "pass": true,
+      "status": "PASS"
+    },
+    "DOMAIN_IDENTITY_GATE": {
+      "pass": true,
+      "status": "PASS"
+    },
+    "ECONOMIC_SEMANTICS_GATE": {
+      "pass": true,
+      "status": "PASS"
+    },
+    "NAME_AUTHORITY_GATE": {
+      "pass": true,
+      "status": "PASS"
+    },
+    "NODE_AUTHORIZATION_GATE": {
+      "pass": true,
+      "status": "PASS"
+    },
+    "OPEN_INTEROPERABILITY_GATE": {
+      "pass": false,
+      "reason": "independent_non_btg_implementation_interoperability_not_executed",
+      "status": "BLOCKED_EXTERNAL"
+    },
+    "PRIVACY_GATE": {
+      "pass": true,
+      "status": "PASS"
+    },
+    "PROVIDER_INDEPENDENCE_GATE": {
+      "pass": true,
+      "scope": "two independently keyed local node runtimes; no DNS/cloud/BTG host/paid relay",
+      "status": "PASS"
+    },
+    "RECOVERY_GATE": {
+      "pass": true,
+      "status": "PASS"
+    },
+    "RESOLUTION_GATE": {
+      "pass": true,
+      "status": "PASS"
+    },
+    "SECURITY_GATE": {
+      "pass": true,
+      "status": "PASS"
+    }
+  },
+  "generated_at_ms": 1789595478252,
+  "internal_qualification_evidence_sha256": "ebd3cce8ceb804a38eb53381ceb24647fe6073ad3940e050d4e8fe193b633ddd",
+  "limitations": [
+    "two_physical_user_controlled_devices_not_executed_in_this_single_host_session",
+    "independent_non_btg_implementation_interoperability_not_executed"
+  ],
+  "qualification_complete": false,
+  "reason": "external field/interoperability milestones remain required by SERS-ENTITY-DOMAIN-001",
+  "release_claim_allowed": false,
+  "schema": "entity-domain-qualification-v1",
+  "scope": "SERS-ENTITY-DOMAIN-001_v1.0",
+  "source_hashes": {
+    "16_Test_Qualification\\sovereign_domain\\test_sovereign_domain.py": "0feb12fa2fcae5162d44feadababe9a17b6655eefffee1b7b22d345cb1ce9e7b",
+    "22_Sovereign_Domain\\ENTITY_REQUIREMENTS.md": "44ec8d35aff4fb0e0c0d1c227c54190d0b0d33bd5f48e9c5bfec844ddc3ee118",
+    "22_Sovereign_Domain\\SERS-ENTITY-DOMAIN-001_v1.0.md": "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f",
+    "22_Sovereign_Domain\\core\\canonical_domain.py": "445f08903c34d33e5bcef09f6f40c14646c2236ab4a4d2b1a28da367c34b8f70",
+    "22_Sovereign_Domain\\failure_states\\canonical_domain_states.py": "c113483422c02f5630b22d40b32c77d305feec94918bbca622b570fcead344c4",
+    "22_Sovereign_Domain\\migration\\canonical_domain_migration.py": "0cd3196f0383a09bda5da03b05ff7dcb06cb5015296729b4cbd8522f58da2b8a",
+    "22_Sovereign_Domain\\node_runtime\\canonical_node_runtime.py": "411b027017a12cbb7ef9a230eef7194befc14e33212248a7d5d2f3e4c4beac3d",
+    "22_Sovereign_Domain\\portability\\canonical_domain_portability.py": "c5c17a583a57b5dbc1d69ad3b161519eb394beb75c51c7cfeae72311ff5747dc",
+    "22_Sovereign_Domain\\presence\\canonical_presence.py": "3192402e5cec0d24fd4d687bd14bf1439e3ae932ccfa0aec292b8155cf552fa7",
+    "22_Sovereign_Domain\\protocols\\ENTITY_DOMAIN_PROTOCOLS_v1.md": "c03d0a297bc1d60012f43cdf0810061535d3bd575ec11bcbd2dd6833aa8b09b2",
+    "22_Sovereign_Domain\\protocols\\canonical_domain_relay.py": "a6677ab8c7426b9cdea0d654966fbf27fb623b4335e0a9beb6a1db8d22aea039",
+    "22_Sovereign_Domain\\recovery\\canonical_domain_recovery.py": "2cbc78559bffdbcd77bdab151a2b62d9f3c60428d2aaffdc87829666da835a61",
+    "22_Sovereign_Domain\\reference\\verify_entity_domain.py": "d3c8c9f4a5993d41d4c7c86dd7d8dea568951b67494b6643bd01c0cd0150a54f",
+    "22_Sovereign_Domain\\resolution\\canonical_resolution.py": "38d7b9b5eb4d46a70c0fdc7b5be077c73e92ca0326fb6552a54b16f23a708705"
+  },
+  "status": "BLOCKED",
+  "test_results_evidence_sha256": "d9e97d9e615c4f1bce1c2c99881112bc4094894ee81bc0865215b0781043d66f"
+}

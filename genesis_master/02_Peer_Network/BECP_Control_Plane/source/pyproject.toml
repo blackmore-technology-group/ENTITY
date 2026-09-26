@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blackmore-ecp"
+version = "0.2.1"
+description = "Blackmore Engineering Control Plane shared engineering, diagnostics, device-control, and AI tool platform"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110,<1",
+  "pydantic>=2.0,<3",
+  "uvicorn[standard]>=0.29,<1",
+  "httpx>=0.27,<1",
+  "cryptography>=50.0.1,<51",
+  "websockets>=14,<17",
+  "mcp>=2.2,<3",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+becp-gateway = "scripts.run_gateway:main"
+becp-agent = "agents.windows_engineering_workstation_agent:main"
+becp-enroll = "scripts.enroll_engineering_workstation:main"
+becp-generate-pki = "scripts.generate_pki:main"
+becp-issue-token = "scripts.issue_client_token:main"
+becp-qa-evidence = "scripts.generate_qa_evidence:main"
+becp-rdc-bridge = "blackmore_ecp.desktop_commander_bridge:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["blackmore_ecp*", "api*", "adapters*", "agents*", "scripts*"]
+exclude = ["tests*", "mcp*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

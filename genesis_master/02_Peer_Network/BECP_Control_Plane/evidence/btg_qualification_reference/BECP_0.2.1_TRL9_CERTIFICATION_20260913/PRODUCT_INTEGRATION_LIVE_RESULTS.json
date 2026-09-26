@@ -1,0 +1,209 @@
+{
+  "status": "PASS",
+  "products": {
+    "NIKI": {
+      "returncode": 0,
+      "stderr": "",
+      "data": {
+        "boot": true,
+        "devices": 1,
+        "health": {
+          "ok": true,
+          "capability": "system.health",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "dd839c38-49c0-46c5-98b5-6eeb28cb188d",
+          "data": {
+            "hostname": "BTG",
+            "os": "Windows-10-10.0.26200-SP0",
+            "python": "3.11.9",
+            "pid": 48452,
+            "disk_free_bytes": 240324608
+          },
+          "error": null
+        },
+        "hash": {
+          "ok": true,
+          "capability": "file.hash",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "b23f482b-8c88-4e4d-b1ad-98724aa0a583",
+          "data": {
+            "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\NIKI\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\integrations\\becp\\configuration.json",
+            "sha256": "0c33cb8fbe62342af921986ca4bb2791f60d849bbdc8dc9d39ec1f3cdc07302a",
+            "bytes": 535
+          },
+          "error": null
+        },
+        "read": {
+          "ok": true,
+          "capability": "file.read_text",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "c34331a6-187a-41fd-b16e-f49e713c7b07",
+          "data": {
+            "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\NIKI\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\integrations\\becp\\configuration.json",
+            "text": "{\r\n  \"schema_version\": 1,\r\n  \"integration_version\": \"0.2.1\",\r\n  \"becp_product_id\": \"BTG-PLAT-010\",\r\n  \"product_id\": \"NIKI\",\r\n  \"client_type\": \"niki\",\r\n  \"gateway_url\": \"https://127.0.0.1:8765\",\r\n  \"ca_cert\": \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\\\Software Development\\\\BECP\\\\runtime\\\\pki\\\\ca\\\\ca.cert.pem\",\r\n  \"bearer_token_env\": \"BECP_CLIENT_TOKEN\",\r\n  \"expected_roles\": [\r\n    \"niki_engineer\",\r\n    \"niki_privileged_engineer\"\r\n  ],\r\n  \"privileged_terminal_allowed\": true,\r\n  \"timeout_seconds\": 60,\r\n  \"server_policy_authoritative\": true\r\n}",
+            "truncated": false
+          },
+          "error": null
+        },
+        "terminal": {
+          "ok": true,
+          "capability": "engineering.terminal.execute",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "47e40859-56f8-458c-aa9a-0c926c47422d",
+          "data": {
+            "session_id": "4af6168d-56e1-4330-abb6-5d2c1133274f",
+            "returncode": 0,
+            "stdout": "NIKI_BECP_TRL9_OK\r\nBTG\r\n",
+            "stderr": "",
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "duration_seconds": 0.531
+          },
+          "error": null
+        }
+      },
+      "ok": true
+    },
+    "HIKEAR": {
+      "returncode": 0,
+      "stderr": "",
+      "data": {
+        "boot": true,
+        "devices": 1,
+        "health": {
+          "ok": true,
+          "capability": "system.health",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "7dee47ed-bdaa-4c6e-9261-231174833a3f",
+          "data": {
+            "hostname": "BTG",
+            "os": "Windows-10-10.0.26200-SP0",
+            "python": "3.11.9",
+            "pid": 48452,
+            "disk_free_bytes": 240209920
+          },
+          "error": null
+        },
+        "hash": {
+          "ok": true,
+          "capability": "file.hash",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "75e1ce78-aa60-4f9a-81b8-7ce5bc8cfc88",
+          "data": {
+            "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HIKE_AR\\HikeAR_v0.1.0\\integrations\\becp\\configuration.json",
+            "sha256": "5227be940222ed279fb1c21e3c08f321d92e90b3ace9d670344d20118f39511b",
+            "bytes": 503
+          },
+          "error": null
+        },
+        "read": {
+          "ok": true,
+          "capability": "file.read_text",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "d9739082-0530-47b4-acc1-4be1d44599db",
+          "data": {
+            "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HIKE_AR\\HikeAR_v0.1.0\\integrations\\becp\\configuration.json",
+            "text": "{\r\n  \"schema_version\": 1,\r\n  \"integration_version\": \"0.2.1\",\r\n  \"becp_product_id\": \"BTG-PLAT-010\",\r\n  \"product_id\": \"HIKEAR\",\r\n  \"client_type\": \"hikear\",\r\n  \"gateway_url\": \"https://127.0.0.1:8765\",\r\n  \"ca_cert\": \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\\\Software Development\\\\BECP\\\\runtime\\\\pki\\\\ca\\\\ca.cert.pem\",\r\n  \"bearer_token_env\": \"BECP_CLIENT_TOKEN\",\r\n  \"expected_roles\": [\r\n    \"field_app\"\r\n  ],\r\n  \"privileged_terminal_allowed\": false,\r\n  \"timeout_seconds\": 60,\r\n  \"server_policy_authoritative\": true\r\n}",
+            "truncated": false
+          },
+          "error": null
+        }
+      },
+      "ok": true
+    },
+    "HUNTAR": {
+      "returncode": 0,
+      "stderr": "",
+      "data": {
+        "boot": true,
+        "devices": 1,
+        "health": {
+          "ok": true,
+          "capability": "system.health",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "c8a75274-7e72-471d-a71e-d662682fbca6",
+          "data": {
+            "hostname": "BTG",
+            "os": "Windows-10-10.0.26200-SP0",
+            "python": "3.11.9",
+            "pid": 48452,
+            "disk_free_bytes": 240209920
+          },
+          "error": null
+        },
+        "hash": {
+          "ok": true,
+          "capability": "file.hash",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "63d69e6c-71d4-4441-88c9-99273dd34cef",
+          "data": {
+            "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HUNT_AR\\HuntAR_v4.3.0\\integrations\\becp\\configuration.json",
+            "sha256": "88b950388cfdc7dab4b294355f9c3de9cfe2adf8fa78815436dc81356a45b596",
+            "bytes": 503
+          },
+          "error": null
+        },
+        "read": {
+          "ok": true,
+          "capability": "file.read_text",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "d511160f-ff14-4f80-a34a-35ec4afe9c7d",
+          "data": {
+            "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HUNT_AR\\HuntAR_v4.3.0\\integrations\\becp\\configuration.json",
+            "text": "{\r\n  \"schema_version\": 1,\r\n  \"integration_version\": \"0.2.1\",\r\n  \"becp_product_id\": \"BTG-PLAT-010\",\r\n  \"product_id\": \"HUNTAR\",\r\n  \"client_type\": \"huntar\",\r\n  \"gateway_url\": \"https://127.0.0.1:8765\",\r\n  \"ca_cert\": \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\\\Software Development\\\\BECP\\\\runtime\\\\pki\\\\ca\\\\ca.cert.pem\",\r\n  \"bearer_token_env\": \"BECP_CLIENT_TOKEN\",\r\n  \"expected_roles\": [\r\n    \"field_app\"\r\n  ],\r\n  \"privileged_terminal_allowed\": false,\r\n  \"timeout_seconds\": 60,\r\n  \"server_policy_authoritative\": true\r\n}",
+            "truncated": false
+          },
+          "error": null
+        }
+      },
+      "ok": true
+    },
+    "SEARCHAR": {
+      "returncode": 0,
+      "stderr": "",
+      "data": {
+        "boot": true,
+        "devices": 1,
+        "health": {
+          "ok": true,
+          "capability": "system.health",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "a064d702-78db-4edb-a77e-6011622fcbfd",
+          "data": {
+            "hostname": "BTG",
+            "os": "Windows-10-10.0.26200-SP0",
+            "python": "3.11.9",
+            "pid": 48452,
+            "disk_free_bytes": 238428160
+          },
+          "error": null
+        },
+        "hash": {
+          "ok": true,
+          "capability": "file.hash",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "4b846fdc-0858-4b0c-92c7-a19f4584ae50",
+          "data": {
+            "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\SAR\\SearchAR_v0.12.0\\integrations\\becp\\configuration.json",
+            "sha256": "413f8828f51c62d6ec57a3515ccccbf41ce30b596319733be2fbf81baa36e24e",
+            "bytes": 510
+          },
+          "error": null
+        },
+        "read": {
+          "ok": true,
+          "capability": "file.read_text",
+          "target": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+          "correlation_id": "5079eead-1f34-46a7-a73f-cfbf60dc4586",
+          "data": {
+            "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\SAR\\SearchAR_v0.12.0\\integrations\\becp\\configuration.json",
+            "text": "{\r\n  \"schema_version\": 1,\r\n  \"integration_version\": \"0.2.1\",\r\n  \"becp_product_id\": \"BTG-PLAT-010\",\r\n  \"product_id\": \"SEARCHAR\",\r\n  \"client_type\": \"searchar\",\r\n  \"gateway_url\": \"https://127.0.0.1:8765\",\r\n  \"ca_cert\": \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\\\Software Development\\\\BECP\\\\runtime\\\\pki\\\\ca\\\\ca.cert.pem\",\r\n  \"bearer_token_env\": \"BECP_CLIENT_TOKEN\",\r\n  \"expected_roles\": [\r\n    \"sar_operator\"\r\n  ],\r\n  \"privileged_terminal_allowed\": false,\r\n  \"timeout_seconds\": 60,\r\n  \"server_policy_authoritative\": true\r\n}",
+            "truncated": false
+          },
+          "error": null
+        }
+      },
+      "ok": true
+    }
+  }
+}

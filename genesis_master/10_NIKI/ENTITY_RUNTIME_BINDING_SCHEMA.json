@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:btg:entity:runtime-binding:v1",
+  "title": "ENTITY Runtime Binding",
+  "type": "object",
+  "required": ["schema", "abi_version", "implementation_version", "requirements_sha256"],
+  "properties": {
+    "schema": {"const": "entity-runtime-binding-v1"},
+    "abi_version": {"const": "1"},
+    "implementation_version": {"type": "string", "minLength": 1},
+    "requirements_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "authority": {"type": "string", "minLength": 1},
+    "status": {"enum": ["DEVELOPMENT", "QUALIFIED", "READY", "RETIRED"]},
+    "python_file": {"type": "string", "minLength": 1},
+    "exports": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "authorities": {"type": "object", "additionalProperties": {"$ref": "#/$defs/authorityBinding"}},
+    "schema_versions": {"type": "array", "items": {"type": "string"}},
+    "crypto_suites": {"type": "array", "items": {"type": "string"}},
+    "qualification_evidence": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "authorityBinding": {"type":"object","required":["status","python_file","exports"],"properties":{"status":{"enum":["DEVELOPMENT","QUALIFIED","READY","RETIRED"]},"python_file":{"type":"string","minLength":1},"exports":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},"implementation_version":{"type":"string"},"qualification_evidence":{"type":"array","items":{"type":"object"}}},"additionalProperties":true}
+  },
+  "oneOf": [
+    {"required": ["authority", "status", "python_file", "exports"]},
+    {"required": ["authorities"]}
+  ],
+  "additionalProperties": true
+}

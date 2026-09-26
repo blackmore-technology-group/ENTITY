@@ -1,0 +1,21 @@
+{
+  "gateway_url": "https://127.0.0.1:8865",
+  "ca_cert": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\pki\\ca\\ca.cert.pem",
+  "client_signing_key_path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\secrets\\client_signing.key",
+  "principal": "sovereign-entity-rdc-becp-bridge",
+  "subject": "Remote Desktop Commander via Entity BECP",
+  "client_type": "desktop_commander_bridge",
+  "roles": ["entity_admin"],
+  "devices": ["ENROLL_ENTITY_DEVICE_ID"],
+  "capabilities": [
+    "system.health", "file.hash", "file.read_text",
+    "diagnostic.run_approved", "change.run_approved",
+    "engineering.terminal.start", "engineering.terminal.execute",
+    "engineering.terminal.cwd", "engineering.terminal.close",
+    "engineering.terminal.drives"
+  ],
+  "default_device": "ENTITY_HOST",
+  "token_ttl_seconds": 300,
+  "request_timeout_seconds": 120.0,
+  "state": "TEMPLATE_REQUIRES_ENTITY_DEVICE_ENROLLMENT"
+}

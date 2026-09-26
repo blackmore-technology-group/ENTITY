@@ -1,0 +1,16 @@
+{
+  "btg_agent": {
+    "errors": [],
+    "file_sha256": "415b33f83c8aaf5e673716a5bfafd57b824303e50180942834c1c48f7fe92877",
+    "final_hash": "e642d028e58c4e392a488a61db84e093c2ee955effe99161b40855e8b3a7bc54",
+    "ok": true,
+    "records": 79
+  },
+  "gateway": {
+    "errors": [],
+    "file_sha256": "1d6dfa016b38914c472f05fa5bb46679b791a4afe2a42795146b1609e21f36b2",
+    "final_hash": "2b8f4ecdf8d0909c931040e0a0519192fa7c5506a7cf56862ffb702d00d3531a",
+    "ok": true,
+    "records": 36
+  }
+}
