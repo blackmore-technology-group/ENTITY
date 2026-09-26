@@ -1,0 +1,29 @@
+{
+  "device_id": "55546079-959f-4557-a49b-84659d2ebb2e",
+  "device_alias": "ENG-SIM-01",
+  "hostname": "ENG-SIM-01",
+  "device_role": "ENGINEERING_WORKSTATION",
+  "owner_principal": "BTG\\engineer.sim",
+  "audit_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\55546079-959f-4557-a49b-84659d2ebb2e.jsonl",
+  "engineering_terminal": {
+    "enabled": true,
+    "bound_device": "BTG",
+    "default_shell": "powershell.exe",
+    "allowed_shells": [
+      "powershell.exe",
+      "pwsh.exe",
+      "cmd.exe"
+    ],
+    "default_cwd": "<LOCAL_DRIVE>/Blackmore_Technology_Group",
+    "max_timeout_seconds": 600,
+    "max_output_bytes": 1048576,
+    "full_filesystem_scope": true
+  },
+  "required_roles": [
+    "blackmore_admin",
+    "chatgpt_privileged_engineer",
+    "niki_privileged_engineer"
+  ],
+  "terminal_mode": "FULL_ENGINEERING_COMPUTER_ACCESS",
+  "os_privilege_model": "INHERIT_WINDOWS_ACCOUNT_AND_UAC"
+}

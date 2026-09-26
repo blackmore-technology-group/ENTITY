@@ -1,0 +1,23 @@
+{
+  "cargo_available": false,
+  "native_binary_sha256": "5309d6e2b3f7ae7e80434b72037edc91b60af23314c3eee75873295884d42034",
+  "native_protocol_output": [
+    "READY ADAM43-NATIVE-FRAMING-REFERENCE 0",
+    "OK ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+    "OK 1 ff26c000fff8e8e1e940b4b94a9add0d2d657496f8b3051cf772b51710e95e69",
+    "OK 1 ff26c000fff8e8e1e940b4b94a9add0d2d657496f8b3051cf772b51710e95e69",
+    "OK BYE"
+  ],
+  "native_reference_compiled": true,
+  "rust_compiled_in_this_environment": false,
+  "rust_source_complete": true,
+  "rust_static_gates": {
+    "ed25519": true,
+    "fsync": true,
+    "replay_integrity": true,
+    "sha256": true,
+    "stale_root": true,
+    "zeroize": true
+  },
+  "rustc_available": false
+}

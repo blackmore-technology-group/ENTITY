@@ -1,0 +1,13 @@
+{
+    "status":  "PASS",
+    "elapsed_seconds":  1.127,
+    "gateway_health":  {
+                           "ok":  true,
+                           "service":  "BECP client gateway",
+                           "registered_devices":  2,
+                           "online_devices":  1
+                       },
+    "agent_online":  true,
+    "agent_version":  "0.2.1",
+    "connected_session_id":  "11b1ca1b-495f-46f7-a97d-c6c06c31d375"
+}

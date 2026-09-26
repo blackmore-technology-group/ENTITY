@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blackmore-technology-group.github.io/ENTITY/protocol/v3/ENTITY_BTDU.schema.json",
+  "title": "ENTITY v3.4.2 Blackmore Technology Data Universe",
+  "type": "object",
+  "required": ["schema", "btdu_version", "sovereign_entity_id", "protocol_entity_id", "adam_reference", "genesis_invariants", "claim_boundaries"],
+  "properties": {
+    "schema": {"const": "blackmore-technology-data-universe-v1"},
+    "btdu_version": {"const": "3.4.2"},
+    "sovereign_entity_id": {"type": "string", "pattern": "^ent[12]-"},
+    "protocol_entity_id": {"type": "string", "pattern": "^ent[12]-"},
+    "steward_entity_id": {"type": "string", "pattern": "^ent[12]-"},
+    "adam_reference": {
+      "type": "object",
+      "required": ["version", "sha256", "design_preserved"],
+      "properties": {
+        "version": {"const": "1.0.0-rc2"},
+        "sha256": {"const": "3cc6541f2d00dd0580989cc7fe6e8abd56974d1069f61c710e230568e00b8da3"},
+        "design_preserved": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "genesis_invariants": {
+      "type": "object",
+      "required": ["primitives", "market_lifecycle"],
+      "properties": {
+        "primitives": {"const": ["ENTITY", "AUTHORITY", "RIGHT", "EVENT", "VALUE"]},
+        "market_lifecycle": {"const": ["DCO", "INSTRUMENT", "LISTING", "DISCLOSURE", "ORDER_RFQ_AUCTION", "PRICE_DISCOVERY", "TRADE", "CLEARING", "SETTLEMENT", "ENTITLEMENT", "USAGE", "DERIVED_OUTPUT", "ECONOMIC_CONSEQUENCE"]}
+      }
+    },
+    "claim_boundaries": {
+      "type": "object",
+      "required": ["protocol_origin_is_not_asset_provenance", "topology_does_not_create_rights", "economic_participation_requires_explicit_terms", "automatic_protocol_royalty_bps"],
+      "properties": {
+        "protocol_origin_is_not_asset_provenance": {"const": true},
+        "topology_does_not_create_rights": {"const": true},
+        "economic_participation_requires_explicit_terms": {"const": true},
+        "automatic_protocol_royalty_bps": {"const": 0}
+      }
+    }
+  },
+  "additionalProperties": true
+}

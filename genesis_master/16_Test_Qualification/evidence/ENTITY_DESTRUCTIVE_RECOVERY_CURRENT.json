@@ -1,0 +1,50 @@
+{
+  "demonstrated": [
+    "identity and historical signature restore",
+    "policy/capability/vault restore",
+    "asset registry recovery",
+    "rights/claims graph recovery",
+    "provenance graph recovery",
+    "event ledger and checkpoint recovery",
+    "contracts/licences recovery",
+    "usage receipt recovery",
+    "settlement and realized-value recovery",
+    "migration configuration recovery",
+    "corporate-capital encrypted restore and standalone validation",
+    "signed portable export and independent file-inventory verification"
+  ],
+  "evidence_sha256": "08a5f90da24d2a1ff98fa525e9c9ee4fbb4417b14c775032f25f5ad2d8af51e3",
+  "generated_at_ms": 1789570325900,
+  "implementation_sha256": {
+    "01_Core_Runtime\\contracts\\canonical_contracts.py": "ff8ab5e982ad549475f71bfa28677fdf0fee20b81c37b370c0026030c0187872",
+    "01_Core_Runtime\\identity\\canonical_identity.py": "b78d364c16ea581477100c2afd8cc8c1aa90321e4482a3e180f446a3c96c15c7",
+    "01_Core_Runtime\\permissions\\canonical_permissions.py": "85b92ff54cb1e0cd67c51323a8be2701719b1b96284f1b4211b6204d6a78636c",
+    "01_Core_Runtime\\policy_engine\\canonical_policy.py": "98d68dab3182d35e0fd3e6d2f839bd3c69cfa9bd9c69c717185de7b6e03b74d9",
+    "01_Core_Runtime\\service_runtime\\canonical_economics.py": "72c906a71f1606bb2c9fb2c4ee87029817fc2cf218c3a4df6ae454eae7229987",
+    "01_Core_Runtime\\usage_control\\canonical_usage_control.py": "b310fbb310525f8f083c41541cf2116048dcda0987e423a57ab50cc4cd671fde",
+    "04_Entity_Registry\\asset_registry\\canonical_asset_registry.py": "bdce085522208d05d699e6420fe861ce36f89906376d3b8e2d94f0c6e8ea7080",
+    "04_Entity_Registry\\event_ledger\\canonical_event_ledger.py": "3beca91ce59a8e67d2a80e3d6184f7376f5e35fb4a65ba0084c3c4e093e0e7c0",
+    "04_Entity_Registry\\ownership_graphs\\canonical_rights_claims.py": "3007b78ee8edcfa65f70c78c33aef1c11514009de256a292050363745879a49c",
+    "04_Entity_Registry\\provenance\\canonical_provenance.py": "493a7d681087e7f1ce2003e5a3ac6d43b8102914190bbacc794bb886cb4d8b56",
+    "08_Data_Vaults\\canonical_encrypted_vault.py": "1f9311820a7dabc7efd90a16da0b0a18b3db19d59d62e99220302b4c275bdf58",
+    "15_Operations\\backups\\canonical_portable_state.py": "6c56b2855c45420e988b89fd4afb05f7c29699f82d40debdd8a0872975f96f89",
+    "15_Operations\\migration\\canonical_migration_config.py": "1b8b3697406d84aabbc9734255bd9a3100e3b39a2a487d13c28e55bb1460dd08",
+    "16_Test_Qualification\\verifier\\independent_verifier.py": "235c2a573e87f95679055616afa207240ad3b4936eea6d223622fefa00ed4e1f",
+    "21_Corporate_Capital\\capital_structure\\canonical_corporate_capital.py": "15f3b2d008a5e117f010f4e8c252dd6199221cec5e15880d13f1f40f97319164"
+  },
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "........                                                                 [100%]\n8 passed in 4.65s",
+  "qualification_complete": true,
+  "recovery_semantics": "live state path is made unavailable and recovery recreates a fresh state namespace solely from encrypted backup; physical media destruction is not claimed",
+  "requirements_sha256": {
+    "01_Core_Runtime": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+    "04_Entity_Registry": "a3cba409b3b96f84f43d394ae4a1468279875fe78b69a91d15fab83094a45226",
+    "08_Data_Vaults": "16c26e2d181fba5b9c957257a558ca1b8a39eb9912ffb842e941685c2c776c19",
+    "15_Operations": "54fbb2a92a63d4b7f9bde8119713eb13cf25778a294c4bd8a85c5c4c8b42fd41",
+    "21_Corporate_Capital": "40dce36d844fb1b34c46386d6fd2ff322084ed1fbeec159e575cfca8cd670993"
+  },
+  "schema": "entity-destructive-sovereignty-qualification-v2",
+  "scope": "FULL_CANONICAL_STATE_BACKUP_RESTORE_AND_INDEPENDENT_VALIDATION",
+  "status": "PASS"
+}

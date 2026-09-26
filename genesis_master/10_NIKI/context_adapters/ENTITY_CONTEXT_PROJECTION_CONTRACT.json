@@ -1,0 +1,18 @@
+{
+  "schema": "entity-niki-context-projection-contract-v1",
+  "owner": "NIKI",
+  "authoritative": false,
+  "sources": ["ENTITY", "BSIE"],
+  "required_permission": "AI_METADATA_READ",
+  "projection_class": "METADATA_ONLY",
+  "invariants": {
+    "raw_vault_content": false,
+    "private_keys": false,
+    "secrets_tokens": false,
+    "local_source_paths": false,
+    "minimum_necessary": true,
+    "max_graph_depth": 3,
+    "max_relations": 256
+  },
+  "content_rule": "AI_CONTENT_READ does not cause this metadata adapter to return raw content; content requires a separate governed projection channel."
+}

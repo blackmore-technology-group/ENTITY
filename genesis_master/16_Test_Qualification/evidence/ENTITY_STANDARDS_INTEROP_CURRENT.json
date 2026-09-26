@@ -1,0 +1,31 @@
+{
+  "demonstrated": [
+    "DID Core-compatible controller document projection and independent relationship validation",
+    "VC Data Model 2.0 required-field validation and ENTITY signed extension verification",
+    "external VC 2.0 import remains UNVERIFIED_EXTERNAL_STATE until separately verified",
+    "ODRL 2.2 profile export/import preserves permission/prohibition semantics",
+    "real c2patool validates claim signature and hashes while signer trust remains separately represented"
+  ],
+  "evidence_sha256": "91f713255a67d863508a44f4c64039bb25dbd2663c0acfe0efcb9d0679923e7a",
+  "excluded_scope": [
+    "registration or external resolution of did:entity DID method",
+    "claim of W3C Data Integrity cryptosuite conformance for ENTITY signature records",
+    "network-dependent third-party resolver certification",
+    "C2PA signer trust beyond configured trust anchors",
+    "legal or factual truth inferred from standards validity"
+  ],
+  "generated_at_ms": 1789570254847,
+  "implementation_sha256": {
+    "c2patool": "2d7ddd2072e7591b16f6cc9b374e91119a1a64e4451cec08e109f2814c74e7a8",
+    "reference_client": "5999c8069b83cb4e92afb1c9c3ff60ef03e4e76cbbe045bb46c48e8cae8e3dd0",
+    "standards_adapter": "696d46149e7f83eabed0466f03c8221e8bbc114ca09be57fdb99ef1a29ec311d"
+  },
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": ".....                                                                    [100%]\n5 passed in 1.04s",
+  "qualification_complete": true,
+  "requirements_sha256": "03df075064bccb0a27c916fdb74407a56f7c0ac3cefbbdff93880eb65fc74a6a",
+  "schema": "entity-standards-interoperability-qualification-v1",
+  "scope": "DID_CORE_V1_VC20_ODRL22_C2PA_VALIDATION",
+  "status": "PASS"
+}

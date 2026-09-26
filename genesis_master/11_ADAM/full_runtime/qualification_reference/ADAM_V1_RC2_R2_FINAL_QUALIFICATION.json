@@ -1,0 +1,52 @@
+{
+  "classification": "COMPLETE_BOUNDED_SOFTWARE_REFERENCE_EXTERNAL_CERTIFICATION_REQUIRED",
+  "correction": [
+    "verify the clean extracted signed tree before project installation",
+    "install pinned third-party dependencies into an external isolated environment",
+    "install the prebuilt signed wheel non-editably with --no-deps",
+    "verify the signed tree again after installation",
+    "use Python isolated mode for installed-wheel import proof"
+  ],
+  "defect_fixed": "editable installation created egg-info inside the signed source tree before manifest verification",
+  "external_gates": {
+    "certified_physical_device_pilot": "OPEN",
+    "hardware_hsm_kms_pkcs11": "OPEN",
+    "independent_security_safety_operational_audit": "OPEN",
+    "large_licensed_real_world_training": "OPEN",
+    "physically_independent_multi_host_wan": "OPEN",
+    "thirty_actual_wall_clock_days": "OPEN"
+  },
+  "format": "ADAM-v1-rc2-r2-final-qualification",
+  "generated_at_unix": 1785891321,
+  "integrated_gates": {
+    "artifact": "artifacts/v1_qualification/ADAM_V1_RC2_LOCAL_QUALIFICATION_RESULTS.json",
+    "failed": 0,
+    "passed": 12,
+    "sha256": "bc7c6397b1e9d1ff4795f22d7f4a356527cf7b2c0e5b09032be28c78f93f689a"
+  },
+  "packaging_revision": "RC2-R2",
+  "regression": {
+    "artifact": "artifacts/v1_qualification/regression_packaged/ADAM_V1_PACKAGED_REGRESSION.json",
+    "expected": 148,
+    "failed": 0,
+    "passed": 148,
+    "sha256": "4ff20f2d9e0c267ba5c808358e93f165c67d17a0eab01d588595f1bed1589f9e"
+  },
+  "release_signer_sha256": "40fa14182780a051a7f22020d5bf75882e5165bff33c154eb19ea3d4e26f3cfe",
+  "signed_manifest_entries": 540,
+  "source_audit": {
+    "artifact": "artifacts/source_audit/ADAM_V1_RC2_SOURCE_AUDIT_RESULTS.json",
+    "blocking_open_findings": 0,
+    "findings_classified": 92,
+    "sha256": "f77edf3f2cc3d5e5ec02259e48b807d718c63e2e4cab36d507f7580c85648a53"
+  },
+  "status": "PASS",
+  "version": "1.0.0rc2",
+  "windows_install_integrity": {
+    "editable_installation": false,
+    "installed_import_uses_python_isolated_mode": true,
+    "post_install_manifest_reverification": true,
+    "prebuilt_wheel_required": true,
+    "signed_tree_mutation_allowed": false
+  }
+}

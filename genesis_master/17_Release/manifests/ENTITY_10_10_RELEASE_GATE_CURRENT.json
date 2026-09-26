@@ -1,0 +1,269 @@
+{
+  "claim": "Internal CHAOS qualification and full release are separate claims. Full release may be claimed only when every gate, including external sovereign-domain validation, passes.",
+  "gate_evidence_sha256": "04452ce5cdf004577b796508b94a3555f671c5db1771cd19188718595e19d312",
+  "gates": [
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\ENTITY_SYSTEM_COMPLETION_MATRIX.json",
+      "external_only": false,
+      "gate": "architecture",
+      "pass": true,
+      "reason": "canonical_ready=55/55"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CANONICAL_CORE_QUALIFICATION_CURRENT.json",
+      "external_only": false,
+      "gate": "sovereignty",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_PRIVACY_ADVERSARIAL_CURRENT.json",
+      "external_only": false,
+      "gate": "privacy",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_SECURITY_ADVERSARIAL_CURRENT.json",
+      "external_only": false,
+      "gate": "security",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_AI_GOVERNANCE_CURRENT.json",
+      "external_only": false,
+      "gate": "ai_governance",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_RIGHTS_PROVENANCE_CURRENT.json",
+      "external_only": false,
+      "gate": "rights_provenance",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_ECONOMIC_QUALIFICATION_CURRENT.json",
+      "external_only": false,
+      "gate": "economics",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+      "external_only": false,
+      "gate": "corporate_capital",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_STANDARDS_INTEROP_CURRENT.json",
+      "external_only": false,
+      "gate": "interoperability",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_DESTRUCTIVE_RECOVERY_CURRENT.json",
+      "external_only": false,
+      "gate": "resilience",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_INDEPENDENT_TRANSACTION_CURRENT.json",
+      "external_only": false,
+      "gate": "independent_transaction",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_SOVEREIGN_AUTHORITY_DOCTRINE_CURRENT.json",
+      "external_only": false,
+      "gate": "sovereign_authority_doctrine",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_FULL_E2E_QUALIFICATION_CURRENT.json",
+      "external_only": false,
+      "gate": "qualification",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_ASSET_LEDGER_CURRENT.json",
+      "external_only": false,
+      "gate": "asset_ledger",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CONTRACTS_USAGE_CURRENT.json",
+      "external_only": false,
+      "gate": "contracts_usage",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CREDENTIALS_MIGRATION_CURRENT.json",
+      "external_only": false,
+      "gate": "credentials_migration",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_EVENT_LEDGER_ASSET_REGISTRY_CURRENT.json",
+      "external_only": false,
+      "gate": "event_ledger_asset_registry",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_FAILURE_STATE_MACHINE_CURRENT.json",
+      "external_only": false,
+      "gate": "failure_state_machine",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_GENERATED_INVARIANTS_CURRENT.json",
+      "external_only": false,
+      "gate": "generated_invariants",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_INDEPENDENT_VERIFIER_CURRENT.json",
+      "external_only": false,
+      "gate": "independent_verifier",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_PHASE1_STORAGE_PORTABILITY_CURRENT.json",
+      "external_only": false,
+      "gate": "phase1_storage_portability",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_PRIVILEGE_GRAPH_CURRENT.json",
+      "external_only": false,
+      "gate": "privilege_graph",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_RELEASE_ATTESTATION_CURRENT.json",
+      "external_only": false,
+      "gate": "release_attestation",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+      "external_only": false,
+      "gate": "release_closure_authorities",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_V2_ASSURANCE_CORE_CURRENT.json",
+      "external_only": false,
+      "gate": "v2_assurance_core",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_ENGINEERING_REQUIREMENTS_CLOSURE_CURRENT.json",
+      "external_only": false,
+      "gate": "engineering_requirements_closure",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_GENESIS_PROOF_CURRENT.json",
+      "external_only": false,
+      "gate": "genesis_proof",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_BTG_APPLICATION_SDK_CURRENT.json",
+      "external_only": false,
+      "gate": "btg_application_sdk",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\tests\\evidence\\NIKI_ENTITY_INTEGRATION_QUALIFICATION_CURRENT.json",
+      "external_only": false,
+      "gate": "niki_entity_integration",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_REPOSITORY_REGRESSION_CURRENT.json",
+      "external_only": false,
+      "gate": "repository_regression",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_ULTIMATE_CHAOS_QUALIFICATION_CURRENT.json",
+      "external_only": false,
+      "gate": "ultimate_chaos_internal",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json",
+      "external_only": false,
+      "gate": "sovereign_domain_internal",
+      "pass": true,
+      "reason": "PASS"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_DOMAIN_QUALIFICATION_CURRENT.json",
+      "external_only": true,
+      "gate": "sovereign_domain_external",
+      "pass": false,
+      "reason": "status=BLOCKED"
+    },
+    {
+      "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\traceability\\MASTER_RTM.json",
+      "external_only": false,
+      "gate": "master_rtm_closure",
+      "pass": true,
+      "reason": "PASS"
+    }
+  ],
+  "gates_passed": 33,
+  "gates_total": 34,
+  "generated_at_ms": 1789660430531,
+  "internal_chaos_preflight_ready": true,
+  "internal_chaos_qualified": true,
+  "internal_gates_passed": 33,
+  "internal_gates_total": 33,
+  "master_rtm": {
+    "active_internal_unclosed_count": 0,
+    "full_internal_requirements_closed": true,
+    "master_source_mirrored": true,
+    "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\traceability\\MASTER_RTM.json",
+    "qualified": 1997,
+    "requirement_count": 1997,
+    "rtm_sha256": "cc3d1163385394a3f362c27578148cc01d08ce7606d85ec7f9d0bcbb5d33a5f6"
+  },
+  "qualification_notes": [
+    "The authoritative SERS-003 v2.2 and sovereign-domain specifications are mirrored in-repository and hash-verified.",
+    "Internal Ultimate CHAOS, RTM closure and Genesis Proof are mandatory internal release gates.",
+    "Final sovereign-domain release remains externally blocked by the physical-device and independent non-BTG interoperability milestones."
+  ],
+  "schema": "entity-release-gate-v3",
+  "score_percent": 97.1,
+  "status": "BLOCKED",
+  "ten_of_ten": false
+}

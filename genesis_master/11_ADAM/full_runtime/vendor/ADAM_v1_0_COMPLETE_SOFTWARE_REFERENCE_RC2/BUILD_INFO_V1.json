@@ -1,0 +1,24 @@
+{
+  "classification": "COMPLETE_BOUNDED_SOFTWARE_REFERENCE_EXTERNAL_CERTIFICATION_REQUIRED",
+  "coverage_percent": 78.69700103412616,
+  "dedicated_v1_tests_passed": 23,
+  "external_certification_gates": {
+    "certified_physical_device_pilot": "OPEN_EXTERNAL",
+    "hardware_hsm_kms_pkcs11": "OPEN_EXTERNAL",
+    "independent_security_safety_operational_audit": "OPEN_EXTERNAL",
+    "large_licensed_real_world_training": "OPEN_EXTERNAL",
+    "physically_independent_multi_host_wan": "OPEN_EXTERNAL",
+    "thirty_actual_wall_clock_days": "OPEN_EXTERNAL"
+  },
+  "format": "ADAM-v1.0-rc2-build-info",
+  "integrated_gates_passed": 12,
+  "package_name": "adam-v1-complete-software-reference",
+  "parent_v051_sha256": "dd6ccbf5178bb0c5179e8afef5d783c279a8ed1584d5f096f7bf6da7c9068132",
+  "production_certified": false,
+  "python": "3.13.5",
+  "source_audit_blockers": 0,
+  "tests_passed": 148,
+  "version": "1.0.0-rc2",
+  "wheel": "adam_v1_complete_software_reference-1.0.0rc2-py3-none-any.whl",
+  "wheel_sha256": "d8891c4b94010031208a76ee1cf3aeaa396d1050bfd6604c255b4c6c9d5d4a03"
+}

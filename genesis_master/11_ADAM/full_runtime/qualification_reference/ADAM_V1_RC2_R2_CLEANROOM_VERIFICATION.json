@@ -1,0 +1,31 @@
+{
+  "external_certification_required": true,
+  "format": "ADAM-v1-rc2-r2-cleanroom-verification",
+  "full_regression": {
+    "expected": 148,
+    "failed": 0,
+    "passed": 148
+  },
+  "generated_at_unix": 1785891707,
+  "installed_wheel_import": {
+    "mode": "non-editable external target",
+    "status": "PASS",
+    "version": "1.0.0rc2"
+  },
+  "integrated_gates": {
+    "failed": 0,
+    "passed": 12
+  },
+  "post_install_manifest_reverification": "PASS",
+  "release_signer_sha256": "40fa14182780a051a7f22020d5bf75882e5165bff33c154eb19ea3d4e26f3cfe",
+  "signed_manifest_entries": 540,
+  "source_audit_blockers": 0,
+  "status": "PASS",
+  "targeted_tests": {
+    "failed": 0,
+    "passed": 35
+  },
+  "unexpected_manifest_files": 0,
+  "zip": "ADAM_v1_0_COMPLETE_SOFTWARE_REFERENCE_RC2_R2.zip",
+  "zip_sha256": "73e21ef3945c195db66d59a55e12dc9a48e9d6af389cf0fe960bfdb0d6f71eaf"
+}

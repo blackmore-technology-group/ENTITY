@@ -1,0 +1,25 @@
+[workspace]
+resolver = "2"
+members = ["crates/adam-v051-kernel"]
+exclude = ["fuzz"]
+
+[workspace.package]
+version = "0.51.0-dev1"
+edition = "2024"
+rust-version = "1.97.1"
+license = "Proprietary"
+authors = ["ADAM Systems"]
+
+[workspace.dependencies]
+base64 = "0.22"
+ed25519-dalek = { version = "2.1", features = ["rand_core", "zeroize"] }
+fs2 = "0.4"
+hex = "0.4"
+proptest = "1.7"
+rand_core = { version = "0.6", features = ["getrandom"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+tempfile = "3.20"
+thiserror = "2.0"
+zeroize = "1.8"

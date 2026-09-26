@@ -1,0 +1,43 @@
+{
+  "d301cfe1655cccdeff22384b60592dc58248837f5117c5cde67b412f6752270e": {
+    "allowed_jurisdictions": [
+      "CA"
+    ],
+    "k": 3,
+    "m": 2,
+    "original_length": 65537,
+    "placements": [
+      {
+        "index": 0,
+        "jurisdiction": "CA",
+        "node_id": "ca0",
+        "path": "/mnt/data/ADAM_v0_50_1_SOURCE_AUDITED/artifacts/full_audit/sovereign/ca0/d301cfe1655cccdeff22384b60592dc58248837f5117c5cde67b412f6752270e.0.frag"
+      },
+      {
+        "index": 1,
+        "jurisdiction": "CA",
+        "node_id": "ca1",
+        "path": "/mnt/data/ADAM_v0_50_1_SOURCE_AUDITED/artifacts/full_audit/sovereign/ca1/d301cfe1655cccdeff22384b60592dc58248837f5117c5cde67b412f6752270e.1.frag"
+      },
+      {
+        "index": 2,
+        "jurisdiction": "CA",
+        "node_id": "ca2",
+        "path": "/mnt/data/ADAM_v0_50_1_SOURCE_AUDITED/artifacts/full_audit/sovereign/ca2/d301cfe1655cccdeff22384b60592dc58248837f5117c5cde67b412f6752270e.2.frag"
+      },
+      {
+        "index": 3,
+        "jurisdiction": "CA",
+        "node_id": "ca3",
+        "path": "/mnt/data/ADAM_v0_50_1_SOURCE_AUDITED/artifacts/full_audit/sovereign/ca3/d301cfe1655cccdeff22384b60592dc58248837f5117c5cde67b412f6752270e.3.frag"
+      },
+      {
+        "index": 4,
+        "jurisdiction": "CA",
+        "node_id": "ca4",
+        "path": "/mnt/data/ADAM_v0_50_1_SOURCE_AUDITED/artifacts/full_audit/sovereign/ca4/d301cfe1655cccdeff22384b60592dc58248837f5117c5cde67b412f6752270e.4.frag"
+      }
+    ],
+    "shard_size": 21846
+  }
+}

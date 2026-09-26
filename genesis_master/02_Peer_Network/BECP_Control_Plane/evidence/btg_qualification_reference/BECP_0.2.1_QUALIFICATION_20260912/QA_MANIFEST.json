@@ -1,0 +1,105 @@
+{
+  "artifact_count": 18,
+  "artifacts": [
+    {
+      "bytes": 686,
+      "path": "AUDIT_CHAIN_EVIDENCE.json",
+      "sha256": "fe420bbb6ba141f9b16a91a4e15406660315b7928b0f7304b99d6673040a39f9"
+    },
+    {
+      "bytes": 1548,
+      "path": "BINARY_QUALIFICATION_RESULTS.json",
+      "sha256": "d71c4a22126ad68131ae8143a92248e122821a35dbbd4f78b87086c7fc3d278f"
+    },
+    {
+      "bytes": 752,
+      "path": "BUILD_ARTIFACT_EVIDENCE.json",
+      "sha256": "f72427a8d938a0a4c642fde2e07497efb20d102afa7ea97587cc09e408784388"
+    },
+    {
+      "bytes": 1334,
+      "path": "CERTIFICATE_EVIDENCE.json",
+      "sha256": "58c29a3e62d97ec2395a6181bfdc5c869e66932bebc77f32cd74ece43524d733"
+    },
+    {
+      "bytes": 13,
+      "path": "COMPILEALL_RESULTS.txt",
+      "sha256": "ae83a3ae13d7b3bd00ee127bc7bdb3a9fa0a2ca71b3490011b0c284069ed243f"
+    },
+    {
+      "bytes": 2721,
+      "path": "devices.json",
+      "sha256": "7667690ef836b579a3cc424a44aa9d17054678bc0e548e1b0bf6d0ca5f1b4900"
+    },
+    {
+      "bytes": 193,
+      "path": "DIRECT_RDC_RESULTS.json",
+      "sha256": "f64a6021ffbfda152e8839be92214f5b582e57e2fbdba74956c6b85b04e647e6"
+    },
+    {
+      "bytes": 347,
+      "path": "ENVIRONMENT.json",
+      "sha256": "c04fe5ffa04da3d9eec2a1f93363beb895069d356e4018f7aed5fc998bedaa2e"
+    },
+    {
+      "bytes": 845,
+      "path": "FINAL_BUILD_HASHES.json",
+      "sha256": "b2bc2fb8975f4f8e73e5fa5cf6bb22b1f9eed94d50bf8da3552d31b09556f761"
+    },
+    {
+      "bytes": 356,
+      "path": "MCP_QUALIFICATION_RESULTS.json",
+      "sha256": "c9f37c54247b570811a45d6366ba8805c2a7821e3e4aee5a92f9c938279c23da"
+    },
+    {
+      "bytes": 884,
+      "path": "QUALIFICATION_RELEASE_STATUS.json",
+      "sha256": "5736b5f059535e766cceb4eaf33b533dd063aa0551fbcd9a16f996f6ebe310d7"
+    },
+    {
+      "bytes": 805,
+      "path": "QUALIFICATION_REPORT.md",
+      "sha256": "f842bab436607a768f9f276d66f2139d47f1ea5d7dc339b8d6eae99ea721f70c"
+    },
+    {
+      "bytes": 113,
+      "path": "REGRESSION_RESULTS.txt",
+      "sha256": "1f9e48e60368c420315c29f639d17b82a1b7d0750c64b56cd29044e7f87c3f2e"
+    },
+    {
+      "bytes": 169,
+      "path": "RUNTIME_VERSION_EVIDENCE.json",
+      "sha256": "352756978ba9357d53234854ee56fb5a66e272cd6669c4d065089e301159d6b4"
+    },
+    {
+      "bytes": 385,
+      "path": "SECRET_PRESENCE.json",
+      "sha256": "7f8d3a17e6da1ec59d905df5060989a4397889103cf0a8412a5a68f1cad8630b"
+    },
+    {
+      "bytes": 8696,
+      "path": "SOURCE_FILE_HASHES.json",
+      "sha256": "38fc2580efd544b83ec11dc58908c98f053cfdf47726ab6968ff54f3bc486311"
+    },
+    {
+      "bytes": 1212,
+      "path": "VERIFY_EVIDENCE.py",
+      "sha256": "ec7dac55626439534832614dd57a38e776ffd68cfbcd5f1efb4a4bd6d54ef85a"
+    },
+    {
+      "bytes": 403,
+      "path": "WHEEL_QUALIFICATION_RESULTS.json",
+      "sha256": "d26386ba336edf7c402f623b64f38168ba2bb068145046a355fe3e56e7968bcd"
+    }
+  ],
+  "disposition": "QUALIFIED_PASS",
+  "generated_utc": "2026-09-13T01:04:35.330977+00:00",
+  "private_key_material_included": false,
+  "product": "Blackmore Engineering Control Plane",
+  "product_id": "BTG-PLAT-010",
+  "qualification_id": "BECP_0.2.1_QUALIFICATION_20260912",
+  "schema_version": 1,
+  "source_file_count": 54,
+  "source_inventory_sha256": "38fc2580efd544b83ec11dc58908c98f053cfdf47726ab6968ff54f3bc486311",
+  "version": "0.2.1"
+}

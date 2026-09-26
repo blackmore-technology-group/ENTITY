@@ -1,0 +1,28 @@
+{
+  "schema": "entity-protocol-freeze-v1",
+  "protocol": "ENTITY",
+  "protocol_version": "1.0",
+  "status": "FROZEN_FOR_EXTERNAL_CONFORMANCE",
+  "frozen_on": "2026-09-17",
+  "authoritative_requirements": {
+    "id": "SERS-ENTITY-003",
+    "version": "v2.2",
+    "sha256": "4efe4372d2e815fccf2720c1446b2b0423749c24f2d05819283babfe94304cde"
+  },
+  "sovereign_domain_profile": {
+    "id": "SERS-ENTITY-DOMAIN-001",
+    "version": "v1.0",
+    "sha256": "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f"
+  },
+  "frozen_invariants": [
+    "principal_and_entity_identity_are_distinct",
+    "provider_possession_never_becomes_sovereign_authority",
+    "registration_never_proves_ownership",
+    "provenance_never_proves_legal_rights_or_truth",
+    "usage_never_becomes_realized_value_without_required_settlement_evidence",
+    "applications_and_agents_act_only_through_explicit_revocable_authority",
+    "entity_identity_survives_provider_replacement",
+    "historical_semantics_are_superseded_not_silently_rewritten"
+  ],
+  "external_qualification": "PENDING"
+}

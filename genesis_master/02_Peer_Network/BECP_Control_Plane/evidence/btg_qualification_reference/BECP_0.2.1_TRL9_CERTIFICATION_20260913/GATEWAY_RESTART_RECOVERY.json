@@ -1,0 +1,16 @@
+{
+    "status":  "PASS",
+    "gateway_process_start_local":  "2026-09-12T18:46:52.7216315-07:00",
+    "btg_last_seen_utc":  "2026-09-13T01:48:42.169224+00:00",
+    "observed_reconnect_within_seconds":  109.448,
+    "gateway_health":  {
+                           "ok":  true,
+                           "service":  "BECP client gateway",
+                           "registered_devices":  2,
+                           "online_devices":  1
+                       },
+    "agent_online":  true,
+    "agent_version":  "0.2.1",
+    "connected_session_id":  "7ab7bc4e-5be0-4e24-be22-c8d44659d590",
+    "note":  "Automatic reconnect observed after production gateway restart; elapsed is derived from gateway process start to current registry last-seen and is an upper-bound observation, not precise handshake latency."
+}

@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "core_aggregate_hash_unchanged": true,
+    "core_file_count_unchanged": true,
+    "developer_spec_present": true,
+    "module_present": true,
+    "open_sdk_tests_12_of_12": true,
+    "schema_present": true
+  },
+  "claim": "Open SDK adds provider-neutral developer integration and collision-safe human naming without changing pre-existing critical ENTITY core implementations or sovereign semantics.",
+  "core_invariance": {
+    "after_sha256": "eb5b05b6e76bd143472e156cc9552dddc0dd2fbc46ff58f7db9c886e2e1aa9fe",
+    "before_sha256": "eb5b05b6e76bd143472e156cc9552dddc0dd2fbc46ff58f7db9c886e2e1aa9fe",
+    "source_file_count": 47
+  },
+  "evidence_sha256": "d265dda23a4102298f85874aad59c8137e39ea40f4de24741cb0e4610e908148",
+  "generated_at_ms": 1789661875457,
+  "implementation": {
+    "module_sha256": "5a25edd87ab5d1e1acef54794d15e10423d458bee052b559b9948a9ac29c3654",
+    "readme_sha256": "235ea6bf72744341fac343bdb7311875c5f5e2fe75b7232f35913dce644530e0",
+    "schema_sha256": "ae6f35f7a5d00cf1a1fbcc715df858f0228b6a753f713651c34a2c1cada6a5f7"
+  },
+  "limitations": [],
+  "preserved_invariants": [
+    "alias is not identity",
+    "entity_address is cryptographic authority",
+    "duplicate aliases fail closed",
+    "registration is not ownership",
+    "provenance is not rights or truth",
+    "economic mutation is not exposed",
+    "provider/DNS/host is not sovereign authority"
+  ],
+  "pytest": {
+    "file_sha256": "a0e88729a0eb50a33c9c353afd1151cee6b0d2c4451bd7352bd1c12990da33f8",
+    "passed": 12
+  },
+  "qualification_complete": true,
+  "schema": "entity-open-sdk-qualification-v1",
+  "status": "PASS"
+}

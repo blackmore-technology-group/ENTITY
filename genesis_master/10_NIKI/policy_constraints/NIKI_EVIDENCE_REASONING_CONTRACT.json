@@ -1,0 +1,17 @@
+{
+  "schema": "niki-evidence-reasoning-contract-v1",
+  "owner": "NIKI",
+  "source_authority": "ENTITY_EVIDENCE_BOUNDARY",
+  "origins": ["DIRECT_OBSERVATION", "USER_ASSERTION", "COUNTERPARTY_ATTESTATION", "DERIVED_INFERENCE", "EXTERNAL_RECORD", "UNKNOWN"],
+  "assurance_levels": {"0": "UNKNOWN", "1": "SELF_DECLARED", "2": "ENTITY_OBSERVED", "3": "COUNTERPARTY_ATTESTED"},
+  "rules": [
+    "NIKI preserves source evidence origin and assurance",
+    "missing origin is represented as UNKNOWN level 0",
+    "NIKI never upgrades evidence origin or assurance",
+    "confidence is not a substitute for provenance or assurance",
+    "counterparty attestation is distinct from direct observation",
+    "derived inference remains derived inference until separately corroborated"
+  ],
+  "output_requirement": "reasoning evidence summaries must expose origin, assurance and confidence separately",
+  "hidden_provider_reasoning": "UNKNOWN"
+}

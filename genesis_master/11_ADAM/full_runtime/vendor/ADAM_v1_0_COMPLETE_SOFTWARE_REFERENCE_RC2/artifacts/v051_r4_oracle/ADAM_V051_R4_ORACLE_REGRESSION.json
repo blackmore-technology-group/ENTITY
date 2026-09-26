@@ -1,0 +1,238 @@
+{
+  "execution_note": "Each test file ran in a fresh deterministic pytest interpreter. The full sequence was executed in isolated batches because the inherited R4 all-files shell controller can remain blocked during interpreter teardown despite completed per-file results.",
+  "expected": 117,
+  "expected_group_totals": {
+    "v040_v041": 13,
+    "v042_core": 13,
+    "v042_recreation_security": 23,
+    "v043_gap_closure": 9,
+    "v044_v050": 47,
+    "v0501_source_audit": 12
+  },
+  "failed": 0,
+  "files": [
+    {
+      "failed": 0,
+      "file": "tests_source_audit/test_source_hardening.py",
+      "group": "v0501_source_audit",
+      "log": "artifacts/v051_r4_oracle/v0501_source_audit__tests_source_audit_test_source_hardening.log",
+      "log_sha256": "42e1e3445c712f9e97efa151f0dd122e04a93cce5ee370c285c44fc49982310e",
+      "passed": 7,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_source_audit/test_windows_portability.py",
+      "group": "v0501_source_audit",
+      "log": "artifacts/v051_r4_oracle/v0501_source_audit__tests_source_audit_test_windows_portability.log",
+      "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+      "passed": 5,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v44_v50/test_v44_physics.py",
+      "group": "v044_v050",
+      "log": "artifacts/v051_r4_oracle/v044_v050__tests_v44_v50_test_v44_physics.log",
+      "log_sha256": "cf0b4334edc38784cb5c566ff581dc577c4525620ec485d15dba7cb8f2cce28b",
+      "passed": 14,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v44_v50/test_v45_cognition.py",
+      "group": "v044_v050",
+      "log": "artifacts/v051_r4_oracle/v044_v050__tests_v44_v50_test_v45_cognition.log",
+      "log_sha256": "42e1e3445c712f9e97efa151f0dd122e04a93cce5ee370c285c44fc49982310e",
+      "passed": 7,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v44_v50/test_v46_apps.py",
+      "group": "v044_v050",
+      "log": "artifacts/v051_r4_oracle/v044_v050__tests_v44_v50_test_v46_apps.log",
+      "log_sha256": "a35793c43ba2650e6ec3f1f5c4884993377fe998f34097ffffffb9eeca4fdea0",
+      "passed": 4,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v44_v50/test_v47_world.py",
+      "group": "v044_v050",
+      "log": "artifacts/v051_r4_oracle/v044_v050__tests_v44_v50_test_v47_world.log",
+      "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+      "passed": 5,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v44_v50/test_v48_embodied.py",
+      "group": "v044_v050",
+      "log": "artifacts/v051_r4_oracle/v044_v050__tests_v44_v50_test_v48_embodied.log",
+      "log_sha256": "a35793c43ba2650e6ec3f1f5c4884993377fe998f34097ffffffb9eeca4fdea0",
+      "passed": 4,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v44_v50/test_v49_evolution.py",
+      "group": "v044_v050",
+      "log": "artifacts/v051_r4_oracle/v044_v050__tests_v44_v50_test_v49_evolution.log",
+      "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+      "passed": 5,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v44_v50/test_v50_security_runtime.py",
+      "group": "v044_v050",
+      "log": "artifacts/v051_r4_oracle/v044_v050__tests_v44_v50_test_v50_security_runtime.log",
+      "log_sha256": "5ea008c440de7c56e2067dea9861a05eb8fc90e916b48ea88a6d949358c01a8f",
+      "passed": 8,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v43/test_production_soak.py",
+      "group": "v043_gap_closure",
+      "log": "artifacts/v051_r4_oracle/v043_gap_closure__tests_v43_test_production_soak.log",
+      "log_sha256": "301b7230cbff5f5fb1473cc9d29f5b177b11ac8ffd11c49b82e0e48d8488df45",
+      "passed": 2,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v43/test_semantic_temporal.py",
+      "group": "v043_gap_closure",
+      "log": "artifacts/v051_r4_oracle/v043_gap_closure__tests_v43_test_semantic_temporal.log",
+      "log_sha256": "301b7230cbff5f5fb1473cc9d29f5b177b11ac8ffd11c49b82e0e48d8488df45",
+      "passed": 2,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests_v43/test_theorem_custody_native.py",
+      "group": "v043_gap_closure",
+      "log": "artifacts/v051_r4_oracle/v043_gap_closure__tests_v43_test_theorem_custody_native.log",
+      "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+      "passed": 5,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v42_distributed.py",
+      "group": "v042_core",
+      "log": "artifacts/v051_r4_oracle/v042_core__tests_test_v42_distributed.log",
+      "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+      "passed": 5,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v42_perception_time_formal.py",
+      "group": "v042_core",
+      "log": "artifacts/v051_r4_oracle/v042_core__tests_test_v42_perception_time_formal.log",
+      "log_sha256": "de911d5bb9ee4492fcff6e770ddfd057cfb783503fb74b6943a01ca2a4874a69",
+      "passed": 3,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v42_reactions_soak.py",
+      "group": "v042_core",
+      "log": "artifacts/v051_r4_oracle/v042_core__tests_test_v42_reactions_soak.log",
+      "log_sha256": "301b7230cbff5f5fb1473cc9d29f5b177b11ac8ffd11c49b82e0e48d8488df45",
+      "passed": 2,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v42_o1_chemistry_query.py",
+      "group": "v042_core",
+      "log": "artifacts/v051_r4_oracle/v042_core__tests_test_v42_o1_chemistry_query.log",
+      "log_sha256": "de911d5bb9ee4492fcff6e770ddfd057cfb783503fb74b6943a01ca2a4874a69",
+      "passed": 3,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v42_security.py",
+      "group": "v042_recreation_security",
+      "log": "artifacts/v051_r4_oracle/v042_recreation_security__tests_test_v42_security.log",
+      "log_sha256": "7cfa2d740536a67f42231bd4021177864dd3df03bcb30f25e2836e57f7d0662d",
+      "passed": 5,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v42_recreation.py",
+      "group": "v042_recreation_security",
+      "log": "artifacts/v051_r4_oracle/v042_recreation_security__tests_test_v42_recreation.log",
+      "log_sha256": "d6e45e475d3a32f138662b1442b504f994ae60bc0aaae73b53d2e1081194b771",
+      "passed": 18,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v40_compat.py",
+      "group": "v040_v041",
+      "log": "artifacts/v051_r4_oracle/v040_v041__tests_test_v40_compat.log",
+      "log_sha256": "de911d5bb9ee4492fcff6e770ddfd057cfb783503fb74b6943a01ca2a4874a69",
+      "passed": 3,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v41_universe.py",
+      "group": "v040_v041",
+      "log": "artifacts/v051_r4_oracle/v040_v041__tests_test_v41_universe.log",
+      "log_sha256": "42e1e3445c712f9e97efa151f0dd122e04a93cce5ee370c285c44fc49982310e",
+      "passed": 7,
+      "reported_exit": 0,
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "file": "tests/test_v41_adversarial.py",
+      "group": "v040_v041",
+      "log": "artifacts/v051_r4_oracle/v040_v041__tests_test_v41_adversarial.log",
+      "log_sha256": "de911d5bb9ee4492fcff6e770ddfd057cfb783503fb74b6943a01ca2a4874a69",
+      "passed": 3,
+      "reported_exit": 0,
+      "skipped": 0
+    }
+  ],
+  "format": "ADAM-v0.51-r4-oracle-regression-v1",
+  "group_totals": {
+    "v040_v041": 13,
+    "v042_core": 13,
+    "v042_recreation_security": 23,
+    "v043_gap_closure": 9,
+    "v044_v050": 47,
+    "v0501_source_audit": 12
+  },
+  "passed": 117,
+  "r4_version": "0.50.1.dev4",
+  "skipped": 0,
+  "status": "PASS"
+}

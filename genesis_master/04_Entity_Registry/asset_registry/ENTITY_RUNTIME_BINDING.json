@@ -1,0 +1,24 @@
+{
+  "abi_version": "1",
+  "authority": "asset_registry",
+  "exports": [
+    "CanonicalAssetRegistry",
+    "niki_project_data_summary_v1"
+  ],
+  "implementation_sha256": "23254923515c03b99fc21d2fa17ce0caba19ca754d52729305ea7435bc29d6f0",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_asset_registry.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_EVENT_LEDGER_ASSET_REGISTRY_CURRENT.json",
+      "sha256": "fd31783d8b885c699e4ee188354b2ce5da441b3b125a19aad985072f4dd14e35"
+    }
+  ],
+  "requirements_sha256": "a3cba409b3b96f84f43d394ae4a1468279875fe78b69a91d15fab83094a45226",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-canonical-asset-registry-v1",
+    "entity-asset-summary-v1"
+  ],
+  "status": "READY"
+}

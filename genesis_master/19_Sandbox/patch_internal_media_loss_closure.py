@@ -1,0 +1,18 @@
+from pathlib import Path
+p=Path(r'<LOCAL_DRIVE>/Sovereign_Entity_Network\16_Test_Qualification\chaos\seal_ultimate_chaos.py')
+s=p.read_text(encoding='utf-8')
+s=s.replace('scale_path=EV/"ENTITY_CHAOS_SCALE_PROBE_CURRENT.json"; gen_path=EV/"ENTITY_GENERATED_INVARIANTS_CURRENT.json"; pre_path=EV/"ENTITY_CHAOS_PREFLIGHT_CURRENT.json"','scale_path=EV/"ENTITY_CHAOS_SCALE_PROBE_CURRENT.json"; gen_path=EV/"ENTITY_GENERATED_INVARIANTS_CURRENT.json"; pre_path=EV/"ENTITY_CHAOS_PREFLIGHT_CURRENT.json"; media_path=EV/"ENTITY_BLOCK_DEVICE_LOSS_CURRENT.json"')
+s=s.replace('scale=load(scale_path); generated=load(gen_path); preflight=load(pre_path)','scale=load(scale_path); generated=load(gen_path); preflight=load(pre_path); media=load(media_path)')
+s=s.replace('internal_ok &= preflight.get("status")=="PASS" and preflight.get("chaos_campaign_authorized_by_evidence") is True and sealed(preflight)','internal_ok &= preflight.get("status")=="PASS" and preflight.get("chaos_campaign_authorized_by_evidence") is True and sealed(preflight)\ninternal_ok &= media.get("status")=="PASS" and media.get("qualification_complete") is True and media.get("whole_block_device_removed") is True and media.get("backing_media_deleted") is True and sealed(media)')
+s=s.replace('"destructive sovereignty","provider replacement"','"destructive sovereignty","whole-block-device loss surrogate","provider replacement"')
+s=s.replace('"not_executed_not_claimed":["million-asset/multi-million-event production scale tier","multi-host 10,000+ client distributed storm across independent machines","physical destruction of storage media"]','"not_executed_not_claimed":["million-asset/multi-million-event production scale tier","multi-host 10,000+ client distributed storm across independent machines"]')
+s=s.replace('"chaos_preflight":evidence_ref(pre_path),','"chaos_preflight":evidence_ref(pre_path),"block_device_loss":evidence_ref(media_path),')
+p.write_text(s,encoding='utf-8')
+
+p=Path(r'<LOCAL_DRIVE>/Sovereign_Entity_Network\17_Release\builds\evaluate_build_readiness.py')
+s=p.read_text(encoding='utf-8')
+s=s.replace("'destructive_recovery':'ENTITY_DESTRUCTIVE_RECOVERY_CURRENT.json',","'destructive_recovery':'ENTITY_DESTRUCTIVE_RECOVERY_CURRENT.json',\n    'block_device_loss':'ENTITY_BLOCK_DEVICE_LOSS_CURRENT.json',")
+s=s.replace("    {'item':'physical destruction of storage media','reason':'destructive hardware qualification unavailable','classification':'DEFERRED_DEVICE_REQUIRED'},\n",'')
+s=s.replace('deferred physical/external validation is not claimed as passed.','whole-block-device loss is internally qualified; remaining deferred multi-host/external validation is not claimed as passed.')
+p.write_text(s,encoding='utf-8')
+print('patched internal media-loss qualification into CHAOS/build gates')

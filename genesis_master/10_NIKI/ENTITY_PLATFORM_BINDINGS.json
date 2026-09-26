@@ -1,0 +1,239 @@
+{
+  "bindings": {
+    "adam_actions": {
+      "embedded": "blackmore_ci.entity_actions",
+      "owner": "11_ADAM\\executors"
+    },
+    "adam_capabilities": {
+      "embedded": "blackmore_ci.authority_capabilities",
+      "owner": "11_ADAM\\approval_gates"
+    },
+    "adam_full_runtime": {
+      "embedded": "blackmore_ci.entity_adam_full_runtime",
+      "owner": "11_ADAM\\full_runtime"
+    },
+    "ar_projection": {
+      "embedded": "blackmore_ci.ar_projection",
+      "owner": "09_Spatial_AR_Dashboard"
+    },
+    "asset_registry": {
+      "embedded": "blackmore_ci.data_universe",
+      "owner": "04_Entity_Registry\\asset_registry"
+    },
+    "becp_evidence": {
+      "embedded": "blackmore_ci.becp_auto_ingest",
+      "owner": "02_Peer_Network\\BECP_Control_Plane"
+    },
+    "bsie_entity_world": {
+      "embedded": "blackmore_ci.bsie_entity_world",
+      "owner": "12_BSIE\\digital_entity_world"
+    },
+    "c2pa": {
+      "embedded": "blackmore_ci.c2pa_verifier",
+      "owner": "14_Protocols_SDK\\c2pa"
+    },
+    "contracts": {
+      "embedded": "blackmore_ci.contract_licensing",
+      "owner": "01_Core_Runtime\\contracts"
+    },
+    "core_permissions": {
+      "embedded": "blackmore_ci.authority_capabilities",
+      "owner": "01_Core_Runtime\\permissions"
+    },
+    "credentials": {
+      "embedded": "blackmore_ci.credential_trust",
+      "owner": "04_Entity_Registry\\credentials"
+    },
+    "data_pools": {
+      "embedded": "blackmore_ci.data_pools",
+      "owner": "01_Core_Runtime\\service_runtime"
+    },
+    "data_sources": {
+      "embedded": "blackmore_ci.data_source_gateway",
+      "owner": "08_Data_Vaults"
+    },
+    "data_spaces": {
+      "embedded": "blackmore_ci.data_spaces",
+      "owner": "01_Core_Runtime\\service_runtime"
+    },
+    "data_universe": {
+      "embedded": "blackmore_ci.data_universe",
+      "owner": "04_Entity_Registry\\data_universe_adapter"
+    },
+    "data_vault": {
+      "embedded": "blackmore_ci.encrypted_vault",
+      "owner": "08_Data_Vaults"
+    },
+    "domain_failure_states": {
+      "embedded": "blackmore_ci.domain_failure_states",
+      "owner": "22_Sovereign_Domain"
+    },
+    "domain_migration": {
+      "embedded": "blackmore_ci.domain_migration",
+      "owner": "22_Sovereign_Domain"
+    },
+    "domain_node_runtime": {
+      "embedded": "blackmore_ci.domain_node_runtime",
+      "owner": "22_Sovereign_Domain"
+    },
+    "domain_portability": {
+      "embedded": "blackmore_ci.domain_portability",
+      "owner": "22_Sovereign_Domain"
+    },
+    "domain_presence": {
+      "embedded": "blackmore_ci.domain_presence",
+      "owner": "22_Sovereign_Domain"
+    },
+    "domain_recovery": {
+      "embedded": "blackmore_ci.domain_recovery",
+      "owner": "22_Sovereign_Domain"
+    },
+    "domain_relay": {
+      "embedded": "blackmore_ci.domain_relay",
+      "owner": "22_Sovereign_Domain"
+    },
+    "domain_resolution": {
+      "embedded": "blackmore_ci.domain_resolution",
+      "owner": "22_Sovereign_Domain"
+    },
+    "event_ledger": {
+      "embedded": "blackmore_ci.data_universe",
+      "owner": "04_Entity_Registry\\event_ledger"
+    },
+    "evidence_assertion": {
+      "embedded": "blackmore_ci.evidence_boundary",
+      "owner": "04_Entity_Registry\\evidence_assertions"
+    },
+    "federation": {
+      "embedded": "blackmore_ci.federation",
+      "owner": "02_Peer_Network"
+    },
+    "guardian_recovery": {
+      "embedded": "blackmore_ci.guardian_recovery",
+      "owner": "13_Security\\key_management"
+    },
+    "identity": {
+      "embedded": "blackmore_ci.entity_identity",
+      "owner": "01_Core_Runtime\\identity"
+    },
+    "independent_verifier": {
+      "embedded": "blackmore_ci.protocol_conformance",
+      "owner": "16_Test_Qualification\\verifier"
+    },
+    "information_projection": {
+      "embedded": "blackmore_ci.niki_disclosure_guard",
+      "owner": "01_Core_Runtime\\information_projection"
+    },
+    "knowledge_capital": {
+      "embedded": "blackmore_ci.knowledge_capital",
+      "owner": "04_Entity_Registry"
+    },
+    "migration_config": {
+      "embedded": "blackmore_ci.portable_state",
+      "owner": "15_Operations\\migration"
+    },
+    "nat_traversal": {
+      "embedded": "blackmore_ci.nat_traversal",
+      "owner": "02_Peer_Network\\nat_traversal"
+    },
+    "peer_discovery": {
+      "embedded": "blackmore_ci.peer_discovery",
+      "owner": "02_Peer_Network\\discovery"
+    },
+    "peer_transport": {
+      "embedded": "blackmore_ci.peer_transport",
+      "owner": "02_Peer_Network\\transport"
+    },
+    "policy_consent": {
+      "embedded": "blackmore_ci.policy_consent",
+      "owner": "01_Core_Runtime\\policy_engine"
+    },
+    "portable_state": {
+      "embedded": "blackmore_ci.portable_state",
+      "owner": "15_Operations\\backups"
+    },
+    "prebootstrap_evidence": {
+      "embedded": "blackmore_ci.prebootstrap_evidence",
+      "owner": "16_Test_Qualification\\evidence"
+    },
+    "privilege_graph": {
+      "embedded": "blackmore_ci.authority_capabilities",
+      "owner": "00_Governance\\privilege_graph"
+    },
+    "protocol_conformance": {
+      "embedded": "blackmore_ci.protocol_conformance",
+      "owner": "14_Protocols_SDK\\reference_clients"
+    },
+    "public_gateway": {
+      "embedded": "blackmore_ci.hosting_registry",
+      "owner": "03_Public_Internet_Bridge\\public_gateway"
+    },
+    "purpose_keys": {
+      "embedded": "blackmore_ci.purpose_keys",
+      "owner": "13_Security\\key_management"
+    },
+    "recovery_custody": {
+      "embedded": "blackmore_ci.recovery_custody",
+      "owner": "13_Security\\key_management"
+    },
+    "relationship_identity": {
+      "embedded": "blackmore_ci.entity_identity",
+      "owner": "04_Entity_Registry\\relationships"
+    },
+    "relay": {
+      "embedded": "blackmore_ci.network_carrier",
+      "owner": "02_Peer_Network\\relay_fallback"
+    },
+    "release_attestation": {
+      "embedded": "blackmore_ci.prebootstrap_evidence",
+      "owner": "17_Release\\supply_chain"
+    },
+    "rights_claims": {
+      "embedded": "blackmore_ci.rights_claims",
+      "owner": "04_Entity_Registry\\ownership_graphs"
+    },
+    "rights_ontology": {
+      "embedded": "blackmore_ci.rights_claims",
+      "owner": "04_Entity_Registry\\rights_ontology"
+    },
+    "service_api": {
+      "embedded": "blackmore_ci.entity_service",
+      "owner": "01_Core_Runtime\\api"
+    },
+    "service_state_machine": {
+      "embedded": "blackmore_ci.service_health",
+      "owner": "15_Operations\\runtime_states"
+    },
+    "settlement": {
+      "embedded": "blackmore_ci.settlement_engine",
+      "owner": "01_Core_Runtime\\service_runtime"
+    },
+    "sovereign_domain": {
+      "embedded": "blackmore_ci.sovereign_domain",
+      "owner": "22_Sovereign_Domain"
+    },
+    "transparency_witness": {
+      "embedded": "blackmore_ci.transparency_witness",
+      "owner": "02_Peer_Network"
+    },
+    "usage_control": {
+      "embedded": "blackmore_ci.controlled_access",
+      "owner": "01_Core_Runtime\\usage_control"
+    },
+    "web_publish": {
+      "embedded": "blackmore_ci.hosting_registry",
+      "owner": "03_Public_Internet_Bridge\\web_publish"
+    }
+  },
+  "canonical_runtime_binding_filename": "ENTITY_RUNTIME_BINDING.json",
+  "network_root": "<LOCAL_DRIVE>/Sovereign_Entity_Network",
+  "rules": {
+    "10_NIKI_is_authority_owner": false,
+    "canonical_root_wins_when_bound": true,
+    "embedded_modules_are_fallbacks": true,
+    "parallel_non_niki_workstream_must_not_be_overwritten": true,
+    "permanent_bootstrap_requires_canonical_core": true
+  },
+  "schema": "entity-platform-bindings-v1",
+  "workstream": "NIKI_ENTITY_INTEGRATION"
+}

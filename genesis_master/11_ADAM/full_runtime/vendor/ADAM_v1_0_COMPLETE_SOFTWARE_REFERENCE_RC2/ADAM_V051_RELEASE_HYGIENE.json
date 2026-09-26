@@ -1,0 +1,10 @@
+{
+  "cache_directories": [],
+  "cargo_lock_present": false,
+  "format": "ADAM-v0.51-release-hygiene-v1",
+  "note": "Cargo.lock absence is an explicit external promotion gate.",
+  "operational_markers": [],
+  "secret_files": [],
+  "status": "PASS",
+  "version": "0.51.0.dev1"
+}

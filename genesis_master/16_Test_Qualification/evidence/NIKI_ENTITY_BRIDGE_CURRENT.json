@@ -1,0 +1,23 @@
+{
+  "application_entity_id": "ent2-cwvhbzgs5m2dxlleoopfasby3b3nbq4vhu4hovq5xk4jj7opgbqq",
+  "counts": {
+    "model_lifecycle": 0,
+    "training_artifacts": 0,
+    "training_evidence": 0
+  },
+  "economic_value_inferred": false,
+  "full_files": false,
+  "generated_at_ms": 1789673580341,
+  "installation_entity_id": "ent2-xskltyhckgk2law5g7bfb5hralv52aaygkohie6e556kbpvxitka",
+  "ownership_inferred": false,
+  "parts": {
+    "model_lifecycle": [],
+    "training_artifacts": [],
+    "training_evidence": []
+  },
+  "principal_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+  "raw_content_sent_to_entity": false,
+  "schema": "btg-niki-entity-bridge-run-v1",
+  "skipped_files": 0,
+  "source_controller_policy": "PRESERVE_SOURCE_CONTROLLER_THROUGH_DERIVATION"
+}

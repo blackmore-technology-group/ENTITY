@@ -1,0 +1,47 @@
+{
+  "boundaries": {
+    "delegates_to_canonical_authorities": true,
+    "economic_mutation_exposed": false,
+    "full_move_workflow_claimed": false,
+    "internal_authority_count_exposed_to_user": 0,
+    "provider_neutral": true,
+    "registration_not_ownership": true
+  },
+  "developer_surface": [
+    "create_entity",
+    "create_application",
+    "pair_device",
+    "register_asset",
+    "record_event",
+    "export_entity"
+  ],
+  "evidence_sha256": "1552c56ea875c89a1f8491044cfd497a6c83b8e1a07514ed2d6a5a79df578cdb",
+  "generated_at_ms": 1789675447118,
+  "implementation": {
+    "path": "14_Protocols_SDK\\simple_sdk\\canonical_simple_entity_sdk.py",
+    "sha256": "3279540dd28738d517915a9f7d43fcf7292c5dd59843e78cc74ab41774112976"
+  },
+  "protocol_freeze_sha256": "43177f6b6c26846f86037ffb15909153d8cca52e5975b4b5e137c4ce897fc313",
+  "schema": "entity-simple-sdk-qualification-v1",
+  "status": "PASS",
+  "test_file": {
+    "path": "16_Test_Qualification\\simple_sdk\\test_simple_entity_sdk.py",
+    "sha256": "0e441d3d9148c8e3d470c13591156cd315b647988ff682845a2d792a133e108f"
+  },
+  "tests": {
+    "failed": 0,
+    "log": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_SIMPLE_SDK_PYTEST.txt",
+    "log_sha256": "19b20df92bb575598196b0052a24b15e525d5314b9e2a6d9c9381a4919a3f77c",
+    "passed": 6
+  },
+  "ux_profile": {
+    "move_my_entity_reserved_until_migration_qualified": true,
+    "path": "14_Protocols_SDK\\simple_sdk\\ENTITY_USER_EXPERIENCE_PROFILE_v1.json",
+    "sha256": "430a89a5039b747eed44468d142d3836efc37acd19ece6d4adb6a436bad53d31"
+  },
+  "verification_helpers": [
+    "verify_pairing",
+    "verify_export",
+    "revoke_device"
+  ]
+}

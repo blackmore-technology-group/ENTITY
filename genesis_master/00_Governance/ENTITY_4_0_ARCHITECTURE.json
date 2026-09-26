@@ -1,0 +1,178 @@
+{
+  "schema": "entity-4.0-target-architecture-v1",
+  "target_version": "4.0.0",
+  "status": "ACTIVE_DEVELOPMENT_NOT_CERTIFIED",
+  "mission": "Sovereign digital rights infrastructure for people and organizations without mandatory purchase of domains, hosting, subscriptions, tokens, or platform accounts.",
+  "architectural_laws": [
+    "ENTITY is the sovereign identity, authority, rights, provenance and economic substrate.",
+    "BSIE knows authoritative world and relationship state.",
+    "NIKI reasons over least-privilege projections.",
+    "ADAM acts only through governed capabilities and evidence.",
+    "Gateway and relay route but never own an Entity.",
+    "Raw private data stays out of public/shared ledgers.",
+    "Cryptographic signatures prove statements and provenance, not legal truth.",
+    "Camera AR remains first-class; dashboard AR is an additional projection surface.",
+    "No user must purchase a domain to possess an Entity identity.",
+    "Entity never claims knowledge beyond its Evidence Boundary.",
+    "Data-source access is default-deny and requires explicit enrollment.",
+    "Discovery, content access, NIKI content exposure, and economic rights are independent permissions.",
+    "Newly discovered data is private and non-licensable by default.",
+    "Provenance does not imply ownership, licensing authority, or monetary value."
+  ],
+  "core_layers": [
+    "sovereign_root_identity",
+    "privacy_pairwise_identity_and_credentials",
+    "encrypted_data_vault",
+    "asset_and_provenance_graph",
+    "rights_and_claims_graph",
+    "policy_and_consent_engine",
+    "contract_and_licensing_engine",
+    "trusted_usage_control",
+    "transparency_and_evidence",
+    "economic_and_settlement",
+    "niki_adam_governance",
+    "external_platform_gateway"
+  ],
+  "network_and_runtime": {
+    "logical_entities": "effectively_unbounded",
+    "physical_nodes": "many_entities_per_host_supported",
+    "peer_network": [
+      "direct_ipv6",
+      "nat_traversal",
+      "lan_discovery",
+      "encrypted_relay_fallback",
+      "offline_mesh_future"
+    ],
+    "public_internet": "compatibility_bridge_not_identity_root",
+    "entity_namespace": "cryptographic_root_plus_human_aliases",
+    "self_hosting": [
+      "websites",
+      "web_apps",
+      "apis",
+      "files",
+      "messaging",
+      "applications",
+      "updates"
+    ],
+    "becp_rdc": "governed_engineering_and_administration_channel"
+  },
+  "spatial_ar": {
+    "principle": "one_ar_projection_architecture_multiple_surfaces",
+    "surfaces": [
+      "camera_ar",
+      "mirrored_remote_ar",
+      "virtual_dashboard_ar"
+    ],
+    "camera_ar_replaced": false,
+    "signed_scene_state": true,
+    "capability_limited_remote_projection": true
+  },
+  "data_universe": {
+    "asset_value": true,
+    "relationship_value": true,
+    "corpus_value": true,
+    "knowledge_capital": true,
+    "raw_data_on_public_ledger": false,
+    "rights_claims_not_single_owner_field": true,
+    "claim_verification_states": true,
+    "disputes_and_adjudication": true,
+    "odrl_profile_target": true,
+    "c2pa_native_target": true,
+    "licensed_ai_data_pools_target": true,
+    "price_discovery_not_fake_objective_valuation": true
+  },
+  "knowledge_capital_capture": {
+    "conversation_requirements": true,
+    "ai_assisted_outputs": true,
+    "architecture_decisions": true,
+    "file_mutation_hashes": true,
+    "becp_audit_mirroring": true,
+    "desktop_commander_artifact_capture": true,
+    "test_and_qualification_evidence": true,
+    "release_lineage": true,
+    "hidden_model_reasoning": false,
+    "secret_bytes_on_ledger": false,
+    "lineage_model": "requirement_to_output_to_human_change_to_test_to_release"
+  },
+  "version_program": {
+    "1.0": [
+      "root_identity",
+      "pairwise_identity",
+      "vault",
+      "asset_registration",
+      "provenance",
+      "rights_claims",
+      "consent",
+      "recovery",
+      "audit"
+    ],
+    "2.0": [
+      "peer_discovery",
+      "rights_requests",
+      "bilateral_licensing",
+      "usage_receipts",
+      "external_payment_proofs",
+      "royalties",
+      "revocation",
+      "disputes"
+    ],
+    "3.0": [
+      "collective_datasets",
+      "data_pools",
+      "ai_training_pools",
+      "secure_computation",
+      "clean_rooms",
+      "organization_federation",
+      "automated_royalty_allocation"
+    ],
+    "4.0": [
+      "open_federation",
+      "third_party_compatible_nodes",
+      "portable_entity_export",
+      "independent_witnesses",
+      "marketplace_and_trust_services",
+      "full_niki_agent_authority_fabric"
+    ]
+  },
+  "current_engineering_rule": "Do not claim a layer operational until its tests, security controls and evidence exist.",
+  "crypto_rule": "No speculative transferable cryptocurrency before identity, rights, usage and real settlement semantics are qualified.",
+  "portability_rule": "A user must be able to export the Entity in open documented formats so BTG cannot become the new data lock-in platform.",
+  "data_source_gateway": {
+    "default_deny": true,
+    "modes": [
+      "OFF",
+      "OBSERVE",
+      "INDEX",
+      "PROVENANCE",
+      "MANAGED"
+    ],
+    "permissions": [
+      "discovery",
+      "content",
+      "niki_content",
+      "economic"
+    ],
+    "new_data_default": "PRIVATE_NON_LICENSABLE",
+    "hard_never_touch_boundary": true,
+    "economic_rights_require_explicit_managed_permission": true
+  },
+  "evidence_boundary": {
+    "origins": [
+      "DIRECT_OBSERVATION",
+      "USER_ASSERTION",
+      "COUNTERPARTY_ATTESTATION",
+      "DERIVED_INFERENCE",
+      "EXTERNAL_RECORD",
+      "UNKNOWN"
+    ],
+    "assurance_levels": {
+      "0": "UNKNOWN",
+      "1": "SELF_DECLARED",
+      "2": "ENTITY_OBSERVED",
+      "3": "COUNTERPARTY_ATTESTED"
+    },
+    "unknown_never_promoted_implicitly": true,
+    "hidden_model_reasoning": "NOT_EXPOSED",
+    "provider_internal_processing": "NOT_OBSERVABLE_UNLESS_ATTESTED"
+  }
+}

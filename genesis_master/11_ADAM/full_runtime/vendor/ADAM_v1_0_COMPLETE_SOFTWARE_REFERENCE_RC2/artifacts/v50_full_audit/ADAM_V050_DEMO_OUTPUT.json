@@ -1,0 +1,30 @@
+{
+  "authority_term": 2,
+  "authorized_closure": [
+    "OPS_COMPOUND",
+    "PUBLIC_FACT"
+  ],
+  "bond_families": 9,
+  "claim_boundary": "Bounded development demonstration; not production certification.",
+  "cognition_models": {
+    "graph_embedding": "555f38f5c32cc51e1ddfbcecc359863a978af6c2141e487c7601bbd0f09d1671",
+    "masked_atom": "ce5e2d87915a3883c570d318361b2f0e2d7ac4c6f6c143d6d1c31e34c4e5be7a",
+    "masked_bond": "6d7877c93b6668e41ef2f2cde904d2629de977ac868ad23e70d2db8c2dffe35c"
+  },
+  "decryption_verified": "ADAM sovereign evidence",
+  "distributed_commits": 12,
+  "dynamics_prediction": [
+    "ASSIGNED"
+  ],
+  "encrypted_atom": "b2b6ea72cbb754f6411b24acb847d6a1e949f1eabd074b5e8e065fe01bf2ae8f",
+  "hyperbonds": 12,
+  "incremental_variance": 20,
+  "last_certificate_valid": true,
+  "replica_roots": [
+    "a2e70d4f08c9b7e7dcf41b43731ed9f9d68e5df1a76410b0e741491d808cd132"
+  ],
+  "standard_predicates": 48,
+  "version": "0.50.0.dev1",
+  "witness_quorum_verified": true,
+  "worldline_states": 12
+}

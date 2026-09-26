@@ -1,0 +1,21 @@
+{
+  "schema": "niki-action-proposal-contract-v1",
+  "proposal_schema": "niki-action-proposal-v1",
+  "owner": "NIKI",
+  "purpose": "reasoning proposal only; never execution authority",
+  "required": ["proposal_id", "action", "domain", "execution_status", "execution_authority", "executor", "requested_authority", "requested_scope"],
+  "fixed": {
+    "execution_status": "PROPOSED_NOT_EXECUTED",
+    "execution_authority": "ENTITY",
+    "executor": "ADAM",
+    "requires_authorized_adapter": true
+  },
+  "authority_inputs": ["actor_entity_id", "capability_id", "approval_id"],
+  "scope_inputs": ["asset_ids", "counterparty_entity_id", "purpose", "amount", "currency"],
+  "invariants": [
+    "NIKI cannot self-authorize",
+    "ENTITY policy/capability/approval must be current at execution time",
+    "ADAM executes only through a governed adapter",
+    "proposal history never proves execution occurred"
+  ]
+}

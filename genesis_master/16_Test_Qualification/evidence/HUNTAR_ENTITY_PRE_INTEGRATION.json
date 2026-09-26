@@ -1,0 +1,176 @@
+{
+  "aggregate_sha256": "e10642feb642b8a6b265af4db3aa81572e1cea395b1f9e26609198575d3e3c17",
+  "artifact": {
+    "bytes": 26823769,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/BTG_BUILT_SYSTEMS_2026-09-14\\BUILT_APPS\\HuntAR\\HuntAR_v4.3.0-debug.apk",
+    "sha256": "e9b22eb018b55d66f1745d68174ca8e48a70319c8d2c29d4a759a70a58ee42e7"
+  },
+  "file_count": 32,
+  "files": [
+    {
+      "bytes": 3150,
+      "path": "app/build.gradle.kts",
+      "sha256": "95903267cb0f1bc5b7efc7e84002f5a6ab4b5e65386b7f6cc574bbf9cb3695dc"
+    },
+    {
+      "bytes": 1490,
+      "path": "app/build.gradle.kts.pre_agp911.bak",
+      "sha256": "1e2a45e7c6a2270b640ac96990502ada7f0262fb8d7320a1eb870506f19a4316"
+    },
+    {
+      "bytes": 2787,
+      "path": "app/build.gradle.kts.pre_android_commissioning_20260914.bak",
+      "sha256": "ab03892ed3b153aceb0ff30796b33f522085541fb262077e04aa6bbe825119e2"
+    },
+    {
+      "bytes": 1554,
+      "path": "app/build.gradle.kts.pre_niki_mobile.bak",
+      "sha256": "a562662ca544fa9e1f57a3d96549ff79252635468c1db38925ed08d87c9e14ea"
+    },
+    {
+      "bytes": 263463,
+      "path": "app/libs/NIKI_Mobile_Runtime_0.8.0_android_arm64.aar",
+      "sha256": "625dd37f34255f6cd5cf04c7d07a25b4d2d385ad82d2589a6422fb24f54ae6b1"
+    },
+    {
+      "bytes": 1101,
+      "path": "app/src/main/AndroidManifest.xml",
+      "sha256": "4e01021d7b85eeed72af8147ff268be2b7d7568033278ac7b0941863ebfe5c98"
+    },
+    {
+      "bytes": 2009,
+      "path": "app/src/main/cpp/CMakeLists.txt",
+      "sha256": "e3f5af52fa257f06dbac8165116c0ac2f399df80a2c772d655f59edff1badaf8"
+    },
+    {
+      "bytes": 1264,
+      "path": "app/src/main/cpp/CMakeLists.txt.pre_android_openssl_20260910_2350",
+      "sha256": "04749b4a9fa09160deb1c972a70b273a644103045e5eb14370ff2742c5c9512c"
+    },
+    {
+      "bytes": 1633,
+      "path": "app/src/main/cpp/CMakeLists.txt.pre_arcore_link_20260910_1730",
+      "sha256": "23fb94c8968ca80380f5c1ad572fb8aecd31824c882723f8fdfadfacfb9e2b99"
+    },
+    {
+      "bytes": 16643,
+      "path": "app/src/main/cpp/huntar_jni.cpp",
+      "sha256": "5a267bd6893a6ac5df73018873a694a9b07ac26f0fc8236f904b41bc65c46d6c"
+    },
+    {
+      "bytes": 7496,
+      "path": "app/src/main/cpp/huntar_jni.cpp.pre_android_commissioning_20260914.bak",
+      "sha256": "c79fe7b280fe6fbf48b3d377a48605b68c4b3d5fd0c2a783a1ef012e14ebeb99"
+    },
+    {
+      "bytes": 6845,
+      "path": "app/src/main/java/com/blackmore/huntar/BSIECommissioningPanel.kt",
+      "sha256": "01aa400863a7e19ed66468d507d65ef7c43b7f7eb6d150c383e1697dfcaeed65"
+    },
+    {
+      "bytes": 3159,
+      "path": "app/src/main/java/com/blackmore/huntar/ControlCourse.kt",
+      "sha256": "d0a29d57ee9b1e0dbc94277353cf736b48996de509dc4c8438f3cd0b27a1918c"
+    },
+    {
+      "bytes": 8098,
+      "path": "app/src/main/java/com/blackmore/huntar/DeviceProvenance.kt",
+      "sha256": "ab6f68f6b67fb4cbe0759bc1623e07d5bd2bcfe595e8057462584ac7908f2fb6"
+    },
+    {
+      "bytes": 2759,
+      "path": "app/src/main/java/com/blackmore/huntar/HuntARMobileStore.kt",
+      "sha256": "410ab4cbf7e608e278f2883a70006809c1c41d253748de0ac67bbd7b70f783e7"
+    },
+    {
+      "bytes": 8354,
+      "path": "app/src/main/java/com/blackmore/huntar/HuntARNativeBridge.kt",
+      "sha256": "0bdf2efb68ddf97280ab01def4dbfe6efeaa25e9125e3f514a2dda4144bdf431"
+    },
+    {
+      "bytes": 8259,
+      "path": "app/src/main/java/com/blackmore/huntar/HuntARNativeBridge.kt.pre_android_commissioning_20260914.bak",
+      "sha256": "660b3fc9ad8556f23488d43fa88c3152580d10efa080129d15b124a030d904b5"
+    },
+    {
+      "bytes": 7336,
+      "path": "app/src/main/java/com/blackmore/huntar/HuntARNativeBridge.kt.pre_niki_mobile.bak",
+      "sha256": "15a757a06416efe7398fb26ffbcbf776d549257f1f1f2f126ebe1e7b2b918107"
+    },
+    {
+      "bytes": 16220,
+      "path": "app/src/main/java/com/blackmore/huntar/MainActivity.kt",
+      "sha256": "4da43c610c048d1639bf67dadd0cfc1f878ce8c73ec4204681456ca50e6d449c"
+    },
+    {
+      "bytes": 13602,
+      "path": "app/src/main/java/com/blackmore/huntar/MainActivity.kt.pre_android_commissioning_20260914.bak",
+      "sha256": "b0ed435e6da394fdb1888f90e97a647e775653ebff993a6ada30150674195a43"
+    },
+    {
+      "bytes": 1326,
+      "path": "app/src/main/java/com/blackmore/huntar/TelemetrySampler.kt",
+      "sha256": "2975597853ae692c10a89df2c6ea9308ce791addd61de1c4c5fd6c4dc501d551"
+    },
+    {
+      "bytes": 411,
+      "path": "app/src/main/res/values/styles.xml",
+      "sha256": "150d768f0523813d9dff9b29a37df8e0023a1716212c8b882ee22c7e6b5cf88b"
+    },
+    {
+      "bytes": 74,
+      "path": "build.gradle.kts",
+      "sha256": "9280b4610fd317014ebe7698a96c0e2bb23894699d1e15401f4089576dfe6523"
+    },
+    {
+      "bytes": 74,
+      "path": "build.gradle.kts.pre_agp911.bak",
+      "sha256": "3a47e0cb9a666961e0c602dee4b6108135529f44f1ee1be4adddafd2df83a9d4"
+    },
+    {
+      "bytes": 45457,
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "76805e32c009c0cf0dd5d206bddc9fb22ea42e84db904b764f3047de095493f3"
+    },
+    {
+      "bytes": 338,
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "d5a126c1543eaca3214bc82958ced8a32592bb4c4542316e5993d8b83eb08cfc"
+    },
+    {
+      "bytes": 338,
+      "path": "gradle/wrapper/gradle-wrapper.properties.pre_931.bak",
+      "sha256": "11deb251eb0c33e399cd5babeff5d7bfe813096144798ab2ca4d5236296912bb"
+    },
+    {
+      "bytes": 269,
+      "path": "gradle.properties",
+      "sha256": "f84f4f319534539b8f376245e5af883703744106cb6efd1232d45dbb5afc22ef"
+    },
+    {
+      "bytes": 8640,
+      "path": "gradlew",
+      "sha256": "b2fe376b143a459ba5d0bd290dc89beed5399fc6d159cd1214bd642ea94bcf07"
+    },
+    {
+      "bytes": 2825,
+      "path": "gradlew.bat",
+      "sha256": "9386e790d58b9368ca8e034536a5baa688643d51cb37bfa462503d36fd0291a6"
+    },
+    {
+      "bytes": 270,
+      "path": "settings.gradle.kts",
+      "sha256": "f93f6f9b62e619ef72bd622d9a03bb5d7c15484c94f7fb50e5664ab767d9649b"
+    },
+    {
+      "bytes": 747,
+      "path": "src/main/java/com/blackmore/huntar/bsie/HuntARBSIEBridge.kt",
+      "sha256": "10e6a9a42833045795ad53f655b1757b48e1809bda56df0266b94a4f253cafaa"
+    }
+  ],
+  "generated_at_ms": 1789663101347,
+  "product": "HUNTAR",
+  "schema": "btg-product-entity-integration-snapshot-v1",
+  "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HUNT_AR\\HuntAR_v4.3.0\\mobile\\android"
+}

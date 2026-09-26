@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "migration_config",
+  "exports": [
+    "MigrationConfiguration"
+  ],
+  "implementation_sha256": "1b8b3697406d84aabbc9734255bd9a3100e3b39a2a487d13c28e55bb1460dd08",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_migration_config.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CREDENTIALS_MIGRATION_CURRENT.json",
+      "sha256": "3677248c3806d6577da84c3a34d797d815ae653699f52c58a2549b451586a650"
+    }
+  ],
+  "requirements_sha256": "54fbb2a92a63d4b7f9bde8119713eb13cf25778a294c4bd8a85c5c4c8b42fd41",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "devices": [
+    {
+      "device_id": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+      "hostname": "BTG",
+      "display_name": "BTG Primary Engineering Workstation",
+      "device_role": "PRIMARY_ENGINEERING_WORKSTATION",
+      "platform": "Windows",
+      "owner_principal": "BTG\\shawn",
+      "agent_version": "0.2.0",
+      "terminal_enabled": true,
+      "terminal_privilege_model": "INHERIT_AGENT_PROCESS_TOKEN_AND_WINDOWS_UAC",
+      "certificate_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.cert.pem",
+      "certificate_fingerprint": "3603103a05398cf80f76ed1d8406cfcd08fc94242d513fbd8ed7870d7fe3aa06",
+      "connected_session_id": null,
+      "capabilities": [
+        "system.health",
+        "file.hash",
+        "file.read_text",
+        "diagnostic.run_approved",
+        "change.run_approved",
+        "engineering.terminal.start",
+        "engineering.terminal.execute",
+        "engineering.terminal.cwd",
+        "engineering.terminal.close",
+        "engineering.terminal.drives"
+      ],
+      "tags": [
+        "engineering",
+        "windows"
+      ],
+      "online": false,
+      "last_seen_utc": null,
+      "revoked": false,
+      "remote_access_enabled": true
+    },
+    {
+      "device_id": "55546079-959f-4557-a49b-84659d2ebb2e",
+      "hostname": "ENG-SIM-01",
+      "display_name": "Simulated Engineer Workstation 01",
+      "device_role": "ENGINEERING_WORKSTATION",
+      "platform": "Windows",
+      "owner_principal": "BTG\\engineer.sim",
+      "agent_version": "0.2.0",
+      "terminal_enabled": true,
+      "terminal_privilege_model": "INHERIT_AGENT_PROCESS_TOKEN_AND_WINDOWS_UAC",
+      "certificate_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\55546079-959f-4557-a49b-84659d2ebb2e\\device.cert.pem",
+      "certificate_fingerprint": "73986bf29eb31e52a7eab2f0bb5415713de4f879b2bf42d37c6b7e3c92420f3a",
+      "connected_session_id": null,
+      "capabilities": [
+        "system.health",
+        "file.hash",
+        "file.read_text",
+        "diagnostic.run_approved",
+        "change.run_approved",
+        "engineering.terminal.start",
+        "engineering.terminal.execute",
+        "engineering.terminal.cwd",
+        "engineering.terminal.close",
+        "engineering.terminal.drives"
+      ],
+      "tags": [
+        "engineering",
+        "windows"
+      ],
+      "online": false,
+      "last_seen_utc": null,
+      "revoked": false,
+      "remote_access_enabled": true
+    }
+  ]
+}

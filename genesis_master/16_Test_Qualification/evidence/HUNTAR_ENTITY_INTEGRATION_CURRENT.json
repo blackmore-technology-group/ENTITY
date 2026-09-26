@@ -1,0 +1,37 @@
+{
+  "artifact": {
+    "bytes": 26883050,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HUNT_AR\\HuntAR_v4.3.0\\mobile\\android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+    "sha256": "d8409890c3fc43f49cef993657ae797b1f2d9a951685bdc221ff06995af30f05"
+  },
+  "checks": {
+    "artifact_exists": true,
+    "build_successful": true,
+    "entity_core_unchanged": true,
+    "principal_binding_qualified": true,
+    "regression_markers": true,
+    "source_diff_clean": true
+  },
+  "claim": "Application gained ENTITY principal-bound provenance/data-economy integration; source change scope remained bounded; pre-existing regression/build passed; protected ENTITY core remained unchanged.",
+  "evidence_refs": {
+    "build_log": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HUNTAR_ENTITY_ANDROID_BUILD.txt",
+    "core_invariance": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CORE_INVARIANCE_CURRENT.json",
+    "diff": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HUNTAR_ENTITY_SOURCE_DIFF_CURRENT.json",
+    "post": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HUNTAR_ENTITY_POST_INTEGRATION.json",
+    "pre": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HUNTAR_ENTITY_PRE_INTEGRATION.json",
+    "principal_binding": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_PRINCIPAL_BINDING_CURRENT.json",
+    "regression": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HUNTAR_ENTITY_POST_REGRESSION.txt"
+  },
+  "evidence_sha256": "8c160db0b6e9e737e4f1ab5cd8770a50a47b32a1a7685ce126fd00dbbc2baaec",
+  "generated_at_ms": 1789665814898,
+  "limitations": [
+    "Physical-device principal pairing is not claimed until executed on an attached device."
+  ],
+  "post_source_aggregate_sha256": "53e181b3bb4c4886e565212cc94f95db8dc30aafaf452dec8551624795a97a61",
+  "pre_source_aggregate_sha256": "e10642feb642b8a6b265af4db3aa81572e1cea395b1f9e26609198575d3e3c17",
+  "product": "HUNTAR",
+  "qualification_complete": true,
+  "schema": "btg-product-entity-integration-qualification-v1",
+  "status": "PASS"
+}

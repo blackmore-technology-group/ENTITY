@@ -1,0 +1,26 @@
+{
+  "evidence_sha256": "de667a1b308d5ae2f5be6bedb87d244980b5b4bd6af39e54bd6ffaddc0bdff19",
+  "external_authority_verifier_sha256": "d6c1f0d4cf80ddc7b011de14be1dd4c6db702b0cf9d1faff250bed433663835d",
+  "generated_at_ms": 1789570297441,
+  "implementation_sha256": "72c906a71f1606bb2c9fb2c4ee87029817fc2cf218c3a4df6ae454eae7229987",
+  "invariants": [
+    "explicit payer/payee direction",
+    "unique immutable transaction nonce",
+    "duplicate/replay settlement rejection",
+    "external payment requires provider-confirmed evidence",
+    "strong external-payment mode cryptographically verifies the payment-provider attestation and rejects tampering",
+    "finalized double-entry postings balance",
+    "reversal/refund uses compensating entries",
+    "potential value is never represented as cash",
+    "REALIZED requires verified external settlement evidence",
+    "royalty allocation is deterministic/versioned/conservative"
+  ],
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "......                                                                   [100%]\n6 passed in 1.93s",
+  "qualification_complete": true,
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-economic-qualification-v1",
+  "status": "PASS",
+  "test_sha256": "a102cf04fe6f961fd111b3e523130449fe6c1798b1dd0fa9002d240808a2276f"
+}

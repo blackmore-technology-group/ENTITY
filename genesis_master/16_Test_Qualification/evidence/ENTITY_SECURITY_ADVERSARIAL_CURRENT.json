@@ -1,0 +1,24 @@
+{
+  "attacks_covered": [
+    "root takeover via tampered sovereign manifest",
+    "signature bypass via payload or signed timestamp mutation",
+    "unauthorized rights verification / certainty escalation",
+    "vault plaintext disclosure to wrong controller",
+    "agent capability escalation outside agent/operation/asset scope",
+    "connector/source escalation into non-enrolled, NIKI-denied or hard-excluded paths",
+    "replay of an already projected source event",
+    "prompt injection seeking policy override, secrets, execution and root authority"
+  ],
+  "evidence_sha256": "6ddab995ab93110953f8b89e19857c7d1495cb29b7747443e64a2c4e9945bf83",
+  "generated_at_ms": 1789502515979,
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": ".....                                                                    [100%]\n5 passed in 1.36s",
+  "qualification_complete": true,
+  "remediations_verified": [
+    "entity-signature-record-v2 authenticates timestamp/key metadata",
+    "AUTHORITATIVELY_VERIFIED requires independent RIGHTS_AUTHORITY plus authority reference"
+  ],
+  "schema": "entity-security-adversarial-qualification-v1",
+  "status": "PASS"
+}

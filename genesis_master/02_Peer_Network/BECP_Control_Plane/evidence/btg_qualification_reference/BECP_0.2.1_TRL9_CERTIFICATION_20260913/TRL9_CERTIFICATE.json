@@ -1,0 +1,26 @@
+{
+  "certification_scope": "BTG internal engineering TRL assessment; not third-party regulatory/accredited certification",
+  "disposition": "TRL9_CERTIFIED_PASS",
+  "gates": {
+    "agent_recovery": true,
+    "api_security_26": true,
+    "artifact_hashes": true,
+    "audit_chains": true,
+    "compileall": true,
+    "core_regression": true,
+    "deep_live": true,
+    "documentation_support": true,
+    "gateway_recovery": true,
+    "mcp_v2": true,
+    "product_live": true,
+    "product_regressions": true,
+    "production_state": true,
+    "rdc_dual_path": true
+  },
+  "issued_utc": "2026-09-14T00:35:17.237001+00:00",
+  "operational_environment": "BTG Windows engineering workstation",
+  "product": "Blackmore Engineering Control Plane",
+  "product_id": "BTG-PLAT-010",
+  "technology_readiness_level": 9,
+  "version": "0.2.1"
+}

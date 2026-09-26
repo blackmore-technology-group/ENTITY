@@ -1,0 +1,24 @@
+{
+  "evidence_sha256": "43c742bf7fb846b6dfd029c04935f478a7d8b0695bf49cec4cd98741681bf644",
+  "generated_at_ms": 1789570257903,
+  "implementation_sha256": {
+    "08_Data_Vaults\\canonical_data_source_gateway.py": "950487c66c695e8c2e398d7242414ff4505292293027399a24bd6637e3e748c0",
+    "08_Data_Vaults\\canonical_encrypted_vault.py": "1f9311820a7dabc7efd90a16da0b0a18b3db19d59d62e99220302b4c275bdf58",
+    "15_Operations\\backups\\canonical_portable_state.py": "6c56b2855c45420e988b89fd4afb05f7c29699f82d40debdd8a0872975f96f89"
+  },
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "......                                                                   [100%]\n6 passed in 1.19s",
+  "qualification_complete": true,
+  "qualified_authorities": [
+    "data_sources",
+    "data_vault",
+    "portable_state"
+  ],
+  "requirements_sha256": {
+    "08_Data_Vaults": "16c26e2d181fba5b9c957257a558ca1b8a39eb9912ffb842e941685c2c776c19",
+    "15_Operations": "54fbb2a92a63d4b7f9bde8119713eb13cf25778a294c4bd8a85c5c4c8b42fd41"
+  },
+  "schema": "entity-phase1-storage-portability-qualification-v1",
+  "status": "PASS"
+}

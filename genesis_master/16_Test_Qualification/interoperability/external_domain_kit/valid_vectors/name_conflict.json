@@ -1,0 +1,29 @@
+{
+  "expected_reason": null,
+  "expected_valid": true,
+  "material": {
+    "claim_id": "name1-a08952166136e0016d675201057de0edfe251556",
+    "conflict_state": "CONFLICT",
+    "created_at_ms": 1789576362917,
+    "dns_possession_is_not_authority": true,
+    "domain_id": "domain1-127771a2132080e6b86b4d94cdac56933e54f236",
+    "entity_root": "ent2-xva22iq3ofv2qkg5eyy2adc4xlak77idvmldkrhrac2rbx2gwoea",
+    "evidence": {},
+    "first_seen_is_not_ownership": true,
+    "namespace": "entity",
+    "normalized_name": "owner.entity",
+    "schema": "entity-name-claim-v1",
+    "signature": {
+      "entity_id": "ent2-xva22iq3ofv2qkg5eyy2adc4xlak77idvmldkrhrac2rbx2gwoea",
+      "key_id": "sig-407d974bcfb0040c",
+      "payload_sha256": "5a4886826f84fd0a77b3e3b3549de0db97aaac376f178e7f7ccabb9fc88d9b05",
+      "signature": "5knyJC2r0Z6t3l9QSXCFavAVV9V2tmJMwruIaanZKDDzB3JI4P_yXgDG08puelm_LbLiWV3H4TLNQue39n4GBQ",
+      "signature_schema": "entity-signature-record-v2",
+      "signed_at_ms": 1789576362936,
+      "suite": "ENTITY-SIG-ED25519-v1"
+    },
+    "status": "ACTIVE"
+  },
+  "name": "name_conflict",
+  "schema": "entity-domain-test-vector-v1"
+}

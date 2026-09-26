@@ -1,0 +1,944 @@
+{
+  "claim_review": [
+    {
+      "line": 46,
+      "path": "ADAM_V042_LIVING_RECREATION_ENGINEERING_CONTRACT.md",
+      "status": "bounded_or_negated",
+      "text": "This build does not claim universal semantic understanding, a universal transcoder for formats that have no codec, production Byzantine or WAN consensus, certified physical robot operation, HSM-backed production key custody, a compiled Rust authority kernel in this environment, 30 wall-clock days of operation, or production service-level performance."
+    },
+    {
+      "line": 6,
+      "path": "ADAM_V0501_SOURCE_AUDIT_AND_REMEDIATION_REPORT.md",
+      "status": "bounded_or_negated",
+      "text": "**Production certified:** No"
+    },
+    {
+      "line": 153,
+      "path": "ADAM_V0501_SOURCE_AUDIT_AND_REMEDIATION_REPORT.md",
+      "status": "bounded_or_negated",
+      "text": "v0.50.1 is materially stronger than v0.50 and removes unsafe or misleading development mechanisms. It is a **source-audited bounded development release**, not a production-certified autonomous universe. The code and qualification plans support external production work; they do not substitute for hardware custody, real devices, multi-host deployment, large-scale training, independent review or elapsed-time certification."
+    },
+    {
+      "line": 5,
+      "path": "ADAM_V0501_WINDOWS_SECURITY_MERGE_REPORT.md",
+      "status": "bounded_or_negated",
+      "text": "**Production certified:** No"
+    },
+    {
+      "line": 8,
+      "path": "ADAM_V051_ENGINEERING_CONTRACT.md",
+      "status": "review_required",
+      "text": "- Promotion target: **ADAM v0.51 \u2014 Compiled Authority and Information-Physics Kernel**"
+    },
+    {
+      "line": 90,
+      "path": "ADAM_V051_EXTERNAL_RUST_ACCEPTANCE.md",
+      "status": "review_required",
+      "text": "Only that bundle can change the release name to **ADAM v0.51 \u2014 Compiled Authority and Information-Physics Kernel**."
+    },
+    {
+      "line": 67,
+      "path": "ADAM_V051_SOURCE_QUALIFICATION_REPORT.md",
+      "status": "bounded_or_negated",
+      "text": "The source candidate is complete for the work possible in this environment. It must not be renamed or represented as **ADAM v0.51 \u2014 Compiled Authority and Information-Physics Kernel** until every external execution and review gate has passed."
+    },
+    {
+      "line": 25,
+      "path": "ADAM_V1_FULL_QUALIFICATION_REPORT.md",
+      "status": "bounded_or_negated",
+      "text": "The bounded software implementation is complete and qualified as a reference system. It is not production-certified because the following evidence requires real external infrastructure or independent organizations:"
+    },
+    {
+      "line": 77,
+      "path": "ARCHITECTURE_V042_LIVING_RECREATION_UNIVERSE.md",
+      "status": "bounded_or_negated",
+      "text": "An unfamiliar format is still exactly atomized and reconstructable. Meaningful transformation is withheld until a suitable codec or learned perception model exists. This gives ADAM universal exact digital recreation without pretending to have universal semantic understanding."
+    },
+    {
+      "line": 22,
+      "path": "ATOM_THEORY_IMPLEMENTATION_MATRIX.md",
+      "status": "bounded_or_negated",
+      "text": "| Universal semantic understanding | deterministic features and evidence alignment | text/image/audio/program/video codecs | Open research problem |"
+    },
+    {
+      "line": 49,
+      "path": "README_V042_PARENT.md",
+      "status": "bounded_or_negated",
+      "text": "The build proves a bounded exact recreation and governed construction mechanism. It does not prove universal semantic understanding, production WAN/BFT operation, certified physical robot control, a compiled Rust authority kernel, 30 wall-clock days, or production SLAs."
+    },
+    {
+      "line": 7,
+      "path": "README_V051.md",
+      "status": "bounded_or_negated",
+      "text": "**Production certified:** **No**"
+    },
+    {
+      "line": 75,
+      "path": "README_V051.md",
+      "status": "bounded_or_negated",
+      "text": "The external qualification path must run Linux and Windows builds, exact Python\u2013Rust conformance, Miri, sanitizers, fuzzing, reproducible-build comparison and independent review before the release may be renamed **Compiled Authority and Information-Physics Kernel**."
+    }
+  ],
+  "compileall_passed": true,
+  "dependency_audit": {
+    "declared_optional": [
+      "coverage",
+      "packaging",
+      "pytest"
+    ],
+    "declared_runtime": [
+      "cryptography",
+      "msgpack",
+      "numpy",
+      "pillow",
+      "sympy"
+    ],
+    "detected_qualification": [
+      "cryptography",
+      "packaging",
+      "pytest"
+    ],
+    "detected_runtime": [
+      "cryptography",
+      "msgpack",
+      "numpy",
+      "pillow",
+      "sympy"
+    ],
+    "missing_qualification": [],
+    "missing_runtime": []
+  },
+  "findings": [
+    {
+      "category": "source_marker",
+      "line": 292,
+      "message": "\"gap\": \"Private-key handling is development-only\",",
+      "path": "adam_v41/audit.py",
+      "severity": "INFO",
+      "status": "historical_gap_label"
+    },
+    {
+      "category": "broad_exception",
+      "line": 64,
+      "message": "broad exception catch in _atomic_write",
+      "path": "adam_v41/authority.py",
+      "severity": "LOW",
+      "status": "review_required"
+    },
+    {
+      "category": "pass_statement",
+      "line": 37,
+      "message": "exception intentionally ignored",
+      "path": "adam_v41/authority.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 57,
+      "message": "exception intentionally ignored",
+      "path": "adam_v41/authority.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "broad_exception",
+      "line": 180,
+      "message": "broad exception catch in _load_private",
+      "path": "adam_v41/authority.py",
+      "severity": "LOW",
+      "status": "review_required"
+    },
+    {
+      "category": "pass_statement",
+      "line": 194,
+      "message": "exception intentionally ignored",
+      "path": "adam_v41/authority.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 75,
+      "message": "exception intentionally ignored",
+      "path": "adam_v41/authority.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "broad_exception",
+      "line": 94,
+      "message": "broad exception catch in _decode_kek",
+      "path": "adam_v41/authority.py",
+      "severity": "LOW",
+      "status": "review_required"
+    },
+    {
+      "category": "pass_statement",
+      "line": 71,
+      "message": "exception intentionally ignored",
+      "path": "adam_v41/authority.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 19,
+      "message": "empty class body: LogIntegrityError",
+      "path": "adam_v41/log.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 17,
+      "message": "empty class body: IntegrityError",
+      "path": "adam_v41/universe.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 21,
+      "message": "empty class body: ConflictError",
+      "path": "adam_v41/universe.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 25,
+      "message": "empty class body: AuthorityError",
+      "path": "adam_v41/universe.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 584,
+      "message": "broad exception catch in _load_checkpoint",
+      "path": "adam_v41/universe.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "pass_statement",
+      "line": 20,
+      "message": "empty class body: ConsensusError",
+      "path": "adam_v42/distributed.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 13,
+      "message": "empty class body: EmbodimentError",
+      "path": "adam_v42/embodiment.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 10,
+      "message": "empty class body: ErasureError",
+      "path": "adam_v42/erasure.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 12,
+      "message": "empty class body: EvidenceError",
+      "path": "adam_v42/evidence.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 12,
+      "message": "empty class body: ProofError",
+      "path": "adam_v42/formal.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 35,
+      "message": "empty class body: IsolatedKernelError",
+      "path": "adam_v42/isolation.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 67,
+      "message": "broad exception catch in _server",
+      "path": "adam_v42/isolation.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "pass_statement",
+      "line": 124,
+      "message": "exception intentionally ignored",
+      "path": "adam_v42/isolation.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 19,
+      "message": "empty class body: KeyStoreError",
+      "path": "adam_v42/key_management.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 23,
+      "message": "empty class body: O1QualificationError",
+      "path": "adam_v42/operations_one.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 149,
+      "message": "exception intentionally ignored",
+      "path": "adam_v42/perception.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 10,
+      "message": "empty class body: QueryError",
+      "path": "adam_v42/query.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 27,
+      "message": "empty class body: RecreationError",
+      "path": "adam_v42/recreation.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 596,
+      "message": "broad exception catch in verify",
+      "path": "adam_v42/recreation.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "pass_statement",
+      "line": 328,
+      "message": "exception intentionally ignored",
+      "path": "adam_v42/recreation.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 21,
+      "message": "empty class body: AuthorizationError",
+      "path": "adam_v42/security.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 56,
+      "message": "broad exception catch in run_logical_soak",
+      "path": "adam_v42/soak.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "pass_statement",
+      "line": 41,
+      "message": "empty class body: CustodyError",
+      "path": "adam_v43/key_custody.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 67,
+      "message": "Protocol method contract",
+      "path": "adam_v43/key_custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 68,
+      "message": "Protocol method contract",
+      "path": "adam_v43/key_custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 69,
+      "message": "Protocol method contract",
+      "path": "adam_v43/key_custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 70,
+      "message": "Protocol method contract",
+      "path": "adam_v43/key_custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "pass_statement",
+      "line": 191,
+      "message": "exception intentionally ignored",
+      "path": "adam_v43/key_custody.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 18,
+      "message": "empty class body: QualificationError",
+      "path": "adam_v43/production_soak.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 193,
+      "message": "broad exception catch in cycle",
+      "path": "adam_v43/production_soak.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "source_marker",
+      "line": 241,
+      "message": "raise QualificationError(\"test-only clock can never issue production certification\")",
+      "path": "adam_v43/production_soak.py",
+      "severity": "INFO",
+      "status": "intentional_qualification_guard"
+    },
+    {
+      "category": "pass_statement",
+      "line": 16,
+      "message": "empty class body: SemanticError",
+      "path": "adam_v43/semantic_world.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 22,
+      "message": "Protocol method contract",
+      "path": "adam_v43/semantic_world.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "pass_statement",
+      "line": 16,
+      "message": "empty class body: TemporalLearningError",
+      "path": "adam_v43/temporal_learning.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 296,
+      "message": "exception intentionally ignored",
+      "path": "adam_v43/temporal_learning.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 14,
+      "message": "empty class body: TheoremError",
+      "path": "adam_v43/theorem_proving.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 92,
+      "message": "broad exception catch in prove_identity",
+      "path": "adam_v43/theorem_proving.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "pass_statement",
+      "line": 34,
+      "message": "empty class body: AuthorityServiceError",
+      "path": "adam_v44/authority_service.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 64,
+      "message": "broad exception catch in _serve",
+      "path": "adam_v44/authority_service.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "pass_statement",
+      "line": 124,
+      "message": "exception intentionally ignored",
+      "path": "adam_v44/authority_service.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 191,
+      "message": "empty class body: PhysicsError",
+      "path": "adam_v44/physics.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 91,
+      "message": "broad exception catch in simulate",
+      "path": "adam_v47/world_model.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "pass_statement",
+      "line": 14,
+      "message": "empty class body: DistributedPhysicsError",
+      "path": "adam_v50/distributed_physics.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "pass_statement",
+      "line": 15,
+      "message": "empty class body: QualificationError",
+      "path": "adam_v50/production_qualification.py",
+      "severity": "INFO",
+      "status": "intentional_exception_class"
+    },
+    {
+      "category": "broad_exception",
+      "line": 114,
+      "message": "broad exception catch in run_cycle",
+      "path": "adam_v50/production_qualification.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "source_marker",
+      "line": 157,
+      "message": "raise QualificationError(\"test-only qualification cannot certify production\")",
+      "path": "adam_v50/production_qualification.py",
+      "severity": "INFO",
+      "status": "intentional_qualification_guard"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 91,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 92,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 93,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 94,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 95,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 96,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 97,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 98,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 99,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 100,
+      "message": "Protocol method contract",
+      "path": "adam_v52/custody.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "broad_exception",
+      "line": 396,
+      "message": "broad exception catch in provision",
+      "path": "adam_v52/custody.py",
+      "severity": "LOW",
+      "status": "review_required"
+    },
+    {
+      "category": "broad_exception",
+      "line": 58,
+      "message": "broad exception catch in load_or_create_master_key",
+      "path": "adam_v52/key_material.py",
+      "severity": "LOW",
+      "status": "review_required"
+    },
+    {
+      "category": "broad_exception",
+      "line": 104,
+      "message": "broad exception catch in load_or_create_ed25519_private_key",
+      "path": "adam_v52/key_material.py",
+      "severity": "LOW",
+      "status": "review_required"
+    },
+    {
+      "category": "pass_statement",
+      "line": 18,
+      "message": "exception intentionally ignored",
+      "path": "adam_v52/key_material.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 62,
+      "message": "exception intentionally ignored",
+      "path": "adam_v52/key_material.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 66,
+      "message": "exception intentionally ignored",
+      "path": "adam_v52/key_material.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 108,
+      "message": "exception intentionally ignored",
+      "path": "adam_v52/key_material.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "pass_statement",
+      "line": 112,
+      "message": "exception intentionally ignored",
+      "path": "adam_v52/key_material.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "source_marker",
+      "line": 17,
+      "message": "# development-only software-custody fallback, never an HSM claim.",
+      "path": "adam_v52/key_material.py",
+      "severity": "INFO",
+      "status": "historical_gap_label"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 108,
+      "message": "Protocol method contract",
+      "path": "adam_v54/device_pilot.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 109,
+      "message": "Protocol method contract",
+      "path": "adam_v54/device_pilot.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "ellipsis_body",
+      "line": 110,
+      "message": "Protocol method contract",
+      "path": "adam_v54/device_pilot.py",
+      "severity": "INFO",
+      "status": "intentional_protocol_contract"
+    },
+    {
+      "category": "broad_exception",
+      "line": 43,
+      "message": "broad exception catch in gate",
+      "path": "run_v1_local_qualification.py",
+      "severity": "LOW",
+      "status": "review_required"
+    },
+    {
+      "category": "pass_statement",
+      "line": 244,
+      "message": "exception intentionally ignored",
+      "path": "run_v1_local_qualification.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "broad_exception",
+      "line": 51,
+      "message": "broad exception catch in check",
+      "path": "run_v42_audit.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "pass_statement",
+      "line": 218,
+      "message": "exception intentionally ignored",
+      "path": "run_v42_audit.py",
+      "severity": "INFO",
+      "status": "intentional_best_effort_cleanup_or_parse"
+    },
+    {
+      "category": "broad_exception",
+      "line": 57,
+      "message": "broad exception catch in check",
+      "path": "run_v42_living_recreation_audit.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "broad_exception",
+      "line": 43,
+      "message": "broad exception catch in check",
+      "path": "run_v43_gap_closure_audit.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "broad_exception",
+      "line": 30,
+      "message": "broad exception catch in check",
+      "path": "run_v50_full_audit.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "broad_exception",
+      "line": 200,
+      "message": "broad exception catch in compile_c_reference",
+      "path": "tools/audit_source_tree.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "broad_exception",
+      "line": 275,
+      "message": "broad exception catch in rust_targets",
+      "path": "tools/audit_source_tree.py",
+      "severity": "INFO",
+      "status": "intentional_error_boundary"
+    },
+    {
+      "category": "broad_exception",
+      "line": 47,
+      "message": "broad exception catch in main",
+      "path": "tools/generate_v1_rc2_sbom.py",
+      "severity": "LOW",
+      "status": "review_required"
+    },
+    {
+      "category": "source_marker",
+      "line": 84,
+      "message": "parser.add_argument(\"--allow-unsigned\", action=\"store_true\", help=\"development-only; never use for a sealed release\")",
+      "path": "tools/verify_release_manifest.py",
+      "severity": "INFO",
+      "status": "historical_gap_label"
+    },
+    {
+      "category": "rust_target",
+      "line": 1,
+      "message": "cargo/rustc unavailable; source static-audited only",
+      "path": "rust_authority_kernel/src/main.rs",
+      "severity": "EXTERNAL",
+      "status": "external_toolchain_required"
+    },
+    {
+      "category": "rust_target",
+      "line": 1,
+      "message": "cargo/rustc unavailable; source static-audited only",
+      "path": "rust_authority_kernel_v44/src/main.rs",
+      "severity": "EXTERNAL",
+      "status": "external_toolchain_required"
+    },
+    {
+      "category": "placeholder_or_overbroad_claim",
+      "line": 8,
+      "message": "- Promotion target: **ADAM v0.51 \u2014 Compiled Authority and Information-Physics Kernel**",
+      "path": "ADAM_V051_ENGINEERING_CONTRACT.md",
+      "severity": "MEDIUM",
+      "status": "review_required"
+    },
+    {
+      "category": "placeholder_or_overbroad_claim",
+      "line": 90,
+      "message": "Only that bundle can change the release name to **ADAM v0.51 \u2014 Compiled Authority and Information-Physics Kernel**.",
+      "path": "ADAM_V051_EXTERNAL_RUST_ACCEPTANCE.md",
+      "severity": "MEDIUM",
+      "status": "review_required"
+    }
+  ],
+  "format": "ADAM-v1.0-rc2-source-tree-audit",
+  "native_reference": {
+    "append": "OK 1 ff26c000fff8e8e1e940b4b94a9add0d2d657496f8b3051cf772b51710e95e69",
+    "compiled": true,
+    "mode": "C",
+    "ready": "READY ADAM43-NATIVE-FRAMING-REFERENCE 0",
+    "restart_output": [
+      "READY ADAM43-NATIVE-FRAMING-REFERENCE 1",
+      "OK 1 ff26c000fff8e8e1e940b4b94a9add0d2d657496f8b3051cf772b51710e95e69",
+      "OK BYE"
+    ],
+    "restart_verified": true,
+    "source": "native_authority_reference/authority_reference.c"
+  },
+  "non_python_source_audit": {
+    "files_scanned": 27,
+    "findings": []
+  },
+  "python_files_scanned": 101,
+  "root": "/mnt/data/adam_v1_rc2_work/ADAM_v1_0_COMPLETE_SOFTWARE_REFERENCE_RC2",
+  "rust_targets": [
+    {
+      "cargo_available": false,
+      "compiled": false,
+      "lockfile_present": false,
+      "path": "rust_authority_kernel",
+      "rustc_available": false,
+      "source_present": true,
+      "static_gates": {
+        "durable_sync": true,
+        "integrity_error": true,
+        "no_todo_or_unimplemented_macros": true,
+        "persistent_key": true,
+        "signature_verify_on_replay": true,
+        "stale_root": true
+      },
+      "strict_required": false
+    },
+    {
+      "cargo_available": false,
+      "compiled": false,
+      "lockfile_present": false,
+      "path": "rust_authority_kernel_v44",
+      "rustc_available": false,
+      "source_present": true,
+      "static_gates": {
+        "durable_sync": true,
+        "integrity_error": true,
+        "no_todo_or_unimplemented_macros": true,
+        "persistent_key": true,
+        "signature_verify_on_replay": true,
+        "stale_root": true
+      },
+      "strict_required": false
+    }
+  ],
+  "secret_file_audit": {
+    "exposed_files": [],
+    "passed": true,
+    "patterns": [
+      "*private*.key",
+      "*.pem",
+      "*.p12",
+      "*.pfx",
+      "*.ed25519"
+    ]
+  },
+  "summary": {
+    "blocking_open_findings": 0,
+    "by_category": {
+      "broad_exception": 23,
+      "ellipsis_body": 18,
+      "pass_statement": 42,
+      "placeholder_or_overbroad_claim": 2,
+      "rust_target": 2,
+      "source_marker": 5
+    },
+    "by_status": {
+      "external_toolchain_required": 2,
+      "historical_gap_label": 3,
+      "intentional_best_effort_cleanup_or_parse": 18,
+      "intentional_error_boundary": 15,
+      "intentional_exception_class": 24,
+      "intentional_protocol_contract": 18,
+      "intentional_qualification_guard": 2,
+      "review_required": 10
+    },
+    "findings": 92
+  },
+  "test_policy_audit": {
+    "files_scanned": 21,
+    "passed": true,
+    "skip_xfail_mock_hits": []
+  },
+  "version": "1.0.0-rc2"
+}

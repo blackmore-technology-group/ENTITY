@@ -1,0 +1,7 @@
+ADAM v0.50.1.dev4 R4 FINAL REGRESSION
+117/117 isolated tests PASS under ADAM_FORCE_SPAWN=1 and ADAM_MP_START_METHOD=spawn
+9/9 integrated logic gates PASS
+0 blocking mechanical source findings
+production soak: 2/2 PASS
+Runtime correction: soak timing begins after authority-cluster initialization.
+Test correction: pre-duration rejection and measured post-duration completion are independent of host speed.

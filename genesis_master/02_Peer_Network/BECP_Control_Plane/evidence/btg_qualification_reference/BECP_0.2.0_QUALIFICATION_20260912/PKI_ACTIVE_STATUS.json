@@ -1,0 +1,10 @@
+{
+  "authoritative_source": "current certificate files plus BECP device registry",
+  "current_btg_fingerprint": "3603103a05398cf80f76ed1d8406cfcd08fc94242d513fbd8ed7870d7fe3aa06",
+  "current_registered_certificates_verified": true,
+  "legacy_btg_fingerprint": "759a7d2f1b1be8657e57186769c715edddffe41d402dd881f4265cd2d0c609eb",
+  "legacy_manifest_authoritative": false,
+  "legacy_manifest_superseded": true,
+  "legacy_pki_manifest_path": "runtime/pki/PKI_MANIFEST.json",
+  "legacy_pki_manifest_sha256": "f1b1f453cc3abeb7bf22f8059f6ec6d8b1b27386de2dccbddf890b920a6a900a"
+}

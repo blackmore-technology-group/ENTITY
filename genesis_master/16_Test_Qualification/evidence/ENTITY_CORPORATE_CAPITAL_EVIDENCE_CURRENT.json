@@ -1,0 +1,49 @@
+{
+  "evidence_sha256": "357c2f085889da5c15e6e28c1ac84a6bdb0e94603b6bb8e497e076952edeaaed",
+  "excluded_scope": [
+    "legally effective securities issuance by ENTITY core",
+    "broker/dealer execution",
+    "public securities trading",
+    "custody",
+    "market making",
+    "clearing and settlement",
+    "live transfer-agent integration",
+    "authoritative legal classification"
+  ],
+  "generated_at_ms": 1789570305145,
+  "implementation_sha256": {
+    "capital_accounting": "f30eca7a56b8245e5674d303a200df8c55fd8e6bd0af39a7aeb0898e89bdaa54",
+    "capital_structure": "15f3b2d008a5e117f010f4e8c252dd6199221cec5e15880d13f1f40f97319164",
+    "corporate_actions": "c3839ca7ce992e7fb61a2ce0447db90948cf66c9aa0494403f7e9c7201becec5",
+    "external_authorities": "d6c1f0d4cf80ddc7b011de14be1dd4c6db702b0cf9d1faff250bed433663835d",
+    "independent_verifier": "235c2a573e87f95679055616afa207240ad3b4936eea6d223622fefa00ed4e1f",
+    "instrument_classification": "a1d84c7be24c8b3c7f2883b4387fc176616cad604537e71efdce9a2754ed4bb3",
+    "portable_state": "6c56b2855c45420e988b89fd4afb05f7c29699f82d40debdd8a0872975f96f89"
+  },
+  "invariants": [
+    "usage cannot issue equity",
+    "Digital Commodity economic events are individually signed and evidence-hash bound",
+    "external capital evidence is signature/subject/type bound",
+    "unknown jurisdiction policy fails closed to review",
+    "shareholder snapshots reconcile to outstanding shares",
+    "corporate action evidence is bound to exact action/class/post-capitalization",
+    "external accounting journals balance by currency",
+    "accounting does not prove legal ownership or cash",
+    "provider-confirmed settlement is required for verified external cash",
+    "modelled valuation remains separate from signed external market observation",
+    "issuance dilution and transfer are explicitly reconciled",
+    "tampered corporate-action evidence is rejected",
+    "encrypted backup restores capital state after live-state loss",
+    "portable export is signed and hash-inventoried",
+    "restored and exported capital/action/accounting records pass standalone independent verification",
+    "regulated execution remains disabled"
+  ],
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "...........                                                              [100%]\n11 passed in 5.99s",
+  "qualification_complete": true,
+  "requirements_sha256": "40dce36d844fb1b34c46386d6fd2ff322084ed1fbeec159e575cfca8cd670993",
+  "schema": "entity-corporate-capital-evidence-qualification-v3",
+  "scope": "CORPORATE_CAPITAL_SECTION_170_GOLDEN_SCENARIO",
+  "status": "PASS"
+}

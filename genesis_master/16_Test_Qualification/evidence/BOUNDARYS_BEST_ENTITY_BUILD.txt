@@ -1,0 +1,4 @@
+  Determining projects to restore...
+  Restored <LOCAL_DRIVE>/BTG_BUILD\WBN110_FINALSRC\WildByNature.SoapStudio.csproj (in 479 ms).
+  WildByNature.SoapStudio -> <LOCAL_DRIVE>/BTG_BUILD\WBN110_FINALSRC\bin\Release\net10.0-windows\win-x64\WildByNature.SoapStudio.dll
+  WildByNature.SoapStudio -> <LOCAL_DRIVE>/BTG_BUILD\WBN110_ENTITY_PUBLISH\

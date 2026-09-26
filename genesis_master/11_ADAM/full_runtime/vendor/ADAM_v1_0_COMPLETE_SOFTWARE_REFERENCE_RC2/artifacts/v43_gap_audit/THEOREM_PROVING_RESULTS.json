@@ -1,0 +1,134 @@
+{
+  "conservation": {
+    "assumptions": [],
+    "certificate_id": "c82cc9c08de3c119e98619a63ca5f70b81fa92ff3f0de9f77d3f78fa51782149",
+    "counterexample": null,
+    "method": "SYMBOLIC_CONSERVATION",
+    "proof_steps": [
+      {
+        "conclusion": "inventory",
+        "premises": [
+          "yard + project = project + yard"
+        ],
+        "rule": "conserved_quantity"
+      },
+      {
+        "conclusion": "money",
+        "premises": [
+          "cash + receivable = receivable + cash"
+        ],
+        "rule": "conserved_quantity"
+      },
+      {
+        "conclusion": "conservation(inventory,money)",
+        "premises": [
+          "inventory",
+          "money"
+        ],
+        "rule": "conjunction_introduction"
+      }
+    ],
+    "status": "PROVEN",
+    "theorem": "conservation(inventory,money)"
+  },
+  "counterexample": {
+    "assumptions": [],
+    "certificate_id": "1e0690b6b4515d1d8003c127b203dd08902dcc6fd14c1197e47648f214f832ee",
+    "counterexample": {
+      "permissions_after": 1,
+      "permissions_before": 0
+    },
+    "method": "FINITE_EXHAUSTION",
+    "proof_steps": [],
+    "status": "REFUTED",
+    "theorem": "permissions_after <= permissions_before"
+  },
+  "horn": {
+    "assumptions": [
+      "authorized_actor",
+      "conservation_proven",
+      "evidence_preserved",
+      "valid_valence"
+    ],
+    "certificate_id": "64b03ca5c239a3b516b29acb6fc401139bd3b17494f30002079926ecabab2a5e",
+    "counterexample": null,
+    "method": "HORN_FORWARD_CHAINING",
+    "proof_steps": [
+      {
+        "conclusion": "authorized_actor",
+        "premises": [],
+        "rule": "given"
+      },
+      {
+        "conclusion": "evidence_preserved",
+        "premises": [],
+        "rule": "given"
+      },
+      {
+        "conclusion": "valid_valence",
+        "premises": [],
+        "rule": "given"
+      },
+      {
+        "conclusion": "state_valid",
+        "premises": [
+          "evidence_preserved",
+          "valid_valence"
+        ],
+        "rule": "state_validity"
+      },
+      {
+        "conclusion": "reaction_admissible",
+        "premises": [
+          "authorized_actor",
+          "state_valid"
+        ],
+        "rule": "reaction_gate"
+      },
+      {
+        "conclusion": "conservation_proven",
+        "premises": [],
+        "rule": "given"
+      },
+      {
+        "conclusion": "commit_allowed",
+        "premises": [
+          "reaction_admissible",
+          "conservation_proven"
+        ],
+        "rule": "constitutional_gate"
+      }
+    ],
+    "status": "PROVEN",
+    "theorem": "commit_allowed"
+  },
+  "identity": {
+    "assumptions": [],
+    "certificate_id": "d0b8b11cdb857019e1fea365c51a67284d40f535ceaa1f5b1e9c31ac599ac8a5",
+    "counterexample": null,
+    "method": "SYMPY_IDENTITY",
+    "proof_steps": [
+      {
+        "conclusion": "((a-x)+(b+x)) - (a+b)",
+        "premises": [],
+        "rule": "normalize"
+      },
+      {
+        "conclusion": "0",
+        "premises": [
+          "((a-x)+(b+x)) - (a+b)"
+        ],
+        "rule": "symbolic_simplification"
+      },
+      {
+        "conclusion": "(a-x)+(b+x) = a+b",
+        "premises": [
+          "0"
+        ],
+        "rule": "equality_from_zero_difference"
+      }
+    ],
+    "status": "PROVEN",
+    "theorem": "(a-x)+(b+x) = a+b"
+  }
+}

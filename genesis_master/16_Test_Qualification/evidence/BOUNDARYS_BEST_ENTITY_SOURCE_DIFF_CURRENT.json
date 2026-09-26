@@ -1,0 +1,68 @@
+{
+  "allowed_patterns": [
+    "App.xaml.cs",
+    "EntityIntegration.cs",
+    "BatchQaDocumentService.cs",
+    "DataStore.cs",
+    "LabelEngine.cs",
+    "LabelTemplateStore.cs",
+    "ManufacturingDatabase.cs",
+    "QualificationDataStore.cs",
+    "ScentDataStore.cs",
+    "SupplierEconomicsService.cs",
+    "UserCatalogDataStore.cs",
+    "bin/**",
+    "obj/**"
+  ],
+  "artifact_after": {
+    "bytes": 73779035,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/BTG_Qualification_Staging\\WildByNatureSoapStudio\\setup-full-design-entity-qualified-20260917\\BoundarysBest_WildByNature_Setup.exe",
+    "sha256": "fbf2f0524d79ae81842b0e9e82e1dc12e794b059b0406a830ed1816f64237df0"
+  },
+  "artifact_before": {
+    "bytes": 73779035,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/BTG_Qualification_Staging\\WildByNatureSoapStudio\\setup-full-design-qualified-20260917\\BoundarysBest_WildByNature_Setup.exe",
+    "sha256": "9a8603360553bed768aecd6807eeee8b72ea49fae964033f8a30430db376bfc2"
+  },
+  "changed_existing": [
+    "App.xaml.cs",
+    "BatchQaDocumentService.cs",
+    "DataStore.cs",
+    "LabelEngine.cs",
+    "LabelTemplateStore.cs",
+    "ManufacturingDatabase.cs",
+    "QualificationDataStore.cs",
+    "ScentDataStore.cs",
+    "SupplierEconomicsService.cs",
+    "UserCatalogDataStore.cs",
+    "bin/Release/net10.0-windows/WildByNature.SoapStudio.dll",
+    "bin/Release/net10.0-windows/WildByNature.SoapStudio.pdb",
+    "bin/Release/net10.0-windows/win-x64/WildByNature.SoapStudio.dll",
+    "bin/Release/net10.0-windows/win-x64/WildByNature.SoapStudio.pdb",
+    "obj/Release/net10.0-windows/WildByNature.SoapStudio.csproj.CoreCompileInputs.cache",
+    "obj/Release/net10.0-windows/WildByNature.SoapStudio.dll",
+    "obj/Release/net10.0-windows/WildByNature.SoapStudio.pdb",
+    "obj/Release/net10.0-windows/WildByNature.SoapStudio_MarkupCompile.cache",
+    "obj/Release/net10.0-windows/ref/WildByNature.SoapStudio.dll",
+    "obj/Release/net10.0-windows/refint/WildByNature.SoapStudio.dll",
+    "obj/Release/net10.0-windows/win-x64/WildByNature.SoapStudio.csproj.CoreCompileInputs.cache",
+    "obj/Release/net10.0-windows/win-x64/WildByNature.SoapStudio.dll",
+    "obj/Release/net10.0-windows/win-x64/WildByNature.SoapStudio.pdb",
+    "obj/Release/net10.0-windows/win-x64/WildByNature.SoapStudio_MarkupCompile.cache",
+    "obj/Release/net10.0-windows/win-x64/ref/WildByNature.SoapStudio.dll",
+    "obj/Release/net10.0-windows/win-x64/refint/WildByNature.SoapStudio.dll"
+  ],
+  "deleted_files": [],
+  "new_files": [
+    "EntityIntegration.cs",
+    "obj/Release/net10.0-windows/win-x64/PublishOutputs.9310d1643e.txt"
+  ],
+  "pass": true,
+  "post_aggregate_sha256": "359c9cd5a644f6afd406a2b2c69fbbe470d01e7416beb83e00a1f642ce4e0a0d",
+  "pre_aggregate_sha256": "4a8652c9735e58114fcc794d87a0713237339bbb567efeb49ce0bc73d82bb062",
+  "product": "BOUNDARYS_BEST",
+  "schema": "btg-product-entity-source-diff-v1",
+  "unexpected_changes": []
+}

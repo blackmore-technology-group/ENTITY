@@ -1,0 +1,12 @@
+{
+  "evidence_sha256": "4a05017e596b574a35a1bdf438422cb827d16540e4ae5078c0020228bd47efdc",
+  "generated_at_ms": 1789570310017,
+  "implementation_sha256": "235c2a573e87f95679055616afa207240ad3b4936eea6d223622fefa00ed4e1f",
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "........                                                                 [100%]\n8 passed in 2.94s",
+  "qualification_complete": true,
+  "requirements_sha256": "c3b765ae6ba65356899c5e655a41f5cb7e16d71539cd94eae88e607e02953ede",
+  "schema": "entity-independent-verifier-qualification-v2",
+  "status": "PASS"
+}

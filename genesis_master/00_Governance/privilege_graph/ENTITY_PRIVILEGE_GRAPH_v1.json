@@ -1,0 +1,18 @@
+{
+  "schema": "entity-privilege-graph-v1",
+  "version": "1.0.0",
+  "default_decision": "DENY",
+  "rules": [
+    {"source":"NIKI","target":"ENTITY","operation":"READ_GOVERNED_PROJECTION","decision":"ALLOW","reason":"reasoning may consume minimum-disclosure projection"},
+    {"source":"NIKI","target":"ENTITY","operation":"MUTATE_RIGHTS","decision":"DENY","reason":"NIKI is non-authoritative for rights"},
+    {"source":"NIKI","target":"ENTITY","operation":"MUTATE_SETTLEMENT","decision":"DENY","reason":"settlement requires governed execution"},
+    {"source":"NIKI","target":"ADAM","operation":"PROPOSE_ACTION","decision":"ALLOW","reason":"NIKI may propose but cannot self-authorize"},
+    {"source":"ADAM","target":"ENTITY","operation":"EXPORT_PROTECTED_ASSET","decision":"ALLOW","required_capability":"ASSET_EXPORT","reason":"explicit export capability required"},
+    {"source":"ADAM","target":"ENTITY","operation":"TRANSFER_VALUE","decision":"ALLOW","required_capability":"SETTLEMENT_EXECUTE","reason":"explicit settlement capability required"},
+    {"source":"BECP","target":"ENTITY","operation":"ESCALATE_AUTHORITY","decision":"DENY","reason":"external response cannot create authority"},
+    {"source":"BSIE","target":"ENTITY","operation":"ASSERT_OWNERSHIP_FROM_OBSERVATION","decision":"NOT_AUTOMATICALLY_VERIFIED","reason":"world observation is not legal ownership"},
+    {"source":"UNTRUSTED_DATA","target":"ADAM","operation":"GRANT_AUTHORITY","decision":"DENY","reason":"documents/emails/web/tool content are data, not authority"},
+    {"source":"CONNECTOR","target":"ENTITY","operation":"ACCESS_UNRELATED_VAULT_SCOPE","decision":"DENY","reason":"connector scopes do not propagate"},
+    {"source":"ENTITY","target":"ADAM","operation":"EXECUTE_GOVERNED_ACTION","decision":"ALLOW","required_capability":"GOVERNED_EXECUTION","reason":"ENTITY-authorized bounded execution"}
+  ]
+}

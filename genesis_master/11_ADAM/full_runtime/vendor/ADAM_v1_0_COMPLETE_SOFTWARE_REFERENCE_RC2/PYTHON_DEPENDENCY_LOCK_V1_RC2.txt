@@ -1,0 +1,18 @@
+# ADAM v1.0 RC2 exact Python dependency constraints
+# Installed-tree hashes are evidence for this qualification host, not PyPI wheel hashes.
+cffi==2.0.0  # installed-tree-sha256=c9fc401ecb1367aed4a651f1f0ef1d86f2c636f8d90c258c1dee63b6a8727c12
+coverage==7.13.3  # installed-tree-sha256=081dffd9e29be736d4d8ff5059186028496b246c935e954d1a5ee43b65b24bec
+cryptography==46.0.4  # installed-tree-sha256=b780a82447958d921a7997f62c1ff14c6778ceab8e8c21701c28019bac882394
+iniconfig==2.3.0  # installed-tree-sha256=bce7bde3d4a76cfdfb56952819e9fe472a2fbd2971db89ae0d60294349a08221
+mpmath==1.3.0  # installed-tree-sha256=0f4cf5335d96d603c72dfa1e3b0a0870fdda7900fb4dd96ec89bfaceb63ca94d
+msgpack==1.1.2  # installed-tree-sha256=5cc43a1cfced8e9b582a691a3a01348e9af69d568c80207e0cdb3d25461dbcc4
+numpy==2.3.5  # installed-tree-sha256=ba817dbe7956675c96b6a6db71abd5aee5fb9cfbbfdc455f62bf965680bcab9d
+packaging==25.0  # installed-tree-sha256=33f8e2967fd01f4009c9e79e707ca6542c57614fd5712518ba13a3d128be54ea
+pillow==12.2.0  # installed-tree-sha256=e457a609f49fe1404bf19149d241a0c77262b68f18db27c74c25bbdf2a401e2a
+pip==25.1.1  # installed-tree-sha256=0c8682d7c6fd3a7f07ad76320a4d9bde682e8bd84dec21b8d2736c4bd1d0d4e5
+pluggy==1.6.0  # installed-tree-sha256=9fe786b7433c520e4542502117c0e7c2dbbfdc0a3feb9429bd2f6b7d4e8455f9
+pycparser==3.0  # installed-tree-sha256=c9a47ea7c049cd198d5c676e54e9c1e2e6bbfce5417557ef05321a121dc4430e
+Pygments==2.20.0  # installed-tree-sha256=9e0d9e37baf9529cdcb49657df13c8400b281bf4099bc2d3cc6603cb8464eacf
+pytest==9.0.2  # installed-tree-sha256=4508d77b3a9dc5ec1b58ff0831b735b910768fc0bddaa5995af9ef92b2907c15
+setuptools==82.0.1  # installed-tree-sha256=982612203fcd825c64ee72f25669d43e0528e427f4968bced1bd0e0a856fe501
+sympy==1.14.0  # installed-tree-sha256=01897f08b8f0f2e5b529516fe63732afe3d6aa16fdef8dc31643d4f67600af3d

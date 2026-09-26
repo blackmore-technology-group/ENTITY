@@ -1,0 +1,66 @@
+{
+  "format": "ADAM-v0.42-application-recipe-registry",
+  "recipes": {
+    "field_export": {
+      "accepted_modalities": [
+        "tabular",
+        "structured"
+      ],
+      "application_id": "field_export",
+      "constructor": "table",
+      "field_projection": [],
+      "target_format": "text/csv",
+      "version": 1
+    },
+    "iot_gateway": {
+      "accepted_modalities": [
+        "iot"
+      ],
+      "application_id": "iot_gateway",
+      "constructor": "iot_envelope",
+      "field_projection": [],
+      "target_format": "application/x-adam-iot-telemetry+json",
+      "version": 1
+    },
+    "operations_dashboard": {
+      "accepted_modalities": [
+        "structured"
+      ],
+      "application_id": "operations_dashboard",
+      "constructor": "json_project",
+      "field_projection": [],
+      "target_format": "application/json",
+      "version": 1
+    },
+    "operations_one_api": {
+      "accepted_modalities": [
+        "structured"
+      ],
+      "application_id": "operations_one_api",
+      "constructor": "identity",
+      "field_projection": [],
+      "target_format": "application/json",
+      "version": 1
+    },
+    "video_inspector": {
+      "accepted_modalities": [
+        "video"
+      ],
+      "application_id": "video_inspector",
+      "constructor": "video_manifest",
+      "field_projection": [],
+      "target_format": "application/x-adam-video-manifest+json",
+      "version": 1
+    },
+    "vision_display": {
+      "accepted_modalities": [
+        "image"
+      ],
+      "application_id": "vision_display",
+      "constructor": "image",
+      "field_projection": [],
+      "target_format": "image/png",
+      "version": 1
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "canonical_authorities": [
+    "core_permissions",
+    "adam_actions",
+    "adam_full_runtime"
+  ],
+  "canonical_export": "niki_accept_action_proposal_v2",
+  "input_schema": "niki-action-proposal-v1",
+  "noncanonical_status": "VALIDATED_PENDING_CANONICAL_AUTHORITY",
+  "owner": "NIKI",
+  "rules": [
+    "NIKI validates and hands off proposals but never executes them",
+    "ENTITY authorization must be current at execution time",
+    "ADAM performs governed execution and records exact/reaction evidence",
+    "ADAM full runtime commits require verified ENTITY authorization evidence",
+    "NIKI receives bounded ADAM projections and never mutation authority",
+    "handoff acknowledgement never proves execution occurred"
+  ],
+  "schema": "niki-action-handoff-contract-v2"
+}

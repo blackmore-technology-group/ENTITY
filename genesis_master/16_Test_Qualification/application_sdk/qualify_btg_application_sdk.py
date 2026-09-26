@@ -1,0 +1,15 @@
+from pathlib import Path
+import hashlib,json,re,time
+ROOT=Path(r"<LOCAL_DRIVE>/Sovereign_Entity_Network"); EV=ROOT/"16_Test_Qualification"/"evidence"; OUT=EV/"ENTITY_BTG_APPLICATION_SDK_CURRENT.json"
+def load(p): return json.loads(Path(p).read_text(encoding="utf-8"))
+def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def seal(d):
+    b=dict(d); b.pop("evidence_sha256",None); d["evidence_sha256"]=hashlib.sha256(json.dumps(b,sort_keys=True,separators=(",",":"),default=str).encode()).hexdigest(); return d
+pre=load(EV/"ENTITY_SDK_PRE_ADAPTATION_CORE_HASHES.json"); post=load(EV/"ENTITY_SDK_POST_ADAPTATION_CORE_HASHES.json"); log=EV/"ENTITY_BTG_APPLICATION_SDK_PYTEST.txt"
+raw=log.read_bytes(); text=raw.decode("utf-16") if raw.startswith((b"\xff\xfe",b"\xfe\xff")) else raw.decode("utf-8",errors="replace")
+m=re.search(r"(\d+)\s+passed",text); passed=int(m.group(1)) if m else 0
+module=ROOT/"14_Protocols_SDK"/"btg_application_sdk"/"canonical_btg_application_sdk.py"; schema=ROOT/"14_Protocols_SDK"/"btg_application_sdk"/"BTG_APPLICATION_EVENT_ENVELOPE_v1.schema.json"
+checks={"sdk_tests_9_of_9":passed==9,"core_file_count_unchanged":pre.get("file_count")==post.get("file_count")==47,"core_aggregate_hash_unchanged":pre.get("aggregate_sha256")==post.get("aggregate_sha256"),"module_present":module.is_file(),"schema_present":schema.is_file()}; status="PASS" if all(checks.values()) else "FAIL"
+record=seal({"schema":"entity-btg-application-sdk-qualification-v1","generated_at_ms":int(time.time()*1000),"status":status,"qualification_complete":status=="PASS","checks":checks,"pytest":{"passed":passed,"file_sha256":sha(log)},"core_invariance":{"before_sha256":pre.get("aggregate_sha256"),"after_sha256":post.get("aggregate_sha256"),"source_file_count":pre.get("file_count")},"implementation":{"module_sha256":sha(module),"schema_sha256":sha(schema)},"preserved_invariants":["registration is not ownership","provenance is not rights or truth","rights require explicit evidence basis","rights claims are not independently verified by claimant","application authorization is default deny","raw content is not required in ledger envelopes","application events cannot bypass canonical rights/consent/licence/settlement/capital/economic subsystems","application Entity is distinct from BTG organization Entity","provider/storage possession does not escalate sovereign authority"],"limitations":[],"claim":"The additive BTG Application SDK strengthens application-origin provenance/data capture without modifying the pre-existing critical ENTITY core implementation set or changing sovereign/rights/economic semantics."})
+OUT.write_text(json.dumps(record,indent=2,sort_keys=True)+"\n",encoding="utf-8"); OUT.with_suffix(".json.sha256").write_text(sha(OUT)+"  "+OUT.name+"\n",encoding="utf-8")
+print(json.dumps({"status":status,"checks":checks,"evidence_sha256":record["evidence_sha256"],"file_sha256":sha(OUT),"output":str(OUT)},indent=2)); raise SystemExit(0 if status=="PASS" else 2)

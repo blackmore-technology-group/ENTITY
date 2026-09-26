@@ -1,0 +1,53 @@
+{
+    "schema":  "entity-windows-product-lifecycle-qualification-v1",
+    "status":  "PASS",
+    "product":  "ENTITY",
+    "version":  "1.0.0-rc1",
+    "clean_install_scope":  "ISOLATED_INSTALL_ON_BTG_PC_NOT_SECOND_PHYSICAL_MACHINE",
+    "checks":  {
+                   "clean_install_runtime_present":  true,
+                   "principal_created":  true,
+                   "device_created":  true,
+                   "application_created":  true,
+                   "principal_device_application_pairing":  true,
+                   "governed_data_asset_created":  true,
+                   "governed_event_created":  true,
+                   "export_verified":  true,
+                   "private_keys_excluded_from_portable_export":  true,
+                   "encrypted_backup_created":  true,
+                   "encrypted_backup_restored":  true,
+                   "restored_identity_verified":  true,
+                   "restored_entity_id_unchanged":  true,
+                   "btg_huntar_searchar_hikear_boundarys_best_verified":  true
+               },
+    "principal_entity_id":  "ent2-eaa4o3h2lqmqr56etuwzn2h2mo4y4qlt5r6nccp6ic4vrf6faomq",
+    "device_entity_id":  "ent2-oac7zccolh5ec273k45krac7ojih5bnlfvpoj6a65jgrt6xzuwoa",
+    "application_entity_id":  "ent2-bgcik7c6uopwkm4don5hx6v2ayrgdujlorgj4fvmewnqaab7glrq",
+    "installation_entity_id":  "ent2-zlnyofzaxswrklyp7xkkophhnukxjx3te2hh6yeokfd6ehsmpyba",
+    "asset_id":  "asset1-3a7c0412fbff4f5bbe05ea3af3c22b41",
+    "export_entity_id":  "ent2-eaa4o3h2lqmqr56etuwzn2h2mo4y4qlt5r6nccp6ic4vrf6faomq",
+    "restored_entity_id":  "ent2-eaa4o3h2lqmqr56etuwzn2h2mo4y4qlt5r6nccp6ic4vrf6faomq",
+    "btg_application_identity_checks":  {
+                                            "HIKEAR":  {
+                                                           "entity_id":  "ent2-427vybtr5qa35uf6qwrda75e2gbwqw7wzjxz2yjtciewfgopzr7a",
+                                                           "state":  "<LOCAL_DRIVE>/BTG_ENTITY_PRODUCTION_STATE",
+                                                           "valid":  true
+                                                       },
+                                            "HUNTAR":  {
+                                                           "entity_id":  "ent2-vkesuqie2o5ldzvon6zro2c5rilor4u6x5lsqrrsw5ypxni73qba",
+                                                           "state":  "<LOCAL_DRIVE>/BTG_ENTITY_PRODUCTION_STATE",
+                                                           "valid":  true
+                                                       },
+                                            "SEARCHAR":  {
+                                                             "entity_id":  "ent2-ruiyq6kfvzgjisic7ndo6r4saojc35s5rxqxtd42ddpkexmshs6a",
+                                                             "state":  "<LOCAL_DRIVE>/BTG_ENTITY_PRODUCTION_STATE",
+                                                             "valid":  true
+                                                         },
+                                            "BOUNDARYS_BEST":  {
+                                                                   "entity_id":  "ent2-7vagebjtkzw5i3t6jbuk5ws65xywh63ucserwbqfgmzt7pd2xo5q",
+                                                                   "state":  "<LOCAL_DRIVE>/BTG_ENTITY_PRODUCTION_STATE",
+                                                                   "valid":  true
+                                                               }
+                                        },
+    "claim_boundary":  "This proves clean isolated installation and restore on the BTG Windows computer. It does not satisfy the separate two-physical-device external gate."
+}

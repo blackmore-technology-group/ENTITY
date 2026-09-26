@@ -1,0 +1,13 @@
+{
+    "status":  "PASS",
+    "installed_version":  "0.2.1",
+    "console_entrypoint":  "becp-rdc-bridge",
+    "bridge_ok":  true,
+    "mode":  "RDC_DIRECT_PLUS_BECP_BRIDGE",
+    "gateway":  {
+                    "ok":  true,
+                    "online_devices":  1,
+                    "registered_devices":  2,
+                    "service":  "BECP client gateway"
+                }
+}

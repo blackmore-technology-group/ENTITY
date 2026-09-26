@@ -1,0 +1,124 @@
+{
+  "assigned": true,
+  "completed": true,
+  "cycle_interval_ns": 100000000,
+  "cycles": 9,
+  "epoch": 1,
+  "final_report_sha256": "e8327613bb8a3805985f51b708193d855d0bdd1fec11be0521622489eb97fd17",
+  "format": "ADAM-v0.43-production-soak",
+  "intents": [
+    {
+      "args": {},
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "ASSIGN_EQUIPMENT"
+    },
+    {
+      "args": {
+        "location": "YARD"
+      },
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "RELEASE_EQUIPMENT"
+    },
+    {
+      "args": {},
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "ASSIGN_EQUIPMENT"
+    },
+    {
+      "args": {
+        "location": "YARD"
+      },
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "RELEASE_EQUIPMENT"
+    },
+    {
+      "args": {},
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "ASSIGN_EQUIPMENT"
+    },
+    {
+      "args": {
+        "location": "YARD"
+      },
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "RELEASE_EQUIPMENT"
+    },
+    {
+      "args": {},
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "ASSIGN_EQUIPMENT"
+    },
+    {
+      "args": {
+        "location": "YARD"
+      },
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "RELEASE_EQUIPMENT"
+    },
+    {
+      "args": {},
+      "bindings": {
+        "actor": "d8091430e6b48758cc46b361eb0aba3f357184341e07c3bb06a9d33d4975ade9",
+        "equipment": "e12540c1cf4a751dc900ac911c98115362d215fb29e36041506a859e8fd87b7c",
+        "project": "6074a249bfefafe6aa1b75b4fdeab17a039821e2f1450f12a9d98735ccfae3ba"
+      },
+      "reaction": "ASSIGN_EQUIPMENT"
+    }
+  ],
+  "last_wall_ns": 1785872209409854710,
+  "qualification_id": "aa998ab061fc19744e176aabac779557792ca62b16cb8693fd0b7b8bdc973152",
+  "required_duration_ns": 864000000,
+  "sla": {
+    "failovers": 0,
+    "failures": 0,
+    "integrity_checks": 9,
+    "integrity_failures": 0,
+    "latencies_ms": [
+      9.27565,
+      8.691917,
+      24.300389,
+      7.179301,
+      11.239749,
+      8.569396,
+      9.146415,
+      9.257449,
+      9.454762
+    ],
+    "recoveries": 0,
+    "requests": 9,
+    "successes": 9
+  },
+  "started_wall_ns": 1785872209272877431
+}

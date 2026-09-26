@@ -1,0 +1,61 @@
+{
+  "active_signing_key_id": "sig-a3db5951877a801c",
+  "aliases": [
+    "release.entity"
+  ],
+  "created_at_ms": 1789674580655,
+  "crypto_agility": {
+    "future_hybrid_allowed": true,
+    "manifest_suite": "ENTITY-SIG-ED25519-v1",
+    "supported_suites": [
+      "ENTITY-SIG-ED25519-v1"
+    ]
+  },
+  "display_name": "Blackmore Technology Group ENTITY Release Signer",
+  "entity_id": "ent2-3vutraoer24deek2uv54sbiob2xim5xejbu6lybhk7cxgptgwkwa",
+  "entity_type": "organization",
+  "manifest_revision": 1,
+  "metadata": {
+    "private_state_not_distributed": true,
+    "purpose": "ENTITY_RELEASE_ATTESTATION"
+  },
+  "recovery_policy": {
+    "authorities": [
+      "rec-4d04797ca1d0fa8f"
+    ],
+    "delayed_recovery_supported": true,
+    "threshold": 1
+  },
+  "schema": "sovereign-entity-manifest-v2",
+  "signature": {
+    "key_id": "sig-a3db5951877a801c",
+    "signature": "43FLLtzb_bacX2zfJry_KWSfPH1evRX_YD7XwxQFzbhHY6T10alM3M0CIxeBT_iUz5D60p_7IWRnTQb71t2BDA",
+    "suite": "ENTITY-SIG-ED25519-v1"
+  },
+  "verification_methods": [
+    {
+      "algorithm": "Ed25519",
+      "created_at_ms": 1789674580655,
+      "key_id": "sig-a3db5951877a801c",
+      "public_key": "eNNAaDaeSN47g5S92kw5y5x6wfp_Z37s3luGQ9P_DOI",
+      "purpose": [
+        "assertion",
+        "authentication",
+        "contract"
+      ],
+      "status": "active",
+      "suite": "ENTITY-SIG-ED25519-v1"
+    },
+    {
+      "algorithm": "Ed25519",
+      "created_at_ms": 1789674580655,
+      "key_id": "rec-4d04797ca1d0fa8f",
+      "public_key": "Shgjcdny0lO8eL5vUaKBg4975cA2IQTbjck5_ChU5h0",
+      "purpose": [
+        "recovery"
+      ],
+      "status": "active",
+      "suite": "ENTITY-SIG-ED25519-v1"
+    }
+  ]
+}

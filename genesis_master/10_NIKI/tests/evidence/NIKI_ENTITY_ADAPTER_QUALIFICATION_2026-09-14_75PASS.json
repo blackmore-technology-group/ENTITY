@@ -1,0 +1,23 @@
+{
+  "schema": "niki-entity-adapter-qualification-v2",
+  "date": "2026-09-14",
+  "scope": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI only",
+  "full_suite": {"result": "PASS", "passed": 75, "failed": 0, "warning_count": 1},
+  "runtime_role": "NIKI_ENTITY_INTEGRATION_ADAPTER",
+  "niki_is_authority_owner": false,
+  "permanent_bootstrap_default": "BLOCKED_UNTIL_CANONICAL_CORE_READY",
+  "canonical_runtime_binding_filename": "ENTITY_RUNTIME_BINDING.json",
+  "contract_hashes": {
+    "context_projection": "eb437827774456de59358d03c83edc7db630891b59989b52ab41a000c4e097fa",
+    "action_proposal": "7cda7e93868cb88e6d7ea07628ce0db360d67239887f606f97cebe71c7bbd1ba",
+    "reasoning_policy": "71e844db5f411c47107919565827e16908d1d2c7dfff4c13ca5a0dbddfdc065d",
+    "entity_intelligence_projection": "c9d8a25dc63e43219382022f8770e093abfe4fd3cab0c3e8c5472d907e94448e",
+    "ar_overlay_output": "1beb3eaa991331e043ebcd4cc28d620a947e61eaf7f6ec6a164afe2a63924958"
+  },
+  "handoff_hashes": {
+    "platform_bindings": "586ab6554e3a1f5adb05bb8a3a4cb4ac0f5a771714486834748bfe9dea81b94c",
+    "integration_contract": "42e93d51f9df576f773ba0d4c8f6acfad724d48ffedb48fa61c5586ae3e5ec2f",
+    "runtime_binding_schema": "8499beb26659dbca876a3ca04e2ddf740ad9d6950ef5901099ad8199dccbf10f"
+  },
+  "non_claims": ["10_NIKI does not own ENTITY authority state", "no permanent sovereign Entity bootstrapped", "parallel root workstream remains canonical for non-NIKI directories"]
+}

@@ -1,0 +1,48 @@
+{
+  "classification": "RUST_AUTHORITY_SOURCE_QUALIFICATION_CANDIDATE",
+  "format": "ADAM-v0.51-build-info-v1",
+  "local_environment": {
+    "cargo_available": false,
+    "machine": "x86_64",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "rustc_available": false
+  },
+  "local_qualification": {
+    "final_oracle_root": "107a151ccc502420c650b69f6d98a41949fa2305bd39c0b8480f6a2676e11868",
+    "golden_vectors_sha256": "bd371c85d27a2eda7dccf36795a5c6775670371c5b2942c6e1611b488b78e402",
+    "inherited_integrated_gates_failed": 0,
+    "inherited_integrated_gates_passed": 9,
+    "r4_regression_failed": 0,
+    "r4_regression_passed": 117,
+    "source_blocking_findings": 0,
+    "v051_source_adversarial_failed": 0,
+    "v051_source_adversarial_passed": 8
+  },
+  "not_executed_here": [
+    "Rust compilation",
+    "Cargo dependency resolution and Cargo.lock generation",
+    "Rust unit/property tests",
+    "Miri",
+    "sanitizers",
+    "fuzz campaigns",
+    "cross-platform/reproducible binaries",
+    "independent Rust review"
+  ],
+  "parent": "ADAM v0.50.1 R4 0.50.1.dev4",
+  "parent_wrapper_sha256": "3c406f50710d3aad86952bf87b42ac27b5260a77f357461e21122054cb6812c4",
+  "production_certified": false,
+  "release_name": "ADAM v0.51 Rust Authority Kernel Source Qualification Candidate",
+  "source_inventory": {
+    "binary_targets": 5,
+    "explicit_test_annotations": 11,
+    "fuzz_targets": 15,
+    "primitive_vectors": 24,
+    "production_rust_files": 16,
+    "property_test_blocks": 1,
+    "reaction_transitions": 20,
+    "rust_files": 35,
+    "rust_source_lines_reported_by_audit": 4181
+  },
+  "version": "0.51.0.dev1"
+}

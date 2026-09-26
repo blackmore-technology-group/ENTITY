@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "corporate_action_reconciliation",
+  "exports": [
+    "CorporateActionLedger"
+  ],
+  "implementation_sha256": "c3839ca7ce992e7fb61a2ce0447db90948cf66c9aa0494403f7e9c7201becec5",
+  "implementation_version": "2.2.0",
+  "python_file": "canonical_corporate_actions.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+      "sha256": "1918775d0a3484ccbe7e77023bb2aaa2e2fa9d2c1b416bc936ee9747c771149f"
+    }
+  ],
+  "requirements_sha256": "eb8062c0b0b2b344bd18f7359365b20419553da42cf6123ddf40d4c42d4a2f9a",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

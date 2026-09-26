@@ -1,0 +1,20 @@
+{
+  "abi_version": "1",
+  "authority": "becp_evidence",
+  "exports": [
+    "BecpObservableEvidence",
+    "niki_ingest_becp_evidence_v1"
+  ],
+  "implementation_sha256": "a43902bb16d1b28cbe2dac5a7744674e3463e2724c65b9808956ce358dafe451",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_becp_evidence.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+      "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+    }
+  ],
+  "requirements_sha256": "a32965633a03800b0f651e3274a1aec3538025eb2bee744d01ff6c2c243b7c7e",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

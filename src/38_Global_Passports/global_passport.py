@@ -24,7 +24,7 @@ class GlobalPassportRegistry:
     def issue(self,controller_entity_id:str,object_id:str,rights_passport_id:str,profile_refs:list[str],*,
               version:str="1.0",evidence_refs:list[str]|None=None,provenance_refs:list[str]|None=None,
               jurisdiction_profile_refs:list[str]|None=None,standards_mappings:list[dict]|None=None,
-              economic_state:dict|None=None,industry_context:dict|None=None,protocol_release_ref:str|None=None)->dict:
+              economic_state:dict|None=None,industry_context:dict|None=None,protocol_release_ref:str|None=None,btdu_binding:dict|None=None)->dict:
         self.identity.load_manifest(controller_entity_id); obj=self.fabric.get_object(object_id)
         if obj["controller_entity_id"]!=controller_entity_id: raise PermissionError("object controller required")
         right=self.rights.get(rights_passport_id)
@@ -45,6 +45,15 @@ class GlobalPassportRegistry:
             if not ref: raise ValueError("protocol release origin required")
             if self.required_release_ref and ref!=self.required_release_ref: raise ValueError("current release origin attestation required")
             origin_binding=self.origin.passport_binding(ref)
+        btdu=None
+        if btdu_binding is not None:
+            btdu=dict(btdu_binding)
+            if btdu.get("schema")!="entity-btdu-passport-binding-v1": raise ValueError("BTDU binding schema")
+            for field in ("universe_root","object_ref","content_sha256","sovereign_entity_id"):
+                if not str(btdu.get(field) or ""): raise ValueError("BTDU binding field: "+field)
+            for flag in ("protocol_origin_is_not_asset_provenance","topology_does_not_create_ownership","topology_does_not_create_economic_entitlement"):
+                if btdu.get(flag) is not True: raise ValueError("BTDU boundary: "+flag)
+        if self.required_release_ref=="entity-release:v3.4.2" and btdu is None: raise ValueError("v3.4.2 BTDU binding required")
         body={"schema":"entity-v3-global-passport-v1","passport_id":rid("gpassport3"),"object_id":object_id,
               "controller_entity_id":controller_entity_id,"version":str(version),"core_primitives":list(CORE_PRIMITIVES),
               "rights_passport_id":rights_passport_id,"rights_passport_sha256":right["passport_sha256"],
@@ -57,6 +66,7 @@ class GlobalPassportRegistry:
               "one_passport_many_profiles":True,"profile_composition_does_not_create_authority":True,
               "standards_mapping_is_not_normative_equivalence":True,"evidence_does_not_establish_objective_truth":True,
               "legal_effect_is_deployment_specific":True,"underlying_information_remains_nonrival":True,"created_at_ms":now_ms()}
+        if btdu is not None: body["btdu_binding"]=btdu
         body_sha=digest(body); sig=self.identity.sign(controller_entity_id,body)
         try:
             with sqlite3.connect(self.path) as db:
@@ -81,6 +91,12 @@ class GlobalPassportRegistry:
             stack=self.profiles.resolve_stack(body["profile_stack"]["profile_refs"],body["profile_stack"]["profile_hashes"])
             if stack["profile_hashes"]!=body["profile_stack"]["profile_hashes"]: raise ValueError("profile stack")
             if any(m.get("normative_equivalence_claimed") is not False for m in body.get("standards_mappings",[])): raise ValueError("standards equivalence")
+            btdu=body.get("btdu_binding")
+            if btdu is not None:
+                if btdu.get("schema")!="entity-btdu-passport-binding-v1": raise ValueError("BTDU binding schema")
+                if not all(str(btdu.get(k) or "") for k in ("universe_root","object_ref","content_sha256","sovereign_entity_id")): raise ValueError("BTDU binding fields")
+                if any(btdu.get(flag) is not True for flag in ("protocol_origin_is_not_asset_provenance","topology_does_not_create_ownership","topology_does_not_create_economic_entitlement")): raise ValueError("BTDU boundary")
+                if int(btdu.get("automatic_protocol_royalty_bps",-1))!=0: raise ValueError("BTDU protocol royalty")
             origin_binding=body.get("protocol_origin")
             if origin_binding is not None:
                 if body.get("protocol_origin_is_not_asset_provenance") is not True: raise ValueError("origin boundary")

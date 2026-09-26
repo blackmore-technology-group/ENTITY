@@ -1,0 +1,25 @@
+{
+  "abi_version": "1",
+  "authority": "policy_consent",
+  "crypto_suites": [],
+  "exports": [
+    "PolicyConsentEngine"
+  ],
+  "implementation_sha256": "98d68dab3182d35e0fd3e6d2f839bd3c69cfa9bd9c69c717185de7b6e03b74d9",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_policy.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CANONICAL_CORE_QUALIFICATION_CURRENT.json",
+      "sha256": "5b104a759fb3de039d01395737eb1625ca7bd7dac6b8bf01bfda0e2fd1f39c1f",
+      "status": "PASS"
+    }
+  ],
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-policy-v1",
+    "entity-consent-v1"
+  ],
+  "status": "READY"
+}

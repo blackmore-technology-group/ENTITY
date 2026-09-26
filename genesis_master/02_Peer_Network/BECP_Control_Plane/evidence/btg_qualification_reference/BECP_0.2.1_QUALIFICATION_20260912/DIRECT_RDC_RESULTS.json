@@ -1,0 +1,7 @@
+{
+    "status":  "PASS",
+    "marker":  "RDC_DIRECT_FINAL_OK",
+    "hostname":  "BTG",
+    "path":  "Remote Desktop Commander direct PowerShell",
+    "becp_bridge_required":  false
+}

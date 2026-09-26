@@ -1,0 +1,42 @@
+{
+  "evidence_sha256": "4cea6a30d304de2657f75fd14edfefe3a869697eb9d28584a7981e3b78259b5e",
+  "failures": [],
+  "generated_at_ms": 1789597563797,
+  "limitations": [
+    "10,000-client storm executed on one physical workstation; real multi-machine distribution requires additional worker hosts"
+  ],
+  "logical_clients": 10000,
+  "malicious_proof_rejected": 100,
+  "multi_machine_demonstrated": false,
+  "peak_concurrency": 128,
+  "qualification_complete": true,
+  "schema": "entity-10000-client-storm-local-v1",
+  "scope_status": "PASS_10000_CLIENT_SINGLE_HOST",
+  "status": "PASS",
+  "worker_hosts": 1,
+  "worker_result": {
+    "clients": 10000,
+    "concurrency": 128,
+    "elapsed_seconds": 24.404764600098133,
+    "failure_count": 0,
+    "failures": [],
+    "hostname": "BTG",
+    "latency_ms": {
+      "max": 474.4112999178469,
+      "p50": 302.18560015782714,
+      "p95": 372.7820999920368,
+      "p99": 429.9003998748958
+    },
+    "requests_per_second": 409.7560523062693,
+    "resolved_host": "192.168.0.49",
+    "result_sha256": "281466a3057a4a3c799e9b42d7a72b8cdf39ab15a29a1d73a3e9fa2a199611b0",
+    "schema": "entity-distributed-storm-worker-v1",
+    "security_expectations": {
+      "dns_used": false,
+      "encrypted_session": true,
+      "node_verified": true
+    },
+    "success": 10000,
+    "worker_id": "BTG-LOCAL-10000"
+  }
+}

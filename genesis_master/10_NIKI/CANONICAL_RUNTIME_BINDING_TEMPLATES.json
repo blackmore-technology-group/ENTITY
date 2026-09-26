@@ -1,0 +1,477 @@
+{
+  "generated_at_ms": 1789499221001,
+  "rule": "Do not change status to READY until implementation and qualification evidence satisfy the owner requirements contract.",
+  "schema": "entity-canonical-binding-template-bundle-v1",
+  "source_matrix_sha256": "c2907fb0f92d1bcc4389e132e4a5cf4d2fa4e45fc524a8df0c2c4095c84a1656",
+  "templates": [
+    {
+      "multi_authority": false,
+      "owner": "01_Core_Runtime\\api",
+      "template": {
+        "abi_version": "1",
+        "authority": "service_api",
+        "exports": [
+          "entity_bootstrap_v1"
+        ],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "01_Core_Runtime\\identity",
+      "template": {
+        "abi_version": "1",
+        "authority": "identity",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "01_Core_Runtime\\permissions",
+      "template": {
+        "abi_version": "1",
+        "authority": "core_permissions",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "01_Core_Runtime\\policy_engine",
+      "template": {
+        "abi_version": "1",
+        "authority": "policy_consent",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": true,
+      "owner": "01_Core_Runtime\\service_runtime",
+      "template": {
+        "abi_version": "1",
+        "authorities": {
+          "contracts": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "data_pools": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "data_spaces": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "settlement": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          }
+        },
+        "implementation_version": "<VERSION>",
+        "qualification_evidence": [],
+        "requirements_sha256": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": true,
+      "owner": "02_Peer_Network",
+      "template": {
+        "abi_version": "1",
+        "authorities": {
+          "federation": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "transparency_witness": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          }
+        },
+        "implementation_version": "<VERSION>",
+        "qualification_evidence": [],
+        "requirements_sha256": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "02_Peer_Network\\BECP_Control_Plane",
+      "template": {
+        "abi_version": "1",
+        "authority": "becp_evidence",
+        "exports": [
+          "niki_ingest_becp_evidence_v1"
+        ],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "02_Peer_Network\\discovery",
+      "template": {
+        "abi_version": "1",
+        "authority": "peer_discovery",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "02_Peer_Network\\nat_traversal",
+      "template": {
+        "abi_version": "1",
+        "authority": "nat_traversal",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "02_Peer_Network\\relay_fallback",
+      "template": {
+        "abi_version": "1",
+        "authority": "relay",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "02_Peer_Network\\transport",
+      "template": {
+        "abi_version": "1",
+        "authority": "peer_transport",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "03_Public_Internet_Bridge\\public_gateway",
+      "template": {
+        "abi_version": "1",
+        "authority": "public_gateway",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "77b6d2afd5c7da78fddb461d3e1cd4b572937b29e39c5a5d8d04f74d3915dfcb",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "03_Public_Internet_Bridge\\web_publish",
+      "template": {
+        "abi_version": "1",
+        "authority": "web_publish",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "77b6d2afd5c7da78fddb461d3e1cd4b572937b29e39c5a5d8d04f74d3915dfcb",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": true,
+      "owner": "04_Entity_Registry",
+      "template": {
+        "abi_version": "1",
+        "authorities": {
+          "credentials": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "data_universe": {
+            "exports": [
+              "niki_project_data_summary_v1"
+            ],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "knowledge_capital": {
+            "exports": [
+              "niki_ingest_reasoning_receipt_v1"
+            ],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          }
+        },
+        "implementation_version": "<VERSION>",
+        "qualification_evidence": [],
+        "requirements_sha256": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "04_Entity_Registry\\ownership_graphs",
+      "template": {
+        "abi_version": "1",
+        "authority": "rights_claims",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "04_Entity_Registry\\relationships",
+      "template": {
+        "abi_version": "1",
+        "authority": "relationship_identity",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": true,
+      "owner": "08_Data_Vaults",
+      "template": {
+        "abi_version": "1",
+        "authorities": {
+          "data_sources": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "data_vault": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          }
+        },
+        "implementation_version": "<VERSION>",
+        "qualification_evidence": [],
+        "requirements_sha256": "f21173095b99112b05c681d9a0bcf113eb1c008969d37052e37ec1ad3a709537",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "09_Spatial_AR_Dashboard",
+      "template": {
+        "abi_version": "1",
+        "authority": "ar_projection",
+        "exports": [
+          "niki_accept_overlay_layer_v1"
+        ],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "20ca5f3f7a86dc5ad41fac6e504693a2c7039d531ed377ba0b9f0de0b2c1c6e3",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "11_ADAM\\approval_gates",
+      "template": {
+        "abi_version": "1",
+        "authority": "adam_capabilities",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "f873542e0e9b5e5b06a1d9e11159d73bd35cb0e348516b293cdae55915fec9b4",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "11_ADAM\\executors",
+      "template": {
+        "abi_version": "1",
+        "authority": "adam_actions",
+        "exports": [
+          "niki_accept_action_proposal_v1"
+        ],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "f873542e0e9b5e5b06a1d9e11159d73bd35cb0e348516b293cdae55915fec9b4",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "12_BSIE\\digital_entity_world",
+      "template": {
+        "abi_version": "1",
+        "authority": "bsie_entity_world",
+        "exports": [
+          "niki_project_entity_context_v1"
+        ],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "1f16e3fd979f3118db51c6aeac71a2528498858977d041660ca410cae48e197a",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": true,
+      "owner": "13_Security\\key_management",
+      "template": {
+        "abi_version": "1",
+        "authorities": {
+          "guardian_recovery": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "purpose_keys": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          },
+          "recovery_custody": {
+            "exports": [],
+            "python_file": "<IMPLEMENTATION.py>",
+            "status": "DEVELOPMENT"
+          }
+        },
+        "implementation_version": "<VERSION>",
+        "qualification_evidence": [],
+        "requirements_sha256": "7eb3152ffabd0f13389eed02a6f609bb81dd76556f7b373881b895aea9629ddb",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "14_Protocols_SDK\\c2pa",
+      "template": {
+        "abi_version": "1",
+        "authority": "c2pa",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "5be50f7243c39c3afabaa2a23f0484270051938527756f88450d873f70f14c26",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "14_Protocols_SDK\\reference_clients",
+      "template": {
+        "abi_version": "1",
+        "authority": "protocol_conformance",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "5be50f7243c39c3afabaa2a23f0484270051938527756f88450d873f70f14c26",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "15_Operations\\backups",
+      "template": {
+        "abi_version": "1",
+        "authority": "portable_state",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "73e494fac0e6b89c2952827fe17521a5cfa47f85386958fb541f63b4f74263c3",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    },
+    {
+      "multi_authority": false,
+      "owner": "16_Test_Qualification\\evidence",
+      "template": {
+        "abi_version": "1",
+        "authority": "prebootstrap_evidence",
+        "exports": [],
+        "implementation_version": "<VERSION>",
+        "python_file": "<IMPLEMENTATION.py>",
+        "qualification_evidence": [],
+        "requirements_sha256": "c36a04d05dab9bf862c6a77065c7d19f7ae88ba04d2897de2bec7d992074c5ac",
+        "schema": "entity-runtime-binding-v1",
+        "status": "DEVELOPMENT"
+      }
+    }
+  ]
+}

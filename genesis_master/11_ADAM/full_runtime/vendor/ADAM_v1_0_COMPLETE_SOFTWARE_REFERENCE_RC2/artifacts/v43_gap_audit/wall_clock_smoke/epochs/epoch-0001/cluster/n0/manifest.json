@@ -1,0 +1,12 @@
+{
+  "atoms": 27,
+  "authority_id": "0d741b0916f6160c0885255cc69866db86981c43b8d55475a55b061adf304827",
+  "bonds": 13,
+  "checkpoint_root": "0000000000000000000000000000000000000000000000000000000000000000",
+  "checkpoint_sequence": 0,
+  "compounds": 9,
+  "format": "ADAM-v0.41-construction-native-universe",
+  "recovered_torn_bytes": 0,
+  "root_hash": "40dd89640d1fea790a79782095a6f97f50a4c30cc035fe6ef66b54e7e48b7531",
+  "sequence": 18
+}

@@ -1,0 +1,11 @@
+{
+    "schema":  "entity-windows-gui-smoke-v1",
+    "status":  "PASS",
+    "product":  "ENTITY",
+    "version":  "1.0.0-rc1",
+    "installed_gui":  "<LOCAL_DRIVE>/ENTITY_CLEAN_INSTALL_QUALIFICATION\\ENTITY.exe",
+    "gui_sha256":  "4717807d5e5d213dc1bb57792db9fc93fa27546e749d894ee959c05ec08c7544",
+    "launched_successfully":  true,
+    "clean_install_scope":  "ISOLATED_INSTALL_ON_BTG_PC_NOT_SECOND_PHYSICAL_MACHINE",
+    "note":  "GUI process launched from installed payload and was terminated after smoke verification."
+}

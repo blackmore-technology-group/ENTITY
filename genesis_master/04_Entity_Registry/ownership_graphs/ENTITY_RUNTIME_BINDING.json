@@ -1,0 +1,26 @@
+{
+  "abi_version": "1",
+  "authority": "rights_claims",
+  "crypto_suites": [
+    "ENTITY-SIG-ED25519-v1"
+  ],
+  "exports": [
+    "RightsClaimsGraph"
+  ],
+  "implementation_sha256": "fbd5c5e58219a8254d1f9037d8d3ffedcaa0f35a3e5830a3d3387313cbcc936d",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_rights_claims.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_RIGHTS_PROVENANCE_CURRENT.json",
+      "sha256": "372f40d1922a2309c4ab31e48bcd07c3c0a3bab1735f5aa3ff9ebdfab6c365f9"
+    }
+  ],
+  "requirements_sha256": "a3cba409b3b96f84f43d394ae4a1468279875fe78b69a91d15fab83094a45226",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-rights-claim-v2",
+    "entity-rights-claims-graph-v2"
+  ],
+  "status": "READY"
+}

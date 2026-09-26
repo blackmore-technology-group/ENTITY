@@ -1,0 +1,6 @@
+{
+  "corrected_to_package_version": "0.42.0.dev2",
+  "original_internal_version": "0.42.0.dev1",
+  "qualification_results_changed": false,
+  "reason": "Package BUILD_INFO and combined qualification identify 0.42.0.dev2; internal audit label was stale."
+}

@@ -1,0 +1,20 @@
+{
+  "audit": {
+    "failed": 0,
+    "passed": 10
+  },
+  "build": "0.43.0.dev1",
+  "created_utc": "2026-08-04T18:48:49Z",
+  "focused_coverage_percent": 82,
+  "inherited_build": "ADAM v0.42 Distributed Living Recreation Universe",
+  "name": "ADAM Research Gap Closure and Production Qualification",
+  "native_reference_compiled": true,
+  "platform": "Linux-6.12.13-x86_64-with-glibc2.41",
+  "python": "3.13.5 (main, May  5 2026, 21:05:52) [GCC 14.2.0]",
+  "rust_compiled": false,
+  "tests": {
+    "failed": 0,
+    "passed": 57
+  },
+  "thirty_day_completed": false
+}

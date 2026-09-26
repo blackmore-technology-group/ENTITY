@@ -1,0 +1,25 @@
+{
+  "approvals": [
+    {
+      "authority_id": "10ce8a46ee3c96788ab91b6ea71b8e6eda3f202a3a7d551b0dd6d67483f51fd4",
+      "public_key_hex": "9f0a036c3e59a80802698fd8b2348a7fc5bc8c54c914c5c0a003a9098df9cb56",
+      "signature": "d1dd789f32c3615c2e3d70d95b8caa12da477eb7955b055d79223a182eec17d0e6c61b1361b85ca781ec5d2c853295203811052fe982b7ebe3a844e845fad404"
+    },
+    {
+      "authority_id": "c01a2529ac8254e429d9cb3fdd4cb1325279fa34f7611b4b0c02de37c8df99fd",
+      "public_key_hex": "752b0baebaf499bc8d28c87f49e668e3dccf8d116e48041cee2bf4054d1dda52",
+      "signature": "85dbf419a338b9daae8525d7a2fa370dda502ac65102993aec4cb2a158077e92d00662800bfd2744c298eb33406ef0cbe5b3141e68b1724eb2bb8ee488ccaa09"
+    },
+    {
+      "authority_id": "7101ca5d6232c4cd869577c0d27f3d5779b1a6c0802f38d0e6465854970d116b",
+      "public_key_hex": "c780e85de4ce88aae49e9a84bde03a7a2540aec95fff8ab0a9e256aa0a2656f4",
+      "signature": "f3e419e8d6dc482bf9433f2de5a1586f9214e75532afccc0d6962c8a2a7ff17d191c0b795322623484bb2c7028226ecf4c63e91ecacb60d032d02182ba09ec09"
+    }
+  ],
+  "candidate_id": "a5dc78290170d535cbe884ad41ff223282d69550bc6c25cd063c977d629ee3e6",
+  "equivalence_failures": 0,
+  "historical_states_replayed": 50,
+  "promoted_ns": 1785872196785208447,
+  "receipt_id": "c458cd369989d0dc89759d773a751c25bd945f7445a746d946e6c805d6ef3723",
+  "status": "PROMOTED"
+}

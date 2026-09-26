@@ -1,0 +1,25 @@
+{
+  "abi_version": "1",
+  "authority": "core_permissions",
+  "crypto_suites": [],
+  "exports": [
+    "AuthorityCapabilityStore"
+  ],
+  "implementation_sha256": "85b92ff54cb1e0cd67c51323a8be2701719b1b96284f1b4211b6204d6a78636c",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_permissions.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CANONICAL_CORE_QUALIFICATION_CURRENT.json",
+      "sha256": "5b104a759fb3de039d01395737eb1625ca7bd7dac6b8bf01bfda0e2fd1f39c1f",
+      "status": "PASS"
+    }
+  ],
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-agent-capability-v1",
+    "entity-approval-v1"
+  ],
+  "status": "READY"
+}

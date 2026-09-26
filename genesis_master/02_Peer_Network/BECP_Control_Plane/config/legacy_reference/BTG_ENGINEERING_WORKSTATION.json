@@ -1,0 +1,47 @@
+{
+  "device_id": "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+  "device_alias": "BTG",
+  "hostname": "BTG",
+  "device_role": "PRIMARY_ENGINEERING_WORKSTATION",
+  "owner_principal": "BTG\\shawn",
+  "audit_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\56d7ed92-c5b4-4cca-addd-02ab1384ca74.jsonl",
+  "engineering_terminal": {
+    "enabled": true,
+    "bound_device": "BTG",
+    "default_shell": "powershell.exe",
+    "allowed_shells": [
+      "powershell.exe",
+      "pwsh.exe",
+      "cmd.exe"
+    ],
+    "default_cwd": "<LOCAL_DRIVE>/Blackmore_Technology_Group",
+    "max_timeout_seconds": 600,
+    "max_output_bytes": 1048576,
+    "full_filesystem_scope": true
+  },
+  "required_roles": [
+    "blackmore_admin",
+    "chatgpt_privileged_engineer",
+    "niki_privileged_engineer"
+  ],
+  "terminal_mode": "FULL_ENGINEERING_COMPUTER_ACCESS",
+  "os_privilege_model": "INHERIT_WINDOWS_ACCOUNT_AND_UAC",
+  "allowed_roots": [
+    "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP",
+    "<LOCAL_DRIVE>/Blackmore_Technology_Group\\NIKI\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE",
+    "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HUNT_AR\\HuntAR_v4.3.0",
+    "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HIKE_AR\\HikeAR_v0.1.0",
+    "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\SAR\\SearchAR_v0.12.0"
+  ],
+  "approved_commands": {
+    "system_python_version": [
+      "python",
+      "--version"
+    ],
+    "system_windows_version": [
+      "cmd",
+      "/c",
+      "ver"
+    ]
+  }
+}

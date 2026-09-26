@@ -1,0 +1,2941 @@
+{
+  "generated_at_ms": 1789576432538,
+  "internal_qualification_evidence_sha256": "f5265a7686aac10eff46f4cede9d1b844db35b86750c94ffae77e7531ea74266",
+  "qualification_boundary": "Internal reference implementation is qualified separately from physical multi-device and unrelated non-BTG interoperability milestones.",
+  "requirement_count": 189,
+  "requirements": [
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-000-D90EC69C73",
+      "requirement_text": "**Purpose:** Preserve the original ENTITY premise that a person, company, organization or other lawful Entity must not be required to rent its continued digital existence, domain identity, data custody, digital presence or economic participation from a registrar, cloud host, platform, marketplace or other infrastructure provider.",
+      "section": "0",
+      "section_title": "Preamble",
+      "source_line": 9,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-000-121E7ED294",
+      "requirement_text": "The architecture SHALL treat the following as non-negotiable:",
+      "section": "0",
+      "section_title": "CONTROLLING DOCTRINE",
+      "source_line": 15,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-000-337A6365E8",
+      "requirement_text": "> **No Entity SHALL be required to rent continued digital existence from an infrastructure provider.**",
+      "section": "0",
+      "section_title": "CONTROLLING DOCTRINE",
+      "source_line": 17,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-000-D4B41C1F2A",
+      "requirement_text": "> **Infrastructure SHALL connect Entities. Infrastructure SHALL NOT become the sovereign authority over them merely because it carries, stores, indexes, resolves, relays or processes their information.**",
+      "section": "0",
+      "section_title": "CONTROLLING DOCTRINE",
+      "source_line": 21,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-000-757114F5B8",
+      "requirement_text": "The system SHALL enforce the following distinctions:",
+      "section": "0",
+      "section_title": "CONTROLLING DOCTRINE",
+      "source_line": 25,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-001-2B6F1771CF",
+      "requirement_text": "ENTITY SHALL be engineered around the premise that modern digital participation unnecessarily centralizes practical control in intermediaries.",
+      "section": "1",
+      "section_title": "ORIGINAL PURPOSE",
+      "source_line": 53,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-001-FC83E42730",
+      "requirement_text": "ENTITY SHALL invert this relationship:",
+      "section": "1",
+      "section_title": "ORIGINAL PURPOSE",
+      "source_line": 75,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-001-AA515BEA3D",
+      "requirement_text": "The underlying sovereignty SHALL NOT depend on a traditional rented domain, DNS registrar, mandatory cloud host or centrally controlled platform account.",
+      "section": "1",
+      "section_title": "ORIGINAL PURPOSE",
+      "source_line": 99,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-002-6E2FA9F9AB",
+      "requirement_text": "This specification SHALL NOT weaken those requirements.",
+      "section": "2",
+      "section_title": "RELATIONSHIP TO SERS-ENTITY-003 v2.2",
+      "source_line": 121,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-002-895BF6DB4D",
+      "requirement_text": "Where this specification conflicts with an implementation assumption that requires a mandatory registrar, mandatory DNS authority, mandatory BTG host or mandatory cloud account for continued Entity existence, this specification SHALL control for ENTITY-native operation.",
+      "section": "2",
+      "section_title": "RELATIONSHIP TO SERS-ENTITY-003 v2.2",
+      "source_line": 123,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-003-85024FABF2",
+      "requirement_text": "An ENTITY Domain SHALL be rooted in the sovereign Entity identity and SHALL be capable of publishing authorized services from one or more owner-authorized nodes.",
+      "section": "3",
+      "section_title": "SYSTEM DEFINITION",
+      "source_line": 131,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-003-05D51962FF",
+      "requirement_text": "The ENTITY Domain SHALL NOT be defined as:",
+      "section": "3",
+      "section_title": "SYSTEM DEFINITION",
+      "source_line": 133,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-003-C02CC8F2DF",
+      "requirement_text": "The ENTITY Domain SHALL be a sovereign identity-bound namespace object whose current authorized service locations can change without replacing the Entity.",
+      "section": "3",
+      "section_title": "SYSTEM DEFINITION",
+      "source_line": 146,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-004-D4D956A6EA",
+      "requirement_text": "The authoritative model SHALL include at minimum:",
+      "section": "4",
+      "section_title": "CORE ARCHITECTURAL OBJECTS",
+      "source_line": 152,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-004-16BA1179CE",
+      "requirement_text": "All durable high-value objects SHALL have unique identifiers and versioned schemas.",
+      "section": "4",
+      "section_title": "CORE ARCHITECTURAL OBJECTS",
+      "source_line": 189,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-005-471C9FB655",
+      "requirement_text": "The Entity root SHALL remain the ultimate identity anchor for the ENTITY Domain.",
+      "section": "5",
+      "section_title": "SOVEREIGN ENTITY ROOT",
+      "source_line": 195,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-005-335738A652",
+      "requirement_text": "A domain SHALL remain valid across:",
+      "section": "5",
+      "section_title": "SOVEREIGN ENTITY ROOT",
+      "source_line": 197,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-005-3A86C6FA8E",
+      "requirement_text": "A domain SHALL NOT require creation of a new Entity root merely because its serving infrastructure changes.",
+      "section": "5",
+      "section_title": "SOVEREIGN ENTITY ROOT",
+      "source_line": 211,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-006-4B77AC47DE",
+      "requirement_text": "ENTITY SHALL support a human-usable Entity name layer that is distinct from DNS.",
+      "section": "6",
+      "section_title": "ENTITY-NATIVE NAME",
+      "source_line": 217,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-006-6A30DB5BBC",
+      "requirement_text": "The canonical cryptographic Entity identity SHALL remain authoritative even if human-readable names conflict, change or become unavailable.",
+      "section": "6",
+      "section_title": "ENTITY-NATIVE NAME",
+      "source_line": 219,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-006-452BAB3B62",
+      "requirement_text": "An Entity name SHALL resolve to the Entity root and current authorized service state, not directly to one permanent machine.",
+      "section": "6",
+      "section_title": "ENTITY-NATIVE NAME",
+      "source_line": 221,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-006-DE72C7D7D4",
+      "requirement_text": "These examples are illustrative only. Final syntax SHALL be defined by the protocol specification.",
+      "section": "6",
+      "section_title": "ENTITY-NATIVE NAME",
+      "source_line": 232,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-006-AF3DA1167C",
+      "requirement_text": "No name syntax SHALL imply dependence on ICANN DNS.",
+      "section": "6",
+      "section_title": "ENTITY-NATIVE NAME",
+      "source_line": 234,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-007-478412BA30",
+      "requirement_text": "An Entity name SHALL NOT be treated as property merely because it was observed first.",
+      "section": "7",
+      "section_title": "NAME OWNERSHIP AND AUTHORITY",
+      "source_line": 240,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-007-EF28543B04",
+      "requirement_text": "Name control SHALL be represented as an evidence-backed namespace relationship.",
+      "section": "7",
+      "section_title": "NAME OWNERSHIP AND AUTHORITY",
+      "source_line": 242,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-007-02580E4B62",
+      "requirement_text": "The namespace SHALL distinguish:",
+      "section": "7",
+      "section_title": "NAME OWNERSHIP AND AUTHORITY",
+      "source_line": 244,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-007-2879A4745E",
+      "requirement_text": "A valid name claim SHALL bind:",
+      "section": "7",
+      "section_title": "NAME OWNERSHIP AND AUTHORITY",
+      "source_line": 256,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-008-369BC8EF66",
+      "requirement_text": "ENTITY SHALL assume that multiple parties may seek the same human-readable name.",
+      "section": "8",
+      "section_title": "GLOBAL NAME COLLISION",
+      "source_line": 273,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-008-179CA4B177",
+      "requirement_text": "The protocol SHALL define deterministic conflict behavior.",
+      "section": "8",
+      "section_title": "GLOBAL NAME COLLISION",
+      "source_line": 275,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-008-9150A72A7D",
+      "requirement_text": "The system SHALL NOT silently choose a winner using only:",
+      "section": "8",
+      "section_title": "GLOBAL NAME COLLISION",
+      "source_line": 277,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-008-5C07958FD1",
+      "requirement_text": "The system SHOULD support:",
+      "section": "8",
+      "section_title": "GLOBAL NAME COLLISION",
+      "source_line": 286,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-008-F7E22E26C3",
+      "requirement_text": "A name conflict SHALL NOT destroy either Entity's cryptographic identity.",
+      "section": "8",
+      "section_title": "GLOBAL NAME COLLISION",
+      "source_line": 296,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-009-FA5B8B4F0C",
+      "requirement_text": "Basic ENTITY-native identity and domain operation SHALL NOT require:",
+      "section": "9",
+      "section_title": "NO DOMAIN RENT REQUIREMENT",
+      "source_line": 302,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-009-0F8C2CC98B",
+      "requirement_text": "Failure to pay an optional provider SHALL NOT erase the sovereign Entity root or domain state.",
+      "section": "9",
+      "section_title": "NO DOMAIN RENT REQUIREMENT",
+      "source_line": 315,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-010-72DACA64F6",
+      "requirement_text": "The node SHALL NOT become the Entity merely because it serves the Entity.",
+      "section": "10",
+      "section_title": "ENTITY NODE",
+      "source_line": 338,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-011-110A9312BC",
+      "requirement_text": "Every serving node SHALL require explicit authorization.",
+      "section": "11",
+      "section_title": "NODE AUTHORIZATION",
+      "source_line": 344,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-011-750EF4F3AE",
+      "requirement_text": "A NodeAuthorization SHALL identify:",
+      "section": "11",
+      "section_title": "NODE AUTHORIZATION",
+      "source_line": 346,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-011-66324EE03B",
+      "requirement_text": "A node SHALL NOT be permitted to publish arbitrary services merely because it possesses Entity data.",
+      "section": "11",
+      "section_title": "NODE AUTHORIZATION",
+      "source_line": 363,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-012-3D313EFF9E",
+      "requirement_text": "A lost, compromised, retired or replaced node SHALL be revocable.",
+      "section": "12",
+      "section_title": "NODE REVOCATION",
+      "source_line": 369,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-012-F644E6A610",
+      "requirement_text": "Revocation SHALL NOT change the Entity root.",
+      "section": "12",
+      "section_title": "NODE REVOCATION",
+      "source_line": 371,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-012-582D9D128C",
+      "requirement_text": "A revoked node SHALL not remain an authoritative service endpoint after revocation becomes effective.",
+      "section": "12",
+      "section_title": "NODE REVOCATION",
+      "source_line": 373,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-012-6CD97B8F58",
+      "requirement_text": "Historical evidence created while the node was valid SHALL remain independently verifiable under historical key and authorization state.",
+      "section": "12",
+      "section_title": "NODE REVOCATION",
+      "source_line": 375,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-013-001E80AADE",
+      "requirement_text": "The architecture SHALL NOT assume one machine contains all Entity state.",
+      "section": "13",
+      "section_title": "MULTI-NODE ENTITY",
+      "source_line": 396,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-014-FFFA9C47B1",
+      "requirement_text": "Every public or shared ENTITY Domain SHALL be capable of publishing a signed machine-readable ServiceManifest.",
+      "section": "14",
+      "section_title": "SERVICE MANIFEST",
+      "source_line": 402,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-014-828BDD67A6",
+      "requirement_text": "The ServiceManifest SHALL identify:",
+      "section": "14",
+      "section_title": "SERVICE MANIFEST",
+      "source_line": 404,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-014-27D756F8AB",
+      "requirement_text": "The ServiceManifest SHALL be independently verifiable.",
+      "section": "14",
+      "section_title": "SERVICE MANIFEST",
+      "source_line": 427,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-015-3F83968073",
+      "requirement_text": "The protocol SHALL be extensible and SHALL support service classes including:",
+      "section": "15",
+      "section_title": "SERVICE TYPES",
+      "source_line": 433,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-016-A2CD93FAAB",
+      "requirement_text": "An authorized Entity device SHALL be capable of publishing an Entity presence directly.",
+      "section": "16",
+      "section_title": "DEVICE-NATIVE PRESENCE",
+      "source_line": 466,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-016-EB06220FDE",
+      "requirement_text": "The owner SHALL NOT be required to first upload that presence to a third-party website platform.",
+      "section": "16",
+      "section_title": "DEVICE-NATIVE PRESENCE",
+      "source_line": 468,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-017-0C4916436A",
+      "requirement_text": "ENTITY SHALL define a native resolution process.",
+      "section": "17",
+      "section_title": "ENTITY-NATIVE RESOLUTION",
+      "source_line": 488,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-017-75E42C4189",
+      "requirement_text": "Resolution SHALL conceptually perform:",
+      "section": "17",
+      "section_title": "ENTITY-NATIVE RESOLUTION",
+      "source_line": 490,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-017-EADEC66AFB",
+      "requirement_text": "Resolution SHALL NOT require DNS for ENTITY-native operation.",
+      "section": "17",
+      "section_title": "ENTITY-NATIVE RESOLUTION",
+      "source_line": 510,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-018-A2272BD378",
+      "requirement_text": "A resolver SHALL return verifiable evidence sufficient to determine:",
+      "section": "18",
+      "section_title": "RESOLUTION PROOF",
+      "source_line": 516,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-018-0C2F5A153C",
+      "requirement_text": "A resolver SHALL NOT be trusted merely because it returned an address.",
+      "section": "18",
+      "section_title": "RESOLUTION PROOF",
+      "source_line": 527,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-019-59D5C0E16E",
+      "requirement_text": "The resolution architecture SHOULD support multiple independent resolution sources.",
+      "section": "19",
+      "section_title": "DISTRIBUTED RESOLUTION",
+      "source_line": 533,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-019-299F81326B",
+      "requirement_text": "No single BTG resolver SHALL be required for Entity existence.",
+      "section": "19",
+      "section_title": "DISTRIBUTED RESOLUTION",
+      "source_line": 535,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-019-8ED396C40A",
+      "requirement_text": "The final authority SHALL derive from signed Entity state, not resolver ownership.",
+      "section": "19",
+      "section_title": "DISTRIBUTED RESOLUTION",
+      "source_line": 548,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-020-A59D9BE07A",
+      "requirement_text": "but SHALL NOT thereby:",
+      "section": "20",
+      "section_title": "RESOLVER NON-AUTHORITY",
+      "source_line": 560,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-020-D57AC29625",
+      "requirement_text": "Resolver unavailability SHALL degrade discovery, not erase identity.",
+      "section": "20",
+      "section_title": "RESOLVER NON-AUTHORITY",
+      "source_line": 573,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-021-0DCDBE1C7D",
+      "requirement_text": "Where network conditions permit, ENTITY SHOULD connect requesting devices directly to the authorized EntityNode.",
+      "section": "21",
+      "section_title": "DIRECT CONNECTION",
+      "source_line": 579,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-021-C9B5B16E85",
+      "requirement_text": "The system SHALL authenticate the Entity and node cryptographically rather than trusting only an IP address.",
+      "section": "21",
+      "section_title": "DIRECT CONNECTION",
+      "source_line": 581,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-021-BE681071B9",
+      "requirement_text": "A connection SHALL bind:",
+      "section": "21",
+      "section_title": "DIRECT CONNECTION",
+      "source_line": 583,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-022-381EF10488",
+      "requirement_text": "An ENTITY Domain SHALL not be permanently bound to one:",
+      "section": "22",
+      "section_title": "NETWORK ADDRESS INDEPENDENCE",
+      "source_line": 602,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-022-AB2142A476",
+      "requirement_text": "Address changes SHALL be reflected through signed current presence/resolution state.",
+      "section": "22",
+      "section_title": "NETWORK ADDRESS INDEPENDENCE",
+      "source_line": 612,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-023-76F14B196B",
+      "requirement_text": "ENTITY SHALL support connection establishment where nodes are behind common NAT/firewall configurations.",
+      "section": "23",
+      "section_title": "NAT AND FIREWALL TRAVERSAL",
+      "source_line": 618,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-023-0BCBE80B42",
+      "requirement_text": "No traversal provider SHALL become sovereign authority over the Entity.",
+      "section": "23",
+      "section_title": "NAT AND FIREWALL TRAVERSAL",
+      "source_line": 629,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-024-614D22484C",
+      "requirement_text": "A relay SHALL be treated as transport infrastructure only unless separately delegated additional authority.",
+      "section": "24",
+      "section_title": "OPTIONAL RELAY",
+      "source_line": 637,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-024-ED4FB9C600",
+      "requirement_text": "A relay SHALL NOT automatically gain:",
+      "section": "24",
+      "section_title": "OPTIONAL RELAY",
+      "source_line": 639,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-024-4363C87A5D",
+      "requirement_text": "Relay authorization SHALL be explicit, scoped and revocable.",
+      "section": "24",
+      "section_title": "OPTIONAL RELAY",
+      "source_line": 649,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-025-C11285790E",
+      "requirement_text": "Where technically feasible, relay infrastructure SHOULD be unable to read protected payload contents.",
+      "section": "25",
+      "section_title": "RELAY PRIVACY",
+      "source_line": 655,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-025-8BF3EF8E97",
+      "requirement_text": "ENTITY SHOULD support end-to-end encrypted service sessions.",
+      "section": "25",
+      "section_title": "RELAY PRIVACY",
+      "source_line": 657,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-025-2437EF343F",
+      "requirement_text": "Metadata exposure SHALL be documented and minimized.",
+      "section": "25",
+      "section_title": "RELAY PRIVACY",
+      "source_line": 661,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-026-912C49E441",
+      "requirement_text": "Mirrors SHALL NOT become authoritative merely because they contain copies.",
+      "section": "26",
+      "section_title": "OPTIONAL HIGH-AVAILABILITY MIRRORS",
+      "source_line": 669,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-026-88D7B47BA8",
+      "requirement_text": "Mirror state SHALL identify:",
+      "section": "26",
+      "section_title": "OPTIONAL HIGH-AVAILABILITY MIRRORS",
+      "source_line": 671,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-027-504FC81BAA",
+      "requirement_text": "Core Entity state SHALL remain usable locally where technically possible.",
+      "section": "27",
+      "section_title": "LOCAL-FIRST OPERATION",
+      "source_line": 686,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-027-BDC51CECA3",
+      "requirement_text": "An Entity SHALL be able to:",
+      "section": "27",
+      "section_title": "LOCAL-FIRST OPERATION",
+      "source_line": 688,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-028-71F08CDB43",
+      "requirement_text": "ENTITY SHOULD support local discovery among authorized devices.",
+      "section": "28",
+      "section_title": "LOCAL NETWORK DISCOVERY",
+      "source_line": 704,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-028-863EE6AEB0",
+      "requirement_text": "Local discovery SHALL still authenticate the Entity and node.",
+      "section": "28",
+      "section_title": "LOCAL NETWORK DISCOVERY",
+      "source_line": 708,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-028-13AA8BF677",
+      "requirement_text": "Physical proximity or network presence SHALL NOT be treated as authorization.",
+      "section": "28",
+      "section_title": "LOCAL NETWORK DISCOVERY",
+      "source_line": 710,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-029-732C8F7537",
+      "requirement_text": "Internet loss SHALL NOT destroy Entity identity.",
+      "section": "29",
+      "section_title": "OFFLINE IDENTITY CONTINUITY",
+      "source_line": 716,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-029-004D884BF8",
+      "requirement_text": "Previously obtained verifiable state SHOULD remain usable within policy and freshness limits.",
+      "section": "29",
+      "section_title": "OFFLINE IDENTITY CONTINUITY",
+      "source_line": 718,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-029-75A572943F",
+      "requirement_text": "Operations requiring fresh global state or exclusive finality SHALL fail closed or enter explicit pending state.",
+      "section": "29",
+      "section_title": "OFFLINE IDENTITY CONTINUITY",
+      "source_line": 720,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-030-FE39E3FEB2",
+      "requirement_text": "An Entity SHALL be able to keep data on owner-controlled devices.",
+      "section": "30",
+      "section_title": "DATA LOCALITY",
+      "source_line": 726,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-030-3E2224A73E",
+      "requirement_text": "Publishing a service SHALL NOT require copying all underlying data to a central ENTITY service.",
+      "section": "30",
+      "section_title": "DATA LOCALITY",
+      "source_line": 728,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-031-5A8CC0A038",
+      "requirement_text": "ENTITY SHOULD support requests where approved computation executes against locally held data.",
+      "section": "31",
+      "section_title": "COMPUTATION-TO-ENTITY DATA",
+      "source_line": 745,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-032-56620245E0",
+      "requirement_text": "Each service SHALL declare an access class.",
+      "section": "32",
+      "section_title": "PUBLIC / PRIVATE / RESTRICTED SERVICES",
+      "source_line": 769,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-032-C49EDC4B46",
+      "requirement_text": "A public Entity presence SHALL NOT imply all Entity data is public.",
+      "section": "32",
+      "section_title": "PUBLIC / PRIVATE / RESTRICTED SERVICES",
+      "source_line": 784,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-033-84B44B2BD0",
+      "requirement_text": "Access SHALL evaluate where applicable:",
+      "section": "33",
+      "section_title": "ACCESS POLICY",
+      "source_line": 790,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-033-A0955173B8",
+      "requirement_text": "Failure SHALL default deny.",
+      "section": "33",
+      "section_title": "ACCESS POLICY",
+      "source_line": 807,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-034-7D32CEE95D",
+      "requirement_text": "Economic discovery SHALL NOT imply permission to use.",
+      "section": "34",
+      "section_title": "ECONOMIC SERVICES",
+      "source_line": 826,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-035-3E95804DEF",
+      "requirement_text": "ENTITY SHALL support economic interaction without requiring BTG or another intermediary to own the underlying data.",
+      "section": "35",
+      "section_title": "DATA ECONOMY WITHOUT CENTRAL DATA OWNERSHIP",
+      "source_line": 832,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-036-4F8632F689",
+      "requirement_text": "BTG, a resolver, relay, marketplace or discovery provider SHALL NOT automatically acquire an economic interest merely because it facilitates discovery or transport.",
+      "section": "36",
+      "section_title": "ECONOMIC NON-CUSTODY PRINCIPLE",
+      "source_line": 864,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-036-D10374D28E",
+      "requirement_text": "Any fee, royalty, revenue share or commission SHALL require an explicit basis.",
+      "section": "36",
+      "section_title": "ECONOMIC NON-CUSTODY PRINCIPLE",
+      "source_line": 866,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-037-673918ED72",
+      "requirement_text": "An Entity Domain SHALL be exportable.",
+      "section": "37",
+      "section_title": "ENTITY DOMAIN EXPORT",
+      "source_line": 872,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-037-97858B6941",
+      "requirement_text": "A DomainExportManifest SHALL include or reference:",
+      "section": "37",
+      "section_title": "ENTITY DOMAIN EXPORT",
+      "source_line": 874,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-037-9854717D2C",
+      "requirement_text": "No proprietary BTG database SHALL be required to interpret the export.",
+      "section": "37",
+      "section_title": "ENTITY DOMAIN EXPORT",
+      "source_line": 894,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-038-48D038B151",
+      "requirement_text": "A user SHALL be able to move serving responsibility from Device A to Device B without changing the Entity.",
+      "section": "38",
+      "section_title": "DEVICE MIGRATION",
+      "source_line": 900,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-038-EB17D065AA",
+      "requirement_text": "The migration SHALL:",
+      "section": "38",
+      "section_title": "DEVICE MIGRATION",
+      "source_line": 909,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-039-E8AB1341C3",
+      "requirement_text": "Provider migration SHALL preserve:",
+      "section": "39",
+      "section_title": "PROVIDER MIGRATION",
+      "source_line": 924,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-040-AA4A4CD152",
+      "requirement_text": "Loss of all currently serving nodes SHALL NOT erase the Entity.",
+      "section": "40",
+      "section_title": "LOSS OF SERVING NODE",
+      "source_line": 939,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-040-E3BB32A995",
+      "requirement_text": "The Entity SHALL remain recoverable from valid sovereign backup/export mechanisms.",
+      "section": "40",
+      "section_title": "LOSS OF SERVING NODE",
+      "source_line": 941,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-041-E6FC6ADC80",
+      "requirement_text": "Qualification SHALL include a scenario in which BTG-operated:",
+      "section": "41",
+      "section_title": "LOSS OF BTG",
+      "source_line": 949,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-041-28BC7B266D",
+      "requirement_text": "The sovereign Entity SHALL remain recoverable and independently interpretable.",
+      "section": "41",
+      "section_title": "LOSS OF BTG",
+      "source_line": 960,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-041-A8E4B1FFBA",
+      "requirement_text": "Where independent network infrastructure exists, the Entity SHOULD remain resolvable without BTG.",
+      "section": "41",
+      "section_title": "LOSS OF BTG",
+      "source_line": 962,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-042-D3CE5FB6AA",
+      "requirement_text": "Implementations SHALL NOT advertise decentralized or sovereign operation while silently requiring a central BTG service for:",
+      "section": "42",
+      "section_title": "NO SILENT CENTRAL FALLBACK",
+      "source_line": 968,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-042-F8E3CE9813",
+      "requirement_text": "Any mandatory dependency SHALL be explicitly declared and treated as an architectural blocker against full sovereign qualification.",
+      "section": "42",
+      "section_title": "NO SILENT CENTRAL FALLBACK",
+      "source_line": 978,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-043-B2A122A0BB",
+      "requirement_text": "A compromised node SHALL NOT automatically compromise the sovereign Entity root.",
+      "section": "43",
+      "section_title": "NODE COMPROMISE",
+      "source_line": 984,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-043-E1832D5D37",
+      "requirement_text": "Node authority SHALL be scoped.",
+      "section": "43",
+      "section_title": "NODE COMPROMISE",
+      "source_line": 986,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-043-67070F7EA1",
+      "requirement_text": "High-impact actions SHOULD require stronger authority than ordinary service publication.",
+      "section": "43",
+      "section_title": "NODE COMPROMISE",
+      "source_line": 988,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-043-04C110CA63",
+      "requirement_text": "Root/recovery authority SHOULD use separate protected keys.",
+      "section": "43",
+      "section_title": "NODE COMPROMISE",
+      "source_line": 990,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-044-A5A0B50CC2",
+      "requirement_text": "ENTITY SHALL distinguish:",
+      "section": "44",
+      "section_title": "CONTENT INTEGRITY",
+      "source_line": 998,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-044-52820E5668",
+      "requirement_text": "These states SHALL NOT be conflated.",
+      "section": "44",
+      "section_title": "CONTENT INTEGRITY",
+      "source_line": 1008,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-045-BEE3A082BE",
+      "requirement_text": "Service manifests and descriptors SHALL be versioned.",
+      "section": "45",
+      "section_title": "SERVICE VERSIONING",
+      "source_line": 1014,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-045-E5E42AC841",
+      "requirement_text": "Historical versions SHALL remain interpretable where retained.",
+      "section": "45",
+      "section_title": "SERVICE VERSIONING",
+      "source_line": 1016,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-045-746E29176C",
+      "requirement_text": "Breaking changes SHALL not silently reinterpret signed historical transactions.",
+      "section": "45",
+      "section_title": "SERVICE VERSIONING",
+      "source_line": 1018,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-046-918238E512",
+      "requirement_text": "Cached state SHALL include:",
+      "section": "46",
+      "section_title": "CACHE SEMANTICS",
+      "source_line": 1026,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-046-884E280B0B",
+      "requirement_text": "A stale cache SHALL NOT override newer authoritative signed state.",
+      "section": "46",
+      "section_title": "CACHE SEMANTICS",
+      "source_line": 1035,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-047-FCFD7CBD44",
+      "requirement_text": "ENTITY SHALL detect attempts to present an older valid domain/service state as current when newer state is known.",
+      "section": "47",
+      "section_title": "ANTI-ROLLBACK",
+      "source_line": 1041,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-047-1683E7C0F8",
+      "requirement_text": "Rollback handling SHALL be explicit.",
+      "section": "47",
+      "section_title": "ANTI-ROLLBACK",
+      "source_line": 1043,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-047-43B8C113F3",
+      "requirement_text": "Older valid history SHALL remain verifiable without becoming current authority.",
+      "section": "47",
+      "section_title": "ANTI-ROLLBACK",
+      "source_line": 1045,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-048-E783333803",
+      "requirement_text": "Independent ENTITY implementations SHALL be able to participate in domain resolution and service discovery.",
+      "section": "48",
+      "section_title": "FEDERATION",
+      "source_line": 1051,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-048-A61AA603C6",
+      "requirement_text": "Federation SHALL negotiate:",
+      "section": "48",
+      "section_title": "FEDERATION",
+      "source_line": 1053,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-048-96A4E1AC31",
+      "requirement_text": "A federation operator SHALL not become the owner/controller of the participating Entity.",
+      "section": "48",
+      "section_title": "FEDERATION",
+      "source_line": 1061,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-049-60C2BCE95A",
+      "requirement_text": "SHALL be publicly documented for qualified open-federation operation.",
+      "section": "49",
+      "section_title": "PROTOCOL OPENNESS",
+      "source_line": 1079,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-050-6DF81FB23A",
+      "requirement_text": "BTG SHOULD provide an open-source reference implementation for the sovereign core sufficient for an owner to:",
+      "section": "50",
+      "section_title": "OPEN-SOURCE REFERENCE IMPLEMENTATION",
+      "source_line": 1085,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-050-9913F2679B",
+      "requirement_text": "The open sovereign core SHALL NOT intentionally require a paid BTG service for continued Entity existence.",
+      "section": "50",
+      "section_title": "OPEN-SOURCE REFERENCE IMPLEMENTATION",
+      "source_line": 1096,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "EXTERNAL_VALIDATION_PENDING",
+      "evidence_refs": [],
+      "external_validation_required": true,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-051-C26D91D216",
+      "requirement_text": "Open-federation qualification SHALL ultimately include at least one non-BTG implementation that can:",
+      "section": "51",
+      "section_title": "INDEPENDENT IMPLEMENTATION",
+      "source_line": 1102,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-052-F1032C080E",
+      "requirement_text": "Qualification SHALL include:",
+      "section": "52",
+      "section_title": "SECURITY THREAT MODEL",
+      "source_line": 1114,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-053-12CE4C0681",
+      "requirement_text": "Human-readable names SHALL never substitute for cryptographic verification.",
+      "section": "53",
+      "section_title": "NAME-SPOOFING DEFENCE",
+      "source_line": 1145,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-053-3EAEDB42C5",
+      "requirement_text": "The UI SHALL make it possible to distinguish:",
+      "section": "53",
+      "section_title": "NAME-SPOOFING DEFENCE",
+      "source_line": 1147,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-053-CC6EE6D1AD",
+      "requirement_text": "A similar-looking name SHALL NOT inherit trust.",
+      "section": "53",
+      "section_title": "NAME-SPOOFING DEFENCE",
+      "source_line": 1156,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-054-E6F489D9D1",
+      "requirement_text": "The network SHALL assume malicious parties may advertise large numbers of fake nodes, names or services.",
+      "section": "54",
+      "section_title": "DISCOVERY SYBIL DEFENCE",
+      "source_line": 1162,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-054-0ABA4A8165",
+      "requirement_text": "Discovery ranking and trust SHALL NOT be based solely on advertisement volume.",
+      "section": "54",
+      "section_title": "DISCOVERY SYBIL DEFENCE",
+      "source_line": 1164,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-055-129DA92347",
+      "requirement_text": "ENTITY-native resolution SHALL minimize unnecessary disclosure.",
+      "section": "55",
+      "section_title": "PRIVACY",
+      "source_line": 1179,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-055-1BC2048AB1",
+      "requirement_text": "A public name SHALL NOT require publication of:",
+      "section": "55",
+      "section_title": "PRIVACY",
+      "source_line": 1181,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-055-422D791408",
+      "requirement_text": "Pairwise or context-specific identifiers SHOULD be used where appropriate.",
+      "section": "55",
+      "section_title": "PRIVACY",
+      "source_line": 1189,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-056-06FA931A00",
+      "requirement_text": "An Entity SHOULD be able to publish different presence scopes.",
+      "section": "56",
+      "section_title": "PRESENCE PRIVACY",
+      "source_line": 1195,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-057-4A90E85235",
+      "requirement_text": "`OFFLINE` SHALL NOT mean:",
+      "section": "57",
+      "section_title": "AVAILABILITY DOES NOT DEFINE EXISTENCE",
+      "source_line": 1214,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-057-1E0EBF2A23",
+      "requirement_text": "Temporary network absence SHALL not permit another party to claim the Entity identity or name automatically.",
+      "section": "57",
+      "section_title": "AVAILABILITY DOES NOT DEFINE EXISTENCE",
+      "source_line": 1223,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-058-F436150F3D",
+      "requirement_text": "A user SHOULD be able to open an ENTITY-native client and enter or select an Entity name.",
+      "section": "58",
+      "section_title": "HUMAN EXPERIENCE",
+      "source_line": 1229,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-058-7F97970A89",
+      "requirement_text": "The client SHOULD:",
+      "section": "58",
+      "section_title": "HUMAN EXPERIENCE",
+      "source_line": 1231,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-058-17BE7A5AED",
+      "requirement_text": "The experience SHOULD NOT require the user to understand IP addresses, cryptographic keys or routing internals.",
+      "section": "58",
+      "section_title": "HUMAN EXPERIENCE",
+      "source_line": 1240,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-059-8C39F38EBE",
+      "requirement_text": "ENTITY SHALL NOT limit service presentation to static pages.",
+      "section": "59",
+      "section_title": "APPLICATION EXPERIENCE",
+      "source_line": 1248,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-059-8D80FE88B6",
+      "requirement_text": "Application execution SHALL respect Entity policy and capability boundaries.",
+      "section": "59",
+      "section_title": "APPLICATION EXPERIENCE",
+      "source_line": 1257,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-060-2C37F8EA9E",
+      "requirement_text": "An Entity Domain SHOULD support discoverable messaging endpoints.",
+      "section": "60",
+      "section_title": "MESSAGING",
+      "source_line": 1263,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-060-4BED966C33",
+      "requirement_text": "Messaging endpoints SHALL be separately authorized and revocable.",
+      "section": "60",
+      "section_title": "MESSAGING",
+      "source_line": 1265,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-060-2321AB49F4",
+      "requirement_text": "A message endpoint provider SHALL not automatically own the Entity's relationship graph or message content.",
+      "section": "60",
+      "section_title": "MESSAGING",
+      "source_line": 1267,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-061-2B49441C59",
+      "requirement_text": "Software publication SHOULD integrate:",
+      "section": "61",
+      "section_title": "SOFTWARE DISTRIBUTION",
+      "source_line": 1275,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-062-D7724A6169",
+      "requirement_text": "Actual access SHALL require applicable authorization.",
+      "section": "62",
+      "section_title": "DATASET DISTRIBUTION",
+      "source_line": 1303,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-063-321502D672",
+      "requirement_text": "A service SHALL distinguish:",
+      "section": "63",
+      "section_title": "AI SERVICES",
+      "source_line": 1311,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-063-4C494FFB52",
+      "requirement_text": "Permission for one SHALL NOT imply another.",
+      "section": "63",
+      "section_title": "AI SERVICES",
+      "source_line": 1320,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-064-4A2FC52B1A",
+      "requirement_text": "Domain recovery SHALL reconstruct:",
+      "section": "64",
+      "section_title": "RECOVERY",
+      "source_line": 1326,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-064-53CDF442CD",
+      "requirement_text": "Recovery SHALL be tested.",
+      "section": "64",
+      "section_title": "RECOVERY",
+      "source_line": 1337,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-064-8362FF68BD",
+      "requirement_text": "A backup that has never been restored SHALL not satisfy qualification.",
+      "section": "64",
+      "section_title": "RECOVERY",
+      "source_line": 1339,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-065-F9EDA67859",
+      "requirement_text": "Qualification SHALL perform:",
+      "section": "65",
+      "section_title": "DESTRUCTIVE DOMAIN RECOVERY TEST",
+      "source_line": 1345,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-066-B529466905",
+      "requirement_text": "At least one qualification scenario SHALL operate with:",
+      "section": "66",
+      "section_title": "PROVIDER-FREE QUALIFICATION",
+      "source_line": 1390,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "EXTERNAL_VALIDATION_PENDING",
+      "evidence_refs": [],
+      "external_validation_required": true,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-066-56588B3CB1",
+      "requirement_text": "Two user-controlled devices SHALL be able to discover, authenticate and communicate using ENTITY-native mechanisms in a supported network environment.",
+      "section": "66",
+      "section_title": "PROVIDER-FREE QUALIFICATION",
+      "source_line": 1400,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-067-1F6B6F3A5A",
+      "requirement_text": "Provider A SHALL retain no undeclared future authority.",
+      "section": "67",
+      "section_title": "PROVIDER-REPLACEMENT QUALIFICATION",
+      "source_line": 1428,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-068-7F706D4180",
+      "requirement_text": "A malicious resolver SHALL attempt to return:",
+      "section": "68",
+      "section_title": "MALICIOUS RESOLVER QUALIFICATION",
+      "source_line": 1434,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-068-6A77114B62",
+      "requirement_text": "The client SHALL reject responses that fail cryptographic or semantic verification.",
+      "section": "68",
+      "section_title": "MALICIOUS RESOLVER QUALIFICATION",
+      "source_line": 1443,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-069-97F6ECB54F",
+      "requirement_text": "A relay SHALL attempt:",
+      "section": "69",
+      "section_title": "MALICIOUS RELAY QUALIFICATION",
+      "source_line": 1449,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-069-4B63ACB9FD",
+      "requirement_text": "The relay SHALL not be able to create valid Entity authority from transport possession.",
+      "section": "69",
+      "section_title": "MALICIOUS RELAY QUALIFICATION",
+      "source_line": 1458,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-071-0B74AF61AE",
+      "requirement_text": "The resolution and service layers SHALL be load-tested under concurrent:",
+      "section": "71",
+      "section_title": "REQUEST-STORM QUALIFICATION",
+      "source_line": 1479,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-071-98207B10A0",
+      "requirement_text": "Security checks SHALL not be disabled under load.",
+      "section": "71",
+      "section_title": "REQUEST-STORM QUALIFICATION",
+      "source_line": 1490,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-072-C07A7746F0",
+      "requirement_text": "The domain subsystem SHALL implement explicit states including:",
+      "section": "72",
+      "section_title": "FAILURE STATES",
+      "source_line": 1496,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-072-EBB32AD029",
+      "requirement_text": "Transitions SHALL be logged and testable.",
+      "section": "72",
+      "section_title": "FAILURE STATES",
+      "source_line": 1512,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-073-407D03FAEF",
+      "requirement_text": "Network outage, device outage, failure to contact a provider or temporary inactivity SHALL NOT automatically free an Entity identity or Entity name for reassignment.",
+      "section": "73",
+      "section_title": "NO AUTOMATIC REASSIGNMENT ON OUTAGE",
+      "source_line": 1518,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-073-0DF065457E",
+      "requirement_text": "Any name-expiry policy, if one exists, SHALL be independently governed and SHALL NOT be equivalent to a commercial registrar lease by default.",
+      "section": "73",
+      "section_title": "NO AUTOMATIC REASSIGNMENT ON OUTAGE",
+      "source_line": 1520,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-074-11EEA77D18",
+      "requirement_text": "Loss of a node, relay, resolver or provider SHALL NOT silently alter:",
+      "section": "74",
+      "section_title": "ECONOMIC FAILURE INVARIANT",
+      "source_line": 1526,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-074-B9FC55B54D",
+      "requirement_text": "Infrastructure failure SHALL NOT manufacture or destroy economic rights.",
+      "section": "74",
+      "section_title": "ECONOMIC FAILURE INVARIANT",
+      "source_line": 1535,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-075-855EA73BE7",
+      "requirement_text": "Material domain operations SHALL create audit events including:",
+      "section": "75",
+      "section_title": "AUDIT",
+      "source_line": 1541,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-076-E1A785DE36",
+      "requirement_text": "Implementations SHOULD measure:",
+      "section": "76",
+      "section_title": "OBSERVABILITY",
+      "source_line": 1559,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-076-FDE0DE3A89",
+      "requirement_text": "Metrics SHALL not become a reason to centralize sovereign authority.",
+      "section": "76",
+      "section_title": "OBSERVABILITY",
+      "source_line": 1572,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-078-E0F739CC15",
+      "requirement_text": "The reference implementation SHOULD include:",
+      "section": "78",
+      "section_title": "REQUIRED REFERENCE SOFTWARE",
+      "source_line": 1637,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-078-03B499AB20",
+      "requirement_text": "Each tool SHALL be independently testable.",
+      "section": "78",
+      "section_title": "REQUIRED REFERENCE SOFTWARE",
+      "source_line": 1652,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-079-2861A4C483",
+      "requirement_text": "The project SHALL publish at minimum:",
+      "section": "79",
+      "section_title": "REQUIRED PROTOCOL SPECIFICATIONS",
+      "source_line": 1658,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "EXTERNAL_VALIDATION_PENDING",
+      "evidence_refs": [],
+      "external_validation_required": true,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-080-96B1AC7893",
+      "requirement_text": "Independent implementations SHALL be able to reproduce expected results.",
+      "section": "80",
+      "section_title": "REQUIRED TEST VECTORS",
+      "source_line": 1694,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-081-301317C257",
+      "requirement_text": "The subsystem SHALL not be qualified until all applicable gates pass:",
+      "section": "81",
+      "section_title": "RELEASE GATES",
+      "source_line": 1700,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-081-450F3BD3C3",
+      "requirement_text": "A failed gate SHALL not be offset by another gate.",
+      "section": "81",
+      "section_title": "RELEASE GATES",
+      "source_line": 1716,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-082-FED7932E60",
+      "requirement_text": "Any of the following SHALL block qualification:",
+      "section": "82",
+      "section_title": "AUTOMATIC FAIL CONDITIONS",
+      "source_line": 1722,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-082-BD7759B10D",
+      "requirement_text": "user data must be centrally uploaded merely to participate;",
+      "section": "82",
+      "section_title": "AUTOMATIC FAIL CONDITIONS",
+      "source_line": 1737,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-085-170ACD0C95",
+      "requirement_text": "The architecture SHALL preserve this principle through every implementation decision:",
+      "section": "85",
+      "section_title": "NON-NEGOTIABLE FINAL PRINCIPLE",
+      "source_line": 1785,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-085-8739EA8FB2",
+      "requirement_text": "> **A provider may assist your Entity, but it must remain replaceable.**",
+      "section": "85",
+      "section_title": "NON-NEGOTIABLE FINAL PRINCIPLE",
+      "source_line": 1795,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "DESIGNED_OR_REFERENCE_IMPLEMENTED",
+      "evidence_refs": [],
+      "external_validation_required": false,
+      "normative_level": "SHOULD",
+      "requirement_id": "DOMAIN-085-E0B8E606AE",
+      "requirement_text": "> **A person or organization should not have to keep paying another company merely to continue existing digitally.**",
+      "section": "85",
+      "section_title": "NON-NEGOTIABLE FINAL PRINCIPLE",
+      "source_line": 1801,
+      "test_refs": []
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-085-9F93528A42",
+      "requirement_text": "The master ENTITY engineering design SHALL reference this specification as a mandatory subordinate architecture for all claims involving:",
+      "section": "85",
+      "section_title": "NON-NEGOTIABLE FINAL PRINCIPLE",
+      "source_line": 1847,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-085-F6D25CF6FF",
+      "requirement_text": "Future ENTITY release gates SHALL treat this document as normative unless formally superseded through architecture change control.",
+      "section": "85",
+      "section_title": "NON-NEGOTIABLE FINAL PRINCIPLE",
+      "source_line": 1859,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-085-FA390EFF98",
+      "requirement_text": "A qualified implementation SHALL produce a sealed evidence package containing:",
+      "section": "85",
+      "section_title": "NON-NEGOTIABLE FINAL PRINCIPLE",
+      "source_line": 1865,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-085-31B1E245A8",
+      "requirement_text": "The evidence SHALL identify:",
+      "section": "85",
+      "section_title": "NON-NEGOTIABLE FINAL PRINCIPLE",
+      "source_line": 1883,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    },
+    {
+      "engineering_state": "QUALIFIED_INTERNAL",
+      "evidence_refs": [
+        "16_Test_Qualification/evidence/ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json"
+      ],
+      "external_validation_required": false,
+      "normative_level": "SHALL",
+      "requirement_id": "DOMAIN-085-6C187B0FA2",
+      "requirement_text": "Any such claim SHALL be bounded to the actual qualification scope and evidence.",
+      "section": "85",
+      "section_title": "NON-NEGOTIABLE FINAL PRINCIPLE",
+      "source_line": 1905,
+      "test_refs": [
+        "16_Test_Qualification/sovereign_domain/test_sovereign_domain.py"
+      ]
+    }
+  ],
+  "rtm_sha256": "5592e2abb4a01e8c671ef084313e3d552f14a98172227afbd882235f0b74f2d9",
+  "schema": "entity-domain-rtm-v1",
+  "source": "SERS-ENTITY-DOMAIN-001 v1.0",
+  "source_sha256": "38999d4fb1eebbdf1b4f9874145a1d9faed7f93f4ecd7ef0291e1768f5c4ec8f",
+  "state_counts": {
+    "DESIGNED_OR_REFERENCE_IMPLEMENTED": 22,
+    "EXTERNAL_VALIDATION_PENDING": 3,
+    "QUALIFIED_INTERNAL": 164
+  }
+}

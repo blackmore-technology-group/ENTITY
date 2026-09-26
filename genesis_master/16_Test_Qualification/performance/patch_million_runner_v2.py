@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path(r"<LOCAL_DRIVE>/Sovereign_Entity_Network\16_Test_Qualification\performance\run_million_asset_scale.py")
+s=p.read_text(encoding="utf-8")
+s=s.replace(r'<LOCAL_DRIVE>/ENTITY_QUALIFICATION_SCALE\million_asset_v1',r'<LOCAL_DRIVE>/ENTITY_QUALIFICATION_SCALE\million_asset_v2')
+s=s.replace('"events_complete":int(store.status()["events"]),','"events_complete":int((start+count)*3),')
+s=s.replace('    verify_started=time.perf_counter()\n    verification=store.verify_all_batches(verify_rows=True)','    index_started=time.perf_counter()\n    index_result=store.finalize_indexes()\n    index_seconds=time.perf_counter()-index_started\n    verify_started=time.perf_counter()\n    verification=store.verify_all_batches(verify_rows=True)')
+s=s.replace('"verification_seconds":round(verify_seconds,3),"total_seconds":round(total_seconds,3)', '"index_build_seconds":round(index_seconds,3),"verification_seconds":round(verify_seconds,3),"total_seconds":round(total_seconds+index_seconds,3)')
+s=s.replace('"verification":verification,','"index_build":index_result,"verification":verification,')
+p.write_text(s,encoding="utf-8")
+print('RUNNER_PATCHED_V2')

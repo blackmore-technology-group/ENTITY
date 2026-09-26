@@ -1,0 +1,39 @@
+{
+  "artifact": {
+    "bytes": 23567526,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\HIKE_AR\\HikeAR_v0.1.0\\mobile\\android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+    "sha256": "40847ea7d22d92edc7db3624ea28dc9b26fdd2d9a8553ebf1dcdc5529618e91b"
+  },
+  "checks": {
+    "artifact_exists": true,
+    "build_successful": true,
+    "canonical_product_harness_pass": true,
+    "entity_core_unchanged": true,
+    "principal_binding_qualified": true,
+    "regression_markers": true,
+    "source_diff_clean": true
+  },
+  "claim": "Application gained ENTITY principal-bound provenance/data-economy integration; source change scope remained bounded; pre-existing regression/build passed; protected ENTITY core remained unchanged.",
+  "evidence_refs": {
+    "build_log": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HIKEAR_ENTITY_ANDROID_BUILD.txt",
+    "core_invariance": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CORE_INVARIANCE_CURRENT.json",
+    "diff": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HIKEAR_ENTITY_SOURCE_DIFF_CURRENT.json",
+    "post": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HIKEAR_ENTITY_POST_INTEGRATION.json",
+    "pre": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HIKEAR_ENTITY_PRE_INTEGRATION.json",
+    "principal_binding": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_PRINCIPAL_BINDING_CURRENT.json",
+    "regression": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\HIKEAR_ENTITY_CANONICAL_REGRESSION.txt"
+  },
+  "evidence_sha256": "48302dae197fa73901fca4e82da6e959f3f68d20a63e24ee4c54bc1276d715c7",
+  "generated_at_ms": 1789675088649,
+  "harness_repair": "HikeAR script now targets backend/tests_hikear and backend/app instead of copied SearchAR test/tool paths.",
+  "limitations": [
+    "Physical-device principal pairing is not claimed until executed on an attached device."
+  ],
+  "post_source_aggregate_sha256": "cf327bf9efc5d95b03c40047bdee54a879304c57f17d0c81cdc5236c89f5ef70",
+  "pre_source_aggregate_sha256": "55e9d6d96598b8e23b71589f23cb184b9721d940f9891f559ab631dbc8d4acc8",
+  "product": "HIKEAR",
+  "qualification_complete": true,
+  "schema": "btg-product-entity-integration-qualification-v1",
+  "status": "PASS"
+}

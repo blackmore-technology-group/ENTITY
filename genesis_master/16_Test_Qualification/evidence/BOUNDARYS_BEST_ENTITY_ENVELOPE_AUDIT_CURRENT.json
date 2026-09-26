@@ -1,0 +1,33 @@
+{
+  "assets": 80,
+  "error_count": 0,
+  "errors": [],
+  "events": 0,
+  "outbox_files": 80,
+  "record_types": {
+    "batch_qa_manifest": 1,
+    "batch_qa_pdf": 1,
+    "batch_qa_record": 1,
+    "bom": 2,
+    "controlled_document": 1,
+    "data_migration": 1,
+    "formula_revision": 2,
+    "material_lot": 1,
+    "material_master": 8,
+    "niki_research": 1,
+    "product_formula_draft": 2,
+    "product_master": 40,
+    "product_revision": 4,
+    "qa_specification": 2,
+    "record_retirement": 2,
+    "scent_formula_library": 1,
+    "scent_material_catalog": 1,
+    "soap_formula_draft": 3,
+    "workflow_state": 6
+  },
+  "schema": "boundarys-best-entity-envelope-audit-v1",
+  "schemas": {
+    "entity-open-sdk-asset-envelope-v1.1": 80
+  },
+  "status": "PASS"
+}

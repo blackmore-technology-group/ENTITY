@@ -1,0 +1,18 @@
+{
+  "registry_path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\registry\\devices.json",
+  "audit_path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\audit\\gateway_audit.jsonl",
+  "client_signing_key_path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\secrets\\client_signing.key",
+  "approval_signing_key_path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\secrets\\approval_signing.key",
+  "ai_session_ttl_minutes": 60,
+  "log_level": "warning",
+  "client_listener": {"host": "127.0.0.1", "port": 8865},
+  "agent_listener": {"host": "127.0.0.1", "port": 8866},
+  "mcp_listener": {"host": "127.0.0.1", "port": 8867},
+  "mcp_resource_url": "https://127.0.0.1:8867/mcp",
+  "tls": {
+    "ca_cert": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\pki\\ca\\ca.cert.pem",
+    "server_cert": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\pki\\server\\gateway.cert.pem",
+    "server_key": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\pki\\server\\gateway.key.pem"
+  },
+  "state": "TEMPLATE_REQUIRES_ENTITY_PKI_ENROLLMENT"
+}

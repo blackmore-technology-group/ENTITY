@@ -1,0 +1,84 @@
+{
+  "expected_reason": null,
+  "expected_valid": true,
+  "material": {
+    "created_at_ms": 1789595477239,
+    "domain_id": "domain1-a703f0e6a0dc8c06ec01a829fab31d809b186c78",
+    "effective_at_ms": 1789595477239,
+    "entity_root": "ent2-zh4ddcozm2kpe6ld3uoyjiyvth4h3klbarf3hxnaabtg2gjnbqna",
+    "entity_root_unchanged": true,
+    "historical_evidence_preserved": true,
+    "node_id": "node-revoked-vector",
+    "reason": "vector-revocation",
+    "revocation_id": "rev1-7a0264d520abccd4ad73692fdb67de007678da5b",
+    "schema": "entity-node-revocation-v1",
+    "signature": {
+      "entity_id": "ent2-zh4ddcozm2kpe6ld3uoyjiyvth4h3klbarf3hxnaabtg2gjnbqna",
+      "key_id": "sig-552245e6612ba12e",
+      "payload_sha256": "b6962af3af0251b3c9b70f785908a47be80ecd8dd4bf58fb0b10e6631647bbb9",
+      "signature": "SIhwzAHH9WHrvWH5I8zmeY2BI8tMMkGUKZlNmbUcByrHH8dboxUNOwVv9aV4ttsdk4-7O-O9HxwFZDly2yluCw",
+      "signature_schema": "entity-signature-record-v2",
+      "signed_at_ms": 1789595477242,
+      "suite": "ENTITY-SIG-ED25519-v1"
+    },
+    "status": "REVOKED"
+  },
+  "name": "node_revocation",
+  "schema": "entity-domain-test-vector-v1",
+  "trust_material": {
+    "active_signing_key_id": "sig-552245e6612ba12e",
+    "aliases": [],
+    "created_at_ms": 1789595476701,
+    "crypto_agility": {
+      "future_hybrid_allowed": true,
+      "manifest_suite": "ENTITY-SIG-ED25519-v1",
+      "supported_suites": [
+        "ENTITY-SIG-ED25519-v1"
+      ]
+    },
+    "display_name": "Vector Owner",
+    "entity_id": "ent2-zh4ddcozm2kpe6ld3uoyjiyvth4h3klbarf3hxnaabtg2gjnbqna",
+    "entity_type": "organization",
+    "manifest_revision": 1,
+    "metadata": {},
+    "recovery_policy": {
+      "authorities": [
+        "rec-625bf962fba3c971"
+      ],
+      "delayed_recovery_supported": true,
+      "threshold": 1
+    },
+    "schema": "sovereign-entity-manifest-v2",
+    "signature": {
+      "key_id": "sig-552245e6612ba12e",
+      "signature": "DslJRHSPYqHOJcpWHwbq4aaDHCqjA4Cl0OPUqyD9V4PVvsk_Yz8wWZzO1wN6zBv9o-V6kbs_9kzy1N2c7Jx9CA",
+      "suite": "ENTITY-SIG-ED25519-v1"
+    },
+    "verification_methods": [
+      {
+        "algorithm": "Ed25519",
+        "created_at_ms": 1789595476701,
+        "key_id": "sig-552245e6612ba12e",
+        "public_key": "1VppmUmbXbcUD6TNnU243RZnQ3c43iSkvcvJkSa3sIA",
+        "purpose": [
+          "assertion",
+          "authentication",
+          "contract"
+        ],
+        "status": "active",
+        "suite": "ENTITY-SIG-ED25519-v1"
+      },
+      {
+        "algorithm": "Ed25519",
+        "created_at_ms": 1789595476701,
+        "key_id": "rec-625bf962fba3c971",
+        "public_key": "ZBNYRuQSvBwWx5PAah7KogJgvuzjH74QjGTItYmV0I4",
+        "purpose": [
+          "recovery"
+        ],
+        "status": "active",
+        "suite": "ENTITY-SIG-ED25519-v1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "feature_counts": {
+    "application/json": {
+      "device_class": {
+        "server": 49
+      },
+      "latency_class": {
+        "normal": 49
+      },
+      "modality": {
+        "structured": 49
+      },
+      "purpose": {
+        "api": 49
+      }
+    },
+    "application/x-adam-iot-telemetry+json": {
+      "device_class": {
+        "sensor": 43
+      },
+      "latency_class": {
+        "real-time": 43
+      },
+      "modality": {
+        "iot": 43
+      },
+      "purpose": {
+        "telemetry": 43
+      }
+    },
+    "application/x-adam-robot-command+json": {
+      "device_class": {
+        "rover": 46
+      },
+      "latency_class": {
+        "real-time": 46
+      },
+      "modality": {
+        "robotics": 46
+      },
+      "purpose": {
+        "bounded_action": 46
+      }
+    },
+    "application/x-adam-video-manifest+json": {
+      "device_class": {
+        "screen": 40
+      },
+      "latency_class": {
+        "normal": 40
+      },
+      "modality": {
+        "video": 40
+      },
+      "purpose": {
+        "inspect": 40
+      }
+    },
+    "application/x-future-uninvented": {
+      "device_class": {
+        "general": 38
+      },
+      "latency_class": {
+        "normal": 38
+      },
+      "modality": {
+        "binary": 38
+      },
+      "purpose": {
+        "recreate": 38
+      }
+    },
+    "image/png": {
+      "device_class": {
+        "screen": 50
+      },
+      "latency_class": {
+        "normal": 50
+      },
+      "modality": {
+        "image": 50
+      },
+      "purpose": {
+        "display": 50
+      }
+    },
+    "text/csv": {
+      "device_class": {
+        "server": 94
+      },
+      "latency_class": {
+        "batch": 94
+      },
+      "modality": {
+        "structured": 49,
+        "tabular": 45
+      },
+      "purpose": {
+        "analytics": 94
+      }
+    }
+  },
+  "format": "ADAM-v0.42-recreation-demand-policy",
+  "label_counts": {
+    "application/json": 49,
+    "application/x-adam-iot-telemetry+json": 43,
+    "application/x-adam-robot-command+json": 46,
+    "application/x-adam-video-manifest+json": 40,
+    "application/x-future-uninvented": 38,
+    "image/png": 50,
+    "text/csv": 94
+  },
+  "labels": [
+    "application/json",
+    "application/x-adam-iot-telemetry+json",
+    "application/x-adam-robot-command+json",
+    "application/x-adam-video-manifest+json",
+    "application/x-future-uninvented",
+    "image/png",
+    "text/csv"
+  ],
+  "total": 360,
+  "vocab": {
+    "device_class": [
+      "general",
+      "rover",
+      "screen",
+      "sensor",
+      "server"
+    ],
+    "latency_class": [
+      "batch",
+      "normal",
+      "real-time"
+    ],
+    "modality": [
+      "binary",
+      "image",
+      "iot",
+      "robotics",
+      "structured",
+      "tabular",
+      "video"
+    ],
+    "purpose": [
+      "analytics",
+      "api",
+      "bounded_action",
+      "display",
+      "inspect",
+      "recreate",
+      "telemetry"
+    ]
+  }
+}

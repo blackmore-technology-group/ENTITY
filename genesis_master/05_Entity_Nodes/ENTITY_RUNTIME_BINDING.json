@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "engineering_closure_05_entity_nodes",
+  "exports": [
+    "CanonicalEngineeringControlPlane"
+  ],
+  "implementation_sha256": "8bd7f320de39e0c9d0b27c4d6972d47b7b2417a885a66d8746321b288727fb3c",
+  "implementation_version": "2.2.0-engineering-closure",
+  "python_file": "ENTITY_ENGINEERING_CLOSURE.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_ENGINEERING_REQUIREMENTS_CLOSURE_CURRENT.json",
+      "sha256": "1c1e444e6a852a4cd344606cf561711b3e99c810055802ba80ee60da9ea721bf"
+    }
+  ],
+  "requirements_sha256": "ee5081ee7c5b38277eae94c9d3d8861044eac959d17727eb6bfe2c14f6ed42a5",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

@@ -1,0 +1,24 @@
+{
+  "abi_version": "1",
+  "authority": "privilege_graph",
+  "exports": [
+    "PrivilegeGraph",
+    "privilege_graph_v1"
+  ],
+  "implementation_sha256": "485276e8aff13a0e0bfb38228ba10c0c004902a9e8a5556d500916ef91d9d708",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_privilege_graph.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_PRIVILEGE_GRAPH_CURRENT.json",
+      "sha256": "11890c97b0528fbb76d59fa4790066bbb57aabc1ba1eccb2c8360628719bfb14"
+    }
+  ],
+  "requirements_sha256": "77fb3389814478f2484131918a957538322cc43e62a6937349762e61b64530c1",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "entity-privilege-graph-v1",
+    "entity-privilege-decision-v1"
+  ],
+  "status": "READY"
+}

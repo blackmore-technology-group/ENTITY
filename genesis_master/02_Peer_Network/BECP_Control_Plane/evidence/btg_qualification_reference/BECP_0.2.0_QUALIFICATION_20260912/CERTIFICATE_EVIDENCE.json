@@ -1,0 +1,54 @@
+[
+  {
+    "fingerprint_sha256": "0f95ec2b8e098f26b6515213394e995f812ad42ad64da809c15f6b67840d79df",
+    "issuer": "CN=Blackmore BECP Root CA",
+    "not_valid_after_utc": "2036-09-09T18:52:49+00:00",
+    "not_valid_before_utc": "2026-09-12T18:47:49+00:00",
+    "path": "runtime/pki/ca/ca.cert.pem",
+    "serial_number": "724466281940296096178730607646225218685332527758",
+    "sha256": "c9d4129ca13fd12f3c3bf83df1759ced3a5d3c81ba564a38b4cb6b3bb69cdc89",
+    "subject": "CN=Blackmore BECP Root CA"
+  },
+  {
+    "fingerprint_sha256": "73986bf29eb31e52a7eab2f0bb5415713de4f879b2bf42d37c6b7e3c92420f3a",
+    "issuer": "CN=Blackmore BECP Root CA",
+    "not_valid_after_utc": "2028-12-15T18:59:14+00:00",
+    "not_valid_before_utc": "2026-09-12T18:54:14+00:00",
+    "path": "runtime/pki/devices/55546079-959f-4557-a49b-84659d2ebb2e/device.cert.pem",
+    "registered_device_ids": [
+      "55546079-959f-4557-a49b-84659d2ebb2e"
+    ],
+    "registry_fingerprint_matches": {
+      "55546079-959f-4557-a49b-84659d2ebb2e": true
+    },
+    "serial_number": "478734512867111207866438188892429808685681350111",
+    "sha256": "1edf22763eb709cc3479ef05b0c02525739f7601d04729e9ac02284c1dc21d1f",
+    "subject": "CN=BECP Device ENG-SIM-01"
+  },
+  {
+    "fingerprint_sha256": "3603103a05398cf80f76ed1d8406cfcd08fc94242d513fbd8ed7870d7fe3aa06",
+    "issuer": "CN=Blackmore BECP Root CA",
+    "not_valid_after_utc": "2028-12-15T18:58:35+00:00",
+    "not_valid_before_utc": "2026-09-12T18:53:35+00:00",
+    "path": "runtime/pki/devices/56d7ed92-c5b4-4cca-addd-02ab1384ca74/device.cert.pem",
+    "registered_device_ids": [
+      "56d7ed92-c5b4-4cca-addd-02ab1384ca74"
+    ],
+    "registry_fingerprint_matches": {
+      "56d7ed92-c5b4-4cca-addd-02ab1384ca74": true
+    },
+    "serial_number": "603436876096642735129275821257364007117316659428",
+    "sha256": "42406ca152165d2e50d7cfe6222263864f398f3c46403251c1b33dbd50556f90",
+    "subject": "CN=BECP Device BTG"
+  },
+  {
+    "fingerprint_sha256": "01f950397cba1b2139d84deb49050fd0c77ccd35814b0f3723eea336e3d893e0",
+    "issuer": "CN=Blackmore BECP Root CA",
+    "not_valid_after_utc": "2028-12-15T18:52:50+00:00",
+    "not_valid_before_utc": "2026-09-12T18:47:50+00:00",
+    "path": "runtime/pki/server/gateway.cert.pem",
+    "serial_number": "211521216730366166437408533115670129640552798771",
+    "sha256": "0051b2266a4a8cf16f45932a9a334bdc25213755fd105457281ca557278268ce",
+    "subject": "CN=BECP Gateway"
+  }
+]

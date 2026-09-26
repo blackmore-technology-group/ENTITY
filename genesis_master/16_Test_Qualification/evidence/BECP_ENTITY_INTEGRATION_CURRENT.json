@@ -1,0 +1,1157 @@
+{
+  "application_entity_id": "ent2-rw2tsasrxzmovtjok76t7xep6ngn76za6qwvjn7vgzj64suva3oa",
+  "economic_value_inferred": false,
+  "generated_at_ms": 1789674887416,
+  "installation_entity_id": "ent2-7ihbyhk5ob5z4xjxf4kjvapjyuvl43fihsb4rgdsaeu7xals6urq",
+  "items": [
+    {
+      "asset_id": "asset1-cfa05012324c484eb3ea0067d5552a50",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\canonical_becp_evidence.py",
+      "sha256": "a43902bb16d1b28cbe2dac5a7744674e3463e2724c65b9808956ce358dafe451"
+    },
+    {
+      "asset_id": "asset1-8ac51edf40834cc4943e48d63b9eeb1a",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\ENTITY_RUNTIME_BINDING.json",
+      "sha256": "852a75b1853e43a2b2e3c6f92608fa437955ddf0d49e45ca54a4d60d11c80ad9"
+    },
+    {
+      "asset_id": "asset1-5be9deeba8d14f7a8b18b6fb3e6dd894",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\ENTITY_RUNTIME_BINDING_REQUIREMENTS.md",
+      "sha256": "af21218b7a6a2a6a117b3743264b47207c481c3fc56d21cebbc8684b6cafd2f0"
+    },
+    {
+      "asset_id": "asset1-c0d63cf0fc094fd28adc7d49701f12ef",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\ENTITY_SUBSYSTEM_REQUIREMENTS.md",
+      "sha256": "df2ece00e1e917a61a6de9f9a49843fc3e3fbf02bbf25befd0347b7132140830"
+    },
+    {
+      "asset_id": "asset1-93b4df06207e428782d10847cbbdc9fd",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\ENTITY_SUBSYSTEM_REQUIREMENTS.md",
+      "sha256": "2e618d394e0e7eb41d64c7595f365a99638f5a0a8c5459408d836e356dd10241"
+    },
+    {
+      "asset_id": "asset1-7760b5324072405584c022ece9d3fe08",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\entity\\ENTITY_WORKSTATION_TEMPLATE.json",
+      "sha256": "950d8f5b404f992f936274086adea803c2e5cc4bcf534e5ed66a8896f9a8742e"
+    },
+    {
+      "asset_id": "asset1-3dc32e9b4c5d472d81638c8a1ca02897",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\entity\\GATEWAY_ENTITY_TEMPLATE.json",
+      "sha256": "059d87b307c0b0d741ee51c1e2e7d3972fec4b969c55a80c58a1acad4feedcd8"
+    },
+    {
+      "asset_id": "asset1-deba1206c1814dfc9b1f245cf0b2a9ae",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\entity\\RDC_BECP_BRIDGE_ENTITY_TEMPLATE.json",
+      "sha256": "1813d3e6d31fc3636a0e7360e8689f1948d7ee8fa2613042f708d7656e9c694c"
+    },
+    {
+      "asset_id": "asset1-9250d12620234219be937437b3db20ca",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\legacy_reference\\BTG_ENGINEERING_WORKSTATION.json",
+      "sha256": "cfe56f75cc0a3d7d76df56f3be42740f67649f1582e3ca6eccf191e2a0290551"
+    },
+    {
+      "asset_id": "asset1-b9ea2f453fbe423fac70faa9f9ae4e13",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\legacy_reference\\ENGINEERING_WORKSTATION_TEMPLATE.json",
+      "sha256": "0aa2f9b92df98170e87aa19f752055d9107ee1c5ac6fbda0fca3f3864c0c0ff8"
+    },
+    {
+      "asset_id": "asset1-45f76860de9c41459989b98711da650e",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\legacy_reference\\ENG_SIM_01.json",
+      "sha256": "565bc9e9293e530c57e4732c8a13d00577684998b9142da11704ea3ccc5f4ac2"
+    },
+    {
+      "asset_id": "asset1-c3b5278ab337405d98aeafb06e9bc2b1",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\legacy_reference\\GATEWAY_LOCAL_QUALIFICATION.json",
+      "sha256": "60f6a3d73bcbbc420b7bf14fcaac61c39b5ccaa4ec8ad257a626f9b0144b099e"
+    },
+    {
+      "asset_id": "asset1-435e2000e1004a93b67d753726d8cd7d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\config\\legacy_reference\\RDC_BECP_BRIDGE.json",
+      "sha256": "4a23a269155179b5b86bc57ecebdd6dd47a8e10ff230178d957009aa1da0170b"
+    },
+    {
+      "asset_id": "asset1-7daea5830414404d81afe99c55050888",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\ENTITY_SUBSYSTEM_REQUIREMENTS.md",
+      "sha256": "1e574ff3a7c9626b16e675db8665c5bfa383466c1c2dca554c89b456289972be"
+    },
+    {
+      "asset_id": "asset1-40747b0b3bee44e1adfc493ce7f94bbc",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\AUDIT_CHAIN_EVIDENCE.json",
+      "sha256": "609cc04b691297fd2d511d615150bf3390bcde90c15627146ee74ff02e158bb4"
+    },
+    {
+      "asset_id": "asset1-57da1326303f435db778c9a135acf16a",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\CERTIFICATE_EVIDENCE.json",
+      "sha256": "e751eee3c983bd1bcc812afda94e992b1fe2fb15d62f520df28131f989f065b0"
+    },
+    {
+      "asset_id": "asset1-cb495d98885249febfec8bfbeafb6be6",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\COMPILEALL_RESULTS.txt",
+      "sha256": "c1e97067c5f479a44a6f57297a0a8f87a59d181c3c529910f8bf059094bc3abb"
+    },
+    {
+      "asset_id": "asset1-a18152a70f674e6cbb8b76bc2aa13c4f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\DEVICE_REGISTRY_SNAPSHOT.json",
+      "sha256": "dc3a35290b9402ecdf84e724beed14d133afea74d998c078421819b6be552da9"
+    },
+    {
+      "asset_id": "asset1-b282e21a42ef4ab9932e1cd9ac30d59e",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\ENVIRONMENT.json",
+      "sha256": "a86f441400e6927aee261aac281d0c3fe9add6e6a13db65d5553d94ef455e952"
+    },
+    {
+      "asset_id": "asset1-2ad1ddf190fc41e1abef5ece6a054f91",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\LIVE_RESULTS.json",
+      "sha256": "06163cc2c3a75d429c788267b81a6f37a2959943b00d98b4b64913eb14dbbf49"
+    },
+    {
+      "asset_id": "asset1-93b02808ba8f4082989814861cb326ce",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\PKI_ACTIVE_STATUS.json",
+      "sha256": "276dd7a8dd8029ef8c1b324fa250d925f0a7cc14eae4de457621b59d44595819"
+    },
+    {
+      "asset_id": "asset1-604daa40f0784718b86439d57d2271d1",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\QA_MANIFEST.json",
+      "sha256": "e0a9667905029713e4a44f809079008f39d03ebdf964a92d96f5c303537b6d87"
+    },
+    {
+      "asset_id": "asset1-5813a0836d134127a6d1363cff22a261",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\QA_SEAL.hmac",
+      "sha256": "b8ea22f54855679346d6fffddba927234679501f99fe56b4c3a30056fffa7db8"
+    },
+    {
+      "asset_id": "asset1-48812d77a7a344cea8bc45201c1375a2",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\QA_SEAL.json",
+      "sha256": "2ec143ae264877172e59a81071c78126d14b2640b8c46f5ec26552ab1ec4175c"
+    },
+    {
+      "asset_id": "asset1-83063321347749739d5edcc714eef20d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\QA_SEAL.sha256",
+      "sha256": "46ee47188c8093bc474dfe3ffbeff5a240721de82a1306b9b30dee419fc37efb"
+    },
+    {
+      "asset_id": "asset1-54c8d1f5d98a4d41826669b07934b436",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\QUALIFICATION_RELEASE_STATUS.json",
+      "sha256": "6ad0b21fbfb39982fbde86ee4a6ca210c361cd805c61a4c65887f0832bd9d03d"
+    },
+    {
+      "asset_id": "asset1-5bae6eefb1fe4307983e6e0bef35e616",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\QUALIFICATION_REPORT.md",
+      "sha256": "f1808ab3066595d35e80eb87e5575c77659ecd76115ddd56383c1f1710c0a00c"
+    },
+    {
+      "asset_id": "asset1-39330b9a3f044e5d8878e41b0fdd426c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\REGRESSION_RESULTS.txt",
+      "sha256": "6bacef6e0be4562a4a78e37f2ad3cb79c797facdbc2b936b8ddd8ea3f5a023e3"
+    },
+    {
+      "asset_id": "asset1-7a45c8714b684c08a60c2117cd630765",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\SECRET_PRESENCE.json",
+      "sha256": "7f8d3a17e6da1ec59d905df5060989a4397889103cf0a8412a5a68f1cad8630b"
+    },
+    {
+      "asset_id": "asset1-a57fa09f8bfd4a6395313864cc39ab50",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\SOURCE_FILE_HASHES.json",
+      "sha256": "ce751cfaa3499450014ec3355b838018569dc30f58384d045d6f49dd05f9d7dd"
+    },
+    {
+      "asset_id": "asset1-3158396161404c0cb280b1600af6dafc",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.0_QUALIFICATION_20260912\\VERIFY_EVIDENCE.py",
+      "sha256": "ec7dac55626439534832614dd57a38e776ffd68cfbcd5f1efb4a4bd6d54ef85a"
+    },
+    {
+      "asset_id": "asset1-4fd67939d2f649cd9ff8336f050c191f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\AUDIT_CHAIN_EVIDENCE.json",
+      "sha256": "fe420bbb6ba141f9b16a91a4e15406660315b7928b0f7304b99d6673040a39f9"
+    },
+    {
+      "asset_id": "asset1-a24389a907f14f9d9a857092b3b689ca",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\BINARY_QUALIFICATION_RESULTS.json",
+      "sha256": "d71c4a22126ad68131ae8143a92248e122821a35dbbd4f78b87086c7fc3d278f"
+    },
+    {
+      "asset_id": "asset1-ba736b8cf2fb47bd991c8d4d7c9262d0",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\BUILD_ARTIFACT_EVIDENCE.json",
+      "sha256": "f72427a8d938a0a4c642fde2e07497efb20d102afa7ea97587cc09e408784388"
+    },
+    {
+      "asset_id": "asset1-d936271fcb4a482e97add6eb049a918f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\CERTIFICATE_EVIDENCE.json",
+      "sha256": "58c29a3e62d97ec2395a6181bfdc5c869e66932bebc77f32cd74ece43524d733"
+    },
+    {
+      "asset_id": "asset1-3d879505314543489bac92caa817d211",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\COMPILEALL_RESULTS.txt",
+      "sha256": "ae83a3ae13d7b3bd00ee127bc7bdb3a9fa0a2ca71b3490011b0c284069ed243f"
+    },
+    {
+      "asset_id": "asset1-c27e539a2da544228ad781bbea532dd7",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\devices.json",
+      "sha256": "7667690ef836b579a3cc424a44aa9d17054678bc0e548e1b0bf6d0ca5f1b4900"
+    },
+    {
+      "asset_id": "asset1-8ae3bea509a0466a91e300f021477d69",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\DIRECT_RDC_RESULTS.json",
+      "sha256": "f64a6021ffbfda152e8839be92214f5b582e57e2fbdba74956c6b85b04e647e6"
+    },
+    {
+      "asset_id": "asset1-148ee04ea46640b8a4f5fc6728661d96",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\ENVIRONMENT.json",
+      "sha256": "c04fe5ffa04da3d9eec2a1f93363beb895069d356e4018f7aed5fc998bedaa2e"
+    },
+    {
+      "asset_id": "asset1-2d70ff61a41b47938782fea3f8196ab4",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\FINAL_BUILD_HASHES.json",
+      "sha256": "b2bc2fb8975f4f8e73e5fa5cf6bb22b1f9eed94d50bf8da3552d31b09556f761"
+    },
+    {
+      "asset_id": "asset1-05d9cc7ec7b94c058d51f750eddb773c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\MCP_QUALIFICATION_RESULTS.json",
+      "sha256": "c9f37c54247b570811a45d6366ba8805c2a7821e3e4aee5a92f9c938279c23da"
+    },
+    {
+      "asset_id": "asset1-96ed15669ae44270b78d3a33149181ac",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\QA_MANIFEST.json",
+      "sha256": "cfc20f97606708a01654f22839d6c54555a7b1518632276cc90ca6a2702d5284"
+    },
+    {
+      "asset_id": "asset1-2842bbefb8574bb6bbdd7e268d971c7e",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\QA_SEAL.hmac",
+      "sha256": "521009f100067e151c60ed51d25a448a829c5f602f16a0566e1bb93535413708"
+    },
+    {
+      "asset_id": "asset1-633234a3e9084f568430bac92081ddb0",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\QA_SEAL.json",
+      "sha256": "12153552e201d1025a74122ad7d0401f5446e3302900e91a80abfa808ea1ab39"
+    },
+    {
+      "asset_id": "asset1-cf3c7e588f4741d7b59233ba9f869fb7",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\QA_SEAL.sha256",
+      "sha256": "a7cac97122f495580ff697ad08004f1fa6007b6ac941d9434bdbd5f305f55d5a"
+    },
+    {
+      "asset_id": "asset1-8241617c649341379913616e1a76ef37",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\QUALIFICATION_RELEASE_STATUS.json",
+      "sha256": "5736b5f059535e766cceb4eaf33b533dd063aa0551fbcd9a16f996f6ebe310d7"
+    },
+    {
+      "asset_id": "asset1-5ea54a1e33a84c47b20e9eb921ebc87c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\QUALIFICATION_REPORT.md",
+      "sha256": "f842bab436607a768f9f276d66f2139d47f1ea5d7dc339b8d6eae99ea721f70c"
+    },
+    {
+      "asset_id": "asset1-01bc167709514935a9afd4f1f10d611f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\REGRESSION_RESULTS.txt",
+      "sha256": "1f9e48e60368c420315c29f639d17b82a1b7d0750c64b56cd29044e7f87c3f2e"
+    },
+    {
+      "asset_id": "asset1-47b9d9d0c69c4970ad8a6de973f630da",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\RUNTIME_VERSION_EVIDENCE.json",
+      "sha256": "352756978ba9357d53234854ee56fb5a66e272cd6669c4d065089e301159d6b4"
+    },
+    {
+      "asset_id": "asset1-7a45c8714b684c08a60c2117cd630765",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\SECRET_PRESENCE.json",
+      "sha256": "7f8d3a17e6da1ec59d905df5060989a4397889103cf0a8412a5a68f1cad8630b"
+    },
+    {
+      "asset_id": "asset1-c9f588595b2a4d929b26e52df12387d7",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\SOURCE_FILE_HASHES.json",
+      "sha256": "38fc2580efd544b83ec11dc58908c98f053cfdf47726ab6968ff54f3bc486311"
+    },
+    {
+      "asset_id": "asset1-3158396161404c0cb280b1600af6dafc",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\VERIFY_EVIDENCE.py",
+      "sha256": "ec7dac55626439534832614dd57a38e776ffd68cfbcd5f1efb4a4bd6d54ef85a"
+    },
+    {
+      "asset_id": "asset1-2e6b3aea2a0b45e0a0957fa266f0b69d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_QUALIFICATION_20260912\\WHEEL_QUALIFICATION_RESULTS.json",
+      "sha256": "d26386ba336edf7c402f623b64f38168ba2bb068145046a355fe3e56e7968bcd"
+    },
+    {
+      "asset_id": "asset1-08eef992ca0b4240992d8f455710d093",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\AGENT_CONFIG_POST_TRL9.sha256",
+      "sha256": "3561ad13c9759a3f606290d14047fc31b37288ca0b25bc6b523460cd5da38c8d"
+    },
+    {
+      "asset_id": "asset1-880acbeaaaa5409ab4cd21f8f24880ca",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\AGENT_CONFIG_PRE_TRL9.sha256",
+      "sha256": "47b24c082182e6f0b737c6d71114925acabaa4c90f25ea6e52e3d1afc24fec6e"
+    },
+    {
+      "asset_id": "asset1-7aa06ac128b94a9eb7f925e605a65cec",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\AGENT_RESTART_RECOVERY.json",
+      "sha256": "2ca047a6951260708504b438e97cdaffc41f12f98264a444abd67cc9f7e819cb"
+    },
+    {
+      "asset_id": "asset1-ce765b01d4db491fa1f11fb7efb1f581",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\AUDIT_LOG_ROTATION_MANIFEST.json",
+      "sha256": "05ceb5b80dca527a7fe393f1123afdb03a2b6fa950eeaa821f61425c8583f8cb"
+    },
+    {
+      "asset_id": "asset1-4abf70fc03aa47fbb433fb21687dd533",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\DEEP_LIVE_QUALIFICATION_RESULTS.json",
+      "sha256": "1e811fc15ef18116f9e129e5b4da060578d11ed9b24d1d70064f4fdb0f99c801"
+    },
+    {
+      "asset_id": "asset1-6c01b4f478664f818e0938d94ca959b4",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_ARTIFACT_HASH_VERIFICATION.json",
+      "sha256": "df83caaf04c49b613e28ecd5b6a23b80511c16f03f55594a25666cdb2923a5eb"
+    },
+    {
+      "asset_id": "asset1-83a33a1b0c004674827951f7c8fbf28e",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_AUDIT_CHAIN_VERIFICATION.json",
+      "sha256": "ebdb0f4c88729621409c2aee573d08489d43b8010e74bfb2191976edbfb710bd"
+    },
+    {
+      "asset_id": "asset1-57c174df2afa4c74b4997d0208b9f965",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_COMPILEALL_RESULTS.txt",
+      "sha256": "b85c6baaf55b0d9153852953bea2fdef7deed34d0af558bc5b953c72fd023af0"
+    },
+    {
+      "asset_id": "asset1-43de7daff567429f81c235d631d261bb",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_COMPILE_STATUS.txt",
+      "sha256": "d68b5b0e924c40fadc77f8b35e09f3f1ed2456be41261ae369ccbd3b6beb577e"
+    },
+    {
+      "asset_id": "asset1-b3d70d685df841debdcc477dcd1bb732",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_PRODUCTION_STATE.json",
+      "sha256": "9606b8848cc2cf0f5693de5023c40dd175498ef7dbf75121a28d7b12c133ab0d"
+    },
+    {
+      "asset_id": "asset1-229b3e7124224ffabf3cb322fb46d679",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_PRODUCTION_VERIFY.json",
+      "sha256": "f035e7ce9853b2af6d2f1c9250cc55a9fd36dbe5e85074dea38a754ef9bd3680"
+    },
+    {
+      "asset_id": "asset1-34e1059a7cdd4d19aa41e24e0b055d82",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_REGRESSION_RESULTS.json",
+      "sha256": "172de8bd8e076c118a750514e75b367ba825c4da22ef8c8e73b178b235d13f62"
+    },
+    {
+      "asset_id": "asset1-76506645a84b4c29a2455d739252e36e",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_REGRESSION_RESULTS.txt",
+      "sha256": "3259281739445da3435352fea2b83910e6e93dcfa0cbbc35f925696ddc373af0"
+    },
+    {
+      "asset_id": "asset1-bd9ade0a5af6434199b786519c73fe10",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\FINAL_SUPPORT_HASHES.json",
+      "sha256": "ef88cfad29450ed869c0c7fc215b65beacfa7c893e3a0706bc5d946e36c3d9d7"
+    },
+    {
+      "asset_id": "asset1-f12366f804934648be85d46407874dad",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\GATEWAY_RESTART_RECOVERY.json",
+      "sha256": "80f985def537b63e2ba204facd86f13c96c480f70bbdbd936449de00cf4e97b9"
+    },
+    {
+      "asset_id": "asset1-d3002add83a849b09db0b24ee06ca08f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\GATEWAY_RESTART_START.txt",
+      "sha256": "0f1fb3ac80ac090124c3d5400226ecb704af3d317a6b62b558431917d8b90036"
+    },
+    {
+      "asset_id": "asset1-fe3ddb691436498bbfcefa20263ae30b",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\PRE_DEPLOYMENT_STATE.json",
+      "sha256": "081fbb672ed1850ca3fa2baba2b058d135520ec1f0d8aa4576cc0e4a7fbfc191"
+    },
+    {
+      "asset_id": "asset1-0d88ec19b1ad4e7cb8a59bc24fbb6cd0",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\PRODUCTION_API_SECURITY_RESULTS.json",
+      "sha256": "2e743f6f2daa3b26d396615c1d211509504f9d3b3dd7572a6ebbb00249dd239f"
+    },
+    {
+      "asset_id": "asset1-74373296188947059f15aa8a67fc610f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\PRODUCTION_AUDIT_CHAIN_VERIFICATION.json",
+      "sha256": "7537b81600933acbe1db1603609237364f2297bffe449819b2849d9e908b4fef"
+    },
+    {
+      "asset_id": "asset1-05d9cc7ec7b94c058d51f750eddb773c",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\PRODUCTION_MCP_RESULTS.json",
+      "sha256": "c9f37c54247b570811a45d6366ba8805c2a7821e3e4aee5a92f9c938279c23da"
+    },
+    {
+      "asset_id": "asset1-2c7561ba3c994a309fe7b63b5c27d243",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\PRODUCT_INTEGRATION_LIVE_RESULTS.json",
+      "sha256": "3586e932c7a64c07f9af0be47084e4dea420bd20b60ad572c3453412090458b1"
+    },
+    {
+      "asset_id": "asset1-6e4a76e332e94616a6b5a1f5ee3d0141",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\RDC_DUAL_PATH_FINAL_RESULTS.json",
+      "sha256": "577b4e828b152038e01c5ef595942802fcbf47fea43069dd3b49cd0a7a17a4f8"
+    },
+    {
+      "asset_id": "asset1-4936093eed184d14a119eb33096f1716",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\RDC_DUAL_PATH_RESULTS.json",
+      "sha256": "34b23b23d8f4fbc885d9b43425c6bac9d95084dbc14d50a1bf2ed9993b3b0432"
+    },
+    {
+      "asset_id": "asset1-1486e801f94743c2ada43aac70f950a7",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\TRL9_CERTIFICATE.json",
+      "sha256": "ea9ee0878ab8aba85c93a394449448ef95706c3b0f84d4345edeb4b62a44dc56"
+    },
+    {
+      "asset_id": "asset1-3130131b087b4c02b63041ac19613ba2",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\TRL9_CERTIFICATE.md",
+      "sha256": "f22c8f7ef0f236df374d9fa1002702ab12c75b84d25820e2718c6d91b0b7dc77"
+    },
+    {
+      "asset_id": "asset1-d504b54618774b6bb8ba93412155410d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\TRL9_MANIFEST.json",
+      "sha256": "d5236ae91986561b2a5453374eb36e61b490f1c833a4757f604e64514532a1f8"
+    },
+    {
+      "asset_id": "asset1-917742dd24ec435a85637ed76e715b26",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\TRL9_SEAL.hmac",
+      "sha256": "72477126cfdddd8c4b7fe11b4d54ec616c4a1f8188fb41592dcd0ac397c87c31"
+    },
+    {
+      "asset_id": "asset1-8c74f225515544e7a4be0b03f0291c7f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\TRL9_SEAL.json",
+      "sha256": "bf3719ee93baf003a009385dc704a0f140c8a1210b7ce5b523580877a54820cd"
+    },
+    {
+      "asset_id": "asset1-3b2f984cd0a042b4af3c88b6582c2cfe",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\TRL9_SEAL.sha256",
+      "sha256": "af2c59b5bffd270eccdc6a303456f302c28074e4479cfee29a3c56332904242f"
+    },
+    {
+      "asset_id": "asset1-440593ad9c204520a58158a374f4572f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\evidence\\btg_qualification_reference\\BECP_0.2.1_TRL9_CERTIFICATION_20260913\\VERIFY_TRL9_EVIDENCE.py",
+      "sha256": "d30933b45af18ca5c06138df31c625b70f587b25dc44b619e4737fb99aef84c4"
+    },
+    {
+      "asset_id": "asset1-10907daa4c674f9e9d7dac43d9a320f2",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\RDC_Bridge\\BECP_RDC_Bridge_v0.2.1.exe",
+      "sha256": "155c6bf7201a79f0675386c5e9d84a70a0f9186f1ed3f912746b6603689dd35b"
+    },
+    {
+      "asset_id": "asset1-d56bb7688bc64a1cb7db116fb2e6c51d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\RDC_Bridge\\desktop_commander_bridge.py",
+      "sha256": "32eb8ad02e2330203a624e9157dccefd07ea4d229acbdf4c22d7fd8813a599f4"
+    },
+    {
+      "asset_id": "asset1-f19b04ed005346f7bdce530a7f865d9b",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\RDC_Bridge\\ENTITY_SUBSYSTEM_REQUIREMENTS.md",
+      "sha256": "f1f349c79fdd3cae2997b6cecfc4122ebad57829dd19a94bc27987292217d6ee"
+    },
+    {
+      "asset_id": "asset1-b9cb1515116b495c8a9b052873df2fdf",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\RDC_Bridge\\RDC_BECP_BRIDGE.ps1",
+      "sha256": "e80ae3104b4c206b75ae77810138b17331a8b874962b91a3e34a2f1e1f650f27"
+    },
+    {
+      "asset_id": "asset1-435e2000e1004a93b67d753726d8cd7d",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\RDC_Bridge\\RDC_BECP_BRIDGE_BTG_REFERENCE.json",
+      "sha256": "4a23a269155179b5b86bc57ecebdd6dd47a8e10ff230178d957009aa1da0170b"
+    },
+    {
+      "asset_id": "asset1-73107326956646fdbbeea73f2ba48db9",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\RDC_Bridge\\run_rdc_becp_bridge.py",
+      "sha256": "862e5a36c8ba08bd5f0b3f1671c080ed17ac42ebd5c884798ce880c8f4a51be0"
+    },
+    {
+      "asset_id": "asset1-2093902c51d64c2b826b22de2cc8ff9c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\RDC_Bridge\\test_desktop_commander_bridge.py",
+      "sha256": "3187249b6ddc6b82861374bffbb308bb91b5e5875a57c398f83bd38c99e3690b"
+    },
+    {
+      "asset_id": "asset1-d53bc336f1f54198a2f9c32565020506",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\release_0.2.1\\agent\\BECP_Workstation_Agent_v0.2.1.exe",
+      "sha256": "0ff18f87b3fc826018b4ee81b3ed478d450040ca41309711c829d4141ba12eab"
+    },
+    {
+      "asset_id": "asset1-10907daa4c674f9e9d7dac43d9a320f2",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\release_0.2.1\\bridge\\BECP_RDC_Bridge_v0.2.1.exe",
+      "sha256": "155c6bf7201a79f0675386c5e9d84a70a0f9186f1ed3f912746b6603689dd35b"
+    },
+    {
+      "asset_id": "asset1-77d13f0425bf4a6bb2bbd343104fce60",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\release_0.2.1\\packages\\blackmore_ecp-0.2.1-py3-none-any.whl",
+      "sha256": "b483216e04354d68e4724f880e9bac06280260484f9a829610c812924abed7ae"
+    },
+    {
+      "asset_id": "asset1-34cfe6231c9747f3977bbfb356299cbd",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\release_0.2.1\\server\\BECP_Gateway_v0.2.1.exe",
+      "sha256": "5591713bc4615fffe25f42a2b90e1150518d7e00c5795d733ffb7384c2b5ff68"
+    },
+    {
+      "asset_id": "asset1-d7762dd23af14432b4ee371a545396ca",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\runtime\\ENTITY_SUBSYSTEM_REQUIREMENTS.md",
+      "sha256": "713969d13e7de3bf049b4ba15c4aae41f8413b1d6322253eee4dc5b924086979"
+    },
+    {
+      "asset_id": "asset1-12d6a7ebe7c646c4a94641a222fa41fc",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\ENTITY_SUBSYSTEM_REQUIREMENTS.md",
+      "sha256": "d0046e18849c82b883f12493411783a8dd720061e4e3fdaf2aaa209cbcbebcfe"
+    },
+    {
+      "asset_id": "asset1-0c2873b1237c4d898b0a514de5cf0e04",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\pyproject.toml",
+      "sha256": "3669f58cc84c39b3af912ea275977e7248afcacb5732eba7cb423f7ae38781d8"
+    },
+    {
+      "asset_id": "asset1-2469da43232b4e9caa44f51dedadb272",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\adapters\\niki_remote_adapter.py",
+      "sha256": "7d3918dff122c4acdc447a7e75335021f4d52457d0f0325053c6e3c8a4d5d926"
+    },
+    {
+      "asset_id": "asset1-c80bdccab551403c890f21277ca7cb9f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\adapters\\__init__.py",
+      "sha256": "919384b051146db5797f4486b154610a1f9ce644d1f5482c55e8a8c36ae1ad54"
+    },
+    {
+      "asset_id": "asset1-f72d51e322994dfaa343fd7641a6b376",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\agents\\windows_engineering_workstation_agent.py",
+      "sha256": "6b6318324a6a2da2652afbe8f42c60dd1b761ae92058df410c1eeac341cb6bdb"
+    },
+    {
+      "asset_id": "asset1-f9a2070c852b4868b5b421571e8c68b4",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\agents\\__init__.py",
+      "sha256": "58622291a5070f9eeaf16158ab3b50020f4088e174608cb3695c1a8b94331cc7"
+    },
+    {
+      "asset_id": "asset1-905dcba358174bd88a2f8b20e5a90e28",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\api\\gateway.py",
+      "sha256": "739c305640e87c8d5612e2b69a1839bb7e4969d37a8d07e3d802a218b774c4f7"
+    },
+    {
+      "asset_id": "asset1-e630dee222d8419998c0fdb3a27af743",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\api\\__init__.py",
+      "sha256": "b729351b64bc55ce72228d5b212494b504d3b67334758f4a04f63a335040b28d"
+    },
+    {
+      "asset_id": "asset1-45d573bbe1d04fdeadff8cbcc6e6f17e",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\ai_session.py",
+      "sha256": "7dbdd1d3a86b2192400fcf58ca911af8e29e6d9a415591e369cab7131220c199"
+    },
+    {
+      "asset_id": "asset1-b4df27672eab4a56a7512e9b44724a5a",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\audit.py",
+      "sha256": "c3b43f22a13a13239c4268a7e5b40e4993c46b51a94bcf55f375ae02ec6357e2"
+    },
+    {
+      "asset_id": "asset1-468a4f0a7f6545d0b32650307417d039",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\capabilities.py",
+      "sha256": "09b7049beb63f431894d96950ffeff1a79c9907e3dd73c0292046ace12b5ffce"
+    },
+    {
+      "asset_id": "asset1-4b567b5667d04923a3cf42ab2081a6e0",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\config.py",
+      "sha256": "5b1b59e46b3651874cdfa125c39afe3f9d70adba6780a784f9797bf2ca9edabd"
+    },
+    {
+      "asset_id": "asset1-d56bb7688bc64a1cb7db116fb2e6c51d",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\desktop_commander_bridge.py",
+      "sha256": "32eb8ad02e2330203a624e9157dccefd07ea4d229acbdf4c22d7fd8813a599f4"
+    },
+    {
+      "asset_id": "asset1-4ab409b3206b4d688aa8146901c9774c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\device_registry.py",
+      "sha256": "ed79ef710a16e731cade104bae5404ecec1652aaad83c3813373d9ad43a3c197"
+    },
+    {
+      "asset_id": "asset1-3c109e7d3f584c728608af91c7f2062b",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\engineering_terminal.py",
+      "sha256": "9a97c12741aba7b53d8f4b0f5330b0cd94d39793d8fe9c44c39e8c5cc7b10bce"
+    },
+    {
+      "asset_id": "asset1-46f3a1c85e2d4d36b125620f72553d3f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\mcp_adapter.py",
+      "sha256": "ad193ab424530969a6492d5f14c5eccee86d898780cba193e02b2d69c3b19506"
+    },
+    {
+      "asset_id": "asset1-5b8f6a0dc95b41f3b26c1977651cc4b3",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\models.py",
+      "sha256": "a0dfa1feb46b4adc336028047d2e909e75aef0d2eca59f2a74b1eea79cf2eee1"
+    },
+    {
+      "asset_id": "asset1-c3415ab7e1a34b7390cca471fd2cda6b",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\pki.py",
+      "sha256": "8f7e54b3e9c4ce691601451ba0ab734ee629ca30a1d50674df1c5d28466f0637"
+    },
+    {
+      "asset_id": "asset1-47a41f8d2f154a428c10c7d6e81136a3",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\policy.py",
+      "sha256": "d33c258f60aa0032f8580fcf81739d9cb9bfa26b41211f1110d58a9daa4b63ae"
+    },
+    {
+      "asset_id": "asset1-b3897a10a85547dfb8f274b7097b3ea5",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\router.py",
+      "sha256": "ef8036b8e556e36e55543f835c938dc92edd948641646602bc4fbbc6e9eaec4f"
+    },
+    {
+      "asset_id": "asset1-36bbc473ad414a44b03350551a7b2b3b",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\runtime.py",
+      "sha256": "5417f724db127ced49170673c3b5e7e7fafccb7371aa98bbc1871d674b579cf4"
+    },
+    {
+      "asset_id": "asset1-0a8f8357696d46a2acc6246be8057df7",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\security.py",
+      "sha256": "d6d9552c68bab2fe8674cc693c7fb71bd53bf575e37610d5fcf00404051bb4a1"
+    },
+    {
+      "asset_id": "asset1-7d811a5fa229431d820d19d654628488",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\blackmore_ecp\\__init__.py",
+      "sha256": "ae26996bfcf1435f1a00d7a92eda39d7f9445e08a055806324048338f2391e7b"
+    },
+    {
+      "asset_id": "asset1-a4bb4636e3ea408b988ff7000e6ac969",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\ENGINEERING_WORKSTATION_TERMINAL_REQUIREMENTS.md",
+      "sha256": "cf0f4f19c7e5bfab6aec657aa186f3b73fabd0002151a50ea5e31b237468a725"
+    },
+    {
+      "asset_id": "asset1-6dfbfdae54f54079baef4926c06a7154",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\MAINTENANCE_RECOVERY_ROLLBACK_GUIDE.md",
+      "sha256": "2b29126cf622b97e1bd9d043f900ab1aa4d3eeffc27f18717be77b866e41580a"
+    },
+    {
+      "asset_id": "asset1-9f139ddaeb1e4303bd143a61dfe3e779",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\MCP_LOCAL_PACKAGE_INIT_REMOVED.txt",
+      "sha256": "3684692b442fd6ff71899be58d46c2a6d951e468bef06b410b021466671b2f7b"
+    },
+    {
+      "asset_id": "asset1-48a3cb98401d4a4da7981b3479995359",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\OPERATIONS_AND_USER_GUIDE.md",
+      "sha256": "43967fe35cc982743ff5c47a3165663c83d7b558064f39e57a4b89eddede331c"
+    },
+    {
+      "asset_id": "asset1-150eef7866c1419e926b118869e15a28",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\OPERATOR_TRAINING_GUIDE.md",
+      "sha256": "ca02ce30f9847235b7f394a8828dab71574a9d00554df4988d6da12d9a80b1ca"
+    },
+    {
+      "asset_id": "asset1-b67340b22c3a4572ace7445587459657",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\RDC_BECP_DUAL_PATH.md",
+      "sha256": "7c545e5ad26c016bdcd48c8f18585b993221f128c619d3cb8281de60ba1411a1"
+    },
+    {
+      "asset_id": "asset1-93440ff27ac14234bc6356fbaa2806e4",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\SECURITY_ADMINISTRATION_GUIDE.md",
+      "sha256": "92c3dae22a173f7020c67487cece7a7e2f9dfbb7a3a2a676410ef6d66fe0fd2b"
+    },
+    {
+      "asset_id": "asset1-2b193c0e948e4d199a4c41b177f45406",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\SUSTAINING_ENGINEERING_PLAN.md",
+      "sha256": "b01ff777cde73da429046641a34fdebd34e4d6a0bc0416c966f9e71936fc4b31"
+    },
+    {
+      "asset_id": "asset1-66a6379e701349e181fdcdcb36e33512",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\docs\\TRL9_CERTIFICATION_BASIS.md",
+      "sha256": "5c44ae545555d752177d6b13ea07c433b641f89b3b4eb245c160a18ff2c574bf"
+    },
+    {
+      "asset_id": "asset1-c655e2f97f484cb6bd4154d521937360",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\enroll_engineering_workstation.py",
+      "sha256": "d725dfcd83a4b161bff5211c99028e67f25cb6e1db3549e6bd02804c804c1187"
+    },
+    {
+      "asset_id": "asset1-3544f0a92944451ea9490ce97fc559e2",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\finalize_trl9_certification.py",
+      "sha256": "3a7a3c8c1f02717bef1b52babde65af40f122b6f2726b04ea1ed0674ca26cf6d"
+    },
+    {
+      "asset_id": "asset1-5d39bf2967c64e30be5379b1856df51f",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\generate_pki.py",
+      "sha256": "dbc0123c1b1a838e018ff8a14a8d669a6761b15aa46dbf3ff7eb3535341370d5"
+    },
+    {
+      "asset_id": "asset1-5b0539ea54fe41db8ca87dbf68ff2002",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\generate_qa_evidence.py",
+      "sha256": "83dadf4a8776917fb7a611ac9b9c1467c8b2dc8906b02bca03c9d63bbb04045f"
+    },
+    {
+      "asset_id": "asset1-3b635b01ccd943769fcb5385486b8efa",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\generate_qa_evidence_021.py",
+      "sha256": "896b7264d8060f71049e899e6089a11febe7c79d6e0836acc187a29d709554dd"
+    },
+    {
+      "asset_id": "asset1-4e0d12cb40a74bd59a0024fbb427742c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\generate_trl9_certification.py",
+      "sha256": "d3c8fa8a7a2a22841ec9409cf9fe382b377bcd2e216dadd1830b11806da85d3e"
+    },
+    {
+      "asset_id": "asset1-3117a86aabcb4d25a24404d87957da33",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\generate_trl9_evidence.py",
+      "sha256": "07cbef0afb990c0c85907a68a7b89d4de34e85f409609789ea843a109a711c2a"
+    },
+    {
+      "asset_id": "asset1-aa2a72cd0b2348da88d532edf861ab4c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\install_becp_integrations.py",
+      "sha256": "2bd5fda2ececaa071ef4873e84c8d5a00aaf3f295e52b922dabe57e204feb900"
+    },
+    {
+      "asset_id": "asset1-bec36ec2a99c4a80adfd0c7830244039",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\issue_client_token.py",
+      "sha256": "41cc5ebbfa8a30084f3e60658e51b58c0d1c46f889b07c7783364a9cfb7fce15"
+    },
+    {
+      "asset_id": "asset1-68e11b69b5de429ab70b1edbb3c14ea1",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\issue_openai_tunnel_service_token.py",
+      "sha256": "7d809fce5dc23ecbe5b4f484ec35ce3532b12dcbfde7e1fbd050edcf5ad3192e"
+    },
+    {
+      "asset_id": "asset1-b9cb1515116b495c8a9b052873df2fdf",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\RDC_BECP_BRIDGE.ps1",
+      "sha256": "e80ae3104b4c206b75ae77810138b17331a8b874962b91a3e34a2f1e1f650f27"
+    },
+    {
+      "asset_id": "asset1-8ccc6ed9711543a3b54400cf7c72fa83",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\run_gateway.py",
+      "sha256": "84cc4869ff291d2f5c7d7754ece0a8fc1fc8566515cc67809d9d50b6e7513c61"
+    },
+    {
+      "asset_id": "asset1-73107326956646fdbbeea73f2ba48db9",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\run_rdc_becp_bridge.py",
+      "sha256": "862e5a36c8ba08bd5f0b3f1671c080ed17ac42ebd5c884798ce880c8f4a51be0"
+    },
+    {
+      "asset_id": "asset1-dfae8df8459f4fd085301b52179132f8",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\RUN_TRL9_FINAL_INTEGRITY_SWEEP.ps1",
+      "sha256": "ea4e7c6d24296fcb22682dfdbb6d8bc3bfc52cfefefb758e6ea001508488ac01"
+    },
+    {
+      "asset_id": "asset1-f0880c8f9e8e43fd8223518ef508cee5",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\START_BECP_PRODUCTION_AGENT_021.ps1",
+      "sha256": "37e6f73f81b3b620e0b547eaf3826fded7b62f2ae223f26da63b453f680f1b39"
+    },
+    {
+      "asset_id": "asset1-78a9882765e041c1853720106dd84d6d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\START_BECP_PRODUCTION_GATEWAY_021.ps1",
+      "sha256": "3e6f2134ffdc4f75f2e6ea15cfc5d451aed7584572c251d8b5d89b2af7080db3"
+    },
+    {
+      "asset_id": "asset1-20c290a4279d445498ff6ffc0dee0877",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\START_OPENAI_SECURE_MCP_TUNNEL.ps1",
+      "sha256": "cd0b4031a6b3ceb8091292beaab4ed1db5761f17d98e81da34c734518b153f86"
+    },
+    {
+      "asset_id": "asset1-fba27f819eb246a3be10f7627c5d2acc",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\STOP_BECP_PRODUCTION_021.ps1",
+      "sha256": "f740d7428253bbefc08dd8f9a89de8384caa3f5f1a1fb0b8fcc18010e86ed13b"
+    },
+    {
+      "asset_id": "asset1-5a520a25cbd6450f9c9126ca991b89ae",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\VERIFY_BECP_PRODUCTION_021.ps1",
+      "sha256": "d132d0f858475dc8c5f8251fe4442c13356403cab4fa3b71cfa52e1591fb767c"
+    },
+    {
+      "asset_id": "asset1-83b976e144d947f7bf7714716ce2516d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\VERIFY_OPENAI_SECURE_MCP_TUNNEL.ps1",
+      "sha256": "049cdee0b4b10d487493880c498fdf09044e70c32d6d0d9fd3612fecc360a4fc"
+    },
+    {
+      "asset_id": "asset1-2ae81aeed9d2417a874409a612db5b6d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\scripts\\__init__.py",
+      "sha256": "afa6890022a8524920c36c28843ea24c39153e2b004daffce4d9778d7d382415"
+    },
+    {
+      "asset_id": "asset1-b4c28033c8d04eca97c2bf629e5fb7ea",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\becp_021_binary_qualification.py",
+      "sha256": "c6a5142cf8e9e61c9207ff9a1563853e006719c1845705ff6afc247bf532aa0d"
+    },
+    {
+      "asset_id": "asset1-83c525d912594771a74746b1ebe081cd",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\becp_021_mcp_qualification.py",
+      "sha256": "995bedf9a2c5aa34d2635111434903f1c3050cfae0b8e199055a3ded2afbee7f"
+    },
+    {
+      "asset_id": "asset1-28ef38f4d08d4a79813ddd8b63f12bdb",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\live_remote_qualification.py",
+      "sha256": "bd6999a4ee914d26a9f8b388ae44bd8cabc7fa92c6440f784b0479473f2f9734"
+    },
+    {
+      "asset_id": "asset1-3d94ffd895864687bd6663e93704e02e",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\openai_tunnel_local_binding_verification.py",
+      "sha256": "a1969a93b08a2e454dfb20132d1e21e5f9146977fdec0d66f8dadae99dfa5bd6"
+    },
+    {
+      "asset_id": "asset1-aa623bdba689422283f8180125d9754c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\running_service_verification.py",
+      "sha256": "750193b26a57c8cce66faf1c0c40bced8df2b6b579957ea5d4c54429bbf64fcf"
+    },
+    {
+      "asset_id": "asset1-ee0f97b0be3d4e2685c2092abcee972e",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\standalone_build_smoke.py",
+      "sha256": "d911bd291b4a7d488e0046d79b0e098e1b54a07f9fbd77a6cf00a13168bf182d"
+    },
+    {
+      "asset_id": "asset1-ed6f459cf74a445d8943f3383a1c91ae",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\standalone_terminal_smoke.py",
+      "sha256": "14bc82548843e2f6ccb15fa49676ae340ba8994dd11c8f35df047af9c2e35f56"
+    },
+    {
+      "asset_id": "asset1-2093902c51d64c2b826b22de2cc8ff9c",
+      "idempotent": false,
+      "mode": "LINK_EXISTING_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\test_desktop_commander_bridge.py",
+      "sha256": "3187249b6ddc6b82861374bffbb308bb91b5e5875a57c398f83bd38c99e3690b"
+    },
+    {
+      "asset_id": "asset1-9d22520fd9d949a288d5c4b1afd4e020",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\test_device_registry_and_ai_session.py",
+      "sha256": "320bda34897b842c224cde3141a7dacda6ed9baaf8fc62a60b5cd63214a133d3"
+    },
+    {
+      "asset_id": "asset1-ad7df2826d974b3b892439a42bb11140",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\test_engineering_terminal.py",
+      "sha256": "53a15e3e8a694aeb2480de1bef03db78e06514bedc6210c2e4ed14086cacd6b8"
+    },
+    {
+      "asset_id": "asset1-05df446eba4b421f8f479537e19a7e62",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\test_privileged_terminal_policy.py",
+      "sha256": "bbad46588fa820f1735a5dd707fcccad6702103fe624e748a4640cb8c508d276"
+    },
+    {
+      "asset_id": "asset1-b83d41814e2d4aaeb865c30b9aba2f5d",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\trl9_production_api_qualification.py",
+      "sha256": "cf1437f99efba7eaac77ac409916f820a28073fbb836d565b06f0039f5199974"
+    },
+    {
+      "asset_id": "asset1-0368143b7bac416987b178905053f5b3",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\trl9_production_mcp_qualification.py",
+      "sha256": "47a54bccdb4e22129288f0f55cd767262f7e3abab55e53937684f9ea253c84bc"
+    },
+    {
+      "asset_id": "asset1-b9c3096c88c34147b4dcd8296168445c",
+      "idempotent": false,
+      "mode": "REGISTER_SUBSYSTEM_ASSET",
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane\\source\\tests\\trl9_product_integrations_live.py",
+      "sha256": "b2f8e13e80888d65339f0830a01f3d5902a5346e53ff42095fa4062c5812e3fa"
+    }
+  ],
+  "modes": {
+    "LINK_EXISTING_ASSET": 9,
+    "REGISTER_SUBSYSTEM_ASSET": 153
+  },
+  "ownership_inferred": false,
+  "principal_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa",
+  "processed_files": 162,
+  "raw_content_sent_to_entity": false,
+  "roots": [
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\02_Peer_Network\\BECP_Control_Plane"
+  ],
+  "schema": "btg-subsystem-entity-bridge-run-v1",
+  "skipped_files": 22,
+  "status": "PASS",
+  "subsystem": "BECP"
+}

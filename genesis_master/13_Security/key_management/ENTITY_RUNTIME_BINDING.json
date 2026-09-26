@@ -1,0 +1,51 @@
+{
+  "abi_version": "1",
+  "authorities": {
+    "guardian_recovery": {
+      "exports": [
+        "GuardianRecoveryManager"
+      ],
+      "implementation_sha256": "e5eeea68f691ccf8add83207534c2d47ef6505b7474d4bc9d4b961574d6b27b4",
+      "python_file": "canonical_key_management.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+          "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+        }
+      ],
+      "status": "READY"
+    },
+    "purpose_keys": {
+      "exports": [
+        "PurposeKeyManager"
+      ],
+      "implementation_sha256": "e5eeea68f691ccf8add83207534c2d47ef6505b7474d4bc9d4b961574d6b27b4",
+      "python_file": "canonical_key_management.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+          "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+        }
+      ],
+      "status": "READY"
+    },
+    "recovery_custody": {
+      "exports": [
+        "RecoveryCustodyManager"
+      ],
+      "implementation_sha256": "e5eeea68f691ccf8add83207534c2d47ef6505b7474d4bc9d4b961574d6b27b4",
+      "python_file": "canonical_key_management.py",
+      "qualification_evidence": [
+        {
+          "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_CLOSURE_AUTHORITIES_CURRENT.json",
+          "sha256": "497aa4d49a7a74b9595183a853124462d48464a1d8bfea8321f865aa2e7dc06e"
+        }
+      ],
+      "status": "READY"
+    }
+  },
+  "implementation_version": "2.2.0-canonical",
+  "requirements_sha256": "3aab9b40652531eac02f9efeddb537738aca54e24eccba716ef5f18d25c777f5",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

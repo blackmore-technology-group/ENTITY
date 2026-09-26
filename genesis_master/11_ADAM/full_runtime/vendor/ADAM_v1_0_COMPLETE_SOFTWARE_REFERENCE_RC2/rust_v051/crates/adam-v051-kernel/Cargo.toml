@@ -1,0 +1,49 @@
+[package]
+name = "adam-v051-kernel"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "ADAM v0.51 canonical authority and information-physics kernel"
+publish = false
+
+[lib]
+name = "adam_v051_kernel"
+path = "src/lib.rs"
+
+[[bin]]
+name = "adam-v051-authority-service"
+path = "src/bin/authority_service.rs"
+
+[[bin]]
+name = "adam-v051-conformance"
+path = "src/bin/conformance.rs"
+
+[[bin]]
+name = "adam-v051-replay"
+path = "src/bin/replay.rs"
+
+[[bin]]
+name = "adam-v051-checkpoint"
+path = "src/bin/checkpoint.rs"
+
+[[bin]]
+name = "adam-v051-proof-verify"
+path = "src/bin/proof_verify.rs"
+
+[dependencies]
+base64.workspace = true
+ed25519-dalek.workspace = true
+fs2.workspace = true
+hex.workspace = true
+rand_core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+zeroize.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+tempfile.workspace = true

@@ -1,0 +1,49 @@
+{
+  "after": {
+    "asset_count": 50,
+    "entity_id": "ent2-qhtnuq5bofmsebqaqcr6a7ylte2w63fecpkjudjs3uvkxlduptoa",
+    "ledger_event_count": 50,
+    "ledger_head_hash": "329b8c935d9870d97bc44551dcab92a58cc9693e4d35e04b77568f259ffa4f74",
+    "ledger_valid": true,
+    "manifest_valid": true,
+    "provenance_binding_count": 50,
+    "rights_claim_count": 50
+  },
+  "backing_media_deleted": true,
+  "backup": {
+    "bytes": 62507,
+    "cipher": "AES-256-GCM",
+    "key_fingerprint_sha256": "681f470923decf3fc6a7c73c207c3de724dc0a098d4fb40064f13461d75625c6",
+    "path": "<LOCAL_DRIVE>/ENTITY_MEDIA_LOSS_LAB\\ENTITY_MEDIA_LOSS_BACKUP.enc",
+    "raw_key_recorded": false,
+    "sha256": "e977967bd13b7cda676e0d28f304ab4762e67d07a904599667d2e515bd6900ea"
+  },
+  "before": {
+    "asset_count": 50,
+    "entity_id": "ent2-qhtnuq5bofmsebqaqcr6a7ylte2w63fecpkjudjs3uvkxlduptoa",
+    "ledger_event_count": 50,
+    "ledger_head_hash": "329b8c935d9870d97bc44551dcab92a58cc9693e4d35e04b77568f259ffa4f74",
+    "ledger_valid": true,
+    "manifest_valid": true,
+    "provenance_binding_count": 50,
+    "rights_claim_count": 50
+  },
+  "drive_letter_removed": true,
+  "evidence_sha256": "cae7f60e15a94965969fa4ead73013d39079e7ad016a3af153836d42e7d4e242",
+  "generated_at_ms": 1789614826558,
+  "limitations": [
+    "safe whole-block-device disappearance surrogate; no physical storage hardware was destroyed remotely"
+  ],
+  "physical_media_destroyed": false,
+  "qualification_complete": true,
+  "sacrificial_media": {
+    "backing_path": "<LOCAL_DRIVE>/ENTITY_MEDIA_LOSS_LAB\\ENTITY_SACRIFICIAL_MEDIA.vhd",
+    "sha256_before_deletion": "e6c76459f877fab9e0484ee05d3e41cbb740ca6683a7c6ba22dd05e42bd99c23",
+    "size_bytes_before_deletion": 33562624,
+    "type": "expandable_vhd"
+  },
+  "schema": "entity-block-device-loss-surrogate-v1",
+  "scope_status": "PASS_BLOCK_DEVICE_LOSS_SURROGATE",
+  "status": "PASS",
+  "whole_block_device_removed": true
+}

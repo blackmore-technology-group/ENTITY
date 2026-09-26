@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ENTITY_PRINCIPAL_BINDING_v1.schema.json",
+  "title": "ENTITY Principal Binding v1",
+  "type": "object",
+  "required": ["schema", "binding_id", "principal_entity_id", "application_entity_id", "device_entity_id", "installation_entity_id", "principal_signature", "binding_sha256", "status"],
+  "properties": {
+    "schema": {"const": "entity-principal-binding-v1"},
+    "binding_id": {"type": "string", "pattern": "^pbind1-[0-9a-f]{32}$"},
+    "principal_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-[a-z2-7]{52}$"},
+    "principal_pairwise_ref": {"type": "string", "pattern": "^rel1-[a-z2-7]{52}$"},
+    "application_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-[a-z2-7]{52}$"},
+    "device_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-[a-z2-7]{52}$"},
+    "installation_entity_id": {"type": "string", "pattern": "^(ent1|ent2)-[a-z2-7]{52}$"},
+    "installation_alias": {"type": "string"},
+    "status": {"const": "ACTIVE"},
+    "delegated_actions": {"type": "array", "items": {"enum": ["INGEST_ASSET", "RECORD_EVENT"]}},
+    "binding_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "principal_signature": {"type": "object"}
+  },
+  "additionalProperties": true
+}

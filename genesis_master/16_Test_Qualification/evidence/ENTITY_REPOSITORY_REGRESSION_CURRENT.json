@@ -1,0 +1,55 @@
+{
+  "evidence_sha256": "9401304a0229d52e901ee12a923d6fba3ae397efa04685e0afbca1726618c952",
+  "excluded_duplicate_or_native_context_trees": [
+    "10_NIKI/compatibility_baseline",
+    "embedded ADAM component self-test trees",
+    "embedded BSIE component self-test trees"
+  ],
+  "generated_at_ms": 1789657583573,
+  "legs": {
+    "becp_core": {
+      "failed": 0,
+      "file_sha256": "7e176bf7f21f9f83966754657f69cee99dc9e4bd391038283cd3b82dbd1d02f5",
+      "passed": 8,
+      "path": "16_Test_Qualification\\evidence\\BECP_CORE_REGRESSION_POST_NIKI_DOMAIN.txt",
+      "skipped": 0,
+      "summary": "8 passed in 1.48s",
+      "warnings": 0
+    },
+    "entity_qualification": {
+      "failed": 0,
+      "file_sha256": "359bfa618b52c0f43632466991139b56093a6a8066ef6123d6008ba08fe0cdb3",
+      "passed": 148,
+      "path": "16_Test_Qualification\\evidence\\ENTITY_BUILD_REGRESSION_PYTEST.txt",
+      "skipped": 0,
+      "summary": "148 passed in 94.96s (0:01:34)",
+      "warnings": 0
+    },
+    "niki_entity_unified": {
+      "failed": 0,
+      "file_sha256": "d860ae3c7ee8db70669e30028a18f49b9a2b1877c1dd7d077c770f4436186582",
+      "passed": 266,
+      "path": "10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\tests\\evidence\\FULL_PYTEST_NIKI_POST_SERS_HARNESS.txt",
+      "skipped": 0,
+      "summary": "266 passed, 1 warning in 57.71s",
+      "warnings": 1
+    }
+  },
+  "limitations": [],
+  "non_authoritative_collection_diagnostic": {
+    "file_sha256": "e628f876d04a7b39c389885554a75a467f625b186edb302b6ede4bd1ef1337cf",
+    "path": "16_Test_Qualification\\evidence\\FULL_REPOSITORY_REGRESSION_POST_NIKI_DOMAIN.txt",
+    "reason": "recursive root collection mixes compatibility baseline, embedded ADAM/BSIE self-tests and BECP tests without their native import/runtime contexts",
+    "result": "COLLECTION_CONTEXT_INVALID"
+  },
+  "qualification_complete": true,
+  "regression_rule": "Each authoritative subsystem test leg executes in its declared runtime context; duplicate archived/bundled component test trees are not reclassified as independent ENTITY release tests.",
+  "schema": "entity-repository-regression-v1",
+  "scope": "AUTHORITATIVE_ENTITY_NIKI_BECP_REGRESSION_LEGS",
+  "status": "PASS",
+  "totals": {
+    "failed": 0,
+    "passed": 422,
+    "skipped": 0
+  }
+}

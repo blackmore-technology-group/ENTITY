@@ -1,0 +1,60 @@
+{
+  "optional_integrations": {
+    "ar_projection": [
+      "niki_accept_overlay_layer_v1"
+    ],
+    "becp_evidence": [
+      "niki_ingest_becp_evidence_v1"
+    ]
+  },
+  "owner": "NIKI_ENTITY_INTEGRATION",
+  "required_for_production": {
+    "adam_actions": [
+      "niki_accept_action_proposal_v1"
+    ],
+    "adam_full_runtime": [
+      "EntityFullAdamRuntime",
+      "niki_project_adam_context_v2",
+      "entity_record_adam_transition_v1",
+      "entity_verify_adam_state_v1",
+      "niki_accept_action_proposal_v2"
+    ],
+    "bsie_entity_world": [
+      "niki_project_entity_context_v1"
+    ],
+    "core_permissions": [],
+    "data_universe": [
+      "niki_project_data_summary_v1"
+    ],
+    "domain_node_runtime": [
+      "EntityNodeRuntime",
+      "EntityDirectClient"
+    ],
+    "domain_portability": [
+      "DomainPortabilityManager"
+    ],
+    "domain_resolution": [
+      "EntityNativeResolver"
+    ],
+    "identity": [],
+    "knowledge_capital": [
+      "niki_ingest_reasoning_receipt_v1"
+    ],
+    "policy_consent": [],
+    "service_api": [
+      "entity_bootstrap_v1",
+      "sers_acceptance_v1",
+      "canonical_service_api_v1"
+    ],
+    "sovereign_domain": [
+      "EntityDomainAuthority"
+    ]
+  },
+  "rules": [
+    "canonical READY binding wins over embedded fallback",
+    "READY binding must pin current owner requirements SHA-256",
+    "missing declared export fails closed",
+    "permanent bootstrap never executes from embedded 10_NIKI authority"
+  ],
+  "schema": "niki-canonical-runtime-abi-v1"
+}

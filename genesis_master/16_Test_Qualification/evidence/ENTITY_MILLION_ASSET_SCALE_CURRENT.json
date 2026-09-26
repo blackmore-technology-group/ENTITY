@@ -1,0 +1,58 @@
+{
+  "database": {
+    "path": "<LOCAL_DRIVE>/ENTITY_QUALIFICATION_SCALE\\million_asset_v2\\store\\bulk_ingest.sqlite",
+    "sha256": "8d560a8ad7da423e584d026dfb9025673950c53081b6e58c6cc3882207016efe",
+    "size_bytes": 2311925760
+  },
+  "evidence_sha256": "457abf9f5733d1dbb69998e7d9f77df2473515dd9a3b6ef9a22066d66e7e7fa4",
+  "generated_at_ms": 1789610136282,
+  "index_build": {
+    "indexes": [
+      "idx_bulk_assets_controller",
+      "idx_bulk_assets_batch",
+      "idx_bulk_events_batch",
+      "idx_bulk_events_asset"
+    ],
+    "ready": true
+  },
+  "limitations": [
+    "does not satisfy the separate distributed multi-machine storm requirement"
+  ],
+  "observed": {
+    "asset_ingest_per_second": 69.96,
+    "assets": 1000000,
+    "batches": 100,
+    "event_ingest_per_second": 209.87,
+    "events": 3000000,
+    "index_build_seconds": 1816.324,
+    "ingestion_seconds": 14294.253,
+    "total_seconds": 17642.575,
+    "verification_seconds": 1531.998
+  },
+  "qualification_complete": true,
+  "schema": "entity-million-asset-scale-qualification-v1",
+  "scope": "single-workstation production bulk-ingest durability/verification tier",
+  "semantics": {
+    "batch_attestation_not_legal_truth": true,
+    "continuous_event_hash_chain": true,
+    "per_asset_hard_hash": true,
+    "registration_not_ownership": true,
+    "signed_batch_attestations": true
+  },
+  "source_sha256": {
+    "bulk_ingest": "f30a69867c0587d63fd7a2151b8ddf930209c024bb5591a824cb78e0fb40a526",
+    "runner": "1da2e472447412ef448fac1cfc8a932df137d63a99c858df8c86e570e98cfffb"
+  },
+  "status": "PASS",
+  "targets": {
+    "assets": 1000000,
+    "batch_size": 10000,
+    "events": 3000000
+  },
+  "verification": {
+    "batch_head": "8b4a359bc9d3ad301da24abd8a6b73d7f2e5abb7960704ff0dc1d2e8112991f4",
+    "batches": 100,
+    "pass": true,
+    "row_level_verified": true
+  }
+}

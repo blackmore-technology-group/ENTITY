@@ -1,0 +1,302 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "name": "base64",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "0.22"
+    },
+    {
+      "name": "ed25519-dalek",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "2.1"
+    },
+    {
+      "name": "fs2",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "0.4"
+    },
+    {
+      "name": "hex",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "0.4"
+    },
+    {
+      "name": "proptest",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "1.7"
+    },
+    {
+      "name": "rand_core",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "0.6"
+    },
+    {
+      "name": "serde",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "1.0"
+    },
+    {
+      "name": "serde_json",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "1.0"
+    },
+    {
+      "name": "sha2",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "0.10"
+    },
+    {
+      "name": "tempfile",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "3.20"
+    },
+    {
+      "name": "thiserror",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "2.0"
+    },
+    {
+      "name": "zeroize",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "crates.io"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "1.8"
+    },
+    {
+      "name": "Pillow",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "pypi"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "10"
+    },
+    {
+      "name": "cryptography",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "pypi"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "41"
+    },
+    {
+      "name": "msgpack",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "pypi"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "1.0"
+    },
+    {
+      "name": "numpy",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "pypi"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "1.26"
+    },
+    {
+      "name": "sympy",
+      "properties": [
+        {
+          "name": "adam:dependency_state",
+          "value": "declared-not-lock-resolved"
+        },
+        {
+          "name": "adam:ecosystem",
+          "value": "pypi"
+        }
+      ],
+      "scope": "required",
+      "type": "library",
+      "version": "1.12"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "ADAM v0.51 Rust Authority Kernel Source Qualification Candidate",
+      "type": "application",
+      "version": "0.51.0.dev1"
+    },
+    "properties": [
+      {
+        "name": "adam:sbom_state",
+        "value": "source-declared-dependencies"
+      },
+      {
+        "name": "adam:cargo_lock_present",
+        "value": "false"
+      },
+      {
+        "name": "adam:resolved_binary_sbom_required_for_promotion",
+        "value": "true"
+      }
+    ],
+    "timestamp": "2026-08-04T22:44:33.420764+00:00"
+  },
+  "serialNumber": "urn:uuid:adam-v051-source-candidate",
+  "specVersion": "1.6",
+  "version": 1
+}

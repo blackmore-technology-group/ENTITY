@@ -1,0 +1,211 @@
+{
+  "aggregate_sha256": "cc9256c72b92f32b61cd34dbf555a8dfe00c83fd19c2586e7f02b71e770e2dd0",
+  "artifact": {
+    "bytes": 27430267,
+    "exists": true,
+    "path": "<LOCAL_DRIVE>/BTG_BUILT_SYSTEMS_2026-09-14\\BUILT_APPS\\SearchAR\\SearchAR_v0.12.0-debug.apk",
+    "sha256": "1c794a760302523b6279e9d083a5277c58692623daef577c555f58334d619863"
+  },
+  "file_count": 39,
+  "files": [
+    {
+      "bytes": 3155,
+      "path": "app/build.gradle.kts",
+      "sha256": "685efda670c7ed2330bb76b41a5e5a2cdf47e6a600a36f5af042f6d0933e287f"
+    },
+    {
+      "bytes": 1501,
+      "path": "app/build.gradle.kts.pre_agp911.bak",
+      "sha256": "fd0c5eb9dbb5cb7a7cd5095a47d4d959906b42610de5b1745f1b84740ceb1259"
+    },
+    {
+      "bytes": 2792,
+      "path": "app/build.gradle.kts.pre_android_commissioning_20260914.bak",
+      "sha256": "d26ef2e19453a0e7eb9797410606fd319df32225e04b9eb83dc91b8d6bede3c6"
+    },
+    {
+      "bytes": 1559,
+      "path": "app/build.gradle.kts.pre_niki_mobile.bak",
+      "sha256": "f6b000c7f900159f8693139de95e78036fc8abe592d786f22df8cc73994c2e5f"
+    },
+    {
+      "bytes": 1526,
+      "path": "app/build.gradle.kts.pre_version_sync_20260910_1745",
+      "sha256": "85e11f0d51e4a2fbef31ca996560058d318b31e95e34396a2e15bd5541c90dcf"
+    },
+    {
+      "bytes": 263463,
+      "path": "app/libs/NIKI_Mobile_Runtime_0.8.0_android_arm64.aar",
+      "sha256": "625dd37f34255f6cd5cf04c7d07a25b4d2d385ad82d2589a6422fb24f54ae6b1"
+    },
+    {
+      "bytes": 1161,
+      "path": "app/src/main/AndroidManifest.xml",
+      "sha256": "3bdab6ffd482cf7052f5f13ac64fd1fc27cdbb4125dd27bc33398eacc561a0c0"
+    },
+    {
+      "bytes": 1107,
+      "path": "app/src/main/AndroidManifest.xml.pre_ptt_audio_20260911.bak",
+      "sha256": "76878a245b4e08a4897946bc4efa9d4b6024d3e56336a5f016b4557a06c3c481"
+    },
+    {
+      "bytes": 2027,
+      "path": "app/src/main/cpp/CMakeLists.txt",
+      "sha256": "6b367c2921f8e1e60c431f88b25b9cea4e40fb0c47ab95471f4e386e2bc72beb"
+    },
+    {
+      "bytes": 1282,
+      "path": "app/src/main/cpp/CMakeLists.txt.pre_android_openssl_20260910_2350",
+      "sha256": "f91e5bd8a7087931a7324efe7a2f2a78e840fceeb4a48214e06a3540801a3526"
+    },
+    {
+      "bytes": 1651,
+      "path": "app/src/main/cpp/CMakeLists.txt.pre_arcore_link_20260910_1730",
+      "sha256": "490b43d69f18fc31f08378509d6dbf8f2c1c303c4ece5a68e5cfeb4c10ae7332"
+    },
+    {
+      "bytes": 13828,
+      "path": "app/src/main/cpp/searchar_jni.cpp",
+      "sha256": "2d7ffd0caa299641dbef272169eb388296ad788334a6eadb5f82a26bc131fb6b"
+    },
+    {
+      "bytes": 4661,
+      "path": "app/src/main/cpp/searchar_jni.cpp.pre_android_commissioning_20260914.bak",
+      "sha256": "e1e935b4be373a86f2976aa868922654ee805b2736f70727348a429f466879d5"
+    },
+    {
+      "bytes": 6851,
+      "path": "app/src/main/java/com/blackmore/searchar/BSIECommissioningPanel.kt",
+      "sha256": "224caebedaa23ddb05e2bd3f3aad0006c013503c5ba924a20d24383b03803585"
+    },
+    {
+      "bytes": 1270,
+      "path": "app/src/main/java/com/blackmore/searchar/CameraFrameEncoder.kt",
+      "sha256": "8cdd69116d7ae996be279edf1f7e7797927b0b1da91041d44dd1424a9b35205c"
+    },
+    {
+      "bytes": 3161,
+      "path": "app/src/main/java/com/blackmore/searchar/ControlCourse.kt",
+      "sha256": "d63e6f54f36ba8ea39f154f4492191f957d95f39670be6ee6b43f0a07a83a4a6"
+    },
+    {
+      "bytes": 8104,
+      "path": "app/src/main/java/com/blackmore/searchar/DeviceProvenance.kt",
+      "sha256": "8e49b746eb2344c3562f1627635e3c604a0c5d96b526af7a8ba54ccafab58ba5"
+    },
+    {
+      "bytes": 15744,
+      "path": "app/src/main/java/com/blackmore/searchar/MainActivity.kt",
+      "sha256": "b4fc05755157eb090741519b8e76cabb1e73ed90c11630d24c10c7a4446f92a4"
+    },
+    {
+      "bytes": 13126,
+      "path": "app/src/main/java/com/blackmore/searchar/MainActivity.kt.pre_android_commissioning_20260914.bak",
+      "sha256": "9ad2f4b25547b87ea45e477d82a8b8f78956c82c6209b9b302c9fb9f41adc8ea"
+    },
+    {
+      "bytes": 10194,
+      "path": "app/src/main/java/com/blackmore/searchar/MainActivity.kt.pre_ptt_audio_20260911.bak",
+      "sha256": "68d8ecd87204b0c87824de1a0c9a8ca2f3852f373773ce2f5d04ca7009eb95c9"
+    },
+    {
+      "bytes": 9174,
+      "path": "app/src/main/java/com/blackmore/searchar/PttAudioEngine.kt",
+      "sha256": "79dc60c63b5cb02d53a6ab59d270bc34f10ea35109b273795f951e734a47eccb"
+    },
+    {
+      "bytes": 2812,
+      "path": "app/src/main/java/com/blackmore/searchar/PttDeviceProof.kt",
+      "sha256": "2f425bb9f30afa811d94871d554d773d725e0e582e76a85d92a63bbd264012ed"
+    },
+    {
+      "bytes": 3964,
+      "path": "app/src/main/java/com/blackmore/searchar/SearchARMobileStore.kt",
+      "sha256": "cd032ed303eac3dccfdfd728470c25eb3f397a410d25028a8f3405434b6823f4"
+    },
+    {
+      "bytes": 3936,
+      "path": "app/src/main/java/com/blackmore/searchar/SearchARMobileStore.kt.pre_kotlin_fix_20260910_1736",
+      "sha256": "bf5570c46684f82b7c8c52c6b66bd70e8d4f0c628cf7cf372d929fcc0c4acdd0"
+    },
+    {
+      "bytes": 7833,
+      "path": "app/src/main/java/com/blackmore/searchar/SearchARNativeBridge.kt",
+      "sha256": "8b28de29eb3869467fa92d2bc2ab7acd54b698c5fca9027620bfc78f608b606c"
+    },
+    {
+      "bytes": 7738,
+      "path": "app/src/main/java/com/blackmore/searchar/SearchARNativeBridge.kt.pre_android_commissioning_20260914.bak",
+      "sha256": "06c43af4af59d13f7dfebfb2edc08fddf2871a2157b071fb39a4a45097e83ab9"
+    },
+    {
+      "bytes": 6811,
+      "path": "app/src/main/java/com/blackmore/searchar/SearchARNativeBridge.kt.pre_niki_mobile.bak",
+      "sha256": "7f158309934e60ae51521f3f7d93a3bf68eb249491b2b977b389cdcf905d0cdb"
+    },
+    {
+      "bytes": 5306,
+      "path": "app/src/main/java/com/blackmore/searchar/SearchARNativeBridge.kt.pre_ptt_audio_20260911.bak",
+      "sha256": "c47974ce75017a9759ad7ae1890f5908ac6c0b6c6c53078530c1dacb98aae5ea"
+    },
+    {
+      "bytes": 1328,
+      "path": "app/src/main/java/com/blackmore/searchar/TelemetrySampler.kt",
+      "sha256": "77923c117da754268f9751ef0a277753b1a4961cd75dfdac25b66d62c9f0ef80"
+    },
+    {
+      "bytes": 410,
+      "path": "app/src/main/res/values/styles.xml",
+      "sha256": "df61e62e49e61bde331e9fb42aa0befe2a34ec79a1c656900baa66c025f42ada"
+    },
+    {
+      "bytes": 74,
+      "path": "build.gradle.kts",
+      "sha256": "9280b4610fd317014ebe7698a96c0e2bb23894699d1e15401f4089576dfe6523"
+    },
+    {
+      "bytes": 74,
+      "path": "build.gradle.kts.pre_agp911.bak",
+      "sha256": "3a47e0cb9a666961e0c602dee4b6108135529f44f1ee1be4adddafd2df83a9d4"
+    },
+    {
+      "bytes": 45457,
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "76805e32c009c0cf0dd5d206bddc9fb22ea42e84db904b764f3047de095493f3"
+    },
+    {
+      "bytes": 338,
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "d5a126c1543eaca3214bc82958ced8a32592bb4c4542316e5993d8b83eb08cfc"
+    },
+    {
+      "bytes": 338,
+      "path": "gradle/wrapper/gradle-wrapper.properties.pre_931.bak",
+      "sha256": "11deb251eb0c33e399cd5babeff5d7bfe813096144798ab2ca4d5236296912bb"
+    },
+    {
+      "bytes": 268,
+      "path": "gradle.properties",
+      "sha256": "5c5596da7dc255d725e336031f8bf63137206976c8834a9b10082031c80b4099"
+    },
+    {
+      "bytes": 8640,
+      "path": "gradlew",
+      "sha256": "b2fe376b143a459ba5d0bd290dc89beed5399fc6d159cd1214bd642ea94bcf07"
+    },
+    {
+      "bytes": 2825,
+      "path": "gradlew.bat",
+      "sha256": "9386e790d58b9368ca8e034536a5baa688643d51cb37bfa462503d36fd0291a6"
+    },
+    {
+      "bytes": 274,
+      "path": "settings.gradle.kts",
+      "sha256": "bee7dbdb27aa8d4ae5b3aed3c56a725b8f0086c2bd414e0a5cf0bd65a8bc66f4"
+    }
+  ],
+  "generated_at_ms": 1789665935192,
+  "product": "SEARCHAR",
+  "schema": "btg-product-entity-integration-snapshot-v1",
+  "source_root": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\SAR\\SearchAR_v0.12.0\\mobile\\android"
+}

@@ -1,0 +1,10 @@
+{
+  "expected_reason": "relay_non_authority",
+  "expected_valid": false,
+  "material": {
+    "relay_is_authority": true,
+    "relay_is_licensor": true
+  },
+  "name": "relay_authorization",
+  "schema": "entity-domain-test-vector-v1"
+}

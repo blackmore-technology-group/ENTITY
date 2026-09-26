@@ -1,0 +1,20 @@
+{
+  "evidence_sha256": "5c8ec7108deb1307dfb0623712b6e9b6e9eca10f338a0a6aeed188333f906200",
+  "generated_at_ms": 1789570412462,
+  "implementation_sha256": {
+    "04_Entity_Registry\\asset_registry\\canonical_asset_registry.py": "bdce085522208d05d699e6420fe861ce36f89906376d3b8e2d94f0c6e8ea7080",
+    "04_Entity_Registry\\event_ledger\\canonical_event_ledger.py": "3beca91ce59a8e67d2a80e3d6184f7376f5e35fb4a65ba0084c3c4e093e0e7c0",
+    "04_Entity_Registry\\ownership_graphs\\canonical_rights_claims.py": "3007b78ee8edcfa65f70c78c33aef1c11514009de256a292050363745879a49c",
+    "04_Entity_Registry\\provenance\\canonical_provenance.py": "493a7d681087e7f1ce2003e5a3ac6d43b8102914190bbacc794bb886cb4d8b56"
+  },
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "....                                                                     [100%]\n4 passed in 3.79s",
+  "qualification_complete": true,
+  "requirements": {
+    "asset_registry": "SERS-ENTITY-002 asset registry requirements",
+    "event_ledger": "SERS-ENTITY-002 ledger/checkpoint requirements"
+  },
+  "schema": "entity-event-ledger-asset-registry-qualification-v1",
+  "status": "PASS"
+}

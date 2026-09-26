@@ -1,0 +1,16 @@
+{
+  "adam_version": "1.0.0-rc2",
+  "authoritative_inner_release": "ADAM_v1_0_COMPLETE_SOFTWARE_REFERENCE_RC2.zip",
+  "authoritative_inner_sha256": "3cc6541f2d00dd0580989cc7fe6e8abd56974d1069f61c710e230568e00b8da3",
+  "authoritative_inner_sidecar_matches": true,
+  "created_at_unix": 1789742441,
+  "external_certification_required": true,
+  "inner_file_count": 535,
+  "integration_policy": "ENTITY binds to the verified inner signed ADAM RC2 release; the modified outer wrapper is not used as a trust root.",
+  "outer_wrapper_sha256_actual": "72fef488e360f044d6ef57fb56406e3ed510a3c553a3e18090b7d17ca8803780",
+  "outer_wrapper_sidecar_matches": false,
+  "outer_wrapper_sidecar_sha256": "73e21ef3945c195db66d59a55e12dc9a48e9d6af389cf0fe960bfdb0d6f71eaf",
+  "packaging_revision": "RC2-R2",
+  "schema": "entity-adam-full-runtime-pin-v1",
+  "source_outer_wrapper": "<LOCAL_DRIVE>/ADAM_v1_0_COMPLETE\\ADAM_v1_0_COMPLETE_SOFTWARE_REFERENCE_RC2_R2.zip"
+}

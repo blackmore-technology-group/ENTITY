@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "usage_control",
+  "exports": [
+    "UsageControlEngine"
+  ],
+  "implementation_sha256": "b310fbb310525f8f083c41541cf2116048dcda0987e423a57ab50cc4cd671fde",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_usage_control.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CONTRACTS_USAGE_CURRENT.json",
+      "sha256": "0d880502a0094e50ef98ed43b43cb9cb5007f920d488489f59a0866942008216"
+    }
+  ],
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

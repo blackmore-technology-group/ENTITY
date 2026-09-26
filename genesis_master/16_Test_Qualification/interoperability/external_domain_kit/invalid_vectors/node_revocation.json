@@ -1,0 +1,28 @@
+{
+  "expected_reason": "node_revocation_signature",
+  "expected_valid": false,
+  "material": {
+    "created_at_ms": 1789576362160,
+    "domain_id": "domain1-51186588bab8349f5f7a5e8b294697c6ef3444bc",
+    "effective_at_ms": 1789576362160,
+    "entity_root": "ent2-mroly75svkbt4iu2eyi2df5ezyygck6excenwdaaihmvurtyddjq",
+    "entity_root_unchanged": true,
+    "historical_evidence_preserved": true,
+    "node_id": "node-revoked-vector",
+    "reason": "forged",
+    "revocation_id": "rev1-ebccc57c37cb4a05771f5f80eb6b26563063cf86",
+    "schema": "entity-node-revocation-v1",
+    "signature": {
+      "entity_id": "ent2-mroly75svkbt4iu2eyi2df5ezyygck6excenwdaaihmvurtyddjq",
+      "key_id": "sig-d129ec849b293458",
+      "payload_sha256": "da4960ef7630b4e2577ec8affbf743e98a89260f3d66b46628c16185cad731aa",
+      "signature": "9AbFGOu3_8F-0LNibBqD3bYWESlQ55KgJhUZcboIkeTJtDi5RvkV7aacD_KBx92pGvEOmcFF9RjJ3YTfzhXeAA",
+      "signature_schema": "entity-signature-record-v2",
+      "signed_at_ms": 1789576362162,
+      "suite": "ENTITY-SIG-ED25519-v1"
+    },
+    "status": "REVOKED"
+  },
+  "name": "node_revocation",
+  "schema": "entity-domain-test-vector-v1"
+}

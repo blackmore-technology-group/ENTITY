@@ -1,0 +1,25 @@
+{
+  "evidence_sha256": "d9e97d9e615c4f1bce1c2c99881112bc4094894ee81bc0865215b0781043d66f",
+  "generated_at_ms": 1789595475999,
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": ".........                                                                [100%]\n9 passed in 10.90s",
+  "qualification_complete": true,
+  "schema": "entity-domain-test-results-v1",
+  "status": "PASS",
+  "test_file": "16_Test_Qualification\\sovereign_domain\\test_sovereign_domain.py",
+  "test_names": [
+    "test_provider_free_internal_direct_connect_and_presence",
+    "test_malicious_resolver_stale_state_and_revoked_node_fail_closed",
+    "test_device_provider_migration_and_node_theft",
+    "test_destructive_domain_recovery_preserves_root_and_domain",
+    "test_request_storm_keeps_security_checks_enabled",
+    "test_domain_failure_states_are_explicit_and_non_reassigning",
+    "test_export_privacy_and_economic_semantics",
+    "test_malicious_relay_cannot_manufacture_authority_or_modify_ciphertext",
+    "test_required_protocol_specification_surface_is_published"
+  ],
+  "test_sha256": "0feb12fa2fcae5162d44feadababe9a17b6655eefffee1b7b22d345cb1ce9e7b",
+  "tests_passed": 9,
+  "tests_total": 9
+}

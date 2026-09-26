@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "all_files_present": true,
+    "core_unchanged": true,
+    "tests_12_of_12": true
+  },
+  "evidence_sha256": "bb5afbdd4e19e3432290ae56a4c88cb0a7be190a48f37bdee22bc300c2c660bc",
+  "generated_at_ms": 1789665800012,
+  "implementation_hashes": {
+    "14_Protocols_SDK\\open_entity_sdk\\entity_open_sdk_gateway.py": "4dbf53051c893ba7ac92ffc315c7d49ef0c454ecce1f434f935b7affe7bda69b",
+    "14_Protocols_SDK\\open_entity_sdk_v1_1\\canonical_open_entity_sdk_v1_1.py": "55d9f100facaedcf65a3b3e6ca82138451ef1f334f4d966307a8e8484433d6b6",
+    "14_Protocols_SDK\\principal_binding\\ENTITY_PRINCIPAL_BINDING_v1.schema.json": "d0d001e541f7b149ff62f82cbdfde2d567cc3e85c229f2146bf9201c066972ca",
+    "14_Protocols_SDK\\principal_binding\\canonical_principal_binding.py": "4c036ea21532917acfe53f595bdb457e8dfdd494f0857a1f7e39834382d1f2c0"
+  },
+  "preserved_invariants": [
+    "bare Entity ID is not principal authority",
+    "principal signs device/application installation binding",
+    "binding is revocable",
+    "application cannot substitute another controller",
+    "application cannot manufacture principal rights",
+    "origin principal/install/device survive canonical persistence",
+    "pairwise principal reference available for privacy"
+  ],
+  "pytest_sha256": "f7fc580ec61da45a0af2b00842f5b2db119b0fa6a6eaa4f0d2eed354c595e275",
+  "qualification_complete": true,
+  "schema": "entity-principal-binding-qualification-v1",
+  "status": "PASS"
+}

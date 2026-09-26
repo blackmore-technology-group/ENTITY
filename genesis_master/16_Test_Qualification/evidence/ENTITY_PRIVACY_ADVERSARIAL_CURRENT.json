@@ -1,0 +1,18 @@
+{
+  "evidence_sha256": "ec97f8ae9a276d77f54a2a325d8ce5a6671c010f482b1d32e913bd2d28c7f686",
+  "generated_at_ms": 1789501795984,
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": ".....                                                                    [100%]\n5 passed in 0.34s",
+  "qualification_complete": true,
+  "requirements_covered": [
+    "default-deny source enrollment and explicit NIKI content permission",
+    "hard secret/key path exclusion overrides enrolled source access",
+    "external sensitive AI disclosure fails closed without explicit permission and policy",
+    "NIKI context projection requires permission and excludes private paths/raw/vault content",
+    "pairwise relationship identifiers do not expose the sovereign root identifier",
+    "shared ENTITY event metadata recursively removes sensitive content, secrets and private locators"
+  ],
+  "schema": "entity-privacy-adversarial-qualification-v1",
+  "status": "PASS"
+}

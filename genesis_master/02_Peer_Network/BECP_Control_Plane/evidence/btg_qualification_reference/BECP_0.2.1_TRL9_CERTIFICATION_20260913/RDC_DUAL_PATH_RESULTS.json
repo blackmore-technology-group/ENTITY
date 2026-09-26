@@ -1,0 +1,51 @@
+{
+    "status":  "PASS",
+    "bridge_status":  {
+                          "gateway":  {
+                                          "ok":  true,
+                                          "online_devices":  1,
+                                          "registered_devices":  2,
+                                          "service":  "BECP client gateway"
+                                      },
+                          "mode":  "RDC_DIRECT_PLUS_BECP_BRIDGE",
+                          "ok":  true
+                      },
+    "bridge_health":  {
+                          "device_id":  "56d7ed92-c5b4-4cca-addd-02ab1384ca74",
+                          "ok":  true,
+                          "result":  {
+                                         "capability":  "system.health",
+                                         "correlation_id":  "2ddf8384-bd1b-470d-b61d-9d32834c34f5",
+                                         "data":  {
+                                                      "disk_free_bytes":  1505574912,
+                                                      "hostname":  "BTG",
+                                                      "os":  "Windows-10-10.0.26200-SP0",
+                                                      "pid":  12056,
+                                                      "python":  "3.11.9"
+                                                  },
+                                         "error":  null,
+                                         "ok":  true,
+                                         "target":  "56d7ed92-c5b4-4cca-addd-02ab1384ca74"
+                                     }
+                      },
+    "bridge_terminal":  {
+                            "ok":  true,
+                            "result":  {
+                                           "capability":  "engineering.terminal.execute",
+                                           "correlation_id":  "4b1e4565-00e4-4c26-bf04-adc56272d0b4",
+                                           "data":  {
+                                                        "duration_seconds":  0.766,
+                                                        "returncode":  0,
+                                                        "session_id":  "90fd52c9-a32f-4abb-b9ab-ddf6be5b2193",
+                                                        "stderr":  "",
+                                                        "stderr_truncated":  false,
+                                                        "stdout":  "BECP_TRL9_RDC_BRIDGE_OK\r\nBTG\r\n",
+                                                        "stdout_truncated":  false
+                                                    },
+                                           "error":  null,
+                                           "ok":  true,
+                                           "target":  "56d7ed92-c5b4-4cca-addd-02ab1384ca74"
+                                       }
+                        },
+    "direct_rdc_output":  "RDC_DIRECT_TRL9_OK\nBTG"
+}

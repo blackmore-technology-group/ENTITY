@@ -1,0 +1,37 @@
+{
+  "evidence_sha256": "df00b170b95cef5387a542029df72b063cdf80d0e013944d691570a839fee82c",
+  "failures": [],
+  "framework": "deterministic generated/model-based campaign; Hypothesis unavailable",
+  "generated_at_ms": 1789582399574,
+  "generated_cases": 11926,
+  "invariant_case_counts": {
+    "asset_deactivation_preserves_provenance": 25,
+    "capability_scope_non_expansion": 1000,
+    "degraded_high_impact_fail_closed": 3500,
+    "double_entry_balanced_batches": 100,
+    "evidence_no_silent_verification": 1000,
+    "historical_signatures_after_recovery": 100,
+    "niki_read_not_mutation_authority": 1,
+    "policy_unknown_action_fail_closed": 1000,
+    "privilege_default_deny": 5000,
+    "revoked_key_post_revocation_rejected": 100,
+    "settlement_replay_rejected": 100
+  },
+  "limitations": [],
+  "qualification_complete": true,
+  "required_invariants": [
+    "unauthorized actors cannot mutate protected rights",
+    "revoked keys cannot authorize later operations",
+    "duplicate settlement requests cannot duplicate settlements",
+    "finalized double-entry accounting balances",
+    "asset deletion cannot rewrite provenance",
+    "policy denial fails closed",
+    "NIKI read cannot imply mutation",
+    "capability scope cannot expand",
+    "historical signatures remain verifiable",
+    "unknown evidence cannot silently become verified"
+  ],
+  "schema": "entity-generated-invariant-campaign-v1",
+  "seed": 20260916,
+  "status": "PASS"
+}

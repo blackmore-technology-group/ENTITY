@@ -1,0 +1,80 @@
+{
+  "artifact_count": 13,
+  "artifacts": [
+    {
+      "bytes": 1342,
+      "path": "AUDIT_CHAIN_EVIDENCE.json",
+      "sha256": "609cc04b691297fd2d511d615150bf3390bcde90c15627146ee74ff02e158bb4"
+    },
+    {
+      "bytes": 2493,
+      "path": "CERTIFICATE_EVIDENCE.json",
+      "sha256": "e751eee3c983bd1bcc812afda94e992b1fe2fb15d62f520df28131f989f065b0"
+    },
+    {
+      "bytes": 13,
+      "path": "COMPILEALL_RESULTS.txt",
+      "sha256": "c1e97067c5f479a44a6f57297a0a8f87a59d181c3c529910f8bf059094bc3abb"
+    },
+    {
+      "bytes": 2658,
+      "path": "DEVICE_REGISTRY_SNAPSHOT.json",
+      "sha256": "dc3a35290b9402ecdf84e724beed14d133afea74d998c078421819b6be552da9"
+    },
+    {
+      "bytes": 669,
+      "path": "ENVIRONMENT.json",
+      "sha256": "a86f441400e6927aee261aac281d0c3fe9add6e6a13db65d5553d94ef455e952"
+    },
+    {
+      "bytes": 1146,
+      "path": "LIVE_RESULTS.json",
+      "sha256": "06163cc2c3a75d429c788267b81a6f37a2959943b00d98b4b64913eb14dbbf49"
+    },
+    {
+      "bytes": 580,
+      "path": "PKI_ACTIVE_STATUS.json",
+      "sha256": "276dd7a8dd8029ef8c1b324fa250d925f0a7cc14eae4de457621b59d44595819"
+    },
+    {
+      "bytes": 925,
+      "path": "QUALIFICATION_RELEASE_STATUS.json",
+      "sha256": "6ad0b21fbfb39982fbde86ee4a6ca210c361cd805c61a4c65887f0832bd9d03d"
+    },
+    {
+      "bytes": 984,
+      "path": "QUALIFICATION_REPORT.md",
+      "sha256": "f1808ab3066595d35e80eb87e5575c77659ecd76115ddd56383c1f1710c0a00c"
+    },
+    {
+      "bytes": 228,
+      "path": "REGRESSION_RESULTS.txt",
+      "sha256": "6bacef6e0be4562a4a78e37f2ad3cb79c797facdbc2b936b8ddd8ea3f5a023e3"
+    },
+    {
+      "bytes": 385,
+      "path": "SECRET_PRESENCE.json",
+      "sha256": "7f8d3a17e6da1ec59d905df5060989a4397889103cf0a8412a5a68f1cad8630b"
+    },
+    {
+      "bytes": 5579,
+      "path": "SOURCE_FILE_HASHES.json",
+      "sha256": "ce751cfaa3499450014ec3355b838018569dc30f58384d045d6f49dd05f9d7dd"
+    },
+    {
+      "bytes": 1212,
+      "path": "VERIFY_EVIDENCE.py",
+      "sha256": "ec7dac55626439534832614dd57a38e776ffd68cfbcd5f1efb4a4bd6d54ef85a"
+    }
+  ],
+  "disposition": "QUALIFIED_PASS",
+  "generated_utc": "2026-09-12T21:02:38.579658+00:00",
+  "private_key_material_included": false,
+  "product": "Blackmore Engineering Control Plane",
+  "product_id": "BTG-PLAT-010",
+  "qualification_id": "BECP_0.2.0_QUALIFICATION_20260912",
+  "schema_version": 1,
+  "source_file_count": 35,
+  "source_inventory_sha256": "ce751cfaa3499450014ec3355b838018569dc30f58384d045d6f49dd05f9d7dd",
+  "version": "0.2.0"
+}

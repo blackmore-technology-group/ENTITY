@@ -1,0 +1,36 @@
+{
+  "claim_boundary": "Complete bounded source-audited reference; external Rust/HSM/WAN/device/30-day certification remains external.",
+  "fixes": [
+    "Cargo --locked is used only when a Cargo.lock is present",
+    "Lockfile-free Rust crates are checked in a temporary copy without mutating the sealed tree",
+    "Optional Rust compilation failures are reported but do not block standard qualification",
+    "ADAM_REQUIRE_RUST=1 makes Rust compilation failures blocking",
+    "Rust response serialization uses one schema-stable serde_json::Value response type"
+  ],
+  "format": "ADAM-v0.50.1-R3-final-qualification",
+  "integrated_logic": {
+    "failed": 0,
+    "passed": 9
+  },
+  "regression": {
+    "failed": 0,
+    "files": 21,
+    "passed": 117,
+    "process_model": "forced spawn"
+  },
+  "source_audit": {
+    "blocking_open_findings": 0,
+    "rust_default_policy": "optional external gate",
+    "strict_rust_environment": "ADAM_REQUIRE_RUST=1"
+  },
+  "status": "PASS",
+  "version": "0.50.1.dev3",
+  "wheel": {
+    "artifact_sha256": "4796696b1844c889f18c87e15dadb53b8f3b39d9729bf04ac6dc8804a32cad50",
+    "build": "PASS",
+    "import_smoke": "PASS",
+    "isolated_install": "PASS",
+    "wheel": "artifacts/wheel_v501/adam_sovereign_artificial_living_universe-0.50.1.dev3-py3-none-any.whl",
+    "wheel_sha256": "5af780250dca80a1a1f86f6075ae515ebacc48be53fad7f68e8dcbb9fc878421"
+  }
+}

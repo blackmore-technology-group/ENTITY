@@ -1,0 +1,85 @@
+{
+    "captured_utc":  "2026-09-13T01:23:14.2328835Z",
+    "production_version":  "0.2.0",
+    "target_version":  "0.2.1",
+    "processes":  [
+                      {
+                          "ProcessId":  39572,
+                          "ParentProcessId":  23652,
+                          "Name":  "BECP_Workstation_Agent_v0.2.0.exe",
+                          "CommandLine":  "\"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.0\\agent\\BECP_Workstation_Agent_v0.2.0.exe\" --config \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\config\\BTG_ENGINEERING_WORKSTATION.json\" --gateway wss://127.0.0.1:8766/agent --device-cert \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.cert.pem\" --device-key \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.key.pem\" --ca-cert \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\ca\\ca.cert.pem\" --heartbeat-seconds 5 --reconnect-seconds 5"
+                      },
+                      {
+                          "ProcessId":  45304,
+                          "ParentProcessId":  39572,
+                          "Name":  "BECP_Workstation_Agent_v0.2.0.exe",
+                          "CommandLine":  "\"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.0\\agent\\BECP_Workstation_Agent_v0.2.0.exe\" --config \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\config\\BTG_ENGINEERING_WORKSTATION.json\" --gateway wss://127.0.0.1:8766/agent --device-cert \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.cert.pem\" --device-key \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.key.pem\" --ca-cert \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\ca\\ca.cert.pem\" --heartbeat-seconds 5 --reconnect-seconds 5"
+                      },
+                      {
+                          "ProcessId":  9872,
+                          "ParentProcessId":  48072,
+                          "Name":  "BECP_Gateway_v0.2.0.exe",
+                          "CommandLine":  "\"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.0\\server\\BECP_Gateway_v0.2.0.exe\" --config \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\config\\GATEWAY_LOCAL_QUALIFICATION.json\""
+                      },
+                      {
+                          "ProcessId":  24884,
+                          "ParentProcessId":  9872,
+                          "Name":  "BECP_Gateway_v0.2.0.exe",
+                          "CommandLine":  "\"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.0\\server\\BECP_Gateway_v0.2.0.exe\" --config \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\config\\GATEWAY_LOCAL_QUALIFICATION.json\""
+                      },
+                      {
+                          "ProcessId":  46900,
+                          "ParentProcessId":  41476,
+                          "Name":  "BECP_Gateway_v0.2.1.exe",
+                          "CommandLine":  "\"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.1\\server\\BECP_Gateway_v0.2.1.exe\" --config \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\qualification\\becp_0.2.1\\gateway.json\""
+                      },
+                      {
+                          "ProcessId":  10672,
+                          "ParentProcessId":  46900,
+                          "Name":  "BECP_Gateway_v0.2.1.exe",
+                          "CommandLine":  "\"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.1\\server\\BECP_Gateway_v0.2.1.exe\" --config \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\qualification\\becp_0.2.1\\gateway.json\""
+                      },
+                      {
+                          "ProcessId":  28420,
+                          "ParentProcessId":  46832,
+                          "Name":  "BECP_Workstation_Agent_v0.2.1.exe",
+                          "CommandLine":  "\"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.1\\agent\\BECP_Workstation_Agent_v0.2.1.exe\" --config \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\qualification\\becp_0.2.1\\agent.json\" --gateway wss://127.0.0.1:9176/agent --device-cert \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.cert.pem\" --device-key \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.key.pem\" --ca-cert \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\ca\\ca.cert.pem\" --heartbeat-seconds 3 --reconnect-seconds 3"
+                      },
+                      {
+                          "ProcessId":  45572,
+                          "ParentProcessId":  28420,
+                          "Name":  "BECP_Workstation_Agent_v0.2.1.exe",
+                          "CommandLine":  "\"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.1\\agent\\BECP_Workstation_Agent_v0.2.1.exe\" --config \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\qualification\\becp_0.2.1\\agent.json\" --gateway wss://127.0.0.1:9176/agent --device-cert \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.cert.pem\" --device-key \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\devices\\56d7ed92-c5b4-4cca-addd-02ab1384ca74\\device.key.pem\" --ca-cert \"<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\ca\\ca.cert.pem\" --heartbeat-seconds 3 --reconnect-seconds 3"
+                      }
+                  ],
+    "listeners":  [
+                      {
+                          "port":  8765,
+                          "pid":  24884
+                      },
+                      {
+                          "port":  8766,
+                          "pid":  24884
+                      },
+                      {
+                          "port":  8767,
+                          "pid":  24884
+                      },
+                      {
+                          "port":  9175,
+                          "pid":  10672
+                      },
+                      {
+                          "port":  9176,
+                          "pid":  10672
+                      },
+                      {
+                          "port":  9177,
+                          "pid":  10672
+                      }
+                  ],
+    "rollback_gateway":  "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.0\\server\\BECP_Gateway_v0.2.0.exe",
+    "rollback_agent":  "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\build\\BECP_0.2.0\\agent\\BECP_Workstation_Agent_v0.2.0.exe",
+    "production_gateway_config":  "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\config\\GATEWAY_LOCAL_QUALIFICATION.json",
+    "production_agent_config":  "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\config\\BTG_ENGINEERING_WORKSTATION.json"
+}

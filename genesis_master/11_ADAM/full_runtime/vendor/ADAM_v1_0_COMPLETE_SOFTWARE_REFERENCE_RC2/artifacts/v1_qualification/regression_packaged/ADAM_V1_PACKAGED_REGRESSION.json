@@ -1,0 +1,6 @@
+{
+  "expected": 148,
+  "format": "ADAM-v1-rc2-packaged-regression",
+  "passed": true,
+  "tests_passed": 148
+}

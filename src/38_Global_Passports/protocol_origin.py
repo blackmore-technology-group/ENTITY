@@ -1,4 +1,10 @@
 from __future__ import annotations
+
+import importlib.util as _entity_ilu
+from pathlib import Path as _EntityPath
+_entity_cs_spec=_entity_ilu.spec_from_file_location("_entity_canonical_status",_EntityPath(__file__).with_name("canonical_status.py"))
+_entity_canonical_status=_entity_ilu.module_from_spec(_entity_cs_spec)
+_entity_cs_spec.loader.exec_module(_entity_canonical_status)
 from pathlib import Path
 from typing import Any
 import hashlib, json, re, sqlite3
@@ -48,6 +54,9 @@ class ProtocolOriginRegistry:
         except Exception as exc:
             return {"valid":False,"reason":type(exc).__name__}
     def verify_release(self,record:dict)->dict:
+        _canonical_check=_entity_canonical_status.verify_release_body(dict(record.get("body") or {}))
+        if not _canonical_check.get("valid"):
+            return {"valid":False,"reason":_canonical_check.get("reason","canonical status failure")}
         try:
             body=dict(record["body"])
             if body.get("schema")!="entity-protocol-release-origin-v1": raise ValueError("schema")

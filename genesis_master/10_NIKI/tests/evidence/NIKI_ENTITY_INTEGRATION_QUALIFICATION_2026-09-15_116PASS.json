@@ -1,0 +1,52 @@
+{
+  "canonical_runtime": {
+    "authority_count": 35,
+    "permanent_bootstrap_allowed": false,
+    "production_required_ready": 0,
+    "ready_count": 0,
+    "system_acceptance_status": "BLOCKED_CANONICAL_RUNTIME"
+  },
+  "contracts": {
+    "CANONICAL_CONTEXT_PROVIDER_CONTRACT.json": "3a13713eadc0b2760c41543586b4dc10cbe8919176f2fbd591ade2e7f97da3cc",
+    "ENTITY_CONTEXT_PROJECTION_CONTRACT.json": "eb437827774456de59358d03c83edc7db630891b59989b52ab41a000c4e097fa",
+    "ENTITY_INTELLIGENCE_PROJECTION_CONTRACT.json": "c9d8a25dc63e43219382022f8770e093abfe4fd3cab0c3e8c5472d907e94448e",
+    "NIKI_ACTION_HANDOFF_CONTRACT.json": "8ac74528968b19ddb56792684cae8c38aad158773620395f9de3b006e094a975",
+    "NIKI_ACTION_PROPOSAL_CONTRACT.json": "7cda7e93868cb88e6d7ea07628ce0db360d67239887f606f97cebe71c7bbd1ba",
+    "NIKI_AI_DISCLOSURE_GATE_CONTRACT.json": "1e3f04ad5251ac6574b3dae061daab7f2e09ed91c446d6a1f32191431d7290ca",
+    "NIKI_AR_OVERLAY_OUTPUT_CONTRACT.json": "1beb3eaa991331e043ebcd4cc28d620a947e61eaf7f6ec6a164afe2a63924958",
+    "NIKI_EVIDENCE_REASONING_CONTRACT.json": "1f726e9a023e46100897e32aa3e8f206f0824fbfd3714f1f26c61df8a4afc270",
+    "NIKI_HIGH_RISK_WARNING_CONTRACT.json": "cf78ba217fc48e12035f323d998e45da1d47fa3f7824a64b1bfe3331730a7e75",
+    "NIKI_POLICY_EXPLANATION_CONTRACT.json": "b7e8d7d39d210d5f0ac70ad40a86d29ca620e8a1765962c2a58e81c8705b87bf",
+    "NIKI_REASONING_POLICY_CONSTRAINTS.json": "71e844db5f411c47107919565827e16908d1d2c7dfff4c13ca5a0dbddfdc065d",
+    "NIKI_REASONING_RECEIPT_CONTRACT.json": "e39f1301cb02547abf4283a2791c73a6dcd35f06c32042ddb945a7ae99074b0f",
+    "NIKI_REASONING_RECEIPT_HANDOFF_CONTRACT.json": "1fa9fd19b01ca477996242a7e312beb996e90ed8af0fbb4b534d4132d74d363e",
+    "NIKI_UNTRUSTED_CONTENT_CONTRACT.json": "19739feab585e18f3839c4e23da66a6e86e6ada821789d2aa6fb74eb24299a49"
+  },
+  "files": {
+    "binding_templates": "779b5984f0d8d8aae813fffc3efe2df47028feb246f398cfefe3c599039fd372",
+    "c2pa_verifier": "4b3f8dd2b8390e3d1635fe0a8c07b1dcb3e7d5793de082422431cbb3720aeafa",
+    "canonical_runtime_abi": "24c3e70fddc54b2cf792d717136b5116173bb6dabfc1a07a8659c676555beef8",
+    "completion_matrix": "30d1764fd6e6213eca97d84444d3cc5b006531423dc7561d39187308aa6bfe80",
+    "platform_bindings": "586ab6554e3a1f5adb05bb8a3a4cb4ac0f5a771714486834748bfe9dea81b94c",
+    "readiness_gate": "b8669b3a8fa731118e89de605de60e3b1f5b8524b10b6d90dd5cfaac32bb1197",
+    "ready_queue": "9acb142f5f3076b1c10af62eb1de0143c901c20ef99af8d5079f3ae7903e7df3",
+    "runtime_binding_schema": "6c80c639e04f3cc1ce72b60496c72b261ee17d8392832bef8497f0e14b0e817f",
+    "sers_e2e_harness": "6e496d3b7db9e5cc36e60c623c9f2eb326569a7f7f9ac09d8e368b08f101468e"
+  },
+  "full_suite": {
+    "evidence": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\sovereign_adapted\\Blackmore_Central_Intelligence_Advanced_NIKI_ADAM_BSIE_v0.6.1_AR_INTELLIGENCE_COMPLETE\\central_runtime\\tests\\evidence\\FULL_PYTEST_NIKI_POST_SERS_HARNESS.txt",
+    "evidence_sha256": "1d610ff0862334caf29f92602f0e0fc6a49fbe0637188f7463e91643eca41797",
+    "failed": 0,
+    "passed": 116,
+    "warning_count": 1
+  },
+  "generated_at_ms": 1789499524674,
+  "invariants": [
+    "NIKI is not an ENTITY authority owner",
+    "production bootstrap is canonical-only",
+    "SERS acceptance is canonical-only",
+    "embedded fallbacks cannot satisfy release acceptance",
+    "C2PA timeout fails closed and is never cached"
+  ],
+  "schema": "niki-entity-integration-qualification-v3"
+}

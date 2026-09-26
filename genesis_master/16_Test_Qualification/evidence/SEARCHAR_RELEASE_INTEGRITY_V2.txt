@@ -1,0 +1,62 @@
+{
+  "exclusions": [
+    ".cxx",
+    ".git",
+    ".gradle",
+    ".idea",
+    ".kotlin",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "DerivedData",
+    "__pycache__",
+    "build",
+    "build_validation",
+    "node_modules",
+    "vendor",
+    "xcuserdata"
+  ],
+  "file_count": 10897,
+  "generated_at_ms": 1789677980330,
+  "manifest": "SHA256SUMS.txt",
+  "manifest_sha256": "432fc0ff9b86262327a5de7f6d6f2732b4602b4f7cdfde4c10847fd969e50eaf",
+  "mutable_prefixes": [
+    "data/security/",
+    "data/security_sar/",
+    "data/coordination_sar/",
+    "data/operational_sar/",
+    "data/operations_sar/",
+    "data/evidence_sar/",
+    "data/cop_sar/",
+    "data/sar/",
+    "data/areas_sar/",
+    "data/training_sar/",
+    "data/bsie_shared/",
+    "data/bsie_shared_terrain/",
+    "data/bsie_field_network/",
+    "data/navigation/",
+    "data/waypoints/",
+    "data/field_validation/",
+    "data/surface_cache/",
+    "data/runtime/",
+    "runtime/",
+    "outputs/"
+  ],
+  "rules": [
+    "hash_mismatch_fails",
+    "missing_manifest_file_fails",
+    "untracked_immutable_source_fails",
+    "mutable_runtime_state_excluded",
+    "vendor_runtime_identity_separately_pinned"
+  ],
+  "schema": "searchar-release-integrity-policy-v2",
+  "vendor_runtime_bindings": "config/VENDOR_RUNTIME_BINDINGS.json"
+}
+{
+  "current_files": 10897,
+  "expected_files": 10897,
+  "failures": [],
+  "passed": true,
+  "schema": "searchar-release-integrity-result-v2"
+}

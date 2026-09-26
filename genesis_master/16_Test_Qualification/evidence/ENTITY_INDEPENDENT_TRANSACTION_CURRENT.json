@@ -1,0 +1,40 @@
+{
+  "demonstrated": [
+    "complete identity-to-disclosure transaction evidence chain",
+    "deterministic transaction root",
+    "isolated verifier with no ENTITY runtime imports",
+    "tampered rooted evidence rejection",
+    "cryptographically verified external payment-provider evidence",
+    "signed Digital Commodity economic attribution",
+    "threshold corporate authorization",
+    "externally attested issuance and cap-table reconciliation",
+    "capital-accounting reconciliation",
+    "signed recovery manifest and encrypted-state hash verification",
+    "verification while original live state is unavailable",
+    "post-restore identical transaction root",
+    "post-restore identical independent verification result hash"
+  ],
+  "evidence_sha256": "f7fc5a50695a75a38fba74e63d10f4b95723b404be6e474206478228b9523941",
+  "excluded_scope": [
+    "independently authored non-BTG verifier implementation",
+    "legal adjudication of rights claims",
+    "broker/dealer or transfer-agent execution",
+    "physical destruction of storage media"
+  ],
+  "generated_at_ms": 1789570319496,
+  "implementation_sha256": {
+    "exporter": "b14061f29d65bcedf7e1864fc645303f8aa43cc1c31bf32bdf204e94f5d75396",
+    "standalone_verifier": "29b5b5a49fc6149c937430a25a798dfbe3d5eb24bf7e13c513ba5eb9bbd0bfc7"
+  },
+  "json_schema_sha256": "f845db9b51bcbedea046dbc3d99aa84448005bc71bc89a92d19ecb21d294c6cb",
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": ".                                                                        [100%]\n1 passed in 5.42s",
+  "qualification_complete": true,
+  "requirements_sha256": "cf3d120c6d94db465da41f8f83d65d15387eaa3df8e924701966b919c054d23e",
+  "schema": "entity-independent-transaction-qualification-v1",
+  "scope": "ENTITY_TRANSACTION_EVIDENCE_BUNDLE_V1_INDEPENDENT_REPRODUCIBILITY",
+  "specification_sha256": "c91ddeb632f1dbe023fd5d98ba449c581e20b62c6435e4d469fed34aedd6efaa",
+  "status": "PASS",
+  "test_sha256": "384f6d9cc0cc212235e5628d6e8a4d46dc02564a72ca63600bf1da9ae495250d"
+}

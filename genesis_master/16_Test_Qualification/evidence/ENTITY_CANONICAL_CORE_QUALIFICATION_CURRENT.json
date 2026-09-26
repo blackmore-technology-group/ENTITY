@@ -1,0 +1,35 @@
+{
+  "evidence_sha256": "a8636ed64a33172e41a23bd7a9a55a2783b6e75c813148d85579789b70f35e23",
+  "generated_at_ms": 1789570229363,
+  "implementation_sha256": {
+    "01_Core_Runtime\\api\\canonical_service.py": "3bb1b158472adf67c0b41a6ba29648b5beea29ff8db87053043f4d50cd68bb26",
+    "01_Core_Runtime\\identity\\canonical_identity.py": "b78d364c16ea581477100c2afd8cc8c1aa90321e4482a3e180f446a3c96c15c7",
+    "01_Core_Runtime\\permissions\\canonical_permissions.py": "85b92ff54cb1e0cd67c51323a8be2701719b1b96284f1b4211b6204d6a78636c",
+    "01_Core_Runtime\\policy_engine\\canonical_policy.py": "98d68dab3182d35e0fd3e6d2f839bd3c69cfa9bd9c69c717185de7b6e03b74d9",
+    "13_Security\\key_management\\canonical_hardware_keys.py": "5c2335c7fe0d2281fe1331e2002d9346601ac7f9ff6cf3d1b78a078c9e2c5512",
+    "13_Security\\key_management\\canonical_key_management.py": "e5eeea68f691ccf8add83207534c2d47ef6505b7474d4bc9d4b961574d6b27b4",
+    "15_Operations\\backups\\canonical_portable_state.py": "6c56b2855c45420e988b89fd4afb05f7c29699f82d40debdd8a0872975f96f89"
+  },
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "..........                                                               [100%]\n10 passed in 8.19s",
+  "requirements_sha256": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10",
+  "schema": "entity-canonical-core-qualification-v3",
+  "scope": "ROOT_OWNED_CANONICAL_CORE_FOUNDATION_V2_2",
+  "status": "PASS",
+  "tpm_commissioning": {
+    "algorithm": "RSA",
+    "commissioned": true,
+    "hardware_backed_required": true,
+    "key_name": "ENTITY-ROOT-RECOVERY-PROTECTOR-v1",
+    "private_export_blocked": true,
+    "provider": "Microsoft Platform Crypto Provider",
+    "provider_expected": "Microsoft Platform Crypto Provider",
+    "ready": true,
+    "sovereign_portable_escrow_supported": true,
+    "tpm_activated": true,
+    "tpm_enabled": true,
+    "tpm_present": true,
+    "tpm_ready": true
+  }
+}

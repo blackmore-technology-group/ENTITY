@@ -1,0 +1,155 @@
+{
+  "claim": "Source implementation and local oracle qualification complete; compiled v0.51 promotion not yet achieved.",
+  "classification": "RUST_AUTHORITY_SOURCE_QUALIFICATION_CANDIDATE",
+  "evidence_paths": {
+    "golden_vectors": "rust_v051/conformance/ADAM_V051_GOLDEN_VECTORS.json",
+    "inherited_integrated_audit": "artifacts/v501_source_audit_qualification/ADAM_V0501_INTEGRATED_LOGIC_AUDIT_RESULTS.json",
+    "local_qualification": "artifacts/v051_local_qualification/ADAM_V051_LOCAL_SOURCE_QUALIFICATION.json",
+    "r4_regression": "artifacts/v051_r4_oracle/ADAM_V051_R4_ORACLE_REGRESSION.json",
+    "source_qualification": "artifacts/v051_source_qualification/ADAM_V051_SOURCE_QUALIFICATION.json"
+  },
+  "format": "ADAM-v0.51-combined-source-qualification-v1",
+  "frozen_oracle": {
+    "regression_failed": 0,
+    "regression_passed": 117,
+    "version": "0.50.1.dev4",
+    "wrapper_sha256": "3c406f50710d3aad86952bf87b42ac27b5260a77f357461e21122054cb6812c4"
+  },
+  "local_gates": {
+    "conformance_oracle": {
+      "final_root": "107a151ccc502420c650b69f6d98a41949fa2305bd39c0b8480f6a2676e11868",
+      "primitive_vectors": 24,
+      "sha256": "bd371c85d27a2eda7dccf36795a5c6775670371c5b2942c6e1611b488b78e402",
+      "transitions": 20
+    },
+    "inherited_integrated_logic": {
+      "failed": 0,
+      "passed": 9
+    },
+    "source_audit": {
+      "blocking_findings": 0,
+      "rust_files_scanned": 35,
+      "rust_source_lines": 4181
+    },
+    "v051_source_adversarial": {
+      "failed": 0,
+      "passed": 8
+    }
+  },
+  "local_source_qualification": {
+    "claim": "Local source qualification passed; Rust compilation and promotion gates remain external.",
+    "classification": "RUST_AUTHORITY_SOURCE_QUALIFICATION_CANDIDATE",
+    "format": "ADAM-v0.51-local-source-qualification-v1",
+    "integrated_logic": {
+      "failed": 0,
+      "passed": 9
+    },
+    "r4_regression": {
+      "failed": 0,
+      "logs_verified": 21,
+      "passed": 117
+    },
+    "rust_execution": {
+      "cargo_available": false,
+      "cargo_lock_present": false,
+      "compiled": false,
+      "rustc_available": false
+    },
+    "source_audit": {
+      "blocking_findings": 0,
+      "status": "PASS"
+    },
+    "status": "PASS",
+    "steps": [
+      {
+        "command": [
+          "/opt/pyvenv/bin/python",
+          "-m",
+          "compileall",
+          "-q",
+          "tools_v051",
+          "tests_v051"
+        ],
+        "exit_code": 0,
+        "log": "artifacts/v051_local_qualification/compileall.log",
+        "name": "compileall",
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "/opt/pyvenv/bin/python",
+          "tools_v051/generate_conformance_vectors.py"
+        ],
+        "exit_code": 0,
+        "log": "artifacts/v051_local_qualification/conformance.log",
+        "name": "regenerate_conformance",
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "/opt/pyvenv/bin/python",
+          "tools_v051/audit_v051_source.py"
+        ],
+        "exit_code": 0,
+        "log": "artifacts/v051_local_qualification/source_audit.log",
+        "name": "source_audit",
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "/opt/pyvenv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests_v051"
+        ],
+        "exit_code": 0,
+        "log": "artifacts/v051_local_qualification/v051_tests.log",
+        "name": "v051_source_adversarial",
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "/opt/pyvenv/bin/python",
+          "tools_v051/verify_r4_oracle_evidence.py"
+        ],
+        "exit_code": 0,
+        "log": "artifacts/v051_local_qualification/r4_evidence.log",
+        "name": "r4_evidence_verification",
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "/opt/pyvenv/bin/python",
+          "run_v50_full_audit.py"
+        ],
+        "exit_code": 0,
+        "log": "artifacts/v051_local_qualification/integrated_audit.log",
+        "name": "inherited_integrated_audit",
+        "status": "PASS"
+      }
+    ],
+    "v051_source_tests": {
+      "failed": 0,
+      "passed": 8
+    },
+    "version": "0.51.0.dev1"
+  },
+  "promotion_gates_open": [
+    "Rust compilation",
+    "Cargo dependency resolution and Cargo.lock generation",
+    "Rust unit/property tests",
+    "Miri",
+    "sanitizers",
+    "fuzz campaigns",
+    "cross-platform/reproducible binaries",
+    "independent Rust review"
+  ],
+  "rust_execution": {
+    "cargo_lock_present": false,
+    "compiled": false,
+    "reason": "cargo and rustc unavailable in local execution environment"
+  },
+  "status": "PASS_SOURCE_ONLY",
+  "version": "0.51.0.dev1"
+}

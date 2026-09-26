@@ -1,0 +1,536 @@
+[
+  {
+    "authority": "adam_actions",
+    "owner": "11_ADAM\\executors",
+    "binding": false,
+    "expected_req": "f873542e0e9b5e5b06a1d9e11159d73bd35cb0e348516b293cdae55915fec9b4"
+  },
+  {
+    "authority": "adam_capabilities",
+    "owner": "11_ADAM\\approval_gates",
+    "binding": false,
+    "expected_req": "f873542e0e9b5e5b06a1d9e11159d73bd35cb0e348516b293cdae55915fec9b4"
+  },
+  {
+    "authority": "ar_projection",
+    "owner": "09_Spatial_AR_Dashboard",
+    "binding": false,
+    "expected_req": "20ca5f3f7a86dc5ad41fac6e504693a2c7039d531ed377ba0b9f0de0b2c1c6e3"
+  },
+  {
+    "authority": "asset_registry",
+    "owner": "04_Entity_Registry\\asset_registry",
+    "binding": true,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250",
+    "status": "READY",
+    "actual_req": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_EVENT_LEDGER_ASSET_REGISTRY_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "becp_evidence",
+    "owner": "02_Peer_Network\\BECP_Control_Plane",
+    "binding": false,
+    "expected_req": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86"
+  },
+  {
+    "authority": "bsie_entity_world",
+    "owner": "12_BSIE\\digital_entity_world",
+    "binding": false,
+    "expected_req": "1f16e3fd979f3118db51c6aeac71a2528498858977d041660ca410cae48e197a"
+  },
+  {
+    "authority": "c2pa",
+    "owner": "14_Protocols_SDK\\c2pa",
+    "binding": false,
+    "expected_req": "c8bb8e08b916b00f41fd0e4b12654deb0767846e20044c2dd7c27276eb95cbd1"
+  },
+  {
+    "authority": "contracts",
+    "owner": "01_Core_Runtime\\contracts",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "READY",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_CONTRACTS_USAGE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "core_permissions",
+    "owner": "01_Core_Runtime\\permissions",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "QUALIFIED",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification\\evidence\\ENTITY_CANONICAL_CORE_QUALIFICATION_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "credentials",
+    "owner": "04_Entity_Registry\\credentials",
+    "binding": true,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250",
+    "status": "READY",
+    "actual_req": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_CREDENTIALS_MIGRATION_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "data_pools",
+    "owner": "01_Core_Runtime\\service_runtime",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "QUALIFIED",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": []
+  },
+  {
+    "authority": "data_sources",
+    "owner": "08_Data_Vaults",
+    "binding": true,
+    "expected_req": "f21173095b99112b05c681d9a0bcf113eb1c008969d37052e37ec1ad3a709537",
+    "status": "READY",
+    "actual_req": "f21173095b99112b05c681d9a0bcf113eb1c008969d37052e37ec1ad3a709537",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_PHASE1_STORAGE_PORTABILITY_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "data_spaces",
+    "owner": "01_Core_Runtime\\service_runtime",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "QUALIFIED",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": []
+  },
+  {
+    "authority": "data_universe",
+    "owner": "04_Entity_Registry\\data_universe_adapter",
+    "binding": false,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250"
+  },
+  {
+    "authority": "data_vault",
+    "owner": "08_Data_Vaults",
+    "binding": true,
+    "expected_req": "f21173095b99112b05c681d9a0bcf113eb1c008969d37052e37ec1ad3a709537",
+    "status": "READY",
+    "actual_req": "f21173095b99112b05c681d9a0bcf113eb1c008969d37052e37ec1ad3a709537",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_PHASE1_STORAGE_PORTABILITY_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "event_ledger",
+    "owner": "04_Entity_Registry\\event_ledger",
+    "binding": true,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250",
+    "status": "READY",
+    "actual_req": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_EVENT_LEDGER_ASSET_REGISTRY_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "evidence_assertion",
+    "owner": "04_Entity_Registry\\evidence_assertions",
+    "binding": true,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250",
+    "status": "READY",
+    "actual_req": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_V2_ASSURANCE_CORE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "federation",
+    "owner": "02_Peer_Network",
+    "binding": false,
+    "expected_req": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86"
+  },
+  {
+    "authority": "guardian_recovery",
+    "owner": "13_Security\\key_management",
+    "binding": false,
+    "expected_req": "7eb3152ffabd0f13389eed02a6f609bb81dd76556f7b373881b895aea9629ddb"
+  },
+  {
+    "authority": "identity",
+    "owner": "01_Core_Runtime\\identity",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "QUALIFIED",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification\\evidence\\ENTITY_CANONICAL_CORE_QUALIFICATION_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "independent_verifier",
+    "owner": "16_Test_Qualification\\verifier",
+    "binding": true,
+    "expected_req": "c3b765ae6ba65356899c5e655a41f5cb7e16d71539cd94eae88e607e02953ede",
+    "status": "READY",
+    "actual_req": "e4c6f5a684768f0a6c199c4649c4528e357bd4c71a6ec1ca6fc053f95e4762a8",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_INDEPENDENT_VERIFIER_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      },
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      },
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_INDEPENDENT_TRANSACTION_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "information_projection",
+    "owner": "01_Core_Runtime\\information_projection",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "READY",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_V2_ASSURANCE_CORE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "knowledge_capital",
+    "owner": "04_Entity_Registry",
+    "binding": false,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250"
+  },
+  {
+    "authority": "migration_config",
+    "owner": "15_Operations\\migration",
+    "binding": true,
+    "expected_req": "974a0f8953ef3f268523018f823a19e25d0f7014c721da0b090d933c484b15c2",
+    "status": "READY",
+    "actual_req": "73e494fac0e6b89c2952827fe17521a5cfa47f85386958fb541f63b4f74263c3",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_CREDENTIALS_MIGRATION_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "nat_traversal",
+    "owner": "02_Peer_Network\\nat_traversal",
+    "binding": false,
+    "expected_req": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86"
+  },
+  {
+    "authority": "peer_discovery",
+    "owner": "02_Peer_Network\\discovery",
+    "binding": false,
+    "expected_req": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86"
+  },
+  {
+    "authority": "peer_transport",
+    "owner": "02_Peer_Network\\transport",
+    "binding": false,
+    "expected_req": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86"
+  },
+  {
+    "authority": "policy_consent",
+    "owner": "01_Core_Runtime\\policy_engine",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "QUALIFIED",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification\\evidence\\ENTITY_CANONICAL_CORE_QUALIFICATION_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "portable_state",
+    "owner": "15_Operations\\backups",
+    "binding": true,
+    "expected_req": "974a0f8953ef3f268523018f823a19e25d0f7014c721da0b090d933c484b15c2",
+    "status": "READY",
+    "actual_req": "73e494fac0e6b89c2952827fe17521a5cfa47f85386958fb541f63b4f74263c3",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_PHASE1_STORAGE_PORTABILITY_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "prebootstrap_evidence",
+    "owner": "16_Test_Qualification\\evidence",
+    "binding": false,
+    "expected_req": "c3b765ae6ba65356899c5e655a41f5cb7e16d71539cd94eae88e607e02953ede"
+  },
+  {
+    "authority": "privilege_graph",
+    "owner": "00_Governance\\privilege_graph",
+    "binding": true,
+    "expected_req": "fd4e8e736c8c05c633d3e186ba61719c13fd9d9f63db6d38836163b70cc2f133",
+    "status": "READY",
+    "actual_req": "fd4e8e736c8c05c633d3e186ba61719c13fd9d9f63db6d38836163b70cc2f133",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_PRIVILEGE_GRAPH_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "protocol_conformance",
+    "owner": "14_Protocols_SDK\\reference_clients",
+    "binding": true,
+    "expected_req": "c8bb8e08b916b00f41fd0e4b12654deb0767846e20044c2dd7c27276eb95cbd1",
+    "status": "READY",
+    "actual_req": "c8bb8e08b916b00f41fd0e4b12654deb0767846e20044c2dd7c27276eb95cbd1",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_STANDARDS_INTEROP_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "public_gateway",
+    "owner": "03_Public_Internet_Bridge\\public_gateway",
+    "binding": false,
+    "expected_req": "77b6d2afd5c7da78fddb461d3e1cd4b572937b29e39c5a5d8d04f74d3915dfcb"
+  },
+  {
+    "authority": "purpose_keys",
+    "owner": "13_Security\\key_management",
+    "binding": false,
+    "expected_req": "7eb3152ffabd0f13389eed02a6f609bb81dd76556f7b373881b895aea9629ddb"
+  },
+  {
+    "authority": "recovery_custody",
+    "owner": "13_Security\\key_management",
+    "binding": false,
+    "expected_req": "7eb3152ffabd0f13389eed02a6f609bb81dd76556f7b373881b895aea9629ddb"
+  },
+  {
+    "authority": "relationship_identity",
+    "owner": "04_Entity_Registry\\relationships",
+    "binding": true,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250",
+    "status": "READY",
+    "actual_req": "e28f8530653634013711df3406f031e2fa8a3d33e854d17d99a78cfbdf1ef116",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_SOVEREIGN_AUTHORITY_DOCTRINE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "relay",
+    "owner": "02_Peer_Network\\relay_fallback",
+    "binding": false,
+    "expected_req": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86"
+  },
+  {
+    "authority": "release_attestation",
+    "owner": "17_Release\\supply_chain",
+    "binding": true,
+    "expected_req": "7688c9a12092065172888cd1a1a0a1f0d445ea7e34badece0a71f49e480da3a4",
+    "status": "READY",
+    "actual_req": "7688c9a12092065172888cd1a1a0a1f0d445ea7e34badece0a71f49e480da3a4",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_RELEASE_ATTESTATION_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "rights_claims",
+    "owner": "04_Entity_Registry\\ownership_graphs",
+    "binding": true,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250",
+    "status": "READY",
+    "actual_req": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_RIGHTS_PROVENANCE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "rights_ontology",
+    "owner": "04_Entity_Registry\\rights_ontology",
+    "binding": true,
+    "expected_req": "d91d99fc5619a4f143dd4b4deeae98659f1681376a9c3b99e6c1c8244f8d3250",
+    "status": "READY",
+    "actual_req": "243bf14e6c2b9ba0d8296cadac5af2635a39e761bc0efde6f66536234dfa07fa",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_V2_ASSURANCE_CORE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "service_api",
+    "owner": "01_Core_Runtime\\api",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "QUALIFIED",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification\\evidence\\ENTITY_CANONICAL_CORE_QUALIFICATION_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "service_state_machine",
+    "owner": "15_Operations\\runtime_states",
+    "binding": true,
+    "expected_req": "974a0f8953ef3f268523018f823a19e25d0f7014c721da0b090d933c484b15c2",
+    "status": "READY",
+    "actual_req": "73e494fac0e6b89c2952827fe17521a5cfa47f85386958fb541f63b4f74263c3",
+    "req_match": false,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_FAILURE_STATE_MACHINE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "settlement",
+    "owner": "01_Core_Runtime\\service_runtime",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "READY",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "..\\..\\16_Test_Qualification\\evidence\\ENTITY_ECONOMIC_QUALIFICATION_CURRENT.json",
+        "exists": false,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "transparency_witness",
+    "owner": "02_Peer_Network",
+    "binding": false,
+    "expected_req": "3aa867e49a1c31a53ae5cc2386f1417d751181cd2655d7c33dbcc72ba813af86"
+  },
+  {
+    "authority": "usage_control",
+    "owner": "01_Core_Runtime\\usage_control",
+    "binding": true,
+    "expected_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "status": "READY",
+    "actual_req": "6d91311bf117a6150a907d2000e5ccaac5ee6b1a13a3176580126ec936fdf586",
+    "req_match": true,
+    "evidence": [
+      {
+        "path": "16_Test_Qualification/evidence/ENTITY_CONTRACTS_USAGE_CURRENT.json",
+        "exists": true,
+        "hash_match": false
+      }
+    ]
+  },
+  {
+    "authority": "web_publish",
+    "owner": "03_Public_Internet_Bridge\\web_publish",
+    "binding": false,
+    "expected_req": "77b6d2afd5c7da78fddb461d3e1cd4b572937b29e39c5a5d8d04f74d3915dfcb"
+  }
+]

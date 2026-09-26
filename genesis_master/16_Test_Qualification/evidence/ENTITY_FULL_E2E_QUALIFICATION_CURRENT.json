@@ -1,0 +1,122 @@
+{
+  "demonstrated": [
+    "fresh Entity A/B/C creation",
+    "asset enrollment and hard provenance binding",
+    "rights claim and licensing authority",
+    "policy/consent authorization with malicious-C denial",
+    "bilateral licence offer/acceptance/activation",
+    "gateway-observed usage receipt",
+    "cryptographically provider-attested external settlement and realized value",
+    "future-use revocation while preserving historical receipt",
+    "rights dispute state",
+    "event-ledger checkpoint verification",
+    "encrypted state-loss recovery",
+    "signed portable export and independent inventory/signature validation",
+    "Section 170 corporate-capital Golden Scenario",
+    "Section 171 independently reproducible Transaction Evidence Bundle v1",
+    "isolated verifier passes while original live state is unavailable and reproduces post-restore result",
+    "Section 172 custody/storage/processing non-authority and provider replacement",
+    "DID/VC/ODRL/C2PA interoperability qualification",
+    "SERS-ENTITY-DOMAIN-001 internal provider-free sovereign-domain reference implementation",
+    "NIKI+ENTITY unified runtime with sovereign authorization boundary and preserved original NIKI route surface"
+  ],
+  "evidence_sha256": "2803fb3b61a2ced1ff7f60d5c17241995c53c6b687de8d07d79b07df16872c56",
+  "excluded_scope": [
+    "two-physical-device sovereign-domain field demonstration",
+    "independent non-BTG sovereign-domain implementation interoperability",
+    "hardware-backed key commissioning",
+    "live broker/dealer, public market, custody or transfer-agent execution"
+  ],
+  "generated_at_ms": 1789588416145,
+  "limitations": [],
+  "prerequisite_evidence": {
+    "ai_governance": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_AI_GOVERNANCE_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "c7ef1e18bb179dd61516958e5e2ea2d2fa171b721fbf70f2caac69b11bbf7dcc"
+    },
+    "corporate_capital": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "1918775d0a3484ccbe7e77023bb2aaa2e2fa9d2c1b416bc936ee9747c771149f"
+    },
+    "economics": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_ECONOMIC_QUALIFICATION_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "8b5004213b10b6da88142be814066949621be57036695d2723778c77b0ddc855"
+    },
+    "independent_transaction": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_INDEPENDENT_TRANSACTION_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "39f7cbc5c9750f6875147ae098e45374e4e2a78ddf900bd0eb412eb9ed8de420"
+    },
+    "interoperability": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_STANDARDS_INTEROP_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "803e05eda37e75f808bc63543f78fe9d93261420c300566e0f4727d10441cf18"
+    },
+    "niki_entity_integration": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\10_NIKI\\tests\\evidence\\NIKI_ENTITY_INTEGRATION_QUALIFICATION_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "8ab08b6596b302c5d329058f45b5bea14aef2f898086fef21a33e24394674a9e"
+    },
+    "privacy": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_PRIVACY_ADVERSARIAL_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "a69fe496e28eeb531654ce649d071972afce158fd722f4714311a63643419fe1"
+    },
+    "resilience": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_DESTRUCTIVE_RECOVERY_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "e47ccd8d4499caaaf9af58e38ddab72eb4d17af6ae84865b592744ecbc6884f2"
+    },
+    "rights_provenance": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_RIGHTS_PROVENANCE_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "372f40d1922a2309c4ab31e48bcd07c3c0a3bab1735f5aa3ff9ebdfab6c365f9"
+    },
+    "security": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_SECURITY_ADVERSARIAL_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "14d65d093fc524636e3a00774a6dfd185f31a1273e8a8ddb96361f1ffc461276"
+    },
+    "sovereign_authority_doctrine": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_SOVEREIGN_AUTHORITY_DOCTRINE_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "e03ff23058ad24b4d575cec5672a9273d36ef5b8d5cb370ed61b11ec532d776e"
+    },
+    "sovereign_domain_internal": {
+      "pass": true,
+      "path": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_DOMAIN_INTERNAL_QUALIFICATION_CURRENT.json",
+      "reason": "PASS",
+      "sha256": "a17e16bab6fd491ba988e4a58fde2122fe0faa6f9be032c283725005cf4f4bf5"
+    }
+  },
+  "pytest_exit_code": 0,
+  "pytest_output": "...................                                                      [100%]\n19 passed in 18.06s",
+  "qualification_complete": true,
+  "requirements_sha256": "c3b765ae6ba65356899c5e655a41f5cb7e16d71539cd94eae88e607e02953ede",
+  "schema": "entity-full-e2e-qualification-v1",
+  "scope": "ENTITY_GOLDEN_E2E_IMPLEMENTED_CANONICAL_CHAIN",
+  "status": "PASS",
+  "test_sha256": {
+    "16_Test_Qualification\\corporate_capital\\test_section170_corporate_capital_golden.py": "822998ee9e26d64fc7ac25be83ac6715a9724085003eb822cab0b4cbfe8587a1",
+    "16_Test_Qualification\\integration\\test_full_entity_golden_e2e.py": "c9cc12a39b3a6d6a94cbf2c426a33afa9fe00365fbe39be05582f73123b3e1d7",
+    "16_Test_Qualification\\integration\\test_independently_reproducible_transaction.py": "384f6d9cc0cc212235e5628d6e8a4d46dc02564a72ca63600bf1da9ae495250d",
+    "16_Test_Qualification\\integration\\test_section172_sovereign_authority_doctrine.py": "100eda786d298df6a94ce6bf3f2861dfa8dd78a15347a1205a95b762e7a15f58",
+    "16_Test_Qualification\\interoperability\\test_standards_interop.py": "f260441975268c14ddb4db202606331219b1c0629d0921a365c72b09121d8dfc",
+    "16_Test_Qualification\\recovery\\test_full_destructive_sovereignty.py": "a575a93c5205e9f836ea2491fc396b109aa4c22769d937f4319424b43c42bf48",
+    "16_Test_Qualification\\sovereign_domain\\test_sovereign_domain.py": "0feb12fa2fcae5162d44feadababe9a17b6655eefffee1b7b22d345cb1ce9e7b"
+  }
+}

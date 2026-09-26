@@ -1,0 +1,108 @@
+name: ADAM v0.51 Rust Qualification
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'rust_v051/**'
+  pull_request:
+    paths:
+      - 'rust_v051/**'
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: rust_v051
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Rust
+        run: rustup toolchain install 1.97.1 --profile minimal --component rustfmt,clippy
+      - name: Select pinned Rust
+        run: rustup default 1.97.1
+      - name: Require lockfile
+        shell: bash
+        run: test -f Cargo.lock
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Check
+        run: cargo check --workspace --all-targets --locked
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - name: Test
+        run: cargo test --workspace --all-targets --locked
+      - name: Release build
+        run: cargo build --workspace --release --locked
+      - name: Python-Rust conformance
+        run: cargo run --release --locked --bin adam-v051-conformance -- conformance/ADAM_V051_GOLDEN_VECTORS.json
+
+  additional-architecture:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust_v051
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install 1.97.1 --profile minimal --target aarch64-unknown-linux-gnu
+      - run: cargo check --workspace --all-targets --locked --target aarch64-unknown-linux-gnu
+
+  miri:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust_v051
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install nightly-2026-08-01 --profile minimal --component miri,rust-src
+      - run: cargo +nightly-2026-08-01 miri test --workspace
+
+  sanitizers:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust_v051
+    strategy:
+      matrix:
+        sanitizer: [address, thread]
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install nightly-2026-08-01 --profile minimal --component rust-src
+      - name: Run sanitizer
+        shell: bash
+        run: |
+          export RUSTFLAGS="-Zsanitizer=${{ matrix.sanitizer }} -Cforce-frame-pointers=yes"
+          cargo +nightly-2026-08-01 test -Zbuild-std --target x86_64-unknown-linux-gnu --workspace
+
+  dependency-policy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust_v051
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install 1.97.1 --profile minimal
+      - run: cargo install cargo-deny --locked
+      - run: cargo deny check
+
+  fuzz-smoke:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust_v051
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install nightly-2026-08-01 --profile minimal
+      - run: cargo +nightly-2026-08-01 install cargo-fuzz --locked
+      - name: Build fuzz targets
+        run: cargo +nightly-2026-08-01 fuzz build
+      - name: Run bounded smoke fuzzing
+        shell: bash
+        run: scripts/run_fuzz_smoke.sh 30

@@ -1,0 +1,195 @@
+{
+  "atom_theory": {
+    "authority": "atoms, recursive compounds, typed bonds and signed recipes",
+    "living_behavior": "demands spawn temporary application/device forms and release them without altering truth",
+    "novelty": "nodes exchange only missing atomic closure",
+    "recreation": "exact representations are reconstructed from content-defined atoms and ordered recipes",
+    "unknown_future_formats": "exact binary fallback preserves and recreates formats without a semantic codec"
+  },
+  "audit": {
+    "checks": [
+      {
+        "detail": {
+          "artifacts": 10,
+          "atoms": 164,
+          "bonds": 40,
+          "compounds": 44,
+          "modalities": [
+            "audio",
+            "binary",
+            "document",
+            "image",
+            "iot",
+            "program",
+            "robotics",
+            "structured",
+            "tabular",
+            "video"
+          ]
+        },
+        "name": "universal_exact_recreation_with_unknown_format_fallback",
+        "seconds": 0.058049,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "compound_kinds": [
+            "exact_object",
+            "recreation_recipe",
+            "semantic_map",
+            "semantic_sequence"
+          ],
+          "cross_modal_bond": "cc1548f8f7ce91331074da92a37c4623483eddc65d6ff48f4a2be7e2051492bb"
+        },
+        "name": "full_recursive_atom_compound_bond_recipe_chemistry",
+        "seconds": 0.004408,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "field_export": {
+            "bytes": 24,
+            "sha256": "0b966fe7d6bc61e014593e88849414493cfaf5bec4750bb9bf0d3b6694e75c27",
+            "target": "text/csv"
+          },
+          "iot_gateway": {
+            "bytes": 199,
+            "sha256": "4a71bace641d498b0d6e301394f52c7c19a819e3c5399b871025780cfbc760ea",
+            "target": "application/x-adam-iot-telemetry+json"
+          },
+          "operations_dashboard": {
+            "bytes": 61,
+            "sha256": "097b5e0c24dbd7e23cae308a8153c7e60329087105c79c3ceafb84d4fe03c192",
+            "target": "application/json"
+          },
+          "video_inspector": {
+            "bytes": 885,
+            "sha256": "4b786fdc8fdb0d8436e4b5b78de650524728d81e35c5e9dd7d44051a188ca928",
+            "target": "application/x-adam-video-manifest+json"
+          },
+          "vision_display": {
+            "bytes": 85,
+            "sha256": "0aac15e0f71e2fa2b3be6e2a62cc9a449867483470a0701daa399f8807cd8d3b",
+            "target": "image/png"
+          }
+        },
+        "name": "demand_spawned_application_representations_are_disposable",
+        "seconds": 0.001904,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "accuracy": 1.0,
+          "correct": 120,
+          "examples": 120,
+          "holdout_examples": 120,
+          "ood_abstention": true,
+          "ood_feature_rows": 0,
+          "training_examples": 360
+        },
+        "name": "trained_demand_routing_holdout_and_ood_abstention",
+        "seconds": 0.00973,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "bytes_avoided": 12957,
+          "dictionary_epoch": 2,
+          "first_fraction": 1.0,
+          "second_fraction": 0.23854019746121297
+        },
+        "name": "novelty_protocol_moves_missing_knowledge_not_datasets",
+        "seconds": 0.046755,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "capability_artifact": "22d917f5a3be833c91ced268c02c61303eac4cdae31853736b6cc99ff6c6fb9f",
+          "physical_execution": false,
+          "safe_constructed": 1,
+          "telemetry_artifact": "1362f1a244f88c90f983761d50f10ce308c0bc5105c698bce34ef3dcf397de19",
+          "unsafe_rejected": 2
+        },
+        "name": "universal_iot_robotics_capability_surface_and_safe_command_construction",
+        "seconds": 0.011513,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "domains": 9,
+          "records_recreated": 27,
+          "source_file": "Final_Drive_Operations_One_Enterprise_Backup_REV12.xlsx",
+          "spawned_views": 27
+        },
+        "name": "real_operations_one_records_recreated_without_authoritative_application_rows",
+        "seconds": 0.212169,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "artifacts_recovered": 39,
+          "derived_index_rebuilt": true,
+          "policy_recovered": true,
+          "root": "1d1d2330a5e6ed2dfdb1d45bd0553d7d3490260df72e13b78974cb1df080756e"
+        },
+        "name": "restart_recovery_without_derived_indexes_or_materialized_files",
+        "seconds": 0.03791,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "tamper_rejected": true,
+          "tampered_byte_offset": 239833
+        },
+        "name": "signed_authority_tamper_rejection_preserves_recreation_truth",
+        "seconds": 0.033671,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "bytes_recreated": 182820,
+          "elapsed_seconds": 0.031947,
+          "logical_days": 30,
+          "spawn_cycles": 300,
+          "spawns_per_second": 9390.63,
+          "wall_clock_days": false
+        },
+        "name": "accelerated_30_logical_day_living_recreation_soak",
+        "seconds": 0.032652,
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "bytes": 3124834,
+          "sha256": "968a4767e5cd7ea27a05d7df716724d6f5c34a8cebd69801bb36abc09a319fe1",
+          "source_zip": "lineage/ADAM_v0_41_ARTIFICIAL_LIVING_UNIVERSE_SOURCE.zip"
+        },
+        "name": "other_chat_artificial_living_universe_lineage_preserved",
+        "seconds": 0.005833,
+        "status": "PASS"
+      }
+    ],
+    "failed": 0,
+    "passed": 11
+  },
+  "build": "0.42.0.dev2",
+  "claim_boundary": "This build implements a general exact recreation substrate, recursive semantic chemistry, application spawning, IoT/robotics capability envelopes, novelty transfer and trained demand routing at bounded prototype scale. It does not prove universal semantic understanding of every possible medium, production Byzantine/WAN consensus, a compiled Rust authority kernel, certified physical robot control, HSM deployment, 30 wall-clock days or production SLAs.",
+  "classification": "bounded runnable distributed living-recreation research prototype",
+  "name": "ADAM Distributed Living Recreation Universe",
+  "remaining_research_gaps": [
+    "Open-world semantic understanding for arbitrary images, video, audio, language and future media remains unsolved.",
+    "An exact fallback can recreate any byte sequence, but cannot guarantee meaningful transformation without a codec.",
+    "Application recipes are extensible; every existing and future application adapter is not preimplemented.",
+    "Robotics commands are constructed and policy-checked but not certified for direct physical actuation.",
+    "Rust toolchain was unavailable, so the Rust authority boundary remains scaffolded rather than compiled here.",
+    "The 30-day test is logical/accelerated, not 30 elapsed wall-clock days."
+  ],
+  "test_evidence": {
+    "cognition_o1_formal": 8,
+    "distributed_security": 10,
+    "inherited_v040_v041": 13,
+    "living_recreation": 18,
+    "recreation_module_coverage_percent": 83,
+    "total_pytest": 49
+  }
+}

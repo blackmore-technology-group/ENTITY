@@ -1,0 +1,26 @@
+{
+  "abi_version": "1",
+  "authority": "standards_interop_adapter",
+  "exports": [
+    "EntityStandardsInterop",
+    "did",
+    "entity_from_did"
+  ],
+  "implementation_sha256": "696d46149e7f83eabed0466f03c8221e8bbc114ca09be57fdb99ef1a29ec311d",
+  "implementation_version": "1.0.0-sers003",
+  "python_file": "canonical_standards_interop.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_STANDARDS_INTEROP_CURRENT.json",
+      "sha256": "803e05eda37e75f808bc63543f78fe9d93261420c300566e0f4727d10441cf18"
+    }
+  ],
+  "requirements_sha256": "c8bb8e08b916b00f41fd0e4b12654deb0767846e20044c2dd7c27276eb95cbd1",
+  "schema": "entity-runtime-binding-v1",
+  "schema_versions": [
+    "DID-Core-1.0-compatible",
+    "VC-Data-Model-2.0",
+    "ODRL-2.2-profile"
+  ],
+  "status": "READY"
+}

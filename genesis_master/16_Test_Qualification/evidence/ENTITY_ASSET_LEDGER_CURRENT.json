@@ -1,0 +1,31 @@
+{
+  "evidence_sha256": "a75f24846e8fe10450d6d0ea26167fe60168c5459a4a34f4f4f9cf8f8806d68b",
+  "generated_at_ms": 1789580130613,
+  "implementation_sha256": {
+    "04_Entity_Registry\\asset_registry\\canonical_asset_registry.py": "bdce085522208d05d699e6420fe861ce36f89906376d3b8e2d94f0c6e8ea7080",
+    "04_Entity_Registry\\event_ledger\\canonical_event_ledger.py": "3beca91ce59a8e67d2a80e3d6184f7376f5e35fb4a65ba0084c3c4e093e0e7c0",
+    "04_Entity_Registry\\ownership_graphs\\canonical_rights_claims.py": "3007b78ee8edcfa65f70c78c33aef1c11514009de256a292050363745879a49c",
+    "04_Entity_Registry\\provenance\\canonical_provenance.py": "493a7d681087e7f1ce2003e5a3ac6d43b8102914190bbacc794bb886cb4d8b56"
+  },
+  "invariants": [
+    "registration does not infer ownership",
+    "raw private payload bytes are not written to shared ledger",
+    "signed hash-chain tampering fails verification",
+    "signed Merkle checkpoints validate restored event ranges",
+    "asset state changes do not rewrite provenance",
+    "restored accounting remains balanced"
+  ],
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "......                                                                   [100%]\n6 passed in 2.56s",
+  "qualification_complete": true,
+  "requirements": [
+    "SERS-ENTITY-002-17/18 asset and claims separation",
+    "SERS-ENTITY-002-54 provenance graph",
+    "SERS-ENTITY-002-100 invariants",
+    "SERS-ENTITY-002-107 cryptographic qualification",
+    "SERS-ENTITY-002-133 destructive sovereignty"
+  ],
+  "schema": "entity-asset-ledger-qualification-v1",
+  "status": "PASS"
+}

@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "bytes": 619,
+      "path": "canonical_adam_v1_entity_runtime.py",
+      "sha256": "21ab4c5fb46bfb8538fe9061fa4e5d3e9e1167a7c9b9393335cf55f85c715f9b"
+    },
+    {
+      "bytes": 12288,
+      "path": "canonical_full_adam_runtime.py",
+      "sha256": "856a96a2c0d1574f7a7c9946d0707633ac24c80f22efd11faba6cb93ebcdcc16"
+    },
+    {
+      "bytes": 2081,
+      "path": "entity_adam_execution_coordinator.py",
+      "sha256": "40a2dd588dd534f22f945bfe3f107fa60eb90e545487ee71f53bfbdb09822f05"
+    },
+    {
+      "bytes": 951,
+      "path": "ADAM_REFERENCE_PIN.json",
+      "sha256": "20c45ac14614155e45e4a00aa3b5677ef6d6771893c827f19299e3b12caaaaab"
+    },
+    {
+      "bytes": 1927,
+      "path": "ENTITY_ADAM_FULL_RUNTIME_REQUIREMENTS.md",
+      "sha256": "0db5eaf12655270a1c6ba52fd8eb105df359f247b0d6ddcec689d543db565af5"
+    },
+    {
+      "bytes": 25105364,
+      "path": "package/ADAM_v1_0_COMPLETE_SOFTWARE_REFERENCE_RC2.zip",
+      "sha256": "3cc6541f2d00dd0580989cc7fe6e8abd56974d1069f61c710e230568e00b8da3"
+    }
+  ],
+  "generated_at_unix": 1789743360,
+  "schema": "entity-adam-full-implementation-manifest-v1"
+}

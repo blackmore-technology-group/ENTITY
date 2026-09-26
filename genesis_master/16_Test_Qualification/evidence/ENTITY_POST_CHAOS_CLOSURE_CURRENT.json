@@ -1,0 +1,84 @@
+{
+  "chaos": {
+    "evidence_sha256": "829d888d37ef802485a96600c539f54ead83eff8433722b8d7454e294d175f70",
+    "file_sha256": "a44cb327c45b892e1a8478bd006658132547c6c18f51fffc0131e6c218c6dea6",
+    "generated_cases": 11926,
+    "pytest_total": {
+      "failed": 0,
+      "passed": 408,
+      "skipped": 0
+    }
+  },
+  "checks": {
+    "all_internal_release_gates": true,
+    "chaos_internal_pass": true,
+    "chaos_seal": true,
+    "e2e_pass": true,
+    "e2e_seal": true,
+    "genesis_pass": true,
+    "genesis_seal": true,
+    "only_external_release_block": true,
+    "regression_clean": true,
+    "regression_seal": true,
+    "rtm_closed": true
+  },
+  "claim": "RTM closure, Genesis Proof, Ultimate CHAOS and authoritative regression pass within the declared internally executable scope. Full external sovereign-domain release remains separately blocked.",
+  "evidence_sha256": "57b30cace30e88b0ca6cca310e8413a87d1a08fa8eb3e4b70a900aa8757aef99",
+  "external_release_blockers": [
+    "sovereign_domain_external"
+  ],
+  "external_validation_pending": [
+    "two physical user-controlled devices",
+    "independently developed non-BTG interoperable implementation"
+  ],
+  "generated_at_ms": 1789660460291,
+  "genesis": {
+    "evidence_sha256": "5bbd19e4292ea91a07f8131ff52d23de1aa0a06b0ea9bcf9cdb28f2096e1593d",
+    "file_sha256": "78b88401049e0a517723e99e394ad88f4afb800e090491189027431a4d78198a",
+    "pytest": {
+      "exit_code": 0,
+      "failed": 0,
+      "output": "..................................                                       [100%]\n34 passed in 20.37s\n",
+      "passed": 34,
+      "skipped": 0
+    }
+  },
+  "internal_engineering_blocker": null,
+  "limitations": [],
+  "master_rtm": {
+    "full_internal_requirements_closed": true,
+    "master_source_mirrored": true,
+    "qualified": 1997,
+    "requirement_count": 1997,
+    "rtm_sha256": "cc3d1163385394a3f362c27578148cc01d08ce7606d85ec7f9d0bcbb5d33a5f6"
+  },
+  "post_chaos_full_e2e": {
+    "evidence_sha256": "2803fb3b61a2ced1ff7f60d5c17241995c53c6b687de8d07d79b07df16872c56",
+    "file_sha256": "64e60832870bcade4b0ae00fd968705cb8b60a38d0c4bcc6cf835806efe98ea2"
+  },
+  "post_chaos_regression": {
+    "evidence_sha256": "9401304a0229d52e901ee12a923d6fba3ae397efa04685e0afbca1726618c952",
+    "file_sha256": "7ee24378922e5278788e96344934035440e989775134d6d52764fb8d197aa52f",
+    "totals": {
+      "failed": 0,
+      "passed": 422,
+      "skipped": 0
+    }
+  },
+  "qualification_complete": true,
+  "release_gate": {
+    "file_sha256": "64b855799986d285e3bbc314dbb2852817253276e7ca1e7f6e2f9259bae338e1",
+    "gate_evidence_sha256": "04452ce5cdf004577b796508b94a3555f671c5db1771cd19188718595e19d312"
+  },
+  "release_gates": {
+    "internal_passed": 33,
+    "internal_total": 33,
+    "passed": 33,
+    "total": 34
+  },
+  "release_score_percent": 97.1,
+  "release_status": "BLOCKED",
+  "schema": "entity-post-chaos-closure-v2",
+  "scope_status": "PASS_INTERNAL_SCOPE",
+  "status": "PASS"
+}

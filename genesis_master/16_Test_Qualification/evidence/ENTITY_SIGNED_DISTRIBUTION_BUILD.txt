@@ -1,0 +1,23 @@
+{
+  "distribution": "<LOCAL_DRIVE>/Sovereign_Entity_Network\\17_Release\\packages\\ENTITY_INTERNAL_QUALIFIED_SIGNED_2026-09-17",
+  "generated_at_ms": 1789679432677,
+  "manifest_sha256": "b50b61c4b3f0fdbda2a6d88435a8888afa1b73dc9c966e6e34cff16625409bbf",
+  "private_signer_state_distributed": false,
+  "public_trust_root_sha256": "d8d50870f7288df757d292e000c46becc4bc36763a32d453f7973733ba5a5730",
+  "release_id": "ENTITY_INTERNAL_QUALIFIED_SIGNED_2026-09-17",
+  "schema": "entity-signed-distribution-qualification-v1",
+  "status": "PASS",
+  "verification": {
+    "artifact_failures": [],
+    "checks": {
+      "artifact_hashes_valid": true,
+      "release_signature_valid": true,
+      "signer_matches": true,
+      "trust_manifest_valid": true
+    },
+    "release_id": "ENTITY_INTERNAL_QUALIFIED_SIGNED_2026-09-17",
+    "release_status": "INTERNALLY_QUALIFIED_SIGNED_EXTERNAL_VALIDATION_PENDING",
+    "signer_entity_id": "ent2-3vutraoer24deek2uv54sbiob2xim5xejbu6lybhk7cxgptgwkwa",
+    "valid": true
+  }
+}

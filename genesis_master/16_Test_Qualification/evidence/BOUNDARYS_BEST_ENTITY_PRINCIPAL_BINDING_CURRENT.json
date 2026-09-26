@@ -1,0 +1,17 @@
+{
+  "application_entity_id": "ent2-isbeasjuagcyxt7odac5gdckdumuf6t5uccg6jptqqxa6yavitjq",
+  "binding_sha256": "971f95b9d4374deabc9377a95db982c2feb90b8da3b94c316683d9d5867878e6",
+  "delegated_actions": [
+    "INGEST_ASSET",
+    "RECORD_EVENT"
+  ],
+  "device_entity_id": "ent2-rgzzlifxb6wxjyb6k672jd4mn7xcgfd6fsj7mvhfqcok3vqcrtiq",
+  "generated_at_ms": 1789672313104,
+  "installation_entity_id": "ent2-z2yyc2sb4cn4aa54u6vbqq224dhd26nrbhpgsgpa7uhbzg3etlwq",
+  "principal_entity_id": "ent2-7vagebjtkzw5i3t6jbuk5ws65xywh63ucserwbqfgmzt7pd2xo5q",
+  "private_binding_external_to_payload": true,
+  "profile_schema": "boundarys-best-entity-profile-v1",
+  "schema": "boundarys-best-principal-binding-qualification-v1",
+  "status": "PASS",
+  "valid": true
+}

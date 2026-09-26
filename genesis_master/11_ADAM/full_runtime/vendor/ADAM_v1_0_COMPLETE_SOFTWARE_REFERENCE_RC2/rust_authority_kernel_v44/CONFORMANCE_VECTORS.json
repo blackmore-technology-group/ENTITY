@@ -1,0 +1,71 @@
+{
+  "format": "ADAM-v0.44-cross-language-conformance",
+  "note": "Rust implementation must match the canonical field ordering/normalization contract; serde_json alone is not sufficient until the canonical encoder is substituted.",
+  "python_canonical": {
+    "bond": {
+      "authority": "OPS",
+      "causal_parents": [],
+      "chemistry_version": "v44.1",
+      "confidence": 1.0,
+      "confidence_class": "authoritative",
+      "direction": "forward",
+      "family": "operational",
+      "metadata": {},
+      "order": null,
+      "predicate": "ASSIGNED_TO",
+      "provenance": [],
+      "reaction_origin": null,
+      "security_scope": "PUBLIC",
+      "source": "EX12",
+      "supporting_evidence": [
+        "E1"
+      ],
+      "target": "P204",
+      "time": {
+        "observed_at": 4,
+        "valid_from": 4,
+        "valid_until": null
+      }
+    },
+    "bond_id": "8e8f8cc02beb4522e5f56390f918fda6d34dad3f92508112579106815a7c53a9",
+    "hyperbond": {
+      "authority": "OPS",
+      "causal_parents": [],
+      "chemistry_version": "v44.1",
+      "confidence": 1.0,
+      "event_type": "ASSIGNMENT_EVENT",
+      "metadata": {},
+      "provenance": [],
+      "roles": [
+        {
+          "metadata": {},
+          "order": null,
+          "participant": "SHAWN",
+          "required": true,
+          "role": "ACTOR"
+        },
+        {
+          "metadata": {},
+          "order": null,
+          "participant": "P204",
+          "required": true,
+          "role": "DESTINATION"
+        },
+        {
+          "metadata": {},
+          "order": null,
+          "participant": "EX12",
+          "required": true,
+          "role": "EQUIPMENT"
+        }
+      ],
+      "security_scope": "PUBLIC",
+      "time": {
+        "observed_at": 4,
+        "valid_from": 4,
+        "valid_until": null
+      }
+    },
+    "hyperbond_id": "8521766579a757e7b734a5138c3d1f4ed24c4dd93e70fb655fbeeabf30d225da"
+  }
+}

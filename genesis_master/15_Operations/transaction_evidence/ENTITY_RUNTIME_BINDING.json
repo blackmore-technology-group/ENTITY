@@ -1,0 +1,24 @@
+{
+  "abi_version": "1",
+  "authority": "transaction_evidence_bundle_v1",
+  "canonical_owner": "15_Operations\\transaction_evidence",
+  "declared_scope": "ENTITY_TRANSACTION_EVIDENCE_BUNDLE_V1_INDEPENDENT_REPRODUCIBILITY",
+  "implementation_sha256": {
+    "exporter": "b14061f29d65bcedf7e1864fc645303f8aa43cc1c31bf32bdf204e94f5d75396",
+    "standalone_verifier": "29b5b5a49fc6149c937430a25a798dfbe3d5eb24bf7e13c513ba5eb9bbd0bfc7"
+  },
+  "implementation_version": "1.0.0",
+  "independent_runtime_required": true,
+  "json_schema_sha256": "f845db9b51bcbedea046dbc3d99aa84448005bc71bc89a92d19ecb21d294c6cb",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_INDEPENDENT_TRANSACTION_CURRENT.json",
+      "sha256": "39f7cbc5c9750f6875147ae098e45374e4e2a78ddf900bd0eb412eb9ed8de420"
+    }
+  ],
+  "recovery_key_in_public_export": false,
+  "requirements_sha256": "cf3d120c6d94db465da41f8f83d65d15387eaa3df8e924701966b919c054d23e",
+  "schema": "entity-runtime-binding-v1",
+  "specification_sha256": "c91ddeb632f1dbe023fd5d98ba449c581e20b62c6435e4d469fed34aedd6efaa",
+  "status": "READY"
+}

@@ -1,0 +1,90 @@
+{
+  "artifact": {
+    "app_dll_sha256": "c7d3bb559ad17907e7eaa15cabe01db744bb3d9e433850e1120fb8da8457e6fd",
+    "app_exe_sha256": "acd3ecc4c1310586a71154588bb857feab8bb42e3fe1d827033ea822f1a9554e",
+    "entity_integration_manifest_sha256": "c8490bf642e7665129a38c1f93e6100cd821008bb9cd189d400c3ec5365a31f7",
+    "payload_file_count": 2753,
+    "payload_lock_sha256": "c2e21004c21bb5c55efe0be53ef9d66076e5706a0d83ceb9bc81bb5ad0f73e08",
+    "payload_total_bytes": 1793418420,
+    "setup_bytes": 73779035,
+    "setup_path": "<LOCAL_DRIVE>/BTG_Qualification_Staging\\WildByNatureSoapStudio\\setup-full-design-entity-qualified-20260917\\BoundarysBest_WildByNature_Setup.exe",
+    "setup_sha256": "fbf2f0524d79ae81842b0e9e82e1dc12e794b059b0406a830ed1816f64237df0"
+  },
+  "checks": {
+    "canonical_gateway_80_80": true,
+    "economic_value_not_inferred": true,
+    "envelope_audit_80": true,
+    "installed_envelope_audit_80": true,
+    "installed_regression_36_36": true,
+    "installer_build_pass": true,
+    "installer_test_pass": true,
+    "original_baseline_preserved": true,
+    "ownership_not_inferred": true,
+    "payload_file_count_2753": true,
+    "payload_lock_hash": true,
+    "preinstall_regression_36_36": true,
+    "principal_binding_valid": true,
+    "private_binding_not_packaged": true,
+    "protected_entity_core_47_unchanged": true,
+    "raw_business_payload_not_sent": true,
+    "setup_hash": true,
+    "source_diff_bounded": true,
+    "staged_installed_dll_match": true,
+    "staged_installed_exe_match": true
+  },
+  "entity": {
+    "application_entity_id": "ent2-isbeasjuagcyxt7odac5gdckdumuf6t5uccg6jptqqxa6yavitjq",
+    "binding_sha256": "971f95b9d4374deabc9377a95db982c2feb90b8da3b94c316683d9d5867878e6",
+    "controller_entity_id": "ent2-7vagebjtkzw5i3t6jbuk5ws65xywh63ucserwbqfgmzt7pd2xo5q",
+    "device_entity_id": "ent2-rgzzlifxb6wxjyb6k672jd4mn7xcgfd6fsj7mvhfqcok3vqcrtiq",
+    "envelopes_qualified": 80,
+    "gateway_accepted": 80,
+    "installation_entity_id": "ent2-z2yyc2sb4cn4aa54u6vbqq224dhd26nrbhpgsgpa7uhbzg3etlwq",
+    "private_binding_embedded": false
+  },
+  "evidence_refs": [
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_PRE_INTEGRATION.json",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_POST_INTEGRATION.json",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_SOURCE_DIFF_CURRENT.json",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_POST_REGRESSION.txt",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_INSTALLED_REGRESSION.txt",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_ENVELOPE_AUDIT_CURRENT.json",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_INSTALLED_ENVELOPE_AUDIT_CURRENT.json",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_GATEWAY_CURRENT.json",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_PRINCIPAL_BINDING_CURRENT.json",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\ENTITY_CORE_INVARIANCE_CURRENT.json",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_INSTALL_TEST.txt",
+    "<LOCAL_DRIVE>/Sovereign_Entity_Network\\16_Test_Qualification\\evidence\\BOUNDARYS_BEST_ENTITY_INSTALLER_BUILD.txt"
+  ],
+  "evidence_sha256": "7ba265cbea314039ea6a226479abcd1001d542404f2204fa5a0cdd4d5d18ee8e",
+  "generated_at_ms": 1789672404419,
+  "limitations": [
+    "A copied installer does not transfer Boundarys Best sovereign authority. A different computer must receive its own device/installation principal binding.",
+    "Qualification proves the current Windows/BTG deployment and isolated canonical gateway admission; it does not claim an independently authored external ENTITY implementation.",
+    "ENTITY platform-wide external sovereign-domain qualification remains a separate release gate and is not altered by this Boundarys Best application qualification."
+  ],
+  "product": "Boundarys Best Wild by Nature Soap Studio",
+  "qualification_complete": true,
+  "release_scope": "Windows desktop application + ENTITY principal-bound hash/provenance integration",
+  "schema": "boundarys-best-entity-native-release-qualification-v1",
+  "source": {
+    "intentional_source_files": [
+      "App.xaml.cs",
+      "EntityIntegration.cs",
+      "BatchQaDocumentService.cs",
+      "DataStore.cs",
+      "LabelEngine.cs",
+      "LabelTemplateStore.cs",
+      "ManufacturingDatabase.cs",
+      "QualificationDataStore.cs",
+      "ScentDataStore.cs",
+      "SupplierEconomicsService.cs",
+      "UserCatalogDataStore.cs"
+    ],
+    "post_aggregate_sha256": "359c9cd5a644f6afd406a2b2c69fbbe470d01e7416beb83e00a1f642ce4e0a0d",
+    "pre_aggregate_sha256": "4a8652c9735e58114fcc794d87a0713237339bbb567efeb49ce0bc73d82bb062",
+    "unexpected_changes": []
+  },
+  "stage_root": "<LOCAL_DRIVE>/BTG_Qualification_Staging\\WildByNatureSoapStudio\\setup-full-design-entity-qualified-20260917",
+  "status": "PASS"
+}

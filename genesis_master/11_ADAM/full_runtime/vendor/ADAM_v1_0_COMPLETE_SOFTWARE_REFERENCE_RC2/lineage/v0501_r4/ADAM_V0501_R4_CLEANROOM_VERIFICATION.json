@@ -1,0 +1,17 @@
+{
+  "format": "ADAM-v0.50.1-R4-cleanroom-verification",
+  "import_smoke": "PASS",
+  "includes_exact_former_failure_file": "tests_v43/test_production_soak.py",
+  "integrated_gates_passed": 9,
+  "log": "ADAM_V0501_R4_CLEANROOM_LOG.txt",
+  "log_sha256": "b230f4c39bd3004ecf98b5dff539e5cffea73a7e35058e028bcb3e2957319db9",
+  "manifest_files": 415,
+  "process_model": "forced spawn",
+  "source_audit_blockers": 0,
+  "status": "PASS",
+  "targeted_tests_failed": 0,
+  "targeted_tests_passed": 14,
+  "version": "0.50.1.dev4",
+  "zip": "ADAM_v0_50_1_FINAL_WINDOWS_QUALIFIED_R4_FULL_BUILD.zip",
+  "zip_sha256": "c73e728775188eb75914f855ad7ffc082d376c96c2c91a33350f95e9ce911054"
+}

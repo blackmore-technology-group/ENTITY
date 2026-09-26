@@ -1,0 +1,13 @@
+{
+  "commits": 120,
+  "cycles": 120,
+  "elapsed_seconds": 4.0998310260001745,
+  "failovers": 1,
+  "final_index": 120,
+  "final_state_digest": "45044ee8489bc8929ed80d47c11d99f379d519a79331a74f8c08422fdf0b1f93",
+  "final_term": 2,
+  "invariant_failures": 0,
+  "logical_days": 30,
+  "peak_memory_bytes": 2106666,
+  "recoveries": 1
+}

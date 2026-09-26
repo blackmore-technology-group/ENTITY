@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "external_capital_authority_verification",
+  "exports": [
+    "ExternalAuthorityRegistry"
+  ],
+  "implementation_sha256": "d6c1f0d4cf80ddc7b011de14be1dd4c6db702b0cf9d1faff250bed433663835d",
+  "implementation_version": "2.2.0",
+  "python_file": "canonical_external_authority.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+      "sha256": "1918775d0a3484ccbe7e77023bb2aaa2e2fa9d2c1b416bc936ee9747c771149f"
+    }
+  ],
+  "requirements_sha256": "0b34a4fedb80be2f4cad98edac8d15514d2d244fb248781dc2df48c46c733d61",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

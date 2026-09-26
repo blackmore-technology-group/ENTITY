@@ -1,0 +1,25 @@
+{
+  "gateway_url": "https://127.0.0.1:8765",
+  "ca_cert": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\pki\\ca\\ca.cert.pem",
+  "client_signing_key_path": "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\secrets\\client_signing.key",
+  "principal": "remote-desktop-commander-becp-bridge",
+  "subject": "Remote Desktop Commander via BECP",
+  "client_type": "desktop_commander_bridge",
+  "roles": ["blackmore_admin"],
+  "devices": ["56d7ed92-c5b4-4cca-addd-02ab1384ca74"],
+  "capabilities": [
+    "system.health",
+    "file.hash",
+    "file.read_text",
+    "diagnostic.run_approved",
+    "change.run_approved",
+    "engineering.terminal.start",
+    "engineering.terminal.execute",
+    "engineering.terminal.cwd",
+    "engineering.terminal.close",
+    "engineering.terminal.drives"
+  ],
+  "default_device": "BTG",
+  "token_ttl_seconds": 300,
+  "request_timeout_seconds": 120.0
+}

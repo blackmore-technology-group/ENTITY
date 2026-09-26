@@ -1,0 +1,18 @@
+{
+    "rotation_utc":  "2026-09-13T17:37:55.5143512Z",
+    "reason":  "TRL9 certification audit-chain rotation after preserving historical pre-certification logs",
+    "archives":  [
+                     {
+                         "source":  "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\gateway_audit.jsonl",
+                         "archive":  "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\archive\\TRL9_PRECERT_20260913\\gateway_audit.jsonl",
+                         "sha256":  "b45d855944c2f767459b886ac959e0df770c6460c90a6226c398ae56677bf3e8",
+                         "bytes":  37821
+                     },
+                     {
+                         "source":  "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\56d7ed92-c5b4-4cca-addd-02ab1384ca74.jsonl",
+                         "archive":  "<LOCAL_DRIVE>/Blackmore_Technology_Group\\Software Development\\BECP\\runtime\\audit\\archive\\TRL9_PRECERT_20260913\\btg_agent_audit.jsonl",
+                         "sha256":  "c1f8c5f4091b62bc50a1d18004f43b57494e6b64d5355a3e13f87bc22f096ba6",
+                         "bytes":  118570
+                     }
+                 ]
+}

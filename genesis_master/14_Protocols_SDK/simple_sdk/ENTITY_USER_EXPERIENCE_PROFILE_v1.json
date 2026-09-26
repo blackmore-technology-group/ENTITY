@@ -1,0 +1,43 @@
+{
+  "schema": "entity-user-experience-profile-v1",
+  "version": "1.0",
+  "principle": "Expose human intent, not internal authority topology.",
+  "user_actions": [
+    {
+      "label": "Sign In",
+      "meaning": "Select and authenticate an existing Entity/principal relationship.",
+      "must_not_mean": "Create provider-owned identity"
+    },
+    {
+      "label": "Pair Device",
+      "sdk_operation": "pair_device",
+      "meaning": "Create a revocable principal-to-application-to-device binding."
+    },
+    {
+      "label": "Authorize",
+      "meaning": "Grant an explicit scoped capability; default is deny."
+    },
+    {
+      "label": "Created by me — verified",
+      "meaning": "Cryptographic provenance/controller evidence is valid.",
+      "must_not_mean": "Legal ownership or factual truth automatically proven"
+    },
+    {
+      "label": "Export My Entity",
+      "sdk_operation": "export_entity",
+      "meaning": "Create a signed portable Entity export.",
+      "status": "AVAILABLE"
+    },
+    {
+      "label": "Move My Entity",
+      "meaning": "Export, import into another provider, verify unchanged identity/controller continuity, reconnect services.",
+      "status": "RESERVED_UNTIL_END_TO_END_PROVIDER_MIGRATION_IS_QUALIFIED"
+    },
+    {
+      "label": "Recover",
+      "meaning": "Use governed recovery authority without assigning sovereignty to the recovery provider."
+    }
+  ],
+  "internal_authority_count_exposed_to_user": 0,
+  "raw_key_management_required_from_normal_user": false
+}

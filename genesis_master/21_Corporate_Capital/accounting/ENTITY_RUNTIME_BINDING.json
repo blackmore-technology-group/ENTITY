@@ -1,0 +1,19 @@
+{
+  "abi_version": "1",
+  "authority": "capital_accounting_reconciliation",
+  "exports": [
+    "CapitalAccountingReconciler"
+  ],
+  "implementation_sha256": "f30eca7a56b8245e5674d303a200df8c55fd8e6bd0af39a7aeb0898e89bdaa54",
+  "implementation_version": "2.2.0",
+  "python_file": "canonical_capital_accounting.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_CORPORATE_CAPITAL_EVIDENCE_CURRENT.json",
+      "sha256": "1918775d0a3484ccbe7e77023bb2aaa2e2fa9d2c1b416bc936ee9747c771149f"
+    }
+  ],
+  "requirements_sha256": "568a480477c0125c7a00f1b45aeab549b49f97f3a1a8e792875a5a9b662106fb",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}

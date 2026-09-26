@@ -1,0 +1,8 @@
+from pathlib import Path
+p=Path(r'<LOCAL_DRIVE>/Sovereign_Entity_Network\17_Release\ten_of_ten\evaluate_release.py')
+s=p.read_text(encoding='utf-8')
+old='''        "master_rtm":{"path":str(rtm_path),"requirement_count":rtm.get("requirement_count"),"rtm_sha256":rtm.get("rtm_sha256"),"master_source_mirrored":rtm.get("master_source_mirrored")},\n        "qualification_notes":["The hash-pinned SERS-003 master source is verified in the user Library but is not yet mirrored into this repository.","Internal Ultimate CHAOS qualification is evidence-backed when the ultimate_chaos_internal gate passes.","Final sovereign-domain release remains externally blocked by the physical-device and independent non-BTG interoperability milestones."],\n'''
+new='''        "master_rtm":{"path":str(rtm_path),"requirement_count":rtm.get("requirement_count"),"rtm_sha256":rtm.get("rtm_sha256"),"master_source_mirrored":rtm.get("master_source_mirrored"),"full_internal_requirements_closed":rtm.get("full_internal_requirements_closed"),"active_internal_unclosed_count":rtm.get("active_internal_unclosed_count"),"qualified":rtm.get("state_counts",{}).get("QUALIFIED")},\n        "qualification_notes":["The authoritative SERS-003 v2.2 and sovereign-domain specifications are mirrored in-repository and hash-verified.","Internal Ultimate CHAOS, RTM closure and Genesis Proof are mandatory internal release gates.","Final sovereign-domain release remains externally blocked by the physical-device and independent non-BTG interoperability milestones."],\n'''
+assert old in s
+p.write_text(s.replace(old,new),encoding='utf-8')
+print('release payload updated')

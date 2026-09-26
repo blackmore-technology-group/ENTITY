@@ -1,0 +1,21 @@
+{
+  "evidence_sha256": "1d2e37358b2371c03425ca35391168b4c9ea605d51333355cbdb871ed9b51304",
+  "generated_at_ms": 1789570267885,
+  "implementation_sha256": {
+    "01_Core_Runtime\\contracts\\canonical_contracts.py": "ff8ab5e982ad549475f71bfa28677fdf0fee20b81c37b370c0026030c0187872",
+    "01_Core_Runtime\\usage_control\\canonical_usage_control.py": "b310fbb310525f8f083c41541cf2116048dcda0987e423a57ab50cc4cd671fde"
+  },
+  "limitations": [],
+  "pytest_exit_code": 0,
+  "pytest_output": "......                                                                   [100%]\n6 passed in 5.05s",
+  "qualification_complete": true,
+  "qualified_authorities": [
+    "contracts",
+    "usage_control"
+  ],
+  "requirements_sha256": {
+    "01_Core_Runtime": "d88b4c12e8b47b587accd64da154651d4978b450aaf5aa935aa6c26dbb6e5e10"
+  },
+  "schema": "entity-contracts-usage-qualification-v1",
+  "status": "PASS"
+}

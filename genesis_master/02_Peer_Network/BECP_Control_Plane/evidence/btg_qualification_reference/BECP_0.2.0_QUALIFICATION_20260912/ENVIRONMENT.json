@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "cryptography": "46.0.3",
+    "fastapi": "0.110.1",
+    "httpx": "0.28.1",
+    "mcp": "2.2.0",
+    "pydantic": "2.12.3",
+    "uvicorn": "0.41.0",
+    "websockets": "15.0.1"
+  },
+  "generated_utc": "2026-09-12T21:02:38.579658+00:00",
+  "hostname": "BTG",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "qualification_scope": "BECP local TLS/mTLS two-identity engineering-control qualification on BTG",
+  "second_workstation_note": "ENG-SIM-01 is an independent BECP identity/certificate simulated on the same physical BTG computer."
+}

@@ -1,0 +1,218 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "total": 99,
+        "v040_v041": {
+          "log": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/v50_full_audit/v040_v041.log",
+          "passed": 13,
+          "sha256": "252fd8ab8903332e5dd98e91647175caeee19196046581af08f76e283ad981b5"
+        },
+        "v042_core": {
+          "log": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/v50_full_audit/v042_core.log",
+          "passed": 13,
+          "sha256": "d75aab84be416b0b85df67226015b3570fd15354f6ec8525d8aa0c3e9811d68d"
+        },
+        "v042_recreation_security": {
+          "log": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/v50_full_audit/v042_recreation_security.log",
+          "passed": 23,
+          "sha256": "ec309a820dbede616b5241a5a48805833b0b0a65325b90b7f086bbf30cf5f709"
+        },
+        "v043_gap_closure": {
+          "log": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/v50_full_audit/v043_gap_closure.log",
+          "passed": 8,
+          "sha256": "feef2d0b2abb6d048be20bbccb7e5b94f9952c3efa0ad8e23bd91bc1688e321a"
+        },
+        "v044_v050": {
+          "log": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/v50_full_audit/v044_v050.log",
+          "passed": 42,
+          "sha256": "5e3f42a7b1f51083478f58a94e702e69e97d9e1043022f24c6f1272c1193b615"
+        }
+      },
+      "elapsed_seconds": 0.00194,
+      "name": "all_v040_through_v050_tests",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "v042_core": {
+          "failed": 0,
+          "passed": 22,
+          "path": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/full_audit/ADAM_V042_AUDIT_RESULTS.json"
+        },
+        "v042_living_recreation": {
+          "failed": 0,
+          "passed": 11,
+          "path": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/living_recreation_audit/ADAM_V042_LIVING_RECREATION_AUDIT_RESULTS.json"
+        },
+        "v043_gap_closure": {
+          "failed": 0,
+          "passed": 10,
+          "path": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/v43_gap_audit/ADAM_V043_GAP_CLOSURE_AUDIT_RESULTS.json"
+        }
+      },
+      "elapsed_seconds": 0.000813,
+      "name": "inherited_v042_and_v043_audits",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "bond_families": 9,
+        "final_root": "f41954974cb54cd0298bb7881e1d1761c465deb6fd7ecc47eabed3866c890dd0",
+        "hyperbonds": 40,
+        "proofs": 40,
+        "reactions": 40,
+        "standard_predicates": 48,
+        "worldline_states": 40
+      },
+      "elapsed_seconds": 0.592468,
+      "name": "v044_atomic_physics_bond_algebra_hyperbonds_reactions_worldlines",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "compound_candidates": 1,
+        "concept_id": "746b88f66de948b94dea93e44d030034497a5634d7b3cd20183680f0935b0f31",
+        "graph_model_id": "8381f62d793d1bfd6feb2e05e78509f3ae1ea38dffcf850d1835a02c254e4a50",
+        "model_bond_proposals": 4,
+        "training_runs": {
+          "graph_embedding": {
+            "authorization": "RESEARCH",
+            "dataset_id": "e7fd5169ac63c5bc5299d09dcb4fc724cd32556cb3f2d720ed55fdeb5b9b1588",
+            "examples": 3,
+            "metrics": {
+              "training_top1_accuracy": 1.0
+            },
+            "organ": "graph_embedding",
+            "parent_model": null
+          },
+          "masked_atom": {
+            "authorization": "RESEARCH",
+            "dataset_id": "51caf3ab7a44e32b4fbb2ab29cfa8ba80802db6f02ef68a87e3da3c35c8d1b3d",
+            "examples": 3,
+            "metrics": {
+              "contexts": 2.0
+            },
+            "organ": "masked_atom",
+            "parent_model": null
+          },
+          "masked_bond": {
+            "authorization": "RESEARCH",
+            "dataset_id": "b66a27d616c3eba2bc3b37ed72a174faad63f714a3d3d44f22391742f0d2d97c",
+            "examples": 3,
+            "metrics": {
+              "coverage": 1.0,
+              "distinct_predicates": 2.0
+            },
+            "organ": "masked_bond",
+            "parent_model": null
+          }
+        }
+      },
+      "elapsed_seconds": 0.012981,
+      "name": "v045_neural_symbolic_cognitive_chemistry_and_model_embodiment",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "action_accepted": true,
+        "constructed_bytes": 222,
+        "event_id": "6cd0ad1fb16480ac23ac99dba3e1a7bf5c8a28af7fe49b30d27288a813074178",
+        "goal_id": "7f947d51cbcebc6e3a775a07226d99fd044cda0362ab2ffa4a00d05e86263557",
+        "incremental_affected": [
+          "VARIANCE"
+        ],
+        "prediction": [
+          "ASSIGNED"
+        ]
+      },
+      "elapsed_seconds": 0.017084,
+      "name": "v046_v047_v048_application_world_and_embodiment_fabric",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "chemistry_active": "3b01623e988e9b279f1972608edc5d30a0048bf2f1d4d0709b793d3075400268",
+        "crypto_erasure": true,
+        "distributed_commits": 30,
+        "replica_roots": [
+          "b2d32d24482074c1cd6ae40d9250c068fd812687ea180318369c3bb8d323fe8f"
+        ],
+        "term": 2,
+        "witnesses": 3
+      },
+      "elapsed_seconds": 1.492527,
+      "name": "v049_v050_evolution_sovereignty_inference_security_and_distributed_authority",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "actual_30_day_run_completed": false,
+        "hsm_kms_hardware_exercised": false,
+        "native_log": "make: Entering directory '/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/native_authority_reference'\nrm -f authority_reference\ncc -O2 -Wall -Wextra -Werror -Wno-deprecated-declarations -o authority_reference authority_reference.c -lcrypto\nmake: Leaving directory '/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/native_authority_reference'\n",
+        "native_reference_compiled": true,
+        "rust_compiled_here": false,
+        "rust_source_files": [
+          "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/rust_authority_kernel_v44/Cargo.toml",
+          "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/rust_authority_kernel_v44/src/main.rs",
+          "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/rust_authority_kernel_v44/src/model.rs",
+          "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/rust_authority_kernel_v44/src/reaction.rs",
+          "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/rust_authority_kernel_v44/CONFORMANCE_VECTORS.json"
+        ],
+        "rust_toolchain_available": false
+      },
+      "elapsed_seconds": 0.179107,
+      "name": "native_authority_rust_source_and_external_boundaries",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "corrected_to_package_version": "0.42.0.dev2",
+        "original_internal_version": "0.42.0.dev1",
+        "qualification_results_changed": false,
+        "reason": "Package BUILD_INFO and combined qualification identify 0.42.0.dev2; internal audit label was stale."
+      },
+      "elapsed_seconds": 0.001111,
+      "name": "v042_parent_metadata_correction",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "percent_covered": 88.609397247271,
+        "report": "/mnt/data/ADAM_v0_50_SOVEREIGN_ARTIFICIAL_LIVING_UNIVERSE/artifacts/v50_full_audit/coverage.json",
+        "source": "manifest_verified_existing_report",
+        "statements": 2107
+      },
+      "elapsed_seconds": 0.001572,
+      "name": "focused_v044_v050_coverage",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": {
+    "bounded_development_implemented": [
+      "complete first-class bond algebra and recursive bond atoms",
+      "hyperbonds",
+      "reaction-only official mutation path",
+      "proof-carrying worldlines",
+      "neural-symbolic bond training",
+      "application nervous system",
+      "causal shadow universes",
+      "incremental dependency updates",
+      "governed embodiment",
+      "self-evolving chemistry laboratory",
+      "purpose-bound inference closure",
+      "domain encryption and cryptographic erasure",
+      "majority-certified physics cluster"
+    ],
+    "external_completion_required": [
+      "compile and independently audit Rust authority kernel",
+      "exercise production HSM/KMS hardware",
+      "train on large licensed open-world multimodal and field sensor corpora",
+      "complete 30 real wall-clock days and SLA certification"
+    ]
+  },
+  "failed": 0,
+  "format": "ADAM-v0.50-full-development-audit",
+  "passed": 9,
+  "version": "0.50.0.dev1"
+}

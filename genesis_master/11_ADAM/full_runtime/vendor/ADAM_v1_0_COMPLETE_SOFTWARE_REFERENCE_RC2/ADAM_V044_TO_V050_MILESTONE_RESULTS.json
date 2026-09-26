@@ -1,0 +1,67 @@
+{
+  "external_required": [
+    "independent Rust compile/fuzz/audit",
+    "production HSM/KMS hardware",
+    "large licensed open-world and field-sensor training",
+    "30 actual wall-clock days and SLA certification"
+  ],
+  "format": "ADAM-v0.44-to-v0.50-milestone-results",
+  "intermediate": "0.43.0.dev1",
+  "milestones": {
+    "0.44": {
+      "bond_families": 9,
+      "name": "Atomic Physics Kernel",
+      "reaction_audit": 40,
+      "rust_compiled_here": false,
+      "rust_source_included": true,
+      "standard_predicates": 48,
+      "status": "bounded_implemented"
+    },
+    "0.45": {
+      "name": "Cognitive Chemistry",
+      "organs": [
+        "masked_atom",
+        "masked_bond",
+        "graph_embedding",
+        "compound_discovery",
+        "causal_discovery",
+        "calibration"
+      ],
+      "status": "bounded_implemented"
+    },
+    "0.46": {
+      "name": "Universal Application Nervous System",
+      "status": "bounded_implemented"
+    },
+    "0.47": {
+      "name": "Predictive World Universe",
+      "status": "bounded_implemented"
+    },
+    "0.48": {
+      "name": "Embodied Universe",
+      "physical_hardware_operated": false,
+      "status": "bounded_implemented"
+    },
+    "0.49": {
+      "name": "Self-Evolving Chemistry",
+      "status": "bounded_implemented"
+    },
+    "0.50": {
+      "crypto_erasure": true,
+      "distributed_commits": 30,
+      "name": "Sovereign and Inference-Safe Universe",
+      "status": "bounded_implemented",
+      "term": 2
+    }
+  },
+  "parent": "0.42.0.dev2",
+  "qualification": {
+    "coverage_percent": 88.609397247271,
+    "covered_statements": 2107,
+    "final_audit_failed": 0,
+    "final_audit_passed": 9,
+    "tests_failed": 0,
+    "tests_passed": 99
+  },
+  "release": "0.50.0.dev1"
+}

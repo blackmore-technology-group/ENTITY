@@ -1,0 +1,20 @@
+{
+  "abi_version": "1",
+  "authority": "adam_actions",
+  "exports": [
+    "AdamActionExecutor",
+    "niki_accept_action_proposal_v1"
+  ],
+  "implementation_sha256": "bb231c1fd4bf15fddac30b1b53e14dbf60da88af3f0c5f7fdff22e02df87ba52",
+  "implementation_version": "2.2.0-canonical",
+  "python_file": "canonical_adam_actions.py",
+  "qualification_evidence": [
+    {
+      "path": "16_Test_Qualification/evidence/ENTITY_ADAM_FULL_INTEGRATION_QUALIFICATION_CURRENT.json",
+      "sha256": "9f95490cb553d9910eec102eda57adc82860da260b1b4d33486ce31510b7b122"
+    }
+  ],
+  "requirements_sha256": "dda98896f71cf65e2678b707b7b862033131fa8c5751e5d873ece613b9f8f7a0",
+  "schema": "entity-runtime-binding-v1",
+  "status": "READY"
+}
