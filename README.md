@@ -3,6 +3,7 @@
 [![Release](https://img.shields.io/github/v/release/blackmore-technology-group/ENTITY?sort=semver)](https://github.com/blackmore-technology-group/ENTITY/releases/latest)
 [![CI](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/ci.yml/badge.svg)](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/ci.yml)
 [![Dependency review](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/dependency-review.yml)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/blackmore-technology-group/ENTITY/badge)](https://securityscorecards.dev/viewer/?uri=github.com/blackmore-technology-group/ENTITY)
 [![License](https://img.shields.io/github/license/blackmore-technology-group/ENTITY)](LICENSE)
 
 **Open infrastructure for sovereign digital authority, verifiable claims, data rights, continuous provenance and economic state that survives providers.**
@@ -11,7 +12,7 @@
 
 ENTITY is Blackmore Technology Group's open-source protocol and reference implementation for persistent identity, delegated authority, provenance, evidence, rights, trusted state transitions, portable recovery and data-economic infrastructure.
 
-[**ENTITY v3.4.2 Release**](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.2) · [**v3.4.2 + BTDU overview**](https://blackmore-technology-group.github.io/ENTITY-DOCS/v342/) · [**Documentation**](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [**Conformance Kit**](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit) · [**Contributor Tasks**](https://github.com/blackmore-technology-group/ENTITY/issues) · [**Interoperability Challenge**](docs/INTEROPERABILITY_CHALLENGE.md)
+[**ENTITY v3.4.2 Release**](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.2) · [**External Qualification**](https://github.com/blackmore-technology-group/ENTITY/issues/55) · [**v3.4.2 + BTDU overview**](https://blackmore-technology-group.github.io/ENTITY-DOCS/v342/) · [**Documentation**](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [**Conformance Kit**](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit) · [**Interoperability Challenge**](docs/INTEROPERABILITY_CHALLENGE.md)
 
 ---
 
@@ -131,6 +132,22 @@ A reproducible failure, ambiguity, counterexample or portability problem is usef
 
 ---
 
+## External promotion qualification
+
+ENTITY v3.4.2 deliberately separates BTG-controlled evidence from qualification that should come from unrelated participants. The umbrella entry point is [External Verification Challenge #55](https://github.com/blackmore-technology-group/ENTITY/issues/55).
+
+Current public qualification calls:
+
+- [#58 — Hardware-backed sovereign key custody](https://github.com/blackmore-technology-group/ENTITY/issues/58)
+- [#59 — Physical multi-host interoperability and recovery](https://github.com/blackmore-technology-group/ENTITY/issues/59)
+- [#60 — Certified-device pilot](https://github.com/blackmore-technology-group/ENTITY/issues/60)
+- [#61 — Independent security audit](https://github.com/blackmore-technology-group/ENTITY/issues/61)
+- [#62 — Independent assessor evidence review and qualification receipt](https://github.com/blackmore-technology-group/ENTITY/issues/62)
+
+Each gate has its own evidence requirements and claim boundary. Passing one gate does not imply that another gate passed. Negative findings, reproducible failures and incomplete results remain useful evidence.
+
+---
+
 ## Public cross-language baselines
 
 BTG publishes controlled reproducibility baselines in:
@@ -209,11 +226,14 @@ See [SECURITY.md](SECURITY.md).
 
 - [Documentation portal](https://blackmore-technology-group.github.io/ENTITY-DOCS/)
 - [v3.4.2 + BTDU](https://blackmore-technology-group.github.io/ENTITY-DOCS/v342/)
+- [External Verification Challenge](https://github.com/blackmore-technology-group/ENTITY/issues/55)
 - [Engineering evidence](docs/ENGINEERING_EVIDENCE.md)
 - [Interoperability challenge](docs/INTEROPERABILITY_CHALLENGE.md)
 - [Governance](GOVERNANCE.md)
 - [Contributing](CONTRIBUTING.md)
 - [Security](SECURITY.md)
+- [Citation metadata](CITATION.cff)
+- [CodeMeta](codemeta.json)
 - [All releases](https://github.com/blackmore-technology-group/ENTITY/releases)
 
 ENTITY is published under the Apache License 2.0.
