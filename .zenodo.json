@@ -1,0 +1,36 @@
+{
+  "title": "ENTITY v3.4.2 — Canonical BTDU Release",
+  "upload_type": "software",
+  "description": "ENTITY is an open protocol and reference implementation for persistent digital identity, delegated authority, provenance and evidence, data rights, portable recovery, interoperable economic state, and the Blackmore Technology Data Universe (BTDU).",
+  "creators": [
+    {
+      "name": "Blackmore, Shawn",
+      "affiliation": "Blackmore Technology Group Limited"
+    }
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "digital identity",
+    "data provenance",
+    "data governance",
+    "data rights",
+    "sovereign data",
+    "knowledge graph",
+    "AI governance",
+    "interoperability",
+    "open protocol",
+    "BTDU"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/blackmore-technology-group/ENTITY",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://blackmore-technology-group.github.io/ENTITY-DOCS/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
+  ]
+}
