@@ -18,7 +18,7 @@ param(
     [string]$PayeeType = 'UNKNOWN',
     [string]$PayeeDisplayName = '',
     [string]$PlatformAccountReference = '',
-    [ValidateSet('UNKNOWN', 'NONE_REQUIRED', 'REVIEWED')]
+    [ValidateSet('UNKNOWN', 'NONE_REQUIRED', 'REVIEWED', 'REQUIRED_PENDING_SIGNATURE', 'SIGNED')]
     [string]$ClaStatus = 'UNKNOWN',
     [ValidateSet('UNKNOWN', 'ALLOWED', 'DISCLOSED_ALLOWED', 'PROHIBITED')]
     [string]$AiContributionPolicy = 'UNKNOWN',
@@ -79,7 +79,6 @@ $combinedText = "$titleText`n$bodyText`n$($labelNames -join ' | ')"
 $failures = [System.Collections.Generic.List[object]]::new()
 $warnings = [System.Collections.Generic.List[object]]::new()
 
-# Hard repository / issue gates apply to every contribution class.
 if ([string]$issue.state -ne 'open') { Add-Finding $failures 'ISSUE_NOT_OPEN' "Issue state is '$($issue.state)', not open." }
 if ($isPullRequest) { Add-Finding $failures 'ISSUE_IS_PULL_REQUEST' 'The supplied number resolves to a pull request.' }
 if ([bool]$repo.archived) { Add-Finding $failures 'REPOSITORY_ARCHIVED' 'Repository is archived.' }
@@ -98,7 +97,6 @@ if ($combinedText -match '(?i)\b(on hold|bounty paused|bounty cancelled|bounty c
     Add-Finding $failures 'BLOCKING_TEXT' 'Issue text indicates the opportunity may be on hold, cancelled, or already rewarded.'
 }
 
-# Safety gate applies regardless of money.
 $sensitivePattern = '(?is)(paste|include|provide|add).{0,160}(full|complete|entire|verbatim|everything).{0,160}(system prompt|session|initialization|startup|boot context|pre[- ]?task context|platform instructions|runtime instructions|instructions and guidelines|context before)'
 if ($combinedText -match $sensitivePattern) {
     Add-Finding $failures 'UNSAFE_PRIVATE_CONTEXT_REQUIREMENT' 'Issue appears to require disclosure of private session/system initialization material. Reject this opportunity.'
@@ -106,9 +104,9 @@ if ($combinedText -match $sensitivePattern) {
 
 if ($AiContributionPolicy -eq 'PROHIBITED') { Add-Finding $failures 'AI_CONTRIBUTION_PROHIBITED' 'Repository policy prohibits the intended AI-assisted contribution workflow.' }
 if ($ClaStatus -eq 'UNKNOWN') { Add-Finding $warnings 'CLA_NOT_REVIEWED' 'Contributor agreement/CLA status still requires review before submission.' }
+if ($ClaStatus -eq 'REQUIRED_PENDING_SIGNATURE') { Add-Finding $warnings 'CLA_SIGNATURE_PENDING' 'The repository requires a CLA and signature is still pending. A PREPARED record is allowed, but do not submit the external PR until the required CLA is completed.' }
 if ($AiContributionPolicy -eq 'UNKNOWN') { Add-Finding $warnings 'AI_POLICY_NOT_REVIEWED' 'AI-assisted contribution policy still requires review before submission.' }
 
-# Detect monetary signals when they exist. Absence is valid for PRO_BONO.
 $hasBountySignal = $combinedText -match '(?i)(/bounty\s+\$?\s*[0-9]|\bbounty\b|reward\s*[:=]?\s*\$\s*[0-9])'
 $amountCandidates = [System.Collections.Generic.List[decimal]]::new()
 foreach ($m in [regex]::Matches($combinedText, '(?i)(?:/bounty\s*)?\$\s*([0-9]+(?:\.[0-9]{1,2})?)')) {
@@ -123,63 +121,33 @@ switch ($ContributionClass) {
     'FUNDED' {
         if ($ExpectedAmount -le 0) { Add-Finding $failures 'FUNDED_AMOUNT_INVALID' 'FUNDED contributions require ExpectedAmount > 0.' }
         if (-not $hasBountySignal) { Add-Finding $warnings 'NO_EXPLICIT_BOUNTY_SIGNAL' 'No bounty signal was detected in the GitHub issue; preserve separate platform funding evidence.' }
-        if ($amountSeen.Count -gt 0 -and $ExpectedAmount -notin $amountSeen) {
-            Add-Finding $failures 'AMOUNT_MISMATCH' "Expected $ExpectedAmount; detected in GitHub issue: $($amountSeen -join ', ')."
-        }
-        if ($FundingStatus -notin @('PLATFORM_VERIFIED', 'ESCROW_VERIFIED')) {
-            Add-Finding $failures 'FUNDING_NOT_VERIFIED' "FUNDED requires PLATFORM_VERIFIED or ESCROW_VERIFIED; got '$FundingStatus'."
-        }
-        if ([string]::IsNullOrWhiteSpace($BountyPlatform) -or $BountyPlatform -eq 'UNKNOWN') {
-            Add-Finding $failures 'BOUNTY_PLATFORM_UNKNOWN' 'Identify the payment/bounty platform for a FUNDED contribution.'
-        }
-        if ($PlatformAccountStatus -notin @('REGISTERED', 'VERIFIED')) {
-            Add-Finding $failures 'PLATFORM_ACCOUNT_NOT_READY' "PlatformAccountStatus is '$PlatformAccountStatus'."
-        }
-        if ($PayoutStatus -notin @('READY', 'DIRECT_PAYMENT_CONFIRMED')) {
-            Add-Finding $failures 'PAYOUT_NOT_READY' "PayoutStatus is '$PayoutStatus'."
-        }
-        if ($PayeeType -notin @('INDIVIDUAL', 'BUSINESS')) {
-            Add-Finding $failures 'PAYEE_TYPE_UNKNOWN' 'Identify the economic payee for a FUNDED contribution.'
-        }
-        if ([string]::IsNullOrWhiteSpace($PayeeDisplayName)) {
-            Add-Finding $failures 'PAYEE_NAME_MISSING' 'A non-sensitive payee display/legal name is required for a FUNDED contribution.'
-        }
+        if ($amountSeen.Count -gt 0 -and $ExpectedAmount -notin $amountSeen) { Add-Finding $failures 'AMOUNT_MISMATCH' "Expected $ExpectedAmount; detected in GitHub issue: $($amountSeen -join ', ')." }
+        if ($FundingStatus -notin @('PLATFORM_VERIFIED', 'ESCROW_VERIFIED')) { Add-Finding $failures 'FUNDING_NOT_VERIFIED' "FUNDED requires PLATFORM_VERIFIED or ESCROW_VERIFIED; got '$FundingStatus'." }
+        if ([string]::IsNullOrWhiteSpace($BountyPlatform) -or $BountyPlatform -eq 'UNKNOWN') { Add-Finding $failures 'BOUNTY_PLATFORM_UNKNOWN' 'Identify the payment/bounty platform for a FUNDED contribution.' }
+        if ($PlatformAccountStatus -notin @('REGISTERED', 'VERIFIED')) { Add-Finding $failures 'PLATFORM_ACCOUNT_NOT_READY' "PlatformAccountStatus is '$PlatformAccountStatus'." }
+        if ($PayoutStatus -notin @('READY', 'DIRECT_PAYMENT_CONFIRMED')) { Add-Finding $failures 'PAYOUT_NOT_READY' "PayoutStatus is '$PayoutStatus'." }
+        if ($PayeeType -notin @('INDIVIDUAL', 'BUSINESS')) { Add-Finding $failures 'PAYEE_TYPE_UNKNOWN' 'Identify the economic payee for a FUNDED contribution.' }
+        if ([string]::IsNullOrWhiteSpace($PayeeDisplayName)) { Add-Finding $failures 'PAYEE_NAME_MISSING' 'A non-sensitive payee display/legal name is required for a FUNDED contribution.' }
     }
 
     'PROMISED_CONTINGENT' {
         if ($ExpectedAmount -le 0) { Add-Finding $failures 'PROMISED_AMOUNT_INVALID' 'PROMISED_CONTINGENT requires ExpectedAmount > 0.' }
         if (-not $hasBountySignal) { Add-Finding $warnings 'NO_EXPLICIT_BOUNTY_SIGNAL' 'No promise/bounty signal was detected in the GitHub issue; preserve the external promise evidence.' }
-        if ($amountSeen.Count -gt 0 -and $ExpectedAmount -notin $amountSeen) {
-            Add-Finding $warnings 'AMOUNT_MISMATCH_REVIEW' "Expected $ExpectedAmount; GitHub issue shows: $($amountSeen -join ', '). Verify the current promise evidence."
-        }
-        if ($FundingStatus -notin @('ADVERTISED', 'PLATFORM_VERIFIED', 'ESCROW_VERIFIED')) {
-            Add-Finding $failures 'PROMISE_NOT_EVIDENCED' "PROMISED_CONTINGENT requires at least ADVERTISED evidence; got '$FundingStatus'."
-        }
-        if ($PlatformAccountStatus -notin @('REGISTERED', 'VERIFIED', 'NOT_APPLICABLE')) {
-            Add-Finding $warnings 'PLATFORM_ACCOUNT_NOT_READY' 'A platform account is not yet ready. This does not erase the contribution value, but may affect eventual payment eligibility.'
-        }
-        if ($PayoutStatus -notin @('READY', 'DIRECT_PAYMENT_CONFIRMED', 'NOT_APPLICABLE')) {
-            Add-Finding $warnings 'PAYOUT_NOT_READY' 'Payout is not yet ready. Keep realized cash at zero unless/until payment is actually settled.'
-        }
+        if ($amountSeen.Count -gt 0 -and $ExpectedAmount -notin $amountSeen) { Add-Finding $warnings 'AMOUNT_MISMATCH_REVIEW' "Expected $ExpectedAmount; GitHub issue shows: $($amountSeen -join ', '). Verify the current promise evidence." }
+        if ($FundingStatus -notin @('ADVERTISED', 'PLATFORM_VERIFIED', 'ESCROW_VERIFIED')) { Add-Finding $failures 'PROMISE_NOT_EVIDENCED' "PROMISED_CONTINGENT requires at least ADVERTISED evidence; got '$FundingStatus'." }
+        if ($PlatformAccountStatus -notin @('REGISTERED', 'VERIFIED', 'NOT_APPLICABLE')) { Add-Finding $warnings 'PLATFORM_ACCOUNT_NOT_READY' 'A platform account is not yet ready. This does not erase the contribution value, but may affect eventual payment eligibility.' }
+        if ($PayoutStatus -notin @('READY', 'DIRECT_PAYMENT_CONFIRMED', 'NOT_APPLICABLE')) { Add-Finding $warnings 'PAYOUT_NOT_READY' 'Payout is not yet ready. Keep realized cash at zero unless/until payment is actually settled.' }
     }
 
     'PRO_BONO' {
         if ($ExpectedAmount -ne 0) { Add-Finding $failures 'PRO_BONO_AMOUNT_MUST_BE_ZERO' 'PRO_BONO requires ExpectedAmount = 0.' }
-        if ($FundingStatus -notin @('NOT_APPLICABLE', 'UNKNOWN')) {
-            Add-Finding $warnings 'PRO_BONO_FUNDING_IGNORED' "FundingStatus '$FundingStatus' is not needed for PRO_BONO; realized cash remains zero."
-        }
-        if ($PlatformAccountStatus -notin @('NOT_APPLICABLE', 'UNKNOWN', 'REGISTERED', 'VERIFIED')) {
-            Add-Finding $warnings 'PLATFORM_ACCOUNT_IRRELEVANT' 'Platform account state does not block a pro-bono GitHub contribution.'
-        }
-        if ($PayoutStatus -notin @('NOT_APPLICABLE', 'UNKNOWN', 'READY', 'DIRECT_PAYMENT_CONFIRMED')) {
-            Add-Finding $warnings 'PAYOUT_IRRELEVANT' 'Payout state does not block a pro-bono GitHub contribution.'
-        }
+        if ($FundingStatus -notin @('NOT_APPLICABLE', 'UNKNOWN')) { Add-Finding $warnings 'PRO_BONO_FUNDING_IGNORED' "FundingStatus '$FundingStatus' is not needed for PRO_BONO; realized cash remains zero." }
+        if ($PlatformAccountStatus -notin @('NOT_APPLICABLE', 'UNKNOWN', 'REGISTERED', 'VERIFIED')) { Add-Finding $warnings 'PLATFORM_ACCOUNT_IRRELEVANT' 'Platform account state does not block a pro-bono GitHub contribution.' }
+        if ($PayoutStatus -notin @('NOT_APPLICABLE', 'UNKNOWN', 'READY', 'DIRECT_PAYMENT_CONFIRMED')) { Add-Finding $warnings 'PAYOUT_IRRELEVANT' 'Payout state does not block a pro-bono GitHub contribution.' }
     }
 }
 
-if ([string]::IsNullOrWhiteSpace($PlatformAccountReference) -and $ContributionClass -eq 'FUNDED') {
-    Add-Finding $warnings 'PLATFORM_ACCOUNT_REFERENCE_MISSING' 'No non-sensitive platform account/profile reference was supplied.'
-}
+if ([string]::IsNullOrWhiteSpace($PlatformAccountReference) -and $ContributionClass -eq 'FUNDED') { Add-Finding $warnings 'PLATFORM_ACCOUNT_REFERENCE_MISSING' 'No non-sensitive platform account/profile reference was supplied.' }
 
 $ready = $failures.Count -eq 0
 $verdict = if ($ready) { 'READY_FOR_ENTITY_PREPARED' } else { 'REJECT_OR_HOLD' }
@@ -258,6 +226,7 @@ Write-Host "Issue: #$IssueNumber - $titleText"
 Write-Host "Issue state: $($issue.state)"
 Write-Host "Contributor: @$ContributorGitHubLogin"
 Write-Host "License: $(if ($license.present) { $license.spdx_id } else { 'NOT DETECTED' })"
+Write-Host "CLA: $ClaStatus"
 Write-Host "Expected/advertised amount: $ExpectedAmount $($Currency.ToUpperInvariant())"
 Write-Host "Funding: $FundingStatus"
 Write-Host "Realized cash at preflight: 0"
