@@ -58,7 +58,7 @@ function Get-LicenseInfo {
 
 function Add-Finding {
     param(
-        [Parameter(Mandatory = $true)][System.Collections.Generic.List[object]]$List,
+        [Parameter(Mandatory = $true)][AllowEmptyCollection()][System.Collections.Generic.List[object]]$List,
         [Parameter(Mandatory = $true)][string]$Code,
         [Parameter(Mandatory = $true)][string]$Message
     )
