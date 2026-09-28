@@ -3,10 +3,19 @@ param(
     [Parameter(Mandatory = $true)][ValidatePattern('^[^/\s]+/[^/\s]+$')][string]$Repository,
     [Parameter(Mandatory = $true)][ValidateRange(1, [int]::MaxValue)][int]$IssueNumber,
     [Parameter(Mandatory = $true)][decimal]$ExpectedAmount,
+    [Parameter(Mandatory = $true)][ValidatePattern('^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$')][string]$ContributorGitHubLogin,
     [string]$Currency = 'USD',
     [string]$BountyPlatform = 'UNKNOWN',
     [ValidateSet('UNKNOWN', 'ADVERTISED', 'PLATFORM_VERIFIED', 'ESCROW_VERIFIED')]
     [string]$FundingStatus = 'UNKNOWN',
+    [ValidateSet('UNKNOWN', 'NOT_REGISTERED', 'REGISTERED', 'VERIFIED')]
+    [string]$PlatformAccountStatus = 'UNKNOWN',
+    [ValidateSet('UNKNOWN', 'NOT_CONFIGURED', 'PENDING_VERIFICATION', 'READY', 'DIRECT_PAYMENT_CONFIRMED')]
+    [string]$PayoutStatus = 'UNKNOWN',
+    [ValidateSet('UNKNOWN', 'INDIVIDUAL', 'BUSINESS')]
+    [string]$PayeeType = 'UNKNOWN',
+    [string]$PayeeDisplayName = '',
+    [string]$PlatformAccountReference = '',
     [ValidateSet('UNKNOWN', 'NONE_REQUIRED', 'REVIEWED')]
     [string]$ClaStatus = 'UNKNOWN',
     [ValidateSet('UNKNOWN', 'ALLOWED', 'DISCLOSED_ALLOWED', 'PROHIBITED')]
@@ -106,9 +115,30 @@ elseif ($ExpectedAmount -notin $amountSeen) {
     Add-Finding $failures 'AMOUNT_MISMATCH' "Expected $ExpectedAmount; detected: $($amountSeen -join ', ')."
 }
 
+if ([string]::IsNullOrWhiteSpace($BountyPlatform) -or $BountyPlatform -eq 'UNKNOWN') {
+    Add-Finding $failures 'BOUNTY_PLATFORM_UNKNOWN' 'The bounty platform must be identified before a PREPARED record can be created.'
+}
 if ($FundingStatus -notin @('PLATFORM_VERIFIED', 'ESCROW_VERIFIED')) {
     Add-Finding $failures 'FUNDING_NOT_VERIFIED' "FundingStatus is '$FundingStatus'. An advertised amount alone is not enough for the first economic-lineage proof."
 }
+
+# Payment-readiness gate: provenance without an identified, payable claimant is not a complete bounty-economy proof.
+if ($PlatformAccountStatus -notin @('REGISTERED', 'VERIFIED')) {
+    Add-Finding $failures 'PLATFORM_ACCOUNT_NOT_READY' "PlatformAccountStatus is '$PlatformAccountStatus'. Register the GitHub contributor identity with the bounty platform before creating an ENTITY PREPARED record."
+}
+if ($PayoutStatus -notin @('READY', 'DIRECT_PAYMENT_CONFIRMED')) {
+    Add-Finding $failures 'PAYOUT_NOT_READY' "PayoutStatus is '$PayoutStatus'. Complete platform payout/KYC setup or confirm the direct-payment arrangement before proceeding."
+}
+if ($PayeeType -eq 'UNKNOWN') {
+    Add-Finding $failures 'PAYEE_TYPE_UNKNOWN' 'Identify whether the economic payee is an INDIVIDUAL or BUSINESS.'
+}
+if ([string]::IsNullOrWhiteSpace($PayeeDisplayName)) {
+    Add-Finding $failures 'PAYEE_NAME_MISSING' 'A non-sensitive payee display/legal name is required for the economic lineage record.'
+}
+if ([string]::IsNullOrWhiteSpace($PlatformAccountReference)) {
+    Add-Finding $warnings 'PLATFORM_ACCOUNT_REFERENCE_MISSING' 'No non-sensitive platform account/profile reference was supplied. Record one when the platform exposes it.'
+}
+
 if ($ClaStatus -eq 'UNKNOWN') { Add-Finding $warnings 'CLA_NOT_REVIEWED' 'Contributor agreement/CLA status still requires review.' }
 if ($AiContributionPolicy -eq 'UNKNOWN') { Add-Finding $warnings 'AI_POLICY_NOT_REVIEWED' 'AI-assisted contribution policy still requires review.' }
 if ($AiContributionPolicy -eq 'PROHIBITED') { Add-Finding $failures 'AI_CONTRIBUTION_PROHIBITED' 'Repository policy prohibits the intended AI-assisted contribution workflow.' }
@@ -121,7 +151,7 @@ if ($combinedText -match $sensitivePattern) {
 $ready = $failures.Count -eq 0
 $verdict = if ($ready) { 'READY_FOR_ENTITY_PREPARED' } else { 'REJECT_OR_HOLD' }
 $result = [ordered]@{
-    preflight_version = 1
+    preflight_version = 2
     evaluated_at_utc = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
     verdict = $verdict
     ready_for_entity_prepared = $ready
@@ -141,6 +171,15 @@ $result = [ordered]@{
         detected_dollar_amounts = @($amountSeen)
         labels = @($labelNames)
     }
+    claimant_and_payment_gate = [ordered]@{
+        github_contributor_login = $ContributorGitHubLogin
+        platform_account_status = $PlatformAccountStatus
+        platform_account_reference = $PlatformAccountReference
+        payout_status = $PayoutStatus
+        payee_type = $PayeeType
+        payee_display_name = $PayeeDisplayName
+        sensitive_financial_or_kyc_data_recorded = $false
+    }
     rights_gate = [ordered]@{
         license_present = [bool]$license.present
         license_name = [string]$license.name
@@ -156,6 +195,7 @@ $result = [ordered]@{
         preflight_does_not_claim_acceptance = $true
         preflight_does_not_claim_payment = $true
         preflight_does_not_create_entity_rights = $true
+        preflight_does_not_store_bank_or_kyc_secrets = $true
     }
 }
 
@@ -170,6 +210,10 @@ Write-Host "Bounty candidate verdict: $verdict" -ForegroundColor $(if ($ready) {
 Write-Host "Repository: $Repository"
 Write-Host "Issue: #$IssueNumber - $titleText"
 Write-Host "Issue state: $($issue.state)"
+Write-Host "Contributor: @$ContributorGitHubLogin"
+Write-Host "Platform account: $PlatformAccountStatus"
+Write-Host "Payout: $PayoutStatus"
+Write-Host "Payee: $PayeeType / $PayeeDisplayName"
 Write-Host "License: $(if ($license.present) { $license.spdx_id } else { 'NOT DETECTED' })"
 Write-Host "Funding: $FundingStatus"
 Write-Host "Failures: $($failures.Count) | Warnings: $($warnings.Count)"
