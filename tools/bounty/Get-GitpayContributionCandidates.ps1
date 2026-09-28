@@ -88,6 +88,16 @@ $candidates = foreach ($task in $all) {
     $project = Get-OptionalProperty -Object $task -Name 'Project'
     $repo = Get-OptionalProperty -Object $project -Name 'repo'
     $assigned = Get-OptionalProperty -Object $task -Name 'assigned'
+    $issueUrl = [string](Get-OptionalProperty -Object $task -Name 'url' -Default '')
+    $issueNumber = $null
+
+    # Some Gitpay rows omit Project. Derive canonical GitHub repo/issue metadata from the issue URL.
+    if ($issueUrl -match '^https://github\.com/([^/]+)/([^/]+)/(?:issues|pull)/(\d+)(?:$|[/?#])') {
+        if ([string]::IsNullOrWhiteSpace([string]$repo)) {
+            $repo = "$($Matches[1])/$($Matches[2])"
+        }
+        $issueNumber = [int]$Matches[3]
+    }
 
     [pscustomobject]@{
         Class           = $class
@@ -100,8 +110,9 @@ $candidates = foreach ($task in $all) {
         ClaimStates     = (($assigns | ForEach-Object { Get-OptionalProperty -Object $_ -Name 'status' } | Where-Object { $_ }) -join ',')
         Assigned        = $assigned
         Repo            = $repo
+        IssueNumber     = $issueNumber
         Title           = Get-OptionalProperty -Object $task -Name 'title'
-        Issue           = Get-OptionalProperty -Object $task -Name 'url'
+        Issue           = $issueUrl
         Created         = Get-OptionalProperty -Object $task -Name 'createdAt'
         Updated         = Get-OptionalProperty -Object $task -Name 'updatedAt'
         SucceededOrders = $paidOrders.Count
@@ -130,5 +141,5 @@ if ($AsJson) {
     $filtered | ConvertTo-Json -Depth 8
 }
 else {
-    $filtered | Select-Object Class,Bounty,FundedRaw,Claims,Repo,Title,Issue | Format-Table -AutoSize
+    $filtered | Select-Object Class,Bounty,FundedRaw,Claims,Repo,IssueNumber,Title,Issue | Format-Table -AutoSize
 }
