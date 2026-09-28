@@ -1,35 +1,112 @@
 # ENTITY Engineering Evidence
 
-This document separates **what BTG has directly qualified** from **what still requires evidence outside BTG control**.
+**Document class:** evidence index / current-runtime orientation  
+**Current supported runtime:** ENTITY v3.4.3  
+**BTDU component:** Blackmore Technology Data Universe (BTDU) 3.4.2, unchanged  
+**Protocol 1.0:** separate frozen clean-room target  
+**Normative effect:** none; this page indexes and explains evidence rather than changing it
 
-The purpose is not to turn test counts into marketing claims. It is to make the project's evidence inspectable and the remaining credibility boundaries explicit.
+This document separates **what Blackmore Technology Group Limited (BTG) has directly qualified**, **what unrelated people have reproduced**, and **what still requires independent evidence outside BTG control**.
 
-## Evidence hierarchy
+The purpose is not to turn test counts into marketing claims. It is to make each result's target, control boundary and remaining credibility gap explicit.
 
-From strongest release evidence downward, ENTITY treats these as distinct artifacts:
+See [Documentation Model](DOCUMENTATION_MODEL.md) for the repository-wide version/layer rules.
 
-1. **Protected release commit** — merged through the protected `main` branch with required checks.
-2. **Immutable release tag / GitHub Release** — points at the protected release commit.
-3. **Cryptographic release manifest / snapshots** — binds the qualified release material.
-4. **Regression and targeted qualification tests** — exercise documented behavior and invariants.
-5. **Sealed conformance vectors / clean-room kits** — give reproducible external test targets.
-6. **BTG-controlled cross-language implementations** — test reproducibility across languages/runtimes while remaining BTG-controlled.
-7. **Unrelated external implementation** — separate authorship/control; required before calling the result independent external interoperability evidence.
-8. **Independent security review / deployment / market evidence** — separate external milestones, not implied by repository tests.
+## Evidence classes
 
-No lower layer silently upgrades itself into a higher one.
+ENTITY treats the following as different evidence classes. One class must not silently be relabelled as another.
 
----
+1. **Protected BTG release evidence** — protected branch/release commit, release tag, manifest and qualified tests under BTG control.
+2. **Sealed campaign evidence** — exact public vector/kit target with hashes and deterministic result requirements.
+3. **BTG-controlled cross-language reproducibility** — separately implemented language baselines still controlled by BTG.
+4. **External reproduction of a BTG target** — an unrelated person runs a published BTG-controlled campaign and reproduces the expected result.
+5. **Independent implementation** — an unrelated party authors and controls an implementation from the permitted public protocol/specification material.
+6. **Independent live interoperability/recovery** — independently controlled implementation exchanges required state with BTG and survives the required sovereign export/recovery path.
+7. **Independent security/research/deployment evidence** — separate reviews or real deployments with their own explicitly bounded scope.
 
-## v3.4.1 — current protected release
+A successful result at class 4 does not automatically become class 5 or 6. A BTG-controlled language implementation does not become independent merely because it uses a different programming language.
 
-**Release:** `v3.4.1`
+## Current supported release — ENTITY v3.4.3
 
+**Release:** `v3.4.3`  
+**Release merge commit:** `528b70aabd05b1e930b77e4933f157731e47274f`  
+**Immutable predecessor:** v3.4.2 commit `6dfa3d6cc738d9369cf092d2782676bf4f2a46e4`
+
+ENTITY v3.4.3 is a bounded remediation release for the two defects reproduced in Issue #28:
+
+1. derivative-revenue evidence substitution could create a second economic event/obligation for the same authoritative occurrence;
+2. a zero-edge causal graph could return a positive self-trace for missing/empty endpoints and label an empty path evidence-bound.
+
+### Direct v3.4.3 qualification
+
+| Evidence | Result |
+| --- | --- |
+| Issue #28 remediation module | **76/76 PASS** |
+| Full repository source suite | **279/279 PASS** |
+| Full source-suite exit code | **0** |
+
+### Inherited unchanged-scope qualification
+
+The v3.4.3 release record explicitly carries forward two previously closed v3.4.2 results because the remediation did not modify those qualified components/paths:
+
+- compiled Rust clean-room/conformance qualification — **PASS**, evidence SHA-256 `96a7b5175dc11e1d881a9a1aa53c3496dac93d182d7072e71ad4982921571754`;
+- real-world BTDU training qualification — **PASS**, evidence SHA-256 `4d31bc1a3ae8c8ff6dcf096b304914808e27cc60595510cc7088b5af021931ff`.
+
+These are **inherited records**, not re-executed v3.4.3 campaigns.
+
+### Component/version boundary
+
+- ENTITY runtime: **3.4.3**;
+- BTDU component: **3.4.2 unchanged**;
+- v3.4.2 release evidence: immutable historical evidence;
+- active 30-day wall-clock campaign: not reset or rewritten by v3.4.3.
+
+Authoritative release material: [`RELEASE_V3_4_3.md`](../RELEASE_V3_4_3.md) and [`RELEASE_V3_4_3.json`](../RELEASE_V3_4_3.json).
+
+## External reproduction evidence
+
+An unrelated GitHub contributor reproduced the published BTG-controlled Java v3.4.2 26-vector baseline on Windows 11 / OpenJDK 21 / Maven 3.9.6 and reported:
+
+- compilation successful;
+- campaign execution successful;
+- **26/26 PASS**;
+- sealed-kit SHA-256 matched `ced70113f1d153627eb972b11adbf20e502ed086e0b13e8abf1dc5adc4c2e716`;
+- campaign result SHA-256 matched `45af773554a7191c1b49a75c636a1106afb1de36d788bb00d7af56097b8d1b0e`;
+- `overall_valid: true`.
+
+This is meaningful **external reproduction** of a BTG-published baseline. It is not an independently designed implementation from the Protocol 1.0 specification and is not full independent interoperability qualification.
+
+## Frozen v3.4.2 language campaigns
+
+The BTG-controlled Rust, TypeScript, C#/.NET, Go, Swift and Java repositories retain the exact v3.4.2 Global Passport campaign as a frozen reproducibility target.
+
+Campaign commitments include:
+
+- vectors: **26/26 PASS**;
+- sealed-kit SHA-256: `ced70113f1d153627eb972b11adbf20e502ed086e0b13e8abf1dc5adc4c2e716`;
+- canonical campaign result SHA-256: `45af773554a7191c1b49a75c636a1106afb1de36d788bb00d7af56097b8d1b0e`;
+- `overall_valid: true`.
+
+The word **v3.4.2** here names the exact campaign target. It does not mean v3.4.2 is still the current supported runtime.
+
+These six repositories remain BTG-controlled evidence.
+
+## ENTITY Protocol 1.0 external clean-room target
+
+ENTITY Protocol 1.0 remains a separately frozen external conformance target in the [`ENTITY-Protocol-1.0-Conformance-Kit`](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit).
+
+Protocol 1.0 independent implementation is evaluated from the permitted public material in that sealed kit. Later runtime/component material—including BTDU, ADAM, NIKI or Global Passport implementation internals—is not silently added to the Protocol 1.0 implementation obligation.
+
+A full external Protocol 1.0 interoperability PASS still requires the published gates, including independent implementation, valid/invalid vector behavior, bidirectional live interoperability and sovereign export/recovery verification.
+
+**Independent external interoperability remains PENDING until an unrelated implementation satisfies the required gates.**
+
+## v3.4.1 — historical protected release
+
+**Release:** `v3.4.1`  
 **Protected release commit:** `9822b1b65f8269ebc17208a342809720729ae2f8`
 
-v3.4.1 corrects the v3.4.0 fresh-bootstrap lineage defect: a new user's sovereign Entity remains independent from the canonical ENTITY protocol/profile issuer, while the protocol release is bound to the signed Shawn Blackmore → Blackmore Technology Group Limited → ENTITY → release ancestry. Existing v3.4.0 user identities, objects, Rights Passports and signed Global Passports remain immutable and verifiable.
-
-Qualification:
+Historical qualification retained exactly as v3.4.1 evidence:
 
 - complete regression: **185/185 PASS**;
 - protocol-origin / migration / economic-lineage: **8/8 PASS**;
@@ -41,216 +118,116 @@ Qualification:
 - six v3.4.0 executable domain package payloads requalified unchanged: **6/6 PASS**;
 - `ENTITY_CURRENT_RELEASE_ORIGIN.json` SHA-256: `d81bc3bdd6fab5acf8d923eccf24210ac1c65970826ad1f11fbe03f07aa0caa8`.
 
-Protocol origin remains separate from user asset provenance and does not create an automatic royalty; protocol tax remains 0 bps and economic participation still requires explicit terms.
+Protocol origin remains separate from user/asset provenance and does not create an automatic royalty or economic entitlement.
 
-See [v3.4.1 release notes](../RELEASE_NOTES_v3.4.1.md), the [v3.4 family portal](v3.4/README.md), and the [GitHub release](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.1).
+## v3.4.0 — historical protected release and domain packages
 
----
-
-## v3.4.0 — previous protected release
-
-**Release:** `v3.4.0`
+**Release:** `v3.4.0`  
 **Protected release commit:** `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
-v3.4.0 introduces the Global Passport, composable profile stack, versioned profile registry, standards mappings, continuous provenance/passport derivation and executable domain deployment packages while preserving the five core primitives and inherited v3.3 evidence/truth boundaries.
-
-Qualification:
+Historical qualification:
 
 - complete regression: **177/177 PASS**;
 - targeted Global Passport/package suite: **33/33 PASS**;
-- sealed v3.4 vectors: **24/24 PASS** — 12 valid / 12 invalid;
+- sealed vectors: **24/24 PASS** — 12 valid / 12 invalid;
 - sealed kit SHA-256: `5869a3fd0ed6cb9f65bf4b20c3bd64933cad82f4aef05c5809e2e05af921f230`;
 - schema SHA-256: `4fbfed9be1b1484bc5d28b8101d1c908b2ccced13e4e99ec896c5b054892ebdd`;
 - six-language BTG-controlled result SHA-256: `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`;
-- six executable domain packages published and verified;
+- six executable domain package payloads published and verified;
 - post-release recursive closure: **PASS**, frozen constituent root `4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06`.
 
-See [v3.4.0 portal](v3.4/README.md), [domain packages](v3.4/DOMAIN_PACKAGES.md) and the post-release closure records below.
+The domain-package repositories retain their exact v3.4.0 package hashes/bindings as historical evidence. Reader-facing compatibility/status language may advance only where qualification supports it; the package payload hashes themselves are not rewritten.
 
----
+## v3.3.0 — historical Verifiable Reality qualification
 
-## v3.2.0 — protected public release
-
-**Release:** `v3.2.0`
-**Protected commit:** `512665096cef3771a3a8307d6dc955015ee0efbc`
-
-Documented BTG-controlled qualification:
-
-- complete regression: **128/128 PASS**
-- targeted v3.2 adoption-layer tests: **12/12 PASS**
-- sealed adoption vectors: **16/16 PASS**
-  - 8 valid
-  - 8 invalid
-- release-overlay files: **17/17 verified**
-- sealed kit SHA-256: `44e7a00f910c89aced3b3c1b5e9cba486809ca313e9bfb4b7bc9266095c10c14`
-- common six-language result SHA-256: `1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18`
-- v3.2 overlay snapshot SHA-256: `31662691cbe3a2d08ee5bd54c72b73cf56b49acc3dd9133dc45672eff4042d36`
-- inherited v3.1 release snapshot: `0241c75e7f28481db0bfdf27a67a482c431032beedb2491b13dd5927dc344255`
-
-BTG-controlled native v3.2 baselines exist in:
-
-| Language | Qualified commit |
-| --- | --- |
-| Rust | `13787e20dd9b52cf34c7bcc6262863a2a62b2a4e` |
-| TypeScript | `2766c68dec8914ce000123ea3281cf190dddadfc` |
-| C# | `9f4d33c5b5c553644cd9c73a5c9cf09040083fe3` |
-| Go | `ff8a733b8271ac655eac8a3302b4f6cd9acadacf` |
-| Swift | `f55809a85cc763d2430b046b3a60f177b30de6d8` |
-| Java | `ea58105b6c90a5b7bb5169cdf8701c880822bdae` |
-
-All six produced the same documented v3.2 result hash. Because BTG controlled the campaign, this is **controlled cross-language reproducibility evidence**, not unrelated external validation.
-
----
-
-## v3.3.0 — release qualification
-
-v3.3 introduces the Verifiable Reality, Evidence and Economic Causality layer.
-
-The release-candidate branch is based directly on the protected v3.2.0 commit. The initial v3.3 implementation adds:
-
-- `src/37_Verifiable_Reality/evidence_objects.py`
-- `src/37_Verifiable_Reality/attestation_authority.py`
-- `src/37_Verifiable_Reality/reality_anchors.py`
-- `src/37_Verifiable_Reality/causal_economic_graph.py`
-- `src/37_Verifiable_Reality/reality_profile.py`
-- `src/37_Verifiable_Reality/reality_conformance.py`
-- `protocol/v3/ENTITY_VERIFIABLE_REALITY.schema.json`
-- `protocol/v3/ENTITY_V3_3_REALITY_CLEANROOM_KIT.min.json`
-- `tests/test_v3_verifiable_reality.py`
-
-Release qualification records:
+Historical release qualification:
 
 - complete regression: **144/144 PASS**;
-- targeted v3.3 verifiable-reality tests: **16/16 PASS**;
-- sealed verifiable-reality vectors: **20/20 PASS** (10 valid / 10 invalid);
+- targeted v3.3 tests: **16/16 PASS**;
+- sealed vectors: **20/20 PASS** — 10 valid / 10 invalid;
 - sealed kit SHA-256: `f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46`;
 - schema SHA-256: `6e1c7e621e0aa84627e009febf8999503b7a61f92627b885ed10a19f2ef7d767`;
-- required deterministic result SHA-256: `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`;
-- v3.3 release overlay: **22 release-critical files**.
+- deterministic result SHA-256: `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`.
 
-The exact overlay and composed release snapshot hashes are recorded in `ENTITY_V3_3_0_RELEASE_MANIFEST.json`; the manifest is the machine-readable authority for those values so this human evidence page does not create a self-referential hash dependency.
+BTG later completed the same sealed campaign in six controlled language baselines. That remains controlled cross-language reproducibility, not unrelated interoperability evidence.
 
-The qualification JSON/manifest deliberately records the state before publication as a BTG-internal qualified release candidate. Public release status is established separately by the protected `main` merge, `v3.3.0` tag and GitHub Release; that chronology should not be rewritten after publication.
+## v3.2.0 — historical adoption qualification
 
-## v3.3.0 — post-release six-language controlled conformance
+**Protected commit:** `512665096cef3771a3a8307d6dc955015ee0efbc`
 
-After the protected `v3.3.0` release was published, BTG completed the same v3.3 sealed campaign in six native clean-room baselines: Rust, TypeScript, C#, Go, Swift and Java.
+Historical BTG-controlled qualification:
 
-All six evaluated the exact release kit (`f8b39ee01fb7346f33a57530e925b545d2bf9a770c7ec60724e28a4971d55a46`), passed 20/20 records, and converged on result SHA-256 `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`.
+- regression: **128/128 PASS**;
+- targeted adoption tests: **12/12 PASS**;
+- sealed vectors: **16/16 PASS** — 8 valid / 8 invalid;
+- sealed kit SHA-256: `44e7a00f910c89aced3b3c1b5e9cba486809ca313e9bfb4b7bc9266095c10c14`;
+- six-language result SHA-256: `1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18`.
 
-The authoritative post-release records are:
+Again, this is BTG-controlled evidence.
 
-- `docs/qualification/ENTITY_V3_3_0_SIX_LANGUAGE_CONTROLLED_CONFORMANCE_2026-09-24.json`
-- `docs/qualification/ENTITY_V3_3_0_SIX_LANGUAGE_CONTROLLED_CONFORMANCE_2026-09-24.md`
+## Real-world external-repository qualification
 
-This evidence does not move or rewrite the `v3.3.0` tag, protected release commit, release manifest or release snapshot. It is controlled cross-language reproducibility evidence, not unrelated third-party interoperability.
+ENTITY also runs bounded External Repository Qualification (ERQ) campaigns against real public repositories. These campaigns test provenance, deduplication, recovery, fork divergence and provider portability while preserving upstream ownership/licence boundaries.
 
-## ENTITY governs ENTITY — recursive sovereign provenance and economic lineage
+Current CLAW campaign status is tracked in ENTITY issue #78:
 
-BTG subsequently ran the released ENTITY v3.3.0 architecture against ENTITY's own development lineage. The campaign registered the v1.0 RC lineage, v2.0.0-alpha1, v3.0.0, v3.0.1, v3.1.0, v3.2.0 and v3.3.0 as ENTITY-governed digital objects, then connected the six final BTG-controlled clean-room baselines and their conformance evidence.
+- ERQ-1 destructive external-repository survival — **PASS**;
+- ERQ-2 cross-platform recovery/verification — **PASS**;
+- ERQ-3 multi-repository identity/dedup/provenance separation — **PASS**;
+- ERQ-4 genuine upstream advance / temporal-lineage preservation — **WAITING FOR REAL UPSTREAM ADVANCE**;
+- ERQ-5 BTG fork divergence from pinned upstream anchor — **PASS**;
+- ERQ-6 local/provider-neutral migration — **PASS**;
+- ERQ-6 external-provider migration — **PENDING / NOT COMPLETED** because the selected external provider blocked the repository at the account/workspace plan limit.
 
-Qualification results:
+Do not convert ERQ-4 into a synthetic pass, and do not describe the external-provider limitation as an ENTITY technical failure.
 
-- **9** release-stage objects registered;
-- **6** clean-room result objects registered;
-- **26** signed Evidence Objects;
-- **9** Rights Passports;
-- **42** provenance edges;
-- legacy/v1 clean-room campaign retained as **PASS**;
-- v3.1 result retained as `879c8e1eba2549a9a1962605760b715b0fd47d3ea640fb9c6f29be5c63cfb8c5`;
-- v3.2 result retained as `1eb59e09ab08da86bfd8584df4a64ba331f7bbbce3d236b9b94f351606c90e18`;
-- v3.3 result retained as `82bd1f1fb328edd37a26d8ea60ede5a599c7d9af5027bffd73b9e52843b5a51d`;
-- backward provenance from v3.3.0 reaches the v1.0 RC lineage;
-- forward provenance from v1 reaches v3.3.0, all six v3.3 clean-room results and convergence evidence;
-- state semantic root before destructive recovery: `b3e4a87fc5e3790fb2fe54ee780d2fa66734b86091d2b2fba53b5cd6fb5c0f48`;
-- state semantic root after destructive recovery: `b3e4a87fc5e3790fb2fe54ee780d2fa66734b86091d2b2fba53b5cd6fb5c0f48`;
-- sovereign bundle semantic root: `aa81b0d1d84d70ab414183558d3ac2ce0b8204697c2fcb6914b7b91d3e3c78a6`;
-- causal/economic graph root: `0de207802b2a0b3526be8269c80917c76570e135c27befa5261d5c14edb3d132`;
-- all Evidence Objects and Rights Passports reverified after recovery.
+ERQ ingestion does not transfer upstream ownership or create automatic economic entitlement.
 
-The campaign deliberately records zero monetary value and zero historical contribution weight where no evidence supports a value or percentage. It therefore proves provenance/economic-lineage readiness without manufacturing royalties, market value, accounting fair value or ownership claims.
+## Sovereignty, provenance and economic boundary
 
-Authoritative campaign records:
+```text
+UPSTREAM OWNERSHIP
+        ≠
+BTG FORK CUSTODY
+        ≠
+BTG-CREATED ENTITY METADATA OWNERSHIP
+        ≠
+ENTITY PROTOCOL ORIGIN
+        ≠
+AUTOMATIC ECONOMIC RIGHTS
+```
 
-- `docs/qualification/ENTITY_RECURSIVE_SOVEREIGN_PROVENANCE_QUALIFICATION_2026-09-24.json`
-- `docs/qualification/ENTITY_RECURSIVE_SOVEREIGN_PROVENANCE_QUALIFICATION_2026-09-24.md`
+ENTITY may record attributable provenance, authorship, copyright/licence, custody, rights metadata, usage evidence and economic state. Those records establish only the protocol/evidence facts they actually verify.
 
-The full local qualification harness is retained on the qualification host; its SHA-256 is `8c9efbc93dbd6e313f65011c877c34ad618578c448ce698a43848ee9ef110729`. The synthetic sovereign bundle is not committed to the public repository; its semantic root is recorded above.
+The data-economic lifecycle remains:
 
----
+`DCO → Instrument → Listing → Disclosure → Order/RFQ/Auction → Price Discovery → Trade → Clearing → Settlement → Entitlement → Usage → Derived Output → Economic Consequence`
 
-## v3.4.0 post-publication recursive closure
+A **Digital Commodity Object (DCO)** or other governed record does not acquire market value, settlement finality, royalty rights or legal title merely because ENTITY can represent it. Economic participation requires explicit rights/terms and the required evidence.
 
-A post-release closure campaign was completed against the immutable `v3.4.0` tag at `2db5bff64507b8d67642122a5ff2fc73dfef9152` plus the captured heads of the six v3.4 clean-room repositories, `ENTITY-GITHUB-APP`, and six published domain repositories. The frozen capture contains 984 exact Git blobs, 45 GitHub API evidence records and 11 release-evidence artifacts: 1,040 constituents / 5,136,474 bytes.
+## Intentionally untouched evidence
 
-- frozen constituent root: `4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06`;
-- ENTITY-ingested constituent root: `4feb51a4bd0d958b7beb3eddbe9fd78678b7c31c2a4fe3d6cf7d9f4d87aa6e06`;
-- 1,041 ENTITY objects, Evidence Objects, rights records, Rights Passports, Global Passports and zero-value records;
-- 1,040 zero-weight closure-membership provenance edges;
-- exact state tree before/after destructive recovery: `6e054beaa96c089b3958973c834b3ddb2dda2466961c7ac67a748c7813c22925`;
-- canonical SQLite semantic root before/after: `9c8ed4e767adf37abad6f0a2492e8a8007126fc1264218d0d184a4f6e7fa4231`;
-- content-vault root before/after: `6ffc454b88c06f9da72db5854c3018a8fc5e0f3a334d829eafafeb0f9dbd4280`;
-- sovereign export tree: `ce155ac3755d37292b69dd97aa24a4e9635e23950de016529640555f23b79149`;
-- all 1,041 registered objects reverified after AES-256-GCM backup, destructive state deletion and recovery.
+The documentation audit does not rewrite:
 
-The closure target is finite and immutable: the `v3.4.0` release plus the captured external repository heads. The later commit that publishes the closure evidence is not defined as a constituent of that already-frozen target, because requiring a record to ingest the event that publishes itself would create non-terminating self-reference. This remains BTG-controlled evidence and does not establish independent third-party validation, objective truth, legal/regulatory approval, market adoption or accounting fair value.
+- signed/sealed Protocol 1.0 artifacts;
+- v3.4.2 campaign hashes or expected results;
+- historical release manifests and tags;
+- historical package hashes/bindings;
+- ERQ receipts/hashes;
+- external contributor reproduction evidence;
+- the active 30-day wall-clock campaign.
 
-Authoritative records:
+When an old artifact is confusing, the fix belongs in explanatory documentation around it, not in falsifying the historical artifact.
 
-- `docs/qualification/ENTITY_V3_4_0_POST_RELEASE_RECURSIVE_CLOSURE_2026-09-24.json`
-- `docs/qualification/ENTITY_V3_4_0_POST_RELEASE_RECURSIVE_CLOSURE_2026-09-24.md`
-- `docs/qualification/ENTITY_V3_4_0_POST_RELEASE_RECURSIVE_CLOSURE_CATALOG_2026-09-24.json`
-- `tools/verify_v3_4_post_release_closure.py`
+## Remaining strongest evidence gaps
 
----
+The major external milestones still include:
 
-## What the tests are intended to prove
+- an unrelated independently authored implementation from the permitted public Protocol 1.0 material;
+- required bidirectional live interoperability;
+- independent sovereign export/recovery survival evidence;
+- genuine ERQ-4 temporal-lineage evidence after a real upstream advance;
+- external-provider completion of the currently pending ERQ-6 leg;
+- independent security/research assessment where claimed.
 
-Tests can support claims such as:
-
-- signatures and commitments fail on tampering;
-- scoped authority is required for protected transitions;
-- an external anchor does not automatically become sovereign authority;
-- claim-state escalation requires governed evidence/transition semantics;
-- disputes and supersession preserve history;
-- causal-economic edges require evidence and satisfy graph constraints;
-- inherited v3.2 rights and market semantics remain compatible;
-- ENTITY can register, traverse, export, destroy, recover and reverify its own synthetic development-provenance state.
-
-Tests do **not** by themselves prove:
-
-- that an external-world statement is objectively true;
-- legal title or regulatory status;
-- the absence of every security defect;
-- independent implementation reproducibility;
-- market demand or liquidity;
-- deployment approval in a particular jurisdiction.
-
----
-
-## External milestones still open
-
-The following should remain visibly separate from BTG-controlled release qualification:
-
-1. **Unrelated clean-room implementation** from the public specification/kit.
-2. **Bidirectional live interoperability** between BTG and independently authored implementations.
-3. **Sovereign export/recovery survival** with the independent implementation reaching the same authoritative result.
-4. **Independent security/cryptographic review.**
-5. **Deployment-specific legal/regulatory analysis or recognition.**
-6. **Real external issuer/buyer activity and repeated market transactions.**
-
-The project should update these statuses only when corresponding evidence exists.
-
----
-
-## Reporting an evidence problem
-
-If a hash, manifest, test count, release claim or qualification statement cannot be reproduced, open an issue with:
-
-- the exact release/tag/commit;
-- the command or artifact checked;
-- expected result;
-- actual result;
-- environment details where relevant.
-
-A reproducible contradiction should be treated as an engineering issue, not as hostile feedback.
+Until those occur, documentation must describe them as pending rather than inferred from BTG-controlled tests.
