@@ -9,6 +9,19 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+function Get-OptionalProperty {
+    param(
+        [Parameter(Mandatory = $false)]$Object,
+        [Parameter(Mandatory = $true)][string]$Name,
+        $Default = $null
+    )
+
+    if ($null -eq $Object) { return $Default }
+    $prop = $Object.PSObject.Properties[$Name]
+    if ($null -eq $prop) { return $Default }
+    return $prop.Value
+}
+
 $base = 'https://gitpay.me/tasks/list'
 $page = 0
 $limit = 100
@@ -21,9 +34,12 @@ while ($all.Count -lt $total) {
     $uri = "${base}?status=open&limit=$limit&page=$page&sortBy=value&sortDirection=desc"
     $response = Invoke-RestMethod -Uri $uri -Method Get
 
-    if ($null -ne $response.data) {
-        $batch = @($response.data)
-        $total = if ($null -ne $response.totalCount) { [int]$response.totalCount } else { $all.Count + $batch.Count }
+    $responseData = Get-OptionalProperty -Object $response -Name 'data'
+    $responseTotal = Get-OptionalProperty -Object $response -Name 'totalCount'
+
+    if ($null -ne $responseData) {
+        $batch = @($responseData)
+        $total = if ($null -ne $responseTotal) { [int]$responseTotal } else { $all.Count + $batch.Count }
     }
     else {
         $batch = @($response)
@@ -35,21 +51,23 @@ while ($all.Count -lt $total) {
     $all += $batch
     $page++
 
-    if ($batch.Count -lt $limit -and $null -eq $response.totalCount) { break }
+    if ($batch.Count -lt $limit -and $null -eq $responseTotal) { break }
 }
 
 $priority = @{
-    FUNDED               = 1
-    PROMISED_CONTINGENT  = 2
-    PRO_BONO             = 3
+    FUNDED              = 1
+    PROMISED_CONTINGENT = 2
+    PRO_BONO            = 3
 }
 
 $candidates = foreach ($task in $all) {
-    $orders = @($task.Orders)
-    $assigns = @($task.Assigns)
-    $paidOrders = @($orders | Where-Object { $_.status -eq 'succeeded' })
+    $orders = @(Get-OptionalProperty -Object $task -Name 'Orders' -Default @())
+    $assigns = @(Get-OptionalProperty -Object $task -Name 'Assigns' -Default @())
+    $paidOrders = @($orders | Where-Object { (Get-OptionalProperty -Object $_ -Name 'status') -eq 'succeeded' })
     $claims = $assigns.Count
-    $value = if ($null -eq $task.value) { 0.0 } else { [double]$task.value }
+
+    $rawValue = Get-OptionalProperty -Object $task -Name 'value' -Default 0
+    $value = if ($null -eq $rawValue) { 0.0 } else { [double]$rawValue }
 
     $class = if ($paidOrders.Count -gt 0) {
         'FUNDED'
@@ -61,27 +79,31 @@ $candidates = foreach ($task in $all) {
         'PRO_BONO'
     }
 
-    $fundedRaw = ($paidOrders | Measure-Object -Property amount -Sum).Sum
-    if ($null -eq $fundedRaw) { $fundedRaw = 0 }
+    $amounts = @($paidOrders | ForEach-Object {
+        $a = Get-OptionalProperty -Object $_ -Name 'amount' -Default 0
+        if ($null -eq $a) { 0 } else { [double]$a }
+    })
+    $fundedRaw = if ($amounts.Count -gt 0) { ($amounts | Measure-Object -Sum).Sum } else { 0 }
 
-    $repo = $null
-    if ($null -ne $task.Project) { $repo = $task.Project.repo }
+    $project = Get-OptionalProperty -Object $task -Name 'Project'
+    $repo = Get-OptionalProperty -Object $project -Name 'repo'
+    $assigned = Get-OptionalProperty -Object $task -Name 'assigned'
 
     [pscustomobject]@{
         Class           = $class
         Priority        = $priority[$class]
-        Id              = $task.id
+        Id              = Get-OptionalProperty -Object $task -Name 'id'
         Bounty          = $value
         FundedRaw       = [double]$fundedRaw
-        Currency        = (($paidOrders | ForEach-Object { $_.currency } | Where-Object { $_ } | Sort-Object -Unique) -join ',')
+        Currency        = (($paidOrders | ForEach-Object { Get-OptionalProperty -Object $_ -Name 'currency' } | Where-Object { $_ } | Sort-Object -Unique) -join ',')
         Claims          = $claims
-        ClaimStates     = (($assigns | ForEach-Object { $_.status } | Where-Object { $_ }) -join ',')
-        Assigned        = $task.assigned
+        ClaimStates     = (($assigns | ForEach-Object { Get-OptionalProperty -Object $_ -Name 'status' } | Where-Object { $_ }) -join ',')
+        Assigned        = $assigned
         Repo            = $repo
-        Title           = $task.title
-        Issue           = $task.url
-        Created         = $task.createdAt
-        Updated         = $task.updatedAt
+        Title           = Get-OptionalProperty -Object $task -Name 'title'
+        Issue           = Get-OptionalProperty -Object $task -Name 'url'
+        Created         = Get-OptionalProperty -Object $task -Name 'createdAt'
+        Updated         = Get-OptionalProperty -Object $task -Name 'updatedAt'
         SucceededOrders = $paidOrders.Count
     }
 }
