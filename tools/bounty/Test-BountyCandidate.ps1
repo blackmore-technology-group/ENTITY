@@ -110,7 +110,7 @@ if ($AiContributionPolicy -eq 'UNKNOWN') { Add-Finding $warnings 'AI_POLICY_NOT_
 $hasBountySignal = $combinedText -match '(?i)(/bounty\s+\$?\s*[0-9]|\bbounty\b|reward\s*[:=]?\s*\$\s*[0-9])'
 $amountCandidates = [System.Collections.Generic.List[decimal]]::new()
 foreach ($m in [regex]::Matches($combinedText, '(?i)(?:/bounty\s*)?\$\s*([0-9]+(?:\.[0-9]{1,2})?)')) {
-    $value = 0m
+    [decimal]$value = 0
     if ([decimal]::TryParse($m.Groups[1].Value, [Globalization.NumberStyles]::Number, [Globalization.CultureInfo]::InvariantCulture, [ref]$value)) {
         $amountCandidates.Add($value) | Out-Null
     }
@@ -151,7 +151,7 @@ if ([string]::IsNullOrWhiteSpace($PlatformAccountReference) -and $ContributionCl
 
 $ready = $failures.Count -eq 0
 $verdict = if ($ready) { 'READY_FOR_ENTITY_PREPARED' } else { 'REJECT_OR_HOLD' }
-$contingentValue = if ($ContributionClass -eq 'PROMISED_CONTINGENT') { $ExpectedAmount } else { 0m }
+[decimal]$contingentValue = if ($ContributionClass -eq 'PROMISED_CONTINGENT') { $ExpectedAmount } else { 0 }
 
 $result = [ordered]@{
     preflight_version = 3
