@@ -1,14 +1,36 @@
-# ENTITY v3.4.3 Bounty Lineage Experiment
+# ENTITY v3.4.3 Contribution-Value Lineage Experiment
 
 ## Purpose
 
-This experiment tests whether the installed ENTITY v3.4.3 system can record a real external GitHub bounty contribution as an ordinary lineage, provenance, rights and economic event **without changing ENTITY's protocol, schemas, architecture or canonical structure**.
+This experiment tests whether the installed ENTITY v3.4.3 system can record real external GitHub contributions as ordinary lineage, provenance, rights and economic/reputational events **without changing ENTITY's protocol, schemas, architecture or canonical structure**.
 
 The experiment is evidence-only. It does not introduce a bounty protocol, new ENTITY object type, new rights model, new settlement model, or replacement economic structure.
 
+The campaign intentionally covers more than prepaid bounties. External contributions are classified into three broad economic states:
+
+- **FUNDED / SETTLED** — a cash-backed bounty or paid contribution. Monetary value is recognized only when the supporting funding/settlement evidence exists.
+- **PROMISED / CONTINGENT** — payment is advertised or promised but funding is not verified. The amount may be preserved as contingent opportunity value, but must not be represented as settled revenue or guaranteed payment.
+- **PRO_BONO / FREE ISSUE** — no monetary reward. The contribution can still create auditable provenance, upstream acceptance, contribution history, technical validation, reputation/visibility evidence and reusable knowledge where permitted. Realized cash value remains zero unless a later economic event occurs.
+
+The larger hypothesis is:
+
+```text
+external problem
+    ↓
+Blackmore contribution
+    ↓
+verifiable change-set + authorship
+    ↓
+ENTITY provenance / rights record
+    ↓
+external validation or merge
+    ↓
+economic, reputational or technical consequence
+```
+
 ## Locked boundary
 
-The following directories are outside the scope of this experiment and must not be modified for the bounty test:
+The following directories are outside the scope of this experiment and must not be modified for the campaign:
 
 - `protocol/`
 - `src/`
@@ -17,129 +39,145 @@ The following directories are outside the scope of this experiment and must not 
 - `tests/`
 - release manifests and release metadata
 
-The GitHub preparation for the experiment is limited to:
+GitHub preparation is limited to:
 
 - `tools/bounty/` — PowerShell capture, qualification and guarded push tooling
 - `docs/experiments/` — experiment procedure
-- `evidence/bounty/` — evidence generated from an installed ENTITY run
+- `evidence/bounty/` — evidence generated from installed ENTITY runs
+
+The existing `evidence/bounty/` path remains the experiment umbrella even when a selected issue is pro-bono. No ENTITY structure change is required merely to distinguish economic states.
 
 ## Required lineage
 
 The installed system should be asked to represent the following facts using capabilities that already exist in v3.4.3:
 
-1. External bounty platform and bounty/issue identifier.
-2. External repository and source state.
+1. External platform, repository and issue identifier.
+2. External source/repository state before the contribution.
 3. Human contribution authorship.
 4. Blackmore Technology Group Limited corporate contribution/economic participation where applicable.
-5. Work-product hashes, commit and pull-request evidence.
+5. Work-product hashes, commits and pull-request evidence.
 6. Applicable upstream licence and contributor agreement status.
 7. Rights/provenance represented by the installed ENTITY system.
-8. External maintainer acceptance or merge status.
-9. Bounty/payment status and economic consequence when actually earned.
+8. External maintainer acceptance, rejection or merge status.
+9. Actual economic state: funded, promised/contingent, zero-dollar, earned, paid or otherwise evidenced.
 10. ENTITY export/receipt/seal produced by the installed system.
 
 No field in the capture harness substitutes for an ENTITY record. The PowerShell files only preserve inputs and hashes around the installed application so that the final evidence can be audited.
 
+## Candidate policy
+
+Funding status is **not** a universal rejection gate.
+
+A contribution opportunity may proceed if it is useful to at least one campaign objective and passes the hard repository, rights and safety gates.
+
+### Hard gates for every candidate
+
+- upstream GitHub issue/repository state is current and independently verified;
+- repository is legitimate and sufficiently active for the proposed work;
+- licence and contribution terms are identified;
+- CLA/DCO/signing requirements are understood before submission;
+- no private prompts, credentials, secrets or unrelated proprietary material must be disclosed;
+- scope is technically achievable and not deceptive or spammy;
+- upstream code remains attributed to its actual authors and licence;
+- AI-assistance requirements, if any, can be complied with;
+- no false claim of payment, ownership, acceptance or settlement is created.
+
+### Commercial track
+
+When immediate cash revenue is the objective, prefer funded/escrowed work with a verified claimant and payout path. `SETTLED` requires real payment evidence.
+
+### Promised / contingent track
+
+Promised-only work may proceed when the technical, proof or visibility value justifies it. Preserve the advertised amount and source of the promise, but treat realized cash as zero until payment actually occurs.
+
+### Pro-bono proof / traffic track
+
+A zero-dollar issue may proceed when it offers meaningful external validation, a useful contribution, strong provenance evidence, relevant GitHub contribution history, technical relevance or legitimate visibility. Monetary realized value remains zero unless a later economic event occurs.
+
+## Value model
+
+Each accepted contribution can create several different forms of value. These must remain distinguishable:
+
+- **cash value** — money actually funded/earned/settled;
+- **contingent value** — promised or conditional consideration that has not settled;
+- **provenance value** — independently verifiable evidence of who changed what and when;
+- **validation value** — acceptance/merge/test evidence from an unrelated project;
+- **reputation/contribution value** — public contribution history attributable to the contributor identity;
+- **traffic/discovery value** — legitimate public paths through which outside developers can discover BTG/ENTITY, subject to the upstream project's norms;
+- **knowledge/IP value** — reusable know-how or independently developed BTG material where the upstream licence and contribution terms permit it.
+
+ENTITY should record the evidence and consequence; it must not convert one value class into another merely because the evidence exists.
+
 ## Claimant registration and payout gate
 
-A bounty is not economically usable merely because it is visible on GitHub or a bounty marketplace. Before a candidate can reach `READY_FOR_ENTITY_PREPARED`, the preflight must establish a payable claimant chain:
+For paid work, establish a payable claimant chain before treating the task as a commercial candidate:
 
-1. The GitHub contributor identity that will create the contribution/PR is identified.
-2. That identity is registered with the bounty platform when the platform requires registration.
-3. The economic payee is identified as an individual or business.
-4. The payout method is ready, verified, or—on direct-payment platforms—the payment arrangement is explicitly confirmed.
+1. GitHub contributor identity is identified.
+2. Platform registration is complete if required.
+3. Economic payee is identified as an individual or business.
+4. Payout method is ready/verified, or direct-payment arrangement is explicitly confirmed.
 5. A non-sensitive platform account/profile reference is captured when available.
 
 The experiment must **never** place bank-account numbers, card information, tax identifiers, government identification, KYC documents, passwords, tokens, recovery codes or similar secrets in the repository or ENTITY evidence bundle.
 
-For the BTG experiment, the intended identity chain is:
+For BTG the intended identity chain is:
 
 ```text
 GitHub contributor: blackmore-technology-group
         ↓
-bounty-platform claimant account
+external contribution / bounty platform where applicable
         ↓
-economic payee: Blackmore Technology Group Limited where the platform permits business onboarding
+economic payee: Blackmore Technology Group Limited where permitted
         ↓
-verified payout rail / confirmed direct-payment arrangement
-        ↓
-ENTITY provenance + rights + economic evidence
+ENTITY provenance + rights + consequence evidence
 ```
 
 Shawn Blackmore may be represented as the human author/authorized representative where supported by the actual evidence. The external project's pre-existing source remains attributed to its actual upstream authors and licence.
 
-`Test-BountyCandidate.ps1` deliberately fails closed if the account or payout path is not ready. A platform listing alone must never be treated as proof that BTG can actually receive payment.
-
 ## Evidence states
 
-A bounty record should move through these states only when supported by real evidence:
+The existing evidence states remain conservative:
 
-- `PREPARED` — qualified bounty metadata captured after claimant/payout readiness; no claim that the bounty was earned.
-- `ENTITY_RECORDED` — an installed ENTITY export/receipt exists and has been hashed.
-- `UPSTREAM_ACCEPTED` — the external project accepted/merged the work.
+- `PREPARED` — candidate metadata captured; no claim that money was earned.
+- `ENTITY_RECORDED` — installed ENTITY export/receipt exists and has been hashed.
+- `UPSTREAM_ACCEPTED` — external project accepted/merged the work.
 - `SETTLED` — payment evidence exists.
 
-Do not mark `UPSTREAM_ACCEPTED` or `SETTLED` from an expectation, pending PR, platform listing, or verbal promise.
+For promised-only and pro-bono work, `UPSTREAM_ACCEPTED` can be a valid terminal experiment result even if `SETTLED` never occurs.
 
-## Candidate preflight sequence
+Do not mark `UPSTREAM_ACCEPTED` or `SETTLED` from an expectation, pending PR, marketplace listing or verbal promise.
 
-Before creating a capture, run the qualification tool with the real platform/account state. Example:
-
-```powershell
-.\tools\bounty\Test-BountyCandidate.ps1 `
-  -Repository "owner/repository" `
-  -IssueNumber 123 `
-  -ExpectedAmount 500 `
-  -ContributorGitHubLogin "blackmore-technology-group" `
-  -BountyPlatform "platform-name" `
-  -FundingStatus "ESCROW_VERIFIED" `
-  -PlatformAccountStatus "VERIFIED" `
-  -PayoutStatus "READY" `
-  -PayeeType "BUSINESS" `
-  -PayeeDisplayName "Blackmore Technology Group Limited" `
-  -PlatformAccountReference "public-profile-or-account-reference" `
-  -ClaStatus "REVIEWED" `
-  -AiContributionPolicy "DISCLOSED_ALLOWED" `
-  -OutFile ".\evidence\bounty\candidate-preflight.json"
-```
-
-For a platform where the bounty sponsor pays the developer directly rather than through a platform payout rail, use `DIRECT_PAYMENT_CONFIRMED` only after the payment arrangement is actually established. Do not use that value merely because a sponsor is expected to pay.
-
-## Suggested desktop sequence
+## Desktop validation sequence
 
 ```powershell
-# From the local ENTITY v3.4.3 repository/build workspace.
-# Adjust only if the installed v3.4.3 path differs on the desktop.
-$repo = "E:\ENTITY_ACTIVE\ENTITY_V3_4_3"
-Set-Location $repo
+# Work from the verified installed ENTITY v3.4.3 repository/build workspace.
+# On this machine the active repository may retain an older directory name;
+# verify by Git branch/release contents rather than renaming the directory.
 
-# Only after Test-BountyCandidate.ps1 returns READY_FOR_ENTITY_PREPARED:
-.\tools\bounty\New-EntityBountyCapture.ps1 `
-  -ExternalRepository "owner/repository" `
-  -IssueNumber 123 `
-  -BountyPlatform "platform-name" `
-  -BountyAmount 500 `
-  -Currency "USD" `
-  -BountyUrl "https://..." `
-  -UpstreamLicense "MIT"
-
-# Run the installed ENTITY v3.4.3 application normally and record the
-# contribution through its existing lineage/rights/economic interfaces.
-# Export the resulting evidence from ENTITY.
+# For a paid candidate, use the existing bounty preflight and capture tooling.
+# For promised or pro-bono candidates, preserve the actual monetary state and
+# never mark SETTLED unless real payment evidence later exists.
 ```
 
-After the installed application has produced real evidence, use the guarded push tool. It stages only the selected `evidence/bounty/<record>` directory and refuses to commit unrelated source/protocol changes.
+For every selected candidate:
 
-```powershell
-.\tools\bounty\Push-EntityBountyEvidence.ps1 `
-  -RecordDirectory ".\evidence\bounty\bounty-..." `
-  -CommitMessage "evidence: record external bounty lineage through ENTITY v3.4.3"
-```
+1. Verify the live upstream issue and repository.
+2. Classify it as funded/paid, promised/contingent, or pro-bono.
+3. Capture licence, CLA/DCO and contribution-policy evidence.
+4. Preserve the pre-work source/issue state and hashes where practical.
+5. Perform the contribution in the upstream project, not inside ENTITY.
+6. Preserve commit/PR/test evidence.
+7. Run installed ENTITY v3.4.3 normally and record the contribution through existing lineage/rights/economic interfaces.
+8. Export/receipt/seal the resulting ENTITY evidence.
+9. Mark `UPSTREAM_ACCEPTED` only after independent upstream acceptance/merge evidence.
+10. Mark `SETTLED` only after actual payment evidence.
+11. Push only the selected experiment evidence back to ENTITY.
+12. Confirm no ENTITY protocol/schema/implementation change was required.
 
 ## Rights boundary
 
-The evidence record should describe only rights that can be supported by the upstream licence, contributor terms/CLA, authorship evidence and the ENTITY output. Recording provenance does not override an upstream licence, create ownership that did not exist, or convert upstream project code into BTG-owned code.
+The evidence record should describe only rights that can be supported by the upstream licence, contributor terms/CLA, authorship evidence and ENTITY output. Recording provenance does not override an upstream licence, create ownership that did not exist, convert upstream project code into BTG-owned code, or transform a promise into earned revenue.
 
 ## Success condition
 
-The experiment succeeds if a genuine bounty contribution can pass through the installed v3.4.3 system and produce an auditable lineage/right/economic evidence chain while a repository comparison confirms **zero protocol/schema/implementation changes were required for the use case**.
+The experiment succeeds if real external GitHub contributions—paid, promised or pro-bono—can pass through installed ENTITY v3.4.3 and produce an auditable chain from external issue → authorship/contribution → ENTITY provenance/rights → external validation → actual economic/reputational consequence, while a repository comparison confirms **zero protocol/schema/implementation changes were required for the use case**.
