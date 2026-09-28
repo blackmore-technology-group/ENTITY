@@ -56,10 +56,10 @@ function Get-PathDigest {
         })
     }
 
-    $base = $resolved.TrimEnd('\','/')
+    $base = $resolved.TrimEnd('\\','/')
     $files = Get-ChildItem -LiteralPath $base -File -Recurse | Sort-Object FullName
     $rows = foreach ($file in $files) {
-        $relative = $file.FullName.Substring($base.Length).TrimStart('\','/') -replace '\\','/'
+        $relative = $file.FullName.Substring($base.Length).TrimStart('\\','/') -replace '\\\\','/'
         [ordered]@{
             relative_path = $relative
             bytes = $file.Length
@@ -93,8 +93,8 @@ if ($EntityExportPath) {
     if ($EvidenceState -eq "PREPARED") { $EvidenceState = "ENTITY_RECORDED" }
 }
 
-$contingentValue = if ($ContributionClass -eq "PROMISED_CONTINGENT") { $BountyAmount } else { 0m }
-$realizedCash = if ($EvidenceState -eq "SETTLED") { $BountyAmount } else { 0m }
+[decimal]$contingentValue = if ($ContributionClass -eq "PROMISED_CONTINGENT") { $BountyAmount } else { 0 }
+[decimal]$realizedCash = if ($EvidenceState -eq "SETTLED") { $BountyAmount } else { 0 }
 
 $record = [ordered]@{
     record_version = 2
