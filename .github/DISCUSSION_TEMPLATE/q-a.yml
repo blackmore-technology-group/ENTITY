@@ -1,0 +1,72 @@
+title: "[Question] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this category for developer/user help. Do not post credentials, private state, signing/recovery keys or security-sensitive exploit details.
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Audience
+      description: Who is this question mainly for?
+      options:
+        - User / operator
+        - Developer / integrator
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Getting started / installation
+        - Identity / authority / rights
+        - SDK / CLI / API
+        - BTDU
+        - ADAM
+        - NIKI
+        - Evidence / provenance / passports
+        - Markets / economics / settlement
+        - Protocol 1.0 / conformance
+        - Recovery / portability
+        - Standards / interoperability
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Version or target
+      options:
+        - ENTITY v3.4.3
+        - BTDU 3.4.2 component
+        - ENTITY Protocol 1.0
+        - Historical v3.4.2 qualification/baseline
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What are you trying to do, and what do you need help understanding?
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What have you tried?
+      description: Include commands, public references, observed behavior or error text when useful. Redact secrets/private data.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, language/runtime, release/tag/commit, and relevant tooling.
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Community check
+      options:
+        - label: I have not included secrets, private user/business data, signing/recovery keys or security-sensitive exploit details.
+          required: true

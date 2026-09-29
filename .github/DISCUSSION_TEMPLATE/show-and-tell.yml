@@ -1,0 +1,74 @@
+title: "[Show & Tell] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share integrations, applications, experiments, reproductions, benchmarks and tooling built with or around ENTITY. State evidence/control boundaries precisely.
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Audience
+      options:
+        - Users / operators
+        - Developers / integrators
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Application / integration
+        - SDK / CLI / API tooling
+        - BTDU
+        - ADAM
+        - NIKI
+        - Evidence / provenance / passports
+        - Markets / economics / settlement
+        - Protocol / clean-room / conformance
+        - Recovery / portability
+        - Standards / interoperability
+        - Benchmark / qualification experiment
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: built
+    attributes:
+      label: What did you build or test?
+      description: Describe the result and why it may be useful to other ENTITY users/developers.
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_state
+    attributes:
+      label: Evidence / control state
+      options:
+        - Personal/local experiment
+        - BTG-controlled test or implementation
+        - External reproduction of BTG material
+        - Independently authored implementation/test
+        - Production deployment evidence
+        - Other / mixed (explain below)
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and reproducibility
+      description: Add public repository/demo links, exact version/tag/commit, environment, hashes, test counts or limitations when available.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Claim boundaries / limitations
+      description: State what this result does not prove, especially around ownership, truth, independence, settlement or production fitness.
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Community check
+      options:
+        - label: I have not included secrets, private user/business data, signing/recovery keys or security-sensitive exploit details.
+          required: true
