@@ -24,6 +24,8 @@ When a sealed receipt contains workstation-local paths, publish a **portable pub
 
 A public projection therefore proves what was publicly selected from the sealed evidence while keeping the original sealed bytes immutable and independently hash-addressable.
 
+Current accepted public projections in this experiment include the Vector #26501 / PR #26504 and Memnox #46 / PR #86 cases. Both are PRO_BONO upstream-accepted contributions with realized cash preserved as `0 USD` and payment settlement preserved as false.
+
 ## Evidence rules
 
 - Never record a contribution as settled without payment evidence.
