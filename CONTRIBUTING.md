@@ -10,6 +10,12 @@ You do **not** need to understand the entire system before contributing. Small, 
 
 Start with [START_HERE.md](START_HERE.md). Before changing public documentation, read [Documentation Model](docs/DOCUMENTATION_MODEL.md). For Protocol 1.0 clean-room implementation work, also read [docs/INTEROPERABILITY_CHALLENGE.md](docs/INTEROPERABILITY_CHALLENGE.md) and use the separately sealed Protocol 1.0 Conformance Kit.
 
+## Community board
+
+The public [ENTITY Community Board](COMMUNITY.md) uses [GitHub Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) for developer/user questions, design conversation, ideas, evaluation results and show-and-tell work.
+
+Use Discussions when the work still needs conversation. Use Issues for reproducible defects, concrete ambiguities and bounded tracked work. Use Pull Requests for reviewable changes with a diff and test/evidence path. Security-sensitive reports belong under [SECURITY.md](SECURITY.md), not in public Discussions or Issues.
+
 ## Before opening a pull request
 
 1. Identify the exact layer/version you are changing: Protocol 1.0, current runtime, BTDU component, integration/domain material or historical evidence.
