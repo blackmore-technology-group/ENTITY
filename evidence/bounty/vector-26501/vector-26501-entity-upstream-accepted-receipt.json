@@ -62,7 +62,7 @@
         "object_ref": "btdu-object:69e7d0dced4bb6b9d3ba9513c73960f98f2a201a9976dab55864154f946f50d2"
       }
     },
-    "state_dir": "E:\\ENTITY_ACTIVE\\EXTERNAL_CONTRIBUTIONS\\evidence\\vector-26501\\ENTITY_ACCEPTANCE_STATE\\pr-26504-49a6f2880e52"
+    "state_dir": "external-evidence/vector-26501/ENTITY_ACCEPTANCE_STATE/pr-26504-49a6f2880e52"
   },
   "entity_release": "v3.4.3",
   "event": {
@@ -124,7 +124,7 @@
   "merged_at": "2026-09-28T22:23:20Z",
   "observed_at_utc": "2026-09-28T23:12:31.055074+00:00",
   "parent_entity_receipt": {
-    "path": "E:\\ENTITY_ACTIVE\\EXTERNAL_CONTRIBUTIONS\\evidence\\vector-26501\\vector-26501-entity-ready-for-review-receipt.json",
+    "path": "external-evidence/vector-26501/vector-26501-entity-ready-for-review-receipt.json",
     "phase": "READY_FOR_REVIEW_RECORDED",
     "sha256": "FFDB3A2AF0914FFBB9F846BA70FD4A7DD3F2C1B15EBD8AD5F83FBB05EB13016F"
   },
