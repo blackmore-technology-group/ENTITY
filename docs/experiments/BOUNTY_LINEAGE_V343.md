@@ -45,7 +45,7 @@ GitHub preparation is limited to:
 - `docs/experiments/` — experiment procedure
 - `evidence/bounty/` — public evidence generated from installed ENTITY runs
 
-The existing `evidence/bounty/` path remains the experiment umbrella even when a selected issue is pro-bono. No ENTITY structure change is required merely to distinguish economic states.
+The existing `evidence/bounty/` path remains the experiment umbrella for compatibility even when a selected issue is pro-bono. No ENTITY structure change is required merely to distinguish economic states.
 
 ## Required lineage
 
@@ -151,11 +151,12 @@ Shawn Blackmore may be represented as the human author/authorized representative
 
 ## Evidence states
 
-The existing evidence states remain conservative:
+The evidence states remain conservative:
 
 - `PREPARED` — candidate metadata captured; no claim that money was earned.
 - `ENTITY_RECORDED` — installed ENTITY export/receipt exists and has been hashed.
-- `UPSTREAM_ACCEPTED` — external project accepted/merged the work.
+- `REVIEW_CI` — a submitted contribution has external review/CI state to preserve, but has not yet reached final upstream acceptance.
+- `UPSTREAM_ACCEPTED` / `UPSTREAM_ACCEPTED_RECORDED` — external project accepted/merged the work and the acceptance is preserved in ENTITY evidence.
 - `SETTLED` — payment evidence exists.
 
 For promised-only and pro-bono work, `UPSTREAM_ACCEPTED` can be a valid terminal experiment result even if `SETTLED` never occurs.
@@ -178,7 +179,7 @@ AWS issue `#934` / PR `#935` is an active third external case. The contribution 
 # On this machine the active repository may retain an older directory name;
 # verify by Git branch/release contents rather than renaming the directory.
 
-# For a paid candidate, use the existing bounty preflight and capture tooling.
+# For a paid candidate, use the existing contribution/bounty preflight and capture tooling.
 # For promised or pro-bono candidates, preserve the actual monetary state and
 # never mark SETTLED unless real payment evidence later exists.
 ```
