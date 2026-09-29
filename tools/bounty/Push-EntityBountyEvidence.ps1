@@ -68,6 +68,22 @@ if ($forbidden.Count -gt 0) {
     throw "Guardrail stopped commit because non-evidence paths were staged: $($forbidden -join ', ')"
 }
 
+# Public evidence must be portable. Reject workstation-specific absolute Windows
+# paths before commit so repository-safety CI cannot be tripped by local paths.
+$textExtensions = @(".json", ".md", ".txt", ".cfg", ".yml", ".yaml")
+$absoluteWindowsPathPattern = '(?i)\b[A-Z]:\\'
+$absolutePathLeaks = foreach ($path in $staged) {
+    $fullPath = Join-Path $repoRoot ($path -replace '/', [IO.Path]::DirectorySeparatorChar)
+    if (-not (Test-Path -LiteralPath $fullPath -PathType Leaf)) { continue }
+    if ($textExtensions -notcontains ([IO.Path]::GetExtension($fullPath).ToLowerInvariant())) { continue }
+    $text = Get-Content -LiteralPath $fullPath -Raw -Encoding UTF8
+    if ($text -match $absoluteWindowsPathPattern) { $path }
+}
+if (@($absolutePathLeaks).Count -gt 0) {
+    & git reset --quiet
+    throw "Guardrail stopped commit because public evidence contains absolute Windows paths: $(@($absolutePathLeaks) -join ', ')"
+}
+
 # Explicitly protect ENTITY implementation/protocol areas even if a future path check changes.
 $protectedPrefixes = @("protocol/", "src/", "sdk/", "profiles/", "tests/")
 $protected = foreach ($path in $staged) {
