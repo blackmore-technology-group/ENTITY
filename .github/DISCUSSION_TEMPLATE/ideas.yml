@@ -1,0 +1,83 @@
+title: "[Idea] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas are proposals, not accepted behavior. Keep authority, rights, evidence, provenance, recovery and economic boundaries explicit.
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Audience
+      options:
+        - User / operator
+        - Developer / integrator
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Identity / authority / rights
+        - SDK / CLI / API
+        - BTDU
+        - ADAM
+        - NIKI
+        - Evidence / provenance / passports
+        - Markets / economics / settlement
+        - Protocol / conformance
+        - Recovery / portability
+        - Standards / interoperability
+        - Documentation / tutorials
+        - Community / contributor experience
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Target
+      options:
+        - ENTITY v3.4.3 runtime
+        - BTDU 3.4.2 component
+        - Future runtime version
+        - ENTITY Protocol 1.0 clarification only
+        - Future protocol version
+        - Documentation / integration only
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user/developer problem or limitation does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed direction
+      description: Describe the idea without assuming it is already accepted or implemented.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Boundaries that must remain intact
+      description: Note relevant authority, rights, evidence, provenance, recovery, settlement, compatibility or security invariants.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility / migration impact
+      description: What existing records, APIs, schemas, applications or conformance targets could be affected?
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Community check
+      options:
+        - label: I understand this is a proposal until it is implemented, reviewed and qualified through the appropriate process.
+          required: true
