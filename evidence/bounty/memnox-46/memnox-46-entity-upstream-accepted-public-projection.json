@@ -1,0 +1,62 @@
+{
+  "schema": "entity-v343-external-contribution-upstream-accepted-public-projection-v1",
+  "projection_version": 1,
+  "publication": {
+    "kind": "PORTABLE_PUBLIC_PROJECTION",
+    "sealed_receipt_schema": "entity-v343-external-contribution-upstream-accepted-receipt-v1",
+    "sealed_receipt_sha256": "EDBD4596E589F612E17CB6B72ED65E25B5D4F854A65D3434E12958E3391800C0",
+    "sealed_receipt_unchanged": true,
+    "sealed_receipt_publication_commit": "6a4a5f84bf25f1ccaacbe07bd12bdb8cf3140da0",
+    "sealed_receipt_git_blob_sha1": "1c3b33c1d01d2edd6917bad071822339e2e71c86",
+    "local_only_fields_omitted": [
+      "state_dir"
+    ],
+    "claim_boundary": "This file is a portable public projection of the sealed acceptance receipt. It is not a replacement for the sealed receipt bytes and does not alter the recorded ENTITY/BTDU state."
+  },
+  "entity_release": "v3.4.3",
+  "btdu_component": "3.4.2",
+  "repository": "Memnox/memnox",
+  "fork_repository": "blackmore-technology-group/memnox",
+  "issue_number": 46,
+  "pr_number": 86,
+  "pr_url": "https://github.com/Memnox/memnox/pull/86",
+  "contribution_class": "PRO_BONO",
+  "phase": "UPSTREAM_ACCEPTED_RECORDED",
+  "source_phase": "UPSTREAM_ACCEPTED",
+  "observed_at_utc": "2026-09-29T02:10:28.884278+00:00",
+  "final_pr_head": "a26ad7c1ed76eb01326f85cd37e75f7257d48979",
+  "accepted_commit": "9c788e73b53f7e1f6ed1662d77f91debecdcc18f",
+  "accepted_tree": "853e5b41d02f496c4bd0374a7c00d5e9187005e7",
+  "merged_at": "2026-09-29T01:05:22Z",
+  "atomic_root": "c783b3e419201118242f76cce3a947dd89d04cb325cac6b4322804c2134c2f03",
+  "exact_reconstruction_verified": true,
+  "predecessor": {
+    "phase": "REVIEW_CHANGE",
+    "receipt_sha256": "1914A780F6554558264A4BC8FD1B4B2BE1E95BE85FAF89C2438A7BDEE3B7E7D1"
+  },
+  "accepted_content": {
+    "all_five_exact": true,
+    "verification_method": "EXACT_GIT_BLOB_ID_EQUALITY_FINAL_PR_HEAD_TO_ACCEPTED_UPSTREAM"
+  },
+  "external_validation": {
+    "maintainer": "moise10r",
+    "maintainer_reviewed": true,
+    "ci_passed": true,
+    "security_passed": true
+  },
+  "claims": {
+    "upstream_accepted": true,
+    "merged": true,
+    "issue_closed_by_maintainer": true,
+    "ci_passed": true,
+    "security_passed": true,
+    "payment_settled": false,
+    "economic_rights_created_by_ingest": false,
+    "upstream_source_ownership_claimed": false
+  },
+  "realized_cash": {
+    "amount": 0,
+    "currency": "USD"
+  },
+  "rights_boundary": "ENTITY records the contribution lineage and evidenced economic state. It does not override Apache-2.0, create ownership of upstream source, or create a payment obligation."
+}
