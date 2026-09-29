@@ -43,7 +43,7 @@ GitHub preparation is limited to:
 
 - `tools/bounty/` — PowerShell capture, qualification and guarded push tooling
 - `docs/experiments/` — experiment procedure
-- `evidence/bounty/` — evidence generated from installed ENTITY runs
+- `evidence/bounty/` — public evidence generated from installed ENTITY runs
 
 The existing `evidence/bounty/` path remains the experiment umbrella even when a selected issue is pro-bono. No ENTITY structure change is required merely to distinguish economic states.
 
@@ -63,6 +63,21 @@ The installed system should be asked to represent the following facts using capa
 10. ENTITY export/receipt/seal produced by the installed system.
 
 No field in the capture harness substitutes for an ENTITY record. The PowerShell files only preserve inputs and hashes around the installed application so that the final evidence can be audited.
+
+## Portable public evidence rule
+
+Installed ENTITY/BTDU receipts may contain machine-local operational paths. The original sealed receipt bytes remain authoritative in the local evidence archive and are identified by their SHA-256 and ENTITY/BTDU lineage.
+
+A path-bearing sealed receipt must **not** be committed directly to the public repository. Instead publish a portable public projection that:
+
+- identifies itself as a projection rather than the sealed receipt;
+- records the exact sealed receipt SHA-256 and sealed receipt schema;
+- preserves the relevant atomic root, predecessor hash and external contribution identifiers;
+- preserves the actual upstream acceptance/review/CI/economic state;
+- omits workstation-local paths and other non-portable operational fields;
+- states that the sealed receipt remains unchanged and authoritative.
+
+The public projection does not re-seal, rewrite or replace the original receipt. It is a portable evidence view anchored to the immutable sealed receipt hash.
 
 ## Candidate policy
 
@@ -147,6 +162,15 @@ For promised-only and pro-bono work, `UPSTREAM_ACCEPTED` can be a valid terminal
 
 Do not mark `UPSTREAM_ACCEPTED` or `SETTLED` from an expectation, pending PR, marketplace listing or verbal promise.
 
+## Current external proof state
+
+As of 2026-09-29, the experiment has two completed unrelated upstream acceptance cases published as portable public projections:
+
+- Vector issue `#26501` / PR `#26504` — merged and recorded as upstream accepted; PRO_BONO; realized cash `0 USD`.
+- Memnox issue `#46` / PR `#86` — merged after maintainer review/change and recorded as upstream accepted; PRO_BONO; realized cash `0 USD`.
+
+AWS issue `#934` / PR `#935` is an active third external case. The contribution is open at the recorded head with local validation green, while AWS Build and OTel Conformance workflows remain dependent on upstream maintainer workflow approval. It must remain below `UPSTREAM_ACCEPTED` until AWS produces actual acceptance/merge evidence.
+
 ## Desktop validation sequence
 
 ```powershell
@@ -169,9 +193,9 @@ For every selected candidate:
 6. Preserve commit/PR/test evidence.
 7. Run installed ENTITY v3.4.3 normally and record the contribution through existing lineage/rights/economic interfaces.
 8. Export/receipt/seal the resulting ENTITY evidence.
-9. Mark `UPSTREAM_ACCEPTED` only after independent upstream acceptance/merge evidence.
-10. Mark `SETTLED` only after actual payment evidence.
-11. Push only the selected experiment evidence back to ENTITY.
+9. Publish only portable public evidence; keep path-bearing sealed receipts in the local evidence archive.
+10. Mark `UPSTREAM_ACCEPTED` only after independent upstream acceptance/merge evidence.
+11. Mark `SETTLED` only after actual payment evidence.
 12. Confirm no ENTITY protocol/schema/implementation change was required.
 
 ## Rights boundary
