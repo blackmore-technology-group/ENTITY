@@ -158,6 +158,6 @@
   },
   "repository": "Memnox/memnox",
   "schema": "entity-v343-external-contribution-upstream-accepted-receipt-v1",
-  "state_dir": "E:\\ENTITY_ACTIVE\\EXTERNAL_CONTRIBUTIONS\\evidence\\memnox-46\\ENTITY_PREPARED_STATE\\6b701b5ac51e330498db4179f0a45f420dc19dc352d339c7776663767cf47bb5",
+  "state_dir": "external-evidence/memnox-46/ENTITY_PREPARED_STATE/6b701b5ac51e330498db4179f0a45f420dc19dc352d339c7776663767cf47bb5",
   "status": "PASS"
 }
