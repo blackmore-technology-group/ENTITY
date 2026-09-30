@@ -14,6 +14,21 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 [**15-minute first-run audit**](https://github.com/blackmore-technology-group/ENTITY/issues/80) · [**ENTITY v3.4.3 Release**](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.3) · [**External Qualification**](https://github.com/blackmore-technology-group/ENTITY/issues/55) · [**ERQ Campaign**](https://github.com/blackmore-technology-group/ENTITY/issues/78) · [**Documentation**](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [**Conformance Kit**](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit) · [**Interoperability Challenge**](docs/INTEROPERABILITY_CHALLENGE.md)
 
+## Developer entry points
+
+You do **not** need to understand all of ENTITY before building with it.
+
+| Goal | Start here | Time box |
+| --- | --- | ---: |
+| **Build something** | [Developer Quickstart](DEVELOPER_START.md) | 5–30 min |
+| **Pick a coding task** | [Good first issues](https://github.com/blackmore-technology-group/ENTITY/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) | 30–120 min |
+| **Reproduce real engineering provenance** | [Real-world contribution ledger](https://blackmore-technology-group.github.io/ENTITY-DOCS/evidence/real-world.html) | 10–30 min |
+| **Ask / propose / show work** | [GitHub Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) | open |
+| **Challenge the project** | [15-minute first-run audit](https://github.com/blackmore-technology-group/ENTITY/issues/80) | 15 min |
+
+Two BTG contributions have already been merged into unrelated upstream projects: [Memnox #86](https://github.com/Memnox/memnox/pull/86) and [Vector #26504](https://github.com/vectordotdev/vector/pull/26504). ENTITY uses work like this as real-world provenance/evidence input while keeping upstream ownership and BTG-created metadata/derived work separate.
+
+**Best first step:** choose one buildable issue and leave with a working artifact, not a reading assignment.
 ---
 
 ## ENTITY v3.4.3 — current supported release
