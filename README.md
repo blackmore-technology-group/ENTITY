@@ -5,6 +5,7 @@
 [![Dependency review](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/dependency-review.yml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/blackmore-technology-group/ENTITY/badge)](https://securityscorecards.dev/viewer/?uri=github.com/blackmore-technology-group/ENTITY)
 [![License](https://img.shields.io/github/license/blackmore-technology-group/ENTITY)](LICENSE)
+[![CodeTriage](https://www.codetriage.com/blackmore-technology-group/entity/badges/users.svg)](https://www.codetriage.com/blackmore-technology-group/entity)
 
 **Open infrastructure for sovereign digital authority, verifiable claims, data rights, continuous provenance and economic state that survives providers.**
 
