@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/34_Market_Recovery/market_recovery.py",
-      "sha256": "97d084fdcece2289a5860e6a16007c40f39cd95f27693c961d702fdd1b388cd9"
+      "sha256": "7a96f1e44b7910e7c1560074591c5a5dba208bd66d5e10702d828bd57b35e606"
     },
     {
       "path": "tests/test_v3_market_recovery.py",
@@ -27,11 +27,11 @@
     },
     {
       "path": "ENTITY_V3_EEP_CONFORMANCE_MANIFEST.json",
-      "sha256": "07700ba28c78f9d7d5c65f946fc5a320f05f32918721f0e9efda75f054d34053"
+      "sha256": "aa7dd20a8d396084ead3b677eda0251912cb7ccaf8a857bd54d1df84ec7679d1"
     },
     {
       "path": "ENTITY_V3_EOPP_HARDENING_MANIFEST.json",
-      "sha256": "ecbb035a6fef8accfd68ca36bd2e7425957420b47c7f387c17dfd84341bdb3c4"
+      "sha256": "25292ef3320e31243c0155ddf297c5b6908b8a8c4b50993b1c66c3aff8295403"
     }
   ],
   "implemented": [
@@ -49,7 +49,7 @@
     "required_trade_revenue_binding_recovery"
   ],
   "schema": "entity-v3-market-recovery-evidence-manifest-v1",
-  "snapshot_sha256": "6055a9bd4c4a3ae0968bd425dd8245f62a4ce5cd57fbb4399903366667b970de",
+  "snapshot_sha256": "947a0b9bf2aa60078ec990e28962392d428d4fd751a6e2cfebf4f26378abdfd3",
   "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
   "validation": {
     "complete_active_tree": {

@@ -17,7 +17,7 @@ EEP_REQUIRED = (
     "revenue_rule_sets", "trade_revenue_bindings", "surveillance", "rfqs", "quotes", "rfq_acceptances",
     "order_cancellations", "settlement_verifiers", "payment_attestations",
 )
-EEP_OPTIONAL = ("revenue_events",)
+EEP_OPTIONAL = ("revenue_events", "rfq_trade_sources")
 EOPP_REQUIRED = (
     "treasuries", "participation_policies", "reserve_allocations",
     "economic_events", "obligations", "position_snapshots", "settlement_verifiers",

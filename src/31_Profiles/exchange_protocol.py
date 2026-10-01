@@ -191,6 +191,10 @@ class ExchangeProtocol:
               acceptance_id TEXT PRIMARY KEY, rfq_id TEXT NOT NULL, quote_id TEXT NOT NULL,
               requester TEXT NOT NULL, nonce TEXT NOT NULL UNIQUE, created_at_ms INTEGER NOT NULL,
               received_at_ms INTEGER NOT NULL, signature_json TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS rfq_trade_sources(
+              trade_id TEXT PRIMARY KEY, rfq_id TEXT NOT NULL, quote_id TEXT NOT NULL,
+              acceptance_id TEXT NOT NULL, venue_operator TEXT NOT NULL,
+              created_at_ms INTEGER NOT NULL, signature_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS order_cancellations(
               cancellation_id TEXT PRIMARY KEY, order_id TEXT NOT NULL, participant TEXT NOT NULL,
               nonce TEXT NOT NULL UNIQUE, created_at_ms INTEGER NOT NULL,
@@ -877,6 +881,15 @@ class ExchangeProtocol:
                 buy_stub={"venue_id":rfq["venue_id"],"instrument_id":rfq["instrument_id"],"order_id":None,"participant":buyer}
                 sell_stub={"order_id":None,"participant":seller}
                 trade_id=self._execute_trade(db,buy_stub,sell_stub,int(rfq["quantity"]),int(quote["price"]),"RFQ")
+                venue=db.execute("SELECT * FROM venues WHERE venue_id=? AND status='ACTIVE'",(rfq["venue_id"],)).fetchone()
+                if not venue: raise KeyError("active RFQ venue missing")
+                source_created=now_ms()
+                source_body={"schema":"entity-eep-rfq-execution-source-v1","trade_id":trade_id,"venue_id":rfq["venue_id"],"instrument_id":rfq["instrument_id"],
+                             "rfq_id":body["rfq_id"],"quote_id":body["quote_id"],"acceptance_id":body["acceptance_id"],
+                             "requester":requester,"provider":quote["provider"],"buyer":buyer,"seller":seller,
+                             "quantity":int(rfq["quantity"]),"price":int(quote["price"]),"venue_operator":venue["operator"],"created_at_ms":source_created}
+                source_sig=self.identity.sign(venue["operator"],source_body)
+                db.execute("INSERT INTO rfq_trade_sources VALUES(?,?,?,?,?,?,?)",(trade_id,body["rfq_id"],body["quote_id"],body["acceptance_id"],venue["operator"],source_created,json.dumps(source_sig,sort_keys=True)))
                 db.execute("UPDATE rfqs SET status='ACCEPTED' WHERE rfq_id=?",(body["rfq_id"],))
                 db.execute("UPDATE quotes SET status='ACCEPTED' WHERE quote_id=?",(body["quote_id"],))
         except sqlite3.IntegrityError as exc: raise ValueError("duplicate/replayed RFQ acceptance") from exc
@@ -899,7 +912,7 @@ class ExchangeProtocol:
 
     def status(self) -> dict:
         with self._db() as db:
-            tables=("venues","instruments","listings","orders","order_cancellations","trades","clearing","payment_attestations","settlement_verifiers","entitlements","usage","surveillance","rfqs","quotes","rfq_acceptances","revenue_rule_sets","trade_revenue_bindings")
+            tables=("venues","instruments","listings","orders","order_cancellations","trades","clearing","payment_attestations","settlement_verifiers","entitlements","usage","surveillance","rfqs","quotes","rfq_acceptances","rfq_trade_sources","revenue_rule_sets","trade_revenue_bindings")
             counts={name:int(db.execute(f"SELECT COUNT(*) FROM {name}").fetchone()[0]) for name in tables}
         return {"schema":"entity-eep-status-v1","profile":"ENTITY_EXCHANGE_PROTOCOL","version":"3.0.0",
                 "rights_are_traded_not_bytes":True,"venue_neutral":True,"payment_versus_right_transfer":True,

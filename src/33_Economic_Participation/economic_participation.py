@@ -292,6 +292,57 @@ class EconomicParticipationProfile:
             raise PermissionError('EEP sell order signature invalid')
         return True
 
+    def _verify_eep_rfq_trade_source(self,ex,trade):
+        source=ex.execute('SELECT * FROM rfq_trade_sources WHERE trade_id=?',(trade['trade_id'],)).fetchone()
+        if not source:
+            raise PermissionError('settled RFQ trade source binding missing')
+        rfq=ex.execute('SELECT * FROM rfqs WHERE rfq_id=?',(source['rfq_id'],)).fetchone()
+        quote=ex.execute('SELECT * FROM quotes WHERE quote_id=?',(source['quote_id'],)).fetchone()
+        acceptance=ex.execute('SELECT * FROM rfq_acceptances WHERE acceptance_id=?',(source['acceptance_id'],)).fetchone()
+        venue=ex.execute('SELECT * FROM venues WHERE venue_id=?',(trade['venue_id'],)).fetchone()
+        if not rfq or not quote or not acceptance or not venue:
+            raise PermissionError('RFQ signed source records missing')
+        if str(trade['execution_model']).upper()!='RFQ':
+            raise PermissionError('RFQ source binding attached to non-RFQ trade')
+        if source['venue_operator']!=venue['operator']:
+            raise PermissionError('RFQ source venue operator mismatch')
+        if rfq['venue_id']!=trade['venue_id'] or rfq['instrument_id']!=trade['instrument_id']:
+            raise PermissionError('RFQ source venue/instrument mismatch')
+        if quote['rfq_id']!=rfq['rfq_id'] or acceptance['rfq_id']!=rfq['rfq_id'] or acceptance['quote_id']!=quote['quote_id']:
+            raise PermissionError('RFQ source linkage mismatch')
+        if acceptance['requester']!=rfq['requester'] or rfq['status']!='ACCEPTED' or quote['status']!='ACCEPTED':
+            raise PermissionError('RFQ source acceptance mismatch')
+        buyer=rfq['requester'] if rfq['side']=='BUY' else quote['provider']
+        seller=quote['provider'] if rfq['side']=='BUY' else rfq['requester']
+        if buyer!=trade['buyer'] or seller!=trade['seller'] or int(rfq['quantity'])!=int(trade['quantity']) or int(quote['price'])!=int(trade['price']):
+            raise PermissionError('RFQ source economics/participants mismatch')
+        rfq_body={'schema':'entity-eep-rfq-v1','rfq_id':rfq['rfq_id'],'venue_id':rfq['venue_id'],'instrument_id':rfq['instrument_id'],
+                  'requester':rfq['requester'],'side':rfq['side'],'quantity':int(rfq['quantity']),'expires_at_ms':int(rfq['expires_at_ms']),
+                  'nonce':rfq['nonce'],'created_at_ms':int(rfq['created_at_ms'])}
+        quote_body={'schema':'entity-eep-rfq-quote-v1','quote_id':quote['quote_id'],'rfq_id':quote['rfq_id'],'provider':quote['provider'],
+                    'price':int(quote['price']),'expires_at_ms':int(quote['expires_at_ms']),'nonce':quote['nonce'],'created_at_ms':int(quote['created_at_ms'])}
+        acceptance_body={'schema':'entity-eep-rfq-acceptance-v1','acceptance_id':acceptance['acceptance_id'],'rfq_id':acceptance['rfq_id'],
+                         'quote_id':acceptance['quote_id'],'requester':acceptance['requester'],'nonce':acceptance['nonce'],
+                         'created_at_ms':int(acceptance['created_at_ms'])}
+        signed=((rfq['requester'],rfq_body,rfq['signature_json'],'RFQ request'),
+                (quote['provider'],quote_body,quote['signature_json'],'RFQ quote'),
+                (acceptance['requester'],acceptance_body,acceptance['signature_json'],'RFQ acceptance'))
+        for entity_id,body,signature_json,label in signed:
+            manifest=self.identity.load_manifest(entity_id)
+            if not signature_json or not self.identity.verify_signature(manifest,body,json.loads(signature_json)):
+                raise PermissionError(f'{label} signature invalid')
+        source_body={'schema':'entity-eep-rfq-execution-source-v1','trade_id':trade['trade_id'],'venue_id':trade['venue_id'],'instrument_id':trade['instrument_id'],
+                     'rfq_id':rfq['rfq_id'],'quote_id':quote['quote_id'],'acceptance_id':acceptance['acceptance_id'],
+                     'requester':rfq['requester'],'provider':quote['provider'],'buyer':buyer,'seller':seller,
+                     'quantity':int(trade['quantity']),'price':int(trade['price']),'venue_operator':venue['operator'],'created_at_ms':int(source['created_at_ms'])}
+        venue_manifest=self.identity.load_manifest(venue['operator'])
+        if not self.identity.verify_signature(venue_manifest,source_body,json.loads(source['signature_json'])):
+            raise PermissionError('RFQ execution source signature invalid')
+        return {'execution_model':'RFQ','rfq_id':rfq['rfq_id'],'quote_id':quote['quote_id'],'acceptance_id':acceptance['acceptance_id'],
+                'rfq_request_signature_verified':True,'rfq_quote_signature_verified':True,
+                'rfq_acceptance_signature_verified':True,'rfq_execution_source_signature_verified':True,
+                'seller_authority_signature_verified':True,'seller_authority_path':'SIGNED_RFQ_SOURCE'}
+
     def _obligation(self,event,payer,recipient,amount,currency,basis,bps):
         amount=max(0,int(amount)); bps=int(bps)
         if amount==0: return None
@@ -344,9 +395,16 @@ class EconomicParticipationProfile:
             clearing=ex.execute("SELECT * FROM clearing WHERE trade_id=? AND status='SETTLED'",(str(trade_id),)).fetchone()
             if not trade or not clearing: raise KeyError('settled EEP trade required')
             inst=ex.execute('SELECT * FROM instruments WHERE instrument_id=?',(trade['instrument_id'],)).fetchone()
-            sell_order=ex.execute('SELECT * FROM orders WHERE order_id=?',(trade['sell_order_id'],)).fetchone()
-        if not sell_order or sell_order['participant']!=trade['seller']: raise PermissionError('settled trade/sell order mismatch')
-        self._verify_eep_sell_order(sell_order)
+            if str(trade['execution_model']).upper()=='RFQ':
+                authority_details=self._verify_eep_rfq_trade_source(ex,trade); sell_order=None
+            else:
+                sell_order=ex.execute('SELECT * FROM orders WHERE order_id=?',(trade['sell_order_id'],)).fetchone(); authority_details=None
+        if authority_details is None:
+            if not sell_order or sell_order['participant']!=trade['seller']: raise PermissionError('settled trade/sell order mismatch')
+            self._verify_eep_sell_order(sell_order)
+            authority_details={'execution_model':str(trade['execution_model']).upper(),'sell_order_signature_verified':True,
+                               'sell_order_id':sell_order['order_id'],'seller_authority_signature_verified':True,
+                               'seller_authority_path':'SIGNED_SELL_ORDER'}
         policy=self._active_policy(trade['instrument_id'],trade['created_at_ms']); treasury=self._treasury(policy['treasury_id'])
         if inst['issuer']!=policy['originator_entity_id']: raise PermissionError('instrument issuer/policy originator mismatch')
         is_primary=trade['seller']==inst['issuer']; event_type='PRIMARY_RIGHTS_SALE' if is_primary else 'SECONDARY_RIGHTS_SALE'
@@ -355,7 +413,7 @@ class EconomicParticipationProfile:
             event_type,policy,treasury,policy['originator_entity_id'],trade_id,gross,clearing['currency'],{
                 'buyer':trade['buyer'],'seller':trade['seller'],'quantity':int(trade['quantity']),'price':int(trade['price']),
                 'source_payment_ref':clearing['payment_ref'],'source_external_verified':bool(clearing['external_verified']),
-                'sell_order_signature_verified':True,'sell_order_id':sell_order['order_id'],
+                **authority_details,
                 'participation_is_allocation_within_gross':True,'atomic_event_obligation':True},
             trade['seller'],treasury['treasury_entity_id'],gross*bps//10000,
             'PRIMARY_TREASURY_ALLOCATION' if is_primary else 'SECONDARY_ORIGINATOR_ROYALTY',bps,
