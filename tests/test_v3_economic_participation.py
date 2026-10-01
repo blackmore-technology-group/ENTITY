@@ -35,7 +35,7 @@ class EconomicParticipationTests(unittest.TestCase):
         self.profile.authorize_settlement_verifier(self.treasury['treasury_id'],self.originator,self.verifier)
         self.policy=self.profile.define_participation(self.originator,self.treasury['treasury_id'],self.instrument['instrument_id'],1000,200,'CAD',primary_treasury_bps=2500,secondary_royalty_bps=150,derivative_participation_bps=100,terms={'raw_redistribution':'PROHIBITED'})
         self.profile.allocate_eep_reserve(self.exchange,self.policy['policy_id'])
-        self.venue=self.exchange.create_venue(self.originator,'Rights Exchange','CA',['ORDER_BOOK'],hashlib.sha256(b'venue policy').hexdigest())
+        self.venue=self.exchange.create_venue(self.originator,'Rights Exchange','CA',['ORDER_BOOK','RFQ'],hashlib.sha256(b'venue policy').hexdigest())
         disclosure=hashlib.sha256(b'disclosure').hexdigest()
         self.exchange.publish_disclosure(self.venue['venue_id'],self.instrument['instrument_id'],self.originator,'OFFERING',disclosure)
         self.exchange.list_instrument(self.venue['venue_id'],self.instrument['instrument_id'],self.originator,1,1,disclosure)
@@ -49,6 +49,18 @@ class EconomicParticipationTests(unittest.TestCase):
         settled=self.exchange.settle_trade(trades[0]['trade_id'],'payment:'+nonce,external_verified=False)
         self.assertEqual(settled['status'],'SETTLED')
         return trades[0]
+
+    def _rfq_trade(self,seller,buyer,quantity,price,nonce,side='BUY'):
+        expiry=econ_mod.now_ms()+60_000
+        requester=buyer if side=='BUY' else seller
+        provider=seller if side=='BUY' else buyer
+        rfq=self.exchange.create_rfq(self.venue['venue_id'],self.instrument['instrument_id'],requester,side,quantity,expires_at_ms=expiry,nonce=nonce+'-rfq')
+        quote=self.exchange.quote_rfq(rfq['rfq_id'],provider,price,expires_at_ms=expiry,nonce=nonce+'-quote')
+        execution=self.exchange.accept_quote(rfq['rfq_id'],quote['quote_id'],requester,nonce=nonce+'-accept')
+        self.assertEqual(execution['execution_model'],'RFQ')
+        settled=self.exchange.settle_trade(execution['trade_id'],'payment:'+nonce,external_verified=False)
+        self.assertEqual(settled['status'],'SETTLED')
+        return execution,rfq,quote
 
     def test_btg_deployment_uses_verified_supplied_ids_not_hardcoded_privilege(self):
         profile=econ_mod.EconomicParticipationProfile(self.tmp.name+'-btg',self.identity)
@@ -105,6 +117,64 @@ class EconomicParticipationTests(unittest.TestCase):
         self.assertTrue(captured['event']['details']['sell_order_signature_verified'])
         with self.assertRaises(ValueError):
             self.profile.capture_settled_eep_trade(self.exchange,secondary['trade_id'])
+
+    def test_rfq_primary_sale_captures_signed_execution_source(self):
+        execution,rfq,quote=self._rfq_trade(self.originator,self.buyer1,10,100,'rfq-primary','BUY')
+        captured=self.profile.capture_settled_eep_trade(self.exchange,execution['trade_id'])
+        self.assertEqual(captured['trade_class'],'PRIMARY')
+        self.assertEqual(captured['gross_amount_units'],1000)
+        self.assertEqual(captured['obligation']['amount_units'],250)
+        details=captured['event']['details']
+        self.assertEqual(details['execution_model'],'RFQ')
+        self.assertEqual(details['rfq_id'],rfq['rfq_id'])
+        self.assertEqual(details['quote_id'],quote['quote_id'])
+        self.assertTrue(details['rfq_request_signature_verified'])
+        self.assertTrue(details['rfq_quote_signature_verified'])
+        self.assertTrue(details['rfq_acceptance_signature_verified'])
+        self.assertTrue(details['rfq_execution_source_signature_verified'])
+        self.assertEqual(details['seller_authority_path'],'SIGNED_RFQ_SOURCE')
+        with self.exchange._db() as db:
+            source=db.execute('SELECT * FROM rfq_trade_sources WHERE trade_id=?',(execution['trade_id'],)).fetchone()
+        self.assertIsNotNone(source)
+
+    def test_rfq_secondary_sell_request_captures_without_seller_private_key(self):
+        seed=self._trade(self.originator,self.buyer1,20,100,'rfq-secondary-seed')
+        self.profile.capture_settled_eep_trade(self.exchange,seed['trade_id'])
+        execution,rfq,quote=self._rfq_trade(self.buyer1,self.buyer2,5,120,'rfq-secondary','SELL')
+        original_sign=self.identity.sign
+        def guarded_sign(entity_id,payload):
+            if entity_id==self.buyer1:
+                raise AssertionError('RFQ secondary seller private key must not be used during EOPP capture')
+            return original_sign(entity_id,payload)
+        self.identity.sign=guarded_sign
+        try:
+            captured=self.profile.capture_settled_eep_trade(self.exchange,execution['trade_id'])
+        finally:
+            self.identity.sign=original_sign
+        self.assertEqual(captured['trade_class'],'SECONDARY')
+        self.assertEqual(captured['gross_amount_units'],600)
+        self.assertEqual(captured['obligation']['amount_units'],9)
+        self.assertEqual(captured['event']['details']['seller_authority_path'],'SIGNED_RFQ_SOURCE')
+        self.assertEqual(captured['event']['details']['rfq_id'],rfq['rfq_id'])
+        self.assertEqual(captured['event']['details']['quote_id'],quote['quote_id'])
+
+    def test_rfq_capture_fails_closed_without_source_binding(self):
+        execution,_,_=self._rfq_trade(self.originator,self.buyer1,2,100,'rfq-missing-source','BUY')
+        with self.exchange._db() as db:
+            db.execute('DELETE FROM rfq_trade_sources WHERE trade_id=?',(execution['trade_id'],))
+        with self.assertRaises(PermissionError):
+            self.profile.capture_settled_eep_trade(self.exchange,execution['trade_id'])
+        with self.profile._db() as db:
+            self.assertEqual(db.execute('SELECT COUNT(*) FROM economic_events WHERE subject_ref=?',(execution['trade_id'],)).fetchone()[0],0)
+
+    def test_rfq_capture_fails_closed_on_tampered_quote_signature(self):
+        execution,_,quote=self._rfq_trade(self.originator,self.buyer1,2,100,'rfq-tamper-source','BUY')
+        with self.exchange._db() as db:
+            db.execute("UPDATE quotes SET signature_json='{}' WHERE quote_id=?",(quote['quote_id'],))
+        with self.assertRaises(PermissionError):
+            self.profile.capture_settled_eep_trade(self.exchange,execution['trade_id'])
+        with self.profile._db() as db:
+            self.assertEqual(db.execute('SELECT COUNT(*) FROM economic_events WHERE subject_ref=?',(execution['trade_id'],)).fetchone()[0],0)
 
     def test_derivative_participation_and_service_revenue(self):
         derivative=self.profile.record_derivative_revenue(self.policy['policy_id'],self.buyer1,'derivative:model-x',100000,'CAD',hashlib.sha256(b'revenue evidence').hexdigest())

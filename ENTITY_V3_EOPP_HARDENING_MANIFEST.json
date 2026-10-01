@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/33_Economic_Participation/economic_participation.py",
-      "sha256": "3d805ab601bbf46001175796b601c3c66190c704408f86beb21f942f1de6a9d5"
+      "sha256": "493268dcc2a2d4564172cb7039e74861bfe63d93734e8b4a1cb70b97dc390d66"
     },
     {
       "path": "src/33_Economic_Participation/btg_deployment.py",
@@ -19,7 +19,7 @@
     },
     {
       "path": "tests/test_v3_economic_participation.py",
-      "sha256": "35c376010c209108aa0c314f531c06739c8af929c0bfea6af1753d5452f1c093"
+      "sha256": "f181089a2ed983dca3dfe1fb6f2a4690b4e285db9ed5992006a4477ef285be4b"
     },
     {
       "path": "protocol/v3/ENTITY_ORIGINATOR_PARTICIPATION_PROFILE.md",
@@ -44,7 +44,8 @@
     "event_and_obligation_trade_reconciliation",
     "provider_receivable_without_payer_private_key",
     "derivative_currency_binding",
-    "expanded_normative_record_schema"
+    "expanded_normative_record_schema",
+    "rfq_signed_source_participation_capture"
   ],
   "invariants": {
     "cryptocurrency_required": false,
@@ -55,7 +56,7 @@
   },
   "preserved_sealed_manifest_sha256": "7dc3dcd40e69dff30c615e01ecea32a96ea81243a123f108167b3fd6d390ad66",
   "schema": "entity-v3-eopp-hardening-manifest-v1",
-  "snapshot_sha256": "6f787cf66a98f05eb9d43f5b2ef4d9ac94502cb9e084707ce060d146450a03a6",
+  "snapshot_sha256": "7f95bac570b5091346c2fa09a745e422e7b0449d8cf184d77c98ec4d65fdf503",
   "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
   "validation": {
     "complete_active_tree": {
@@ -63,8 +64,8 @@
       "total": 90
     },
     "targeted_eopp": {
-      "passed": 20,
-      "total": 20
+      "passed": 24,
+      "total": 24
     }
   },
   "version": "3.0.0",

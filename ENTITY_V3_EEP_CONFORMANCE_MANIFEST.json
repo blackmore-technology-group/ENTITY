@@ -34,11 +34,11 @@
   "files": [
     {
       "path": "src/31_Profiles/exchange_protocol.py",
-      "sha256": "cca451e553ea70a778c983805d155f05bb92baab5f481f75a60084a92e48d9f6"
+      "sha256": "53761f15c7ae58726ce8cd01a28164d3a14ae29aac38a89859c408fc3c76b14a"
     },
     {
       "path": "src/32_V3_Hardening/exchange_protocol.py",
-      "sha256": "a631e259d2f0d7e4c4abf3acf1c04586e22bf5072928e5f9a9ddc3c130713637"
+      "sha256": "767e2a83a7ab5a71256c4f9535b75d91e7d33c97aaa7b7cefc617ffa7874bf41"
     },
     {
       "path": "protocol/v3/ENTITY_EXCHANGE_PROTOCOL_DRAFT.md",
@@ -95,10 +95,11 @@
     "sell admission rechecks unreserved entitlement atomically under concurrent submissions",
     "concurrent matchers cannot create duplicate trades from the same executable orders",
     "concurrent settlement attempts commit at most one entitlement transfer",
-    "revenue-event persistence is atomic with hardening-profile settlement state"
+    "revenue-event persistence is atomic with hardening-profile settlement state",
+    "RFQ executions preserve a deterministic venue-signed source binding to signed RFQ, quote and acceptance records"
   ],
   "schema": "entity-v3-eep-conformance-manifest-v1",
-  "snapshot_sha256": "00b066155090b7612191852293429d00d76c996ccf00c122fc1f549f19f3cf53",
+  "snapshot_sha256": "65224aa97bde5456c4079097a37284ce6e023f3e1c635f25456683c74e3df91a",
   "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
   "version": "3.0.0",
   "working_tree_snapshot": false
