@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any, Callable, Mapping, Iterable
+from contextlib import contextmanager
 import hashlib, json, mimetypes, os, sqlite3, subprocess, sys, time
 
 HERE=Path(__file__).resolve().parent
@@ -44,8 +45,14 @@ class BlackmoreTechnologyDataUniverse:
         from adam_v42.distributed import SovereignErasureStore
         self.BondAlgebra=BondAlgebra; self.FirstClassBond=FirstClassBond; self.HyperBond=HyperBond; self.HyperRole=HyperRole; self.BondFamily=BondFamily; self.ConfidenceClass=ConfidenceClass; self.SovereignErasureStore=SovereignErasureStore
 
+    @contextmanager
     def _db(self):
-        db=sqlite3.connect(self.db_path); db.row_factory=sqlite3.Row; return db
+        db=sqlite3.connect(self.db_path); db.row_factory=sqlite3.Row
+        try:
+            with db:
+                yield db
+        finally:
+            db.close()
 
     def _init_db(self):
         with self._db() as db:

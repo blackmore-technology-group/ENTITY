@@ -3,6 +3,20 @@ from pathlib import Path
 from typing import Any, Callable
 import base64, hashlib, json, os, secrets, sqlite3, time
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 def now_ms() -> int:
     return int(time.time() * 1000)
@@ -35,7 +49,7 @@ class PurposeBoundAccessRegistry:
         self.path = Path(root) / "entity_v3_purpose_access.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS grants(
                 grant_id TEXT PRIMARY KEY, controller TEXT NOT NULL, grantee TEXT NOT NULL,
                 resource_ref TEXT NOT NULL, purposes_json TEXT NOT NULL, actions_json TEXT NOT NULL,
@@ -61,7 +75,7 @@ class PurposeBoundAccessRegistry:
                 "purposes": purposes, "actions": actions, "max_uses": max(0, int(max_uses)),
                 "expires_at_ms": int(expires_at_ms), "status": "ACTIVE", "created_at_ms": now_ms()}
         sig = self.identity.sign(controller, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO grants VALUES(?,?,?,?,?,?,?,?,?,?,?,?)", (
                 body["grant_id"], controller, grantee, str(resource_ref),
                 json.dumps(purposes), json.dumps(actions), body["max_uses"], 0,
@@ -70,7 +84,7 @@ class PurposeBoundAccessRegistry:
         return dict(body, signature=sig)
 
     def revoke(self, controller: str, grant_id: str) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             row = db.execute("SELECT * FROM grants WHERE grant_id=?", (grant_id,)).fetchone()
             if not row:
@@ -82,7 +96,7 @@ class PurposeBoundAccessRegistry:
         body = {"schema": "entity-v3-purpose-bound-revocation-v1", "grant_id": grant_id,
                 "controller": controller, "status": "REVOKED", "created_at_ms": now_ms()}
         sig = self.identity.sign(controller, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("UPDATE grants SET status='REVOKED' WHERE grant_id=?", (grant_id,))
         return dict(body, signature=sig, already_revoked=False)
 
@@ -91,7 +105,7 @@ class PurposeBoundAccessRegistry:
         at = int(at_ms or now_ms())
         purpose, action = purpose.upper(), action.upper()
         evidence_sha256 = sha256_hex(evidence_sha256)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             db.execute("BEGIN IMMEDIATE")
             row = db.execute("SELECT * FROM grants WHERE grant_id=?", (grant_id,)).fetchone()
@@ -128,7 +142,7 @@ class SelectiveRetentionLedger:
         self.path = Path(root) / "entity_v3_retention.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS records(
                 record_id TEXT PRIMARY KEY, controller TEXT NOT NULL, subject_ref TEXT NOT NULL,
                 payload_sha256 TEXT NOT NULL, storage_ref_sha256 TEXT,
@@ -154,7 +168,7 @@ class SelectiveRetentionLedger:
                 "status": "ACTIVE", "created_at_ms": now_ms(),
                 "raw_payload_stored_in_ledger": False}
         sig = self.identity.sign(controller, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO records VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
                 body["record_id"], controller, str(subject_ref), payload_sha256, storage_hash,
                 body["purpose"], body["jurisdiction"], body["retain_until_ms"], mode,
@@ -165,7 +179,7 @@ class SelectiveRetentionLedger:
                 *, at_ms: int | None = None) -> dict:
         destruction_evidence_sha256 = sha256_hex(destruction_evidence_sha256)
         at = int(at_ms or now_ms())
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             row = db.execute("SELECT * FROM records WHERE record_id=?", (record_id,)).fetchone()
             if not row:
@@ -184,13 +198,13 @@ class SelectiveRetentionLedger:
                 "destruction_evidence_sha256": destruction_evidence_sha256,
                 "destroyed_at_ms": at, "commitment_preserved": True}
         sig = self.identity.sign(controller, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("UPDATE records SET status='DESTROYED', destruction_evidence_sha256=?, destroyed_at_ms=? WHERE record_id=?",
                        (destruction_evidence_sha256, at, record_id))
         return dict(body, signature=sig, status="DESTROYED", already_destroyed=False)
 
     def status(self, record_id: str) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             row = db.execute("SELECT * FROM records WHERE record_id=?", (record_id,)).fetchone()
         if not row:
@@ -205,7 +219,7 @@ class ConfidentialProvenanceLedger:
         self.path = Path(root) / "entity_v3_confidential_provenance.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS edges(
                 edge_id TEXT PRIMARY KEY, actor TEXT NOT NULL,
                 parent_ref TEXT NOT NULL, child_ref TEXT NOT NULL,
@@ -236,7 +250,7 @@ class ConfidentialProvenanceLedger:
                 "metadata_commitment_sha256": commitment, "encrypted_metadata": encrypted,
                 "created_at_ms": now_ms(), "confidential_metadata_not_public_provenance": True}
         sig = self.identity.sign(actor, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO edges VALUES(?,?,?,?,?,?,?,?,?,?)", (
                 body["edge_id"], actor, str(parent_ref), str(child_ref),
                 body["relationship"], evidence_sha256, commitment,
@@ -245,7 +259,7 @@ class ConfidentialProvenanceLedger:
         return dict(body, signature=sig)
 
     def reveal_metadata(self, edge_id: str, encryption_key: bytes) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             row = db.execute("SELECT * FROM edges WHERE edge_id=?", (edge_id,)).fetchone()
         if not row:
@@ -270,7 +284,7 @@ class ProofVerifierRegistry:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
         self._callbacks: dict[str, Callable[[bytes, dict], bool]] = {}
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS suites(
                 suite_id TEXT PRIMARY KEY, governance_entity_id TEXT NOT NULL,
                 algorithm TEXT NOT NULL, verifier_sha256 TEXT NOT NULL,
@@ -294,7 +308,7 @@ class ProofVerifierRegistry:
                 "status": "ACTIVE", "created_at_ms": now_ms(),
                 "registration_does_not_certify_cryptographic_security": True}
         sig = self.identity.sign(governance_entity, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             old = db.execute("SELECT verifier_sha256 FROM suites WHERE suite_id=?", (suite_id,)).fetchone()
             if old and old[0] != verifier_sha256:
                 raise ValueError("proof suite verifier changed without new suite id")
@@ -307,7 +321,7 @@ class ProofVerifierRegistry:
     def bind_runtime_verifier(self, suite_id: str, verifier_sha256: str,
                               callback: Callable[[bytes, dict], bool]) -> None:
         suite_id = suite_id.upper(); verifier_sha256 = sha256_hex(verifier_sha256)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             row = db.execute("SELECT verifier_sha256,status FROM suites WHERE suite_id=?", (suite_id,)).fetchone()
         if not row or row[1] != "ACTIVE":
             raise KeyError("active proof suite missing")
@@ -318,7 +332,7 @@ class ProofVerifierRegistry:
     def verify(self, suite_id: str, verifier_entity: str, proof: bytes,
                public_inputs: dict) -> dict:
         suite_id = suite_id.upper()
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             row = db.execute("SELECT status FROM suites WHERE suite_id=?", (suite_id,)).fetchone()
         if not row or row[0] != "ACTIVE":
             raise PermissionError("proof suite is not active")
@@ -334,7 +348,7 @@ class ProofVerifierRegistry:
                 "created_at_ms": now_ms(),
                 "proof_acceptance_is_suite_specific_not_universal_truth": True}
         sig = self.identity.sign(verifier_entity, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO receipts VALUES(?,?,?,?,?,?,?,?)", (
                 body["receipt_id"], suite_id, verifier_entity, body["proof_sha256"],
                 body["public_inputs_sha256"], int(accepted), body["created_at_ms"],

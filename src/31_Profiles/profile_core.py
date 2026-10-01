@@ -3,6 +3,20 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 import hashlib, json, sqlite3, time
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 CORE_VERSION = "3.0.0"
 CORE_PRIMITIVES = ("ENTITY", "AUTHORITY", "RIGHT", "EVENT", "VALUE")
@@ -35,7 +49,7 @@ class ProfileRegistry:
     def __init__(self, root: str | Path):
         self.path = Path(root) / "entity_v3_profiles.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS profiles(
                 profile_id TEXT NOT NULL, version TEXT NOT NULL, schema_hash TEXT NOT NULL,
                 dependencies_json TEXT NOT NULL, mandatory INTEGER NOT NULL,
@@ -50,7 +64,7 @@ class ProfileRegistry:
         if len(d.schema_hash) != 64:
             raise ValueError("schema_hash must be SHA-256")
         deps = tuple(sorted(set(d.dependencies)))
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             old = db.execute("SELECT * FROM profiles WHERE profile_id=? AND version=?",
                              (d.profile_id, d.version)).fetchone()
@@ -87,7 +101,7 @@ class ProfileRegistry:
         if compatibility not in {"IMMUTABLE", "BACKWARD", "FORWARD", "BIDIRECTIONAL"}:
             raise ValueError("invalid compatibility")
         digest = sha256(document)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             old = db.execute("SELECT * FROM schemas WHERE schema_id=? AND version=?",
                              (schema_id, version)).fetchone()
@@ -161,7 +175,7 @@ class StandardGovernance:
     def __init__(self, root: str | Path, identity):
         self.path = Path(root) / "entity_v3_standard_governance.sqlite"
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS rfcs(
                 rfc_id TEXT PRIMARY KEY, proposer TEXT NOT NULL, body_sha256 TEXT NOT NULL,
                 change_class TEXT NOT NULL, threshold INTEGER NOT NULL,
@@ -181,7 +195,7 @@ class StandardGovernance:
                   "body_sha256": digest, "change_class": change_class,
                   "threshold": max(1, int(threshold)), "status": "OPEN", "created_at_ms": now_ms()}
         sig = self.identity.sign(proposer, record)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO rfcs VALUES(?,?,?,?,?,?,?,?)", (
                 rfc_id, proposer, digest, change_class, record["threshold"],
                 "OPEN", record["created_at_ms"], json.dumps(sig, sort_keys=True)))
@@ -194,7 +208,7 @@ class StandardGovernance:
         record = {"schema": "entity-v3-rfc-endorsement-v1", "rfc_id": rfc_id,
                   "endorser": endorser, "decision": decision, "created_at_ms": now_ms()}
         sig = self.identity.sign(endorser, record)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             rfc = db.execute("SELECT * FROM rfcs WHERE rfc_id=? AND status='OPEN'", (rfc_id,)).fetchone()
             if not rfc: raise KeyError("open RFC not found")

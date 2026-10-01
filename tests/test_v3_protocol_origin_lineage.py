@@ -100,8 +100,12 @@ class ProtocolOriginLineageTests(unittest.TestCase):
         old_record=old['global_passport']; old_body={k:v for k,v in old_record.items() if k not in {'body_sha256','signature'}}
         old_body.pop('protocol_origin',None); old_body.pop('protocol_origin_is_not_asset_provenance',None)
         old_sha=global_mod.digest(old_body); old_sig=identity.sign(user['entity_id'],old_body)
-        with sqlite3.connect(passports.path) as db:
+        db=sqlite3.connect(passports.path)
+        try:
             db.execute('UPDATE global_passports SET body_sha256=?,body_json=?,signature_json=? WHERE passport_id=?',(old_sha,json.dumps(old_body,sort_keys=True),json.dumps(old_sig,sort_keys=True),old_body['passport_id']))
+            db.commit()
+        finally:
+            db.close()
         legacy_passport=dict(old_body,body_sha256=old_sha,signature=old_sig)
         user_before=identity.load_manifest(user['entity_id']); object_before=fabric.get_object(old['object']['object_id']); right_before=rights.get(old['rights_passport']['passport_id'])
         origin=origin_mod.ProtocolOriginRegistry(state,identity); status=origin.install_bundle(self.bundle,profiles)

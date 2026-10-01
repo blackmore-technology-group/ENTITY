@@ -8,6 +8,20 @@ _entity_cs_spec.loader.exec_module(_entity_canonical_status)
 from pathlib import Path
 from typing import Any
 import hashlib, json, re, sqlite3
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 SHA1_RE=re.compile(r"^[0-9a-f]{40}$")
 
@@ -24,7 +38,7 @@ class ProtocolOriginRegistry:
         self.path.parent.mkdir(parents=True,exist_ok=True)
         self.identity=identity
         self.default_release_ref=None
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS origin_chains(
             lineage_id TEXT PRIMARY KEY, body_sha256 TEXT NOT NULL, body_json TEXT NOT NULL,
             signatures_json TEXT NOT NULL)""")
@@ -76,12 +90,12 @@ class ProtocolOriginRegistry:
             return {"valid":False,"reason":type(exc).__name__}
 
     def get_origin(self,lineage_id:str)->dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory=sqlite3.Row; row=db.execute("SELECT * FROM origin_chains WHERE lineage_id=?",(str(lineage_id),)).fetchone()
         if not row: raise KeyError("origin lineage missing")
         return {"body":json.loads(row["body_json"]),"body_sha256":row["body_sha256"],"signatures":json.loads(row["signatures_json"])}
     def get_release(self,release_ref:str)->dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory=sqlite3.Row; row=db.execute("SELECT * FROM release_origins WHERE release_ref=?",(str(release_ref),)).fetchone()
         if not row: raise KeyError("release origin missing")
         return {"body":json.loads(row["body_json"]),"body_sha256":row["body_sha256"],"signature":json.loads(row["signature_json"])}
@@ -90,7 +104,7 @@ class ProtocolOriginRegistry:
         check=self.verify_origin(record)
         if not check["valid"]: raise ValueError("invalid origin lineage: "+check.get("reason","unknown"))
         body=record["body"]
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             prior=db.execute("SELECT body_sha256 FROM origin_chains WHERE lineage_id=?",(body["lineage_id"],)).fetchone()
             if prior and prior[0]!=record["body_sha256"]: raise ValueError("origin lineage conflict")
             db.execute("INSERT OR IGNORE INTO origin_chains VALUES(?,?,?,?)",(body["lineage_id"],record["body_sha256"],json.dumps(body,sort_keys=True),json.dumps(record["signatures"],sort_keys=True)))
@@ -100,7 +114,7 @@ class ProtocolOriginRegistry:
         check=self.verify_release(record)
         if not check["valid"]: raise ValueError("invalid release origin: "+check.get("reason","unknown"))
         body=record["body"]
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             prior=db.execute("SELECT body_sha256 FROM release_origins WHERE release_ref=?",(body["release_ref"],)).fetchone()
             if prior and prior[0]!=record["body_sha256"]: raise ValueError("release origin conflict")
             db.execute("INSERT OR IGNORE INTO release_origins VALUES(?,?,?,?,?,?,?)",(body["release_ref"],body["release_tag"],body["release_commit_sha1"],body["release_tree_sha1"],record["body_sha256"],json.dumps(body,sort_keys=True),json.dumps(record["signature"],sort_keys=True)))

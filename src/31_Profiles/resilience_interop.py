@@ -2,6 +2,20 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 import hashlib, json, secrets, sqlite3, time
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 def now_ms(): return int(time.time() * 1000)
 def canon(v): return json.dumps(v, sort_keys=True, separators=(",", ":"), ensure_ascii=False, default=str).encode()
@@ -12,7 +26,7 @@ class FederatedResolutionProfile:
     """Multiple signed resolver observations, quorum selection and split-view detection."""
     def __init__(self, root: str | Path, identity):
         self.path = Path(root) / "entity_v3_federated_resolution.sqlite"; self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS views(
                 view_id TEXT PRIMARY KEY, object_id TEXT NOT NULL, resolver TEXT NOT NULL,
                 version INTEGER NOT NULL, epoch INTEGER NOT NULL, resolution_sha256 TEXT NOT NULL,
@@ -30,14 +44,14 @@ class FederatedResolutionProfile:
                 "object_id": object_id, "resolver": resolver, "version": version,
                 "epoch": int(epoch), "resolution_sha256": digest(resolution_record),
                 "expires_at_ms": now_ms() + max(1, int(ttl_ms)), "created_at_ms": now_ms()}
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             rows = db.execute("SELECT DISTINCT resolution_sha256 FROM views "
                               "WHERE object_id=? AND resolver=? AND version=? AND epoch=?",
                               (object_id, resolver, version, int(epoch))).fetchall()
             if rows and any(r[0] != body["resolution_sha256"] for r in rows):
                 raise ValueError("resolver equivocation detected")
         sig = self.identity.sign(resolver, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO views VALUES(?,?,?,?,?,?,?,?,?)", (
                 body["view_id"], object_id, resolver, version, int(epoch),
                 body["resolution_sha256"], body["expires_at_ms"], body["created_at_ms"],
@@ -46,7 +60,7 @@ class FederatedResolutionProfile:
 
     def resolve_quorum(self, object_id: str, *, minimum_resolvers=2, at_ms=None) -> dict:
         at = int(at_ms or now_ms())
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             rows = db.execute("SELECT * FROM views WHERE object_id=? AND expires_at_ms>=? "
                               "ORDER BY version DESC,epoch DESC,created_at_ms DESC",
@@ -76,7 +90,7 @@ class AgentDelegationProfile:
     """Sub-agent authority with depth/capability/budget/time attenuation and kill semantics."""
     def __init__(self, root: str | Path, identity):
         self.path = Path(root) / "entity_v3_agent_delegation.sqlite"; self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS grants(
                 grant_id TEXT PRIMARY KEY, principal TEXT NOT NULL, grantor TEXT NOT NULL,
                 grantee TEXT NOT NULL, parent_grant_id TEXT, depth INTEGER NOT NULL,
@@ -90,7 +104,7 @@ class AgentDelegationProfile:
               parent_grant_id: str | None = None) -> dict:
         caps = sorted({str(c).upper() for c in capabilities})
         depth = 0
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             if parent_grant_id:
                 parent = db.execute("SELECT * FROM grants WHERE grant_id=? AND status='ACTIVE'",
@@ -113,7 +127,7 @@ class AgentDelegationProfile:
                 "expires_at_ms": int(expires_at_ms), "policy_sha256": policy_sha256,
                 "status": "ACTIVE", "created_at_ms": now_ms()}
         sig = self.identity.sign(grantor, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO grants VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
                 body["grant_id"], principal, grantor, grantee, parent_grant_id, depth,
                 int(max_depth), json.dumps(caps), body["budget_units"], 0,
@@ -123,7 +137,7 @@ class AgentDelegationProfile:
 
     def consume(self, grant_id: str, capability: str, units=1, *, at_ms=None) -> dict:
         at, units, capability = int(at_ms or now_ms()), max(0, int(units)), capability.upper()
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             row = db.execute("SELECT * FROM grants WHERE grant_id=?", (grant_id,)).fetchone()
             if not row or row["status"] != "ACTIVE": raise PermissionError("inactive grant")
@@ -139,7 +153,7 @@ class AgentDelegationProfile:
                 "remaining_units": int(row["budget_units"]) - spent}
 
     def kill(self, grant_id: str) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             queue, revoked = [grant_id], []
             while queue:
                 current = queue.pop(0)
@@ -154,7 +168,7 @@ class PhysicalBindingProfile:
     """Physical↔digital binding with hardware evidence, custody and clone suspicion."""
     def __init__(self, root: str | Path, identity):
         self.path = Path(root) / "entity_v3_physical_binding.sqlite"; self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS bindings(
                 binding_id TEXT PRIMARY KEY, object_id TEXT NOT NULL, actor TEXT NOT NULL,
                 hardware_fingerprint TEXT NOT NULL, evidence_sha256 TEXT NOT NULL,
@@ -165,7 +179,7 @@ class PhysicalBindingProfile:
                 created_at_ms INTEGER NOT NULL, signature_json TEXT NOT NULL)""")
 
     def bind(self, actor: str, object_id: str, hardware_fingerprint: str, evidence_sha256: str) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             conflict = db.execute("SELECT object_id FROM bindings WHERE hardware_fingerprint=? "
                                   "AND status='ACTIVE' AND object_id<>?",
                                   (hardware_fingerprint, object_id)).fetchall()
@@ -176,7 +190,7 @@ class PhysicalBindingProfile:
                 "object_id": object_id, "actor": actor, "hardware_fingerprint": hardware_fingerprint,
                 "evidence_sha256": evidence_sha256, "status": "ACTIVE", "created_at_ms": now_ms()}
         sig = self.identity.sign(actor, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO bindings VALUES(?,?,?,?,?,?,?,?)", (
                 body["binding_id"], object_id, actor, hardware_fingerprint, evidence_sha256,
                 "ACTIVE", body["created_at_ms"], json.dumps(sig, sort_keys=True)))
@@ -189,7 +203,7 @@ class PhysicalBindingProfile:
                 "evidence_sha256": evidence_sha256, "created_at_ms": now_ms(),
                 "custody_is_not_ownership": True}
         sig = self.identity.sign(actor, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO custody VALUES(?,?,?,?,?,?,?)", (
                 body["event_id"], object_id, from_entity, to_entity, evidence_sha256,
                 body["created_at_ms"], json.dumps(sig, sort_keys=True)))

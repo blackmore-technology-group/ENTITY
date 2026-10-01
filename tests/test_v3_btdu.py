@@ -32,4 +32,6 @@ class BTDUIntegrationTests(unittest.TestCase):
   u=self.make();
   with self.assertRaises(PermissionError): u.materialize_primitive_bytes({"body":dict(self.auth_body,nonce="tampered"),"signature":self.receipt["signature"]})
   u.close()
+ def test_close_releases_btdu_index_file(self):
+  u=self.make(); path=u.db_path; u.close(); moved=path.with_suffix(".closed-test.sqlite"); path.replace(moved); moved.replace(path); self.assertTrue(path.is_file())
 if __name__=="__main__": unittest.main()

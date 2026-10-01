@@ -2,6 +2,20 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable
 import hashlib, json, secrets, sqlite3, time
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 TOPOLOGY_CLASSES = {"CORE", "REGIONAL", "EDGE", "SATELLITE", "OFFLINE"}
 
@@ -36,7 +50,7 @@ class TopologyRegistry:
         self.path = Path(root) / "entity_v3_topology.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS nodes(
                 node_id TEXT PRIMARY KEY, operator_entity_id TEXT NOT NULL,
                 topology_class TEXT NOT NULL, jurisdiction TEXT NOT NULL,
@@ -58,7 +72,7 @@ class TopologyRegistry:
                 "capabilities": caps, "status": "ACTIVE", "created_at_ms": now_ms(),
                 "infrastructure_membership_is_not_sovereign_authority": True}
         sig = self.identity.sign(operator, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             old = db.execute("SELECT operator_entity_id,topology_class,jurisdiction,trust_domain,capabilities_json FROM nodes WHERE node_id=?",
                              (node_id,)).fetchone()
             if old:
@@ -78,7 +92,7 @@ class PartitionSync:
         self.path = Path(root) / "entity_v3_partition_sync.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS checkpoints(
                 checkpoint_id TEXT PRIMARY KEY, node_id TEXT NOT NULL,
                 operator_entity_id TEXT NOT NULL, partition_id TEXT NOT NULL,
@@ -109,7 +123,7 @@ class PartitionSync:
             raise ValueError("invalid checkpoint sequence/epoch")
         if clock.get(node_id) != sequence:
             raise ValueError("node vector-clock component must equal checkpoint sequence")
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             last = db.execute("SELECT * FROM checkpoints WHERE node_id=? AND partition_id=? ORDER BY sequence DESC LIMIT 1",
                               (node_id, partition_id)).fetchone()
@@ -128,7 +142,7 @@ class PartitionSync:
                 "created_at_ms": now_ms()}
         checkpoint_hash = digest(body)
         sig = self.identity.sign(operator, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO checkpoints VALUES(?,?,?,?,?,?,?,?,?,?,?,?)", (
                 body["checkpoint_id"], node_id, operator, partition_id, sequence, epoch,
                 previous_checkpoint_sha256, state_root_sha256, json.dumps(clock, sort_keys=True),
@@ -136,7 +150,7 @@ class PartitionSync:
         return dict(body, checkpoint_sha256=checkpoint_hash, signature=sig)
 
     def _latest(self, partition_id: str) -> list[dict]:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             rows = db.execute("""SELECT c.* FROM checkpoints c JOIN (
                 SELECT node_id,partition_id,MAX(sequence) AS max_seq FROM checkpoints
@@ -173,7 +187,7 @@ class PartitionSync:
                     "checkpoint_id": chosen["checkpoint_id"], "partition_conflict": False}
         conflict_ids = sorted(x["checkpoint_id"] for x in latest)
         conflict_id = "partitionconflict3-" + digest({"partition": partition_id, "ids": conflict_ids})[:24]
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT OR IGNORE INTO conflicts VALUES(?,?,?,?,?)", (
                 conflict_id, partition_id, json.dumps(conflict_ids), "CONCURRENT_DIVERGENT_STATE", now_ms()))
         return {"partition_id": partition_id, "resolved": False,
@@ -221,7 +235,7 @@ class CryptoSuiteMigration:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
         self._verifiers: dict[str, Callable[[bytes, Any], bool]] = {}
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS suites(
                 suite_id TEXT PRIMARY KEY, governance_entity_id TEXT NOT NULL,
                 algorithm TEXT NOT NULL, security_bits INTEGER NOT NULL,
@@ -254,7 +268,7 @@ class CryptoSuiteMigration:
                 "not_before_ms": start, "deprecate_at_ms": dep, "retire_at_ms": ret,
                 "status": "ACTIVE", "created_at_ms": now_ms()}
         sig = self.identity.sign(governance_entity, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             old = db.execute("SELECT algorithm,security_bits,verifier_sha256,not_before_ms,deprecate_at_ms,retire_at_ms FROM suites WHERE suite_id=?",
                              (suite_id,)).fetchone()
             expected = (str(algorithm), security_bits, verifier_sha256, start, dep, ret)
@@ -270,7 +284,7 @@ class CryptoSuiteMigration:
     def bind_verifier(self, suite_id: str, verifier_sha256: str,
                       callback: Callable[[bytes, Any], bool]) -> None:
         suite_id = suite_id.upper(); verifier_sha256 = sha256_hex(verifier_sha256)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             row = db.execute("SELECT verifier_sha256 FROM suites WHERE suite_id=?", (suite_id,)).fetchone()
         if not row or row[0] != verifier_sha256:
             raise PermissionError("crypto verifier hash mismatch")
@@ -281,7 +295,7 @@ class CryptoSuiteMigration:
         old_suite_id, new_suite_id = old_suite_id.upper(), new_suite_id.upper()
         if old_suite_id == new_suite_id:
             raise ValueError("crypto transition requires distinct suites")
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             rows = db.execute("SELECT suite_id FROM suites WHERE suite_id IN (?,?)",
                               (old_suite_id, new_suite_id)).fetchall()
         if {r[0] for r in rows} != {old_suite_id, new_suite_id}:
@@ -297,7 +311,7 @@ class CryptoSuiteMigration:
                 "old_retire_at_ms": retire, "created_at_ms": now_ms(),
                 "downgrade_after_transition_prohibited": True}
         sig = self.identity.sign(governance_entity, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT OR REPLACE INTO transitions VALUES(?,?,?,?,?,?,?,?)", (
                 transition_id, governance_entity, old_suite_id, new_suite_id, start,
                 retire, body["created_at_ms"], json.dumps(sig, sort_keys=True)))
@@ -305,7 +319,7 @@ class CryptoSuiteMigration:
 
     def suite_state(self, suite_id: str, *, at_ms: int | None = None) -> str:
         at = int(at_ms or now_ms()); suite_id = suite_id.upper()
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             row = db.execute("SELECT not_before_ms,deprecate_at_ms,retire_at_ms FROM suites WHERE suite_id=?",
                              (suite_id,)).fetchone()
         if not row:
@@ -321,7 +335,7 @@ class CryptoSuiteMigration:
 
     def required_suites(self, old_suite_id: str, new_suite_id: str, *, at_ms: int) -> list[str]:
         old_suite_id, new_suite_id = old_suite_id.upper(), new_suite_id.upper()
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             row = db.execute("SELECT dual_sign_from_ms,old_retire_at_ms FROM transitions WHERE old_suite_id=? AND new_suite_id=? ORDER BY created_at_ms DESC LIMIT 1",
                              (old_suite_id, new_suite_id)).fetchone()
         if not row:
