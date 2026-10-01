@@ -1,15 +1,25 @@
 # ENTITY Developer Portal
 
+**Document class:** current-runtime developer orientation / non-normative  
+**Current supported runtime:** ENTITY v3.4.3  
+**BTDU component:** Blackmore Technology Data Universe (BTDU) 3.4.2, unchanged  
+**Protocol 1.0:** separate frozen external clean-room target
+
 This page is the public engineering gateway for ENTITY, an open-source project stewarded by **Blackmore Technology Group Limited (BTG)**.
 
-ENTITY is designed so that protocol conformance, verification and interoperability can be reproduced outside BTG-controlled infrastructure. BTG stewardship of the public project does not convert BTG hosting, storage, routing or software distribution into sovereign authority over conforming Entity identities or data.
+Before treating a document as a protocol requirement, read [Documentation Model](docs/DOCUMENTATION_MODEL.md). ENTITY publishes several distinct layers: frozen Protocol 1.0 material, the current v3.4.3 runtime, BTDU/runtime architecture, integration/domain packages and immutable historical evidence.
+
+ENTITY is designed so protocol conformance, verification and interoperability can be reproduced outside BTG-controlled infrastructure. BTG stewardship of the public project does not convert BTG hosting, storage, routing or software distribution into sovereign authority over conforming Entity identities or data.
 
 ## Start by objective
 
 | Goal | Start here |
 | --- | --- |
+| Understand the documentation layers | [Documentation Model](docs/DOCUMENTATION_MODEL.md) |
 | Understand ENTITY in 10 minutes | [START_HERE.md](START_HERE.md) |
-| Run the reference implementation | [README.md](README.md#quick-start) |
+| Run the current v3.4.3 reference runtime | [README.md](README.md#quick-start) |
+| Read the v3.4.3 release boundary | [RELEASE_V3_4_3.md](RELEASE_V3_4_3.md) |
+| Implement frozen Protocol 1.0 independently | [Protocol 1.0 Conformance Kit](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit) |
 | Inspect public engineering evidence | [docs/ENGINEERING_EVIDENCE.md](docs/ENGINEERING_EVIDENCE.md) |
 | Understand architecture decisions | [docs/architecture/README.md](docs/architecture/README.md) |
 | Review project governance | [GOVERNANCE.md](GOVERNANCE.md) |
@@ -19,34 +29,59 @@ ENTITY is designed so that protocol conformance, verification and interoperabili
 | Attempt independent interoperability | [docs/INTEROPERABILITY_CHALLENGE.md](docs/INTEROPERABILITY_CHALLENGE.md) |
 | Check interoperability status | [docs/interoperability/STATUS.md](docs/interoperability/STATUS.md) |
 | Report a vulnerability | [SECURITY.md](SECURITY.md) |
-| Review the external security-review program | [docs/security/INDEPENDENT_SECURITY_REVIEW_PROGRAM.md](docs/security/INDEPENDENT_SECURITY_REVIEW_PROGRAM.md) |
 | Read technical notes | [docs/papers/README.md](docs/papers/README.md) |
 | See how contributors are recognized | [docs/community/CONTRIBUTOR_RECOGNITION.md](docs/community/CONTRIBUTOR_RECOGNITION.md) |
-| Discuss engineering questions | [GitHub Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) |
 
-## Current protected release
+## Current supported runtime
 
-**ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**
+**ENTITY v3.4.3** is the current supported runtime. It is a bounded remediation release based on immutable v3.4.2.
 
-Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
+Current qualification published for v3.4.3:
 
-Public qualification evidence includes 185/185 regression tests, 8/8 protocol-origin/migration/economic-lineage tests, 33/33 targeted v3.4 tests, 24/24 sealed vectors, six BTG-controlled native implementations converging on `ac7504cce70576008cff069607619660a4b9bf0cad43b3f3de81078f1e80d9ba`, six published executable domain packages, and a completed post-release recursive closure.
+- Issue #28 remediation module: **76/76 PASS**;
+- full repository source suite: **279/279 PASS**;
+- source-suite exit code: **0**;
+- compiled Rust clean-room/conformance qualification: **PASS — inherited unchanged scope**;
+- real-world BTDU training qualification: **PASS — inherited unchanged scope**.
 
-Start with the [v3.4.1 portal](docs/v3.4/README.md) and [Domain Packages](docs/v3.4/DOMAIN_PACKAGES.md). These results are BTG-controlled engineering evidence, not unrelated third-party validation.
+Release merge commit: `528b70aabd05b1e930b77e4933f157731e47274f`  
+Immutable v3.4.2 predecessor: `6dfa3d6cc738d9369cf092d2782676bf4f2a46e4`
+
+BTDU remains component version **3.4.2 unchanged**. The active 30-day wall-clock campaign and immutable v3.4.2 evidence were not rewritten by v3.4.3.
+
+## Do not mix these three targets
+
+### ENTITY Protocol 1.0
+
+Protocol 1.0 is the frozen external clean-room target. An unrelated implementer should use the sealed conformance-kit repository and the exact pinned material permitted by that campaign.
+
+BTDU, ADAM, NIKI and later runtime architecture are **not automatically Protocol 1.0 requirements**.
+
+### ENTITY runtime v3.4.3
+
+The runtime is BTG's current supported implementation/release. It includes behavior and architecture developed after the Protocol 1.0 freeze. Runtime documentation may therefore describe concepts outside the frozen Protocol 1.0 surface.
+
+### BTDU 3.4.2
+
+BTDU means **Blackmore Technology Data Universe**. It is the governed information-substrate component carried unchanged into ENTITY v3.4.3. The public architecture contract identifies ENTITY for authority/rights, ADAM as deterministic state engine, NIKI as reasoning consumer and BTDU as the governed universal information substrate.
+
+BTDU documentation does not expand the Protocol 1.0 clean-room obligation unless a normative Protocol 1.0 source explicitly does so.
 
 ## Engineering tracks
 
 ### 1. Reproduction and portability
 
-Best for engineers who want to evaluate the project without implementing the protocol.
+Best for engineers who want to evaluate a published target without independently implementing the protocol.
 
 Typical work:
 
-- reproduce the release on Linux or macOS;
+- reproduce an exact historical/current campaign identified by version and hash;
 - validate sealed vectors;
 - identify machine-specific assumptions;
 - benchmark verification;
 - improve onboarding and diagnostics.
+
+A reproduction must name the exact target. Reproducing a frozen v3.4.2 baseline is not a statement that v3.4.2 is the current runtime.
 
 ### 2. Specification and architecture review
 
@@ -54,87 +89,87 @@ Best for protocol, security, identity, distributed-systems and data-rights engin
 
 Typical work:
 
-- identify ambiguous semantics;
+- identify ambiguous semantics or undefined vocabulary;
 - challenge authority transitions;
 - review canonicalization and signature boundaries;
 - produce counterexamples;
-- review evidence, attestation, recovery and portability semantics.
+- review evidence, attestation, recovery and portability semantics;
+- identify places where runtime examples could be mistaken for Protocol 1.0 requirements.
 
 ### 3. Independent implementation
 
-Best for unrelated developers or organizations who want to test whether ENTITY semantics are reproducible from public material alone.
+Best for unrelated developers or organizations who want to test whether ENTITY Protocol 1.0 semantics are reproducible from permitted public material alone.
 
-Independent implementations own their own:
+Independent implementations own their own architecture, libraries, source code, tests, repository and qualification evidence.
 
-- architecture;
-- libraries;
-- code structure;
-- testing strategy;
-- repository;
-- qualification evidence.
-
-BTG-controlled Rust, TypeScript, C#, Go, Swift and Java implementations are reproducibility baselines, **not independent implementations**.
+BTG-controlled Rust, TypeScript, C#, Go, Swift and Java repositories are reproducibility baselines, **not independent implementations**.
 
 ### 4. Live interoperability
 
-This track begins after an independently authored implementation can classify the public vectors correctly.
+This track begins after an independently authored implementation can classify the required public vectors correctly.
 
-The target progression is:
+The progression is:
 
 `sealed material → independent implementation → vector conformance → reproducible CI → bidirectional live interoperability → sovereign export/recovery survival → independently authored evidence`
 
-Partial results are published as partial results. A failed vector, ambiguity or non-interoperable result is useful evidence and must not be upgraded into a success claim.
+Partial results remain partial. A failed vector, ambiguity or non-interoperable result is useful evidence and must not be upgraded into a success claim.
 
 ### 5. Security research
 
-Security research should focus on concrete boundaries such as:
+Useful targets include cryptographic misuse, canonicalization ambiguity, authority escalation, provider capture, recovery/portability failure, evidence confusion and unauthorized rights/economic-state transitions.
 
-- cryptographic misuse;
-- signature/canonicalization ambiguity;
-- authority escalation;
-- provider capture;
-- recovery or portability failure;
-- evidence/attestation confusion;
-- external-anchor substitution;
-- rights/usage/settlement authorization flaws.
-
-Use private vulnerability reporting for exploitable findings. Public architectural criticism and non-sensitive counterexamples are welcome in issues or Discussions.
+Use private vulnerability reporting for exploitable findings. Public architectural criticism and non-sensitive counterexamples are welcome.
 
 ## Public engineering principles
 
-ENTITY development follows several rules that contributors should be able to audit:
+1. **Define first, bound second.** Explain what a protocol object/state is before listing what it does not imply.
+2. **Evidence before claims.** Test counts and hashes remain tied to their exact target.
+3. **No silent authority transfer.** Hosting, custody, routing, storage and discovery do not become sovereign authority merely because a provider performs them.
+4. **No silent ownership transfer.** Registration, ingestion, provenance and custody do not create ownership.
+5. **No automatic economic entitlement.** Economic participation requires explicit terms and qualified evidence.
+6. **No silent semantic rewrite.** Historical signed state and sealed campaigns remain interpretable under their original target.
+7. **Independent evidence stays independent.** BTG-controlled work is not relabelled third-party validation.
+8. **External criticism is engineering evidence.** Reproducible failures and documentation ambiguities improve the system.
 
-1. **Evidence before claims.** Qualification artifacts and exact hashes are published separately from marketing language.
-2. **No silent authority transfer.** Hosting, storage, routing, discovery and custody do not become sovereign authority merely because an infrastructure provider performs them.
-3. **No silent semantic rewrite.** Historical signed state is superseded or migrated explicitly rather than reinterpreted under new rules.
-4. **Independent evidence stays independent.** BTG-controlled testing is never relabeled as third-party validation.
-5. **Protocol versions are reviewable public targets.** Conformance should be possible from public specifications, schemas, vectors and reproducible tooling.
-6. **External-world claims remain contestable.** Cryptographic validity, protocol validity and evidence supporting a claim are separate questions.
-7. **Useful failures are publishable results.** Reproducible failures, counterexamples and ambiguities improve the protocol.
+## Canonical origin versus asset provenance
+
+The canonical ENTITY origin is:
+
+`Shawn Blackmore → Blackmore Technology Group → ENTITY`
+
+That identifies ENTITY's own protocol/project origin. It is not automatically the provenance root or ownership chain of unrelated upstream assets.
+
+```text
+UPSTREAM OWNERSHIP
+        ≠
+BTG FORK CUSTODY
+        ≠
+BTG-CREATED ENTITY METADATA OWNERSHIP
+        ≠
+ENTITY PROTOCOL ORIGIN
+        ≠
+AUTOMATIC ECONOMIC RIGHTS
+```
 
 ## Contribution lifecycle
 
-A typical contribution moves through:
-
 `issue/discussion → bounded proposal → implementation or evidence → pull request → automated checks → review → merge → release qualification where applicable`
 
-Changes that affect identity, authority, signature meaning, provider independence, recovery, portability, evidence semantics or wire compatibility receive architecture/governance review in addition to ordinary code review.
-
-See [GOVERNANCE.md](GOVERNANCE.md) and [docs/governance/RELEASE_POLICY.md](docs/governance/RELEASE_POLICY.md).
+Changes affecting identity, authority, signature meaning, provider independence, recovery, portability, evidence semantics, rights, economic state or wire compatibility require architecture/governance review in addition to ordinary code review.
 
 ## Corporate stewardship and project independence
 
-Blackmore Technology Group Limited currently stewards ENTITY's specifications, reference implementation, release process and official public repositories.
+BTG currently stewards the official specifications, reference implementation, release process and public repositories.
 
-That stewardship is intentionally separated from protocol sovereignty. A conforming published ENTITY version is not intended to require BTG hosting, BTG DNS, a BTG resolver, a mandatory BTG cloud service or paid permission to use the protocol.
+That stewardship is separated from protocol sovereignty. A conforming published protocol target is not intended to require BTG hosting, BTG DNS, a BTG resolver, a mandatory BTG cloud service or paid permission to implement the published protocol.
 
-The strongest long-term evidence for that boundary is external reproduction and interoperability by parties BTG does not control.
+The strongest evidence for that boundary remains independently authored external implementation and interoperability.
 
 ## Where to participate
 
-- [Issues](https://github.com/blackmore-technology-group/ENTITY/issues) — bounded engineering work, defects, portability findings and specification questions.
-- [Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) — architecture, design review, implementation questions and broader engineering discussion.
+- [Issues](https://github.com/blackmore-technology-group/ENTITY/issues) — defects, portability findings, terminology/specification questions and bounded work.
+- [Discussions](https://github.com/blackmore-technology-group/ENTITY/discussions) — design and implementation discussion.
 - [Pull requests](https://github.com/blackmore-technology-group/ENTITY/pulls) — code, documentation and reproducible evidence.
 - [Releases](https://github.com/blackmore-technology-group/ENTITY/releases) — protected public release artifacts and release notes.
 
-If you are evaluating ENTITY for the first time, start with [START_HERE.md](START_HERE.md), then choose one bounded task before attempting a complete implementation.
+If you are evaluating ENTITY for the first time, start with [START_HERE.md](START_HERE.md), then choose one bounded target and state its exact layer/version before testing it.

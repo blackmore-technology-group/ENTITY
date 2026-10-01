@@ -1,0 +1,6 @@
+{
+  "schema": "entity-independent-node/sample/v1",
+  "kind": "lineage-test-object",
+  "message": "Hello from an independently operated ENTITY test node.",
+  "rights_notice": "TEST_ONLY_NO_ECONOMIC_ENTITLEMENT"
+}

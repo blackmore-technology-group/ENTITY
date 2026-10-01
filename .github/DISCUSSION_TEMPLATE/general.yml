@@ -1,0 +1,66 @@
+title: "[Community] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        General is for developer/user discussion, evaluation and operating experience that is not yet a concrete defect or design proposal.
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Audience
+      options:
+        - User / operator
+        - Developer / integrator
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Getting started / onboarding
+        - Identity / authority / rights
+        - SDK / CLI / API
+        - BTDU / ADAM / NIKI
+        - Evidence / provenance / passports
+        - Markets / economics / settlement
+        - Protocol / conformance
+        - Recovery / portability
+        - Standards / interoperability
+        - Documentation / tutorials
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Version or target
+      options:
+        - ENTITY v3.4.3
+        - BTDU 3.4.2 component
+        - ENTITY Protocol 1.0
+        - Historical v3.4.2 qualification/baseline
+        - Not version-specific
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic
+      description: Describe the experience, observation, evaluation result or discussion topic.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or references
+      description: Add public links, commands, hashes, screenshots or reproducible observations when relevant. State whether results are local, BTG-qualified, externally reproduced or independently produced.
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Community check
+      options:
+        - label: I have not included secrets, private user/business data, signing/recovery keys or security-sensitive exploit details.
+          required: true

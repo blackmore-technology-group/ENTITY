@@ -1,0 +1,19 @@
+{
+  "automatic_economic_rights_created_by_anchor": false,
+  "btdu_component": "3.4.2",
+  "btg_fork_expected": "https://github.com/blackmore-technology-group/tensorflow.git",
+  "btg_fork_status": "PENDING",
+  "capture_date": "2026-09-28",
+  "default_branch": "master",
+  "entity_runtime": "3.4.3",
+  "license_blob_sha1": "12d255f8e0f049d3c3127e71788e219b86cdf55b",
+  "license_path": "LICENSE",
+  "license_summary": "Apache-2.0 top-level license text with additional Caffe-derived copyright/license material embedded in LICENSE",
+  "schema": "entity-erq-tensorflow-source-anchor-v1",
+  "source_anchor_sha256": "73d9e57477b668788448482aae9404ecae51a7590e4bcc1a5fb3e6e07a113a2c",
+  "status": "PRE_INGEST_SOURCE_ANCHOR",
+  "upstream_commit_sha1": "01f1f5593fb816279e95eb2cbc2336cbf184dc4e",
+  "upstream_repository": "https://github.com/tensorflow/tensorflow.git",
+  "upstream_source_ownership_claimed_by_btg": false,
+  "upstream_tree_sha1": "2b749fcf7b10fa1a8c1747f3269cc85f6b5fe6f7"
+}
