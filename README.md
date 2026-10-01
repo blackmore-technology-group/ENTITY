@@ -15,6 +15,14 @@ ENTITY is Blackmore Technology Group's open-source protocol and reference implem
 
 [**15-minute first-run audit**](https://github.com/blackmore-technology-group/ENTITY/issues/80) · [**ENTITY v3.4.3 Release**](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.3) · [**External Qualification**](https://github.com/blackmore-technology-group/ENTITY/issues/55) · [**ERQ Campaign**](https://github.com/blackmore-technology-group/ENTITY/issues/78) · [**Documentation**](https://blackmore-technology-group.github.io/ENTITY-DOCS/) · [**Conformance Kit**](https://github.com/blackmore-technology-group/ENTITY-Protocol-1.0-Conformance-Kit) · [**Interoperability Challenge**](docs/INTEROPERABILITY_CHALLENGE.md)
 
+## Independent Node Program — device-to-device testing
+
+Run an independently operated ENTITY test node and exchange lineage-preserving test objects with another device.
+
+[**Install / participate**](independent-node/README.md) · [**Test campaign**](independent-node/TEST_CAMPAIGN.md) · [**Privacy & safety**](independent-node/PRIVACY.md)
+
+The program distinguishes BTG-controlled tests, external reproduction, and independently operated multi-node interoperability evidence. Participation does not create automatic ownership, payment, endorsement, or economic entitlement.
+
 ## Developer entry points
 
 You do **not** need to understand all of ENTITY before building with it.
