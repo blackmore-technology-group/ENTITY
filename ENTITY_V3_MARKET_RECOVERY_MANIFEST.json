@@ -27,11 +27,11 @@
     },
     {
       "path": "ENTITY_V3_EEP_CONFORMANCE_MANIFEST.json",
-      "sha256": "aa7dd20a8d396084ead3b677eda0251912cb7ccaf8a857bd54d1df84ec7679d1"
+      "sha256": "265443f8c061c0fb77189900612c1474e1130e2d0ae5377fe4d1a64164429a02"
     },
     {
       "path": "ENTITY_V3_EOPP_HARDENING_MANIFEST.json",
-      "sha256": "25292ef3320e31243c0155ddf297c5b6908b8a8c4b50993b1c66c3aff8295403"
+      "sha256": "1ebd28994b62cffb2e588395ff2bc94b98d8d1335dd07f907d7afef9db2e063a"
     }
   ],
   "implemented": [
@@ -49,7 +49,7 @@
     "required_trade_revenue_binding_recovery"
   ],
   "schema": "entity-v3-market-recovery-evidence-manifest-v1",
-  "snapshot_sha256": "947a0b9bf2aa60078ec990e28962392d428d4fd751a6e2cfebf4f26378abdfd3",
+  "snapshot_sha256": "e6a4d64cd671a64e3f7497458c1e0f389c506bb86a189a27eef9854f0969f2d4",
   "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
   "validation": {
     "complete_active_tree": {
