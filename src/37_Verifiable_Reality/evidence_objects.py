@@ -4,6 +4,20 @@ from typing import Any
 import hashlib, json, secrets, sqlite3, time
 
 from reality_profile import CLAIM_STATES, EVIDENCE_TYPES
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 def now_ms() -> int:
     return int(time.time() * 1000)
@@ -42,7 +56,7 @@ class EvidenceRegistry:
         self.path = Path(root) / "entity_v3_3_evidence.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS evidence(
                 evidence_id TEXT PRIMARY KEY, source_entity_id TEXT NOT NULL, evidence_type TEXT NOT NULL,
                 subject_ref TEXT NOT NULL, content_sha256 TEXT NOT NULL, body_sha256 TEXT NOT NULL,
@@ -82,7 +96,7 @@ class EvidenceRegistry:
         }
         body_sha = digest(body)
         sig = self.identity.sign(source_entity_id, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO evidence VALUES(?,?,?,?,?,?,?,?,?)", (
                 body["evidence_id"], source_entity_id, evidence_type, body["subject_ref"],
                 body["content_sha256"], body_sha, json.dumps(body, sort_keys=True),
@@ -139,7 +153,7 @@ class EvidenceRegistry:
         }
         body_sha = digest(body)
         sig = self.identity.sign(issuer_entity_id, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO claims VALUES(?,?,?,?,?,?,?,?,?,?)", (
                 body["claim_id"], issuer_entity_id, body["subject_ref"], body["predicate"],
                 body["value_sha256"], state, body_sha, json.dumps(body, sort_keys=True),
@@ -147,7 +161,7 @@ class EvidenceRegistry:
         return dict(body, body_sha256=body_sha, signature=sig)
 
     def get_claim(self, claim_id: str) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             row = db.execute("SELECT * FROM claims WHERE claim_id=?", (claim_id,)).fetchone()
         if not row:
@@ -181,7 +195,7 @@ class EvidenceRegistry:
         }
         body_sha = digest(body)
         sig = self.identity.sign(actor_entity_id, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO claim_transitions VALUES(?,?,?,?,?,?,?,?,?,?,?)", (
                 body["transition_id"], claim_id, actor_entity_id, from_state, to_state, body["reason"],
                 json.dumps(body["evidence_refs"]), body_sha, json.dumps(body, sort_keys=True),
@@ -190,7 +204,7 @@ class EvidenceRegistry:
         return dict(body, body_sha256=body_sha, signature=sig)
 
     def claim_history(self, claim_id: str) -> list[dict]:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             rows = db.execute("SELECT body_json,body_sha256,signature_json FROM claim_transitions WHERE claim_id=? ORDER BY created_at_ms,transition_id", (claim_id,)).fetchall()
         return [dict(json.loads(r["body_json"]), body_sha256=r["body_sha256"],

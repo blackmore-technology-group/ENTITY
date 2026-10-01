@@ -2,6 +2,20 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 import hashlib, json, secrets, sqlite3, time
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 EFFECTS = {"ALLOW", "REQUIRE", "PROHIBIT"}
 PRIVACY_PROFILES = {
@@ -66,7 +80,7 @@ class RightsPassportRegistry:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
         self.fabric = fabric
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS passports(
                 passport_id TEXT PRIMARY KEY, object_id TEXT NOT NULL, controller_entity_id TEXT NOT NULL,
                 version TEXT NOT NULL, passport_sha256 TEXT NOT NULL, body_json TEXT NOT NULL,
@@ -132,7 +146,7 @@ class RightsPassportRegistry:
         passport_hash = digest(body)
         sig = self.identity.sign(controller, body)
         try:
-            with sqlite3.connect(self.path) as db:
+            with dbctx(self.path) as db:
                 db.execute("INSERT INTO passports VALUES(?,?,?,?,?,?,?,?,?)", (
                     body["passport_id"], body["object_id"], controller, body["version"], passport_hash,
                     json.dumps(body, sort_keys=True), "ACTIVE", body["created_at_ms"],
@@ -142,7 +156,7 @@ class RightsPassportRegistry:
         return dict(body, passport_sha256=passport_hash, signature=sig)
 
     def get(self, passport_id: str) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             row = db.execute("SELECT * FROM passports WHERE passport_id=?", (passport_id,)).fetchone()
         if not row:
@@ -188,7 +202,7 @@ class RightsPassportRegistry:
                 "actor_entity_id": actor, "created_at_ms": now_ms(),
                 "history_rewrite_prohibited": True}
         sig = self.identity.sign(actor, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO supersessions VALUES(?,?,?,?,?)", (
                 old_passport_id, new_passport_id, actor, body["created_at_ms"],
                 json.dumps(sig, sort_keys=True)))

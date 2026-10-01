@@ -2,6 +2,20 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 import hashlib, json, secrets, sqlite3, time
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 PROFILE_KINDS={"GLOBAL","JURISDICTION","INDUSTRY","DOMAIN","PRIVACY","TRUST","DISCLOSURE"}
 CONFLICT_POLICIES={"FAIL_CLOSED","MOST_RESTRICTIVE"}
@@ -19,7 +33,7 @@ class GlobalProfileRegistry:
     """Versioned composable profiles. Profiles constrain interpretation; they do not create sovereign authority."""
     def __init__(self,root:str|Path,identity):
         self.path=Path(root)/"entity_v3_4_global_profiles.sqlite"; self.path.parent.mkdir(parents=True,exist_ok=True); self.identity=identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS profiles(
             profile_ref TEXT PRIMARY KEY, profile_id TEXT NOT NULL, version TEXT NOT NULL, kind TEXT NOT NULL,
             body_sha256 TEXT NOT NULL, body_json TEXT NOT NULL, issuer_entity_id TEXT NOT NULL,
@@ -65,7 +79,7 @@ class GlobalProfileRegistry:
             "standards_mapping_is_not_normative_equivalence":True,"created_at_ms":now_ms()}
         body_sha=digest(body); sig=self.identity.sign(issuer_entity_id,body)
         try:
-            with sqlite3.connect(self.path) as db:
+            with dbctx(self.path) as db:
                 db.execute("INSERT INTO profiles VALUES(?,?,?,?,?,?,?,?,?)",(ref,body["profile_id"],body["version"],kind,body_sha,json.dumps(body,sort_keys=True),issuer_entity_id,json.dumps(sig,sort_keys=True),body["created_at_ms"]))
                 db.execute("INSERT INTO profile_variants VALUES(?,?,?,?,?,?,?,?,?,1)",(ref,body_sha,body["profile_id"],body["version"],kind,json.dumps(body,sort_keys=True),issuer_entity_id,json.dumps(sig,sort_keys=True),body["created_at_ms"]))
         except sqlite3.IntegrityError as exc: raise ValueError("immutable profile version already exists") from exc
@@ -74,7 +88,7 @@ class GlobalProfileRegistry:
         record=dict(profile or {}); check=self.verify(record)
         if not check.get("valid"): raise ValueError("invalid signed profile: "+str(check.get("reason","unknown")))
         body=self._body(record); ref=body["profile_ref"]
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory=sqlite3.Row; prior=db.execute("SELECT * FROM profiles WHERE profile_ref=?",(ref,)).fetchone()
             if prior:
                 old=self._row_record(prior)
@@ -90,14 +104,14 @@ class GlobalProfileRegistry:
         return self.get(ref)
 
     def get(self,profile_ref:str,body_sha256:str|None=None)->dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory=sqlite3.Row
             row=(db.execute("SELECT * FROM profiles WHERE profile_ref=?",(str(profile_ref),)).fetchone() if body_sha256 is None else db.execute("SELECT * FROM profile_variants WHERE profile_ref=? AND body_sha256=?",(str(profile_ref),str(body_sha256))).fetchone())
         if not row: raise KeyError("profile missing")
         return self._row_record(row)
 
     def list_variants(self,profile_ref:str)->list[dict]:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory=sqlite3.Row; rows=db.execute("SELECT * FROM profile_variants WHERE profile_ref=? ORDER BY created_at_ms,body_sha256",(str(profile_ref),)).fetchall()
         return [self._row_record(row) for row in rows]
 

@@ -2,6 +2,20 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 import hashlib, json, secrets, sqlite3, time
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 CORE_PRIMITIVES=("ENTITY","AUTHORITY","RIGHT","EVENT","VALUE")
 def now_ms()->int: return int(time.time()*1000)
@@ -15,7 +29,7 @@ class GlobalPassportRegistry:
         self.path=Path(root)/"entity_v3_4_global_passports.sqlite"; self.path.parent.mkdir(parents=True,exist_ok=True)
         self.identity=identity; self.fabric=fabric; self.rights=rights_passports; self.profiles=profile_registry; self.origin=origin_registry
         self.required_release_ref=str(required_release_ref) if required_release_ref else None
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS global_passports(
             passport_id TEXT PRIMARY KEY, object_id TEXT NOT NULL, controller_entity_id TEXT NOT NULL,
             version TEXT NOT NULL, body_sha256 TEXT NOT NULL, body_json TEXT NOT NULL,
@@ -69,12 +83,12 @@ class GlobalPassportRegistry:
         if btdu is not None: body["btdu_binding"]=btdu
         body_sha=digest(body); sig=self.identity.sign(controller_entity_id,body)
         try:
-            with sqlite3.connect(self.path) as db:
+            with dbctx(self.path) as db:
                 db.execute("INSERT INTO global_passports VALUES(?,?,?,?,?,?,?,?)",(body["passport_id"],object_id,controller_entity_id,body["version"],body_sha,json.dumps(body,sort_keys=True),json.dumps(sig,sort_keys=True),body["created_at_ms"]))
         except sqlite3.IntegrityError as exc: raise ValueError("immutable global passport version already exists") from exc
         return dict(body,body_sha256=body_sha,signature=sig)
     def get(self,passport_id:str)->dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory=sqlite3.Row; row=db.execute("SELECT * FROM global_passports WHERE passport_id=?",(str(passport_id),)).fetchone()
         if not row: raise KeyError("global passport missing")
         body=json.loads(row["body_json"])

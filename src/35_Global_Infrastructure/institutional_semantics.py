@@ -2,6 +2,20 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 import hashlib, json, secrets, sqlite3, time
+from contextlib import contextmanager
+
+
+@contextmanager
+def dbctx(path):
+    db = sqlite3.connect(path)
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
 REGISTRY_KINDS = {
     "SCHEMA", "RIGHT", "EVENT", "CAPABILITY", "ASSET_CLASS",
@@ -35,7 +49,7 @@ class JurisdictionProfileRegistry:
         self.path = Path(root) / "entity_v3_jurisdiction_profiles.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS profiles(
                 profile_id TEXT PRIMARY KEY, jurisdiction_code TEXT NOT NULL,
                 domain TEXT NOT NULL, version TEXT NOT NULL, authority_entity_id TEXT NOT NULL,
@@ -85,7 +99,7 @@ class JurisdictionProfileRegistry:
         if end is not None and end <= start:
             raise ValueError("effective_to_ms must follow effective_from_ms")
         self.identity.load_manifest(authority)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             if parent_profile_id and not db.execute(
                 "SELECT 1 FROM profiles WHERE profile_id=?", (parent_profile_id,)
@@ -114,7 +128,7 @@ class JurisdictionProfileRegistry:
             "legal_effect_is_deployment_specific": True,
         }
         sig = self.identity.sign(authority, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO profiles VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
                 profile_id, jurisdiction_code, domain, version, authority, schema_sha256,
                 json.dumps(normalized_rules, sort_keys=True), start, end, int(precedence),
@@ -123,7 +137,7 @@ class JurisdictionProfileRegistry:
         return dict(body, signature=sig)
 
     def supersede(self, actor: str, old_profile_id: str, new_profile_id: str) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             old = db.execute("SELECT * FROM profiles WHERE profile_id=?", (old_profile_id,)).fetchone()
             new = db.execute("SELECT * FROM profiles WHERE profile_id=?", (new_profile_id,)).fetchone()
@@ -136,7 +150,7 @@ class JurisdictionProfileRegistry:
                 "actor_entity_id": actor, "created_at_ms": now_ms(),
                 "history_rewrite_prohibited": True}
         sig = self.identity.sign(actor, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO supersessions VALUES(?,?,?,?,?)", (
                 old_profile_id, new_profile_id, actor, body["created_at_ms"], json.dumps(sig, sort_keys=True)))
             db.execute("UPDATE profiles SET status='SUPERSEDED' WHERE profile_id=?", (old_profile_id,))
@@ -153,7 +167,7 @@ class JurisdictionProfileRegistry:
                "AND status='ACTIVE' AND effective_from_ms<=? "
                "AND (effective_to_ms IS NULL OR effective_to_ms>=?) "
                "ORDER BY precedence DESC,jurisdiction_code,version")
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             rows = db.execute(sql, (*codes, domain, at, at)).fetchall()
         out = []
@@ -203,7 +217,7 @@ class SemanticRegistry:
         self.path = Path(root) / "entity_v3_semantic_registry.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS namespaces(
                 namespace_id TEXT PRIMARY KEY, owner_entity_id TEXT NOT NULL,
                 description TEXT NOT NULL, governance_ref TEXT,
@@ -232,7 +246,7 @@ class SemanticRegistry:
                 "owner_entity_id": owner, "description": str(description).strip(),
                 "governance_ref": governance_ref, "created_at_ms": now_ms()}
         sig = self.identity.sign(owner, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             old = db.execute("SELECT owner_entity_id FROM namespaces WHERE namespace_id=?",
                              (namespace_id,)).fetchone()
             if old:
@@ -252,7 +266,7 @@ class SemanticRegistry:
         term_id, version = str(term_id).strip(), str(version).strip()
         if not term_id or not version:
             raise ValueError("term_id and version required")
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             ns = db.execute("SELECT owner_entity_id FROM namespaces WHERE namespace_id=?",
                             (namespace_id,)).fetchone()
             if not ns:
@@ -273,7 +287,7 @@ class SemanticRegistry:
                 "status": "ACTIVE", "supersedes_ref": supersedes_ref,
                 "created_at_ms": now_ms()}
         sig = self.identity.sign(owner, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO terms VALUES(?,?,?,?,?,?,?,?,?,?)", (
                 namespace_id, kind, term_id, version, definition_hash,
                 json.dumps(definition, sort_keys=True), "ACTIVE", supersedes_ref,
@@ -289,7 +303,7 @@ class SemanticRegistry:
             namespace_id, kind, term_id = head.split(":", 2)
         except ValueError as exc:
             raise ValueError("invalid semantic term reference") from exc
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             row = db.execute("SELECT * FROM terms WHERE namespace_id=? AND kind=? AND term_id=? AND version=?",
                              (namespace_id.lower(), kind.upper(), term_id, version)).fetchone()
@@ -320,7 +334,7 @@ class SemanticRegistry:
                 "mapping_is_attestation_not_identity": True,
                 "silent_semantic_coercion_prohibited": True}
         sig = self.identity.sign(actor, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO crosswalks VALUES(?,?,?,?,?,?,?,?,?,?)", (
                 body["crosswalk_id"], actor, source_ref, target_ref, relation,
                 evidence_sha256, json.dumps(body["jurisdiction_scope"]), confidence_bps,
@@ -328,7 +342,7 @@ class SemanticRegistry:
         return dict(body, signature=sig)
 
     def mappings(self, source_ref: str, *, target_namespace: str | None = None) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             rows = db.execute("SELECT * FROM crosswalks WHERE source_ref=? ORDER BY created_at_ms,crosswalk_id",
                               (source_ref,)).fetchall()
@@ -352,7 +366,7 @@ class MultiStakeholderGovernance:
         self.path = Path(root) / "entity_v3_multistakeholder_governance.sqlite"
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.identity = identity
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS bodies(
                 body_id TEXT PRIMARY KEY, steward_entity_id TEXT NOT NULL, name TEXT NOT NULL,
                 charter_sha256 TEXT NOT NULL, classes_json TEXT NOT NULL,
@@ -394,7 +408,7 @@ class MultiStakeholderGovernance:
                 "min_approval_classes": min_approval_classes, "status": "ACTIVE",
                 "created_at_ms": now_ms(), "single_implementation_is_not_standard_authority": True}
         sig = self.identity.sign(steward, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO bodies VALUES(?,?,?,?,?,?,?,?,?,?)", (
                 body_id, steward, str(name), charter_sha256, json.dumps(classes),
                 approval_threshold, min_approval_classes, "ACTIVE", body["created_at_ms"],
@@ -403,7 +417,7 @@ class MultiStakeholderGovernance:
 
     def add_member(self, body_id: str, steward: str, member: str, stakeholder_class: str) -> dict:
         stakeholder_class = stakeholder_class.upper()
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             body = db.execute("SELECT * FROM bodies WHERE body_id=? AND status='ACTIVE'", (body_id,)).fetchone()
         if not body:
@@ -417,7 +431,7 @@ class MultiStakeholderGovernance:
                   "member_entity_id": member, "stakeholder_class": stakeholder_class,
                   "status": "ACTIVE", "admitted_at_ms": now_ms()}
         sig = self.identity.sign(steward, record)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT OR REPLACE INTO members VALUES(?,?,?,?,?,?)", (
                 body_id, member, stakeholder_class, "ACTIVE", record["admitted_at_ms"],
                 json.dumps(sig, sort_keys=True)))
@@ -428,7 +442,7 @@ class MultiStakeholderGovernance:
         change_class = change_class.upper()
         if change_class not in {"CORE", "PROFILE", "ONTOLOGY", "SCHEMA", "TEST", "GOVERNANCE"}:
             raise ValueError("unsupported change class")
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             member = db.execute("SELECT 1 FROM members WHERE body_id=? AND member_entity_id=? AND status='ACTIVE'",
                                 (body_id, proposer)).fetchone()
         if not member:
@@ -442,7 +456,7 @@ class MultiStakeholderGovernance:
                   "target_ref": str(target_ref), "body_sha256": body_hash,
                   "status": "OPEN", "created_at_ms": now_ms()}
         sig = self.identity.sign(proposer, record)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT INTO proposals VALUES(?,?,?,?,?,?,?,?,?)", (
                 proposal_id, body_id, proposer, change_class, str(target_ref), body_hash,
                 "OPEN", record["created_at_ms"], json.dumps(sig, sort_keys=True)))
@@ -453,7 +467,7 @@ class MultiStakeholderGovernance:
                 "member_entity_id": member, "recuse": bool(recuse),
                 "basis_sha256": digest(basis), "created_at_ms": now_ms()}
         sig = self.identity.sign(member, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             if not db.execute("SELECT 1 FROM proposals WHERE proposal_id=?", (proposal_id,)).fetchone():
                 raise KeyError("proposal missing")
             db.execute("INSERT OR REPLACE INTO conflicts VALUES(?,?,?,?,?,?)", (
@@ -465,7 +479,7 @@ class MultiStakeholderGovernance:
         decision = decision.upper()
         if decision not in {"APPROVE", "REJECT", "ABSTAIN"}:
             raise ValueError("invalid governance decision")
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             proposal = db.execute("SELECT * FROM proposals WHERE proposal_id=? AND status='OPEN'", (proposal_id,)).fetchone()
             if not proposal:
@@ -482,7 +496,7 @@ class MultiStakeholderGovernance:
                 "voter_entity_id": voter, "stakeholder_class": member["stakeholder_class"],
                 "decision": decision, "created_at_ms": now_ms()}
         sig = self.identity.sign(voter, body)
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("INSERT OR REPLACE INTO ballots VALUES(?,?,?,?,?,?)", (
                 proposal_id, voter, member["stakeholder_class"], decision,
                 body["created_at_ms"], json.dumps(sig, sort_keys=True)))
@@ -490,7 +504,7 @@ class MultiStakeholderGovernance:
         return dict(body, signature=sig, proposal_status=result["status"])
 
     def tally(self, proposal_id: str) -> dict:
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.row_factory = sqlite3.Row
             proposal = db.execute("SELECT * FROM proposals WHERE proposal_id=?", (proposal_id,)).fetchone()
             if not proposal:
@@ -508,7 +522,7 @@ class MultiStakeholderGovernance:
             status = "REJECTED"
         else:
             status = "OPEN"
-        with sqlite3.connect(self.path) as db:
+        with dbctx(self.path) as db:
             db.execute("UPDATE proposals SET status=? WHERE proposal_id=?", (status, proposal_id))
         return {
             "proposal_id": proposal_id, "status": status,
