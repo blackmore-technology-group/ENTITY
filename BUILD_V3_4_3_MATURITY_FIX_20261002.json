@@ -1,0 +1,18 @@
+{
+  "schema": "entity-v343-maturity-fix-build-v1",
+  "entity_display_version": "3.4.3",
+  "btdu_schema_version": "3.4.2",
+  "build_revision": "v3.4.3+btdu-orientation-math-code-english.bridge-concurrency.20261002",
+  "fixes": [
+    "governed English-math-code semantic bridge as signed/hashed derived index",
+    "serialized in-process BTDU mutations",
+    "SQLite WAL + 30s busy timeout",
+    "authority-neutral canonical replication root"
+  ],
+  "claim_boundary": [
+    "cross-domain bridge migration does not replay or mutate the signed ADAM journal",
+    "ADAM signed atomic roots remain authority-specific",
+    "canonical replication root does not replace signed ADAM authority root",
+    "semantic bridge creates no rights/ownership/economic entitlement"
+  ]
+}

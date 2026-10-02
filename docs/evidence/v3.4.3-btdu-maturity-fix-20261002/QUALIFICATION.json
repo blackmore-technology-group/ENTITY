@@ -1,0 +1,122 @@
+{
+  "schema": "entity-v343-btdu-maturity-fix-public-qualification-v1",
+  "completed_utc": "2026-10-02T23:32:00Z",
+  "entity_display_version": "3.4.3",
+  "btdu_schema_version": "3.4.2",
+  "build_revision": "v3.4.3+btdu-orientation-math-code-english.bridge-concurrency.20261002",
+  "pass": true,
+  "installed_regression_gate": {
+    "passed": 106,
+    "total": 106
+  },
+  "cross_domain_bridge": {
+    "pass": true,
+    "governed_semantic_bridge": true,
+    "derived_index": true,
+    "concepts": 7,
+    "installed_relations": 21,
+    "maturity_audit_edges_reported": 20,
+    "maturity_audit_reporting_cap": 20,
+    "bridge_root": "1b0e736c23744142041a346916c231ea59bbfef1ebd570de4055a590390672bf",
+    "manifest_id": "bridge-manifest:016c9424ee9d2c258affade05f763a8087dfcbcf17bfa0f5488db1256273ca74",
+    "owner_authorization_signature_verified": true,
+    "example_chain": [
+      "lemma:v:add",
+      "math-semantic:addition",
+      "code-token:+"
+    ],
+    "source_provenance_preserved": true,
+    "signed_adam_journal_mutated": false,
+    "rights_created": false,
+    "ownership_created": false,
+    "economic_entitlement_created": false
+  },
+  "orientation": {
+    "pass": true,
+    "cases": 30000,
+    "orientation_accuracy": 1,
+    "direction_dropped_baseline_accuracy": 0.5,
+    "absolute_accuracy_gain": 0.5,
+    "normalization_latency_us": {
+      "median": 7,
+      "p95": 11.2
+    }
+  },
+  "retrieval_control": {
+    "pass": true,
+    "boundary": "Controlled synthetic ground-truth benchmark; not a universal RAG or LLM replacement claim.",
+    "entity_nomic_graph_answer_accuracy": 1,
+    "entity_rule_graph_answer_accuracy": 0.9666666666666667,
+    "vector_required_complete_chain_recall_at_5": 0.3
+  },
+  "runtime": {
+    "pass": true,
+    "queries": 30000,
+    "missing_results": 0,
+    "sqlite_quick_check": "ok",
+    "latency_ms": {
+      "median": 0.0704,
+      "p95": 1.57234,
+      "p99": 22.859724,
+      "max": 134.8901
+    }
+  },
+  "crash_recovery": {
+    "pass": true,
+    "copy_bytes": 846057472,
+    "child_exit_code": 91,
+    "integrity_check": "ok",
+    "committed_survived": true,
+    "uncommitted_absent": true,
+    "probe_rows_after_recovery": 1
+  },
+  "concurrent_lineage": {
+    "pass": true,
+    "workers": 8,
+    "chains_expected": 120,
+    "chains_actual": 120,
+    "nodes_expected": 360,
+    "nodes_actual": 360,
+    "edges_expected": 240,
+    "edges_actual": 240,
+    "errors": [],
+    "unique_lineage_roots": 120,
+    "elapsed_s": 13.75198200007435,
+    "chains_per_second": 8.726014911839707,
+    "sqlite_quick_check": "ok",
+    "btdu_verify": true
+  },
+  "replica_convergence": {
+    "pass": true,
+    "semantic_lineage_roots_equal": true,
+    "canonical_replication_roots_equal": true,
+    "canonical_replication_root": "55303fa048d38908c4aef0ac39f69ba9feecf25ed780b1566b95234c0dd70c72",
+    "semantic_lineage_root": "b393d868b7570356627ab2d224d109ba43b4331971b241448b9ffa6c9c00597f",
+    "signed_atomic_roots_equal": false,
+    "boundary": "Signed ADAM atomic roots remain authority-specific. Exact replicated BTDU payload convergence is measured with the authority-neutral canonical replication root."
+  },
+  "signed_adam_state_preserved": {
+    "sequence": 75121,
+    "root": "74f9c41c26f1260c01adc3db839f573cb664cbf80b84e2ba4788d7da08bbebfd",
+    "journal_bytes": 3439095724,
+    "matches_pre_fix": true
+  },
+  "lineage_guard": {
+    "canonical_state_sha256": "FF7E1199422207DA0FFF9AD50C70C8E788B04439BEDDFC68906B89F9C19E8F53",
+    "protocol_freeze_sha256": "8099811548F3A8C25DA192AD732CFC767020E0491C805C2C79764E351296DDFF",
+    "origin_bundle_sha256": "26D86A01E855F4433FC23BF693B1D043209750F3D432A79BF61AD5BC3602DAD5",
+    "preserved": true
+  },
+  "q1_scale_evidence": {
+    "carried_forward": true,
+    "evidence_sha256": "9683F2BC92921DB382E2FAF152272998565EEBCA705D0D4E2C7DD7AAACADE788",
+    "reason": "The bridge/concurrency fix does not alter the previously qualified physical billion-bond representation."
+  },
+  "repository_boundary": {
+    "runtime_state_committed": false,
+    "sqlite_databases_committed": false,
+    "multi_gigabyte_btdu_journal_committed": false,
+    "authority_keys_committed": false,
+    "credentials_committed": false
+  }
+}

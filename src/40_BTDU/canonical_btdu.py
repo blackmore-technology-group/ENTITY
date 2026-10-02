@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable, Mapping, Iterable
 from contextlib import contextmanager
-import hashlib, json, mimetypes, os, sqlite3, subprocess, sys, time
+import hashlib, json, mimetypes, os, sqlite3, subprocess, sys, time, threading
 
 HERE=Path(__file__).resolve().parent
 SRC=HERE.parent
@@ -13,7 +13,7 @@ from canonical_full_adam_runtime import EntityFullAdamRuntime
 
 BTDU_VERSION="3.4.2"
 BTDU_SCHEMA="blackmore-technology-data-universe-v1"
-BTDU_BUILD_REVISION="v3.4.3+btdu-orientation-math-code-english.20261002"
+BTDU_BUILD_REVISION="v3.4.3+btdu-orientation-math-code-english.bridge-concurrency.20261002"
 BTDU_CANONICAL_OWNER_ENTITY_ID="ent2-6eoiiztjyhmyh2tbr5psmofcduwvjledubhoiqwo6mjfoqkn6ica"
 BTDU_CANONICAL_OWNER_ALIAS="shawn.blackmore.entity"
 BTG_STEWARD_ENTITY_ID="ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa"
@@ -24,6 +24,83 @@ GENESIS_MARKET_LIFECYCLE=("DCO","INSTRUMENT","LISTING","DISCLOSURE","ORDER_RFQ_A
 def canon(v:Any)->bytes: return json.dumps(v,sort_keys=True,separators=(",",":"),ensure_ascii=False,default=str).encode()
 def sha256(v:Any)->str: return hashlib.sha256(bytes(v) if isinstance(v,(bytes,bytearray)) else canon(v)).hexdigest()
 def now_ms()->int: return int(time.time()*1000)
+
+CROSS_DOMAIN_BRIDGE_SPECS=(
+    ("addition",("add","addition"),"+"),
+    ("subtraction",("subtract",),"-"),
+    ("multiplication",("multiply",),"*"),
+    ("division",("divide",),"/"),
+    ("equality",("equal",),"="),
+    ("less_than",("less",),"<"),
+    ("greater_than",("greater",),">"),
+)
+
+def install_cross_domain_bridge_index(db:sqlite3.Connection,authorization_record:Mapping[str,Any]|None=None)->dict[str,Any]:
+    """Build the governed cross-domain bridge as a rebuildable derived SQLite index.
+
+    This deliberately does not mutate the signed ADAM journal. The source English,
+    mathematical orientation and code records remain the provenance-bearing records;
+    the bridge stores deterministic references plus the signed/verified authorization
+    receipt supplied by the caller.
+    """
+    db.row_factory=sqlite3.Row
+    db.execute("PRAGMA busy_timeout=30000")
+    tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    required={"english_lemmas","language_nodes","language_relations","orientation_occurrences"}
+    if not required.issubset(tables):
+        raise RuntimeError("cross-domain bridge requires ingested English, code and mathematics/orientation tables")
+    expected=["concept_ref","math_operator","code_token_ref","english_refs_json","metadata_json","bridge_hash"]
+    existing=[r["name"] for r in db.execute("PRAGMA table_info(semantic_bridges)")] if "semantic_bridges" in tables else []
+    if existing and existing!=expected:
+        db.execute("DROP TABLE semantic_bridges")
+    db.execute("""CREATE TABLE IF NOT EXISTS semantic_bridges(
+        concept_ref TEXT PRIMARY KEY,math_operator TEXT NOT NULL,code_token_ref TEXT NOT NULL,
+        english_refs_json TEXT NOT NULL,metadata_json TEXT NOT NULL,bridge_hash TEXT NOT NULL)""")
+    db.execute("""CREATE TABLE IF NOT EXISTS semantic_bridge_manifests(
+        manifest_id TEXT PRIMARY KEY,manifest_json TEXT NOT NULL,authorization_json TEXT NOT NULL,created_at_ms INTEGER NOT NULL)""")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_language_relation_bridge ON language_relations(predicate,source_ref,target_ref)")
+    # Rebuild only the derived bridge predicates; all source corpus relations are preserved.
+    db.execute("DELETE FROM language_relations WHERE predicate IN ('maps_to_math_semantic','realized_as_code_token')")
+    db.execute("DELETE FROM semantic_bridges")
+    relations=[]; installed=[]
+    boundary={"governed_semantic_bridge":True,"derived_index":True,"rights_created":False,
+              "ownership_created":False,"economic_entitlement_created":False,
+              "source_provenance_preserved":True,"signed_adam_journal_mutated":False}
+    for concept,lemmas,operator in CROSS_DOMAIN_BRIDGE_SPECS:
+        concept_ref="math-semantic:"+concept
+        code_ref="code-token:"+operator
+        op_count=int(db.execute("SELECT count(*) FROM orientation_occurrences WHERE original_operator=?",(operator,)).fetchone()[0])
+        code=db.execute("SELECT node_ref FROM language_nodes WHERE node_kind='code_token' AND value_text=? ORDER BY node_ref LIMIT 1",(operator,)).fetchone()
+        q="SELECT lemma_ref,lemma,pos FROM english_lemmas WHERE lower(lemma) IN ("+",".join("?" for _ in lemmas)+") ORDER BY lemma_ref"
+        erows=db.execute(q,tuple(x.lower() for x in lemmas)).fetchall()
+        if op_count<=0 or code is None or not erows: continue
+        english_refs=[str(r["lemma_ref"]) for r in erows]
+        md=dict(boundary,bridge_concept=concept,math_operator_occurrences=op_count)
+        bridge_hash=sha256({"schema":"entity-btdu-cross-domain-concept-v1","concept_ref":concept_ref,
+                            "math_operator":operator,"code_token_ref":str(code["node_ref"]),"english_refs":english_refs})
+        db.execute("INSERT OR REPLACE INTO semantic_bridges VALUES(?,?,?,?,?,?)",
+            (concept_ref,operator,str(code["node_ref"]),json.dumps(english_refs,sort_keys=True),json.dumps(md,sort_keys=True),bridge_hash))
+        for erow in erows:
+            rmd=dict(md,source_lemma=str(erow["lemma"]),source_pos=str(erow["pos"]))
+            rr="bridge-rel:"+sha256({"s":str(erow["lemma_ref"]),"p":"maps_to_math_semantic","t":concept_ref})
+            db.execute("INSERT OR REPLACE INTO language_relations VALUES(?,?,?,?,?,?)",
+                (rr,str(erow["lemma_ref"]),"maps_to_math_semantic",concept_ref,None,json.dumps(rmd,sort_keys=True)))
+            relations.append((str(erow["lemma_ref"]),"maps_to_math_semantic",concept_ref))
+        rr="bridge-rel:"+sha256({"s":concept_ref,"p":"realized_as_code_token","t":str(code["node_ref"])})
+        db.execute("INSERT OR REPLACE INTO language_relations VALUES(?,?,?,?,?,?)",
+            (rr,concept_ref,"realized_as_code_token",str(code["node_ref"]),None,json.dumps(md,sort_keys=True)))
+        relations.append((concept_ref,"realized_as_code_token",str(code["node_ref"])))
+        installed.append({"concept":concept,"concept_ref":concept_ref,"math_operator":operator,
+                          "code_token_ref":str(code["node_ref"]),"english_refs":english_refs,
+                          "math_operator_occurrences":op_count,"bridge_hash":bridge_hash})
+    root=sha256({"schema":"entity-btdu-cross-domain-bridge-root-v1","relations":sorted(relations)})
+    manifest={"schema":"entity-btdu-cross-domain-bridge-install-v2","build_revision":BTDU_BUILD_REVISION,
+              "concepts":len(installed),"relations":len(relations),"bridge_root":root,"installed":installed,
+              **boundary}
+    manifest_id="bridge-manifest:"+sha256(manifest)
+    db.execute("INSERT OR REPLACE INTO semantic_bridge_manifests VALUES(?,?,?,?)",
+        (manifest_id,json.dumps(manifest,sort_keys=True),json.dumps(dict(authorization_record or {}),sort_keys=True),now_ms()))
+    return dict(manifest,manifest_id=manifest_id)
 
 class BlackmoreTechnologyDataUniverse:
     """ENTITY-governed information substrate built on the existing ADAM runtime.
@@ -36,6 +113,7 @@ class BlackmoreTechnologyDataUniverse:
         if authorization_verifier is None: raise ValueError("ENTITY authorization verifier is required")
         if not str(sovereign_entity_id).startswith(("ent1-","ent2-")): raise ValueError("sovereign Entity ID required")
         self.root=Path(state_dir); self.root.mkdir(parents=True,exist_ok=True)
+        self._write_lock=threading.RLock()
         self.authorization_verifier=authorization_verifier; self.sovereign_entity_id=str(sovereign_entity_id); self.protocol_entity_id=str(protocol_entity_id); self.steward_entity_id=str(steward_entity_id)
         self.runtime=EntityFullAdamRuntime(self.root/"adam",authorization_verifier=authorization_verifier,enable_network_reference=enable_network_reference)
         self.atomic=self.runtime.atomic; self.evidence=self.runtime.evidence; self.db_path=self.root/"btdu_index.sqlite"
@@ -55,7 +133,8 @@ class BlackmoreTechnologyDataUniverse:
 
     @contextmanager
     def _db(self):
-        db=sqlite3.connect(self.db_path); db.row_factory=sqlite3.Row
+        db=sqlite3.connect(self.db_path,timeout=30.0); db.row_factory=sqlite3.Row
+        db.execute("PRAGMA busy_timeout=30000")
         try:
             with db:
                 yield db
@@ -64,6 +143,8 @@ class BlackmoreTechnologyDataUniverse:
 
     def _init_db(self):
         with self._db() as db:
+            db.execute("PRAGMA journal_mode=WAL")
+            db.execute("PRAGMA synchronous=NORMAL")
             db.executescript('''
             CREATE TABLE IF NOT EXISTS metadata(key TEXT PRIMARY KEY,value_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS objects(object_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL UNIQUE,logical_path TEXT NOT NULL,content_sha256 TEXT NOT NULL,size_bytes INTEGER NOT NULL,media_type TEXT NOT NULL,evidence_object_id TEXT NOT NULL,source_entity_id TEXT NOT NULL,controller_entity_id TEXT NOT NULL,rights_holder_entity_id TEXT,provenance_ref TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
@@ -71,6 +152,12 @@ class BlackmoreTechnologyDataUniverse:
             CREATE TABLE IF NOT EXISTS economic_nodes(node_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL UNIQUE,node_kind TEXT NOT NULL,metadata_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS economic_edges(edge_id TEXT PRIMARY KEY,source_ref TEXT NOT NULL,predicate TEXT NOT NULL,target_ref TEXT NOT NULL,source_atom_id TEXT NOT NULL,target_atom_id TEXT NOT NULL,bond_id TEXT NOT NULL,evidence_sha256 TEXT,metadata_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS repository_manifests(manifest_id TEXT PRIMARY KEY,repository_path TEXT NOT NULL,git_commit_sha1 TEXT,git_tree_sha1 TEXT,tracked_files INTEGER NOT NULL,aggregate_sha256 TEXT NOT NULL,atomic_root TEXT NOT NULL,manifest_json TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS language_nodes(node_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL,node_kind TEXT NOT NULL,language TEXT,value_text TEXT,metadata_json TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS language_relations(relation_ref TEXT PRIMARY KEY,source_ref TEXT NOT NULL,predicate TEXT NOT NULL,target_ref TEXT NOT NULL,bond_id TEXT,metadata_json TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS english_lemmas(lemma_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL,lemma TEXT NOT NULL,pos TEXT NOT NULL,synset_count INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS semantic_bridges(concept_ref TEXT PRIMARY KEY,math_operator TEXT NOT NULL,code_token_ref TEXT NOT NULL,english_refs_json TEXT NOT NULL,metadata_json TEXT NOT NULL,bridge_hash TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS semantic_bridge_manifests(manifest_id TEXT PRIMARY KEY,manifest_json TEXT NOT NULL,authorization_json TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
+            CREATE INDEX IF NOT EXISTS idx_language_relation_bridge ON language_relations(predicate,source_ref,target_ref);
             CREATE INDEX IF NOT EXISTS idx_btdu_object_sha ON objects(content_sha256);
             CREATE INDEX IF NOT EXISTS idx_btdu_edge_source ON edges(source_ref,predicate);
             CREATE INDEX IF NOT EXISTS idx_btdu_econ_source ON economic_edges(source_ref,predicate);
@@ -79,22 +166,27 @@ class BlackmoreTechnologyDataUniverse:
     def _authorize(self,receipt:Mapping[str,Any]):
         if not self.authorization_verifier(dict(receipt)): raise PermissionError("ENTITY authorization verification failed; BTDU mutation denied")
     def _commit(self,ops:list[dict],*,metadata:dict[str,Any]):
-        if ops: self.atomic.commit(ops,metadata=metadata,capability=self.runtime._capability)
+        if not ops: return
+        with self._write_lock:
+            self.atomic.commit(ops,metadata=metadata,capability=self.runtime._capability)
     def _put_atom(self,kind:str,value:Any,metadata:dict[str,Any]|None=None)->str:
-        metadata=dict(metadata or {}); aid=self.atomic.atom_id(kind,value,metadata)
-        if aid not in self.atomic.atoms: self._commit([{"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata}],metadata={"btdu":"put_atom","kind":kind})
-        return aid
+        with self._write_lock:
+            metadata=dict(metadata or {}); aid=self.atomic.atom_id(kind,value,metadata)
+            if aid not in self.atomic.atoms: self._commit([{"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata}],metadata={"btdu":"put_atom","kind":kind})
+            return aid
     def _put_atoms(self,rows:Iterable[tuple[str,Any,dict[str,Any]]],*,reason:str)->list[str]:
-        ids=[]; ops=[]
-        for kind,value,metadata in rows:
-            aid=self.atomic.atom_id(kind,value,metadata); ids.append(aid)
-            if aid not in self.atomic.atoms: ops.append({"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata})
-        self._commit(ops,metadata={"btdu":reason,"count":len(ops)}); return ids
+        with self._write_lock:
+            ids=[]; ops=[]
+            for kind,value,metadata in rows:
+                aid=self.atomic.atom_id(kind,value,metadata); ids.append(aid)
+                if aid not in self.atomic.atoms: ops.append({"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata})
+            self._commit(ops,metadata={"btdu":reason,"count":len(ops)}); return ids
     def _bond(self,source_atom_id:str,predicate:str,target_atom_id:str,*,source_ref:str,target_ref:str,context:str,metadata:dict[str,Any])->str:
-        bid,op=self.atomic.bond_op(source_atom_id,str(predicate),target_atom_id,context=str(context),metadata=dict(metadata))
-        if op: self._commit([op],metadata={"btdu":"bond","predicate":str(predicate)})
-        with self._db() as db: db.execute("INSERT OR REPLACE INTO edges VALUES(?,?,?,?,?,?,?)",(bid,source_atom_id,str(predicate),target_atom_id,str(source_ref),str(target_ref),json.dumps(metadata,sort_keys=True)))
-        return bid
+        with self._write_lock:
+            bid,op=self.atomic.bond_op(source_atom_id,str(predicate),target_atom_id,context=str(context),metadata=dict(metadata))
+            if op: self._commit([op],metadata={"btdu":"bond","predicate":str(predicate)})
+            with self._db() as db: db.execute("INSERT OR REPLACE INTO edges VALUES(?,?,?,?,?,?,?)",(bid,source_atom_id,str(predicate),target_atom_id,str(source_ref),str(target_ref),json.dumps(metadata,sort_keys=True)))
+            return bid
 
     def _ensure_root(self):
         root_ref=f"btdu:{self.sovereign_entity_id}"
@@ -200,6 +292,10 @@ class BlackmoreTechnologyDataUniverse:
         return manifest
 
     def mirror_economic_lineage(self,*,nodes:list[dict[str,Any]],edges:list[dict[str,Any]],authorization_receipt:Mapping[str,Any],evidence_sha256:str|None=None)->dict[str,Any]:
+        with self._write_lock:
+            return self._mirror_economic_lineage_locked(nodes=nodes,edges=edges,authorization_receipt=authorization_receipt,evidence_sha256=evidence_sha256)
+
+    def _mirror_economic_lineage_locked(self,*,nodes:list[dict[str,Any]],edges:list[dict[str,Any]],authorization_receipt:Mapping[str,Any],evidence_sha256:str|None=None)->dict[str,Any]:
         self._authorize(authorization_receipt); node_map={}
         for node in nodes:
             ref=str(node["ref"]); kind=str(node["kind"]).upper(); md=dict(node.get("metadata") or {})
@@ -269,6 +365,57 @@ class BlackmoreTechnologyDataUniverse:
             uses.append({"language_ref":r["source_ref"],"token_class":md.get("token_class"),
                          "occurrence_count":md.get("occurrence_count"),"direction_preserved":md.get("direction_preserved",True)})
         return {"schema":"entity-btdu-code-token-usage-v1","token":str(token),"languages":uses}
+
+    def install_cross_domain_semantic_bridge(self,authorization_receipt:Mapping[str,Any])->dict[str,Any]:
+        self._authorize(authorization_receipt)
+        with self._write_lock:
+            with self._db() as db:
+                return install_cross_domain_bridge_index(db,authorization_receipt)
+
+    def resolve_cross_domain_concept(self,english_term:str)->dict[str,Any]:
+        with self._db() as db:
+            rows=db.execute("""SELECT l.lemma,l.pos,r.target_ref AS concept_ref,b.math_operator,b.code_token_ref
+                               FROM english_lemmas l
+                               JOIN language_relations r ON r.source_ref=l.lemma_ref AND r.predicate='maps_to_math_semantic'
+                               JOIN semantic_bridges b ON b.concept_ref=r.target_ref
+                               WHERE lower(l.lemma)=lower(?)
+                               ORDER BY l.pos,r.target_ref""",(str(english_term),)).fetchall()
+        return {"schema":"entity-btdu-cross-domain-resolution-v1","query":str(english_term),"matches":[dict(r) for r in rows]}
+
+    def cross_domain_bridge_summary(self)->dict[str,Any]:
+        with self._db() as db:
+            tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+            if "semantic_bridges" not in tables:
+                return {"schema":"entity-btdu-cross-domain-bridge-summary-v1","concepts":0,"relations":0}
+            concepts=int(db.execute("SELECT count(*) FROM semantic_bridges").fetchone()[0])
+            relations=int(db.execute("SELECT count(*) FROM language_relations WHERE predicate IN ('maps_to_math_semantic','realized_as_code_token')").fetchone()[0]) if "language_relations" in tables else 0
+        return {"schema":"entity-btdu-cross-domain-bridge-summary-v1","concepts":concepts,"relations":relations}
+
+    def canonical_replication_root(self)->str:
+        """Authority-neutral deterministic root for exact BTDU semantic replication.
+
+        ADAM's signed atomic root intentionally binds a local authority identity; two
+        independent authorities can therefore have different signed atomic roots while
+        carrying identical BTDU content. This root hashes deterministic BTDU content IDs
+        and semantic/economic rows so replicas can prove exact payload convergence
+        without pretending their authority envelopes are identical.
+        """
+        atom_ids=sorted(str(x) for x in self.atomic.atoms.keys())
+        compound_ids=sorted(str(x) for x in self.atomic.compounds.keys())
+        bond_ids=sorted(str(x) for x in self.atomic.bonds.keys())
+        with self._db() as db:
+            tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+            def rows(table,cols):
+                if table not in tables: return []
+                return [tuple(r) for r in db.execute("SELECT "+",".join(cols)+" FROM "+table+" ORDER BY "+",".join(cols))]
+            payload={
+              "schema":"entity-btdu-canonical-replication-root-v1",
+              "atoms":atom_ids,"compounds":compound_ids,"bonds":bond_ids,
+              "economic_nodes":rows("economic_nodes",("node_ref","atom_id","node_kind","metadata_json")),
+              "economic_edges":rows("economic_edges",("edge_id","source_ref","predicate","target_ref","source_atom_id","target_atom_id","bond_id","evidence_sha256","metadata_json")),
+              "semantic_bridges":rows("semantic_bridges",("concept_ref","math_operator","code_token_ref","english_refs_json","metadata_json","bridge_hash")),
+            }
+        return sha256(payload)
 
     def passport_binding(self,object_ref:str)->dict[str,Any]:
         with self._db() as db:
