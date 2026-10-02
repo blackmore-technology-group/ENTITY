@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable, Mapping, Iterable
 from contextlib import contextmanager
-import hashlib, json, mimetypes, os, sqlite3, subprocess, sys, time
+import hashlib, json, mimetypes, os, sqlite3, subprocess, sys, time, threading
 
 HERE=Path(__file__).resolve().parent
 SRC=HERE.parent
@@ -13,7 +13,7 @@ from canonical_full_adam_runtime import EntityFullAdamRuntime
 
 BTDU_VERSION="3.4.2"
 BTDU_SCHEMA="blackmore-technology-data-universe-v1"
-BTDU_BUILD_REVISION="v3.4.3+btdu-orientation-math-code-english.20261002"
+BTDU_BUILD_REVISION="v3.4.3+btdu-orientation-math-code-english.bridge-concurrency.20261002"
 BTDU_CANONICAL_OWNER_ENTITY_ID="ent2-6eoiiztjyhmyh2tbr5psmofcduwvjledubhoiqwo6mjfoqkn6ica"
 BTDU_CANONICAL_OWNER_ALIAS="shawn.blackmore.entity"
 BTG_STEWARD_ENTITY_ID="ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa"
@@ -36,6 +36,7 @@ class BlackmoreTechnologyDataUniverse:
         if authorization_verifier is None: raise ValueError("ENTITY authorization verifier is required")
         if not str(sovereign_entity_id).startswith(("ent1-","ent2-")): raise ValueError("sovereign Entity ID required")
         self.root=Path(state_dir); self.root.mkdir(parents=True,exist_ok=True)
+        self._write_lock=threading.RLock()
         self.authorization_verifier=authorization_verifier; self.sovereign_entity_id=str(sovereign_entity_id); self.protocol_entity_id=str(protocol_entity_id); self.steward_entity_id=str(steward_entity_id)
         self.runtime=EntityFullAdamRuntime(self.root/"adam",authorization_verifier=authorization_verifier,enable_network_reference=enable_network_reference)
         self.atomic=self.runtime.atomic; self.evidence=self.runtime.evidence; self.db_path=self.root/"btdu_index.sqlite"
@@ -55,7 +56,8 @@ class BlackmoreTechnologyDataUniverse:
 
     @contextmanager
     def _db(self):
-        db=sqlite3.connect(self.db_path); db.row_factory=sqlite3.Row
+        db=sqlite3.connect(self.db_path,timeout=30.0); db.row_factory=sqlite3.Row
+        db.execute("PRAGMA busy_timeout=30000")
         try:
             with db:
                 yield db
@@ -64,6 +66,8 @@ class BlackmoreTechnologyDataUniverse:
 
     def _init_db(self):
         with self._db() as db:
+            db.execute("PRAGMA journal_mode=WAL")
+            db.execute("PRAGMA synchronous=NORMAL")
             db.executescript('''
             CREATE TABLE IF NOT EXISTS metadata(key TEXT PRIMARY KEY,value_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS objects(object_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL UNIQUE,logical_path TEXT NOT NULL,content_sha256 TEXT NOT NULL,size_bytes INTEGER NOT NULL,media_type TEXT NOT NULL,evidence_object_id TEXT NOT NULL,source_entity_id TEXT NOT NULL,controller_entity_id TEXT NOT NULL,rights_holder_entity_id TEXT,provenance_ref TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
