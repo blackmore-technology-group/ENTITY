@@ -25,6 +25,83 @@ def canon(v:Any)->bytes: return json.dumps(v,sort_keys=True,separators=(",",":")
 def sha256(v:Any)->str: return hashlib.sha256(bytes(v) if isinstance(v,(bytes,bytearray)) else canon(v)).hexdigest()
 def now_ms()->int: return int(time.time()*1000)
 
+CROSS_DOMAIN_BRIDGE_SPECS=(
+    ("addition",("add","addition"),"+"),
+    ("subtraction",("subtract",),"-"),
+    ("multiplication",("multiply",),"*"),
+    ("division",("divide",),"/"),
+    ("equality",("equal",),"="),
+    ("less_than",("less",),"<"),
+    ("greater_than",("greater",),">"),
+)
+
+def install_cross_domain_bridge_index(db:sqlite3.Connection,authorization_record:Mapping[str,Any]|None=None)->dict[str,Any]:
+    """Build the governed cross-domain bridge as a rebuildable derived SQLite index.
+
+    This deliberately does not mutate the signed ADAM journal. The source English,
+    mathematical orientation and code records remain the provenance-bearing records;
+    the bridge stores deterministic references plus the signed/verified authorization
+    receipt supplied by the caller.
+    """
+    db.row_factory=sqlite3.Row
+    db.execute("PRAGMA busy_timeout=30000")
+    tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    required={"english_lemmas","language_nodes","language_relations","orientation_occurrences"}
+    if not required.issubset(tables):
+        raise RuntimeError("cross-domain bridge requires ingested English, code and mathematics/orientation tables")
+    expected=["concept_ref","math_operator","code_token_ref","english_refs_json","metadata_json","bridge_hash"]
+    existing=[r["name"] for r in db.execute("PRAGMA table_info(semantic_bridges)")] if "semantic_bridges" in tables else []
+    if existing and existing!=expected:
+        db.execute("DROP TABLE semantic_bridges")
+    db.execute("""CREATE TABLE IF NOT EXISTS semantic_bridges(
+        concept_ref TEXT PRIMARY KEY,math_operator TEXT NOT NULL,code_token_ref TEXT NOT NULL,
+        english_refs_json TEXT NOT NULL,metadata_json TEXT NOT NULL,bridge_hash TEXT NOT NULL)""")
+    db.execute("""CREATE TABLE IF NOT EXISTS semantic_bridge_manifests(
+        manifest_id TEXT PRIMARY KEY,manifest_json TEXT NOT NULL,authorization_json TEXT NOT NULL,created_at_ms INTEGER NOT NULL)""")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_language_relation_bridge ON language_relations(predicate,source_ref,target_ref)")
+    # Rebuild only the derived bridge predicates; all source corpus relations are preserved.
+    db.execute("DELETE FROM language_relations WHERE predicate IN ('maps_to_math_semantic','realized_as_code_token')")
+    db.execute("DELETE FROM semantic_bridges")
+    relations=[]; installed=[]
+    boundary={"governed_semantic_bridge":True,"derived_index":True,"rights_created":False,
+              "ownership_created":False,"economic_entitlement_created":False,
+              "source_provenance_preserved":True,"signed_adam_journal_mutated":False}
+    for concept,lemmas,operator in CROSS_DOMAIN_BRIDGE_SPECS:
+        concept_ref="math-semantic:"+concept
+        code_ref="code-token:"+operator
+        op_count=int(db.execute("SELECT count(*) FROM orientation_occurrences WHERE original_operator=?",(operator,)).fetchone()[0])
+        code=db.execute("SELECT node_ref FROM language_nodes WHERE node_kind='code_token' AND value_text=? ORDER BY node_ref LIMIT 1",(operator,)).fetchone()
+        q="SELECT lemma_ref,lemma,pos FROM english_lemmas WHERE lower(lemma) IN ("+",".join("?" for _ in lemmas)+") ORDER BY lemma_ref"
+        erows=db.execute(q,tuple(x.lower() for x in lemmas)).fetchall()
+        if op_count<=0 or code is None or not erows: continue
+        english_refs=[str(r["lemma_ref"]) for r in erows]
+        md=dict(boundary,bridge_concept=concept,math_operator_occurrences=op_count)
+        bridge_hash=sha256({"schema":"entity-btdu-cross-domain-concept-v1","concept_ref":concept_ref,
+                            "math_operator":operator,"code_token_ref":str(code["node_ref"]),"english_refs":english_refs})
+        db.execute("INSERT OR REPLACE INTO semantic_bridges VALUES(?,?,?,?,?,?)",
+            (concept_ref,operator,str(code["node_ref"]),json.dumps(english_refs,sort_keys=True),json.dumps(md,sort_keys=True),bridge_hash))
+        for erow in erows:
+            rmd=dict(md,source_lemma=str(erow["lemma"]),source_pos=str(erow["pos"]))
+            rr="bridge-rel:"+sha256({"s":str(erow["lemma_ref"]),"p":"maps_to_math_semantic","t":concept_ref})
+            db.execute("INSERT OR REPLACE INTO language_relations VALUES(?,?,?,?,?,?)",
+                (rr,str(erow["lemma_ref"]),"maps_to_math_semantic",concept_ref,None,json.dumps(rmd,sort_keys=True)))
+            relations.append((str(erow["lemma_ref"]),"maps_to_math_semantic",concept_ref))
+        rr="bridge-rel:"+sha256({"s":concept_ref,"p":"realized_as_code_token","t":str(code["node_ref"])})
+        db.execute("INSERT OR REPLACE INTO language_relations VALUES(?,?,?,?,?,?)",
+            (rr,concept_ref,"realized_as_code_token",str(code["node_ref"]),None,json.dumps(md,sort_keys=True)))
+        relations.append((concept_ref,"realized_as_code_token",str(code["node_ref"])))
+        installed.append({"concept":concept,"concept_ref":concept_ref,"math_operator":operator,
+                          "code_token_ref":str(code["node_ref"]),"english_refs":english_refs,
+                          "math_operator_occurrences":op_count,"bridge_hash":bridge_hash})
+    root=sha256({"schema":"entity-btdu-cross-domain-bridge-root-v1","relations":sorted(relations)})
+    manifest={"schema":"entity-btdu-cross-domain-bridge-install-v2","build_revision":BTDU_BUILD_REVISION,
+              "concepts":len(installed),"relations":len(relations),"bridge_root":root,"installed":installed,
+              **boundary}
+    manifest_id="bridge-manifest:"+sha256(manifest)
+    db.execute("INSERT OR REPLACE INTO semantic_bridge_manifests VALUES(?,?,?,?)",
+        (manifest_id,json.dumps(manifest,sort_keys=True),json.dumps(dict(authorization_record or {}),sort_keys=True),now_ms()))
+    return dict(manifest,manifest_id=manifest_id)
+
 class BlackmoreTechnologyDataUniverse:
     """ENTITY-governed information substrate built on the existing ADAM runtime.
 
