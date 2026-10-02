@@ -1,0 +1,20 @@
+{
+  "btdu_schema_version": "3.4.2",
+  "build_revision": "v3.4.3+btdu-orientation-math-code-english.20261002",
+  "claim_boundary": [
+    "No historical GitHub release/tag rewritten by this local rebuild.",
+    "Protocol origin and canonical state guarded byte-for-byte.",
+    "External corpora retain upstream provenance and licenses."
+  ],
+  "entity_display_version": "3.4.3",
+  "features": [
+    "BTDU orientation/mirror topology",
+    "advanced mathematics corpus",
+    "programming-language shared atom substrate",
+    "English lexical/grammar substrate"
+  ],
+  "generated_unix": 1790954205.3039753,
+  "historical_release_manifest_preserved": true,
+  "lineage_guard_sha256": "F6D6DA3E4718B16403156FA774AF340044E668B06C35A992E79AA9ECF00B39DA",
+  "schema": "entity-v343-in-place-build-revision-v1"
+}

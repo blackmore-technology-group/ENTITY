@@ -1,0 +1,165 @@
+{
+  "btdu_schema_version": "3.4.2",
+  "build_revision": "v3.4.3+btdu-orientation-math-code-english.20261002",
+  "duration_seconds": 1216.5715408325195,
+  "entity_display_version": "3.4.3",
+  "existing_entity_state_modified_only_by_new_btdu_namespace": true,
+  "lineage_guard_preserved": true,
+  "merged": {
+    "atomic_root": "0e66d770202720622408ce4781ed77115a52c02f7bf703da4108bcbf4cb97164",
+    "atoms": 704276,
+    "bonds": 795592,
+    "compounds": 28639,
+    "sequence": 75084,
+    "sql": {
+      "edges": 195860,
+      "english_lemmas": 136219,
+      "english_synsets": 107519,
+      "language_nodes": 36733,
+      "language_relations": 595898,
+      "math_declarations": 246646,
+      "math_modules": 18942,
+      "objects": 4932,
+      "orientation_occurrences": 0,
+      "orientation_topologies": 0
+    }
+  },
+  "ok": true,
+  "schema": "entity-v343-qualified-btdu-merge-v1",
+  "seed": {
+    "atomic_root": "bd5488fefb5fddd566e599a2b5e95d789b8a2b6c6738c7c85328488f6a5737a5",
+    "atoms": 154856,
+    "bonds": 163582,
+    "compounds": 19688,
+    "sequence": 75033,
+    "sql": {
+      "edges": 159748,
+      "english_lemmas": 0,
+      "english_synsets": 0,
+      "language_nodes": 0,
+      "language_relations": 0,
+      "math_declarations": 0,
+      "math_modules": 9471,
+      "objects": 4929,
+      "orientation_occurrences": 0,
+      "orientation_topologies": 0
+    }
+  },
+  "sources": [
+    {
+      "atomic": {
+        "new_atoms": 256300,
+        "new_bonds": 36082,
+        "new_compounds": 8927
+      },
+      "label": "math",
+      "sql": {
+        "edges": {
+          "after": 195830,
+          "before": 159748,
+          "delta": 36082
+        },
+        "math_declarations": {
+          "after": 246646,
+          "before": 0,
+          "delta": 246646
+        },
+        "math_domains": {
+          "after": 103,
+          "before": 0,
+          "delta": 103
+        },
+        "math_module_compounds": {
+          "after": 8924,
+          "before": 0,
+          "delta": 8924
+        },
+        "math_modules": {
+          "after": 18942,
+          "before": 9471,
+          "delta": 9471
+        },
+        "math_sources": {
+          "after": 2,
+          "before": 0,
+          "delta": 2
+        },
+        "objects": {
+          "after": 4930,
+          "before": 4929,
+          "delta": 1
+        },
+        "orientation_occurrences": {
+          "after": 0,
+          "before": 0,
+          "delta": 0
+        },
+        "orientation_topologies": {
+          "after": 0,
+          "before": 0,
+          "delta": 0
+        },
+        "repository_manifests": {
+          "after": 61,
+          "before": 61,
+          "delta": 0
+        }
+      }
+    },
+    {
+      "atomic": {
+        "new_atoms": 293120,
+        "new_bonds": 595928,
+        "new_compounds": 24
+      },
+      "label": "language",
+      "sql": {
+        "edges": {
+          "after": 195860,
+          "before": 195830,
+          "delta": 30
+        },
+        "english_lemmas": {
+          "after": 136219,
+          "before": 0,
+          "delta": 136219
+        },
+        "english_synsets": {
+          "after": 107519,
+          "before": 0,
+          "delta": 107519
+        },
+        "language_nodes": {
+          "after": 36733,
+          "before": 0,
+          "delta": 36733
+        },
+        "language_relations": {
+          "after": 595898,
+          "before": 0,
+          "delta": 595898
+        },
+        "objects": {
+          "after": 4932,
+          "before": 4930,
+          "delta": 2
+        },
+        "orientation_occurrences": {
+          "after": 0,
+          "before": 0,
+          "delta": 0
+        },
+        "orientation_topologies": {
+          "after": 0,
+          "before": 0,
+          "delta": 0
+        },
+        "repository_manifests": {
+          "after": 61,
+          "before": 61,
+          "delta": 0
+        }
+      }
+    }
+  ]
+}
