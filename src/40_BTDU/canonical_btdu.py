@@ -75,6 +75,12 @@ class BlackmoreTechnologyDataUniverse:
             CREATE TABLE IF NOT EXISTS economic_nodes(node_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL UNIQUE,node_kind TEXT NOT NULL,metadata_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS economic_edges(edge_id TEXT PRIMARY KEY,source_ref TEXT NOT NULL,predicate TEXT NOT NULL,target_ref TEXT NOT NULL,source_atom_id TEXT NOT NULL,target_atom_id TEXT NOT NULL,bond_id TEXT NOT NULL,evidence_sha256 TEXT,metadata_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS repository_manifests(manifest_id TEXT PRIMARY KEY,repository_path TEXT NOT NULL,git_commit_sha1 TEXT,git_tree_sha1 TEXT,tracked_files INTEGER NOT NULL,aggregate_sha256 TEXT NOT NULL,atomic_root TEXT NOT NULL,manifest_json TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS language_nodes(node_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL,node_kind TEXT NOT NULL,language TEXT,value_text TEXT,metadata_json TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS language_relations(relation_ref TEXT PRIMARY KEY,source_ref TEXT NOT NULL,predicate TEXT NOT NULL,target_ref TEXT NOT NULL,bond_id TEXT,metadata_json TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS english_lemmas(lemma_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL,lemma TEXT NOT NULL,pos TEXT NOT NULL,synset_count INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS semantic_bridges(concept_ref TEXT PRIMARY KEY,math_operator TEXT NOT NULL,code_token_ref TEXT NOT NULL,english_refs_json TEXT NOT NULL,metadata_json TEXT NOT NULL,bridge_hash TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS semantic_bridge_manifests(manifest_id TEXT PRIMARY KEY,manifest_json TEXT NOT NULL,authorization_json TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
+            CREATE INDEX IF NOT EXISTS idx_language_relation_bridge ON language_relations(predicate,source_ref,target_ref);
             CREATE INDEX IF NOT EXISTS idx_btdu_object_sha ON objects(content_sha256);
             CREATE INDEX IF NOT EXISTS idx_btdu_edge_source ON edges(source_ref,predicate);
             CREATE INDEX IF NOT EXISTS idx_btdu_econ_source ON economic_edges(source_ref,predicate);
@@ -83,22 +89,27 @@ class BlackmoreTechnologyDataUniverse:
     def _authorize(self,receipt:Mapping[str,Any]):
         if not self.authorization_verifier(dict(receipt)): raise PermissionError("ENTITY authorization verification failed; BTDU mutation denied")
     def _commit(self,ops:list[dict],*,metadata:dict[str,Any]):
-        if ops: self.atomic.commit(ops,metadata=metadata,capability=self.runtime._capability)
+        if not ops: return
+        with self._write_lock:
+            self.atomic.commit(ops,metadata=metadata,capability=self.runtime._capability)
     def _put_atom(self,kind:str,value:Any,metadata:dict[str,Any]|None=None)->str:
-        metadata=dict(metadata or {}); aid=self.atomic.atom_id(kind,value,metadata)
-        if aid not in self.atomic.atoms: self._commit([{"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata}],metadata={"btdu":"put_atom","kind":kind})
-        return aid
+        with self._write_lock:
+            metadata=dict(metadata or {}); aid=self.atomic.atom_id(kind,value,metadata)
+            if aid not in self.atomic.atoms: self._commit([{"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata}],metadata={"btdu":"put_atom","kind":kind})
+            return aid
     def _put_atoms(self,rows:Iterable[tuple[str,Any,dict[str,Any]]],*,reason:str)->list[str]:
-        ids=[]; ops=[]
-        for kind,value,metadata in rows:
-            aid=self.atomic.atom_id(kind,value,metadata); ids.append(aid)
-            if aid not in self.atomic.atoms: ops.append({"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata})
-        self._commit(ops,metadata={"btdu":reason,"count":len(ops)}); return ids
+        with self._write_lock:
+            ids=[]; ops=[]
+            for kind,value,metadata in rows:
+                aid=self.atomic.atom_id(kind,value,metadata); ids.append(aid)
+                if aid not in self.atomic.atoms: ops.append({"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata})
+            self._commit(ops,metadata={"btdu":reason,"count":len(ops)}); return ids
     def _bond(self,source_atom_id:str,predicate:str,target_atom_id:str,*,source_ref:str,target_ref:str,context:str,metadata:dict[str,Any])->str:
-        bid,op=self.atomic.bond_op(source_atom_id,str(predicate),target_atom_id,context=str(context),metadata=dict(metadata))
-        if op: self._commit([op],metadata={"btdu":"bond","predicate":str(predicate)})
-        with self._db() as db: db.execute("INSERT OR REPLACE INTO edges VALUES(?,?,?,?,?,?,?)",(bid,source_atom_id,str(predicate),target_atom_id,str(source_ref),str(target_ref),json.dumps(metadata,sort_keys=True)))
-        return bid
+        with self._write_lock:
+            bid,op=self.atomic.bond_op(source_atom_id,str(predicate),target_atom_id,context=str(context),metadata=dict(metadata))
+            if op: self._commit([op],metadata={"btdu":"bond","predicate":str(predicate)})
+            with self._db() as db: db.execute("INSERT OR REPLACE INTO edges VALUES(?,?,?,?,?,?,?)",(bid,source_atom_id,str(predicate),target_atom_id,str(source_ref),str(target_ref),json.dumps(metadata,sort_keys=True)))
+            return bid
 
     def _ensure_root(self):
         root_ref=f"btdu:{self.sovereign_entity_id}"
@@ -204,6 +215,10 @@ class BlackmoreTechnologyDataUniverse:
         return manifest
 
     def mirror_economic_lineage(self,*,nodes:list[dict[str,Any]],edges:list[dict[str,Any]],authorization_receipt:Mapping[str,Any],evidence_sha256:str|None=None)->dict[str,Any]:
+        with self._write_lock:
+            return self._mirror_economic_lineage_locked(nodes=nodes,edges=edges,authorization_receipt=authorization_receipt,evidence_sha256=evidence_sha256)
+
+    def _mirror_economic_lineage_locked(self,*,nodes:list[dict[str,Any]],edges:list[dict[str,Any]],authorization_receipt:Mapping[str,Any],evidence_sha256:str|None=None)->dict[str,Any]:
         self._authorize(authorization_receipt); node_map={}
         for node in nodes:
             ref=str(node["ref"]); kind=str(node["kind"]).upper(); md=dict(node.get("metadata") or {})
