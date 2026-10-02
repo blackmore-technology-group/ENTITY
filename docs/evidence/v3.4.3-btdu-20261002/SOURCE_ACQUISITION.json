@@ -1,0 +1,253 @@
+{
+  "english_primary_source": "english_wordnet2025",
+  "generated_unix": 1790953526.7534306,
+  "minimums": {
+    "cargo": 8,
+    "csharp": 20,
+    "english_wordnet2025": 10,
+    "english_wordnet31": 8,
+    "go": 20,
+    "java": 10,
+    "kotlin": 20,
+    "python": 20,
+    "rust": 20,
+    "swift": 20,
+    "typescript": 7
+  },
+  "pass": true,
+  "problems": [],
+  "repos": {
+    "cargo": {
+      "acquisition": "curated-current-master-with-file-hashes",
+      "aggregate_sha256": "920d6febbe88641073b34ce69bd6e54c4b5055af92c012688654725986ce4c8e",
+      "bytes_kept": 279593,
+      "commit": "4f1cb5d5cb05f6a3b30dbc82db59d76551b8ddc1",
+      "default_branch": "master",
+      "files_kept": 12,
+      "license": "Apache-2.0",
+      "paths": [
+        "doc/book/src/reference/config.md",
+        "doc/book/src/reference/manifest.md",
+        "doc/book/src/reference/features.md",
+        "doc/book/src/reference/build-scripts.md",
+        "doc/book/src/reference/specifying-dependencies.md",
+        "doc/book/src/reference/environment-variables.md",
+        "doc/book/src/reference/cargo-targets.md",
+        "doc/book/src/reference/profiles.md",
+        "crates/cargo-util-schemas/manifest.schema.json",
+        "Cargo.toml",
+        "LICENSE-MIT",
+        "LICENSE-APACHE"
+      ],
+      "repo": "rust-lang/cargo",
+      "source_url": "https://github.com/rust-lang/cargo"
+    },
+    "csharp": {
+      "acquisition": "previous-pinned-selective-source",
+      "aggregate_sha256": "a60f37e5bdc6a6a083bcfaf786eaa5e9ed73ad0750f788ef217036ecfef1d2e7",
+      "bytes_kept": 1921228,
+      "commit": "107068a0fee88b13e9c46ff64f98343ff29ff8ee",
+      "default_branch": "draft-v8",
+      "files_kept": 34,
+      "license": "CC-BY-4.0",
+      "repo": "dotnet/csharpstandard",
+      "source_url": "https://github.com/dotnet/csharpstandard"
+    },
+    "english_wordnet2025": {
+      "acquisition": "official 2025 WN-LMF/WordNet database archive",
+      "aggregate_sha256": "d6061b012d400aedc043f5f31eb67f507da126fbc74487fabadb061035cbfb7e",
+      "archive_sha256": "38b16326159f51853626b7d24a44c453fa88ab33f06fce5ec8fc5996d1c2be93",
+      "bytes_kept": 31911017,
+      "files": [
+        [
+          "adj.exc",
+          18231,
+          "17bd79dbae17636fb4cd9b692b4945c19e5acd2e23b8e372268b5fb89e975531"
+        ],
+        [
+          "adv.exc",
+          85,
+          "e7291461b629abfe63301bbe1998cee09fd575ed7107abd7ea9763adb05bf0a8"
+        ],
+        [
+          "data.adj",
+          3166133,
+          "98651304f90602352120dffdd27dfeb8a3fa4dadfc712391934ad5f466601059"
+        ],
+        [
+          "data.adv",
+          522340,
+          "c40c0bf2eb0c0ba682663a1ad8f62c4eb7cd581189a8f19368b93c6dda8e04d7"
+        ],
+        [
+          "data.noun",
+          13339217,
+          "97c1c4e4f323e2b29bba5ac52b64aca5b91df9f7661dbc65cf64f28ea36e98d3"
+        ],
+        [
+          "data.verb",
+          2868258,
+          "2ef76318838583e5cb0d04d019fd7200c629d7aed8cc5cfea41122d3d67c866c"
+        ],
+        [
+          "index.adj",
+          827163,
+          "85e1e08cc4fc8ac5a8f9d32564799e5e67f04812165dcc8de354797ab53c6492"
+        ],
+        [
+          "index.adv",
+          163176,
+          "bdd918323bcd816e59564abc2a707c37fad6ccb66b1daf28567a16bef8f4dbd8"
+        ],
+        [
+          "index.noun",
+          3903825,
+          "b833126645b2f43ddeddf2e3038264b6be09980d37d6740d02e5df625a6cce34"
+        ],
+        [
+          "index.sense",
+          6497917,
+          "dd12973335613642af035c1174c42a10cf5daa3a301e0497aaf7619045842fee"
+        ],
+        [
+          "index.verb",
+          530063,
+          "2186bf15fae5100d6220e55bd2af3079849e2f1e82d473642d1c5d0becda54ea"
+        ],
+        [
+          "LICENSE.md",
+          19863,
+          "672cc8b5663e8dc74c4b07a9dcf477193853575b119908fd3dc0aeeb60a9dbbb"
+        ],
+        [
+          "noun.exc",
+          24647,
+          "c976744abeb6e99792f8c74fb8f1a2d4da13c7c4227c914d80fe39f596a476bc"
+        ],
+        [
+          "verb.exc",
+          28359,
+          "bd999f2b30b9126aab9aaa9cb895b92bca72cb6797da41b7b308994716e7ab03"
+        ],
+        [
+          "WNDB_License.txt",
+          1740,
+          "df30ec18fbabcdaf031b79ea026d3e6b959010cffe6dd7be9ac137822175b904"
+        ]
+      ],
+      "files_kept": 15,
+      "license": "CC-BY-4.0 plus retained WordNet notices",
+      "source": "Open English WordNet 2025",
+      "source_url": "https://en-word.net/static/english-wordnet-2025.zip"
+    },
+    "go": {
+      "acquisition": "previous-pinned-selective-source",
+      "aggregate_sha256": "6c615315e817afc914898ccf01372fd2cb58485cd105b3f11a9357bb092c6d08",
+      "bytes_kept": 620308,
+      "commit": "ff48d740d5e6dcf01cb1023b382a858a493c5f69",
+      "default_branch": "master",
+      "files_kept": 61,
+      "license": "BSD-3-Clause",
+      "repo": "golang/go",
+      "source_url": "https://github.com/golang/go"
+    },
+    "java": {
+      "acquisition": "OpenJDK javac parser/tokenizer slice",
+      "aggregate_sha256": "256122dd7cf872349b52358a779563adffd7e05b0d9a91864c40afdf35784fe8",
+      "bytes_kept": 484086,
+      "commit": "e90e46919999fb8e65140efe2d9bb2a870ec99a6",
+      "default_branch": "master",
+      "files_kept": 17,
+      "license": "GPL-2.0",
+      "paths": [
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/DocCommentParser.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/JavaTokenizer.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/JavacParser.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/JavadocTokenizer.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/LazyDocCommentTable.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/Lexer.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/Parser.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/ParserFactory.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/ReferenceParser.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/Scanner.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/ScannerFactory.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/TextBlockSupport.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/Tokens.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/UnicodeReader.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/parser/VirtualParser.java",
+        "LICENSE",
+        "ADDITIONAL_LICENSE_INFO"
+      ],
+      "repo": "openjdk/jdk",
+      "source_url": "https://github.com/openjdk/jdk"
+    },
+    "kotlin": {
+      "acquisition": "previous-pinned-selective-source",
+      "aggregate_sha256": "6079716ca6872402a443399f967b1a4b51b7fd0b0d4d4bf37a81357380828635",
+      "bytes_kept": 711777,
+      "commit": "0f762a2314a9304e4b3fc386b1aceef1d56c7e4c",
+      "default_branch": "release",
+      "files_kept": 84,
+      "license": "Apache-2.0",
+      "repo": "Kotlin/kotlin-spec",
+      "source_url": "https://github.com/Kotlin/kotlin-spec"
+    },
+    "python": {
+      "acquisition": "previous-pinned-selective-source",
+      "aggregate_sha256": "10c3538752bf659cc902595fb7daa81d355f829bed42d8bd593c642a14d55d9f",
+      "bytes_kept": 2591830,
+      "commit": "a831abba141ceeb0ef8acfada37602aa578cc670",
+      "default_branch": "main",
+      "files_kept": 49,
+      "license": "NOASSERTION",
+      "repo": "python/cpython",
+      "source_url": "https://github.com/python/cpython"
+    },
+    "rust": {
+      "acquisition": "previous-pinned-selective-source",
+      "aggregate_sha256": "44087b4e85c4e7db0d6c4bb118804cb55496bf5aa6679b9b4bfa528b07e20f9c",
+      "bytes_kept": 1130819,
+      "commit": "a286e1ecb8ce193d50056e4bb042eea9b23876ef",
+      "default_branch": "master",
+      "files_kept": 124,
+      "license": "Apache-2.0",
+      "repo": "rust-lang/reference",
+      "source_url": "https://github.com/rust-lang/reference"
+    },
+    "swift": {
+      "acquisition": "previous-pinned-selective-source",
+      "aggregate_sha256": "1d10db9be1bf85367d79ac0d16d056f84326bfc2bc58437422ad181d45007ad5",
+      "bytes_kept": 1681924,
+      "commit": "1c0598430507e6c2b9a0f068b6dd7c618392fea6",
+      "default_branch": "main",
+      "files_kept": 39,
+      "license": "Apache-2.0",
+      "repo": "swiftlang/swift-book",
+      "source_url": "https://github.com/swiftlang/swift-book"
+    },
+    "typescript": {
+      "acquisition": "curated-pinned-files",
+      "aggregate_sha256": "4693430be0725206347d6dbd3d9e4e717b5e072cd46690a1b3f8650f085c4a03",
+      "bytes_kept": 2146712,
+      "commit": "09b1db0617311f3b39f165bb3480c0ce2f718b27",
+      "default_branch": "main",
+      "files_kept": 9,
+      "license": "Apache-2.0",
+      "paths": [
+        "packages/typescript/src/ast/ast.ts",
+        "packages/typescript/src/ast/ast.generated.ts",
+        "tsc/internal/parser/parser.go",
+        "tsc/internal/scanner/scanner.go",
+        "tsc/internal/ast/ast.go",
+        "tsc/internal/checker/checker.go",
+        "tsc/internal/compiler/program.go",
+        "LICENSE.txt",
+        "NOTICE.txt"
+      ],
+      "repo": "microsoft/TypeScript",
+      "source_url": "https://github.com/microsoft/TypeScript"
+    }
+  },
+  "schema": "entity-language-source-acquisition-v5",
+  "updated_unix": 1790953891.7196918
+}

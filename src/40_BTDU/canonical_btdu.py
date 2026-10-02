@@ -13,6 +13,7 @@ from canonical_full_adam_runtime import EntityFullAdamRuntime
 
 BTDU_VERSION="3.4.2"
 BTDU_SCHEMA="blackmore-technology-data-universe-v1"
+BTDU_BUILD_REVISION="v3.4.3+btdu-orientation-math-code-english.20261002"
 BTDU_CANONICAL_OWNER_ENTITY_ID="ent2-6eoiiztjyhmyh2tbr5psmofcduwvjledubhoiqwo6mjfoqkn6ica"
 BTDU_CANONICAL_OWNER_ALIAS="shawn.blackmore.entity"
 BTG_STEWARD_ENTITY_ID="ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa"
@@ -38,12 +39,19 @@ class BlackmoreTechnologyDataUniverse:
         self.authorization_verifier=authorization_verifier; self.sovereign_entity_id=str(sovereign_entity_id); self.protocol_entity_id=str(protocol_entity_id); self.steward_entity_id=str(steward_entity_id)
         self.runtime=EntityFullAdamRuntime(self.root/"adam",authorization_verifier=authorization_verifier,enable_network_reference=enable_network_reference)
         self.atomic=self.runtime.atomic; self.evidence=self.runtime.evidence; self.db_path=self.root/"btdu_index.sqlite"
-        self._init_db(); self._load_adam_extensions(); self._ensure_root()
+        self._init_db(); self._load_adam_extensions(); self._load_orientation_layer(); self._ensure_root()
 
     def _load_adam_extensions(self):
         from adam_v44.bond_algebra import BondAlgebra,FirstClassBond,HyperBond,HyperRole,BondFamily,ConfidenceClass
         from adam_v42.distributed import SovereignErasureStore
         self.BondAlgebra=BondAlgebra; self.FirstClassBond=FirstClassBond; self.HyperBond=HyperBond; self.HyperRole=HyperRole; self.BondFamily=BondFamily; self.ConfidenceClass=ConfidenceClass; self.SovereignErasureStore=SovereignErasureStore
+
+    def _load_orientation_layer(self):
+        import importlib.util
+        path=HERE/"orientation_topology.py"
+        spec=importlib.util.spec_from_file_location("entity_btdu_orientation_topology",path)
+        mod=importlib.util.module_from_spec(spec); sys.modules[spec.name]=mod; spec.loader.exec_module(mod)
+        self.orientation=mod.BTDUOrientationLayer(self)
 
     @contextmanager
     def _db(self):
@@ -214,6 +222,54 @@ class BlackmoreTechnologyDataUniverse:
         edges=[{"source":nodes[i]["ref"],"predicate":"precedes","target":nodes[i+1]["ref"],"metadata":{"genesis_market_semantics":True}} for i in range(len(nodes)-1)]
         return self.mirror_economic_lineage(nodes=nodes,edges=edges,authorization_receipt=authorization_receipt,evidence_sha256=evidence_sha256)
 
+    def normalize_oriented_relation(self,left_ref:str,operator:str,right_ref:str,context:dict[str,Any]|None=None)->dict[str,Any]:
+        n=self.orientation.topology_for(left_ref,operator,right_ref,context)
+        return dict(n.__dict__)
+
+    def register_oriented_relations(self,rows:list[dict[str,Any]],authorization_receipt:Mapping[str,Any],*,chunk_size:int=2000)->dict[str,int]:
+        self._authorize(authorization_receipt)
+        return self.orientation.register_bulk(rows,chunk_size=chunk_size)
+
+    def language_summary(self)->dict[str,Any]:
+        with self._db() as db:
+            tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+            counts={name:(db.execute("SELECT count(*) AS n FROM "+name).fetchone()["n"] if name in tables else 0)
+                    for name in ("language_nodes","language_relations","english_synsets","english_lemmas")}
+        return {"schema":"entity-btdu-language-summary-v1","build_revision":BTDU_BUILD_REVISION,**counts}
+
+    def lookup_english_lemma(self,lemma:str,*,pos:str|None=None,limit:int=50)->dict[str,Any]:
+        with self._db() as db:
+            tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+            if not {"english_lemmas","english_synsets","language_relations"}.issubset(tables):
+                return {"schema":"entity-btdu-english-lookup-v1","query":str(lemma),"matches":[]}
+            sql="""SELECT l.lemma_ref,l.lemma,l.pos,l.synset_count,r.source_ref AS synset_ref,s.gloss
+                   FROM english_lemmas l
+                   LEFT JOIN language_relations r ON r.target_ref=l.lemma_ref AND r.predicate='contains_lemma'
+                   LEFT JOIN english_synsets s ON s.synset_ref=r.source_ref
+                   WHERE lower(l.lemma)=lower(?)"""
+            args=[str(lemma)]
+            if pos is not None:
+                sql+=" AND l.pos=?"; args.append(str(pos))
+            sql+=" ORDER BY l.pos,r.source_ref LIMIT ?"; args.append(max(1,min(int(limit),500)))
+            rows=[dict(r) for r in db.execute(sql,args).fetchall()]
+        return {"schema":"entity-btdu-english-lookup-v1","query":str(lemma),"pos":pos,"matches":rows}
+
+    def code_token_usage(self,token:str,*,limit:int=100)->dict[str,Any]:
+        ref="code-token:"+str(token)
+        with self._db() as db:
+            tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+            if not {"language_nodes","language_relations"}.issubset(tables):
+                return {"schema":"entity-btdu-code-token-usage-v1","token":str(token),"languages":[]}
+            rows=db.execute("""SELECT source_ref,metadata_json FROM language_relations
+                               WHERE target_ref=? AND predicate='uses_code_token'
+                               ORDER BY source_ref LIMIT ?""",(ref,max(1,min(int(limit),500)))).fetchall()
+        uses=[]
+        for r in rows:
+            md=json.loads(r["metadata_json"]) if r["metadata_json"] else {}
+            uses.append({"language_ref":r["source_ref"],"token_class":md.get("token_class"),
+                         "occurrence_count":md.get("occurrence_count"),"direction_preserved":md.get("direction_preserved",True)})
+        return {"schema":"entity-btdu-code-token-usage-v1","token":str(token),"languages":uses}
+
     def passport_binding(self,object_ref:str)->dict[str,Any]:
         with self._db() as db:
             row=db.execute("SELECT object_ref,atom_id,content_sha256,controller_entity_id,source_entity_id,rights_holder_entity_id FROM objects WHERE object_ref=?",(str(object_ref),)).fetchone()
@@ -264,7 +320,9 @@ class BlackmoreTechnologyDataUniverse:
             present={r["target_ref"] for r in db.execute("SELECT target_ref FROM edges WHERE predicate='preserves_genesis_primitive'").fetchall()}
             econ_edges=[dict(r) for r in db.execute("SELECT * FROM economic_edges").fetchall()]
         if not primitive_targets.issubset(present): problems.append("genesis_primitives")
-        return {"schema":"entity-btdu-verification-v1","btdu_version":BTDU_VERSION,"pass":bool(atomic.get("pass")) and not problems,"atomic":atomic,"atomic_root":self.atomic.root_hash,"sovereign_entity_id":self.sovereign_entity_id,"protocol_entity_id":self.protocol_entity_id,"objects":len(objects),"economic_lineage_edges":len(econ_edges),"genesis_primitives_preserved":primitive_targets.issubset(present),"protocol_origin_is_not_asset_provenance":True,"automatic_protocol_royalty_bps":0,"problems":problems}
+        orientation=self.orientation.verify()
+        if not orientation.get("pass"): problems.append("orientation")
+        return {"schema":"entity-btdu-verification-v1","btdu_version":BTDU_VERSION,"build_revision":BTDU_BUILD_REVISION,"pass":bool(atomic.get("pass")) and not problems,"atomic":atomic,"orientation":orientation,"language_summary":self.language_summary(),"atomic_root":self.atomic.root_hash,"sovereign_entity_id":self.sovereign_entity_id,"protocol_entity_id":self.protocol_entity_id,"objects":len(objects),"economic_lineage_edges":len(econ_edges),"genesis_primitives_preserved":primitive_targets.issubset(present),"protocol_origin_is_not_asset_provenance":True,"automatic_protocol_royalty_bps":0,"problems":problems}
 
     def close(self): self.runtime.close()
     def __enter__(self): return self

@@ -1,0 +1,56 @@
+{
+  "claim_boundary": "Derived semantic orientation index over preserved mathlib4 source signatures; no universal compression claim.",
+  "dangling_occurrences": 0,
+  "duration_seconds": 211.17186450958252,
+  "eventlog": {
+    "base_root": "0e66d770202720622408ce4781ed77115a52c02f7bf703da4108bcbf4cb97164",
+    "base_sequence": 75084,
+    "events_appended": 37,
+    "final_root": "74f9c41c26f1260c01adc3db839f573cb664cbf80b84e2ba4788d7da08bbebfd",
+    "final_sequence": 75121
+  },
+  "extracted_occurrences": 181581,
+  "manifest": {
+    "atoms": 741766,
+    "authority_id": "9eedbc890bcb26d065b8900bf73d766b2ff90af7e4304564b77979445206ffdf",
+    "bonds": 795592,
+    "checkpoint_root": "0000000000000000000000000000000000000000000000000000000000000000",
+    "checkpoint_sequence": 0,
+    "compounds": 28639,
+    "format": "ADAM-v0.41-construction-native-universe",
+    "recovered_torn_bytes": 0,
+    "root_hash": "74f9c41c26f1260c01adc3db839f573cb664cbf80b84e2ba4788d7da08bbebfd",
+    "sequence": 75121
+  },
+  "orientation_counts": {
+    "occurrences": 180126,
+    "topologies": 37490
+  },
+  "pass": true,
+  "rights_boundary": {
+    "topology_creates_economic_entitlement": false,
+    "topology_creates_ownership": false,
+    "topology_creates_rights": false
+  },
+  "schema": "entity-btdu-math-orientation-ingest-result-v1",
+  "sqlite_quick_check": "ok",
+  "strategy": "memory-bounded-eventlog-append",
+  "top_families": {
+    "equality": 15692,
+    "iff": 4015,
+    "inequality": 610,
+    "nonstrict_order": 4051,
+    "ordered:*": 2801,
+    "ordered:+": 1873,
+    "ordered:-": 1579,
+    "ordered:/": 704,
+    "ordered:^": 761,
+    "ordered:\u2192": 3568,
+    "strict_order": 1836
+  },
+  "topology_modes": {
+    "INVERSE_PAIR": 5887,
+    "ORDERED": 11286,
+    "SYMMETRIC": 20317
+  }
+}

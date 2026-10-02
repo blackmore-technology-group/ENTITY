@@ -1,0 +1,31 @@
+{
+  "schema": "entity-btdu-orientation-language-extension-v1",
+  "entity_display_version": "3.4.3",
+  "btdu_schema_version": "3.4.2",
+  "build_revision": "v3.4.3+btdu-orientation-math-code-english.20261002",
+  "orientation_modes": ["SYMMETRIC", "INVERSE_PAIR", "CONTEXT_COMMUTATIVE", "ORDERED"],
+  "orientation_semantics": {
+    "symmetric_requires_math_profile_or_proof": true,
+    "inverse_pair_requires_math_profile_or_proof": true,
+    "context_commutative_requires_explicit_proof": true,
+    "ordered_is_default": true
+  },
+  "language_surfaces": ["language_summary", "lookup_english_lemma", "code_token_usage"],
+  "qualified_counts": {
+    "math_declarations": 246646,
+    "math_modules": 18942,
+    "language_nodes": 36733,
+    "language_relations": 595898,
+    "english_synsets": 107519,
+    "english_lemmas": 136219,
+    "orientation_topologies": 37490,
+    "orientation_occurrences": 180126
+  },
+  "rights_boundary": {
+    "topology_creates_rights": false,
+    "topology_creates_ownership": false,
+    "topology_creates_economic_entitlement": false
+  },
+  "runtime_state_committed_to_git": false,
+  "historical_release_manifest_rewritten": false
+}
