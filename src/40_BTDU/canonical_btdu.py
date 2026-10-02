@@ -366,6 +366,57 @@ class BlackmoreTechnologyDataUniverse:
                          "occurrence_count":md.get("occurrence_count"),"direction_preserved":md.get("direction_preserved",True)})
         return {"schema":"entity-btdu-code-token-usage-v1","token":str(token),"languages":uses}
 
+    def install_cross_domain_semantic_bridge(self,authorization_receipt:Mapping[str,Any])->dict[str,Any]:
+        self._authorize(authorization_receipt)
+        with self._write_lock:
+            with self._db() as db:
+                return install_cross_domain_bridge_index(db,authorization_receipt)
+
+    def resolve_cross_domain_concept(self,english_term:str)->dict[str,Any]:
+        with self._db() as db:
+            rows=db.execute("""SELECT l.lemma,l.pos,r.target_ref AS concept_ref,b.math_operator,b.code_token_ref
+                               FROM english_lemmas l
+                               JOIN language_relations r ON r.source_ref=l.lemma_ref AND r.predicate='maps_to_math_semantic'
+                               JOIN semantic_bridges b ON b.concept_ref=r.target_ref
+                               WHERE lower(l.lemma)=lower(?)
+                               ORDER BY l.pos,r.target_ref""",(str(english_term),)).fetchall()
+        return {"schema":"entity-btdu-cross-domain-resolution-v1","query":str(english_term),"matches":[dict(r) for r in rows]}
+
+    def cross_domain_bridge_summary(self)->dict[str,Any]:
+        with self._db() as db:
+            tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+            if "semantic_bridges" not in tables:
+                return {"schema":"entity-btdu-cross-domain-bridge-summary-v1","concepts":0,"relations":0}
+            concepts=int(db.execute("SELECT count(*) FROM semantic_bridges").fetchone()[0])
+            relations=int(db.execute("SELECT count(*) FROM language_relations WHERE predicate IN ('maps_to_math_semantic','realized_as_code_token')").fetchone()[0]) if "language_relations" in tables else 0
+        return {"schema":"entity-btdu-cross-domain-bridge-summary-v1","concepts":concepts,"relations":relations}
+
+    def canonical_replication_root(self)->str:
+        """Authority-neutral deterministic root for exact BTDU semantic replication.
+
+        ADAM's signed atomic root intentionally binds a local authority identity; two
+        independent authorities can therefore have different signed atomic roots while
+        carrying identical BTDU content. This root hashes deterministic BTDU content IDs
+        and semantic/economic rows so replicas can prove exact payload convergence
+        without pretending their authority envelopes are identical.
+        """
+        atom_ids=sorted(str(x) for x in self.atomic.atoms.keys())
+        compound_ids=sorted(str(x) for x in self.atomic.compounds.keys())
+        bond_ids=sorted(str(x) for x in self.atomic.bonds.keys())
+        with self._db() as db:
+            tables={r["name"] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+            def rows(table,cols):
+                if table not in tables: return []
+                return [tuple(r) for r in db.execute("SELECT "+",".join(cols)+" FROM "+table+" ORDER BY "+",".join(cols))]
+            payload={
+              "schema":"entity-btdu-canonical-replication-root-v1",
+              "atoms":atom_ids,"compounds":compound_ids,"bonds":bond_ids,
+              "economic_nodes":rows("economic_nodes",("node_ref","atom_id","node_kind","metadata_json")),
+              "economic_edges":rows("economic_edges",("edge_id","source_ref","predicate","target_ref","source_atom_id","target_atom_id","bond_id","evidence_sha256","metadata_json")),
+              "semantic_bridges":rows("semantic_bridges",("concept_ref","math_operator","code_token_ref","english_refs_json","metadata_json","bridge_hash")),
+            }
+        return sha256(payload)
+
     def passport_binding(self,object_ref:str)->dict[str,Any]:
         with self._db() as db:
             row=db.execute("SELECT object_ref,atom_id,content_sha256,controller_entity_id,source_entity_id,rights_holder_entity_id FROM objects WHERE object_ref=?",(str(object_ref),)).fetchone()
