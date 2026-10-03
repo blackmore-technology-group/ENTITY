@@ -1,0 +1,93 @@
+{
+  "schema": "birfr1-public-asset-manifest-v1",
+  "dco_code": "DCO-000001",
+  "asset_name": "Blackmore Industrial Robotics Failure & Recovery Dataset",
+  "short_name": "BIRFR-1",
+  "version": "0.1.0",
+  "entity_display_version": "3.4.3",
+  "originator": "Blackmore Technology Group Limited",
+  "origin": "BTG_CREATED_SYNTHETIC",
+  "asset_bundle_root_sha256": "2e97dc53c308eb07f8d5040d3965fb5024ffe14ac431313c28c2e8dbbc0eaaa5",
+  "catalog_sqlite_sha256": "c799803507ee3713eff1dcfdabd1e234dd06f1ca693e8323bfa3ac45c3f31ff3",
+  "shard_merkle_root_sha256": "6fb82bd9bc5c4e8e1a460f439ffea0e973bf08ff915036cc655658c8de75052e",
+  "episodes": 100000,
+  "episode_distribution": {
+    "SUCCESS": 30000,
+    "FAILURE_ONLY": 30000,
+    "RECOVERY_SUCCESS": 30000,
+    "RECOVERY_FAILED": 10000
+  },
+  "benchmark_splits": {
+    "TRAIN": 70000,
+    "VAL": 10000,
+    "TEST_KNOWN": 10000,
+    "TEST_UNKNOWN_FAILURE": 5000,
+    "TEST_CROSS_EMBODIMENT": 5000
+  },
+  "failure_families": 20,
+  "task_families": 25,
+  "embodiments": 5,
+  "shard_count": 100,
+  "shard_payload_bytes": 398046058,
+  "modalities": [
+    "RGB",
+    "DEPTH",
+    "WRIST_RGB",
+    "JOINT_POSITIONS",
+    "JOINT_VELOCITIES",
+    "JOINT_TORQUES",
+    "END_EFFECTOR_POSE",
+    "GRIPPER_STATE",
+    "FORCE_TORQUE",
+    "ROBOT_ACTIONS",
+    "NATURAL_LANGUAGE_TASK",
+    "TASK_PHASE",
+    "FAILURE_CLASS",
+    "FAILURE_TIMESTAMP",
+    "ROOT_CAUSE",
+    "RECOVERY_STRATEGY",
+    "RECOVERY_SUCCESS",
+    "SAFETY_NEAR_MISS"
+  ],
+  "cross_embodiment_representation": {
+    "intent_layer": [
+      "TASK_INTENT",
+      "FAILURE_STATE",
+      "CORRECTIVE_INTENT",
+      "RECOVERY_RESULT"
+    ],
+    "embodiment_layer": [
+      "EMBODIMENT_CODE",
+      "DOF",
+      "JOINT_MASK",
+      "JOINT_COMMANDS",
+      "END_EFFECTOR_POSE"
+    ]
+  },
+  "public_failure_family_names": [
+    "GRASP_SLIP",
+    "MISSED_GRASP",
+    "PARTIAL_GRASP",
+    "OBJECT_DISPLACEMENT",
+    "COLLISION",
+    "NEAR_COLLISION",
+    "DROPPED_OBJECT",
+    "INCORRECT_ORIENTATION",
+    "ALIGNMENT_FAILURE",
+    "INSERTION_FAILURE",
+    "EXCESS_FORCE",
+    "INSUFFICIENT_FORCE",
+    "BLOCKED_MOTION",
+    "JOINT_LIMIT_APPROACH",
+    "OCCLUDED_TARGET",
+    "WRONG_OBJECT_SELECTION",
+    "TOOL_MISALIGNMENT",
+    "TRAJECTORY_DEVIATION",
+    "STALLED_TASK",
+    "FAILED_RECOVERY"
+  ],
+  "rendering_boundary": "v0.1.0 uses compact 16x16 procedural synthetic perception snapshots to qualify the multimodal pipeline; photorealistic/high-resolution factory imagery is not claimed.",
+  "commercial_quality_claimed": false,
+  "third_party_source_data": false,
+  "private_payload_committed": false
+}
