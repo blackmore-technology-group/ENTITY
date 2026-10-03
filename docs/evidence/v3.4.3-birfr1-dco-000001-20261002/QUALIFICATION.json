@@ -1,0 +1,79 @@
+{
+  "schema": "entity-v343-birfr1-public-qualification-v1",
+  "completed_utc": "2026-10-03T05:51:00Z",
+  "pass": true,
+  "entity_display_version": "3.4.3",
+  "dco_code": "DCO-000001",
+  "asset": "BIRFR-1",
+  "asset_qualification": {
+    "episodes": 100000,
+    "distribution": {
+      "SUCCESS": 30000,
+      "FAILURE_ONLY": 30000,
+      "RECOVERY_SUCCESS": 30000,
+      "RECOVERY_FAILED": 10000
+    },
+    "failure_families": 20,
+    "task_families": 25,
+    "embodiments": 5,
+    "shards": 100,
+    "catalog_sqlite_quick_check": "ok",
+    "provenance_component_hashes_verified": 9,
+    "provenance_component_mismatches": 0,
+    "asset_bundle_root_sha256": "2e97dc53c308eb07f8d5040d3965fb5024ffe14ac431313c28c2e8dbbc0eaaa5"
+  },
+  "benchmark": {
+    "test_episodes_scored": 20000,
+    "scorer_selftest": {
+      "failure_detection_accuracy": 1,
+      "failure_classification_accuracy": 1,
+      "recovery_selection_accuracy": 1,
+      "cross_robot_transfer": 1,
+      "generalization_unknown_failures": 1,
+      "generalization_unknown_objects": 1,
+      "generalization_unknown_environments": 1,
+      "false_recovery_rate": 0,
+      "unsafe_action_rate": 0,
+      "mean_time_to_detection_ms": 80,
+      "task_completion_after_recovery": 0.75
+    },
+    "boundary": "Self-test uses ground-truth-derived reference predictions to validate scoring logic; it is not a trained-model performance claim."
+  },
+  "entity_issuance": {
+    "commercial_archetypes": 11,
+    "physical_instruments": 20,
+    "total_right_units": 18418,
+    "treasury_reserve_units": 2280,
+    "issuer_units_after_reserve": 16138,
+    "participant_wallet_positions": 20,
+    "treasury_wallet_positions": 3,
+    "orders": 0,
+    "trades": 0,
+    "market_marks": 0,
+    "external_sale_enabled": false
+  },
+  "runtime_integrity": {
+    "universal_fabric": "ok",
+    "exchange": "ok",
+    "economic_participation": "ok",
+    "wallet": "ok",
+    "dco_factory": "ok"
+  },
+  "repository_boundary": {
+    "dataset_shards_committed": false,
+    "catalog_database_committed": false,
+    "live_object_ids_committed": false,
+    "live_instrument_ids_committed": false,
+    "live_wallet_ids_committed": false,
+    "private_keys_committed": false,
+    "payment_credentials_committed": false
+  },
+  "boundaries": {
+    "commercial_quality_claimed": false,
+    "synthetic_asset_is_real_btg_owned_bytes": true,
+    "high_fidelity_factory_imagery_not_claimed": true,
+    "no_market_value_manufactured": true,
+    "protocol_tax_bps": 0,
+    "cryptocurrency_required": false
+  }
+}
