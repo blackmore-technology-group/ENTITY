@@ -2,7 +2,7 @@ from __future__ import annotations
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
-import html, json, secrets, sqlite3, time
+import html, importlib.util, json, secrets, sqlite3, sys, time
 
 WALLET_PROFILE="ENTITY_ECONOMIC_WALLET"
 WALLET_VERSION="1.0.0"
@@ -18,6 +18,11 @@ class EntityEconomicWallet:
         self.exchange_path=self.state/"entity_v3_exchange.sqlite"
         self.economic_path=self.state/"entity_v3_economic_participation.sqlite"
         self.fabric_path=self.state/"entity_v3"/"universal_fabric.sqlite"
+        lineage_path=Path(__file__).with_name("lineage_resolver.py")
+        spec=importlib.util.spec_from_file_location("entity_wallet_lineage_resolver",lineage_path)
+        if spec is None or spec.loader is None: raise RuntimeError("wallet lineage resolver unavailable")
+        lineage_mod=importlib.util.module_from_spec(spec); sys.modules[spec.name]=lineage_mod; spec.loader.exec_module(lineage_mod)
+        self.lineage=lineage_mod.WalletLineageResolver(self.state)
         self.root=self.state/"wallet"; self.root.mkdir(parents=True,exist_ok=True)
         self.path=self.root/"entity_wallet.sqlite"; self._init()
 
@@ -139,6 +144,7 @@ class EntityEconomicWallet:
                 d["commodity_class"]=descriptor.get("commodity_class")
                 d["measurement_unit"]=descriptor.get("measurement_unit")
                 d["market_instruments_created_automatically"]=False
+                d["lineage"]=self.lineage.resolve(d)
                 out.append(d)
             return out
 
@@ -240,7 +246,9 @@ class EntityEconomicWallet:
                                        "indicative_only":True,"not_accounting_fair_value":True},
                 "asset_model":{"digital_assets_are_first_class_holdings":True,
                                 "ingest_does_not_issue_market_instruments":True,
-                                "ingest_does_not_create_market_value":True},
+                                "ingest_does_not_create_market_value":True,
+                                "protocol_lineage_and_asset_provenance_are_separate":True,
+                                "adam_niki_btdu_do_not_create_ownership":True},
                 "stock_style":{"enabled":True,"features":["ASSETS","POSITIONS","QUANTITY","COST_BASIS","LAST","BID","ASK",
                                "INDICATIVE_MARKET_VALUE","REALIZED_CHANGE","UNREALIZED_CHANGE","ORDERS","ACTIVITY"],
                                "rights_are_not_declared_corporate_shares":True,
