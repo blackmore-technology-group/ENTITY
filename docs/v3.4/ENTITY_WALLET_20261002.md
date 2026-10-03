@@ -132,3 +132,43 @@ Asset ingest is deliberately non-economic by default:
 It does **not** automatically create an EEP instrument, licence, listing, ask price or market value. The controller may later choose to create standardized tradeable rights.
 
 Cross-platform build tooling is provided by `tools/build_entity_wallet_desktop.py` and the `ENTITY Wallet Desktop` workflow for Windows, macOS and Linux.
+
+
+## ENTITY Data Economy Terminal redesign — 2026-10-03
+
+The native wallet is implemented with **PySide6/Qt**, replacing the earlier utility-style Tkinter presentation.
+
+The desktop experience is organized as a data-economy terminal:
+
+- **Overview** — sovereign portfolio state, market tape, asset holdings and settled rights-market activity;
+- **Digital Assets** — first-class DCO holdings with lineage, passports, BTDU status and explicit `NO TICKER` state when no instrument exists;
+- **Instruments** — canonical issuer-scoped economic instruments with ticker/market identifier, rights class, supply and underlying DCO;
+- **ENTITY Market** — universal multi-issuer listings with ticker, issuer, rights, bid/ask/last, settled volume, buyers, holders and integrity flags;
+- **Economic Intelligence** — settlement-aware Data Value Discovery by instrument and asset class;
+- **Orders** — exchange instructions kept distinct from assets and positions.
+
+Ticker behavior is intentionally strict:
+
+DCO → optional economic instrument → issuer namespace + display symbol → ticker/market identifier
+
+A DCO without an issued economic instrument displays `NO TICKER`. The wallet does not manufacture a ticker or price merely because an asset exists.
+
+Before first issuance the wallet may display a collision-checked **suggested issuer namespace** such as `BTG`, marked `RESERVED ON ISSUE`. The alias is not authority and is not persisted until an issuer explicitly creates an instrument. Canonical instrument identity remains the immutable instrument_id.
+
+The header exposes canonical origin context separately from asset provenance:
+
+Shawn Blackmore → Blackmore Technology Group Limited → ENTITY
+
+Domain lineage such as `Robotics` comes from the asset Global Passport/profile stack. AI and Manufacturing remain composed profiles rather than false parent-child lineage nodes.
+
+The PySide6 build continues to preserve:
+
+- protocol tax = 0;
+- no cryptocurrency requirement;
+- external settlement evidence boundary;
+- asset registration does not issue instruments;
+- instrument issuance does not automatically create a listing;
+- listing/market activity does not imply intrinsic DCO value;
+- BTDU, ADAM and NIKI do not create ownership.
+
+The 2026-10-03 desktop/economy/lineage regression campaign passed **84/84** before the Qt package was built. The packaged Windows executable then passed a production-state frozen-runtime self-test with exit code 0.

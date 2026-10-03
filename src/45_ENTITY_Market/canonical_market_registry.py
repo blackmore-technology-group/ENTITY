@@ -154,6 +154,22 @@ class EntityEconomicMarketRegistry:
             CREATE INDEX IF NOT EXISTS idx_market_symbol ON instrument_packages(issuer_namespace,display_symbol);
             """)
 
+    def suggest_namespace(self,issuer_entity_id:str)->dict:
+        issuer=str(issuer_entity_id); manifest=self.identity.load_manifest(issuer)
+        base=_namespace_candidate(manifest)
+        if len(base)>20: base=base[:20]
+        candidate=base
+        with self._db() as db:
+            existing=db.execute("SELECT namespace FROM issuer_namespaces WHERE issuer_entity_id=?",(issuer,)).fetchone()
+            if existing:
+                return {"namespace":existing["namespace"],"registered":True,"available":True}
+            n=1
+            while True:
+                conflict=db.execute("SELECT issuer_entity_id FROM issuer_namespaces WHERE namespace=?",(candidate,)).fetchone()
+                if not conflict:
+                    return {"namespace":candidate,"registered":False,"available":True}
+                n+=1; suffix="-"+str(n); candidate=base[:20-len(suffix)]+suffix
+
     def ensure_namespace(self,issuer_entity_id:str,preferred:str|None=None)->dict:
         issuer=str(issuer_entity_id); manifest=self.identity.load_manifest(issuer)
         with self._db() as db:
