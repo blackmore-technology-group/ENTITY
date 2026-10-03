@@ -70,7 +70,7 @@ class EntityEconomicIntelligence:
                                FROM obligations o
                                JOIN economic_events e ON e.event_id=o.event_id
                                WHERE e.instrument_id=? AND o.status='SETTLED'
-                                 AND o.basis IN ('SECONDARY_ROYALTY','DERIVATIVE_PARTICIPATION',
+                                 AND o.basis IN ('SECONDARY_ORIGINATOR_ROYALTY','DERIVATIVE_PARTICIPATION',
                                                  'PRIMARY_TREASURY_ALLOCATION')""",(instrument_id,)).fetchall()
         except sqlite3.OperationalError:
             rows=[]
@@ -207,6 +207,7 @@ class EntityEconomicIntelligence:
         for m in metrics:
             r=by_rights[m["rights_class"]]; r["instruments"]+=1
             r["volume_units_30d"]+=m["window_30d"]["volume_units"]; r["settled_trades"]+=m["window_30d"]["trade_count"]
+            r["sum_instrument_unique_buyers_30d"]+=m["window_30d"]["unique_buyers"]
             cur=m["settlement_currency"] or "UNSPECIFIED"
             r["notional_30d_by_currency"][cur]+=m["window_30d"]["notional_amount_units"]
         clean={k:{**v,"notional_30d_by_currency":dict(v["notional_30d_by_currency"])}
