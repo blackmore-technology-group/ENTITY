@@ -30,7 +30,7 @@
     "trade_created": false,
     "value_state": "POTENTIAL"
   },
-  "entity_database": "E:\\ENTITY_ACTIVE\\ENTITY_V3_4_PRODUCTION_RUNTIME\\state\\entity_v3\\universal_fabric.sqlite",
+  "entity_database": "state/entity_v3/universal_fabric.sqlite",
   "entity_display_version": "3.4.3",
   "entity_system_id": "ent2-m3nofxtv3zwldhwuonw3h67hqjh2zambrhj4kaaulncpt4amkcua",
   "ingested_utc_ms": 1791003502937,
@@ -56,5 +56,10 @@
     "software_roundtrip": true,
     "software_signature": true,
     "value_signature": true
+  },
+  "public_receipt": {
+    "sanitized_for_repository_safety": true,
+    "local_exact_receipt_sha256": "F91291F3C33F397B52308DC7DCFE8E7F847460B61F3E908055D3E60C4448F2AF",
+    "sanitization": "Replaced local absolute database path with repository-safe state-relative path only."
   }
 }
