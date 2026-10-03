@@ -62,7 +62,8 @@ def test_unused_prelaunch_issuance_with_reserve_is_withdrawn_without_history_del
         db.close()
 
         ep=sqlite3.connect(state/"entity_v3_economic_participation.sqlite"); ep.row_factory=sqlite3.Row
-        assert ep.execute("select status from participation_policies where policy_id=?",(pol["policy_id"],)).fetchone()["status"]=="SUPERSEDED"
+        assert ep.execute("select status from participation_policies where policy_id=?",(pol["policy_id"],)).fetchone()["status"]=="WITHDRAWN"
+        assert ep.execute("select count(*) from participation_policy_withdrawals where policy_id=?",(pol["policy_id"],)).fetchone()[0]==1
         assert ep.execute("select count(*) from reserve_allocations where instrument_id=?",(inst["instrument_id"],)).fetchone()[0]==1
         ep.close()
 
