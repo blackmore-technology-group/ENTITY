@@ -142,6 +142,21 @@ Economic Consequence
 
 Originator participation may be expressed through explicit terms such as issuance participation, retained rights, secondary participation or derivative participation. ENTITY does not require a cryptocurrency, gas token or automatic BTG tax.
 
+### ENTITY Economic Wallet
+
+ENTITY v3.4.3 includes a **stock-style economic wallet application layer** over EEP and the Originator Participation Profile.
+
+- **Participant Wallet:** rights positions, entitlements, usage, orders, last settled price, bid/ask, FIFO settled-trade cost basis, and economic receivables/payables.
+- **Treasury Wallet:** reserve rights, participation policies, originator obligations and economic events for a distinct treasury ENTITY.
+- **Fiat remains external:** the wallet does not custody CAD/USD or store payment credentials; bank/payment-service evidence feeds the existing settlement path.
+- **No artificial value:** bids and offers remain quotes; only settled trades can create an observed last-price mark, and unpriced rights remain unpriced.
+- **No token requirement:** `cryptocurrency_required = false` and `protocol_tax_bps = 0`.
+- **No legal classification inference:** stock-style describes the market/portfolio interface; the wallet does not declare DCO/EEP rights to be corporate shares or securities.
+
+The wallet does not create a second economic ledger or signing authority. EEP balances, trades, entitlements and signatures remain canonical.
+
+[**Wallet design and usage**](docs/v3.4/ENTITY_WALLET_20261002.md) · [**Public qualification**](docs/evidence/v3.4.3-entity-wallet-20261002/QUALIFICATION.json)
+
 ---
 
 ## Quick start
