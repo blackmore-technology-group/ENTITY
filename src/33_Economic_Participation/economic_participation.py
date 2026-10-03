@@ -200,10 +200,13 @@ class EconomicParticipationProfile:
         return dict(body,signature=sig)
 
     def _active_policy(self,instrument_id,at_ms=None):
-        at=int(at_ms or now_ms())
+        at=int(now_ms() if at_ms is None else at_ms)
         with self._db() as db:
-            row=db.execute("SELECT * FROM participation_policies WHERE instrument_id=? AND status='ACTIVE' AND effective_at_ms<=? ORDER BY effective_at_ms DESC,version DESC LIMIT 1",(str(instrument_id),at)).fetchone()
-        if not row: raise KeyError('effective participation policy not found')
+            row=db.execute("SELECT * FROM participation_policies WHERE instrument_id=? AND effective_at_ms<=? ORDER BY effective_at_ms DESC,version DESC LIMIT 1",(str(instrument_id),at)).fetchone()
+            if not row: raise KeyError('effective participation policy not found')
+            withdrawal=db.execute("SELECT created_at_ms FROM participation_policy_withdrawals WHERE policy_id=?",(row['policy_id'],)).fetchone()
+        if withdrawal is not None and int(withdrawal['created_at_ms'])<=at:
+            raise KeyError('participation policy withdrawn at requested economic time')
         return row
 
     def withdraw_participation(self,instrument_id,originator_entity_id,reason,*,evidence_sha256=None):
