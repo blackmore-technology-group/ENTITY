@@ -4,6 +4,7 @@ import importlib.util, json, sqlite3, sys, tempfile, unittest
 
 HERE=Path(__file__).resolve().parents[1]
 MOD=HERE/"src"/"42_ENTITY_Wallet"/"canonical_wallet.py"
+ONBOARDING_MOD=HERE/"src"/"42_ENTITY_Wallet"/"onboarding.py"
 
 def load():
     spec=importlib.util.spec_from_file_location("wallet_test_mod",MOD)
@@ -81,5 +82,28 @@ class WalletTests(unittest.TestCase):
         p={x["instrument_id"]:x for x in snap["positions"]}["I2"]
         self.assertIsNone(p["market"]["last"])
         self.assertIsNone(p["market_value_amount_units"])
+
+    def test_first_run_profile_keeps_user_device_and_public_name_authority_separate(self):
+        spec=importlib.util.spec_from_file_location("wallet_ci_onboarding",ONBOARDING_MOD)
+        mod=importlib.util.module_from_spec(spec); sys.modules[spec.name]=mod; spec.loader.exec_module(mod)
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as td:
+            onboarding=mod.EntityWalletOnboarding(Path(td))
+            profile=onboarding.create_profile(
+                principal_display_name="CI User",
+                principal_public_name="ci.user",
+                principal_entity_type="person",
+                organization_display_name="CI Labs",
+                organization_public_name="ci.labs",
+                organization_entity_type="business",
+                operate_as_organization=True,
+            )
+            auth=onboarding.authenticate(profile)
+            self.assertTrue(auth["authenticated"])
+            self.assertEqual(profile["display_path"],"ci.user.entity → ci.labs.entity")
+            self.assertNotEqual(profile["principal_entity_id"],profile["active_entity_id"])
+            self.assertNotEqual(profile["device_entity_id"],profile["principal_entity_id"])
+            self.assertTrue(profile["public_name_is_alias_not_authority"])
+            self.assertTrue(profile["device_identity_is_not_user_identity"])
+            self.assertTrue(profile["protocol_origin_is_separate_from_user_lineage"])
 
 if __name__=="__main__": unittest.main()

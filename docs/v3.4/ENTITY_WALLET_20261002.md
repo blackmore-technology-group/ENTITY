@@ -204,3 +204,14 @@ A later Asset Disclosure update does not silently rewrite an already-created lis
 Portable instrument packages now include `asset-dossier.json` and, when present, `asset-disclosure.json` in addition to the human Listing Information PDF/Markdown and existing canonical manifests/passports.
 
 The wallet shows Asset Information status directly in the DCO portfolio. A DCO without a signed disclosure is marked **REQUIRED TO LIST**. The two current Robotics DCOs were issued signed Asset Disclosure v1 records using facts already present in their canonical records; no new performance claims were inferred.
+
+
+## Universal first-run identity and lineage onboarding — 2026-10-03
+
+The desktop wallet no longer assumes a BTG identity on a clean installation. A first-run setup now creates or adopts a sovereign principal ENTITY, claims a human-readable `.entity` public name, optionally creates an operating organization/business/project beneath the principal, creates or adopts a separate Device ENTITY, records explicit lineage/device relationships, creates the wallet, and authenticates through a device-bound signing-key challenge.
+
+The wallet header now resolves the active user's lineage dynamically. For the migrated BTG installation it displays `shawn.blackmore.entity → btg.entity`; another user receives their own lineage with no BTG-specific structural privilege.
+
+Device information may bootstrap only a system/device identity. It must never silently create a human or organization identity. Public names remain aliases; immutable Entity IDs and signatures remain authoritative. Protocol origin remains separate from user lineage and user-asset ownership.
+
+See `docs/v3.4/ENTITY_WALLET_IDENTITY_ONBOARDING.md` for the complete first-run and login model.

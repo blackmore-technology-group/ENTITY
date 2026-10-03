@@ -11,6 +11,8 @@ DATA_PATHS=[
   "tools/entity_v3_4_cli.py",
   "src/01_Core_Runtime/identity/canonical_identity.py",
   "src/11_ADAM/full_runtime",
+  "src/22_Sovereign_Domain",
+  "genesis_master/04_Entity_Registry/relationships/canonical_sovereign_authority.py",
   "src/30_Universal_Transaction_Fabric/canonical_universal_fabric.py",
   "src/31_Profiles/exchange_protocol.py",
   "src/36_Adoption_Layer",

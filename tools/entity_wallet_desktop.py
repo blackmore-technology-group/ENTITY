@@ -20,6 +20,44 @@ GREEN = "#43D39E"
 RED = "#FF6B78"
 YELLOW = "#E3BC64"
 
+def startup_stylesheet() -> str:
+    return f"""
+    * {{
+        font-family: "Segoe UI";
+        font-size: 10pt;
+        color: {TEXT};
+    }}
+    QDialog, QMessageBox {{ background: {ROOT_BG}; }}
+    QLabel {{ background: transparent; }}
+    QLabel[class="brand"] {{ font-size: 26pt; font-weight: 800; letter-spacing: 2px; color: {TEXT}; }}
+    QLabel[class="eyebrow"] {{ color: {ACCENT}; font-size: 8pt; font-weight: 700; letter-spacing: 1px; }}
+    QLabel[class="dialogTitle"] {{ font-size: 18pt; font-weight: 700; }}
+    QLabel[class="muted"] {{ color: {MUTED}; }}
+    QLabel[class="chip"] {{
+        background: {PANEL_2}; border: 1px solid {BORDER}; border-radius: 6px; padding: 10px; color: {MUTED};
+    }}
+    QLabel[class="tickerPreview"] {{
+        background: {SIDEBAR_BG}; border: 1px solid {ACCENT_DARK}; border-radius: 6px;
+        padding: 10px; color: {ACCENT}; font-family: Consolas; font-weight: 700;
+    }}
+    QFrame[class="panel"] {{ background: {PANEL_BG}; border: 1px solid {BORDER}; border-radius: 8px; }}
+    QPushButton {{
+        background: {PANEL_2}; border: 1px solid {BORDER}; border-radius: 6px;
+        padding: 8px 13px; font-weight: 600;
+    }}
+    QPushButton:hover {{ border-color: {ACCENT_DARK}; background: #1A2027; }}
+    QPushButton[primary="true"] {{
+        background: {ACCENT}; color: #0C0E11; border-color: {ACCENT}; font-weight: 800;
+    }}
+    QLineEdit, QComboBox {{
+        background: {PANEL_2}; border: 1px solid {BORDER}; border-radius: 5px; padding: 8px;
+        selection-background-color: {ACCENT_DARK};
+    }}
+    QLineEdit:focus, QComboBox:focus {{ border-color: {ACCENT}; }}
+    QCheckBox {{ spacing: 8px; }}
+    """
+
+
 def repo_root() -> Path:
     if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
         return Path(sys._MEIPASS)
@@ -41,6 +79,7 @@ INGEST = load_module("entity_wallet_ingest", "src/42_ENTITY_Wallet/asset_ingest.
 EXCHANGE = load_module("entity_wallet_exchange", "src/31_Profiles/exchange_protocol.py")
 MARKET = load_module("entity_wallet_market", "src/45_ENTITY_Market/canonical_market_registry.py")
 INTEL = load_module("entity_wallet_intelligence", "src/45_ENTITY_Market/economic_intelligence.py")
+ONBOARDING = load_module("entity_wallet_onboarding", "src/42_ENTITY_Wallet/onboarding.py")
 
 def default_state() -> Path:
     env = os.environ.get("ENTITY_STATE_DIR")
@@ -360,6 +399,233 @@ class EmptyState(QtWidgets.QFrame):
         body_label = Ui.label(body, "muted")
         body_label.setWordWrap(True)
         lay.addWidget(body_label)
+
+class EntitySetupDialog(QtWidgets.QDialog):
+    def __init__(self, parent, onboarding):
+        super().__init__(parent)
+        self.onboarding = onboarding
+        self.profile = None
+        self.setWindowTitle("Create your ENTITY identity")
+        self.resize(760, 690)
+        self.setMinimumSize(690, 610)
+        layout = QtWidgets.QVBoxLayout(self)
+        layout.setContentsMargins(28, 24, 28, 24)
+        layout.setSpacing(14)
+
+        layout.addWidget(Ui.label("WELCOME TO ENTITY", "eyebrow"))
+        layout.addWidget(Ui.label("Create your sovereign identity", "dialogTitle"))
+        intro = Ui.label(
+            "This creates your own cryptographic ENTITY identity and public .entity name. "
+            "Your device receives a separate device identity; device information never becomes your human or company identity.",
+            "muted"
+        )
+        intro.setWordWrap(True)
+        layout.addWidget(intro)
+
+        principal_box = QtWidgets.QFrame()
+        principal_box.setProperty("class", "panel")
+        pf = QtWidgets.QFormLayout(principal_box)
+        pf.setContentsMargins(18, 18, 18, 18)
+        pf.setFieldGrowthPolicy(QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
+
+        self.principal_type = QtWidgets.QComboBox()
+        self.principal_type.addItems(["person", "business", "organization", "project", "community", "family"])
+        self.principal_name = QtWidgets.QLineEdit()
+        self.principal_name.setPlaceholderText("Jane Smith")
+        self.principal_public = QtWidgets.QLineEdit()
+        self.principal_public.setPlaceholderText("jane.smith")
+        self.principal_preview = Ui.label("jane.smith.entity", "tickerPreview")
+        pf.addRow("Identity type", self.principal_type)
+        pf.addRow("Public display name", self.principal_name)
+        pf.addRow("Public ENTITY name", self.principal_public)
+        pf.addRow("Address preview", self.principal_preview)
+        layout.addWidget(principal_box)
+
+        self.add_org = QtWidgets.QCheckBox("Create an operating organization/business under this identity")
+        self.add_org.setChecked(False)
+        layout.addWidget(self.add_org)
+
+        self.org_box = QtWidgets.QFrame()
+        self.org_box.setProperty("class", "panel")
+        of = QtWidgets.QFormLayout(self.org_box)
+        of.setContentsMargins(18, 18, 18, 18)
+        of.setFieldGrowthPolicy(QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
+        self.org_type = QtWidgets.QComboBox()
+        self.org_type.addItems(["business", "organization", "project"])
+        self.org_name = QtWidgets.QLineEdit()
+        self.org_name.setPlaceholderText("Acme Corporation")
+        self.org_public = QtWidgets.QLineEdit()
+        self.org_public.setPlaceholderText("acme")
+        self.org_preview = Ui.label("acme.entity", "tickerPreview")
+        self.operate_as_org = QtWidgets.QCheckBox("Open the wallet as this operating entity")
+        self.operate_as_org.setChecked(True)
+        of.addRow("Entity type", self.org_type)
+        of.addRow("Organization name", self.org_name)
+        of.addRow("Public ENTITY name", self.org_public)
+        of.addRow("Address preview", self.org_preview)
+        of.addRow("", self.operate_as_org)
+        layout.addWidget(self.org_box)
+        self.org_box.setVisible(False)
+
+        self.lineage_preview = Ui.label("LINEAGE  —", "chip")
+        self.lineage_preview.setWordWrap(True)
+        layout.addWidget(self.lineage_preview)
+
+        note = Ui.label(
+            "Public names are human-readable aliases. The immutable ENTITY ID and signatures remain authoritative. "
+            "A local name conflict does not let one user impersonate another.",
+            "muted"
+        )
+        note.setWordWrap(True)
+        layout.addWidget(note)
+        layout.addStretch()
+
+        buttons = QtWidgets.QHBoxLayout()
+        cancel = Ui.button("Exit")
+        create = Ui.button("Create ENTITY and wallet", True)
+        cancel.clicked.connect(self.reject)
+        create.clicked.connect(self.create_identity)
+        buttons.addWidget(cancel)
+        buttons.addStretch()
+        buttons.addWidget(create)
+        layout.addLayout(buttons)
+
+        self.add_org.toggled.connect(self.org_box.setVisible)
+        self.add_org.toggled.connect(self.update_preview)
+        self.principal_public.textChanged.connect(self.update_preview)
+        self.org_public.textChanged.connect(self.update_preview)
+        self.update_preview()
+
+    @staticmethod
+    def _address(text):
+        raw = str(text or "").strip().lower()
+        if raw.endswith(".entity"):
+            raw = raw[:-7]
+        return (raw + ".entity") if raw else "—"
+
+    def update_preview(self):
+        p = self._address(self.principal_public.text())
+        self.principal_preview.setText(p)
+        if self.add_org.isChecked():
+            o = self._address(self.org_public.text())
+            self.org_preview.setText(o)
+            self.lineage_preview.setText(f"LINEAGE  {p}  →  {o}")
+        else:
+            self.lineage_preview.setText(f"LINEAGE  {p}")
+
+    def create_identity(self):
+        if not self.principal_name.text().strip() or not self.principal_public.text().strip():
+            QtWidgets.QMessageBox.warning(self, "ENTITY setup", "Display name and public ENTITY name are required.")
+            return
+        if self.add_org.isChecked() and (not self.org_name.text().strip() or not self.org_public.text().strip()):
+            QtWidgets.QMessageBox.warning(
+                self, "ENTITY setup",
+                "Organization name and public ENTITY name are required when an operating organization is enabled."
+            )
+            return
+        try:
+            self.profile = self.onboarding.create_profile(
+                principal_display_name=self.principal_name.text().strip(),
+                principal_public_name=self.principal_public.text().strip(),
+                principal_entity_type=self.principal_type.currentText(),
+                organization_display_name=self.org_name.text().strip() if self.add_org.isChecked() else None,
+                organization_public_name=self.org_public.text().strip() if self.add_org.isChecked() else None,
+                organization_entity_type=self.org_type.currentText(),
+                operate_as_organization=self.operate_as_org.isChecked(),
+            )
+            auth = self.onboarding.authenticate(self.profile)
+            if not auth.get("authenticated"):
+                raise RuntimeError("new identity was created but device-bound authentication failed")
+            self.accept()
+        except Exception as exc:
+            QtWidgets.QMessageBox.critical(self, "ENTITY setup failed", str(exc))
+
+
+class EntityLoginDialog(QtWidgets.QDialog):
+    def __init__(self, parent, onboarding):
+        super().__init__(parent)
+        self.onboarding = onboarding
+        self.profile = None
+        self.create_new = False
+        self.profiles = onboarding.list_profiles()
+        self.setWindowTitle("Unlock ENTITY")
+        self.resize(620, 390)
+        self.setMinimumWidth(580)
+        layout = QtWidgets.QVBoxLayout(self)
+        layout.setContentsMargins(28, 24, 28, 24)
+        layout.setSpacing(14)
+
+        layout.addWidget(Ui.label("ENTITY", "brand"))
+        layout.addWidget(Ui.label("SOVEREIGN WALLET ACCESS", "eyebrow"))
+        layout.addWidget(Ui.label("Unlock your local ENTITY identity", "dialogTitle"))
+        note = Ui.label(
+            "ENTITY uses possession of your local signing identity plus the bound device identity. "
+            "The operating-system account name is not treated as your ENTITY identity.",
+            "muted"
+        )
+        note.setWordWrap(True)
+        layout.addWidget(note)
+
+        self.selector = QtWidgets.QComboBox()
+        for profile in self.profiles:
+            active = onboarding.identity.load_manifest(profile["active_entity_id"])
+            self.selector.addItem(
+                f"{profile['display_path']}   ·   {active['display_name']}",
+                profile["profile_id"]
+            )
+        layout.addWidget(self.selector)
+
+        self.detail = Ui.label("", "chip")
+        self.detail.setWordWrap(True)
+        layout.addWidget(self.detail)
+        self.selector.currentIndexChanged.connect(self.update_detail)
+        self.update_detail()
+        layout.addStretch()
+
+        buttons = QtWidgets.QHBoxLayout()
+        create = Ui.button("Create another identity")
+        unlock = Ui.button("Unlock wallet", True)
+        create.clicked.connect(self.choose_create)
+        unlock.clicked.connect(self.unlock)
+        buttons.addWidget(create)
+        buttons.addStretch()
+        buttons.addWidget(unlock)
+        layout.addLayout(buttons)
+
+    def update_detail(self):
+        idx = self.selector.currentIndex()
+        if idx < 0 or idx >= len(self.profiles):
+            self.detail.setText("No local wallet profile.")
+            return
+        p = self.profiles[idx]
+        self.detail.setText(
+            f"LINEAGE  {p['display_path']}\n"
+            f"LOGIN  device-bound signing key\n"
+            f"ACTIVE ENTITY  {shorten(p['active_entity_id'], 14, 10)}"
+        )
+
+    def choose_create(self):
+        self.create_new = True
+        self.accept()
+
+    def unlock(self):
+        idx = self.selector.currentIndex()
+        if idx < 0 or idx >= len(self.profiles):
+            return
+        profile = self.profiles[idx]
+        auth = self.onboarding.authenticate(profile)
+        if not auth.get("authenticated"):
+            QtWidgets.QMessageBox.critical(
+                self, "ENTITY unlock failed",
+                "The local signing identity or bound device could not authenticate this wallet.\n\n"
+                + str(auth.get("reason") or "authentication failed")
+                + ("\n\nRecovery or device re-binding is required." if auth.get("recovery_or_rebind_required") else "")
+            )
+            return
+        self.onboarding.set_active(profile["profile_id"])
+        self.profile = profile
+        self.accept()
+
 
 class AssetDisclosureDialog(QtWidgets.QDialog):
     def __init__(self, parent, asset: dict, current: dict | None = None):
@@ -722,10 +988,11 @@ class WalletWindow(QtWidgets.QMainWindow):
         ("market", "ENTITY MARKET"), ("intelligence", "ECONOMIC INTELLIGENCE"), ("orders", "ORDERS"),
     ]
 
-    def __init__(self, state: Path, entity_id: str):
+    def __init__(self, state: Path, entity_id: str, wallet_profile: dict | None = None):
         super().__init__()
         self.state = state
         self.entity_id = entity_id
+        self.wallet_profile = wallet_profile
         self.backend = Backend(state, entity_id)
         self.snapshot_data = {}
         self.assets_rows: list[dict] = []
@@ -944,8 +1211,16 @@ class WalletWindow(QtWidgets.QMainWindow):
         venues = self.backend.venues()
 
         name = self.backend.identity_manifest.get("display_name") or self.entity_id
-        self.identity_chip.setText(f"{name}\n{shorten(self.entity_id, 12, 8)}")
-        self.lineage_chip.setText("SHAWN → BTG → ENTITY")
+        public_aliases = [str(x) for x in (self.backend.identity_manifest.get("aliases") or []) if str(x).endswith(".entity")]
+        active_public = public_aliases[0] if public_aliases else shorten(self.entity_id, 12, 8)
+        self.identity_chip.setText(f"{name}\n{active_public}")
+        if self.wallet_profile:
+            self.lineage_chip.setText("LINEAGE  " + self.wallet_profile.get("display_path", active_public))
+            self.lineage_chip.setToolTip(
+                "User/organization lineage for this wallet. This is separate from ENTITY protocol origin."
+            )
+        else:
+            self.lineage_chip.setText("LINEAGE  " + active_public)
         self.namespace_chip.setText(f"NAMESPACE  {ns}" + ("" if ns_info.get("registered") else "  ·  RESERVED ON ISSUE"))
         self.market_chip.setText(f"ENTITY-MKT  ·  {len(venues)} VENUE{'S' if len(venues)!=1 else ''}")
         if self.market_rows:
@@ -1384,10 +1659,13 @@ class WalletWindow(QtWidgets.QMainWindow):
         QToolTip {{ background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER}; }}
         """)
 
-def self_test(state: Path, entity_id: str) -> dict:
+def self_test(state: Path, entity_id: str, wallet_profile: dict | None = None) -> dict:
     backend = Backend(state, entity_id)
     snap = backend.snapshot()
     registry_status = backend.market_registry.status()
+    onboarding = ONBOARDING.EntityWalletOnboarding(state)
+    profile = wallet_profile or onboarding.profile_for_entity(entity_id)
+    auth = onboarding.authenticate(profile) if profile else {"authenticated": False, "reason": "legacy_unprofiled_identity"}
     return {
         "ready": True, "ui_engine": "PySide6", "design": "ENTITY_DATA_ECONOMY_TERMINAL",
         "entity_id": entity_id, "assets": len(snap.get("assets", [])),
@@ -1398,6 +1676,13 @@ def self_test(state: Path, entity_id: str) -> dict:
         "asset_disclosures": registry_status["counts"].get("asset_disclosures", 0),
         "market_registry_version": registry_status["version"],
         "signed_asset_disclosure_required_for_listing": registry_status.get("signed_asset_disclosure_required_for_listing", False),
+        "wallet_profile_id": profile.get("profile_id") if profile else None,
+        "wallet_lineage": profile.get("display_path") if profile else None,
+        "device_bound_login": bool(auth.get("authenticated")) if profile else False,
+        "login_mode": (profile.get("login_policy") or {}).get("mode") if profile else None,
+        "public_name_is_alias_not_authority": True,
+        "device_information_creates_user_identity": False,
+        "protocol_origin_is_separate_from_user_lineage": True,
         "protocol_tax_bps": 0, "cryptocurrency_required": False,
     }
 
@@ -1408,23 +1693,58 @@ def main():
     ap.add_argument("--render-preview")
     args = ap.parse_args()
     state = Path(args.state) if args.state else default_state()
-    if not args.entity:
-        ms = manifests(state)
-        if not ms:
-            raise SystemExit("No ENTITY identity found")
-        args.entity = ms[0]["entity_id"]
+    onboarding = ONBOARDING.EntityWalletOnboarding(state)
+
+    wallet_profile = None
+    if args.entity:
+        wallet_profile = onboarding.profile_for_entity(args.entity)
+    else:
+        wallet_profile = onboarding.active_profile()
+        if wallet_profile:
+            args.entity = wallet_profile["active_entity_id"]
+
     if args.self_test:
-        report = self_test(state, args.entity)
+        if not args.entity:
+            ms = manifests(state)
+            if not ms:
+                raise SystemExit("No ENTITY identity or wallet profile found")
+            args.entity = ms[0]["entity_id"]
+        report = self_test(state, args.entity, wallet_profile)
         raw = json.dumps(report, indent=2, sort_keys=True)
         if args.self_test_output:
             Path(args.self_test_output).write_text(raw + "\n", encoding="utf-8")
         else:
             print(raw)
         return
+
     app = QtWidgets.QApplication(sys.argv)
     app.setApplicationName(APP_NAME)
     app.setStyle("Fusion")
-    window = WalletWindow(state, args.entity)
+    app.setStyleSheet(startup_stylesheet())
+
+    if not args.entity:
+        setup = EntitySetupDialog(None, onboarding)
+        if setup.exec() != QtWidgets.QDialog.Accepted or not setup.profile:
+            return
+        wallet_profile = setup.profile
+        args.entity = wallet_profile["active_entity_id"]
+    elif wallet_profile is None and not args.render_preview:
+        # A legacy explicit --entity remains supported for managed deployments.
+        pass
+    elif wallet_profile is not None and not args.render_preview:
+        login = EntityLoginDialog(None, onboarding)
+        if login.exec() != QtWidgets.QDialog.Accepted:
+            return
+        if login.create_new:
+            setup = EntitySetupDialog(None, onboarding)
+            if setup.exec() != QtWidgets.QDialog.Accepted or not setup.profile:
+                return
+            wallet_profile = setup.profile
+        else:
+            wallet_profile = login.profile
+        args.entity = wallet_profile["active_entity_id"]
+
+    window = WalletWindow(state, args.entity, wallet_profile)
     window.show()
     if args.render_preview:
         app.processEvents()
@@ -1433,6 +1753,7 @@ def main():
             app.quit()
         ))
     sys.exit(app.exec())
+
 
 if __name__ == "__main__":
     main()
