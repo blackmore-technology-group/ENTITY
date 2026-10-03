@@ -16,6 +16,11 @@ def _token(v:str)->str:
     if not s: raise ValueError("non-empty canonical token required")
     return s
 
+def _enum(v:str)->str:
+    s=str(v or "").upper().strip()
+    if not s or re.search(r"[^A-Z0-9_-]",s): raise ValueError("invalid canonical enum")
+    return s
+
 def _safe_symbol(v:str)->str:
     s=re.sub(r"[^A-Z0-9._-]+","-",str(v or "").upper()).strip("-._")
     if not s or len(s)>32: raise ValueError("display symbol must be 1-32 canonical characters")
@@ -215,10 +220,10 @@ class EntityEconomicMarketRegistry:
                     "rights_passport_id":rp["passport_id"],"global_passport_id":gp["passport_id"],
                     "rights_class":rc,"market_identifier":market_identifier}
         eep_body={"schema":"entity-eep-instrument-v1","instrument_id":instrument_id,"issuer":issuer,
-                  "underlying_object_id":dco,"instrument_class":_token(instrument_class),
+                  "underlying_object_id":dco,"instrument_class":_enum(instrument_class),
                   "rights":rights_doc,"total_units":supply,"transferable":bool(transferable),
                   "duration_ms":int(duration_ms) if duration_ms is not None else None,
-                  "settlement_currency":_token(settlement_currency),"delivery_mode":_token(delivery_mode),
+                  "settlement_currency":_enum(settlement_currency),"delivery_mode":_enum(delivery_mode),
                   "status":"ACTIVE","created_at_ms":now_ms(),"bytes_are_not_the_traded_scarcity":True}
         sig=self.identity.sign(issuer,eep_body)
         self.exchange.submit_signed_instrument(eep_body,sig)
@@ -346,10 +351,10 @@ This sheet is a buyer-facing disclosure layer. It does **not** replace the Right
         if instrument["issuer_entity_id"]!=issuer: raise PermissionError("instrument issuer required")
         listing_id=canonical_listing_id(str(venue_id),instrument_id,int(listing_series))
         draft={"listing_id":listing_id,"venue_id":str(venue_id),"market_id":str(market_id),
-               "quote_unit":_token(quote_unit),"trade_mode":_token(trade_mode),
-               "settlement_method":_token(settlement_method),"minimum_quantity":int(minimum_quantity),
+               "quote_unit":_enum(quote_unit),"trade_mode":_enum(trade_mode),
+               "settlement_method":_enum(settlement_method),"minimum_quantity":int(minimum_quantity),
                "quantity_precision":int(quantity_precision),"price_precision":int(price_precision),
-               "pricing_method":_token(pricing_method),"status":"ACTIVE","listed_at_ms":now_ms()}
+               "pricing_method":_enum(pricing_method),"status":"ACTIVE","listed_at_ms":now_ms()}
         if draft["minimum_quantity"]<1: raise ValueError("minimum quantity must be positive")
         asset=self.fabric.get_object(instrument["underlying_dco_id"])
         manifest=self.identity.load_manifest(issuer)
