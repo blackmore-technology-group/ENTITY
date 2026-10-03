@@ -46,6 +46,24 @@ def validate_signed_wire(body):
         actions=rights.get('actions')
         if type(actions) is not list or not actions or any(type(a) is not str or not a or a!=a.upper() for a in actions): raise ValueError('rights.actions must be non-empty canonical uppercase strings')
         if actions!=sorted(set(actions)): raise ValueError('rights.actions must be sorted and unique')
+    elif schema=='entity-eep-instrument-withdrawal-v1':
+        for n in ('withdrawal_id','instrument_id','issuer','reason'): sid(n)
+        common_time()
+        evidence=body.get('evidence_sha256')
+        if evidence is not None: require_sha256(evidence)
+        if body.get('prior_status')!='ACTIVE' or body.get('new_status')!='WITHDRAWN':
+            raise ValueError('invalid instrument withdrawal state transition')
+        if body.get('no_new_rights_created') is not True:
+            raise ValueError('withdrawal rights-boundary flag required')
+    elif schema=='entity-eep-venue-retirement-v1':
+        for n in ('retirement_id','venue_id','operator','reason'): sid(n)
+        common_time()
+        evidence=body.get('evidence_sha256')
+        if evidence is not None: require_sha256(evidence)
+        if body.get('prior_status')!='ACTIVE' or body.get('new_status')!='RETIRED':
+            raise ValueError('invalid venue retirement state transition')
+        if body.get('venue_is_not_protocol_authority') is not True:
+            raise ValueError('venue authority boundary required')
     elif schema=='entity-eep-disclosure-v1':
         for n in ('disclosure_id','venue_id','instrument_id','publisher'): sid(n)
         sup('disclosure_type'); sha256('content_sha256'); common_time()
@@ -122,6 +140,16 @@ class ExchangeProtocol:
               jurisdiction TEXT NOT NULL, execution_models_json TEXT NOT NULL,
               policy_sha256 TEXT NOT NULL, status TEXT NOT NULL,
               created_at_ms INTEGER NOT NULL, signature_json TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS venue_retirements(
+              retirement_id TEXT PRIMARY KEY, venue_id TEXT NOT NULL UNIQUE,
+              operator TEXT NOT NULL, prior_status TEXT NOT NULL, new_status TEXT NOT NULL,
+              reason TEXT NOT NULL, evidence_sha256 TEXT, created_at_ms INTEGER NOT NULL,
+              signature_json TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS instrument_withdrawals(
+              withdrawal_id TEXT PRIMARY KEY, instrument_id TEXT NOT NULL UNIQUE,
+              issuer TEXT NOT NULL, prior_status TEXT NOT NULL, new_status TEXT NOT NULL,
+              reason TEXT NOT NULL, evidence_sha256 TEXT, created_at_ms INTEGER NOT NULL,
+              signature_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS instruments(
               instrument_id TEXT PRIMARY KEY, issuer TEXT NOT NULL, underlying_object_id TEXT NOT NULL,
               instrument_class TEXT NOT NULL, rights_json TEXT NOT NULL, total_units INTEGER NOT NULL,
@@ -244,6 +272,55 @@ class ExchangeProtocol:
                 json.dumps(sig, sort_keys=True)))
         return dict(body, signature=sig)
 
+    def venue_status(self, venue_id: str) -> dict:
+        with self._db() as db:
+            venue=db.execute("SELECT * FROM venues WHERE venue_id=?",(str(venue_id),)).fetchone()
+            retirement=db.execute("SELECT * FROM venue_retirements WHERE venue_id=?",(str(venue_id),)).fetchone()
+        if not venue: raise KeyError("venue not found")
+        return {"venue_id":venue["venue_id"],"operator":venue["operator"],"name":venue["name"],
+                "status":venue["status"],"retirement":None if not retirement else
+                (dict(retirement)|{"signature":json.loads(retirement["signature_json"])})}
+
+    def _record_signed_venue_retirement(self, body: dict, signature: dict) -> dict:
+        required={"schema","retirement_id","venue_id","operator","prior_status","new_status",
+                  "reason","evidence_sha256","created_at_ms","venue_is_not_protocol_authority"}
+        validate_signed_wire(body)
+        if set(body)!=required or body.get("schema")!="entity-eep-venue-retirement-v1":
+            raise ValueError("invalid signed venue retirement shape")
+        operator=str(body["operator"]); venue_id=str(body["venue_id"])
+        manifest=self.identity.load_manifest(operator)
+        if not self.identity.verify_signature(manifest,body,signature):
+            raise PermissionError("venue retirement signature invalid")
+        with self._db() as db:
+            db.execute("BEGIN IMMEDIATE")
+            venue=db.execute("SELECT * FROM venues WHERE venue_id=?",(venue_id,)).fetchone()
+            if not venue: raise KeyError("venue not found")
+            if venue["operator"]!=operator: raise PermissionError("venue operator required")
+            if venue["status"]!="ACTIVE": raise ValueError("active venue required")
+            if db.execute("SELECT 1 FROM listings WHERE venue_id=? AND status='ACTIVE' LIMIT 1",(venue_id,)).fetchone():
+                raise ValueError("cannot retire venue with active listings")
+            if db.execute("SELECT 1 FROM orders WHERE venue_id=? AND status IN ('OPEN','PARTIAL') LIMIT 1",(venue_id,)).fetchone():
+                raise ValueError("cannot retire venue with open orders")
+            if db.execute("SELECT 1 FROM rfqs WHERE venue_id=? AND status='OPEN' LIMIT 1",(venue_id,)).fetchone():
+                raise ValueError("cannot retire venue with open RFQs")
+            unsettled=db.execute("""SELECT 1 FROM trades t JOIN clearing c ON c.trade_id=t.trade_id
+                                   WHERE t.venue_id=? AND c.status='PENDING' LIMIT 1""",(venue_id,)).fetchone()
+            if unsettled: raise ValueError("cannot retire venue with unsettled trades")
+            db.execute("INSERT INTO venue_retirements VALUES(?,?,?,?,?,?,?,?,?)",(
+                body["retirement_id"],venue_id,operator,body["prior_status"],body["new_status"],
+                body["reason"],body["evidence_sha256"],body["created_at_ms"],json.dumps(signature,sort_keys=True)))
+            db.execute("UPDATE venues SET status='RETIRED' WHERE venue_id=?",(venue_id,))
+        return dict(body,signature=signature)
+
+    def retire_venue(self, operator: str, venue_id: str, reason: str, *, evidence_sha256: str | None=None) -> dict:
+        evidence=require_sha256(evidence_sha256) if evidence_sha256 is not None else None
+        body={"schema":"entity-eep-venue-retirement-v1","retirement_id":rid("vret3"),
+              "venue_id":str(venue_id),"operator":str(operator),"prior_status":"ACTIVE","new_status":"RETIRED",
+              "reason":str(reason),"evidence_sha256":evidence,"created_at_ms":now_ms(),
+              "venue_is_not_protocol_authority":True}
+        sig=self.identity.sign(str(operator),body)
+        return self._record_signed_venue_retirement(body,sig)
+
     def _record_signed_instrument(self, body: dict, signature: dict) -> dict:
         required={"schema","instrument_id","issuer","underlying_object_id","instrument_class","rights","total_units","transferable","duration_ms","settlement_currency","delivery_mode","status","created_at_ms","bytes_are_not_the_traded_scarcity"}
         validate_signed_wire(body)
@@ -282,6 +359,54 @@ class ExchangeProtocol:
               "created_at_ms":now_ms(),"bytes_are_not_the_traded_scarcity":True}
         sig=self.identity.sign(issuer,body)
         return self._record_signed_instrument(body,sig)
+
+    def instrument_status(self, instrument_id: str) -> dict:
+        with self._db() as db:
+            inst=db.execute("SELECT instrument_id,issuer,status,created_at_ms FROM instruments WHERE instrument_id=?",(str(instrument_id),)).fetchone()
+            withdrawal=db.execute("SELECT * FROM instrument_withdrawals WHERE instrument_id=?",(str(instrument_id),)).fetchone()
+        if not inst: raise KeyError("instrument not found")
+        return {"instrument_id":inst["instrument_id"],"issuer":inst["issuer"],"status":inst["status"],
+                "issued_at_ms":int(inst["created_at_ms"]),"withdrawal":None if not withdrawal else
+                (dict(withdrawal)|{"signature":json.loads(withdrawal["signature_json"])})}
+
+    def _record_signed_instrument_withdrawal(self, body: dict, signature: dict) -> dict:
+        required={"schema","withdrawal_id","instrument_id","issuer","prior_status","new_status",
+                  "reason","evidence_sha256","created_at_ms","no_new_rights_created"}
+        validate_signed_wire(body)
+        if set(body)!=required or body.get("schema")!="entity-eep-instrument-withdrawal-v1":
+            raise ValueError("invalid signed instrument withdrawal shape")
+        issuer=str(body["issuer"]); iid=str(body["instrument_id"])
+        manifest=self.identity.load_manifest(issuer)
+        if not self.identity.verify_signature(manifest,body,signature):
+            raise PermissionError("instrument withdrawal signature invalid")
+        with self._db() as db:
+            db.execute("BEGIN IMMEDIATE")
+            inst=db.execute("SELECT * FROM instruments WHERE instrument_id=?",(iid,)).fetchone()
+            if not inst: raise KeyError("instrument not found")
+            if inst["issuer"]!=issuer: raise PermissionError("instrument issuer required")
+            if inst["status"]!="ACTIVE": raise ValueError("active instrument required")
+            if db.execute("SELECT 1 FROM orders WHERE instrument_id=? AND status IN ('OPEN','PARTIAL') LIMIT 1",(iid,)).fetchone():
+                raise ValueError("cannot withdraw instrument with open orders")
+            if db.execute("""SELECT 1 FROM trades t JOIN clearing c ON c.trade_id=t.trade_id
+                             WHERE t.instrument_id=? AND c.status='PENDING' LIMIT 1""",(iid,)).fetchone():
+                raise ValueError("cannot withdraw instrument with unsettled trades")
+            if db.execute("SELECT 1 FROM rfqs WHERE instrument_id=? AND status='OPEN' LIMIT 1",(iid,)).fetchone():
+                raise ValueError("cannot withdraw instrument with open RFQs")
+            db.execute("INSERT INTO instrument_withdrawals VALUES(?,?,?,?,?,?,?,?,?)",(
+                body["withdrawal_id"],iid,issuer,body["prior_status"],body["new_status"],
+                body["reason"],body["evidence_sha256"],body["created_at_ms"],json.dumps(signature,sort_keys=True)))
+            db.execute("UPDATE instruments SET status='WITHDRAWN' WHERE instrument_id=?",(iid,))
+            db.execute("UPDATE listings SET status='WITHDRAWN' WHERE instrument_id=? AND status='ACTIVE'",(iid,))
+        return dict(body,signature=signature)
+
+    def withdraw_instrument(self, issuer: str, instrument_id: str, reason: str, *, evidence_sha256: str | None=None) -> dict:
+        evidence=require_sha256(evidence_sha256) if evidence_sha256 is not None else None
+        body={"schema":"entity-eep-instrument-withdrawal-v1","withdrawal_id":rid("withdraw3"),
+              "instrument_id":str(instrument_id),"issuer":str(issuer),"prior_status":"ACTIVE","new_status":"WITHDRAWN",
+              "reason":str(reason),"evidence_sha256":evidence,"created_at_ms":now_ms(),
+              "no_new_rights_created":True}
+        sig=self.identity.sign(str(issuer),body)
+        return self._record_signed_instrument_withdrawal(body,sig)
 
     def balance(self, instrument_id: str, holder: str) -> int:
         with self._db() as db:
@@ -912,7 +1037,7 @@ class ExchangeProtocol:
 
     def status(self) -> dict:
         with self._db() as db:
-            tables=("venues","instruments","listings","orders","order_cancellations","trades","clearing","payment_attestations","settlement_verifiers","entitlements","usage","surveillance","rfqs","quotes","rfq_acceptances","rfq_trade_sources","revenue_rule_sets","trade_revenue_bindings")
+            tables=("venues","venue_retirements","instruments","instrument_withdrawals","listings","orders","order_cancellations","trades","clearing","payment_attestations","settlement_verifiers","entitlements","usage","surveillance","rfqs","quotes","rfq_acceptances","rfq_trade_sources","revenue_rule_sets","trade_revenue_bindings")
             counts={name:int(db.execute(f"SELECT COUNT(*) FROM {name}").fetchone()[0]) for name in tables}
         return {"schema":"entity-eep-status-v1","profile":"ENTITY_EXCHANGE_PROTOCOL","version":"3.0.0",
                 "rights_are_traded_not_bytes":True,"venue_neutral":True,"payment_versus_right_transfer":True,
