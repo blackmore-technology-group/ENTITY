@@ -2,7 +2,7 @@
 
 Date: 2026-10-02
 
-ENTITY v3.4.3 now includes a repository-safe **economic wallet application layer** over the existing ENTITY Exchange Protocol (EEP) and Originator Participation Profile.
+ENTITY v3.4.3 now includes a repository-safe **economic wallet application layer** over the Universal Transaction Fabric, ENTITY Exchange Protocol (EEP) and Originator Participation Profile. The wallet treats controller-held Digital Commodity Objects as first-class assets, independently from any later market instruments.
 
 This addition does **not** change the ENTITY protocol version, the EEP wire schema, the BTDU schema, or the no-token/no-protocol-tax model.
 
@@ -111,3 +111,24 @@ The qualification covers:
 This repository publishes generic wallet source, tooling, tests and qualification evidence only.
 
 It does **not** publish production wallet databases, live wallet IDs, treasury identity material, private signing/recovery keys, local launchers, payment credentials, runtime SQLite state, bank details, production snapshots or other private operational state.
+
+
+## Native desktop wallet and asset ingest
+
+The canonical user experience is now a native desktop application, not a generated HTML page. The source entry point is `tools/entity_wallet_desktop.py`.
+
+The native wallet provides:
+
+- **My Digital Assets** — controller-held DCOs from the Universal Transaction Fabric;
+- **Upload / Ingest Digital Asset** — select a local file, hash it, copy it into the local wallet vault and register it as a DCO;
+- **Market** — live instrument bid/ask/last observations and signed Buy/Sell order submission;
+- **Market Positions** — rights positions kept separate from the underlying assets;
+- **Orders** — active/recent exchange orders.
+
+Asset ingest is deliberately non-economic by default:
+
+`UPLOAD → SHA-256 → LOCAL VAULT → DCO REGISTRATION → MY DIGITAL ASSETS`
+
+It does **not** automatically create an EEP instrument, licence, listing, ask price or market value. The controller may later choose to create standardized tradeable rights.
+
+Cross-platform build tooling is provided by `tools/build_entity_wallet_desktop.py` and the `ENTITY Wallet Desktop` workflow for Windows, macOS and Linux.
