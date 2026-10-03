@@ -34,7 +34,8 @@ def test_robotics_lineage_resolves_shawn_btg_entity_robotics_without_transferrin
                     kind TEXT,body_json TEXT,issuer_entity_id TEXT,signature_json TEXT,created_at_ms INTEGER,
                     active_canonical INTEGER)""")
         for i,(ref,kind) in enumerate([
-            ("entity-profile:global@1.0","GLOBAL"),("entity-profile:robotics@1.0","INDUSTRY")]):
+            ("entity-profile:global@1.0","GLOBAL"),("entity-profile:robotics@1.0","INDUSTRY"),
+            ("entity-profile:ai@1.0","INDUSTRY"),("entity-profile:manufacturing@1.0","INDUSTRY")]):
             body={"profile_ref":ref,"profile_id":ref.split("@")[0],"kind":kind}
             db.execute("INSERT INTO profile_variants VALUES(?,?,?,?,?,?,?,?,?,?)",
                        (ref,str(i)*64,body["profile_id"],"1.0",kind,json.dumps(body),ENTITY,"{}",i,1))
@@ -44,7 +45,8 @@ def test_robotics_lineage_resolves_shawn_btg_entity_robotics_without_transferrin
         db.execute("""CREATE TABLE global_passports(passport_id TEXT,object_id TEXT,controller_entity_id TEXT,
                     version TEXT,body_sha256 TEXT,body_json TEXT,signature_json TEXT,created_at_ms INTEGER)""")
         gp={"passport_id":"gp1","object_id":"obj-child","controller_entity_id":BTG,"version":"1.1",
-            "profile_stack":{"profile_refs":["entity-profile:global@1.0","entity-profile:robotics@1.0"]},
+            "profile_stack":{"profile_refs":["entity-profile:global@1.0","entity-profile:robotics@1.0",
+                                              "entity-profile:ai@1.0","entity-profile:manufacturing@1.0"]},
             "protocol_origin":{"origin_lineage_id":"entity-origin:shawn-btg-entity@1.0",
                                "root_originator_entity_id":SHAWN,"steward_entity_id":BTG,
                                "protocol_entity_id":ENTITY},
@@ -72,6 +74,8 @@ def test_robotics_lineage_resolves_shawn_btg_entity_robotics_without_transferrin
         resolver=m.WalletLineageResolver(state)
         result=resolver.resolve({"object_id":"obj-child","controller_entity_id":BTG})
         assert result["protocol_lineage"]["display_path"]=="Shawn Blackmore → Blackmore Technology Group Limited → ENTITY → Robotics"
+        assert result["protocol_lineage"]["composed_domain_profiles"]==["AI","Manufacturing"]
+        assert result["protocol_lineage"]["profile_composition_is_not_parent_child_lineage"] is True
         assert result["protocol_lineage"]["passport_protocol_origin_embedded"] is True
         assert result["asset_lineage"]["controller_entity_id"]==BTG
         assert result["asset_lineage"]["parents"][0]["title"]=="BIRFR-1"
