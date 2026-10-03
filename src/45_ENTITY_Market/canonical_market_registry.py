@@ -243,7 +243,7 @@ class EntityEconomicMarketRegistry:
                  "canonical_identity_is_instrument_id":True}
         psig=self.identity.sign(issuer,package)
         with self._db() as db:
-            db.execute("""INSERT INTO instrument_packages VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",(
+            db.execute("""INSERT INTO instrument_packages VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",(
                 instrument_id,issuer,ns["namespace"],dco,package["instrument_name"],symbol,market_identifier,
                 package["instrument_class"],rc,series,fung,div,supply,rp["passport_id"],gp["passport_id"],
                 package["jurisdiction"],json.dumps(package["transfer_rules"],sort_keys=True),
