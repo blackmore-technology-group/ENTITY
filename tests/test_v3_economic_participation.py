@@ -195,6 +195,24 @@ class EconomicParticipationTests(unittest.TestCase):
         pos=self.profile.position(self.treasury['treasury_id'],self.exchange)
         self.assertEqual(pos['monetary_obligations']['CAD']['SETTLED'],750)
 
+    def test_policy_withdrawal_stops_future_economics_but_preserves_historical_policy(self):
+        historical_at=int(self.policy['effective_at_ms'])
+        withdrawal=self.profile.withdraw_participation(
+            self.instrument['instrument_id'],self.originator,'unused prelaunch economics withdrawn',
+            evidence_sha256=hashlib.sha256(b'withdrawal evidence').hexdigest())
+        self.assertTrue(withdrawal['historical_obligations_and_reserves_preserved'])
+        with self.assertRaises(KeyError):
+            self.profile._active_policy(self.instrument['instrument_id'])
+        historical=self.profile._active_policy(self.instrument['instrument_id'],historical_at)
+        self.assertEqual(historical['policy_id'],self.policy['policy_id'])
+        with self.profile._db() as db:
+            status=db.execute('SELECT status FROM participation_policies WHERE policy_id=?',
+                              (self.policy['policy_id'],)).fetchone()['status']
+            count=db.execute('SELECT COUNT(*) FROM participation_policy_withdrawals WHERE policy_id=?',
+                             (self.policy['policy_id'],)).fetchone()[0]
+        self.assertEqual(status,'WITHDRAWN')
+        self.assertEqual(count,1)
+
     def test_policy_version_cannot_be_rewritten(self):
         with self.assertRaises(ValueError):
             self.profile.define_participation(self.originator,self.treasury['treasury_id'],self.instrument['instrument_id'],1000,300,'CAD',version=1)
