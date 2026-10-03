@@ -368,7 +368,8 @@ class ExchangeProtocol:
         if not inst: raise KeyError("instrument not found")
         return {"instrument_id":inst["instrument_id"],"issuer":inst["issuer"],"status":inst["status"],
                 "issued_at_ms":int(inst["created_at_ms"]),"withdrawal":None if not withdrawal else
-                (dict(withdrawal)|{"signature":json.loads(withdrawal["signature_json"])})}
+                (dict(withdrawal)|{"signature":json.loads(withdrawal["signature_json"]),
+                 "no_new_rights_created":True})}
 
     def _record_signed_instrument_withdrawal(self, body: dict, signature: dict) -> dict:
         required={"schema","withdrawal_id","instrument_id","issuer","prior_status","new_status",
