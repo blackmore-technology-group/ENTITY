@@ -12,11 +12,12 @@ def now_ms()->int: return int(time.time()*1000)
 def rid(prefix:str)->str: return prefix+"-"+secrets.token_hex(12)
 
 class EntityEconomicWallet:
-    """Identity-bound stock-style view over canonical ENTITY economic records."""
+    """Identity-bound wallet model over canonical ENTITY asset and economic records."""
     def __init__(self,state_dir:str|Path):
         self.state=Path(state_dir)
         self.exchange_path=self.state/"entity_v3_exchange.sqlite"
         self.economic_path=self.state/"entity_v3_economic_participation.sqlite"
+        self.fabric_path=self.state/"entity_v3"/"universal_fabric.sqlite"
         self.root=self.state/"wallet"; self.root.mkdir(parents=True,exist_ok=True)
         self.path=self.root/"entity_wallet.sqlite"; self._init()
 
