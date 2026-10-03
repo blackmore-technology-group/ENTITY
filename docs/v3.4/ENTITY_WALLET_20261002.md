@@ -235,3 +235,16 @@ Rules:
 Production verification confirmed that BIRFR-1 exposes its allowed actions (BENCHMARK, CERTIFY, COMPUTE, DERIVE, EVALUATE, FINE_TUNE, INFER, OEM_DEPLOY, TRAIN) and does not expose COMMERCIALIZE, while the Blackmore Real-Time Failure Detection Engine does expose COMMERCIALIZE because that action is present in its Rights Passport.
 
 The complete wallet/economy/lineage/onboarding/market qualification campaign passed **89/89** after this change. The installed Windows executable then passed its frozen-runtime production self-test.
+
+
+## Rights-Passport-driven instrument issuance and Software Engineering domain — 2026-10-03
+
+Economic instrument issuance in the desktop wallet is now driven by the selected DCO's current Rights Passport. The wallet no longer defaults every asset to `COMMERCIALIZE`. It loads the active Rights Passport, presents only `ALLOW` actions as selectable instrument rights, displays prohibited/non-directly-issuable actions separately, validates the selected subset again at issuance, and derives the suggested rights class / ticker suffix from the selected actions. The canonical market validator remains the final fail-closed enforcement boundary.
+
+Example: BIRFR-1 currently exposes BENCHMARK, CERTIFY, COMPUTE, DERIVE, EVALUATE, FINE_TUNE, INFER, OEM_DEPLOY and TRAIN. `COMMERCIALIZE` is therefore not offered for BIRFR-1. Selecting TRAIN suggests `BIRFR1-TRN` and the TRAINING rights class. DCO-000002 separately allows COMMERCIALIZE because its Rights Passport explicitly grants that action.
+
+ENTITY now also includes a built-in `entity-profile:software-engineering@1.0` domain/profile and a `software-engineering` implementation package. This domain supports software repositories, source code, libraries, applications, algorithms, build artifacts, test evidence and engineering-control DCOs. It maps SPDX-3, CycloneDX and SLSA as non-normative interoperability mappings; the profile does not create authority or regulatory status.
+
+Ten active legacy ENGINEERING_CONTROL DCOs that previously carried only the Global profile were migrated by issuing new immutable Global Passport versions with the Software Engineering profile. Existing passports remain preserved. The migration did not change DCO IDs, controllers, Rights Passport IDs/hashes, evidence, provenance or economic state. The wallet now resolves all 12 current BTG assets to explicit domains: 10 Software Engineering and 2 Robotics.
+
+The Software Engineering profile is distributed as a pre-signed canonical profile record under `protocol/profiles`. Clean installations verify its `entity.entity` signature and import it at runtime; they do not mint or re-sign canonical profiles locally. This preserves the public-key-only trust boundary on new devices.

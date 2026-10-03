@@ -65,6 +65,23 @@ PACKAGE_SPECS={
                     _mapping("NIST-AI-RMF",{"risk_category":"descriptor.risk_category","control":"descriptor.control_ref"})],
         "privacy":{"default":"SELECTIVE_DISCLOSURE","minimum_data":True,"purpose_bound":True},
     },
+    "software-engineering":{
+        "profile_refs":[GLOBAL_PROFILE,"entity-profile:software-engineering@1.0"],
+        "required_config":["organization","jurisdiction","authority_source","software_governance_policy"],
+        "object_types":{
+            "repository":"SOFTWARE","source_code":"SOFTWARE","library":"SOFTWARE","application":"SOFTWARE",
+            "algorithm":"ALGORITHM","build_artifact":"SOFTWARE","test_evidence":"DOCUMENT",
+            "engineering_control":"DATASET"
+        },
+        "rights":["INSPECT","READ","COPY","DERIVE","EXECUTE","MODIFY"],
+        "evidence_types":["DOCUMENT","OTHER","REGISTRY_RECORD"],
+        "mappings":[
+            _mapping("SPDX-3",{"name":"descriptor.component_name","version":"descriptor.component_version","license":"descriptor.license_expression"}),
+            _mapping("CYCLONEDX",{"bom-ref":"descriptor.bom_ref","name":"descriptor.component_name","version":"descriptor.component_version"}),
+            _mapping("SLSA",{"buildType":"descriptor.build_type","builder.id":"descriptor.builder_id","invocationId":"descriptor.invocation_id"})
+        ],
+        "privacy":{"default":"SELECTIVE_DISCLOSURE","minimum_data":True,"purpose_bound":True},
+    },
     "robotics":{
         "profile_refs":[GLOBAL_PROFILE,"entity-profile:robotics@1.0"],
         "required_config":["organization","jurisdiction","authority_source","safety_policy"],

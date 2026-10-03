@@ -100,7 +100,8 @@ class WalletLineageResolver:
     def _profile_label(ref:str)->str:
         core=str(ref).split("@",1)[0].split(":")[-1]
         return {"global":"Global","robotics":"Robotics","ai":"AI","manufacturing":"Manufacturing",
-                "healthcare":"Healthcare","finance":"Finance","defence-public":"Defence-public"}.get(core,core.replace("-"," ").title())
+                "software-engineering":"Software Engineering","healthcare":"Healthcare",
+                "finance":"Finance","defence-public":"Defence-public"}.get(core,core.replace("-"," ").title())
 
     def resolve(self,asset:dict)->dict:
         object_id=str(asset["object_id"]); controller=str(asset["controller_entity_id"])

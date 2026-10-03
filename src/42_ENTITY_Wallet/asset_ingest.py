@@ -5,6 +5,7 @@ import hashlib, json, sqlite3
 INGEST_SCHEMA="entity-wallet-canonical-asset-ingest-v2"
 
 PACKAGE_KINDS={
+    "software-engineering":["repository","source_code","library","application","algorithm","build_artifact","test_evidence","engineering_control"],
     "robotics":["robot","controller","model","software","algorithm","telemetry","action_record"],
     "ai":["training_dataset","corpus","model","weights","evaluation","agent","output"],
     "manufacturing":["machine","digital_twin","firmware","telemetry","maintenance_record"],
@@ -14,6 +15,7 @@ PACKAGE_KINDS={
 }
 
 PACKAGE_POLICY_DEFAULTS={
+    "software-engineering":{"software_governance_policy":"ENTITY_PROVENANCE_BOUND"},
     "robotics":{"safety_policy":"ENTITY_FAIL_CLOSED"},
     "ai":{"model_governance_policy":"ENTITY_PROVENANCE_BOUND"},
     "manufacturing":{"asset_namespace":"ENTITY_CONTROLLER"},

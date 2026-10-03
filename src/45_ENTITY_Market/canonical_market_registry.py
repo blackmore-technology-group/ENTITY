@@ -447,15 +447,28 @@ class EntityEconomicMarketRegistry:
         return dict(package,signature=psig,eep_instrument=dict(eep_body,signature=sig))
 
     def instrument(self,instrument_id:str)->dict:
+        iid=str(instrument_id)
         with self._db() as db:
-            r=db.execute("SELECT * FROM instrument_packages WHERE instrument_id=?",(str(instrument_id),)).fetchone()
+            r=db.execute("SELECT * FROM instrument_packages WHERE instrument_id=?",(iid,)).fetchone()
         if not r: raise KeyError("instrument package not found")
         d=dict(r)
         for src,dst in [("transfer_rules_json","transfer_rules"),("economic_terms_json","economic_terms"),
                         ("royalty_terms_json","royalty_terms"),("buyer_receives_json","buyer_receives"),
                         ("buyer_does_not_receive_json","buyer_does_not_receive"),("evidence_refs_json","evidence_refs")]:
             d[dst]=json.loads(d.pop(src) or ("[]" if "buyer_" in dst or dst=="evidence_refs" else "{}"))
-        d["signature"]=json.loads(d.pop("signature_json")); return d
+        d["signature"]=json.loads(d.pop("signature_json"))
+        with self.exchange._db() as db:
+            eep=db.execute("""SELECT rights_json,settlement_currency,delivery_mode,transferable,duration_ms,status
+                              FROM instruments WHERE instrument_id=?""",(iid,)).fetchone()
+        if not eep:
+            raise KeyError("canonical EEP instrument record not found")
+        d["rights"]=json.loads(eep["rights_json"])
+        d["settlement_currency"]=eep["settlement_currency"]
+        d["delivery_mode"]=eep["delivery_mode"]
+        d["transferable"]=bool(eep["transferable"])
+        d["duration_ms"]=eep["duration_ms"]
+        d["eep_status"]=eep["status"]
+        return d
 
     def resolve_symbol(self,issuer_namespace:str,display_symbol:str)->dict:
         ns=_token(issuer_namespace); sym=_safe_symbol(display_symbol)

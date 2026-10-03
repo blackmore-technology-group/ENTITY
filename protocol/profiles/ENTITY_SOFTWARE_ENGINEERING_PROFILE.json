@@ -1,0 +1,63 @@
+{
+  "body_sha256": "1afcb25c1a62814b6b561b54367460ab47e35faff6cf53c8954fe8d301a708c2",
+  "conflict_policy": "FAIL_CLOSED",
+  "created_at_ms": 1791049771367,
+  "issuer_entity_id": "ent2-m3nofxtv3zwldhwuonw3h67hqjh2zambrhj4kaaulncpt4amkcua",
+  "kind": "INDUSTRY",
+  "object_types": [
+    "ALGORITHM",
+    "DATASET",
+    "DOCUMENT",
+    "MODEL",
+    "OTHER",
+    "SOFTWARE"
+  ],
+  "parent_refs": [
+    "entity-profile:global@1.0"
+  ],
+  "policy": {
+    "external_standard_not_redefined": true,
+    "industry_profile": "software-engineering",
+    "profile_schema_version": "1.0",
+    "technical_interoperability_not_regulatory_compliance": true
+  },
+  "profile_id": "entity-profile:software-engineering",
+  "profile_is_not_authority": true,
+  "profile_ref": "entity-profile:software-engineering@1.0",
+  "public_unclassified": true,
+  "required_evidence_types": [
+    "DOCUMENT",
+    "OTHER",
+    "REGISTRY_RECORD"
+  ],
+  "schema": "entity-v3-global-profile-v1",
+  "schema_sha256": "33a5703c703526d2e99f347a6ce65556ca0d91c9fd5c1283207239aaaa33fa74",
+  "signature": {
+    "entity_id": "ent2-m3nofxtv3zwldhwuonw3h67hqjh2zambrhj4kaaulncpt4amkcua",
+    "key_id": "sig-a31ded371cfb5019",
+    "payload_sha256": "1afcb25c1a62814b6b561b54367460ab47e35faff6cf53c8954fe8d301a708c2",
+    "signature": "rhGmk75uVFy4YmeAlFSaYJRKP8ZOOeGwE5Z84M2vuHW91XROqCWp7QT1LnFQKQBezpktox0ioKEB0cOeQamBCg",
+    "signature_schema": "entity-signature-record-v2",
+    "signed_at_ms": 1791049771397,
+    "suite": "ENTITY-SIG-ED25519-v1"
+  },
+  "standards": [
+    {
+      "normative_equivalence_claimed": false,
+      "role": "MAPPING",
+      "standard": "CYCLONEDX"
+    },
+    {
+      "normative_equivalence_claimed": false,
+      "role": "MAPPING",
+      "standard": "SLSA"
+    },
+    {
+      "normative_equivalence_claimed": false,
+      "role": "MAPPING",
+      "standard": "SPDX-3"
+    }
+  ],
+  "standards_mapping_is_not_normative_equivalence": true,
+  "version": "1.0"
+}

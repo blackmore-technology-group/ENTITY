@@ -59,6 +59,10 @@ def test_multi_issuer_symbols_canonical_ids_listing_sheet_and_portable_package()
 
         assert ia["market_identifier"]=="ACME:SHARED-TRN"
         assert ij["market_identifier"]=="JSMITH:SHARED-TRN"
+        loaded=reg.instrument(ia["instrument_id"])
+        assert loaded["rights"]["actions"]==["EVALUATE","TRAIN"]
+        assert loaded["settlement_currency"]=="CAD"
+        assert loaded["eep_status"]=="ACTIVE"
         assert ia["instrument_id"]!=ij["instrument_id"]
         assert ia["instrument_id"].startswith("entity.instrument:v1:")
         assert reg.resolve_symbol("ACME","SHARED-TRN")["instrument_id"]==ia["instrument_id"]

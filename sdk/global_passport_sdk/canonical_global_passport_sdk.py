@@ -2,7 +2,9 @@ from __future__ import annotations
 
 PROFILE_ALIASES={
     "global":"entity-profile:global@1.0","healthcare":"entity-profile:healthcare@1.0","finance":"entity-profile:finance@1.0",
-    "manufacturing":"entity-profile:manufacturing@1.0","ai":"entity-profile:ai@1.0","robotics":"entity-profile:robotics@1.0",
+    "manufacturing":"entity-profile:manufacturing@1.0","ai":"entity-profile:ai@1.0",
+    "software":"entity-profile:software-engineering@1.0","software-engineering":"entity-profile:software-engineering@1.0",
+    "engineering":"entity-profile:software-engineering@1.0","robotics":"entity-profile:robotics@1.0",
     "defence":"entity-profile:defence-public@1.0","defense":"entity-profile:defence-public@1.0",
 }
 

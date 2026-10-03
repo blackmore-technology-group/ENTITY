@@ -8,6 +8,7 @@ ENTRY=ROOT/"tools"/"entity_wallet_desktop.py"
 DATA_PATHS=[
   "ENTITY_CURRENT_RELEASE_ORIGIN.json",
   "protocol/origin",
+  "protocol/profiles",
   "tools/entity_v3_4_cli.py",
   "src/01_Core_Runtime/identity/canonical_identity.py",
   "src/11_ADAM/full_runtime",
