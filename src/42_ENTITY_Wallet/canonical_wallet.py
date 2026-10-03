@@ -168,6 +168,8 @@ class EntityEconomicWallet:
             for row in rows:
                 p=dict(row); p["units"]=int(p["units"]); p["total_units"]=int(p["total_units"])
                 p["transferable"]=bool(p["transferable"]); p["rights"]=json.loads(p.pop("rights_json") or "{}")
+                if p["rights"].get("registration_only") is True:
+                    continue
                 p["market"]=self._market(db,p["instrument_id"])
                 p["cost_basis"]=self._trade_basis(db,entity_id,p["instrument_id"],p["units"])
                 last=p["market"]["last"]
