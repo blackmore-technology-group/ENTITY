@@ -437,6 +437,22 @@ This sheet is a buyer-facing disclosure layer. It does **not** replace the Right
                 "market_identifier":instrument["market_identifier"],
                 "files":sorted(p.name for p in out.iterdir() if p.is_file())}
 
+    def issuer_instruments(self,issuer_entity_id:str,*,include_withdrawn:bool=False)->list[dict]:
+        sql="SELECT instrument_id FROM instrument_packages WHERE issuer_entity_id=?"
+        args=[str(issuer_entity_id)]
+        if not include_withdrawn: sql+=" AND status='ACTIVE'"
+        sql+=" ORDER BY created_at_ms,instrument_id"
+        with self._db() as db: ids=[r["instrument_id"] for r in db.execute(sql,args)]
+        return [self.instrument(i) for i in ids]
+
+    def instrument_listings(self,instrument_id:str,*,active_only:bool=True)->list[dict]:
+        sql="SELECT listing_id FROM listing_packages WHERE instrument_id=?"
+        args=[str(instrument_id)]
+        if active_only: sql+=" AND status='ACTIVE'"
+        sql+=" ORDER BY listed_at_ms,listing_id"
+        with self._db() as db: ids=[r["listing_id"] for r in db.execute(sql,args)]
+        return [self.listing(i) for i in ids]
+
     def active_market(self)->list[dict]:
         with self._db() as db:
             rows=db.execute("""SELECT l.*,i.instrument_name,i.market_identifier,i.issuer_entity_id,
