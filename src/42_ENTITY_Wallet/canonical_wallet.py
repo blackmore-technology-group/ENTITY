@@ -122,6 +122,25 @@ class EntityEconomicWallet:
                 "realized_change_amount_units":realized,"unknown_sold_units":unknown_sold,
                 "bought_units":bought,"sold_units":sold}
 
+    def _assets(self,entity_id:str)->list[dict]:
+        """Return controller-held Digital Commodity Objects independently of market positions."""
+        if not self.fabric_path.exists(): return []
+        with self._db(self.fabric_path) as db:
+            rows=db.execute("""SELECT object_id,controller_entity_id,object_type,title,content_sha256,
+                                      descriptor_json,status,created_at_ms
+                               FROM objects WHERE controller_entity_id=? AND status='ACTIVE'
+                               ORDER BY created_at_ms DESC,object_id""",(entity_id,)).fetchall()
+            out=[]
+            for row in rows:
+                d=dict(row); descriptor=json.loads(d.pop("descriptor_json") or "{}")
+                if descriptor.get("digital_commodity") is not True: continue
+                d["descriptor"]=descriptor
+                d["commodity_class"]=descriptor.get("commodity_class")
+                d["measurement_unit"]=descriptor.get("measurement_unit")
+                d["market_instruments_created_automatically"]=False
+                out.append(d)
+            return out
+
     def _positions(self,entity_id:str)->list[dict]:
         if not self.exchange_path.exists(): return []
         with self._db(self.exchange_path) as db:
@@ -198,7 +217,7 @@ class EntityEconomicWallet:
         return totals
 
     def snapshot(self,wallet_id:str)->dict:
-        w=self.wallet(wallet_id); entity=w["owner_entity_id"]; positions=self._positions(entity)
+        w=self.wallet(wallet_id); entity=w["owner_entity_id"]; assets=self._assets(entity); positions=self._positions(entity)
         with self._db(self.path) as db:
             watch=[r["instrument_id"] for r in db.execute(
                 "SELECT instrument_id FROM watchlist WHERE wallet_id=? ORDER BY created_at_ms",(wallet_id,)).fetchall()]
@@ -209,7 +228,7 @@ class EntityEconomicWallet:
                     inst=db.execute("SELECT instrument_id,instrument_class,settlement_currency,status FROM instruments WHERE instrument_id=?",(iid,)).fetchone()
                     if inst: watch_quotes.append({**dict(inst),"market":self._market(db,iid)})
         return {"schema":"entity-economic-wallet-snapshot-v1","profile":WALLET_PROFILE,"version":WALLET_VERSION,
-                "created_at_ms":now_ms(),"wallet":w,"positions":positions,
+                "created_at_ms":now_ms(),"wallet":w,"assets":assets,"positions":positions,
                 "portfolio_by_currency":self._totals(positions),"orders":self._orders(entity),
                 "entitlements":self._entitlements(entity),"obligations":self._obligations(entity),
                 "watchlist":watch_quotes,
@@ -218,7 +237,10 @@ class EntityEconomicWallet:
                 "market_value_policy":{"last_settled_trade_only":True,"bid_ask_are_quotes_not_value":True,
                                        "offers_are_not_realized_value":True,"unpriced_positions_remain_unpriced":True,
                                        "indicative_only":True,"not_accounting_fair_value":True},
-                "stock_style":{"enabled":True,"features":["POSITIONS","QUANTITY","COST_BASIS","LAST","BID","ASK",
+                "asset_model":{"digital_assets_are_first_class_holdings":True,
+                                "ingest_does_not_issue_market_instruments":True,
+                                "ingest_does_not_create_market_value":True},
+                "stock_style":{"enabled":True,"features":["ASSETS","POSITIONS","QUANTITY","COST_BASIS","LAST","BID","ASK",
                                "INDICATIVE_MARKET_VALUE","REALIZED_CHANGE","UNREALIZED_CHANGE","ORDERS","ACTIVITY"],
                                "rights_are_not_declared_corporate_shares":True,
                                "legal_classification_not_inferred":True},
