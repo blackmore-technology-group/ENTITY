@@ -1,0 +1,73 @@
+{
+  "schema": "entity-v343-birfr1-passport-public-qualification-v1",
+  "completed_utc": "2026-10-03T06:20:00Z",
+  "entity_display_version": "3.4.3",
+  "pass": true,
+  "dco_code": "DCO-000001",
+  "rights_passport": {
+    "sha256": "3ae5f9ce40dba97789c7ee84973414e4c906c2fb6aa65ac925545a1419d88119",
+    "privacy_profile": "SELECTIVE_DISCLOSURE",
+    "verified": true,
+    "custody_provider_is_authority": false,
+    "credentials_included": false
+  },
+  "global_passport": {
+    "sha256": "d79f05074afb42859fe0ae7d3ba97ee3bed73441fcd94949e79c22ddf2ed3663",
+    "verified": true,
+    "profiles": [
+      "entity-profile:global@1.0",
+      "entity-profile:robotics@1.0",
+      "entity-profile:ai@1.0",
+      "entity-profile:manufacturing@1.0"
+    ],
+    "economic_state": {
+      "state": "POTENTIAL",
+      "amount_units": 0,
+      "currency": "CAD",
+      "market_observation_is_not_accounting_fair_value": true
+    }
+  },
+  "btdu_binding": {
+    "mode": "CONTENT_ADDRESSED_REFERENCE",
+    "exact_atomization": false,
+    "exact_atomization_status": "DEFERRED_RESOURCE_BOUNDARY",
+    "content_sha256": "2e97dc53c308eb07f8d5040d3965fb5024ffe14ac431313c28c2e8dbbc0eaaa5",
+    "qualified_universe_root": "74f9c41c26f1260c01adc3db839f573cb664cbf80b84e2ba4788d7da08bbebfd",
+    "qualified_sequence": 75121,
+    "boundary": "Full recovery of the existing multi-gigabyte signed ADAM universe exceeded available process memory. This qualification does not claim exact BIRFR atomization."
+  },
+  "shared_bridge": {
+    "bridge_family": "ENTITY_ROBOTICS_INTEGRATION",
+    "exposure_mode": "NOT_EXPOSED",
+    "mappings": [
+      "ROS-2",
+      "OPEN-RMF"
+    ],
+    "unique_bridge_created": false
+  },
+  "production_pipeline": {
+    "required_order": [
+      "ASSET_BUILT",
+      "ASSET_QUALIFIED",
+      "PROVENANCE_SEALED",
+      "DCO_REGISTERED",
+      "RIGHTS_PASSPORT_ISSUED",
+      "GLOBAL_PASSPORT_ISSUED",
+      "PROFILE_BTDU_BOUND",
+      "ECONOMIC_INSTRUMENTS_ISSUED",
+      "PUBLIC_SAFE_EVIDENCE_PUBLISHED"
+    ],
+    "bridge_optional": true,
+    "public_safe_manifest_sha256": "cd20ecff37166bbd65a24b4a43d078f80b7512040f8b293279105254a5e0a663"
+  },
+  "repository_boundary": {
+    "live_dco_object_id_committed": false,
+    "live_instrument_ids_committed": false,
+    "wallet_ids_committed": false,
+    "treasury_ids_committed": false,
+    "runtime_paths_committed": false,
+    "private_keys_committed": false,
+    "credentials_committed": false,
+    "customer_entitlements_committed": false
+  }
+}
