@@ -1,3 +1,6 @@
+> **STRATEGIC EMPHASIS CORRECTED — 2026-10-03**  
+> This document originally framed 10,000 DCOs primarily as a BTG production target. The factory remains technically capable of large catalogs, but the operating objective is now an **open, issuer-neutral DCO issuance capability**. BTG's first 100 DCOs are seed/proof-of-market inventory; growth beyond that is expected increasingly from unrelated participants. See `ENTITY_ECONOMIC_CONSTITUTION_20261003.md` and `OPEN_DATA_ECONOMY_20261003.md`.
+
 # DCO Factory — 10,000-DCO design target
 
 Date: 2026-10-02  
@@ -14,13 +17,7 @@ The factory exists because a catalog measured in thousands of DCOs must not be c
 
 ## Design target
 
-The first full-scale operating target is:
-
-- **10,000 qualified DCOs**;
-- approximately **50,000–80,000 physical economic instruments**, depending on Standard / Advanced / Strategic mix;
-- actual balances, entitlements, transactions and usage created only as activity occurs.
-
-The target is capacity planning, not a requirement to manufacture arbitrary assets.
+The factory has been qualified for a **10,000-record catalog design target**, but that is a technical capacity target—not a requirement for BTG to own 10,000 DCOs. The corrected operating roadmap is to use roughly 100 BTG seed DCOs to prove the market, then open issuance to unrelated participants and scale the **total** market catalog. Actual balances, entitlements, transactions and usage remain activity-driven.
 
 ## Commercial profiles
 
