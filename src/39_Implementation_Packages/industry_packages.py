@@ -68,7 +68,7 @@ PACKAGE_SPECS={
     "robotics":{
         "profile_refs":[GLOBAL_PROFILE,"entity-profile:robotics@1.0"],
         "required_config":["organization","jurisdiction","authority_source","safety_policy"],
-        "object_types":{"robot":"DEVICE","controller":"DEVICE","model":"MODEL","software":"SOFTWARE","telemetry":"DATASET","action_record":"DOCUMENT"},
+        "object_types":{"robot":"DEVICE","controller":"DEVICE","model":"MODEL","software":"SOFTWARE","algorithm":"ALGORITHM","telemetry":"DATASET","action_record":"DOCUMENT"},
         "rights":["INSPECT","READ","INFER","EXECUTE","CONTROL"],
         "evidence_types":["SENSOR_OBSERVATION","DOCUMENT","OTHER"],
         "mappings":[_mapping("ROS-2",{"topic":"descriptor.ros_topic","type":"descriptor.ros_type","node":"descriptor.ros_node"}),
