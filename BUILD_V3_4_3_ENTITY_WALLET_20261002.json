@@ -1,0 +1,39 @@
+{
+  "schema": "entity-v343-wallet-build-v1",
+  "entity_display_version": "3.4.3",
+  "wallet_profile": "ENTITY_ECONOMIC_WALLET",
+  "wallet_version": "1.0.0",
+  "component_type": "APPLICATION_LAYER",
+  "protocol_version_changed": false,
+  "files": [
+    "src/42_ENTITY_Wallet/canonical_wallet.py",
+    "tests/test_entity_wallet.py",
+    "tools/entity_wallet.py",
+    "tools/provision_btg_wallets.py",
+    "docs/v3.4/ENTITY_WALLET_20261002.md",
+    "docs/evidence/v3.4.3-entity-wallet-20261002/QUALIFICATION.json"
+  ],
+  "design_invariants": [
+    "EEP balances/trades/entitlements remain authoritative",
+    "wallet records do not create signing authority",
+    "only settled trades create observed last-price marks",
+    "bids and asks remain quotes",
+    "unpriced rights remain unpriced",
+    "indicative marks are not accounting fair value",
+    "fiat remains at external bank or payment service",
+    "wallet stores no payment credentials",
+    "cryptocurrency is not required",
+    "protocol_tax_bps remains zero",
+    "stock-style presentation does not infer legal or securities classification"
+  ],
+  "qualification": {
+    "wallet_tests": "3/3 PASS",
+    "wallet_plus_existing_economic_participation": "27/27 PASS"
+  },
+  "repository_safety": {
+    "production_wallet_ids_included": false,
+    "private_keys_included": false,
+    "live_databases_included": false,
+    "bank_credentials_included": false
+  }
+}
