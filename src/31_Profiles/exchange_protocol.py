@@ -46,15 +46,6 @@ def validate_signed_wire(body):
         actions=rights.get('actions')
         if type(actions) is not list or not actions or any(type(a) is not str or not a or a!=a.upper() for a in actions): raise ValueError('rights.actions must be non-empty canonical uppercase strings')
         if actions!=sorted(set(actions)): raise ValueError('rights.actions must be sorted and unique')
-    elif schema=='entity-eep-instrument-withdrawal-v1':
-        for n in ('withdrawal_id','instrument_id','issuer','reason'): sid(n)
-        common_time()
-        if body.get('prior_status')!='ACTIVE' or body.get('new_status')!='WITHDRAWN':
-            raise ValueError('invalid instrument withdrawal state transition')
-        evidence=body.get('evidence_sha256')
-        if evidence is not None: require_sha256(evidence)
-        if body.get('no_new_rights_created') is not True:
-            raise ValueError('withdrawal rights-boundary flag required')
     elif schema=='entity-eep-disclosure-v1':
         for n in ('disclosure_id','venue_id','instrument_id','publisher'): sid(n)
         sup('disclosure_type'); sha256('content_sha256'); common_time()
@@ -140,11 +131,6 @@ class ExchangeProtocol:
             CREATE TABLE IF NOT EXISTS balances(
               instrument_id TEXT NOT NULL, holder TEXT NOT NULL, units INTEGER NOT NULL,
               PRIMARY KEY(instrument_id,holder));
-            CREATE TABLE IF NOT EXISTS instrument_withdrawals(
-              withdrawal_id TEXT PRIMARY KEY, instrument_id TEXT NOT NULL UNIQUE,
-              issuer TEXT NOT NULL, prior_status TEXT NOT NULL, new_status TEXT NOT NULL,
-              reason TEXT NOT NULL, evidence_sha256 TEXT, created_at_ms INTEGER NOT NULL,
-              signature_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS listings(
               listing_id TEXT PRIMARY KEY, venue_id TEXT NOT NULL, instrument_id TEXT NOT NULL,
               lister TEXT NOT NULL, min_lot INTEGER NOT NULL, tick_size INTEGER NOT NULL,
@@ -296,60 +282,6 @@ class ExchangeProtocol:
               "created_at_ms":now_ms(),"bytes_are_not_the_traded_scarcity":True}
         sig=self.identity.sign(issuer,body)
         return self._record_signed_instrument(body,sig)
-
-    def instrument_status(self, instrument_id: str) -> dict:
-        with self._db() as db:
-            inst=db.execute("SELECT instrument_id,issuer,status,created_at_ms FROM instruments WHERE instrument_id=?",(str(instrument_id),)).fetchone()
-            if not inst: raise KeyError("instrument not found")
-            withdrawal=db.execute("SELECT * FROM instrument_withdrawals WHERE instrument_id=?",(str(instrument_id),)).fetchone()
-        return {
-            "instrument_id":str(instrument_id),
-            "issuer":inst["issuer"],
-            "status":inst["status"],
-            "issued_at_ms":int(inst["created_at_ms"]),
-            "withdrawal":dict(withdrawal) | {"signature":json.loads(withdrawal["signature_json"])} if withdrawal else None,
-        }
-
-    def _record_signed_instrument_withdrawal(self, body: dict, signature: dict) -> dict:
-        required={"schema","withdrawal_id","instrument_id","issuer","prior_status","new_status",
-                  "reason","evidence_sha256","created_at_ms","no_new_rights_created"}
-        validate_signed_wire(body)
-        if set(body)!=required or body.get("schema")!="entity-eep-instrument-withdrawal-v1":
-            raise ValueError("invalid signed instrument withdrawal shape")
-        issuer=str(body["issuer"]); instrument_id=str(body["instrument_id"])
-        manifest=self.identity.load_manifest(issuer)
-        if not self.identity.verify_signature(manifest,body,signature):
-            raise PermissionError("instrument withdrawal signature invalid")
-        with self._db() as db:
-            db.execute("BEGIN IMMEDIATE")
-            inst=db.execute("SELECT * FROM instruments WHERE instrument_id=?",(instrument_id,)).fetchone()
-            if not inst: raise KeyError("instrument not found")
-            if inst["issuer"]!=issuer: raise PermissionError("instrument issuer required")
-            if inst["status"]!="ACTIVE": raise ValueError("active instrument required")
-            if db.execute("SELECT 1 FROM orders WHERE instrument_id=? AND status IN ('OPEN','PARTIAL') LIMIT 1",(instrument_id,)).fetchone():
-                raise ValueError("cannot withdraw instrument with open orders")
-            if db.execute("SELECT 1 FROM trades WHERE instrument_id=? AND status='EXECUTED_UNSETTLED' LIMIT 1",(instrument_id,)).fetchone():
-                raise ValueError("cannot withdraw instrument with unsettled trades")
-            if db.execute("SELECT 1 FROM rfqs WHERE instrument_id=? AND status='OPEN' LIMIT 1",(instrument_id,)).fetchone():
-                raise ValueError("cannot withdraw instrument with open RFQs")
-            db.execute("INSERT INTO instrument_withdrawals VALUES(?,?,?,?,?,?,?,?,?)",(
-                body["withdrawal_id"],instrument_id,issuer,body["prior_status"],body["new_status"],
-                body["reason"],body["evidence_sha256"],body["created_at_ms"],json.dumps(signature,sort_keys=True)))
-            db.execute("UPDATE instruments SET status='WITHDRAWN' WHERE instrument_id=?",(instrument_id,))
-            db.execute("UPDATE listings SET status='WITHDRAWN' WHERE instrument_id=? AND status='ACTIVE'",(instrument_id,))
-        return dict(body,signature=signature)
-
-    def submit_signed_instrument_withdrawal(self, withdrawal: dict, signature: dict) -> dict:
-        return self._record_signed_instrument_withdrawal(dict(withdrawal),dict(signature))
-
-    def withdraw_instrument(self, issuer: str, instrument_id: str, reason: str, *, evidence_sha256: str | None=None) -> dict:
-        evidence=require_sha256(evidence_sha256) if evidence_sha256 is not None else None
-        body={"schema":"entity-eep-instrument-withdrawal-v1","withdrawal_id":rid("withdraw3"),
-              "instrument_id":str(instrument_id),"issuer":str(issuer),"prior_status":"ACTIVE",
-              "new_status":"WITHDRAWN","reason":str(reason),"evidence_sha256":evidence,
-              "created_at_ms":now_ms(),"no_new_rights_created":True}
-        sig=self.identity.sign(str(issuer),body)
-        return self._record_signed_instrument_withdrawal(body,sig)
 
     def balance(self, instrument_id: str, holder: str) -> int:
         with self._db() as db:
@@ -980,7 +912,7 @@ class ExchangeProtocol:
 
     def status(self) -> dict:
         with self._db() as db:
-            tables=("venues","instruments","listings","orders","order_cancellations","trades","clearing","payment_attestations","settlement_verifiers","entitlements","usage","surveillance","rfqs","quotes","rfq_acceptances","rfq_trade_sources","revenue_rule_sets","trade_revenue_bindings","instrument_withdrawals")
+            tables=("venues","instruments","listings","orders","order_cancellations","trades","clearing","payment_attestations","settlement_verifiers","entitlements","usage","surveillance","rfqs","quotes","rfq_acceptances","rfq_trade_sources","revenue_rule_sets","trade_revenue_bindings")
             counts={name:int(db.execute(f"SELECT COUNT(*) FROM {name}").fetchone()[0]) for name in tables}
         return {"schema":"entity-eep-status-v1","profile":"ENTITY_EXCHANGE_PROTOCOL","version":"3.0.0",
                 "rights_are_traded_not_bytes":True,"venue_neutral":True,"payment_versus_right_transfer":True,
