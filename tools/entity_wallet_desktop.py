@@ -306,14 +306,17 @@ class App(tk.Tk):
 
         self.tabs=ttk.Notebook(self); self.tabs.pack(fill="both",expand=True,padx=12,pady=(0,12))
         self.assets_tab=ttk.Frame(self.tabs,padding=10); self.instruments_tab=ttk.Frame(self.tabs,padding=10)
-        self.market_tab=ttk.Frame(self.tabs,padding=10); self.positions_tab=ttk.Frame(self.tabs,padding=10); self.orders_tab=ttk.Frame(self.tabs,padding=10)
+        self.market_tab=ttk.Frame(self.tabs,padding=10); self.intel_tab=ttk.Frame(self.tabs,padding=10)
+        self.positions_tab=ttk.Frame(self.tabs,padding=10); self.orders_tab=ttk.Frame(self.tabs,padding=10)
         self.tabs.add(self.assets_tab,text="My Digital Assets"); self.tabs.add(self.instruments_tab,text="My Instruments")
-        self.tabs.add(self.market_tab,text="ENTITY Market"); self.tabs.add(self.positions_tab,text="Market Positions"); self.tabs.add(self.orders_tab,text="Orders")
+        self.tabs.add(self.market_tab,text="ENTITY Market"); self.tabs.add(self.intel_tab,text="Data Value Discovery")
+        self.tabs.add(self.positions_tab,text="Market Positions"); self.tabs.add(self.orders_tab,text="Orders")
 
         bar=ttk.Frame(self.assets_tab); bar.pack(fill="x",pady=(0,8))
         ttk.Button(bar,text="Upload / Ingest Digital Asset",command=self.ingest_asset).pack(side="left")
         ttk.Button(bar,text="View Lineage",command=self.view_lineage).pack(side="left",padx=4)
         ttk.Button(bar,text="Create Economic Instrument",command=self.create_instrument).pack(side="left",padx=4)
+        ttk.Button(bar,text="Rights Demand",command=self.view_rights_demand).pack(side="left",padx=4)
         ttk.Label(bar,text="Asset creation never auto-issues or prices rights.",style="Sub.TLabel").pack(side="left",padx=12)
         self.assets=self._tree(self.assets_tab,["Title","Class","Type","Canonical lineage","Controller","Passport","BTDU","Object ID"],[210,145,90,330,160,100,55,250])
 
@@ -326,9 +329,23 @@ class App(tk.Tk):
         ttk.Button(mbar,text="Buy",command=lambda:self.order("BUY")).pack(side="left")
         ttk.Button(mbar,text="Sell",command=lambda:self.order("SELL")).pack(side="left",padx=4)
         ttk.Button(mbar,text="Listing Information",command=self.view_listing).pack(side="left",padx=4)
+        ttk.Button(mbar,text="Market Intelligence",command=self.view_market_intelligence).pack(side="left",padx=4)
         ttk.Button(mbar,text="Export Portable Package",command=self.export_listing).pack(side="left",padx=4)
         ttk.Label(mbar,text="One canonical instrument can be published/listed on multiple venues.",style="Sub.TLabel").pack(side="left",padx=12)
-        self.market=self._tree(self.market_tab,["Market ID","Instrument Name","Issuer","Rights","Currency","Bid","Ask","Last","Venue"],[160,260,240,110,75,80,80,80,220])
+        self.market=self._tree(self.market_tab,["Market ID","Instrument Name","Rights","Currency","Last","24h Vol","30d Vol","30d Buyers","Holders","Integrity","Venue"],
+                               [155,245,105,70,75,85,85,85,70,180,200])
+
+        ib=ttk.Frame(self.intel_tab); ib.pack(fill="x",pady=(0,8))
+        self.rollup_dimension=tk.StringVar(value="asset_class")
+        ttk.Label(ib,text="Roll up settled market activity by").pack(side="left")
+        self.rollup_box=ttk.Combobox(ib,textvariable=self.rollup_dimension,state="readonly",width=22,
+            values=["asset_class","asset_subtype","primary_domain","rights_class","issuer_entity_id","underlying_dco_id"])
+        self.rollup_box.pack(side="left",padx=6); self.rollup_box.bind("<<ComboboxSelected>>",lambda e:self.refresh_intelligence())
+        ttk.Button(ib,text="Refresh",command=self.refresh_intelligence).pack(side="left")
+        ttk.Label(ib,text="Notional remains separated by currency.",style="Sub.TLabel").pack(side="left",padx=12)
+        self.rollups=self._tree(self.intel_tab,["Group","Instruments","30d Trades","30d Units","30d Notional by Currency","Buyer Count*"],
+                                [260,95,95,105,300,110])
+
         self.positions=self._tree(self.positions_tab,["Instrument","Units","Currency","Last","Bid","Ask","Indicative Value"],[320,90,80,90,90,90,140])
         self.orders=self._tree(self.orders_tab,["Instrument","Side","Remaining","Limit","Status"],[340,80,100,100,120])
         self.status=tk.StringVar(value="Ready"); ttk.Label(self,textvariable=self.status,relief="sunken",anchor="w",padding=5).pack(fill="x",side="bottom")
