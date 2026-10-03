@@ -1,0 +1,45 @@
+{
+  "schema": "entity-public-safe-dco-manifest-v1",
+  "dco_id": "DCO-000001",
+  "name": "Blackmore Industrial Robotics Failure & Recovery Dataset (BIRFR-1)",
+  "asset_class": "ROBOTICS_FAILURE_RECOVERY_DATASET",
+  "content_sha256": "2e97dc53c308eb07f8d5040d3965fb5024ffe14ac431313c28c2e8dbbc0eaaa5",
+  "controller": "Blackmore Technology Group Limited",
+  "originator": "Blackmore Technology Group Limited",
+  "version": "0.1.0",
+  "public_rights_summary": {
+    "evaluation": true,
+    "training": true,
+    "inference": true,
+    "compute_to_data": true,
+    "derivative": true,
+    "oem": true,
+    "benchmark_certification": true,
+    "redistribution": "separate instrument required",
+    "regional_exclusivity": true
+  },
+  "rights_passport_sha256": "3ae5f9ce40dba97789c7ee84973414e4c906c2fb6aa65ac925545a1419d88119",
+  "global_passport_sha256": "d79f05074afb42859fe0ae7d3ba97ee3bed73441fcd94949e79c22ddf2ed3663",
+  "qualification_sha256": "7b734111c8be63c06e27f3a938c25d979974d5a02c757931586e82c5790dd605",
+  "benchmark_summary": {
+    "episodes": 100000,
+    "failure_families": 20,
+    "task_families": 25,
+    "embodiments": 5,
+    "test_episodes": 20000
+  },
+  "public_provenance_refs": [
+    "urn:sha256:2e97dc53c308eb07f8d5040d3965fb5024ffe14ac431313c28c2e8dbbc0eaaa5",
+    "urn:sha256:3423ef9b6674de65927b79b8c960a9ff8e8ba2c823ff252c124eeb6ed691c91f"
+  ],
+  "economic_state": {
+    "state": "POTENTIAL",
+    "amount_units": 0,
+    "currency": "CAD",
+    "market_observation_is_not_accounting_fair_value": true
+  },
+  "live_operational_state_included": false,
+  "customer_data_included": false,
+  "credentials_included": false,
+  "manifest_sha256": "cd20ecff37166bbd65a24b4a43d078f80b7512040f8b293279105254a5e0a663"
+}
