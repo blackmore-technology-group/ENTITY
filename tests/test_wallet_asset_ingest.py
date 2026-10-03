@@ -118,3 +118,28 @@ def test_wallet_lists_digital_assets_separately_from_positions():
         assert snap["positions"]==[]
         assert snap["asset_model"]["ingest_does_not_issue_market_instruments"] is True
         assert snap["asset_model"]["protocol_lineage_and_asset_provenance_are_separate"] is True
+
+
+def test_retired_dco_factory_master_is_not_current_wallet_asset():
+    m=load("wallet_retired_asset_view_test","src/42_ENTITY_Wallet/canonical_wallet.py")
+    with tempfile.TemporaryDirectory() as td:
+        state=Path(td); dbp=state/"entity_v3"/"universal_fabric.sqlite"; dbp.parent.mkdir(parents=True)
+        db=sqlite3.connect(dbp)
+        db.execute("""CREATE TABLE objects(object_id TEXT PRIMARY KEY,controller_entity_id TEXT,object_type TEXT,
+                    title TEXT,content_sha256 TEXT,descriptor_json TEXT,status TEXT,created_at_ms INTEGER,signature_json TEXT)""")
+        db.execute("""CREATE TABLE provenance_edges(edge_id TEXT PRIMARY KEY,parent_object_id TEXT,child_object_id TEXT,
+                    relation TEXT,contribution_bps INTEGER,evidence_json TEXT,actor_entity_id TEXT,created_at_ms INTEGER,signature_json TEXT)""")
+        desc=json.dumps({"digital_commodity":True,"commodity_class":"ROBOTICS_PILOT","measurement_unit":"ASSET"})
+        db.execute("INSERT INTO objects VALUES(?,?,?,?,?,?,?,?,?)",
+                   ("obj-pilot","OWNER","DATASET","Historical Pilot","f"*64,desc,"ACTIVE",1,"{}"))
+        db.commit(); db.close()
+        fdbp=state/"dco_factory"/"entity_dco_factory.sqlite"; fdbp.parent.mkdir(parents=True)
+        fdb=sqlite3.connect(fdbp)
+        fdb.execute("""CREATE TABLE dco_masters(dco_id TEXT,template_id TEXT,family TEXT,source_sha256 TEXT,
+                     provenance_root TEXT,semantic_fingerprint TEXT,version TEXT,lifecycle TEXT,
+                     master_json TEXT,created_at_ms INTEGER)""")
+        fdb.execute("INSERT INTO dco_masters VALUES(?,?,?,?,?,?,?,?,?,?)",
+                    ("DCO-PILOT","T","ROBOTICS","f"*64,None,None,"1","RETIRED_EXPERIMENT","{}",1))
+        fdb.commit(); fdb.close()
+        w=m.EntityEconomicWallet(state); wr=w.ensure_wallet("OWNER","Owner Wallet")
+        assert w.snapshot(wr["wallet_id"])["assets"]==[]
