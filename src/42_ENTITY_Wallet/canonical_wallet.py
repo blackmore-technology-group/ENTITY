@@ -155,7 +155,8 @@ class EntityEconomicWallet:
                                       i.rights_json,i.total_units,i.transferable,i.duration_ms,
                                       i.settlement_currency,i.delivery_mode,i.status
                                FROM balances b JOIN instruments i ON i.instrument_id=b.instrument_id
-                               WHERE b.holder=? AND b.units>0 ORDER BY b.instrument_id""",(entity_id,)).fetchall()
+                               WHERE b.holder=? AND b.units>0 AND i.status='ACTIVE'
+                               ORDER BY b.instrument_id""",(entity_id,)).fetchall()
             out=[]
             for row in rows:
                 p=dict(row); p["units"]=int(p["units"]); p["total_units"]=int(p["total_units"])
