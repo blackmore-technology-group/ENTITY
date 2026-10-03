@@ -11,7 +11,7 @@ def load(name,path):
     sys.modules[name]=m; spec.loader.exec_module(m); return m
 def h(s): return hashlib.sha256(str(s).encode()).hexdigest()
 
-def test_production_pipeline_enforces_passports_before_economics():
+def test_production_pipeline_is_asset_first_and_economics_optional():
     m=load("dco_pipeline_test",PIPE)
     with tempfile.TemporaryDirectory() as td:
         p=m.DCOProductionPipeline(td)
@@ -21,13 +21,16 @@ def test_production_pipeline_enforces_passports_before_economics():
         except ValueError: pass
         sequence=[
           "ASSET_BUILT","ASSET_QUALIFIED","PROVENANCE_SEALED","DCO_REGISTERED",
-          "RIGHTS_PASSPORT_ISSUED","GLOBAL_PASSPORT_ISSUED","PROFILE_BTDU_BOUND",
-          "ECONOMIC_INSTRUMENTS_ISSUED"]
+          "RIGHTS_PASSPORT_ISSUED","GLOBAL_PASSPORT_ISSUED","PROFILE_BTDU_BOUND"]
         for i,s in enumerate(sequence): p.record_stage("DCO-1",s,h(i),{"i":i})
         status=p.status("DCO-1")
         assert status["ready_for_economic_issuance"] is True
-        assert status["economic_instruments_issued"] is True
+        assert status["economic_instruments_issued"] is False
         assert status["bridge_bound"] is False
+        p.record_stage("DCO-1","BRIDGE_EXPOSURE_BOUND",h("bridge"))
+        assert p.status("DCO-1")["bridge_bound"] is True
+        p.record_stage("DCO-1","ECONOMIC_INSTRUMENTS_ISSUED",h("market"))
+        assert p.status("DCO-1")["economic_instruments_issued"] is True
 
 def test_public_safe_manifest_rejects_live_operational_keys():
     m=load("dco_pipeline_public_test",PIPE)
