@@ -1,16 +1,17 @@
-# Industrial Robotics DCO Product Family — Controlled Prelaunch
+# Industrial Robotics DCO Product Family — Strategic Controlled Prelaunch
 
 Date: 2026-10-02  
 ENTITY display version: **3.4.3**  
-DCO: `DCO-BTG-ROBOTICS-DATASET-001`
+DCO: `DCO-BTG-ROBOTICS-DATASET-001`  
+Commercial profile: **Strategic DCO / 12 archetypes**
 
 ## Status
 
-The first Industrial Robotics DCO product family has been issued into an installed ENTITY v3.4.3 runtime and surfaced through the ENTITY Economic Wallet.
+The Industrial Robotics DCO has been expanded from the initial seven-product economic structure to the complete Blackmore Strategic DCO framework.
 
-This is a **controlled prelaunch qualification**, not an external sale campaign.
+The underlying asset remains the same governed DCO. The expansion adds commercial rights instruments; it does not create additional DCOs.
 
-The underlying pilot asset is a deterministic synthetic robotics telemetry dataset containing **10,000 records**. It exists to exercise the DCO → EEP instrument → treasury reserve → wallet path without pretending that the pilot corpus itself has established commercial value.
+The controlled pilot dataset still contains **10,000 deterministic synthetic robotics telemetry records** and still makes no claim of established commercial value.
 
 Dataset SHA-256:
 
@@ -20,93 +21,119 @@ Dataset-manifest SHA-256:
 
 `4b3eb8edaef0aa165481d257b2525caf1ee18dcb6e45bcc7d9a2bb996cd6e2da`
 
+## Twelve strategic commercial archetypes
+
+1. Evaluation
+2. Inference
+3. Training
+4. Compute-to-data
+5. Enterprise/API
+6. Commercial derivative
+7. OEM/embedded
+8. Field-of-use
+9. Redistribution
+10. Synthetic/derived data
+11. Regional exclusivity
+12. Contributor participation
+
+These are commercial product archetypes, not new protocol instrument classes. They are expressed through the six existing ENTITY v3.4.3 EEP classes and their rights/terms.
+
+Regional exclusivity is one archetype with ten territory-specific physical EEP instruments. Therefore the twelve archetypes currently map to **21 physical instruments**.
+
 ## Product family
 
-| Product | Symbol | Supply | BTG Treasury reserve | Transferable | Illustrative reference price |
-| --- | --- | ---: | ---: | --- | ---: |
-| Inference-use rights | `BTG-RBT-INF` | 10,000 | 2,000 | No | CAD 250 |
-| AI-training rights | `BTG-RBT-TRN` | 1,000 | 250 | No | CAD 10,000 |
-| Commercial-derivative rights | `BTG-RBT-DER` | 100 | 30 | Yes | CAD 100,000 |
-| Redistribution rights | `BTG-RBT-RED` | 50 | 0 | No | CAD 250,000 |
-| Canada exclusive | `BTG-RBT-XCA` | 1 | 0 | No | CAD 1,500,000 |
-| United States exclusive | `BTG-RBT-XUS` | 1 | 0 | No | CAD 1,500,000 |
-| European Union exclusive | `BTG-RBT-XEU` | 1 | 0 | No | CAD 1,500,000 |
-| United Kingdom exclusive | `BTG-RBT-XUK` | 1 | 0 | No | CAD 1,500,000 |
-| Japan exclusive | `BTG-RBT-XJP` | 1 | 0 | No | CAD 1,500,000 |
-| South Korea exclusive | `BTG-RBT-XKR` | 1 | 0 | No | CAD 1,500,000 |
-| Australia / New Zealand exclusive | `BTG-RBT-XANZ` | 1 | 0 | No | CAD 1,500,000 |
-| India exclusive | `BTG-RBT-XIN` | 1 | 0 | No | CAD 1,500,000 |
-| Defined Middle East exclusive | `BTG-RBT-XME` | 1 | 0 | No | CAD 1,500,000 |
-| Defined Latin America exclusive | `BTG-RBT-XLAT` | 1 | 0 | No | CAD 1,500,000 |
+| Archetype / product | Symbol | Supply | BTG Treasury reserve | Scarcity |
+| --- | --- | ---: | ---: | --- |
+| Evaluation | `BTG-RBT-EVL` | 1,000 | 0 | Open capacity |
+| Inference | `BTG-RBT-INF` | 10,000 | 2,000 | Controlled capacity |
+| Training | `BTG-RBT-TRN` | 1,000 | 250 | Fixed cap |
+| Compute-to-data | `BTG-RBT-CTD` | 5,000 | 0 | Controlled capacity |
+| Enterprise/API | `BTG-RBT-ENT` | 250 | 0 | Controlled capacity |
+| Commercial derivative | `BTG-RBT-DER` | 100 | 30 | Fixed cap |
+| OEM/embedded | `BTG-RBT-OEM` | 500 | 0 | Controlled capacity |
+| Field-of-use | `BTG-RBT-FOU` | 8 | 0 | Fixed cap |
+| Redistribution | `BTG-RBT-RED` | 50 | 0 | Fixed cap |
+| Synthetic/derived data | `BTG-RBT-SYN` | 500 | 0 | Fixed cap |
+| Regional exclusivity | 10 territory symbols | 10 × 1 | 0 | Unique |
+| Contributor participation | `BTG-RBT-CON` | 10,000 | 0 | Fixed cap |
 
-Total issued rights units: **11,160**.
+Aggregate issued rights supply: **28,418 units**.
 
-Actual rights transferred from the BTG issuer position into the distinct BTG Treasury ENTITY: **2,280 units**.
+Actual BTG Treasury reserve: **2,280 units**.
 
-Issuer units remaining after reserve allocation: **8,880**.
+Issuer inventory after reserve allocation: **26,138 units**.
 
-## What was actually exercised
+The aggregate rights-unit count spans heterogeneous commercial units and should not be interpreted as one homogeneous security, currency or valuation measure.
 
-The qualification created:
+## Field-of-use model
 
-- one governed DCO underlying object;
-- fourteen EEP instruments;
-- fourteen signed disclosures;
-- fourteen active listings;
-- three treasury reserve positions;
-- fourteen new participant-wallet positions;
-- three new treasury-wallet positions.
+The Field-of-use archetype has eight fixed slots:
 
-All fourteen instruments reference the same DCO underlying object.
+- warehouse automation;
+- manufacturing;
+- mining robotics;
+- agricultural robotics;
+- construction robotics;
+- logistics;
+- inspection/maintenance;
+- research.
 
-The ten regional-exclusive instruments passed the deployment uniqueness check for the configured exclusivity class and territory.
+A field must be bound at contract activation. The instrument terms require one active binding per field.
 
-## What was deliberately not activated
+## OEM / embedded model
 
-The prelaunch created:
+The initial OEM series contains **500 units**, with one unit defined as capacity for **100 authorized deployed robots/devices**. This creates an initial metered deployment capacity of **50,000 devices** without transferring source-data redistribution rights.
+
+## Contributor participation model
+
+The Contributor Participation series contains **10,000 fixed units**, with one unit defined as one basis point of contributor-pool weighting.
+
+Issuance does not itself create cash entitlement. Allocation requires accepted provenance evidence, and an explicit revenue-pool rule must exist before distribution.
+
+## Version rights
+
+The Enterprise/API template carries version-access options for:
+
+- current version;
+- continuous updates;
+- LTS option.
+
+The DCO Master Economic Record also supports version relationships rather than treating every update as an unrelated new DCO.
+
+## Master Economic Record
+
+The installed runtime now has one application-layer Master Economic Record for this DCO covering identity, version, economic profile, instrument/archetype summary, supply, treasury position, market state, economic state, version policy and factory classification.
+
+Master-record SHA-256:
+
+`f68352450bca465cb15642e271bdb857c22a586a35406b3538e64a3c6c30aeac`
+
+## Market state remains deliberately clean
+
+The strategic expansion created no artificial price event:
 
 - **0 orders**;
 - **0 trades**;
 - **0 market marks**.
 
-The earlier example prices remain **illustrative reference prices**. They are not live asks, settled prices, accounting fair values or evidence of DCO value.
+The previously published prices remain illustrative reference terms for the original products. No prices were invented for the newly added products.
 
-Illustrative royalty/participation examples have not been converted into contractual basis-point obligations.
-
-External-sale activation remains a separate controlled step.
-
-## Wallet result
-
-The ENTITY Economic Wallet now displays the issued rights as positions.
-
-The BTG Treasury Wallet holds the actual reserve balances for:
-
-- `BTG-RBT-INF` — 2,000 units;
-- `BTG-RBT-TRN` — 250 units;
-- `BTG-RBT-DER` — 30 units.
-
-These positions are intentionally **unpriced** because no qualifying settled trade has occurred.
-
-This preserves the wallet rule that an issuer cannot manufacture market value simply by issuing units or publishing an illustrative price.
+The wallet therefore keeps all robotics positions unpriced until qualifying market activity exists.
 
 ## Integrity
 
-Post-issuance SQLite `quick_check` returned `ok` for:
+Post-expansion SQLite `quick_check` returned `ok` for:
 
-- Universal Transaction Fabric;
 - ENTITY Exchange Protocol state;
 - Economic Participation state;
 - ENTITY Wallet state.
 
-## Economic boundaries
+The Universal Transaction Fabric was not rewritten by the strategic expansion; its initial DCO registration qualification had already returned `ok`.
 
-The deployment retains:
+## Scale path
 
-- external bank/payment-provider fiat custody;
-- `cryptocurrency_required = false`;
-- `protocol_tax_bps = 0`;
-- no automatic legal/securities classification;
-- no inference that a listing equals a sale;
-- no inference that an illustrative price equals market value.
+This DCO is the reference instance for the reusable `BTG-STRATEGIC-AI-ROBOTICS-01` DCO Factory template.
 
-The next activation stage is to convert selected prelaunch instruments into deliberately approved live offers, then exercise primary trade, clearing, settlement evidence, entitlement delivery and later secondary/derivative economic paths.
+The factory is designed so future DCOs inherit standardized archetypes, scarcity rules, duplicate/version checks and a Master Economic Record instead of requiring manual contract design for every asset.
+
+ENTITY remains **v3.4.3**.
