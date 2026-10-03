@@ -143,3 +143,37 @@ def test_instrument_requires_controlled_dco():
             assert False,"non-controller issuance must fail"
         except PermissionError:
             pass
+
+def test_instrument_actions_cannot_exceed_rights_passport():
+    ident=load("market_test_identity3","src/01_Core_Runtime/identity/canonical_identity.py")
+    fabmod=load("market_test_fabric3","src/30_Universal_Transaction_Fabric/canonical_universal_fabric.py")
+    exmod=load("market_test_exchange3","src/31_Profiles/exchange_protocol.py")
+    marketmod=load("market_test_registry3","src/45_ENTITY_Market/canonical_market_registry.py")
+    with tempfile.TemporaryDirectory() as td:
+        state=Path(td); vault=ident.EntityIdentityVault(state)
+        owner=vault.create("Rights Owner","person")["entity_id"]
+        fabric=fabmod.UniversalTransactionFabric(state,vault); ex=exmod.ExchangeProtocol(state,vault,fabric)
+        rights=FakePassports("rights"); gps=FakePassports("global")
+        reg=marketmod.EntityEconomicMarketRegistry(state,vault,fabric,ex,rights,gps)
+        obj=fabric.register_digital_commodity(
+            owner,"Restricted Asset","4"*64,commodity_class="DATA",measurement_unit="ASSET"
+        )
+        rights.bind("rp-restricted",obj["object_id"],owner,actions=["READ","TRAIN"])
+        gps.bind("gp-restricted",obj["object_id"],owner,"rp-restricted")
+        try:
+            reg.create_instrument(
+                owner,obj["object_id"],
+                instrument_name="Invalid Commercial Rights",
+                display_symbol="BAD-COM",
+                instrument_class="SPOT_LICENSE",
+                rights_class="COMMERCIAL",
+                rights={"actions":["COMMERCIALIZE"]},
+                supply=1,
+                rights_passport_id="rp-restricted",
+                global_passport_id="gp-restricted",
+                settlement_currency="CAD",
+                jurisdiction="CA"
+            )
+            assert False,"instrument actions exceeding the Rights Passport must fail"
+        except PermissionError as exc:
+            assert "exceed Rights Passport" in str(exc)

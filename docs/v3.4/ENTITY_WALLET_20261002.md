@@ -215,3 +215,23 @@ The wallet header now resolves the active user's lineage dynamically. For the mi
 Device information may bootstrap only a system/device identity. It must never silently create a human or organization identity. Public names remain aliases; immutable Entity IDs and signatures remain authoritative. Protocol origin remains separate from user lineage and user-asset ownership.
 
 See `docs/v3.4/ENTITY_WALLET_IDENTITY_ONBOARDING.md` for the complete first-run and login model.
+
+
+## Rights-Passport-driven instrument issuance — 2026-10-03
+
+The desktop wallet no longer defaults every new economic instrument to `COMMERCIALIZE`. Instrument issuance now reads the selected DCO's current Rights Passport and presents only actions with an explicit `ALLOW` effect as selectable economic rights.
+
+Rules:
+
+- the Rights Passport is the maximum authority boundary;
+- the instrument may contain only a subset of currently allowed Rights Passport actions;
+- prohibited actions are shown as prohibited and cannot be selected;
+- non-ALLOW/non-PROHIBIT actions are shown separately and are not directly issuable;
+- the backend re-validates the selected actions immediately before canonical instrument creation;
+- the canonical market registry remains the final enforcement layer and rejects any instrument whose actions exceed the Rights Passport;
+- ticker/right-class/name suggestions are derived from the selected authorized actions rather than a generic commercial-right default;
+- canonical asset short names are preferred for ticker suggestions where present (for example, BIRFR-1 training rights suggest `BIRFR1-TRN`).
+
+Production verification confirmed that BIRFR-1 exposes its allowed actions (BENCHMARK, CERTIFY, COMPUTE, DERIVE, EVALUATE, FINE_TUNE, INFER, OEM_DEPLOY, TRAIN) and does not expose COMMERCIALIZE, while the Blackmore Real-Time Failure Detection Engine does expose COMMERCIALIZE because that action is present in its Rights Passport.
+
+The complete wallet/economy/lineage/onboarding/market qualification campaign passed **89/89** after this change. The installed Windows executable then passed its frozen-runtime production self-test.

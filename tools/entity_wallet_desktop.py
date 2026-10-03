@@ -174,6 +174,43 @@ class Backend:
             source_refs=options.get("source_refs", []),
         )
 
+    def instrument_rights_profile(self, object_id: str) -> dict:
+        gp = self.latest_global_passport(object_id)
+        rp = self.rights.get(gp["rights_passport_id"])
+        allowed = {}
+        prohibited = {}
+        other = {}
+        for rule in rp.get("rights") or []:
+            effect = str(rule.get("effect") or "").upper()
+            for action in rule.get("actions") or []:
+                token = str(action).strip().upper()
+                if not token:
+                    continue
+                detail = {
+                    "action": token,
+                    "effect": effect,
+                    "conditions": dict(rule.get("conditions") or {}),
+                    "obligations": list(rule.get("obligations") or []),
+                    "right_refs": list(rule.get("right_refs") or []),
+                }
+                if effect == "ALLOW":
+                    allowed[token] = detail
+                elif effect == "PROHIBIT":
+                    prohibited[token] = detail
+                else:
+                    other[token] = detail
+        return {
+            "object_id": str(object_id),
+            "global_passport_id": gp["passport_id"],
+            "rights_passport_id": rp["passport_id"],
+            "allowed_actions": sorted(allowed),
+            "prohibited_actions": sorted(prohibited),
+            "other_actions": sorted(other),
+            "allowed": allowed,
+            "prohibited": prohibited,
+            "other": other,
+        }
+
     def latest_global_passport(self, object_id: str) -> dict:
         dbp = self.state / "entity_v3_4_global_passports.sqlite"
         db = sqlite3.connect(dbp)
@@ -288,6 +325,22 @@ class Backend:
 
     def create_instrument(self, object_id: str, options: dict) -> dict:
         gp = self.latest_global_passport(object_id)
+        rights_profile = self.instrument_rights_profile(object_id)
+        requested = {str(x).strip().upper() for x in options.get("actions") or [] if str(x).strip()}
+        allowed = set(rights_profile["allowed_actions"])
+        prohibited = set(rights_profile["prohibited_actions"])
+        if not requested:
+            raise ValueError("At least one Rights Passport action must be selected.")
+        if requested & prohibited:
+            bad = ", ".join(sorted(requested & prohibited))
+            raise PermissionError(f"Selected action(s) are prohibited by the Rights Passport: {bad}")
+        if not requested.issubset(allowed):
+            missing = ", ".join(sorted(requested - allowed))
+            permitted = ", ".join(rights_profile["allowed_actions"]) or "none"
+            raise PermissionError(
+                f"Selected action(s) are not granted by the Rights Passport: {missing}. "
+                f"Permitted actions: {permitted}"
+            )
         return self.market_registry.create_instrument(
             self.entity_id, object_id,
             instrument_name=options["name"], display_symbol=options["symbol"],
@@ -765,79 +818,302 @@ class ListingInformationDialog(QtWidgets.QDialog):
 
 
 class InstrumentDialog(QtWidgets.QDialog):
-    def __init__(self, parent, asset, namespace):
+    ACTION_META = {
+        "TRAIN": ("Training", "TRN", "TRAINING"),
+        "FINE_TUNE": ("Fine-tuning", "FTN", "FINE_TUNING"),
+        "INFER": ("Inference", "INF", "INFERENCE"),
+        "EVALUATE": ("Evaluation", "EVL", "EVALUATION"),
+        "BENCHMARK": ("Benchmark", "BNCH", "BENCHMARK"),
+        "CERTIFY": ("Certification", "CERT", "CERTIFICATION"),
+        "COMPUTE": ("Compute-to-data", "CMP", "COMPUTE"),
+        "DERIVE": ("Derivative", "DER", "DERIVATIVE"),
+        "OEM_DEPLOY": ("OEM deployment", "OEM", "OEM"),
+        "COMMERCIALIZE": ("Commercialization", "COM", "COMMERCIAL"),
+        "EXECUTE": ("Execution", "EXE", "EXECUTION"),
+        "CONTROL": ("Control", "CTL", "CONTROL"),
+        "MODIFY": ("Modification", "MOD", "MODIFICATION"),
+        "TRANSFER": ("Transfer", "XFR", "TRANSFER"),
+        "COPY": ("Copy", "CPY", "COPY"),
+        "READ": ("Read/access", "ACC", "ACCESS"),
+        "INSPECT": ("Inspection", "INSP", "INSPECTION"),
+    }
+
+    def __init__(self, parent, asset, namespace, rights_profile):
         super().__init__(parent)
         self.setWindowTitle("Issue Economic Instrument")
-        self.setMinimumWidth(650)
+        self.resize(780, 820)
+        self.setMinimumSize(720, 700)
         self.result_data = None
+        self.asset = asset
+        self.rights_profile = rights_profile
+        self._updating = False
+
         layout = QtWidgets.QVBoxLayout(self)
+        layout.setContentsMargins(22, 20, 22, 20)
+        layout.setSpacing(12)
+
         layout.addWidget(Ui.label("ISSUE ECONOMIC INSTRUMENT", "dialogTitle"))
-        layout.addWidget(Ui.label(
-            "Create a canonical rights instrument against this DCO. This does not list it or establish market value.",
-            "muted"))
+        subtitle = Ui.label(
+            "The DCO Rights Passport is authoritative. Select a subset of rights already granted "
+            "to this asset; the wallet cannot invent or broaden them.",
+            "muted")
+        subtitle.setWordWrap(True)
+        layout.addWidget(subtitle)
+
+        passport_box = QtWidgets.QFrame()
+        passport_box.setProperty("class", "panel")
+        pb = QtWidgets.QVBoxLayout(passport_box)
+        pb.setContentsMargins(16, 13, 16, 13)
+        pb.addWidget(Ui.label("RIGHTS PASSPORT", "eyebrow"))
+        pb.addWidget(Ui.label(
+            f"{shorten(rights_profile['rights_passport_id'], 22, 12)}  ·  "
+            f"{len(rights_profile['allowed_actions'])} selectable action(s)",
+            "monoMuted"
+        ))
+        layout.addWidget(passport_box)
+
+        if not rights_profile["allowed_actions"]:
+            warning = Ui.label(
+                "This DCO currently has no ALLOW actions in its Rights Passport. "
+                "No economic instrument can be issued until the asset rights are explicitly authorized.",
+                "muted")
+            warning.setWordWrap(True)
+            layout.addWidget(warning)
+
         form = QtWidgets.QFormLayout()
         form.setLabelAlignment(QtCore.Qt.AlignLeft)
-        title = asset.get("title") or "Asset"
-        self.name = QtWidgets.QLineEdit(f"{title} Commercial Rights")
+        form.setFieldGrowthPolicy(QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
+
         self.namespace = QtWidgets.QLineEdit(namespace or "")
-        self.symbol = QtWidgets.QLineEdit((title.upper().replace(" ", "")[:10] + "-COM")[:24])
+        self.symbol = QtWidgets.QLineEdit("")
+        self.name = QtWidgets.QLineEdit("")
         self.iclass = QtWidgets.QComboBox()
-        self.iclass.addItems(["SPOT_LICENSE","SUBSCRIPTION","COMPUTE_TO_DATA","PROCUREMENT","CONTRIBUTION","SECONDARY_LICENSE"])
-        self.rclass = QtWidgets.QLineEdit("COMMERCIAL")
-        self.actions = QtWidgets.QLineEdit("COMMERCIALIZE")
-        self.supply = QtWidgets.QSpinBox(); self.supply.setRange(1, 2_000_000_000); self.supply.setValue(1)
+        self.iclass.addItems([
+            "SPOT_LICENSE","SUBSCRIPTION","COMPUTE_TO_DATA",
+            "PROCUREMENT","CONTRIBUTION","SECONDARY_LICENSE"
+        ])
+        self.rclass = QtWidgets.QLineEdit("")
+        self.rclass.setReadOnly(True)
+
+        self.actions = QtWidgets.QListWidget()
+        self.actions.setMinimumHeight(190)
+        self.actions.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        for action in rights_profile["allowed_actions"]:
+            detail = rights_profile["allowed"].get(action, {})
+            label = self.ACTION_META.get(action, (action.replace("_", " ").title(), action[:5], action))[0]
+            conditions = detail.get("conditions") or {}
+            obligations = detail.get("obligations") or []
+            text = f"{action}  —  {label}"
+            if conditions:
+                text += "  ·  conditions apply"
+            if obligations:
+                text += "  ·  obligations apply"
+            item = QtWidgets.QListWidgetItem(text)
+            item.setData(QtCore.Qt.UserRole, action)
+            item.setFlags(item.flags() | QtCore.Qt.ItemIsUserCheckable)
+            item.setCheckState(QtCore.Qt.Unchecked)
+            tip = []
+            if conditions:
+                tip.append("Conditions: " + json.dumps(conditions, sort_keys=True))
+            if obligations:
+                tip.append("Obligations: " + ", ".join(str(x) for x in obligations))
+            item.setToolTip("\n".join(tip) if tip else "Granted by the current Rights Passport.")
+            self.actions.addItem(item)
+
+        self.supply = QtWidgets.QSpinBox()
+        self.supply.setRange(1, 2_000_000_000)
+        self.supply.setValue(1)
         self.currency = QtWidgets.QLineEdit("CAD")
         self.jurisdiction = QtWidgets.QLineEdit("CA")
-        self.series = QtWidgets.QSpinBox(); self.series.setRange(1, 999999); self.series.setValue(1)
-        self.fungibility = QtWidgets.QComboBox(); self.fungibility.addItems(["FUNGIBLE","SERIES-FUNGIBLE","NON-FUNGIBLE"])
-        self.divisibility = QtWidgets.QSpinBox(); self.divisibility.setRange(0, 9)
+        self.series = QtWidgets.QSpinBox()
+        self.series.setRange(1, 999999)
+        self.series.setValue(1)
+        self.fungibility = QtWidgets.QComboBox()
+        self.fungibility.addItems(["FUNGIBLE","SERIES-FUNGIBLE","NON-FUNGIBLE"])
+        self.divisibility = QtWidgets.QSpinBox()
+        self.divisibility.setRange(0, 9)
         self.transferable = QtWidgets.QCheckBox("Secondary transfer permitted")
-        self.receives = QtWidgets.QPlainTextEdit("Defined commercial-use right")
-        self.excludes = QtWidgets.QPlainTextEdit("Ownership of the underlying DCO\nCopyright ownership\nRights not stated in the Rights Passport")
+        self.receives = QtWidgets.QPlainTextEdit("")
+        self.receives.setMinimumHeight(70)
+        self.excludes = QtWidgets.QPlainTextEdit(
+            "Ownership of the underlying DCO\n"
+            "Copyright ownership\n"
+            "Rights not stated in the Rights Passport"
+        )
+        self.excludes.setMinimumHeight(70)
+
         for label, widget in [
-            ("Instrument name", self.name), ("Issuer namespace", self.namespace),
-            ("Display ticker / symbol", self.symbol), ("EEP class", self.iclass),
-            ("Rights class", self.rclass), ("Actions", self.actions),
-            ("Supply", self.supply), ("Settlement currency", self.currency),
-            ("Jurisdiction", self.jurisdiction), ("Series", self.series),
-            ("Fungibility", self.fungibility), ("Divisibility", self.divisibility),
-            ("Transferability", self.transferable), ("Buyer receives", self.receives),
+            ("Instrument name", self.name),
+            ("Issuer namespace", self.namespace),
+            ("Display ticker / symbol", self.symbol),
+            ("EEP class", self.iclass),
+            ("Rights class", self.rclass),
+            ("Rights Passport actions", self.actions),
+            ("Supply", self.supply),
+            ("Settlement currency", self.currency),
+            ("Jurisdiction", self.jurisdiction),
+            ("Series", self.series),
+            ("Fungibility", self.fungibility),
+            ("Divisibility", self.divisibility),
+            ("Transferability", self.transferable),
+            ("Buyer receives", self.receives),
             ("Buyer does NOT receive", self.excludes),
         ]:
             form.addRow(label, widget)
         layout.addLayout(form)
+
+        excluded = []
+        if rights_profile["prohibited_actions"]:
+            excluded.append("PROHIBITED: " + ", ".join(rights_profile["prohibited_actions"]))
+        if rights_profile["other_actions"]:
+            excluded.append("NOT DIRECTLY ISSUABLE: " + ", ".join(rights_profile["other_actions"]))
+        if excluded:
+            boundary = QtWidgets.QFrame()
+            boundary.setProperty("class", "notice")
+            bl = QtWidgets.QVBoxLayout(boundary)
+            bl.setContentsMargins(14, 10, 14, 10)
+            for line in excluded:
+                note = Ui.label(line, "muted")
+                note.setWordWrap(True)
+                bl.addWidget(note)
+            layout.addWidget(boundary)
+
         self.preview = Ui.label("", "tickerPreview")
         layout.addWidget(self.preview)
         self.namespace.textChanged.connect(self._preview)
         self.symbol.textChanged.connect(self._preview)
-        self._preview()
+        self.actions.itemChanged.connect(self._rights_changed)
+
         buttons = QtWidgets.QHBoxLayout()
         buttons.addStretch()
-        cancel = Ui.button("Cancel"); create = Ui.button("Issue instrument", True)
-        cancel.clicked.connect(self.reject); create.clicked.connect(self.accept_data)
-        buttons.addWidget(cancel); buttons.addWidget(create)
+        cancel = Ui.button("Cancel")
+        create = Ui.button("Issue instrument", True)
+        create.setEnabled(bool(rights_profile["allowed_actions"]))
+        cancel.clicked.connect(self.reject)
+        create.clicked.connect(self.accept_data)
+        buttons.addWidget(cancel)
+        buttons.addWidget(create)
         layout.addLayout(buttons)
+
+        self._preview()
+
+    def selected_actions(self):
+        return [
+            str(self.actions.item(i).data(QtCore.Qt.UserRole))
+            for i in range(self.actions.count())
+            if self.actions.item(i).checkState() == QtCore.Qt.Checked
+        ]
+
+    def _base_symbol(self):
+        short_name = str(self.asset.get("short_name") or "").upper()
+        if short_name:
+            compact = "".join(ch for ch in short_name if ch.isalnum())
+            if compact:
+                return compact[:10]
+        dco_code = str(self.asset.get("dco_code") or "").upper()
+        if dco_code:
+            compact = "".join(ch for ch in dco_code if ch.isalnum())
+            if compact:
+                return compact[:10]
+        title = str(self.asset.get("title") or "ASSET").upper()
+        words = [w for w in "".join(ch if ch.isalnum() else " " for ch in title).split() if w]
+        ignored = {
+            "BLACKMORE","INDUSTRIAL","REAL","TIME","THE","AND","OF",
+            "ASSET","DATASET","ENGINE","DIGITAL","ROBOTICS"
+        }
+        useful = [w for w in words if w not in ignored]
+        if not useful:
+            useful = words
+        if len(useful) == 1:
+            base = useful[0][:10]
+        else:
+            initials = "".join(w[0] for w in useful[:5])
+            base = initials if len(initials) >= 3 else "".join(useful)[:10]
+        return base[:10] or "ASSET"
+
+    def _rights_changed(self, item=None):
+        if self._updating:
+            return
+        actions = self.selected_actions()
+        if not actions:
+            self.rclass.setText("")
+            self.name.setText("")
+            self.symbol.setText("")
+            self.receives.setPlainText("")
+            self._preview()
+            return
+
+        metas = [self.ACTION_META.get(a, (a.replace("_", " ").title(), a[:5], a)) for a in actions]
+        if len(actions) == 1:
+            label, suffix, rights_class = metas[0]
+            rights_name = f"{label} Rights"
+            self.rclass.setText(rights_class)
+        else:
+            labels = [m[0] for m in metas]
+            suffix = "-".join(m[1] for m in metas[:3])
+            rights_name = " + ".join(labels) + " Rights"
+            self.rclass.setText("BUNDLED_RIGHTS")
+
+        title = str(self.asset.get("title") or "Asset")
+        self.name.setText(f"{title} {rights_name}")
+        self.symbol.setText(f"{self._base_symbol()}-{suffix}"[:24])
+        receives = []
+        for action in actions:
+            detail = self.rights_profile["allowed"].get(action, {})
+            line = f"{action} right under the current Rights Passport"
+            if detail.get("conditions"):
+                line += " (subject to passport conditions)"
+            if detail.get("obligations"):
+                line += " (subject to passport obligations)"
+            receives.append(line)
+        self.receives.setPlainText("\n".join(receives))
+        self._preview()
 
     def _preview(self):
         ns = (self.namespace.text().strip() or "NAMESPACE").upper()
-        sym = (self.symbol.text().strip() or "SYMBOL").upper()
+        sym = (self.symbol.text().strip() or "SELECT-RIGHT").upper()
         self.preview.setText(f"MARKET IDENTIFIER PREVIEW   {ns}:{sym}")
 
     def accept_data(self):
-        actions = [x.strip().upper() for x in self.actions.text().split(",") if x.strip()]
-        if not actions or not self.symbol.text().strip() or not self.name.text().strip():
-            QtWidgets.QMessageBox.warning(self, "Instrument", "Name, ticker and at least one rights action are required.")
+        actions = self.selected_actions()
+        if not actions:
+            QtWidgets.QMessageBox.warning(
+                self, "Instrument",
+                "Select at least one action granted by the DCO's Rights Passport."
+            )
             return
+        allowed = set(self.rights_profile["allowed_actions"])
+        if not set(actions).issubset(allowed):
+            QtWidgets.QMessageBox.critical(
+                self, "Rights Passport",
+                "The selected actions are no longer a valid subset of the current Rights Passport."
+            )
+            return
+        if not self.symbol.text().strip() or not self.name.text().strip():
+            QtWidgets.QMessageBox.warning(self, "Instrument", "Instrument name and ticker are required.")
+            return
+
         self.result_data = {
-            "name": self.name.text().strip(), "namespace": self.namespace.text().strip(),
-            "symbol": self.symbol.text().strip(), "instrument_class": self.iclass.currentText(),
-            "rights_class": self.rclass.text().strip(), "actions": actions, "supply": self.supply.value(),
-            "currency": self.currency.text().strip(), "jurisdiction": self.jurisdiction.text().strip(),
-            "series": self.series.value(), "fungibility": self.fungibility.currentText(),
-            "divisibility": self.divisibility.value(), "transferable": self.transferable.isChecked(),
+            "name": self.name.text().strip(),
+            "namespace": self.namespace.text().strip(),
+            "symbol": self.symbol.text().strip().upper(),
+            "instrument_class": self.iclass.currentText(),
+            "rights_class": self.rclass.text().strip(),
+            "actions": actions,
+            "supply": self.supply.value(),
+            "currency": self.currency.text().strip(),
+            "jurisdiction": self.jurisdiction.text().strip(),
+            "series": self.series.value(),
+            "fungibility": self.fungibility.currentText(),
+            "divisibility": self.divisibility.value(),
+            "transferable": self.transferable.isChecked(),
             "duration_ms": None,
-            "buyer_receives": [x.strip() for x in self.receives.toPlainText().splitlines() if x.strip()],
-            "buyer_does_not_receive": [x.strip() for x in self.excludes.toPlainText().splitlines() if x.strip()],
+            "buyer_receives": [
+                x.strip() for x in self.receives.toPlainText().splitlines() if x.strip()
+            ],
+            "buyer_does_not_receive": [
+                x.strip() for x in self.excludes.toPlainText().splitlines() if x.strip()
+            ],
         }
         self.accept()
 
@@ -1497,7 +1773,27 @@ class WalletWindow(QtWidgets.QMainWindow):
         asset = self.selected_asset()
         if not asset:
             QtWidgets.QMessageBox.warning(self, "Instrument", "Select a controlled DCO first."); return
-        d = InstrumentDialog(self, asset, self.backend.namespace())
+        try:
+            rights_profile = self.backend.instrument_rights_profile(asset["object_id"])
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Rights Passport", str(e))
+            return
+        if not rights_profile["allowed_actions"]:
+            QtWidgets.QMessageBox.warning(
+                self, "No issuable rights",
+                "This DCO's current Rights Passport contains no ALLOW actions. "
+                "No economic instrument can be created until the asset is explicitly authorized."
+            )
+            return
+        dialog_asset = dict(asset)
+        try:
+            obj = self.backend.asset_record(asset["object_id"])
+            metadata = ((obj.get("descriptor") or {}).get("metadata") or {})
+            dialog_asset["short_name"] = metadata.get("short_name")
+            dialog_asset["dco_code"] = metadata.get("dco_code")
+        except Exception:
+            pass
+        d = InstrumentDialog(self, dialog_asset, self.backend.namespace(), rights_profile)
         if d.exec() != QtWidgets.QDialog.Accepted:
             return
         try:
