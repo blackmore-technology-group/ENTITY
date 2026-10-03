@@ -136,8 +136,15 @@ class EntityEconomicWallet:
                                       descriptor_json,status,created_at_ms
                                FROM objects WHERE controller_entity_id=? AND status='ACTIVE'
                                ORDER BY created_at_ms DESC,object_id""",(entity_id,)).fetchall()
+            version_parents={r["parent_object_id"] for r in db.execute(
+                """SELECT p.parent_object_id FROM provenance_edges p
+                   JOIN objects c ON c.object_id=p.child_object_id
+                   WHERE p.relation='VERSION_DERIVED_FROM'
+                     AND c.controller_entity_id=? AND c.status='ACTIVE'""",(entity_id,)).fetchall()}
             out=[]
             for row in rows:
+                if row["object_id"] in version_parents:
+                    continue
                 d=dict(row); descriptor=json.loads(d.pop("descriptor_json") or "{}")
                 if descriptor.get("digital_commodity") is not True: continue
                 d["descriptor"]=descriptor
