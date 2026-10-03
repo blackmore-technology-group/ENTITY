@@ -231,7 +231,7 @@ class DCOFactory:
     def withdraw_issuance(self,issuance_id:str,reason:str,*,evidence_sha256:str|None=None)->dict:
         issuance_id=str(issuance_id); reason=str(reason).strip()
         if not reason: raise ValueError("withdrawal reason required")
-        evidence=sha256_hex(evidence_sha256,"evidence_sha256") if evidence_sha256 is not None else None
+        evidence=require_sha256(evidence_sha256,"evidence_sha256") if evidence_sha256 is not None else None
         with self._db(True) as db:
             row=db.execute("SELECT * FROM issuance_runs WHERE issuance_id=?",(issuance_id,)).fetchone()
             if not row: raise KeyError("issuance run not found")
