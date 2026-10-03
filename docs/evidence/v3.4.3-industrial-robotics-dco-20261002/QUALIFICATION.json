@@ -1,10 +1,12 @@
 {
-  "schema": "entity-v343-industrial-robotics-dco-public-qualification-v1",
-  "completed_utc": "2026-10-03T05:24:04Z",
+  "schema": "entity-v343-industrial-robotics-dco-public-qualification-v2",
+  "completed_utc": "2026-10-03T05:31:00Z",
   "entity_display_version": "3.4.3",
   "pass": true,
   "mode": "CONTROLLED_PRELAUNCH",
   "dco_code": "DCO-BTG-ROBOTICS-DATASET-001",
+  "commercial_profile": "STRATEGIC_DCO",
+  "template_id": "BTG-STRATEGIC-AI-ROBOTICS-01",
   "dataset": {
     "synthetic_pilot": true,
     "record_count": 10000,
@@ -13,22 +15,32 @@
     "commercial_quality_claimed": false
   },
   "issuance": {
-    "instrument_count": 14,
-    "issued_right_units": 11160,
-    "disclosures": 14,
-    "listings": 14,
+    "commercial_archetype_count": 12,
+    "physical_instrument_count": 21,
+    "issued_right_units": 28418,
+    "disclosures": 21,
+    "listings": 21,
     "regional_exclusive_instruments": 10,
     "regional_exclusivity_unique": true,
-    "all_instruments_same_underlying_object": true
+    "all_instruments_same_underlying_object": true,
+    "added_archetypes": [
+      "EVALUATION",
+      "COMPUTE_TO_DATA",
+      "ENTERPRISE_API",
+      "OEM_EMBEDDED",
+      "FIELD_OF_USE",
+      "SYNTHETIC_DERIVED_DATA",
+      "CONTRIBUTOR_PARTICIPATION"
+    ]
   },
   "treasury": {
     "reserve_positions": 3,
     "reserve_units": 2280,
-    "issuer_units_after_reserve": 8880
+    "issuer_units_after_reserve": 26138
   },
   "wallet": {
-    "participant_new_positions": 14,
-    "treasury_new_positions": 3,
+    "robotics_participant_positions": 21,
+    "robotics_treasury_positions": 3,
     "new_positions_with_market_mark": 0
   },
   "market_state": {
@@ -37,14 +49,19 @@
     "market_marks": 0,
     "external_sale_enabled": false
   },
+  "master_economic_record": {
+    "created": true,
+    "sha256": "f68352450bca465cb15642e271bdb857c22a586a35406b3538e64a3c6c30aeac"
+  },
   "integrity": {
-    "universal_fabric_quick_check": "ok",
     "exchange_quick_check": "ok",
     "economic_participation_quick_check": "ok",
-    "wallet_quick_check": "ok"
+    "wallet_quick_check": "ok",
+    "universal_fabric": "unchanged_by_strategic_expansion; initial issuance quick_check was ok"
   },
   "boundaries": {
     "illustrative_reference_prices_are_not_live_offers": true,
+    "unspecified_new_product_prices_remain_null": true,
     "illustrative_participation_terms_are_not_contractual": true,
     "no_market_value_manufactured": true,
     "fiat_custody": "EXTERNAL_BANK_OR_PAYMENT_SERVICE",
