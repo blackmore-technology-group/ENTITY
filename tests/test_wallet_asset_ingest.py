@@ -1,6 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
-import importlib.util, json, sqlite3, sys, tempfile
+import hashlib, importlib.util, json, sqlite3, sys, tempfile
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -49,11 +49,13 @@ class FakeSDK:
         return {"object_id":"obj3-test","global_passport_id":"gp-test"}
 
 class FakeUniverse:
+    def __init__(self): self.content_sha256=None
     def ingest_file(self,path,receipt,**kwargs):
-        return {"object_ref":"btdu:test","content_sha256":"a"*64}
+        self.content_sha256=hashlib.sha256(Path(path).read_bytes()).hexdigest()
+        return {"object_ref":"btdu:test","content_sha256":self.content_sha256}
     def passport_binding(self,ref):
         return {"schema":"entity-btdu-passport-binding-v1","universe_root":"u","object_ref":ref,
-                "content_sha256":"a"*64,"sovereign_entity_id":"BTG",
+                "content_sha256":self.content_sha256,"sovereign_entity_id":"BTG",
                 "protocol_origin_is_not_asset_provenance":True,"topology_does_not_create_ownership":True,
                 "topology_does_not_create_economic_entitlement":True,"automatic_protocol_royalty_bps":0}
     def close(self): pass
