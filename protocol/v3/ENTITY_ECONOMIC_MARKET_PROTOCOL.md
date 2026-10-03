@@ -389,3 +389,80 @@ External payment truth remains evidence-bound. ENTITY does not claim money moved
 13. Cryptocurrency is not required.
 14. Venue operators do not become protocol or asset authority.
 15. Historical signed economic records are preserved when withdrawn/superseded.
+
+
+## Data Value Discovery
+
+The canonical market identifier (for example `ACME:WX26-TRN`) is a human-readable measurement key. It is **not** the authoritative database key. All analytics resolve to the immutable `instrument_id`.
+
+ENTITY may measure actual economic demand for each instrument from settled market activity:
+
+- last settled price;
+- 24-hour and 30-day settled volume;
+- settled notional by currency;
+- trade count;
+- unique buyers and sellers;
+- high/low settled price;
+- active holder count;
+- issuer inventory and open sell offers;
+- settled and externally verified royalty/participation obligations;
+- market-integrity indicators.
+
+Open bids and asks are liquidity observations. They do **not** become price history, volume, realized demand or value merely because they exist.
+
+For a DCO with several rights instruments, ENTITY keeps each right economically distinct:
+
+```text
+ACME:WX26-ACC   Access rights
+ACME:WX26-QRY   Query rights
+ACME:WX26-TRN   AI training rights
+ACME:WX26-COM   Commercial-use rights
+```
+
+This allows ENTITY to observe whether demand is concentrated in access, query, training, commercial, derivative or other rights without assigning one arbitrary price to the underlying DCO.
+
+### Rollups
+
+Observed activity may roll upward through:
+
+```text
+instrument
+   ↓
+underlying DCO
+   ↓
+asset class / subtype
+   ↓
+primary domain / industry
+   ↓
+ENTITY economy
+```
+
+Rollups preserve currency boundaries. CAD, USD and other quote units are never summed into one synthetic value without a separately evidenced conversion method.
+
+BTDU bindings may enrich semantic rollups across related assets, but BTDU topology does not create economic value, ownership or rights.
+
+### Market-integrity safeguards
+
+Raw volume is not proof of value. Economic intelligence therefore separates or flags:
+
+- self-trade attempts;
+- reciprocal counterparty flows;
+- concentrated counterparty activity;
+- unsettled executions;
+- externally unverified settlement;
+- related-wallet relationships only when explicit authorized relationship evidence exists.
+
+ENTITY must not infer hidden relationships between wallets merely to strengthen a market metric.
+
+### Valuation boundary
+
+A settled price for a rights instrument means the market exchanged **that defined right under those terms** at that price.
+
+It does not prove:
+
+- intrinsic value of the underlying DCO;
+- accounting fair value;
+- enterprise value of the issuer;
+- a universal price for all rights associated with the asset.
+
+Data Value Discovery is therefore market evidence, not protocol-created value.
