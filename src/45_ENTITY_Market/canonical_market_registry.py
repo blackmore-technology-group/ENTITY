@@ -216,6 +216,17 @@ class EntityEconomicMarketRegistry:
         if fung not in {"FUNGIBLE","NON-FUNGIBLE","SERIES-FUNGIBLE"}: raise ValueError("unsupported fungibility")
         actions=sorted({_token(a) for a in (rights.get("actions") or [])})
         if not actions: raise ValueError("instrument rights actions required")
+        allowed=set(); prohibited=set()
+        for rule in rp.get("rights") or []:
+            effect=str(rule.get("effect") or "").upper()
+            rule_actions={_token(a) for a in (rule.get("actions") or [])}
+            if effect=="ALLOW": allowed.update(rule_actions)
+            elif effect=="PROHIBIT": prohibited.update(rule_actions)
+        requested=set(actions)
+        if requested & prohibited:
+            raise PermissionError("instrument requests action prohibited by Rights Passport")
+        if not requested.issubset(allowed):
+            raise PermissionError("instrument actions exceed Rights Passport")
         rights_doc={**dict(rights),"actions":actions,
                     "rights_passport_id":rp["passport_id"],"global_passport_id":gp["passport_id"],
                     "rights_class":rc,"market_identifier":market_identifier}
