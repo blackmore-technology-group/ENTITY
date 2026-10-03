@@ -10,9 +10,10 @@ def load(name,rel):
 
 class FakePassports:
     def __init__(self,kind): self.kind=kind; self.records={}
-    def bind(self,pid,object_id,controller,rp=None):
+    def bind(self,pid,object_id,controller,rp=None,actions=None):
         if self.kind=="rights":
-            self.records[pid]={"passport_id":pid,"object_id":object_id,"controller_entity_id":controller}
+            self.records[pid]={"passport_id":pid,"object_id":object_id,"controller_entity_id":controller,
+                               "rights":[{"effect":"ALLOW","actions":list(actions or ["READ","COPY","DERIVE","TRAIN","EVALUATE","COMMERCIALIZE"])}]}
         else:
             self.records[pid]={"passport_id":pid,"object_id":object_id,"controller_entity_id":controller,
                                "rights_passport_id":rp}
@@ -39,7 +40,7 @@ def test_multi_issuer_symbols_canonical_ids_listing_sheet_and_portable_package()
         a=fabric.register_digital_commodity(acme,"Vision Model 07","1"*64,
             commodity_class="AI_MODEL",measurement_unit="ASSET",object_type="MODEL")
         j=fabric.register_digital_commodity(jane,"Photography Collection 2026","2"*64,
-            commodity_class="CREATIVE_COLLECTION",measurement_unit="ASSET",object_type="DOCUMENT")
+            commodity_class="CREATIVE_COLLECTION",measurement_unit="ASSET",object_type="COLLECTION")
         rights.bind("rp-acme",a["object_id"],acme); gps.bind("gp-acme",a["object_id"],acme,"rp-acme")
         rights.bind("rp-jane",j["object_id"],jane); gps.bind("gp-jane",j["object_id"],jane,"rp-jane")
 
