@@ -399,9 +399,15 @@ class UniversalTransactionFabric:
             visiting.remove(node); visited.add(node); return True
         if any(not visit(oid) for oid in sorted(object_ids) if oid not in visited): failures.append("provenance_cycle")
         return {"valid":not failures,"failures":failures,"root_object_id":b.get("root_object_id"),"semantic_sha256":b.get("semantic_sha256"),"provider_independent":bool(b.get("provider_independent")),"portable_verification_uses_embedded_manifests":True,"primitive_set_complete":set(b.get("primitives") or [])==set(PRIMITIVES),"verified_manifest_count":len(manifests)}
-    def register_digital_commodity(self,controller_entity_id:str,title:str,content_sha256:str,*,commodity_class="DATA",measurement_unit="USE",metadata=None)->dict:
+    def register_digital_commodity(self,controller_entity_id:str,title:str,content_sha256:str,*,commodity_class="DATA",measurement_unit="USE",metadata=None,object_type="DATASET")->dict:
+        """Register the governed asset itself as a Digital Commodity Object.
+
+        Registration does not issue an EEP instrument, list the asset, transfer
+        ownership, or establish market value. object_type preserves whether the
+        asset is SOFTWARE, MODEL, DATASET, DOCUMENT, or another ENTITY type.
+        """
         descriptor={"digital_commodity":True,"commodity_class":str(commodity_class).upper(),"measurement_unit":str(measurement_unit).upper(),"raw_data_transfer_default":False,"metadata":dict(metadata or {})}
-        result=self.register_object(controller_entity_id,"DATASET",title,descriptor=descriptor,content_sha256=content_sha256)
+        result=self.register_object(controller_entity_id,str(object_type or "DATASET").upper(),title,descriptor=descriptor,content_sha256=content_sha256)
         result["digital_commodity_object"]=True; return result
 
     def register_ai_agent(self,controller_entity_id:str,agent_entity_id:str,title:str,*,model_ref=None,policy_refs=None,capabilities=None)->dict:
