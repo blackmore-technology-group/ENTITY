@@ -40,7 +40,7 @@ def test_multi_issuer_symbols_canonical_ids_listing_sheet_and_portable_package()
         a=fabric.register_digital_commodity(acme,"Vision Model 07","1"*64,
             commodity_class="AI_MODEL",measurement_unit="ASSET",object_type="MODEL")
         j=fabric.register_digital_commodity(jane,"Photography Collection 2026","2"*64,
-            commodity_class="CREATIVE_COLLECTION",measurement_unit="ASSET",object_type="COLLECTION")
+            commodity_class="CREATIVE_COLLECTION",measurement_unit="ASSET",object_type="DOCUMENT")
         rights.bind("rp-acme",a["object_id"],acme); gps.bind("gp-acme",a["object_id"],acme,"rp-acme")
         rights.bind("rp-jane",j["object_id"],jane); gps.bind("gp-jane",j["object_id"],jane,"rp-jane")
 
