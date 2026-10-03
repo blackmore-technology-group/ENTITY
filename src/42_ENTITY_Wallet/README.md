@@ -34,3 +34,13 @@ Invariants:
 - `wallet_does_not_custody_fiat = true`
 
 See `docs/v3.4/ENTITY_WALLET_20261002.md` and the public qualification record under `docs/evidence/v3.4.3-entity-wallet-20261002/`.
+
+## BTG provisioning
+
+Use `tools/provision_btg_wallets.py` to bind the application layer to an explicitly supplied verified Blackmore Technology Group legal ENTITY and a distinct BTG Treasury ENTITY. The helper creates/reuses the treasury identity, provisions the existing treasury profile, creates both wallet roles and writes runtime snapshots outside the repository.
+
+```bash
+python tools/provision_btg_wallets.py --core . --state /path/to/entity/state --btg-entity ent2-...
+```
+
+Do not commit generated runtime wallet IDs, private identity material, wallet databases, bank/payment credentials or production snapshots.
