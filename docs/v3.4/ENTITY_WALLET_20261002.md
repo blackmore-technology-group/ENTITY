@@ -66,6 +66,25 @@ A production treasury should continue to use a distinct ENTITY identity from the
 
 Treasury reserve units remain actual EEP rights positions. Contractual primary allocations, secondary royalties, derivative participation and service revenue remain issuer-defined disclosed terms rather than protocol privilege.
 
+## BTG deployment helper
+
+The repository includes `tools/provision_btg_wallets.py` to create or reuse the distinct BTG Treasury ENTITY, provision the existing BTG treasury profile, create Participant and Treasury Wallet metadata, and render stock-style JSON/HTML snapshots.
+
+The helper intentionally requires the verified Blackmore Technology Group legal ENTITY ID as an explicit argument. It does not infer Shawn Blackmore's personal ENTITY, a test ENTITY, or any legacy identifier as the corporate originator.
+
+Example:
+
+```bash
+python tools/provision_btg_wallets.py \
+  --core . \
+  --state /path/to/entity/state \
+  --btg-entity ent2-...
+```
+
+An existing distinct treasury identity can be supplied with `--treasury-entity`. When omitted, the helper reuses an existing manifest named `Blackmore Technology Group ENTITY Treasury` or creates one.
+
+The helper writes deployment artifacts only to the supplied runtime state/output directory. Production wallet IDs, treasury identifiers, private identity material and generated snapshots are operational state and must not be committed to the repository.
+
 ## Qualification
 
 The wallet-specific unit campaign passed **3/3**.
