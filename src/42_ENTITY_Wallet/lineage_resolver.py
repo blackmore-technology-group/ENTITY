@@ -1,5 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
+from contextlib import contextmanager
 import json, sqlite3
 
 CANONICAL_LINEAGE_ID="entity-origin:shawn-btg-entity@1.0"
@@ -29,24 +30,33 @@ class WalletLineageResolver:
             return str(entity_id)
 
     @staticmethod
+    @contextmanager
     def _db(path:Path):
-        db=sqlite3.connect(path); db.row_factory=sqlite3.Row; return db
+        db=sqlite3.connect(path); db.row_factory=sqlite3.Row
+        try: yield db
+        finally: db.close()
 
     def _origin(self)->dict|None:
         if not self.origin_path.exists(): return None
-        with self._db(self.origin_path) as db:
-            row=db.execute("SELECT body_json,body_sha256 FROM origin_chains WHERE lineage_id=?",
-                           (CANONICAL_LINEAGE_ID,)).fetchone()
+        try:
+            with self._db(self.origin_path) as db:
+                row=db.execute("SELECT body_json,body_sha256 FROM origin_chains WHERE lineage_id=?",
+                               (CANONICAL_LINEAGE_ID,)).fetchone()
+        except sqlite3.OperationalError:
+            return None
         if not row: return None
         body=json.loads(row["body_json"]); body["body_sha256"]=row["body_sha256"]; return body
 
     def _passport(self,object_id:str)->dict|None:
         if not self.passport_path.exists(): return None
-        with self._db(self.passport_path) as db:
-            row=db.execute("""SELECT passport_id,version,body_sha256,body_json,created_at_ms
-                              FROM global_passports WHERE object_id=?
-                              ORDER BY created_at_ms DESC,passport_id DESC LIMIT 1""",
-                           (str(object_id),)).fetchone()
+        try:
+            with self._db(self.passport_path) as db:
+                row=db.execute("""SELECT passport_id,version,body_sha256,body_json,created_at_ms
+                                  FROM global_passports WHERE object_id=?
+                                  ORDER BY created_at_ms DESC,passport_id DESC LIMIT 1""",
+                               (str(object_id),)).fetchone()
+        except sqlite3.OperationalError:
+            return None
         if not row: return None
         body=json.loads(row["body_json"])
         return {**body,"body_sha256":row["body_sha256"],"created_at_ms":row["created_at_ms"]}
@@ -54,28 +64,36 @@ class WalletLineageResolver:
     def _profiles(self,refs:list[str])->list[dict]:
         if not self.profile_path.exists(): return [{"profile_ref":r} for r in refs]
         out=[]
-        with self._db(self.profile_path) as db:
-            for ref in refs:
-                row=db.execute("""SELECT profile_ref,kind,body_json,issuer_entity_id,body_sha256
-                                  FROM profile_variants WHERE profile_ref=?
-                                  ORDER BY active_canonical DESC,created_at_ms DESC LIMIT 1""",(ref,)).fetchone()
-                if not row:
-                    out.append({"profile_ref":ref}); continue
-                body=json.loads(row["body_json"])
-                out.append({"profile_ref":ref,"profile_id":body.get("profile_id"),"kind":row["kind"],
-                            "issuer_entity_id":row["issuer_entity_id"],"issuer_name":self._name(row["issuer_entity_id"]),
-                            "body_sha256":row["body_sha256"]})
+        try:
+            dbctx=self._db(self.profile_path)
+            with dbctx as db:
+                rows_available=True
+                for ref in refs:
+                    row=db.execute("""SELECT profile_ref,kind,body_json,issuer_entity_id,body_sha256
+                                      FROM profile_variants WHERE profile_ref=?
+                                      ORDER BY active_canonical DESC,created_at_ms DESC LIMIT 1""",(ref,)).fetchone()
+                    if not row:
+                        out.append({"profile_ref":ref}); continue
+                    body=json.loads(row["body_json"])
+                    out.append({"profile_ref":ref,"profile_id":body.get("profile_id"),"kind":row["kind"],
+                                "issuer_entity_id":row["issuer_entity_id"],"issuer_name":self._name(row["issuer_entity_id"]),
+                                "body_sha256":row["body_sha256"]})
+        except sqlite3.OperationalError:
+            return [{"profile_ref":r} for r in refs]
         return out
 
     def _asset_parents(self,object_id:str)->list[dict]:
         if not self.fabric_path.exists(): return []
-        with self._db(self.fabric_path) as db:
-            rows=db.execute("""SELECT p.edge_id,p.parent_object_id,p.relation,p.contribution_bps,
-                                      o.title,o.controller_entity_id
-                               FROM provenance_edges p
-                               LEFT JOIN objects o ON o.object_id=p.parent_object_id
-                               WHERE p.child_object_id=?
-                               ORDER BY p.created_at_ms,p.edge_id""",(str(object_id),)).fetchall()
+        try:
+            with self._db(self.fabric_path) as db:
+                rows=db.execute("""SELECT p.edge_id,p.parent_object_id,p.relation,p.contribution_bps,
+                                          o.title,o.controller_entity_id
+                                   FROM provenance_edges p
+                                   LEFT JOIN objects o ON o.object_id=p.parent_object_id
+                                   WHERE p.child_object_id=?
+                                   ORDER BY p.created_at_ms,p.edge_id""",(str(object_id),)).fetchall()
+        except sqlite3.OperationalError:
+            return []
         return [{**dict(r),"controller_name":self._name(r["controller_entity_id"])} for r in rows]
 
     @staticmethod
