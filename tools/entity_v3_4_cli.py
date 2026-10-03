@@ -45,14 +45,23 @@ def emit(value): print(json.dumps(value,indent=2,sort_keys=True))
 
 def _btdu_for_controller(state,identity,controller_entity_id):
     controller=str(controller_entity_id); identity.load_manifest(controller)
+    # BTG canonical assets live in the one canonical BTG universe rooted at
+    # shawn.blackmore.entity. Asset source/controller/rights-holder remain explicit
+    # per-object and are not replaced by the universe sovereign identity.
+    canonical_ids={
+        btdu_mod.BTDU_CANONICAL_OWNER_ENTITY_ID,
+        btdu_mod.BTG_STEWARD_ENTITY_ID,
+        btdu_mod.ENTITY_PROTOCOL_ENTITY_ID,
+    }
+    universe_owner=btdu_mod.BTDU_CANONICAL_OWNER_ENTITY_ID if controller in canonical_ids else controller
     def verifier(record):
         try:
             body=dict(record["body"]); sig=dict(record["signature"])
             if body.get("scope")!="BTDU_WRITE" or body.get("actor_entity_id")!=controller: return False
             return identity.verify_signature(identity.load_manifest(controller),body,sig)
         except Exception: return False
-    return btdu_mod.BlackmoreTechnologyDataUniverse(pathlib.Path(state)/"btdu"/controller,
-        authorization_verifier=verifier,sovereign_entity_id=controller,
+    return btdu_mod.BlackmoreTechnologyDataUniverse(pathlib.Path(state)/"btdu"/universe_owner,
+        authorization_verifier=verifier,sovereign_entity_id=universe_owner,
         protocol_entity_id=btdu_mod.ENTITY_PROTOCOL_ENTITY_ID,steward_entity_id=btdu_mod.BTG_STEWARD_ENTITY_ID)
 
 def _btdu_receipt(identity,controller_entity_id,path,logical_path):
