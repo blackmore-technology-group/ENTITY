@@ -19,6 +19,7 @@ DATA_PATHS=[
   "src/39_Implementation_Packages",
   "src/40_BTDU",
   "src/42_ENTITY_Wallet",
+  "src/45_ENTITY_Market",
   "sdk/global_passport_sdk",
 ]
 
