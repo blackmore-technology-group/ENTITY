@@ -5,7 +5,7 @@ import hashlib, json, sqlite3
 INGEST_SCHEMA="entity-wallet-canonical-asset-ingest-v2"
 
 PACKAGE_KINDS={
-    "robotics":["robot","controller","model","software","telemetry","action_record"],
+    "robotics":["robot","controller","model","software","algorithm","telemetry","action_record"],
     "ai":["training_dataset","corpus","model","weights","evaluation","agent","output"],
     "manufacturing":["machine","digital_twin","firmware","telemetry","maintenance_record"],
     "healthcare":["clinical_dataset","clinical_document","diagnostic_model","medical_device"],
