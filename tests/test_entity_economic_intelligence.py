@@ -69,7 +69,7 @@ def test_settlement_aware_instrument_metrics_and_rollups():
         ep.execute("""CREATE TABLE obligations(event_id TEXT,amount_units INTEGER,currency TEXT,status TEXT,
                     external_verified INTEGER,basis TEXT)""")
         ep.execute("INSERT INTO economic_events VALUES(?,?)",("e1",ins["instrument_id"]))
-        ep.execute("INSERT INTO obligations VALUES(?,?,?,?,?,?)",("e1",38,"CAD","SETTLED",1,"SECONDARY_ROYALTY"))
+        ep.execute("INSERT INTO obligations VALUES(?,?,?,?,?,?)",("e1",38,"CAD","SETTLED",1,"SECONDARY_ORIGINATOR_ROYALTY"))
         ep.commit(); ep.close()
 
         eng=intelmod.EntityEconomicIntelligence(state,reg,fabric,gps)
