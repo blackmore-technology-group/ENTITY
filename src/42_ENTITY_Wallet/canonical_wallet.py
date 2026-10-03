@@ -18,6 +18,7 @@ class EntityEconomicWallet:
         self.exchange_path=self.state/"entity_v3_exchange.sqlite"
         self.economic_path=self.state/"entity_v3_economic_participation.sqlite"
         self.fabric_path=self.state/"entity_v3"/"universal_fabric.sqlite"
+        self.dco_factory_path=self.state/"dco_factory"/"entity_dco_factory.sqlite"
         lineage_path=Path(__file__).with_name("lineage_resolver.py")
         spec=importlib.util.spec_from_file_location("entity_wallet_lineage_resolver",lineage_path)
         if spec is None or spec.loader is None: raise RuntimeError("wallet lineage resolver unavailable")
@@ -131,6 +132,15 @@ class EntityEconomicWallet:
     def _assets(self,entity_id:str)->list[dict]:
         """Return controller-held Digital Commodity Objects independently of market positions."""
         if not self.fabric_path.exists(): return []
+        master_by_hash={}
+        if self.dco_factory_path.exists():
+            try:
+                with self._db(self.dco_factory_path) as fdb:
+                    for r in fdb.execute("SELECT dco_id,source_sha256,lifecycle FROM dco_masters"):
+                        master_by_hash[str(r["source_sha256"])]={
+                            "dco_id":str(r["dco_id"]),"lifecycle":str(r["lifecycle"]).upper()}
+            except sqlite3.OperationalError:
+                master_by_hash={}
         with self._db(self.fabric_path) as db:
             rows=db.execute("""SELECT object_id,controller_entity_id,object_type,title,content_sha256,
                                       descriptor_json,status,created_at_ms
@@ -147,7 +157,12 @@ class EntityEconomicWallet:
                     continue
                 d=dict(row); descriptor=json.loads(d.pop("descriptor_json") or "{}")
                 if descriptor.get("digital_commodity") is not True: continue
+                master=master_by_hash.get(str(d.get("content_sha256") or ""))
+                if master and (master["lifecycle"].startswith("RETIRED") or master["lifecycle"].startswith("HISTORICAL")):
+                    continue
                 d["descriptor"]=descriptor
+                if master:
+                    d["dco_id"]=master["dco_id"]; d["dco_lifecycle"]=master["lifecycle"]
                 d["commodity_class"]=descriptor.get("commodity_class")
                 d["measurement_unit"]=descriptor.get("measurement_unit")
                 d["market_instruments_created_automatically"]=False
