@@ -72,7 +72,8 @@ class WalletAssetIngestor:
                     authority_basis:str="CONTROLLER_ENTITY",commodity_class:str="DATA",
                     measurement_unit:str="ASSET",version:str="1.0",
                     previous_object_id:str|None=None,metadata:dict|None=None,
-                    configuration:dict|None=None)->dict:
+                    configuration:dict|None=None,additional_profiles:list[str]|None=None,
+                    additional_rights_actions:list[str]|None=None)->dict:
         src=Path(file_path).expanduser().resolve()
         if not src.is_file(): raise FileNotFoundError(str(src))
         digest=hashlib.sha256()
@@ -132,7 +133,15 @@ class WalletAssetIngestor:
             if asset_kind not in PACKAGE_KINDS[package]: raise ValueError("unsupported package asset kind")
             if not str(jurisdiction or "").strip(): raise ValueError("jurisdiction required for domain package")
             cfg=self._configuration(identity,controller_entity_id,package,jurisdiction,authority_basis,configuration)
-            result=sdk.ingest_package_file(src,controller_entity_id,package,cfg,asset_kind,**common)
+            profile_refs=[]
+            for p in (additional_profiles or []):
+                text=str(p).strip()
+                if not text: continue
+                profile_refs.append(text if text.startswith("entity-profile:") else sdk.profile_ref(text))
+            result=sdk.ingest_package_file(src,controller_entity_id,package,cfg,asset_kind,
+                additional_profile_refs=profile_refs,
+                additional_rights_actions=[str(x).upper() for x in (additional_rights_actions or []) if str(x)],
+                **common)
             object_id=result["object_id"]; passport_id=result["global_passport_id"]
         gp=passports.get(passport_id)
         check=passports.verify(gp)
