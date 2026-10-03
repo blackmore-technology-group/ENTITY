@@ -1,0 +1,77 @@
+{
+  "schema": "entity-v343-economic-wallet-public-qualification-v1",
+  "completed_utc": "2026-10-03T05:10:00Z",
+  "entity_display_version": "3.4.3",
+  "wallet_profile": "ENTITY_ECONOMIC_WALLET",
+  "wallet_version": "1.0.0",
+  "pass": true,
+  "wallet_specific_tests": {
+    "passed": 3,
+    "total": 3
+  },
+  "combined_economic_compatibility_tests": {
+    "passed": 27,
+    "total": 27
+  },
+  "roles": [
+    "PARTICIPANT",
+    "TREASURY"
+  ],
+  "stock_style": {
+    "enabled": true,
+    "features": [
+      "POSITIONS",
+      "QUANTITY",
+      "FIFO_COST_BASIS",
+      "LAST_SETTLED_TRADE",
+      "BID",
+      "ASK",
+      "INDICATIVE_MARKET_VALUE",
+      "REALIZED_CHANGE",
+      "UNREALIZED_CHANGE",
+      "ORDERS",
+      "ACTIVITY"
+    ],
+    "rights_are_not_declared_corporate_shares": true,
+    "legal_classification_not_inferred": true
+  },
+  "market_value_policy": {
+    "last_settled_trade_only": true,
+    "bid_ask_are_quotes_not_value": true,
+    "offers_are_not_realized_value": true,
+    "unpriced_positions_remain_unpriced": true,
+    "indicative_only": true,
+    "not_accounting_fair_value": true
+  },
+  "fiat_custody": {
+    "model": "EXTERNAL_BANK_OR_PAYMENT_SERVICE",
+    "wallet_custodies_fiat": false,
+    "wallet_cash_balance": null,
+    "payment_credentials_stored": false,
+    "cryptocurrency_required": false
+  },
+  "protocol_tax_bps": 0,
+  "authoritative_state": {
+    "eep_balances": true,
+    "eep_trades": true,
+    "eep_orders": true,
+    "eep_entitlements": true,
+    "eep_usage": true,
+    "economic_obligations": true,
+    "wallet_metadata_is_not_parallel_ledger": true
+  },
+  "installed_runtime_observation": {
+    "participant_wallet_positions": 10,
+    "treasury_wallet_positions_at_activation": 0,
+    "boundary": "Production identifiers and runtime wallet state are intentionally omitted from public evidence."
+  },
+  "repository_boundary": {
+    "runtime_wallet_database_committed": false,
+    "live_wallet_ids_committed": false,
+    "treasury_identity_private_material_committed": false,
+    "private_keys_committed": false,
+    "payment_credentials_committed": false,
+    "bank_details_committed": false,
+    "production_snapshots_committed": false
+  }
+}
