@@ -2,15 +2,15 @@
 
 ENTITY display version: **3.4.3**
 
-The DCO Factory now defines a mandatory application-layer production path for serious economic assets:
+The DCO Factory now defines an asset-first application-layer production path for serious digital assets:
 
-`BUILD ASSET → QUALIFY → SEAL PROVENANCE → REGISTER DCO → RIGHTS PASSPORT → GLOBAL PASSPORT → PROFILE + BTDU BINDING → ECONOMIC INSTRUMENTS → OPTIONAL SHARED BRIDGE → PUBLIC-SAFE EVIDENCE`
+`BUILD ASSET → QUALIFY → SEAL PROVENANCE → REGISTER DCO → RIGHTS PASSPORT → GLOBAL PASSPORT → PROFILE + BTDU BINDING → PUBLIC-SAFE EVIDENCE`\n\nOptional after the asset exists: `ECONOMIC INSTRUMENTS / MARKET LISTING` and `SHARED BRIDGE EXPOSURE`.
 
 ## Why the order matters
 
 A DCO must not reach factory-managed economic issuance merely because an identifier and supply exist.
 
-The production-pipeline registry blocks the `ECONOMIC_INSTRUMENTS_ISSUED` stage unless:
+The production-pipeline registry blocks optional `ECONOMIC_INSTRUMENTS_ISSUED` unless:
 
 - the underlying asset exists;
 - qualification evidence exists;
@@ -20,7 +20,7 @@ The production-pipeline registry blocks the `ECONOMIC_INSTRUMENTS_ISSUED` stage 
 - a Global Passport is issued;
 - profile and BTDU binding is complete.
 
-This is an application-layer issuance gate. It does not replace the canonical Universal Transaction Fabric, Rights Passport, Global Passport, BTDU, EEP, wallet or settlement stores.
+This is an application-layer asset qualification gate. It does not replace the canonical Universal Transaction Fabric, Rights Passport, Global Passport, BTDU, EEP, wallet or settlement stores. **Ingesting or registering a DCO does not automatically issue a licence, create market supply, list an instrument or establish a price.**
 
 ## Rights Passport
 
