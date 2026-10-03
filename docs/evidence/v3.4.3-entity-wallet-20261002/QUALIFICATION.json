@@ -1,0 +1,72 @@
+{
+  "schema": "entity-v343-wallet-public-qualification-v1",
+  "completed_date": "2026-10-02",
+  "entity_display_version": "3.4.3",
+  "wallet_profile": "ENTITY_ECONOMIC_WALLET",
+  "wallet_version": "1.0.0",
+  "pass": true,
+  "qualification": {
+    "wallet_tests": {
+      "passed": 3,
+      "total": 3
+    },
+    "wallet_plus_existing_economic_participation": {
+      "passed": 27,
+      "total": 27
+    }
+  },
+  "implemented_capabilities": [
+    "participant_wallet",
+    "treasury_wallet",
+    "eep_balance_positions",
+    "entitlement_view",
+    "usage_view",
+    "order_view",
+    "bid_ask_view",
+    "last_settled_trade_mark",
+    "fifo_settled_trade_cost_basis",
+    "realized_change_when_reconstructable",
+    "unrealized_change_when_basis_complete",
+    "economic_receivables_and_payables",
+    "treasury_participation_policy_view",
+    "treasury_reserve_allocation_view",
+    "stock_style_html_dashboard"
+  ],
+  "market_value_boundary": {
+    "last_settled_trade_only": true,
+    "bid_is_quote_not_value": true,
+    "ask_is_quote_not_value": true,
+    "offer_is_not_realized_value": true,
+    "unpriced_positions_remain_unpriced": true,
+    "indicative_only": true,
+    "not_accounting_fair_value": true,
+    "not_protocol_generated_value": true
+  },
+  "custody_boundary": {
+    "wallet_custodies_fiat": false,
+    "fiat_custody": "EXTERNAL_BANK_OR_PAYMENT_SERVICE",
+    "wallet_cash_balance": null,
+    "payment_credentials_stored": false,
+    "cryptocurrency_required": false,
+    "protocol_tax_bps": 0
+  },
+  "authority_boundary": {
+    "wallet_record_is_not_signing_authority": true,
+    "canonical_authority_remains_entity_eep_signatures": true,
+    "wallet_does_not_create_ownership": true,
+    "wallet_does_not_create_entitlement": true,
+    "legal_classification_not_inferred": true
+  },
+  "deployment_observation": {
+    "btg_legal_participant_wallet_reads_existing_positions": true,
+    "btg_treasury_uses_distinct_entity": true,
+    "treasury_starts_without_reserve_positions_until_explicit_allocation": true
+  },
+  "repository_boundary": {
+    "production_wallet_ids_committed": false,
+    "production_entity_private_keys_committed": false,
+    "live_sqlite_databases_committed": false,
+    "live_wallet_snapshots_committed": false,
+    "bank_or_payment_credentials_committed": false
+  }
+}
