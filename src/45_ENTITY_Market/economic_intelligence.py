@@ -197,12 +197,10 @@ class EntityEconomicIntelligence:
         finally: db.close()
 
     def dco_rights_demand(self,dco_id:str,*,as_of_ms:int|None=None)->dict:
-        db=self.market_registry._db()
-        try:
+        with self.market_registry._db() as db:
             rows=db.execute("""SELECT instrument_id FROM instrument_packages
                                WHERE underlying_dco_id=? AND status='ACTIVE'
                                ORDER BY rights_class,market_identifier""",(str(dco_id),)).fetchall()
-        finally: db.close()
         metrics=[self.instrument_metrics(r["instrument_id"],as_of_ms=as_of_ms) for r in rows]
         by_rights=defaultdict(lambda:{"instruments":0,"volume_units_30d":0,
                                      "notional_30d_by_currency":defaultdict(int),"settled_trades":0})
@@ -220,11 +218,9 @@ class EntityEconomicIntelligence:
     def economy_rollup(self,*,group_by:str="asset_class",as_of_ms:int|None=None)->dict:
         allowed={"asset_class","asset_subtype","primary_domain","rights_class","issuer_entity_id","underlying_dco_id"}
         if group_by not in allowed: raise ValueError("unsupported rollup dimension")
-        db=self.market_registry._db()
-        try:
+        with self.market_registry._db() as db:
             ids=[r["instrument_id"] for r in db.execute(
                 "SELECT instrument_id FROM instrument_packages WHERE status='ACTIVE' ORDER BY instrument_id").fetchall()]
-        finally: db.close()
         groups=defaultdict(lambda:{"instrument_count":0,"settled_trades_30d":0,"volume_units_30d":0,
                                    "notional_30d_by_currency":defaultdict(int),"unique_buyer_sum":0})
         for iid in ids:
