@@ -71,7 +71,7 @@ def test_multi_issuer_symbols_canonical_ids_listing_sheet_and_portable_package()
         assert listing["information"]["sheet_does_not_replace_rights_passport"] is True
         assert "ownership of the model" in listing["information"]["buyer_does_not_receive"]
         assert listing["machine_manifest"]["instrument_id"]==ia["instrument_id"]
-        assert ex.instrument_status(ia["instrument_id"])["status"]=="ACTIVE"
+        assert ia["status"]=="ACTIVE"
 
         pkg=reg.export_portable_package(listing["listing_id"],state/"portable")
         required={"LISTING_INFORMATION.pdf","LISTING_INFORMATION.md","entity-instrument.json",
