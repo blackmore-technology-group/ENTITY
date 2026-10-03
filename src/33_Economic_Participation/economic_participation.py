@@ -61,6 +61,10 @@ class EconomicParticipationProfile:
               terms_sha256 TEXT NOT NULL, effective_at_ms INTEGER NOT NULL,
               status TEXT NOT NULL, created_at_ms INTEGER NOT NULL, signature_json TEXT NOT NULL,
               UNIQUE(instrument_id,version));
+            CREATE TABLE IF NOT EXISTS participation_policy_withdrawals(
+              withdrawal_id TEXT PRIMARY KEY, policy_id TEXT NOT NULL UNIQUE, instrument_id TEXT NOT NULL,
+              originator_entity_id TEXT NOT NULL, reason TEXT NOT NULL, evidence_sha256 TEXT,
+              created_at_ms INTEGER NOT NULL, signature_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS reserve_allocations(
               allocation_id TEXT PRIMARY KEY, policy_id TEXT NOT NULL, instrument_id TEXT NOT NULL,
               originator_entity_id TEXT NOT NULL, treasury_entity_id TEXT NOT NULL,
@@ -198,9 +202,37 @@ class EconomicParticipationProfile:
     def _active_policy(self,instrument_id,at_ms=None):
         at=int(at_ms or now_ms())
         with self._db() as db:
-            row=db.execute("SELECT * FROM participation_policies WHERE instrument_id=? AND effective_at_ms<=? ORDER BY effective_at_ms DESC,version DESC LIMIT 1",(str(instrument_id),at)).fetchone()
+            row=db.execute("SELECT * FROM participation_policies WHERE instrument_id=? AND status='ACTIVE' AND effective_at_ms<=? ORDER BY effective_at_ms DESC,version DESC LIMIT 1",(str(instrument_id),at)).fetchone()
         if not row: raise KeyError('effective participation policy not found')
         return row
+
+    def withdraw_participation(self,instrument_id,originator_entity_id,reason,*,evidence_sha256=None):
+        instrument_id=str(instrument_id); originator_entity_id=str(originator_entity_id); reason=str(reason).strip()
+        if not reason: raise ValueError('withdrawal reason required')
+        evidence=require_sha256(evidence_sha256) if evidence_sha256 else None
+        with self._db() as db:
+            policy=db.execute("SELECT * FROM participation_policies WHERE instrument_id=? AND status='ACTIVE' ORDER BY effective_at_ms DESC,version DESC LIMIT 1",(instrument_id,)).fetchone()
+            if not policy: raise KeyError('active participation policy not found')
+            if policy['originator_entity_id']!=originator_entity_id:
+                raise PermissionError('policy originator required')
+            prior=db.execute("SELECT * FROM participation_policy_withdrawals WHERE policy_id=?",(policy['policy_id'],)).fetchone()
+            if prior:
+                return dict(prior,signature=json.loads(prior['signature_json']))
+        body={'schema':'entity-v3-participation-policy-withdrawal-v1','withdrawal_id':rid('opw3'),
+              'policy_id':policy['policy_id'],'instrument_id':instrument_id,
+              'originator_entity_id':originator_entity_id,'reason':reason,
+              'evidence_sha256':evidence,'created_at_ms':now_ms(),
+              'historical_obligations_and_reserves_preserved':True,
+              'no_retroactive_economic_change':True,'protocol_tax_bps':0}
+        sig=self.identity.sign(originator_entity_id,body)
+        with self._db() as db:
+            current=db.execute("SELECT status FROM participation_policies WHERE policy_id=?",(policy['policy_id'],)).fetchone()
+            if not current or current['status']!='ACTIVE': raise ValueError('participation policy no longer active')
+            db.execute('INSERT INTO participation_policy_withdrawals VALUES(?,?,?,?,?,?,?,?)',(
+                body['withdrawal_id'],body['policy_id'],instrument_id,originator_entity_id,reason,evidence,
+                body['created_at_ms'],json.dumps(sig,sort_keys=True)))
+            db.execute("UPDATE participation_policies SET status='WITHDRAWN' WHERE policy_id=?",(body['policy_id'],))
+        return dict(body,signature=sig)
 
     @contextmanager
     def _exchange_db(self,exchange):
