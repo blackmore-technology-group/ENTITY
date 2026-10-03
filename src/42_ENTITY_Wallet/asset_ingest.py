@@ -1,6 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
-import json, sqlite3
+import hashlib, json, sqlite3
 
 INGEST_SCHEMA="entity-wallet-canonical-asset-ingest-v2"
 
@@ -75,6 +75,13 @@ class WalletAssetIngestor:
                     configuration:dict|None=None)->dict:
         src=Path(file_path).expanduser().resolve()
         if not src.is_file(): raise FileNotFoundError(str(src))
+        digest=hashlib.sha256()
+        with src.open("rb") as f:
+            for chunk in iter(lambda:f.read(1024*1024),b""): digest.update(chunk)
+        source_sha=digest.hexdigest()
+        existing=self._existing_dco(controller_entity_id,source_sha)
+        if existing:
+            raise ValueError(f"identical Digital Commodity Object already registered: {existing}")
         identity,fabric,profiles,origin,passports,packages,sdk,origin_status=self.cli.runtime(
             self.state,require_current_release=True)
         release=origin.passport_binding("entity-release:v3.4.3")
@@ -92,9 +99,7 @@ class WalletAssetIngestor:
         finally:
             universe.close()
         content_sha=str(binding["content_sha256"])
-        existing=self._existing_dco(controller_entity_id,content_sha)
-        if existing:
-            raise ValueError(f"identical Digital Commodity Object already registered: {existing}")
+        if content_sha!=source_sha: raise RuntimeError("BTDU content hash differs from source asset")
         commodity_meta={
             "wallet_ingest_schema":INGEST_SCHEMA,
             "authority_basis":str(authority_basis),
