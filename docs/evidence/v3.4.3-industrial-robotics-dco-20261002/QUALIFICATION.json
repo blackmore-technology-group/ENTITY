@@ -1,0 +1,65 @@
+{
+  "schema": "entity-v343-industrial-robotics-dco-public-qualification-v1",
+  "completed_utc": "2026-10-03T05:24:04Z",
+  "entity_display_version": "3.4.3",
+  "pass": true,
+  "mode": "CONTROLLED_PRELAUNCH",
+  "dco_code": "DCO-BTG-ROBOTICS-DATASET-001",
+  "dataset": {
+    "synthetic_pilot": true,
+    "record_count": 10000,
+    "sha256": "ee246c4af5380daf178d8a85112ba5ae22b6379345e2ecfa1307fb6dcf881563",
+    "manifest_sha256": "4b3eb8edaef0aa165481d257b2525caf1ee18dcb6e45bcc7d9a2bb996cd6e2da",
+    "commercial_quality_claimed": false
+  },
+  "issuance": {
+    "instrument_count": 14,
+    "issued_right_units": 11160,
+    "disclosures": 14,
+    "listings": 14,
+    "regional_exclusive_instruments": 10,
+    "regional_exclusivity_unique": true,
+    "all_instruments_same_underlying_object": true
+  },
+  "treasury": {
+    "reserve_positions": 3,
+    "reserve_units": 2280,
+    "issuer_units_after_reserve": 8880
+  },
+  "wallet": {
+    "participant_new_positions": 14,
+    "treasury_new_positions": 3,
+    "new_positions_with_market_mark": 0
+  },
+  "market_state": {
+    "orders": 0,
+    "trades": 0,
+    "market_marks": 0,
+    "external_sale_enabled": false
+  },
+  "integrity": {
+    "universal_fabric_quick_check": "ok",
+    "exchange_quick_check": "ok",
+    "economic_participation_quick_check": "ok",
+    "wallet_quick_check": "ok"
+  },
+  "boundaries": {
+    "illustrative_reference_prices_are_not_live_offers": true,
+    "illustrative_participation_terms_are_not_contractual": true,
+    "no_market_value_manufactured": true,
+    "fiat_custody": "EXTERNAL_BANK_OR_PAYMENT_SERVICE",
+    "cryptocurrency_required": false,
+    "protocol_tax_bps": 0,
+    "legal_classification_not_inferred": true
+  },
+  "repository_boundary": {
+    "live_object_ids_committed": false,
+    "live_instrument_ids_committed": false,
+    "live_venue_id_committed": false,
+    "wallet_ids_committed": false,
+    "treasury_private_identity_material_committed": false,
+    "runtime_sqlite_committed": false,
+    "private_keys_committed": false,
+    "payment_credentials_committed": false
+  }
+}
