@@ -1,0 +1,259 @@
+{
+  "schema": "entity-dco-commercial-template-v1",
+  "template_id": "BTG-STRATEGIC-AI-ROBOTICS-01",
+  "entity_display_version": "3.4.3",
+  "profile": "STRATEGIC",
+  "family": "AI_ROBOTICS",
+  "protocol_change_required": false,
+  "products": [
+    {
+      "archetype": "EVALUATION",
+      "eep_class": "SUBSCRIPTION",
+      "scarcity_class": "OPEN_CAPACITY",
+      "initial_supply": 1000,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 2592000000,
+      "actions": [
+        "INSPECT",
+        "INFER"
+      ],
+      "terms": {
+        "commercial_use": false,
+        "raw_dataset_access": false
+      }
+    },
+    {
+      "archetype": "INFERENCE",
+      "eep_class": "COMPUTE_TO_DATA",
+      "scarcity_class": "CONTROLLED_CAPACITY",
+      "initial_supply": 10000,
+      "reserve_units": 2000,
+      "transferable": false,
+      "duration_ms": 31536000000,
+      "actions": [
+        "INFER"
+      ],
+      "terms": {
+        "unit_definition": "100000_GOVERNED_INFERENCE_OPERATIONS",
+        "raw_dataset_access": false
+      }
+    },
+    {
+      "archetype": "TRAINING",
+      "eep_class": "SUBSCRIPTION",
+      "scarcity_class": "FIXED_CAP",
+      "initial_supply": 1000,
+      "reserve_units": 250,
+      "transferable": false,
+      "duration_ms": 63072000000,
+      "actions": [
+        "TRAIN",
+        "INFER",
+        "DERIVE",
+        "COMMERCIALIZE"
+      ],
+      "terms": {
+        "max_supply": 1000,
+        "source_dataset_redistribution": false
+      }
+    },
+    {
+      "archetype": "COMPUTE_TO_DATA",
+      "eep_class": "COMPUTE_TO_DATA",
+      "scarcity_class": "CONTROLLED_CAPACITY",
+      "initial_supply": 5000,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 31536000000,
+      "actions": [
+        "INFER",
+        "TRAIN",
+        "DERIVE"
+      ],
+      "terms": {
+        "raw_dataset_delivery": false
+      }
+    },
+    {
+      "archetype": "ENTERPRISE_API",
+      "eep_class": "SUBSCRIPTION",
+      "scarcity_class": "CONTROLLED_CAPACITY",
+      "initial_supply": 250,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 31536000000,
+      "actions": [
+        "INFER",
+        "EXECUTE"
+      ],
+      "terms": {
+        "version_access": [
+          "CURRENT",
+          "CONTINUOUS_UPDATES",
+          "LTS_OPTION"
+        ]
+      }
+    },
+    {
+      "archetype": "COMMERCIAL_DERIVATIVE",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "FIXED_CAP",
+      "initial_supply": 100,
+      "reserve_units": 30,
+      "transferable": true,
+      "duration_ms": 157680000000,
+      "actions": [
+        "TRAIN",
+        "DERIVE",
+        "COMMERCIALIZE"
+      ],
+      "terms": {
+        "max_supply": 100,
+        "source_dataset_redistribution": false
+      }
+    },
+    {
+      "archetype": "OEM_EMBEDDED",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "CONTROLLED_CAPACITY",
+      "initial_supply": 500,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 157680000000,
+      "actions": [
+        "INFER",
+        "EXECUTE",
+        "DERIVE",
+        "COMMERCIALIZE"
+      ],
+      "terms": {
+        "unit_definition": "100_AUTHORIZED_DEPLOYED_ROBOTS_OR_DEVICES",
+        "initial_device_capacity": 50000
+      }
+    },
+    {
+      "archetype": "FIELD_OF_USE",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "FIXED_CAP",
+      "initial_supply": 8,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 157680000000,
+      "actions": [
+        "TRAIN",
+        "INFER",
+        "DERIVE",
+        "COMMERCIALIZE"
+      ],
+      "terms": {
+        "field_binding_required": true,
+        "allowed_fields": [
+          "WAREHOUSE_AUTOMATION",
+          "MANUFACTURING",
+          "MINING_ROBOTICS",
+          "AGRICULTURAL_ROBOTICS",
+          "CONSTRUCTION_ROBOTICS",
+          "LOGISTICS",
+          "INSPECTION_MAINTENANCE",
+          "RESEARCH"
+        ]
+      }
+    },
+    {
+      "archetype": "REDISTRIBUTION",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "FIXED_CAP",
+      "initial_supply": 50,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 94608000000,
+      "actions": [
+        "COPY",
+        "MODIFY",
+        "REDISTRIBUTE"
+      ],
+      "terms": {
+        "max_supply": 50
+      }
+    },
+    {
+      "archetype": "SYNTHETIC_DERIVED_DATA",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "FIXED_CAP",
+      "initial_supply": 500,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 94608000000,
+      "actions": [
+        "DERIVE",
+        "COMMERCIALIZE",
+        "REDISTRIBUTE"
+      ],
+      "terms": {
+        "redistribution_scope": "DERIVED_OUTPUT_ONLY",
+        "source_dataset_redistribution": false
+      }
+    },
+    {
+      "archetype": "REGIONAL_EXCLUSIVITY",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "UNIQUE",
+      "initial_supply": 1,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 157680000000,
+      "actions": [
+        "TRAIN",
+        "INFER",
+        "DERIVE",
+        "COMMERCIALIZE",
+        "REDISTRIBUTE"
+      ],
+      "variants": [
+        "CA",
+        "US",
+        "EU",
+        "UK",
+        "JP",
+        "KR",
+        "AU-NZ",
+        "IN",
+        "ME-DEFINED",
+        "LATAM-DEFINED"
+      ],
+      "terms": {
+        "one_active_exclusive_per_region": true
+      }
+    },
+    {
+      "archetype": "CONTRIBUTOR_PARTICIPATION",
+      "eep_class": "CONTRIBUTION",
+      "scarcity_class": "FIXED_CAP",
+      "initial_supply": 10000,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": null,
+      "actions": [
+        "CONTRIBUTION_PARTICIPATION"
+      ],
+      "terms": {
+        "unit_definition": "ONE_BASIS_POINT_OF_CONTRIBUTOR_POOL_WEIGHTING",
+        "allocation_requires_accepted_provenance_evidence": true,
+        "automatic_cash_entitlement": false,
+        "revenue_pool_rule_required": true
+      }
+    }
+  ],
+  "factory_rules": {
+    "source_hash_duplicate_reject": true,
+    "provenance_comparison": true,
+    "semantic_fingerprint_hook": true,
+    "version_relationship_required": true,
+    "derivative_relationship_required": true,
+    "supply_separate_from_pricing": true,
+    "legal_classification_not_inferred": true,
+    "protocol_tax_bps": 0,
+    "cryptocurrency_required": false
+  }
+}
