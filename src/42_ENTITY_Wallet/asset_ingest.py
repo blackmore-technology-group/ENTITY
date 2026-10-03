@@ -80,8 +80,12 @@ class WalletAssetIngestor:
             for chunk in iter(lambda:f.read(1024*1024),b""): digest.update(chunk)
         source_sha=digest.hexdigest()
         existing=self._existing_dco(controller_entity_id,source_sha)
-        if existing:
+        if existing and str(previous_object_id or "")!=str(existing):
             raise ValueError(f"identical Digital Commodity Object already registered: {existing}")
+        if existing and str(previous_object_id or "")==str(existing):
+            # Explicit version/supersession path. Same bytes may be re-registered only
+            # when the caller names the exact previous DCO being corrected/versioned.
+            pass
         identity,fabric,profiles,origin,passports,packages,sdk,origin_status=self.cli.runtime(
             self.state,require_current_release=True)
         release=origin.passport_binding("entity-release:v3.4.3")
@@ -106,6 +110,8 @@ class WalletAssetIngestor:
             "controller_asserted_registration_authority":True,
             "canonical_protocol_lineage_required":True,
             "profile_domain":str(package).lower(),
+            "explicit_previous_object_id":str(previous_object_id) if previous_object_id else None,
+            "same_content_version_correction":bool(existing and previous_object_id and str(existing)==str(previous_object_id)),
             **dict(metadata or {}),
         }
         package=str(package or "general").lower()
