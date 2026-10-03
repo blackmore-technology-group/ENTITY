@@ -117,7 +117,9 @@ class WalletLineageResolver:
         refs=list(((passport or {}).get("profile_stack") or {}).get("profile_refs") or [])
         profiles=self._profiles(refs)
         domains=[self._profile_label(x) for x in refs if "entity-profile:global@" not in x]
-        path=[self._name(root),self._name(steward),self._name(protocol),*domains]
+        primary_domain="Robotics" if "Robotics" in domains else (domains[0] if domains else None)
+        composed_domains=[x for x in domains if x!=primary_domain]
+        path=[self._name(root),self._name(steward),self._name(protocol),primary_domain]
         path=[x for x in path if x]
         parents=self._asset_parents(object_id)
         btdu=dict((passport or {}).get("btdu_binding") or {})
@@ -129,6 +131,8 @@ class WalletLineageResolver:
                 "steward_entity_id":steward,"steward_name":self._name(steward),
                 "protocol_entity_id":protocol,"protocol_name":self._name(protocol),
                 "profiles":profiles,"display_path":" → ".join(path),
+                "primary_domain_profile":primary_domain,"composed_domain_profiles":composed_domains,
+                "profile_composition_is_not_parent_child_lineage":True,
                 "passport_protocol_origin_embedded":bool(embedded),
                 "resolved_from_canonical_origin_registry":bool(origin),
                 "needs_passport_lineage_supersession":bool(passport and not embedded),
