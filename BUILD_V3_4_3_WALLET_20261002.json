@@ -1,0 +1,49 @@
+{
+  "schema": "entity-v343-wallet-build-v1",
+  "base_commit": "9e33e5894b4ac89eb20c1240c941292acaf96c8d",
+  "entity_display_version": "3.4.3",
+  "wallet_profile": "ENTITY_ECONOMIC_WALLET",
+  "wallet_version": "1.0.0",
+  "protocol_change": false,
+  "wallet_roles": [
+    "PARTICIPANT",
+    "TREASURY"
+  ],
+  "implemented_capabilities": [
+    "stock-style EEP rights positions",
+    "FIFO cost basis from settled trades",
+    "last/bid/ask market view",
+    "indicative market value from last settled trade only",
+    "realized and unrealized change",
+    "orders/offers visibility",
+    "entitlements and usage visibility",
+    "economic receivables and payables",
+    "treasury reserve and participation-policy view",
+    "external fiat custody boundary"
+  ],
+  "invariants": {
+    "protocol_tax_bps": 0,
+    "cryptocurrency_required": false,
+    "wallet_custodies_fiat": false,
+    "offers_are_not_realized_value": true,
+    "legal_classification_not_inferred": true
+  },
+  "validation": {
+    "wallet_specific": {
+      "passed": 3,
+      "total": 3
+    },
+    "wallet_plus_existing_economic_participation": {
+      "passed": 27,
+      "total": 27
+    }
+  },
+  "repository_boundary": [
+    "generic source/tooling/tests/docs only",
+    "no runtime wallet database",
+    "no live wallet IDs or production treasury identifiers",
+    "no private keys",
+    "no payment credentials or bank details",
+    "no production snapshots"
+  ]
+}
