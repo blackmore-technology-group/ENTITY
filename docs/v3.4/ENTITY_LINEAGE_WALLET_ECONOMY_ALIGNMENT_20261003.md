@@ -226,3 +226,86 @@ Future Robotics assets must:
 10. fail closed when required origin, identity, rights, evidence or qualification is missing.
 
 This alignment is an application/runtime correction. It does not require a new ENTITY protocol version.
+
+
+## 9. Universal issuer-neutral market
+
+The corrected economy is not a BTG market implementation.
+
+Any valid ENTITY controller may create a DCO under its own asset lineage and explicitly issue bounded economic rights under the same registry rules.
+
+```text
+ENTITY identity
+  ↓
+controlled DCO
+  ↓
+Rights Passport
+  ↓
+Global Passport / provenance
+  ↓
+optional canonical instrument
+  ↓
+optional listing
+  ↓
+venue-neutral EEP execution and settlement
+```
+
+BTG receives no hidden namespace, fee, market, settlement or ownership privilege.
+
+Human symbols such as `BTG:BRC22-COM`, `ACME:VM07-TRN` or `JSMITH:PHOTO26-COM` are signed issuer-scoped aliases. The immutable canonical instrument ID is authoritative.
+
+Instrument identity and listing identity are separate so the same canonical instrument may be published or listed through more than one approved venue.
+
+Every new universal listing requires a Listing Information Sheet and machine listing manifest bound to the canonical instrument, DCO, issuer, Rights Passport and Global Passport.
+
+Portable packages may be published on GitHub, websites, documentation or partner surfaces without creating duplicate instruments.
+
+## 10. Data Value Discovery
+
+Market identifiers become useful human measurement keys while analytics remain keyed by canonical `instrument_id`.
+
+ENTITY may measure settled activity for each bounded rights instrument, including:
+
+- last settled price;
+- 24-hour / 30-day volume;
+- unique buyers;
+- trade count;
+- high / low;
+- active holders;
+- circulating supply;
+- externally verified settlement activity;
+- royalties and participation actually settled.
+
+These observations may roll upward from instrument to DCO, rights class, asset class and primary domain where explicit passport/DCO classification supports the relationship.
+
+The wallet exposes a Data Value Discovery surface while preserving the boundary that instrument-rights prices do not establish intrinsic or accounting value for the entire underlying DCO.
+
+Market-integrity flags include self-trading, reciprocal flows and counterparty concentration. Related-wallet detection requires authorized relationship evidence and is not inferred from identity similarity.
+
+## 11. Robotics prelaunch economic cleanup
+
+The three historical robotics issuance campaigns were audited before cleanup planning:
+
+- synthetic robotics economic pilot: 21 instruments;
+- DCO-000001 BIRFR-1: 20 instruments;
+- DCO-000002 Failure Detection Engine: 16 instruments.
+
+The 57 instruments were prelaunch economic experiments. The production audit found no orders, trades, clearing, buyer entitlements or usage. Non-issuer balances were internal BTG treasury reserve allocations, not external holders.
+
+Because EEP 3.0 is already a qualified protocol component, instrument withdrawal is **not** being introduced as a new EEP signed-wire primitive merely to clean this application state.
+
+Instead, an application-layer fail-closed migration:
+
+1. verifies zero market/economic activity;
+2. verifies every non-issuer balance is an exact internal issuer-owned treasury reserve;
+3. preserves all signed historical rows;
+4. marks unused instruments/listings withdrawn;
+5. returns internal reserve units to the issuer;
+6. supersedes the associated EOPP participation policies;
+7. records DCO Factory issuance withdrawals;
+8. leaves the underlying DCO assets active;
+9. creates signed migration evidence and backups.
+
+If any real market history or unexplained holder exists, the migration refuses to run.
+
+This preserves EEP 3.0 conformance and economic history while removing the abandoned licence-oriented robotics direction from active state.
