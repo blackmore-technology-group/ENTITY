@@ -2,7 +2,7 @@ from __future__ import annotations
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
-import html, json, secrets, sqlite3, time
+import html, importlib.util, json, secrets, sqlite3, sys, time
 
 WALLET_PROFILE="ENTITY_ECONOMIC_WALLET"
 WALLET_VERSION="1.0.0"
@@ -12,11 +12,18 @@ def now_ms()->int: return int(time.time()*1000)
 def rid(prefix:str)->str: return prefix+"-"+secrets.token_hex(12)
 
 class EntityEconomicWallet:
-    """Identity-bound stock-style view over canonical ENTITY economic records."""
+    """Identity-bound wallet model over canonical ENTITY asset and economic records."""
     def __init__(self,state_dir:str|Path):
         self.state=Path(state_dir)
         self.exchange_path=self.state/"entity_v3_exchange.sqlite"
         self.economic_path=self.state/"entity_v3_economic_participation.sqlite"
+        self.fabric_path=self.state/"entity_v3"/"universal_fabric.sqlite"
+        self.dco_factory_path=self.state/"dco_factory"/"entity_dco_factory.sqlite"
+        lineage_path=Path(__file__).with_name("lineage_resolver.py")
+        spec=importlib.util.spec_from_file_location("entity_wallet_lineage_resolver",lineage_path)
+        if spec is None or spec.loader is None: raise RuntimeError("wallet lineage resolver unavailable")
+        lineage_mod=importlib.util.module_from_spec(spec); sys.modules[spec.name]=lineage_mod; spec.loader.exec_module(lineage_mod)
+        self.lineage=lineage_mod.WalletLineageResolver(self.state)
         self.root=self.state/"wallet"; self.root.mkdir(parents=True,exist_ok=True)
         self.path=self.root/"entity_wallet.sqlite"; self._init()
 
@@ -122,6 +129,47 @@ class EntityEconomicWallet:
                 "realized_change_amount_units":realized,"unknown_sold_units":unknown_sold,
                 "bought_units":bought,"sold_units":sold}
 
+    def _assets(self,entity_id:str)->list[dict]:
+        """Return controller-held Digital Commodity Objects independently of market positions."""
+        if not self.fabric_path.exists(): return []
+        master_by_hash={}
+        if self.dco_factory_path.exists():
+            try:
+                with self._db(self.dco_factory_path) as fdb:
+                    for r in fdb.execute("SELECT dco_id,source_sha256,lifecycle FROM dco_masters"):
+                        master_by_hash[str(r["source_sha256"])]={
+                            "dco_id":str(r["dco_id"]),"lifecycle":str(r["lifecycle"]).upper()}
+            except sqlite3.OperationalError:
+                master_by_hash={}
+        with self._db(self.fabric_path) as db:
+            rows=db.execute("""SELECT object_id,controller_entity_id,object_type,title,content_sha256,
+                                      descriptor_json,status,created_at_ms
+                               FROM objects WHERE controller_entity_id=? AND status='ACTIVE'
+                               ORDER BY created_at_ms DESC,object_id""",(entity_id,)).fetchall()
+            version_parents={r["parent_object_id"] for r in db.execute(
+                """SELECT p.parent_object_id FROM provenance_edges p
+                   JOIN objects c ON c.object_id=p.child_object_id
+                   WHERE p.relation='VERSION_DERIVED_FROM'
+                     AND c.controller_entity_id=? AND c.status='ACTIVE'""",(entity_id,)).fetchall()}
+            out=[]
+            for row in rows:
+                if row["object_id"] in version_parents:
+                    continue
+                d=dict(row); descriptor=json.loads(d.pop("descriptor_json") or "{}")
+                if descriptor.get("digital_commodity") is not True: continue
+                master=master_by_hash.get(str(d.get("content_sha256") or ""))
+                if master and (master["lifecycle"].startswith("RETIRED") or master["lifecycle"].startswith("HISTORICAL")):
+                    continue
+                d["descriptor"]=descriptor
+                if master:
+                    d["dco_id"]=master["dco_id"]; d["dco_lifecycle"]=master["lifecycle"]
+                d["commodity_class"]=descriptor.get("commodity_class")
+                d["measurement_unit"]=descriptor.get("measurement_unit")
+                d["market_instruments_created_automatically"]=False
+                d["lineage"]=self.lineage.resolve(d)
+                out.append(d)
+            return out
+
     def _positions(self,entity_id:str)->list[dict]:
         if not self.exchange_path.exists(): return []
         with self._db(self.exchange_path) as db:
@@ -129,11 +177,14 @@ class EntityEconomicWallet:
                                       i.rights_json,i.total_units,i.transferable,i.duration_ms,
                                       i.settlement_currency,i.delivery_mode,i.status
                                FROM balances b JOIN instruments i ON i.instrument_id=b.instrument_id
-                               WHERE b.holder=? AND b.units>0 ORDER BY b.instrument_id""",(entity_id,)).fetchall()
+                               WHERE b.holder=? AND b.units>0 AND i.status='ACTIVE'
+                               ORDER BY b.instrument_id""",(entity_id,)).fetchall()
             out=[]
             for row in rows:
                 p=dict(row); p["units"]=int(p["units"]); p["total_units"]=int(p["total_units"])
                 p["transferable"]=bool(p["transferable"]); p["rights"]=json.loads(p.pop("rights_json") or "{}")
+                if p["rights"].get("registration_only") is True:
+                    continue
                 p["market"]=self._market(db,p["instrument_id"])
                 p["cost_basis"]=self._trade_basis(db,entity_id,p["instrument_id"],p["units"])
                 last=p["market"]["last"]
@@ -198,7 +249,7 @@ class EntityEconomicWallet:
         return totals
 
     def snapshot(self,wallet_id:str)->dict:
-        w=self.wallet(wallet_id); entity=w["owner_entity_id"]; positions=self._positions(entity)
+        w=self.wallet(wallet_id); entity=w["owner_entity_id"]; assets=self._assets(entity); positions=self._positions(entity)
         with self._db(self.path) as db:
             watch=[r["instrument_id"] for r in db.execute(
                 "SELECT instrument_id FROM watchlist WHERE wallet_id=? ORDER BY created_at_ms",(wallet_id,)).fetchall()]
@@ -209,7 +260,7 @@ class EntityEconomicWallet:
                     inst=db.execute("SELECT instrument_id,instrument_class,settlement_currency,status FROM instruments WHERE instrument_id=?",(iid,)).fetchone()
                     if inst: watch_quotes.append({**dict(inst),"market":self._market(db,iid)})
         return {"schema":"entity-economic-wallet-snapshot-v1","profile":WALLET_PROFILE,"version":WALLET_VERSION,
-                "created_at_ms":now_ms(),"wallet":w,"positions":positions,
+                "created_at_ms":now_ms(),"wallet":w,"assets":assets,"positions":positions,
                 "portfolio_by_currency":self._totals(positions),"orders":self._orders(entity),
                 "entitlements":self._entitlements(entity),"obligations":self._obligations(entity),
                 "watchlist":watch_quotes,
@@ -218,7 +269,12 @@ class EntityEconomicWallet:
                 "market_value_policy":{"last_settled_trade_only":True,"bid_ask_are_quotes_not_value":True,
                                        "offers_are_not_realized_value":True,"unpriced_positions_remain_unpriced":True,
                                        "indicative_only":True,"not_accounting_fair_value":True},
-                "stock_style":{"enabled":True,"features":["POSITIONS","QUANTITY","COST_BASIS","LAST","BID","ASK",
+                "asset_model":{"digital_assets_are_first_class_holdings":True,
+                                "ingest_does_not_issue_market_instruments":True,
+                                "ingest_does_not_create_market_value":True,
+                                "protocol_lineage_and_asset_provenance_are_separate":True,
+                                "adam_niki_btdu_do_not_create_ownership":True},
+                "stock_style":{"enabled":True,"features":["ASSETS","POSITIONS","QUANTITY","COST_BASIS","LAST","BID","ASK",
                                "INDICATIVE_MARKET_VALUE","REALIZED_CHANGE","UNREALIZED_CHANGE","ORDERS","ACTIVITY"],
                                "rights_are_not_declared_corporate_shares":True,
                                "legal_classification_not_inferred":True},

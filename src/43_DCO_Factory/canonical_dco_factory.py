@@ -62,6 +62,9 @@ class DCOFactory:
               issuance_id TEXT PRIMARY KEY,dco_id TEXT NOT NULL,plan_sha256 TEXT NOT NULL,
               physical_instruments INTEGER NOT NULL,total_right_units INTEGER NOT NULL,
               status TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS issuance_withdrawals(
+              issuance_id TEXT PRIMARY KEY,dco_id TEXT NOT NULL,reason TEXT NOT NULL,
+              evidence_sha256 TEXT,created_at_ms INTEGER NOT NULL);
             """)
 
     @staticmethod
@@ -225,13 +228,46 @@ class DCOFactory:
                         body["total_right_units"],body["status"],body["created_at_ms"]))
         return body
 
+    def withdraw_issuance(self,issuance_id:str,reason:str,*,evidence_sha256:str|None=None)->dict:
+        issuance_id=str(issuance_id); reason=str(reason).strip()
+        if not reason: raise ValueError("withdrawal reason required")
+        evidence=require_sha256(evidence_sha256,"evidence_sha256") if evidence_sha256 is not None else None
+        with self._db(True) as db:
+            row=db.execute("SELECT * FROM issuance_runs WHERE issuance_id=?",(issuance_id,)).fetchone()
+            if not row: raise KeyError("issuance run not found")
+            prior=db.execute("SELECT * FROM issuance_withdrawals WHERE issuance_id=?",(issuance_id,)).fetchone()
+            if prior:
+                return {"schema":"entity-dco-issuance-withdrawal-v1",**dict(prior),"history_preserved":True}
+            body={"schema":"entity-dco-issuance-withdrawal-v1","issuance_id":issuance_id,
+                  "dco_id":row["dco_id"],"reason":reason,"evidence_sha256":evidence,
+                  "created_at_ms":now_ms(),"history_preserved":True}
+            db.execute("INSERT INTO issuance_withdrawals VALUES(?,?,?,?,?)",(
+                issuance_id,row["dco_id"],reason,evidence,body["created_at_ms"]))
+        return body
+
+    def active_issuance_runs(self,dco_id:str|None=None)->list[dict]:
+        sql="""SELECT r.* FROM issuance_runs r
+               LEFT JOIN issuance_withdrawals w ON w.issuance_id=r.issuance_id
+               WHERE r.status='QUALIFIED' AND w.issuance_id IS NULL"""
+        args=()
+        if dco_id is not None:
+            sql+=" AND r.dco_id=?"; args=(str(dco_id),)
+        sql+=" ORDER BY r.created_at_ms,r.issuance_id"
+        with self._db() as db: return [dict(x) for x in db.execute(sql,args)]
+
     def portfolio_summary(self)->dict:
         with self._db() as db:
             total=int(db.execute("SELECT COUNT(*) FROM dco_masters").fetchone()[0])
             active=int(db.execute("SELECT COUNT(*) FROM dco_masters WHERE lifecycle LIKE 'ACTIVE%'").fetchone()[0])
             families={r["family"]:int(r["n"]) for r in db.execute("SELECT family,COUNT(*) n FROM dco_masters GROUP BY family")}
-            issued=db.execute("SELECT COALESCE(SUM(physical_instruments),0) i,COALESCE(SUM(total_right_units),0) u FROM issuance_runs WHERE status='QUALIFIED'").fetchone()
+            issued=db.execute("""SELECT COALESCE(SUM(r.physical_instruments),0) i,
+                                        COALESCE(SUM(r.total_right_units),0) u
+                                 FROM issuance_runs r
+                                 LEFT JOIN issuance_withdrawals w ON w.issuance_id=r.issuance_id
+                                 WHERE r.status='QUALIFIED' AND w.issuance_id IS NULL""").fetchone()
+            withdrawn=int(db.execute("SELECT COUNT(*) FROM issuance_withdrawals").fetchone()[0])
         return {"schema":"entity-dco-factory-portfolio-summary-v1","total_dcos":total,"active_dcos":active,
                 "families":families,"qualified_physical_instruments":int(issued["i"]),
-                "qualified_right_units":int(issued["u"]),"factory_version":FACTORY_VERSION,
+                "qualified_right_units":int(issued["u"]),"withdrawn_issuance_runs":withdrawn,
+                "factory_version":FACTORY_VERSION,
                 "target_design_capacity_dcos":10000,"protocol_change_required":False}

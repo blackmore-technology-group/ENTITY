@@ -28,10 +28,10 @@ class EntityGlobalPassportSDK:
             text=str(item); refs.append(text if text.startswith("entity-profile:") else self.profile_ref(text))
         return self.profiles.resolve_stack(refs)
     def register_file(self,path,controller_entity_id:str,*profiles:str,logical_path:str|None=None,
-                      previous_object_id:str|None=None,version:str="1.0",btdu_binding:dict|None=None)->dict:
+                      previous_object_id:str|None=None,version:str="1.0",btdu_binding:dict|None=None,**kwargs)->dict:
         stack=self.compose_profiles(*profiles)
         result=self.ingestion.ingest_file(path,controller_entity_id,stack["profile_refs"],logical_path=logical_path,
-                                          previous_object_id=previous_object_id,version=version,btdu_binding=btdu_binding)
+                                          previous_object_id=previous_object_id,version=version,btdu_binding=btdu_binding,**kwargs)
         return {"object_id":result["object"]["object_id"],"content_sha256":result["object"]["content_sha256"],
                 "rights_passport_id":result["rights_passport"]["passport_id"],
                 "global_passport_id":result["global_passport"]["passport_id"],
@@ -50,8 +50,20 @@ class EntityGlobalPassportSDK:
 
     def ingest_package_file(self,path,controller_entity_id:str,package:str,config:dict,asset_kind:str,**kwargs)->dict:
         plan=self.package_plan(package,config,asset_kind)
-        result=self.ingestion.ingest_file(path,controller_entity_id,plan["profile_refs"],
-                                          rights_actions=plan["rights_actions"],**kwargs)
+        options=dict(kwargs)
+        options.setdefault("object_type",plan["object_type"])
+        extra_profiles=list(options.pop("additional_profile_refs",[]) or [])
+        profile_stack=self.profiles.resolve_stack(list(plan["profile_refs"])+extra_profiles)
+        extra_actions={str(x).upper() for x in (options.pop("additional_rights_actions",[]) or []) if str(x)}
+        rights_actions=sorted(set(plan["rights_actions"])|extra_actions)
+        context=dict(options.pop("industry_context",{}) or {})
+        context.update({"industry_package":plan["package"],"asset_kind":str(asset_kind),
+                        "configuration_sha256":plan["configuration_sha256"],
+                        "primary_domain_profile":next((x for x in plan["profile_refs"] if "entity-profile:global@" not in x),None),
+                        "associated_profile_refs":[x for x in profile_stack["profile_refs"] if x not in plan["profile_refs"]]})
+        options["industry_context"]=context
+        result=self.ingestion.ingest_file(path,controller_entity_id,profile_stack["profile_refs"],
+                                          rights_actions=rights_actions,**options)
         return {"deployment_plan":plan,"object_id":result["object"]["object_id"],
                 "global_passport_id":result["global_passport"]["passport_id"],
                 "content_sha256":result["object"]["content_sha256"],
