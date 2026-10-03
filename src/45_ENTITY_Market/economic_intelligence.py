@@ -204,8 +204,8 @@ class EntityEconomicIntelligence:
                                ORDER BY rights_class,market_identifier""",(str(dco_id),)).fetchall()
         finally: db.close()
         metrics=[self.instrument_metrics(r["instrument_id"],as_of_ms=as_of_ms) for r in rows]
-        by_rights=defaultdict(lambda:{"instruments":0,"volume_units_30d":0,"notional_30d_by_currency":defaultdict(int),
-                                     "unique_buyers":set(),"settled_trades":0})
+        by_rights=defaultdict(lambda:{"instruments":0,"volume_units_30d":0,
+                                     "notional_30d_by_currency":defaultdict(int),"settled_trades":0})
         for m in metrics:
             r=by_rights[m["rights_class"]]; r["instruments"]+=1
             r["volume_units_30d"]+=m["window_30d"]["volume_units"]; r["settled_trades"]+=m["window_30d"]["trade_count"]
@@ -238,7 +238,7 @@ class EntityEconomicIntelligence:
                          "settled_trades_30d":g["settled_trades_30d"],"volume_units_30d":g["volume_units_30d"],
                          "notional_30d_by_currency":dict(sorted(g["notional_30d_by_currency"].items())),
                          "sum_instrument_unique_buyers_30d":g["unique_buyer_sum"]})
-        rows.sort(key=lambda x:(-sum(x["notional_30d_by_currency"].values()),x["group"]))
+        rows.sort(key=lambda x:(-x["volume_units_30d"],x["group"]))
         return {"schema":"entity-economy-rollup-v1","group_by":group_by,"rows":rows,
                 "cross_currency_notional_is_not_summed_into_one_value":True,
                 "rollup_is_observed_market_activity_not_underlying_asset_valuation":True,
