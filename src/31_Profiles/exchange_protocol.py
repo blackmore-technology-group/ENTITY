@@ -279,7 +279,8 @@ class ExchangeProtocol:
         if not venue: raise KeyError("venue not found")
         return {"venue_id":venue["venue_id"],"operator":venue["operator"],"name":venue["name"],
                 "status":venue["status"],"retirement":None if not retirement else
-                (dict(retirement)|{"signature":json.loads(retirement["signature_json"])})}
+                (dict(retirement)|{"signature":json.loads(retirement["signature_json"]),
+                                   "venue_is_not_protocol_authority":True})}
 
     def _record_signed_venue_retirement(self, body: dict, signature: dict) -> dict:
         required={"schema","retirement_id","venue_id","operator","prior_status","new_status",
