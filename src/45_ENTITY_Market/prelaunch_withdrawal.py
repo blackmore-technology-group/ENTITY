@@ -163,6 +163,9 @@ class PrelaunchEconomicWithdrawal:
 
             if self.factory.exists() and audit["dco_ids"]:
                 fd=self._db(self.factory); fd.execute("BEGIN IMMEDIATE")
+                fd.execute("""CREATE TABLE IF NOT EXISTS issuance_withdrawals(
+                              issuance_id TEXT PRIMARY KEY,dco_id TEXT NOT NULL,reason TEXT NOT NULL,
+                              evidence_sha256 TEXT,created_at_ms INTEGER NOT NULL)""")
                 for dco in audit["dco_ids"]:
                     runs=fd.execute("SELECT issuance_id FROM issuance_runs WHERE dco_id=?",(dco,)).fetchall()
                     for run in runs:
