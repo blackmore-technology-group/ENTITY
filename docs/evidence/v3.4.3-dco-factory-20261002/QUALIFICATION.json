@@ -1,0 +1,38 @@
+{
+  "schema": "entity-v343-dco-factory-public-qualification-v1",
+  "completed_utc": "2026-10-03T05:34:00Z",
+  "entity_display_version": "3.4.3",
+  "dco_factory_version": "0.1.0",
+  "pass": true,
+  "protocol_change_required": false,
+  "design_target": {
+    "dcos": 10000,
+    "expected_physical_instrument_range": [
+      50000,
+      80000
+    ]
+  },
+  "template": {
+    "template_id": "BTG-STRATEGIC-AI-ROBOTICS-01",
+    "profile": "STRATEGIC",
+    "commercial_archetypes": 12,
+    "physical_instruments_with_default_regional_variants": 21,
+    "total_right_units": 28418,
+    "treasury_reserve_units": 2280
+  },
+  "tests": {
+    "robotics_template_plan": true,
+    "duplicate_reject": true,
+    "explicit_version_classification": true,
+    "explicit_derivative_classification": true,
+    "bulk_master_registry_10000": true
+  },
+  "boundaries": {
+    "registry_scale_is_not_market_throughput": true,
+    "supply_is_not_market_value": true,
+    "no_new_eep_class": true,
+    "runtime_state_not_committed": true,
+    "protocol_tax_bps": 0,
+    "cryptocurrency_required": false
+  }
+}
