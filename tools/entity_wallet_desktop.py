@@ -1,6 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
-import argparse, importlib.util, json, os, sqlite3, sys, uuid
+import argparse, html, importlib.util, json, os, sqlite3, sys, uuid
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
@@ -113,6 +113,27 @@ class Backend:
 
     def namespace(self) -> str | None:
         return self.namespace_info().get("namespace")
+
+    def asset_record(self, object_id: str) -> dict:
+        return self.fabric.get_object(object_id)
+
+    def asset_disclosure(self, object_id: str) -> dict | None:
+        return self.market_registry.latest_asset_disclosure(object_id)
+
+    def publish_asset_disclosure(self, object_id: str, options: dict) -> dict:
+        return self.market_registry.publish_asset_disclosure(
+            self.entity_id, object_id,
+            description=options["description"],
+            purpose=options.get("purpose", ""),
+            capabilities=options.get("capabilities", []),
+            contents=options.get("contents", []),
+            intended_uses=options.get("intended_uses", []),
+            limitations=options.get("limitations", []),
+            dependencies=options.get("dependencies", []),
+            validation_notes=options.get("validation_notes", []),
+            release_notes=options.get("release_notes", ""),
+            source_refs=options.get("source_refs", []),
+        )
 
     def latest_global_passport(self, object_id: str) -> dict:
         dbp = self.state / "entity_v3_4_global_passports.sqlite"
@@ -339,6 +360,143 @@ class EmptyState(QtWidgets.QFrame):
         body_label = Ui.label(body, "muted")
         body_label.setWordWrap(True)
         lay.addWidget(body_label)
+
+class AssetDisclosureDialog(QtWidgets.QDialog):
+    def __init__(self, parent, asset: dict, current: dict | None = None):
+        super().__init__(parent)
+        self.setWindowTitle("Asset Information")
+        self.resize(820, 820)
+        self.setMinimumSize(720, 680)
+        self.result_data = None
+        current = current or {}
+        layout = QtWidgets.QVBoxLayout(self)
+        layout.setContentsMargins(22, 20, 22, 20)
+        layout.addWidget(Ui.label("SIGNED ASSET DISCLOSURE", "dialogTitle"))
+        title = Ui.label(asset.get("title") or asset.get("object_id"), "tickerHero")
+        title.setWordWrap(True)
+        layout.addWidget(title)
+        note = Ui.label(
+            "This is the buyer-facing description of the underlying DCO. It is signed and versioned. "
+            "It describes the asset; it does not expand the Rights Passport or manufacture market value.",
+            "muted"
+        )
+        note.setWordWrap(True)
+        layout.addWidget(note)
+
+        scroll = QtWidgets.QScrollArea()
+        scroll.setWidgetResizable(True)
+        host = QtWidgets.QWidget()
+        form = QtWidgets.QFormLayout(host)
+        form.setFieldGrowthPolicy(QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
+
+        def area(value="", height=86):
+            w = QtWidgets.QPlainTextEdit(str(value or ""))
+            w.setMinimumHeight(height)
+            return w
+
+        def lines(values):
+            return "\n".join(str(x) for x in (values or []))
+
+        self.description = area(current.get("description"), 130)
+        self.purpose = area(current.get("purpose"), 80)
+        self.capabilities = area(lines(current.get("capabilities")), 90)
+        self.contents = area(lines(current.get("contents")), 90)
+        self.intended = area(lines(current.get("intended_uses")), 90)
+        self.limitations = area(lines(current.get("limitations")), 90)
+        self.dependencies = area(lines(current.get("dependencies")), 80)
+        self.validation = area(lines(current.get("validation_notes")), 90)
+        self.release_notes = area(current.get("release_notes"), 80)
+        self.source_refs = area(lines(current.get("source_refs")), 70)
+
+        for label, widget in [
+            ("Detailed asset description", self.description),
+            ("Purpose / problem addressed", self.purpose),
+            ("Key capabilities\n(one per line)", self.capabilities),
+            ("Included content / components\n(one per line)", self.contents),
+            ("Intended uses\n(one per line)", self.intended),
+            ("Known limitations / exclusions\n(one per line)", self.limitations),
+            ("Dependencies / prerequisites\n(one per line)", self.dependencies),
+            ("Validation / qualification notes\n(one per line)", self.validation),
+            ("Version / release notes", self.release_notes),
+            ("Supporting source references\n(one per line)", self.source_refs),
+        ]:
+            form.addRow(label, widget)
+        scroll.setWidget(host)
+        layout.addWidget(scroll, 1)
+
+        boundary = Ui.label(
+            "ENTITY records this as an issuer statement. Evidence and passport references remain independently inspectable.",
+            "muted"
+        )
+        boundary.setWordWrap(True)
+        layout.addWidget(boundary)
+
+        buttons = QtWidgets.QHBoxLayout()
+        buttons.addStretch()
+        cancel = Ui.button("Cancel")
+        publish = Ui.button("Sign and publish asset information", True)
+        cancel.clicked.connect(self.reject)
+        publish.clicked.connect(self.accept_data)
+        buttons.addWidget(cancel)
+        buttons.addWidget(publish)
+        layout.addLayout(buttons)
+
+    @staticmethod
+    def _items(editor):
+        return [x.strip() for x in editor.toPlainText().splitlines() if x.strip()]
+
+    def accept_data(self):
+        description = self.description.toPlainText().strip()
+        if len(description) < 20:
+            QtWidgets.QMessageBox.warning(
+                self, "Asset description",
+                "Provide a meaningful buyer-facing asset description before publishing."
+            )
+            return
+        self.result_data = {
+            "description": description,
+            "purpose": self.purpose.toPlainText().strip(),
+            "capabilities": self._items(self.capabilities),
+            "contents": self._items(self.contents),
+            "intended_uses": self._items(self.intended),
+            "limitations": self._items(self.limitations),
+            "dependencies": self._items(self.dependencies),
+            "validation_notes": self._items(self.validation),
+            "release_notes": self.release_notes.toPlainText().strip(),
+            "source_refs": self._items(self.source_refs),
+        }
+        self.accept()
+
+
+class ListingInformationDialog(QtWidgets.QDialog):
+    def __init__(self, parent, market_identifier: str, markdown: str):
+        super().__init__(parent)
+        self.setWindowTitle(f"Listing Information Sheet · {market_identifier}")
+        self.resize(1060, 820)
+        self.setMinimumSize(820, 620)
+        layout = QtWidgets.QVBoxLayout(self)
+        layout.setContentsMargins(18, 16, 18, 16)
+        head = QtWidgets.QHBoxLayout()
+        head.addWidget(Ui.label("LISTING INFORMATION SHEET", "dialogTitle"))
+        head.addStretch()
+        head.addWidget(Ui.label(market_identifier, "tickerHero"))
+        layout.addLayout(head)
+        browser = QtWidgets.QTextBrowser()
+        browser.setProperty("class", "detail")
+        browser.setOpenExternalLinks(False)
+        browser.setMarkdown(markdown)
+        layout.addWidget(browser, 1)
+        foot = QtWidgets.QHBoxLayout()
+        foot.addWidget(Ui.label(
+            "Buyer-facing disclosure snapshot · canonical passports and instrument records remain authoritative.",
+            "muted"
+        ))
+        foot.addStretch()
+        close = Ui.button("Close", True)
+        close.clicked.connect(self.accept)
+        foot.addWidget(close)
+        layout.addLayout(foot)
+
 
 class InstrumentDialog(QtWidgets.QDialog):
     def __init__(self, parent, asset, namespace):
@@ -665,7 +823,7 @@ class WalletWindow(QtWidgets.QMainWindow):
         al = QtWidgets.QVBoxLayout(asset_box); al.setContentsMargins(18, 16, 18, 18)
         ah = QtWidgets.QHBoxLayout(); ah.addWidget(Ui.label("ASSET PORTFOLIO", "sectionTitle")); ah.addStretch()
         ab = Ui.button("+ Ingest asset", True); ab.clicked.connect(self.ingest_asset); ah.addWidget(ab); al.addLayout(ah)
-        self.overview_assets = Ui.table(["TICKER", "ASSET", "CLASS", "DOMAIN"])
+        self.overview_assets = Ui.table(["TICKER", "ASSET", "CLASS", "DOMAIN", "ASSET INFO"])
         self.overview_assets.setColumnWidth(0,150)
         self.overview_assets.setColumnWidth(1,310)
         self.overview_assets.setColumnWidth(2,170)
@@ -686,12 +844,13 @@ class WalletWindow(QtWidgets.QMainWindow):
         p = QtWidgets.QWidget(); lay = QtWidgets.QVBoxLayout(p); lay.setContentsMargins(0,0,0,0); lay.setSpacing(12)
         actions = QtWidgets.QHBoxLayout()
         ingest = Ui.button("+ Ingest digital asset", True); ingest.clicked.connect(self.ingest_asset)
+        disclose = Ui.button("Asset information"); disclose.clicked.connect(self.edit_asset_information)
         issue = Ui.button("Issue economic instrument"); issue.clicked.connect(self.issue_selected_asset)
         lineage = Ui.button("Inspect lineage"); lineage.clicked.connect(self.show_asset_lineage)
-        actions.addWidget(ingest); actions.addWidget(issue); actions.addWidget(lineage); actions.addStretch()
+        actions.addWidget(ingest); actions.addWidget(disclose); actions.addWidget(issue); actions.addWidget(lineage); actions.addStretch()
         lay.addLayout(actions)
         split = QtWidgets.QSplitter()
-        self.assets_table = Ui.table(["TICKER(S)", "ASSET", "CLASS", "TYPE", "DOMAIN", "PASSPORT", "BTDU", "DCO ID"])
+        self.assets_table = Ui.table(["TICKER(S)", "ASSET", "CLASS", "TYPE", "DOMAIN", "ASSET INFO", "PASSPORT", "BTDU", "DCO ID"])
         self.assets_table.itemSelectionChanged.connect(self.update_asset_detail)
         split.addWidget(self.assets_table)
         self.asset_detail = QtWidgets.QTextBrowser(); self.asset_detail.setProperty("class", "detail")
@@ -822,11 +981,13 @@ class WalletWindow(QtWidgets.QMainWindow):
             domain = (lin.get("protocol_lineage", {}) or {}).get("primary_domain_profile") or "—"
             gp = lin.get("global_passport") or {}
             btdu = (lin.get("capability_bindings", {}).get("BTDU", {}) or {}).get("bound", False)
+            disclosure = self.backend.asset_disclosure(a["object_id"])
+            disclosure_status = f"SIGNED V{disclosure['version']}" if disclosure else "REQUIRED TO LIST"
             asset_table_rows.append([
                 tickers, a.get("title"), a.get("commodity_class"), a.get("object_type"), domain,
-                gp.get("version") or "—", "BOUND" if btdu else "—", a.get("object_id")
+                disclosure_status, gp.get("version") or "—", "BOUND" if btdu else "—", a.get("object_id")
             ])
-            overview_assets.append([tickers, a.get("title"), a.get("commodity_class"), domain])
+            overview_assets.append([tickers, a.get("title"), a.get("commodity_class"), domain, disclosure_status])
         Ui.fill_table(self.assets_table, asset_table_rows)
         Ui.fill_table(self.overview_assets, overview_assets[:8])
 
@@ -906,26 +1067,67 @@ class WalletWindow(QtWidgets.QMainWindow):
         lin = a.get("lineage", {}); p = lin.get("protocol_lineage", {}) or {}
         al = lin.get("asset_lineage", {}) or {}; cap = lin.get("capability_bindings", {}) or {}
         instruments = self.backend.instrument_map_by_asset().get(a["object_id"], [])
-        tickers = "<br>".join(i["market_identifier"] for i in instruments) or "<span class='muted'>NO ECONOMIC INSTRUMENT ISSUED</span>"
+        tickers = "<br>".join(html.escape(i["market_identifier"]) for i in instruments) or "<span>NO ECONOMIC INSTRUMENT ISSUED</span>"
         parents = "<br>".join(
-            f"{x.get('relation')} · {x.get('title') or shorten(x.get('parent_object_id'))}"
+            f"{html.escape(str(x.get('relation') or ''))} · {html.escape(str(x.get('title') or shorten(x.get('parent_object_id'))))}"
             for x in al.get("parents", [])
         ) or "None recorded"
+        obj = self.backend.asset_record(a["object_id"])
+        descriptor = obj.get("descriptor") or {}
+        metadata = descriptor.get("metadata") or {}
+        disclosure = self.backend.asset_disclosure(a["object_id"])
+        try:
+            gp = self.backend.latest_global_passport(a["object_id"])
+        except Exception:
+            gp = {}
+        description = (disclosure or {}).get("description") or (
+            f"{obj.get('title')} is registered as an ENTITY Digital Commodity Object of type "
+            f"{obj.get('object_type')} in the {descriptor.get('commodity_class')} commodity class. "
+            "No signed issuer-authored Asset Disclosure has been published yet."
+        )
+        def ul(items):
+            vals=[html.escape(str(x)) for x in (items or []) if str(x).strip()]
+            return "<ul>"+"".join("<li>"+x+"</li>" for x in vals)+"</ul>" if vals else "<span>None stated</span>"
+        metadata_rows = "".join(
+            f"<tr><td>{html.escape(str(k).replace('_',' ').title())}</td><td>{html.escape(str(v))}</td></tr>"
+            for k,v in sorted(metadata.items())
+        ) or "<tr><td colspan='2'>None recorded</td></tr>"
+        disclosure_version=(disclosure or {}).get("version")
+        profile_refs=(gp.get("profile_stack") or {}).get("profile_refs") or []
         self.asset_detail.setHtml(f"""
         <div class='eyebrow'>DIGITAL COMMODITY OBJECT</div>
-        <h1>{a.get('title')}</h1>
+        <h1>{html.escape(str(a.get('title') or ''))}</h1>
         <div class='ticker'>{tickers}</div>
         <hr>
-        <b>Canonical lineage</b><br>{p.get('display_path') or 'Unresolved'}<br><br>
-        <b>Controller</b><br>{al.get('controller_name') or a.get('controller_entity_id')}<br><br>
-        <b>DCO ID</b><br><code>{a.get('object_id')}</code><br><br>
-        <b>Commodity class</b><br>{a.get('commodity_class')}<br><br>
-        <b>Object type</b><br>{a.get('object_type')}<br><br>
-        <b>Composed profiles</b><br>{', '.join(p.get('composed_domain_profiles') or []) or 'Primary domain only'}<br><br>
-        <b>BTDU</b><br>{'Bound' if (cap.get('BTDU') or {}).get('bound') else 'Not bound'}<br><br>
+        <h3>Asset description</h3>
+        <p>{html.escape(str(description))}</p>
+        <p><b>Disclosure:</b> {"Signed version "+str(disclosure_version) if disclosure else "Not yet published"}</p>
+
+        <h3>Canonical identity</h3>
+        <b>Canonical lineage</b><br>{html.escape(str(p.get('display_path') or 'Unresolved'))}<br><br>
+        <b>Controller</b><br>{html.escape(str(al.get('controller_name') or a.get('controller_entity_id')))}<br><br>
+        <b>DCO ID</b><br><code>{html.escape(str(a.get('object_id')))}</code><br><br>
+        <b>Commodity class</b><br>{html.escape(str(a.get('commodity_class')))}<br><br>
+        <b>Object type</b><br>{html.escape(str(a.get('object_type')))}<br><br>
+        <b>Content SHA-256</b><br><code>{html.escape(str(obj.get('content_sha256') or '—'))}</code><br><br>
+
+        <h3>Issuer disclosure</h3>
+        <b>Purpose</b><br>{html.escape(str((disclosure or {}).get('purpose') or 'None stated'))}<br><br>
+        <b>Capabilities</b>{ul((disclosure or {}).get('capabilities'))}
+        <b>Included content / components</b>{ul((disclosure or {}).get('contents'))}
+        <b>Intended uses</b>{ul((disclosure or {}).get('intended_uses'))}
+        <b>Limitations</b>{ul((disclosure or {}).get('limitations'))}
+        <b>Validation notes</b>{ul((disclosure or {}).get('validation_notes'))}
+
+        <h3>Technical metadata</h3>
+        <table cellspacing='0' cellpadding='4'>{metadata_rows}</table><br>
+        <b>Profile stack</b>{ul(profile_refs)}
+        <b>Composed profiles</b><br>{html.escape(', '.join(p.get('composed_domain_profiles') or []) or 'Primary domain only')}<br><br>
+        <b>BTDU</b><br>{"Bound" if (cap.get('BTDU') or {}).get('bound') else "Not bound"}<br><br>
         <b>Provenance parents</b><br>{parents}<br><br>
-        <small>Asset registration does not create a ticker, instrument, listing or market value.</small>
+        <small>Asset registration does not create a ticker, instrument, listing or market value. A signed Asset Disclosure is required before market listing.</small>
         """)
+
 
     def update_instrument_detail(self):
         x = self.selected_instrument()
@@ -994,6 +1196,28 @@ class WalletWindow(QtWidgets.QMainWindow):
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Asset ingest failed", str(e))
 
+    def edit_asset_information(self):
+        asset = self.selected_asset()
+        if not asset:
+            QtWidgets.QMessageBox.warning(self, "Asset information", "Select a controlled DCO first.")
+            return
+        current = self.backend.asset_disclosure(asset["object_id"])
+        dialog = AssetDisclosureDialog(self, asset, current)
+        if dialog.exec() != QtWidgets.QDialog.Accepted:
+            return
+        try:
+            result = self.backend.publish_asset_disclosure(asset["object_id"], dialog.result_data)
+            self.refresh()
+            self.update_asset_detail()
+            QtWidgets.QMessageBox.information(
+                self, "Asset information published",
+                f"Signed Asset Disclosure version {result['version']} was published.\n\n"
+                f"Disclosure ID\n{result['disclosure_id']}\n\n"
+                "Future listings will snapshot this disclosure together with the canonical asset dossier."
+            )
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Asset information failed", str(e))
+
     def issue_selected_asset(self):
         asset = self.selected_asset()
         if not asset:
@@ -1016,6 +1240,12 @@ class WalletWindow(QtWidgets.QMainWindow):
         instrument = self.selected_instrument()
         if not instrument:
             QtWidgets.QMessageBox.warning(self, "Listing", "Select one of your economic instruments."); return
+        if not self.backend.asset_disclosure(instrument["underlying_dco_id"]):
+            QtWidgets.QMessageBox.warning(
+                self, "Asset information required",
+                "This DCO does not yet have a signed Asset Disclosure. Publish detailed Asset Information before creating a market listing."
+            )
+            return
         d = ListingDialog(self, self.backend, instrument)
         if d.exec() != QtWidgets.QDialog.Accepted:
             return
@@ -1055,20 +1285,13 @@ class WalletWindow(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.warning(self, "Listing", "No active market listing selected."); return
         try:
             listing = self.backend.market_registry.listing(r["listing_id"])
-            info = listing["information"]
-            receives = "\n".join("• " + x for x in info["buyer_receives"]) or "• See Rights Passport"
-            excludes = "\n".join("• " + x for x in info["buyer_does_not_receive"]) or "• No unstated rights"
-            QtWidgets.QMessageBox.information(
-                self, "Listing Information Sheet",
-                f"{info['market_identifier']}\n{info['instrument_name']}\n\n"
-                f"Issuer: {info['issuer']}\nUnderlying DCO: {info['underlying_dco_id']}\n\n"
-                f"BUYER RECEIVES\n{receives}\n\nBUYER DOES NOT RECEIVE\n{excludes}\n\n"
-                f"Supply: {info['supply']}\nJurisdiction: {info['jurisdiction']}\n"
-                f"Pricing: {info['pricing_method']}\n\nInstrument: {info['instrument_id']}\n"
-                f"Listing: {info['listing_id']}"
+            dialog = ListingInformationDialog(
+                self, listing["information"]["market_identifier"], listing["information_markdown"]
             )
+            dialog.exec()
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Listing Information", str(e))
+
 
     def export_listing(self):
         r = self.selected_market()
@@ -1164,13 +1387,18 @@ class WalletWindow(QtWidgets.QMainWindow):
 def self_test(state: Path, entity_id: str) -> dict:
     backend = Backend(state, entity_id)
     snap = backend.snapshot()
+    registry_status = backend.market_registry.status()
     return {
         "ready": True, "ui_engine": "PySide6", "design": "ENTITY_DATA_ECONOMY_TERMINAL",
         "entity_id": entity_id, "assets": len(snap.get("assets", [])),
         "instruments": len(backend.instruments()), "positions": len(snap.get("positions", [])),
         "orders": len(snap.get("orders", [])), "venues": len(backend.venues()),
         "market_listings": len(backend.market()), "economic_demand_series": len(backend.economic_metrics()),
-        "issuer_namespace": backend.namespace(), "protocol_tax_bps": 0, "cryptocurrency_required": False,
+        "issuer_namespace": backend.namespace(),
+        "asset_disclosures": registry_status["counts"].get("asset_disclosures", 0),
+        "market_registry_version": registry_status["version"],
+        "signed_asset_disclosure_required_for_listing": registry_status.get("signed_asset_disclosure_required_for_listing", False),
+        "protocol_tax_bps": 0, "cryptocurrency_required": False,
     }
 
 def main():

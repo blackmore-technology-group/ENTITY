@@ -172,3 +172,35 @@ The PySide6 build continues to preserve:
 - BTDU, ADAM and NIKI do not create ownership.
 
 The 2026-10-03 desktop/economy/lineage regression campaign passed **84/84** before the Qt package was built. The packaged Windows executable then passed a production-state frozen-runtime self-test with exit code 0.
+
+
+## Signed Asset Disclosure and Listing Information Sheet v2 — 2026-10-03
+
+A market listing now requires a **signed, versioned Asset Disclosure** for the underlying DCO. The disclosure belongs to the asset, not to a ticker, and can therefore support multiple economic instruments without duplicating the buyer-facing description.
+
+The production path is:
+
+DCO → signed Asset Disclosure → Rights Passport / Global Passport → Economic Instrument → Listing → Listing Information Sheet v2
+
+The Asset Disclosure supports:
+
+- detailed asset description;
+- purpose / problem addressed;
+- key capabilities;
+- included content or components;
+- intended uses;
+- known limitations and exclusions;
+- dependencies / prerequisites;
+- validation and qualification notes;
+- release/version notes;
+- supporting source references.
+
+Issuer-authored disclosure fields are signed issuer statements. ENTITY records and verifies the statement but does not convert it into objective truth or independent certification. Publishing an Asset Disclosure does not expand a Rights Passport and does not create economic value.
+
+The Listing Information Sheet v2 snapshots the current signed Asset Disclosure and combines it with canonical DCO facts from the asset record and Global Passport, including DCO ID/code, version, object type, commodity class, measurement unit, content hash, controller, jurisdiction profiles, canonical technical metadata, industry context, profile stack, standards mappings, validation/maturity flags, provenance edges and references, evidence references, BTDU binding, rights terms, market terms and the market-value boundary.
+
+A later Asset Disclosure update does not silently rewrite an already-created listing sheet; the listing retains the disclosure/dossier hashes that were shown to the buyer.
+
+Portable instrument packages now include `asset-dossier.json` and, when present, `asset-disclosure.json` in addition to the human Listing Information PDF/Markdown and existing canonical manifests/passports.
+
+The wallet shows Asset Information status directly in the DCO portfolio. A DCO without a signed disclosure is marked **REQUIRED TO LIST**. The two current Robotics DCOs were issued signed Asset Disclosure v1 records using facts already present in their canonical records; no new performance claims were inferred.

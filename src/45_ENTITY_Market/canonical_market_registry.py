@@ -5,7 +5,7 @@ from typing import Any
 import hashlib, json, re, sqlite3, textwrap, time
 
 MARKET_SCHEMA="entity-economic-market-registry-v1"
-MARKET_VERSION="1.0.0"
+MARKET_VERSION="1.1.0"
 
 def now_ms()->int: return int(time.time()*1000)
 def canon(v:Any)->bytes: return json.dumps(v,sort_keys=True,separators=(",",":"),ensure_ascii=False,default=str).encode()
@@ -151,7 +151,15 @@ class EntityEconomicMarketRegistry:
             CREATE TABLE IF NOT EXISTS listing_information(
               listing_id TEXT PRIMARY KEY, information_json TEXT NOT NULL,
               information_markdown TEXT NOT NULL, created_at_ms INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS asset_disclosures(
+              disclosure_id TEXT PRIMARY KEY, underlying_dco_id TEXT NOT NULL,
+              issuer_entity_id TEXT NOT NULL, version INTEGER NOT NULL,
+              disclosure_sha256 TEXT NOT NULL, disclosure_json TEXT NOT NULL,
+              status TEXT NOT NULL, created_at_ms INTEGER NOT NULL,
+              signature_json TEXT NOT NULL,
+              UNIQUE(underlying_dco_id,version));
             CREATE INDEX IF NOT EXISTS idx_market_symbol ON instrument_packages(issuer_namespace,display_symbol);
+            CREATE INDEX IF NOT EXISTS idx_asset_disclosure_dco ON asset_disclosures(underlying_dco_id,version);
             """)
 
     def suggest_namespace(self,issuer_entity_id:str)->dict:
@@ -191,6 +199,165 @@ class EntityEconomicMarketRegistry:
             db.execute("INSERT INTO issuer_namespaces VALUES(?,?,?,?,?)",(
                 candidate,issuer,body["display_name"],body["created_at_ms"],json.dumps(sig,sort_keys=True)))
         return dict(body,signature=sig)
+
+    def publish_asset_disclosure(self,issuer_entity_id:str,underlying_dco_id:str,*,description:str,
+                                 purpose:str="",capabilities:list[str]|None=None,
+                                 contents:list[str]|None=None,intended_uses:list[str]|None=None,
+                                 limitations:list[str]|None=None,dependencies:list[str]|None=None,
+                                 validation_notes:list[str]|None=None,release_notes:str="",
+                                 source_refs:list[str]|None=None,version:int|None=None)->dict:
+        issuer=str(issuer_entity_id); dco=str(underlying_dco_id)
+        asset=self.fabric.get_object(dco)
+        if asset["controller_entity_id"]!=issuer:
+            raise PermissionError("only the controlled DCO issuer may publish an asset disclosure")
+        text=str(description or "").strip()
+        if len(text)<20:
+            raise ValueError("asset description must provide meaningful buyer-facing detail")
+        with self._db() as db:
+            if version is None:
+                row=db.execute("SELECT COALESCE(MAX(version),0)+1 AS v FROM asset_disclosures WHERE underlying_dco_id=?",(dco,)).fetchone()
+                version=int(row["v"])
+            else:
+                version=int(version)
+        if version<1: raise ValueError("asset disclosure version must be positive")
+        def clean(items):
+            return [str(x).strip() for x in (items or []) if str(x).strip()]
+        disclosure={
+            "schema":"entity-asset-disclosure-v1",
+            "underlying_dco_id":dco,
+            "issuer_entity_id":issuer,
+            "asset_title":asset["title"],
+            "version":version,
+            "description":text,
+            "purpose":str(purpose or "").strip(),
+            "capabilities":clean(capabilities),
+            "contents":clean(contents),
+            "intended_uses":clean(intended_uses),
+            "limitations":clean(limitations),
+            "dependencies":clean(dependencies),
+            "validation_notes":clean(validation_notes),
+            "release_notes":str(release_notes or "").strip(),
+            "source_refs":sorted(set(clean(source_refs))),
+            "issuer_statement_not_protocol_truth":True,
+            "does_not_expand_rights_passport":True,
+            "created_at_ms":now_ms(),
+        }
+        disclosure_hash=sha(disclosure)
+        disclosure_id=f"asset-disclosure:v1:{sha({'dco':dco,'version':version,'hash':disclosure_hash})[:24]}"
+        body={**disclosure,"disclosure_id":disclosure_id,"disclosure_sha256":disclosure_hash}
+        sig=self.identity.sign(issuer,body)
+        with self._db() as db:
+            db.execute("""INSERT INTO asset_disclosures
+                (disclosure_id,underlying_dco_id,issuer_entity_id,version,disclosure_sha256,
+                 disclosure_json,status,created_at_ms,signature_json)
+                VALUES(?,?,?,?,?,?,?,?,?)""",(
+                disclosure_id,dco,issuer,version,disclosure_hash,json.dumps(disclosure,sort_keys=True),
+                "ACTIVE",disclosure["created_at_ms"],json.dumps(sig,sort_keys=True)))
+        return dict(body,signature=sig)
+
+    def latest_asset_disclosure(self,underlying_dco_id:str)->dict|None:
+        dco=str(underlying_dco_id)
+        with self._db() as db:
+            row=db.execute("""SELECT * FROM asset_disclosures
+                              WHERE underlying_dco_id=? AND status='ACTIVE'
+                              ORDER BY version DESC,created_at_ms DESC LIMIT 1""",(dco,)).fetchone()
+        if not row: return None
+        disclosure=json.loads(row["disclosure_json"])
+        return {**disclosure,"disclosure_id":row["disclosure_id"],
+                "disclosure_sha256":row["disclosure_sha256"],
+                "signature":json.loads(row["signature_json"])}
+
+    def _provenance_snapshot(self,underlying_dco_id:str)->list[dict]:
+        dco=str(underlying_dco_id); out=[]
+        path=getattr(self.fabric,"path",None)
+        if not path or not Path(path).exists(): return out
+        db=sqlite3.connect(path); db.row_factory=sqlite3.Row
+        try:
+            rows=db.execute("""SELECT p.edge_id,p.parent_object_id,p.relation,p.contribution_bps,
+                                      p.evidence_json,o.title,o.controller_entity_id
+                               FROM provenance_edges p
+                               LEFT JOIN objects o ON o.object_id=p.parent_object_id
+                               WHERE p.child_object_id=?
+                               ORDER BY p.created_at_ms,p.edge_id""",(dco,)).fetchall()
+            for r in rows:
+                out.append({"edge_id":r["edge_id"],"parent_object_id":r["parent_object_id"],
+                            "parent_title":r["title"],"parent_controller_entity_id":r["controller_entity_id"],
+                            "relation":r["relation"],"contribution_bps":int(r["contribution_bps"]),
+                            "evidence":json.loads(r["evidence_json"] or "{}")})
+        finally: db.close()
+        return out
+
+    def _asset_dossier(self,instrument:dict,asset:dict)->dict:
+        descriptor=dict(asset.get("descriptor") or {})
+        metadata=dict(descriptor.get("metadata") or {})
+        gp=self.global_passports.get(instrument["global_passport_id"])
+        rp=self.rights.get(instrument["rights_passport_id"])
+        disclosure=self.latest_asset_disclosure(asset["object_id"])
+        industry=dict(gp.get("industry_context") or {})
+        profiles=dict(gp.get("profile_stack") or {})
+        btdu=dict(gp.get("btdu_binding") or {})
+        origin=dict(gp.get("protocol_origin") or {})
+        evidence=sorted(set(
+            [str(x) for x in (gp.get("evidence_refs") or [])] +
+            [str(x) for x in (instrument.get("evidence_refs") or [])]
+        ))
+        facts={
+            "asset_title":asset.get("title"),
+            "dco_id":asset.get("object_id"),
+            "dco_code":metadata.get("dco_code") or industry.get("dco_code"),
+            "short_name":metadata.get("short_name") or industry.get("asset"),
+            "version":metadata.get("version") or gp.get("version"),
+            "object_type":asset.get("object_type"),
+            "commodity_class":descriptor.get("commodity_class"),
+            "measurement_unit":descriptor.get("measurement_unit"),
+            "content_sha256":asset.get("content_sha256"),
+            "controller_entity_id":asset.get("controller_entity_id"),
+            "status":asset.get("status"),
+            "created_at_ms":asset.get("created_at_ms"),
+            "jurisdictions":list(gp.get("jurisdiction_profile_refs") or []),
+        }
+        auto_summary=(f"{facts['asset_title']} is a registered ENTITY Digital Commodity Object "
+                      f"of type {facts['object_type']} in the {facts['commodity_class']} commodity class.")
+        if facts.get("version"): auto_summary+=f" Recorded asset version: {facts['version']}."
+        if facts.get("dco_code"): auto_summary+=f" DCO code: {facts['dco_code']}."
+        return {
+            "schema":"entity-asset-dossier-v1",
+            "facts":facts,
+            "issuer_disclosure":disclosure,
+            "canonical_summary":auto_summary,
+            "asset_metadata":metadata,
+            "industry_context":industry,
+            "profile_refs":list(profiles.get("profile_refs") or []),
+            "standards_mappings":list(gp.get("standards_mappings") or []),
+            "btdu_binding":{
+                "bound":bool(btdu),
+                "btdu_version":btdu.get("btdu_version"),
+                "object_ref":btdu.get("object_ref"),
+                "binding_mode":btdu.get("binding_mode"),
+                "topology_does_not_create_ownership":btdu.get("topology_does_not_create_ownership",True),
+            },
+            "protocol_origin":{
+                "origin_lineage_id":origin.get("origin_lineage_id"),
+                "release_ref":origin.get("release_ref"),
+                "protocol_origin_is_not_asset_provenance":True,
+                "protocol_origin_does_not_transfer_user_asset_ownership":True,
+            },
+            "provenance":self._provenance_snapshot(asset["object_id"]),
+            "provenance_refs":list(gp.get("provenance_refs") or []),
+            "evidence_refs":evidence,
+            "rights_passport_summary":{
+                "passport_id":rp.get("passport_id"),
+                "rights":list(rp.get("rights") or []),
+            },
+            "validation_and_maturity":{
+                k:metadata.get(k) for k in (
+                    "qualification_pass","physical_robot_validation","commercial_quality_claimed",
+                    "synthetic","external_sale_enabled","raw_data_transfer_default",
+                    "registration_revision"
+                ) if k in metadata
+            },
+            "dossier_is_disclosure_not_independent_certification":True,
+        }
 
     def _verify_passports(self,issuer:str,dco_id:str,rights_passport_id:str,global_passport_id:str)->tuple[dict,dict]:
         rp=self.rights.get(str(rights_passport_id)); gp=self.global_passports.get(str(global_passport_id))
@@ -299,14 +466,25 @@ class EntityEconomicMarketRegistry:
         return self.instrument(r["instrument_id"])
 
     def _information(self,instrument:dict,listing:dict,asset:dict,issuer_manifest:dict)->tuple[dict,str]:
+        dossier=self._asset_dossier(instrument,asset)
+        disclosure=dossier.get("issuer_disclosure") or {}
+        description=str(disclosure.get("description") or dossier["canonical_summary"])
         info={
-            "schema":"entity-listing-information-sheet-v1",
-            "what_is_this":f"{instrument['market_identifier']} represents {instrument['instrument_name']}.",
+            "schema":"entity-listing-information-sheet-v2",
+            "what_is_this":(
+                f"{instrument['market_identifier']} is an economic instrument representing "
+                f"{instrument['rights_class']} rights associated with the underlying DCO "
+                f"{asset['title']}."
+            ),
             "instrument_name":instrument["instrument_name"],"display_symbol":instrument["display_symbol"],
             "market_identifier":instrument["market_identifier"],"instrument_id":instrument["instrument_id"],
             "issuer":str(issuer_manifest.get("display_name") or instrument["issuer_entity_id"]),
             "issuer_entity_id":instrument["issuer_entity_id"],"underlying_dco_id":instrument["underlying_dco_id"],
             "asset_name":asset["title"],"asset_type":asset["object_type"],
+            "asset_description":description,"asset_dossier":dossier,
+            "asset_disclosure_id":disclosure.get("disclosure_id"),
+            "asset_disclosure_sha256":disclosure.get("disclosure_sha256"),
+            "asset_dossier_sha256":sha(dossier),
             "instrument_class":instrument["instrument_class"],"rights_class":instrument["rights_class"],
             "buyer_receives":instrument["buyer_receives"],
             "buyer_does_not_receive":instrument["buyer_does_not_receive"],
@@ -314,7 +492,7 @@ class EntityEconomicMarketRegistry:
             "fungibility":instrument["fungibility"],"jurisdiction":instrument["jurisdiction"],
             "transfer_rules":instrument["transfer_rules"],"economic_terms":instrument["economic_terms"],
             "royalty_terms":instrument["royalty_terms"],"rights_passport_id":instrument["rights_passport_id"],
-            "global_passport_id":instrument["global_passport_id"],"evidence_refs":instrument["evidence_refs"],
+            "global_passport_id":instrument["global_passport_id"],"evidence_refs":dossier["evidence_refs"],
             "listing_id":listing["listing_id"],"venue_id":listing["venue_id"],"market_id":listing["market_id"],
             "quote_unit":listing["quote_unit"],"trade_mode":listing["trade_mode"],
             "settlement_method":listing["settlement_method"],"minimum_quantity":listing["minimum_quantity"],
@@ -322,26 +500,141 @@ class EntityEconomicMarketRegistry:
             "pricing_method":listing["pricing_method"],"status":listing["status"],
             "instrument_created_at_ms":instrument["created_at_ms"],"listed_at_ms":listing["listed_at_ms"],
             "sheet_does_not_replace_rights_passport":True,
+            "asset_disclosure_is_issuer_statement_not_protocol_truth":True,
             "external_publication_does_not_create_new_instrument":True,
+            "observed_market_price_is_not_intrinsic_asset_value":True,
+            "observed_market_price_is_not_accounting_fair_value":True,
         }
+        facts=dossier["facts"]; meta=dossier["asset_metadata"]; industry=dossier["industry_context"]
+        validation=dossier["validation_and_maturity"]; prov=dossier["provenance"]
+        def bullet(items,empty="- None stated."):
+            vals=[str(x).strip() for x in (items or []) if str(x).strip()]
+            return "\n".join("- "+x for x in vals) if vals else empty
+        def flag(v):
+            if isinstance(v,bool): return "Yes" if v else "No"
+            if v is None or v=="": return "—"
+            if isinstance(v,(dict,list)): return json.dumps(v,sort_keys=True,ensure_ascii=False)
+            return str(v)
+        def kv(mapping):
+            return "\n".join(f"- {str(k).replace('_',' ').title()}: {flag(v)}"
+                             for k,v in sorted((mapping or {}).items()) if v is not None) or "- None recorded."
+        provenance_md="\n".join(
+            f"- {x['relation']}: **{x.get('parent_title') or x['parent_object_id']}** "
+            f"({x['parent_object_id']}), contribution {x['contribution_bps']} bps"
+            for x in prov
+        ) or "- No parent provenance edges recorded."
+        standards_md="\n".join(
+            f"- {x.get('standard','—')} — {x.get('role','mapping')} "
+            f"(normative equivalence claimed: {'yes' if x.get('normative_equivalence_claimed') else 'no'})"
+            for x in dossier["standards_mappings"]
+        ) or "- None recorded."
         md=f"""# ENTITY Listing Information Sheet
 
-## WHAT IS THIS?
+## Instrument at a glance
 
 **{info['market_identifier']} — {info['instrument_name']}**
 
-Underlying asset: **{info['asset_name']}**  
+{info['what_is_this']}
+
 Issuer: **{info['issuer']}**  
-Canonical Instrument ID: `{info['instrument_id']}`  
-Canonical Listing ID: `{info['listing_id']}`
+Underlying asset: **{info['asset_name']}**  
+Canonical Instrument ID: {info['instrument_id']}  
+Canonical Listing ID: {info['listing_id']}
 
-### Purchasing this instrument grants
+## Underlying Asset — what is being referenced?
 
-{chr(10).join('- '+x for x in info['buyer_receives']) or '- See Rights Passport.'}
+### Asset description
 
-### Purchasing this instrument does NOT grant
+{info['asset_description']}
 
-{chr(10).join('- '+x for x in info['buyer_does_not_receive']) or '- No rights beyond the Rights Passport.'}
+### Canonical asset identity
+
+- DCO ID: {facts.get('dco_id')}
+- DCO code: {facts.get('dco_code') or '—'}
+- Short name: {facts.get('short_name') or '—'}
+- Version: {facts.get('version') or '—'}
+- Object type: {facts.get('object_type') or '—'}
+- Commodity class: {facts.get('commodity_class') or '—'}
+- Measurement unit: {facts.get('measurement_unit') or '—'}
+- Controller ENTITY ID: {facts.get('controller_entity_id')}
+- Content SHA-256: {facts.get('content_sha256') or '—'}
+- Asset status: {facts.get('status') or '—'}
+- Jurisdiction profiles: {', '.join(facts.get('jurisdictions') or []) or '—'}
+
+### Purpose
+
+{disclosure.get('purpose') or 'No separate issuer-authored purpose statement has been published; rely on the canonical asset description and facts.'}
+
+### Key capabilities
+
+{bullet(disclosure.get('capabilities'))}
+
+### Included content / components
+
+{bullet(disclosure.get('contents'))}
+
+### Intended uses
+
+{bullet(disclosure.get('intended_uses'))}
+
+### Known limitations / exclusions
+
+{bullet(disclosure.get('limitations'))}
+
+### Dependencies / prerequisites
+
+{bullet(disclosure.get('dependencies'))}
+
+### Validation / qualification notes
+
+{bullet(disclosure.get('validation_notes'))}
+
+### Canonical technical metadata
+
+{kv(meta)}
+
+### Industry / profile context
+
+{kv(industry)}
+
+Profile stack:
+{bullet(dossier['profile_refs'])}
+
+Standards mappings:
+{standards_md}
+
+### Validation and maturity flags
+
+{kv(validation)}
+
+### Provenance
+
+{provenance_md}
+
+Additional provenance references:
+{bullet(dossier['provenance_refs'])}
+
+Evidence references:
+{bullet(dossier['evidence_refs'])}
+
+### BTDU binding
+
+- Bound: {'Yes' if dossier['btdu_binding']['bound'] else 'No'}
+- BTDU version: {dossier['btdu_binding'].get('btdu_version') or '—'}
+- Object reference: {dossier['btdu_binding'].get('object_ref') or '—'}
+- Binding mode: {dossier['btdu_binding'].get('binding_mode') or '—'}
+
+A BTDU binding is a topology/evidence relationship. It does not create ownership or economic entitlement.
+
+## What does the buyer receive?
+
+{bullet(info['buyer_receives'],'- See Rights Passport.')}
+
+## What does the buyer NOT receive?
+
+{bullet(info['buyer_does_not_receive'],'- No rights beyond the Rights Passport.')}
+
+The underlying asset and the economic instrument are different objects. Buying this instrument does not silently transfer ownership of the DCO, copyright, source ownership, raw bytes, or any right that is not explicitly granted.
 
 ## Rights and market terms
 
@@ -356,16 +649,28 @@ Canonical Listing ID: `{info['listing_id']}`
 - Settlement: {info['settlement_method']}
 - Minimum quantity: {info['minimum_quantity']}
 - Pricing method: {info['pricing_method']}
+- Transfer rules: {json.dumps(info['transfer_rules'],sort_keys=True,ensure_ascii=False)}
+- Economic terms: {json.dumps(info['economic_terms'],sort_keys=True,ensure_ascii=False)}
+- Royalty terms: {json.dumps(info['royalty_terms'],sort_keys=True,ensure_ascii=False)}
+
+## Economic-value boundary
+
+A listed price, bid, ask or settled instrument price describes demand for these bounded rights under these terms. It does not establish the intrinsic value of the underlying DCO and is not accounting fair value.
 
 ## Canonical references
 
-- Issuer ENTITY ID: `{info['issuer_entity_id']}`
-- Underlying DCO: `{info['underlying_dco_id']}`
-- Rights Passport: `{info['rights_passport_id']}`
-- Global Passport: `{info['global_passport_id']}`
-- Venue: `{info['venue_id']}`
+- Issuer ENTITY ID: {info['issuer_entity_id']}
+- Underlying DCO: {info['underlying_dco_id']}
+- Rights Passport: {info['rights_passport_id']}
+- Global Passport: {info['global_passport_id']}
+- Asset Disclosure: {info['asset_disclosure_id'] or 'none published'}
+- Asset Disclosure SHA-256: {info['asset_disclosure_sha256'] or '—'}
+- Asset Dossier SHA-256: {info['asset_dossier_sha256']}
+- Venue: {info['venue_id']}
 
-This sheet is a buyer-facing disclosure layer. It does **not** replace the Rights Passport, Global Passport, canonical instrument, or canonical listing record.
+## Disclosure boundary
+
+This sheet is a buyer-facing disclosure layer. It does not replace the Rights Passport, Global Passport, canonical DCO, canonical instrument, or canonical listing record. Issuer-authored asset description fields are signed issuer statements; ENTITY does not convert those statements into objective truth merely by recording them.
 """
         info["verification_hash"]=sha(info)
         return info,md
@@ -384,6 +689,9 @@ This sheet is a buyer-facing disclosure layer. It does **not** replace the Right
                "pricing_method":_enum(pricing_method),"status":"ACTIVE","listed_at_ms":now_ms()}
         if draft["minimum_quantity"]<1: raise ValueError("minimum quantity must be positive")
         asset=self.fabric.get_object(instrument["underlying_dco_id"])
+        disclosure=self.latest_asset_disclosure(instrument["underlying_dco_id"])
+        if not disclosure:
+            raise ValueError("signed Asset Disclosure required before a market listing can be created")
         manifest=self.identity.load_manifest(issuer)
         info,md=self._information(instrument,draft,asset,manifest)
         info_hash=sha(info)
@@ -392,6 +700,9 @@ This sheet is a buyer-facing disclosure layer. It does **not** replace the Right
                  "instrument_id":instrument_id,"issuer_entity_id":issuer,
                  "underlying_dco_id":instrument["underlying_dco_id"],"listing_id":listing_id,
                  "rights_passport":instrument["rights_passport_id"],"global_passport":instrument["global_passport_id"],
+                 "asset_disclosure_id":info.get("asset_disclosure_id"),
+                 "asset_disclosure_sha256":info.get("asset_disclosure_sha256"),
+                 "asset_dossier_sha256":info["asset_dossier_sha256"],
                  "listing_information_sha256":info_hash}
         machine["verification_hash"]=sha(machine); machine_hash=sha(machine)
         disclosure=self.exchange.publish_disclosure(str(venue_id),instrument_id,issuer,"LISTING_INFORMATION",machine_hash)
@@ -414,7 +725,7 @@ This sheet is a buyer-facing disclosure layer. It does **not** replace the Right
             db.execute("INSERT INTO listing_information VALUES(?,?,?,?)",(
                 listing_id,json.dumps({"information":info,"machine_manifest":machine},sort_keys=True),
                 md,draft["listed_at_ms"]))
-        return dict(package,signature=psig,information=info,machine_manifest=machine,
+        return dict(package,signature=psig,information=info,information_markdown=md,machine_manifest=machine,
                     eep_listing=dict(listing_body,signature=lsig),disclosure=disclosure)
 
     def listing(self,listing_id:str)->dict:
@@ -440,7 +751,11 @@ This sheet is a buyer-facing disclosure layer. It does **not** replace the Right
             "rights-passport.json":json.dumps(rp,indent=2,sort_keys=True).encode(),
             "global-passport.json":json.dumps(gp,indent=2,sort_keys=True).encode(),
             "provenance.json":json.dumps({"underlying_dco":asset,"evidence_refs":instrument["evidence_refs"]},indent=2,sort_keys=True).encode(),
+            "asset-dossier.json":json.dumps(listing["information"]["asset_dossier"],indent=2,sort_keys=True,default=str).encode(),
         }
+        asset_disclosure=listing["information"]["asset_dossier"].get("issuer_disclosure")
+        if asset_disclosure:
+            files["asset-disclosure.json"]=json.dumps(asset_disclosure,indent=2,sort_keys=True,default=str).encode()
         for name,data in files.items(): (out/name).write_bytes(data)
         _simple_pdf(listing["information_markdown"],out/"LISTING_INFORMATION.pdf")
         verification={"schema":"entity-portable-instrument-verification-v1","instrument_id":instrument["instrument_id"],
@@ -492,9 +807,11 @@ This sheet is a buyer-facing disclosure layer. It does **not** replace the Right
     def status(self)->dict:
         with self._db() as db:
             counts={t:int(db.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0])
-                    for t in ("issuer_namespaces","instrument_packages","listing_packages","listing_information")}
+                    for t in ("issuer_namespaces","instrument_packages","listing_packages","listing_information","asset_disclosures")}
         return {"schema":MARKET_SCHEMA,"version":MARKET_VERSION,"multi_issuer":True,
                 "entity_owns_protocol_not_assets":True,"canonical_instrument_identity":True,
                 "symbols_are_non_authoritative_aliases":True,"listing_information_required":True,
+                "signed_asset_disclosures_supported":True,"signed_asset_disclosure_required_for_listing":True,
+                "listing_information_asset_dossier_required":True,
                 "portable_publication_supported":True,"protocol_tax_bps":0,
                 "cryptocurrency_required":False,"counts":counts}

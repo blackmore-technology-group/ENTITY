@@ -64,19 +64,53 @@ def test_multi_issuer_symbols_canonical_ids_listing_sheet_and_portable_package()
         assert reg.resolve_symbol("ACME","SHARED-TRN")["instrument_id"]==ia["instrument_id"]
         assert reg.resolve_symbol("JSMITH","SHARED-TRN")["instrument_id"]==ij["instrument_id"]
 
+        try:
+            reg.create_listing(acme,ia["instrument_id"],venue["venue_id"],
+                market_id="ENTITY-PRIMARY",quote_unit="CAD",trade_mode="ORDER_BOOK",
+                settlement_method="PAYMENT_VERSUS_RIGHT",minimum_quantity=1,pricing_method="ORDER_BOOK")
+            assert False,"listing must require signed Asset Disclosure"
+        except ValueError as exc:
+            assert "Asset Disclosure" in str(exc)
+
+        disclosure=reg.publish_asset_disclosure(
+            acme,a["object_id"],
+            description=("Vision Model 07 is an issuer-controlled AI model DCO prepared for "
+                         "evaluation and commercial training-right transactions."),
+            purpose="Support governed evaluation and training use without transferring model ownership.",
+            capabilities=["model evaluation","bounded training use"],
+            contents=["registered model artifact","canonical provenance references"],
+            intended_uses=["evaluation","commercial model training under granted rights"],
+            limitations=["does not transfer copyright","does not transfer underlying model ownership"],
+            validation_notes=["issuer disclosure is not independent certification"],
+            release_notes="Initial market disclosure.",
+            source_refs=["urn:example:vm07-evidence"]
+        )
+        assert disclosure["schema"]=="entity-asset-disclosure-v1"
+        assert disclosure["version"]==1
+        assert disclosure["disclosure_sha256"]
+
         listing=reg.create_listing(acme,ia["instrument_id"],venue["venue_id"],
             market_id="ENTITY-PRIMARY",quote_unit="CAD",trade_mode="ORDER_BOOK",
             settlement_method="PAYMENT_VERSUS_RIGHT",minimum_quantity=1,pricing_method="ORDER_BOOK")
         assert listing["listing_id"].startswith("entity.listing:v1:")
+        assert listing["information"]["schema"]=="entity-listing-information-sheet-v2"
         assert listing["information"]["sheet_does_not_replace_rights_passport"] is True
         assert "ownership of the model" in listing["information"]["buyer_does_not_receive"]
+        assert listing["information"]["asset_disclosure_id"]==disclosure["disclosure_id"]
+        assert listing["information"]["asset_description"].startswith("Vision Model 07")
+        assert listing["information"]["asset_dossier"]["facts"]["object_type"]=="MODEL"
+        assert listing["information"]["asset_dossier"]["issuer_disclosure"]["purpose"].startswith("Support governed")
+        assert "## Underlying Asset" in listing["information_markdown"]
+        assert "### Key capabilities" in listing["information_markdown"]
         assert listing["machine_manifest"]["instrument_id"]==ia["instrument_id"]
+        assert listing["machine_manifest"]["asset_disclosure_sha256"]==disclosure["disclosure_sha256"]
         assert ia["status"]=="ACTIVE"
 
         pkg=reg.export_portable_package(listing["listing_id"],state/"portable")
         required={"LISTING_INFORMATION.pdf","LISTING_INFORMATION.md","entity-instrument.json",
                   "instrument.json","listing.json","rights-passport.json","global-passport.json",
-                  "provenance.json","verification.json","SHA256SUMS","ENTITY_INSTRUMENT.md"}
+                  "provenance.json","asset-dossier.json","asset-disclosure.json",
+                  "verification.json","SHA256SUMS","ENTITY_INSTRUMENT.md"}
         assert required.issubset(set(pkg["files"]))
         assert (state/"portable"/"LISTING_INFORMATION.pdf").read_bytes().startswith(b"%PDF-1.4")
         assert "ACME:SHARED-TRN" in (state/"portable"/"ENTITY_INSTRUMENT.md").read_text(encoding="utf-8")
@@ -84,6 +118,9 @@ def test_multi_issuer_symbols_canonical_ids_listing_sheet_and_portable_package()
         assert status["multi_issuer"] is True
         assert status["entity_owns_protocol_not_assets"] is True
         assert status["listing_information_required"] is True
+        assert status["signed_asset_disclosures_supported"] is True
+        assert status["signed_asset_disclosure_required_for_listing"] is True
+        assert status["listing_information_asset_dossier_required"] is True
 
 def test_instrument_requires_controlled_dco():
     ident=load("market_test_identity2","src/01_Core_Runtime/identity/canonical_identity.py")
