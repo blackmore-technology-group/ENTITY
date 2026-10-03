@@ -1,0 +1,31 @@
+{
+  "schema": "entity-v343-open-data-economy-qualification-v1",
+  "completed_utc": "2026-10-03T12:15:00Z",
+  "entity_display_version": "3.4.3",
+  "application_profile": "ENTITY_OPEN_DATA_ECONOMY",
+  "version": "1.0.0",
+  "intended_tests": {
+    "constitution_invariants": true,
+    "issuer_neutral_create_my_dco": true,
+    "retained_vs_offered_rights": true,
+    "rights_first_market_discovery": true,
+    "participant_portfolio_view": true,
+    "deterministic_data_pool_allocation": true,
+    "competing_optional_providers": true
+  },
+  "invariants": {
+    "rights_not_copies_are_economic_object": true,
+    "registration_is_not_ownership": true,
+    "protocol_tax_bps": 0,
+    "cryptocurrency_required": false,
+    "gas_required": false,
+    "automatic_btg_royalty_bps": 0,
+    "issuer_neutral": true,
+    "provider_neutral": true
+  },
+  "strategic_boundary": {
+    "first_100_btg_dcos": "SEED_PORTFOLIO_AND_PROOF_OF_MARKET",
+    "target_market": "OPEN_MULTI_PARTICIPANT_DATA_RIGHTS_ECONOMY",
+    "build_10000_btg_dcos_as_central_objective": false
+  }
+}
