@@ -22,7 +22,6 @@ INGEST=load_module("entity_wallet_ingest","src/42_ENTITY_Wallet/asset_ingest.py"
 EXCHANGE=load_module("entity_wallet_exchange","src/31_Profiles/exchange_protocol.py")
 MARKET=load_module("entity_wallet_market","src/45_ENTITY_Market/canonical_market_registry.py")
 INTEL=load_module("entity_wallet_intelligence","src/45_ENTITY_Market/economic_intelligence.py")
-INTEL=load_module("entity_wallet_intelligence","src/45_ENTITY_Market/economic_intelligence.py")
 
 def default_state()->Path:
     env=os.environ.get("ENTITY_STATE_DIR")
@@ -98,9 +97,6 @@ class Backend:
             seen.add(iid)
             out.append(self.intelligence.instrument_metrics(iid))
         return out
-
-    def economy_rollup(self,group_by="asset_class")->dict:
-        return self.intelligence.economy_rollup(group_by=group_by)
 
     def market(self)->list[dict]:
         rows=self.market_registry.active_market()
@@ -571,6 +567,28 @@ class App(tk.Tk):
 def main():
     ap=argparse.ArgumentParser(description="Native ENTITY economic wallet")
     ap.add_argument("--state"); ap.add_argument("--entity")
-    args=ap.parse_args(); App(Path(args.state) if args.state else None,args.entity).mainloop()
+    ap.add_argument("--self-test",action="store_true")
+    ap.add_argument("--self-test-output")
+    args=ap.parse_args()
+    if args.self_test:
+        if not args.state or not args.entity:
+            raise SystemExit("--self-test requires --state and --entity")
+        backend=Backend(Path(args.state),args.entity)
+        snap=backend.snapshot()
+        report={"ready":True,"entity_id":args.entity,
+                "assets":len(snap.get("assets",[])),
+                "positions":len(snap.get("positions",[])),
+                "orders":len(snap.get("orders",[])),
+                "venues":len(backend.venues()),
+                "market_listings":len(backend.market()),
+                "economic_demand_series":len(backend.economic_metrics()),
+                "protocol_tax_bps":0,"cryptocurrency_required":False}
+        raw=json.dumps(report,indent=2,sort_keys=True)
+        if args.self_test_output:
+            Path(args.self_test_output).write_text(raw+"\n",encoding="utf-8")
+        else:
+            print(raw)
+        return
+    App(Path(args.state) if args.state else None,args.entity).mainloop()
 
 if __name__=="__main__": main()
