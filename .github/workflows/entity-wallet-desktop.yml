@@ -4,10 +4,14 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
+      - "src/31_Profiles/exchange_protocol.py"
+      - "src/33_Economic_Participation/**"
       - "src/42_ENTITY_Wallet/**"
-      - "src/43_DCO_Factory/dco_production_pipeline.py"
+      - "src/43_DCO_Factory/**"
+      - "src/45_ENTITY_Market/**"
       - "tools/entity_wallet_desktop.py"
       - "tools/build_entity_wallet_desktop.py"
+      - "protocol/v3/ENTITY_ECONOMIC_MARKET_PROTOCOL.md"
       - ".github/workflows/entity-wallet-desktop.yml"
 
 jobs:
@@ -21,10 +25,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y python3-tk
       - run: python -m pip install --upgrade pip
-      - run: python -m pip install pyinstaller cryptography
+      - run: python -m pip install pyinstaller cryptography PySide6
+      - run: python -m pytest tests/test_entity_market_registry.py tests/test_economic_intelligence.py tests/test_entity_wallet.py tests/test_wallet_asset_ingest.py tests/test_wallet_lineage_resolution.py -q
       - run: python tools/build_entity_wallet_desktop.py
       - uses: actions/upload-artifact@v4
         with:
