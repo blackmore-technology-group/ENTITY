@@ -21,6 +21,7 @@ WALLET=load_module("entity_wallet_model","src/42_ENTITY_Wallet/canonical_wallet.
 INGEST=load_module("entity_wallet_ingest","src/42_ENTITY_Wallet/asset_ingest.py")
 EXCHANGE=load_module("entity_wallet_exchange","src/31_Profiles/exchange_protocol.py")
 MARKET=load_module("entity_wallet_market","src/45_ENTITY_Market/canonical_market_registry.py")
+INTEL=load_module("entity_wallet_intelligence","src/45_ENTITY_Market/economic_intelligence.py")
 
 def default_state()->Path:
     env=os.environ.get("ENTITY_STATE_DIR")
@@ -51,6 +52,8 @@ class Backend:
         self.exchange=EXCHANGE.ExchangeProtocol(state,self.identity,self.fabric)
         self.market_registry=MARKET.EntityEconomicMarketRegistry(
             state,self.identity,self.fabric,self.exchange,self.rights,self.passports)
+        self.intelligence=INTEL.EntityEconomicIntelligence(
+            state,self.market_registry,self.fabric,self.passports)
         self.ingestor=INGEST.WalletAssetIngestor(state,CLI)
         self.wallet_record=self.wallet.ensure_wallet(entity_id,self.identity_manifest.get("display_name","ENTITY")+" Wallet")
 
@@ -96,9 +99,17 @@ class Backend:
                              (row["instrument_id"],)).fetchone()
                 if not e: continue
                 d=dict(row); d["settlement_currency"]=e["settlement_currency"]
-                d["market"]=self.wallet._market(db,d["instrument_id"]); out.append(d)
+                d["market"]=self.wallet._market(db,d["instrument_id"])
+                d["intelligence"]=self.intelligence.instrument_metrics(d["instrument_id"])
+                out.append(d)
             return out
         finally: db.close()
+
+    def economy_rollup(self,group_by:str):
+        return self.intelligence.economy_rollup(group_by=group_by)
+
+    def rights_demand(self,dco_id:str):
+        return self.intelligence.dco_rights_demand(dco_id)
 
     def ingest(self,path,options):
         return self.ingestor.ingest_file(
