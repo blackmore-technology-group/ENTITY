@@ -22,6 +22,7 @@ INGEST=load_module("entity_wallet_ingest","src/42_ENTITY_Wallet/asset_ingest.py"
 EXCHANGE=load_module("entity_wallet_exchange","src/31_Profiles/exchange_protocol.py")
 MARKET=load_module("entity_wallet_market","src/45_ENTITY_Market/canonical_market_registry.py")
 INTEL=load_module("entity_wallet_intelligence","src/45_ENTITY_Market/economic_intelligence.py")
+INTEL=load_module("entity_wallet_intelligence","src/45_ENTITY_Market/economic_intelligence.py")
 
 def default_state()->Path:
     env=os.environ.get("ENTITY_STATE_DIR")
@@ -87,6 +88,19 @@ class Backend:
         try: rows=db.execute("SELECT venue_id,name,jurisdiction,status FROM venues WHERE status='ACTIVE' ORDER BY name").fetchall()
         finally: db.close()
         return [dict(r) for r in rows]
+
+    def economic_metrics(self)->list[dict]:
+        rows=self.market_registry.active_market()
+        seen=set(); out=[]
+        for row in rows:
+            iid=row["instrument_id"]
+            if iid in seen: continue
+            seen.add(iid)
+            out.append(self.intelligence.instrument_metrics(iid))
+        return out
+
+    def economy_rollup(self,group_by="asset_class")->dict:
+        return self.intelligence.economy_rollup(group_by=group_by)
 
     def market(self)->list[dict]:
         rows=self.market_registry.active_market()
@@ -346,6 +360,12 @@ class App(tk.Tk):
         self.rollups=self._tree(self.intel_tab,["Group","Instruments","30d Trades","30d Units","30d Notional by Currency","Buyer Count*"],
                                 [260,95,95,105,300,110])
 
+        intelbar=ttk.Frame(self.intel_tab); intelbar.pack(fill="x",pady=(0,8))
+        ttk.Label(intelbar,text="Only settled trades contribute to price/volume. Integrity flags identify suspicious patterns.",style="Sub.TLabel").pack(side="left")
+        ttk.Label(self.intel_tab,text="Instrument Rights Demand").pack(anchor="w")
+        self.intel=self._tree(self.intel_tab,["Ticker","Rights","Asset Class","Last","24h Units","30d Units","30d Trades","30d Buyers","Holders","30d Low","30d High","Verified Trades","Integrity"],[155,100,150,75,85,85,85,85,75,75,75,95,260])
+        ttk.Label(self.intel_tab,text="Asset-Class Rollup — observed 30-day rights-market activity",style="Sub.TLabel").pack(anchor="w",pady=(10,3))
+        self.rollup=self._tree(self.intel_tab,["Asset Class","Instruments","30d Trades","30d Units","30d Notional by Currency"],[200,90,90,90,360])
         self.positions=self._tree(self.positions_tab,["Instrument","Units","Currency","Last","Bid","Ask","Indicative Value"],[320,90,80,90,90,90,140])
         self.orders=self._tree(self.orders_tab,["Instrument","Side","Remaining","Limit","Status"],[340,80,100,100,120])
         self.status=tk.StringVar(value="Ready"); ttk.Label(self,textvariable=self.status,relief="sunken",anchor="w",padding=5).pack(fill="x",side="bottom")
@@ -381,6 +401,7 @@ class App(tk.Tk):
         if not self.backend: return
         try:
             snap=self.backend.snapshot(); self.market_rows=self.backend.market(); instruments=self.backend.instruments()
+            metrics=self.backend.economic_metrics(); rollup=self.backend.economy_rollup("asset_class")
             self.asset_rows={}; self.instrument_rows={}
             self.clear(self.assets)
             for a in snap.get("assets",[]):
@@ -393,6 +414,19 @@ class App(tk.Tk):
             for x in instruments:
                 self.instrument_rows[x["instrument_id"]]=x; self.instruments.insert("", "end",iid=x["instrument_id"],values=(
                     x["market_identifier"],x["instrument_name"],x["rights_class"],x["instrument_class"],x["supply"],x["underlying_dco_id"],x["status"]))
+            self.clear(self.intel)
+            for m in metrics:
+                w=m["window_30d"]; flags=", ".join(m["market_integrity"]["flags"]) or "CLEAN / NO FLAGS"
+                self.intel.insert("", "end",values=(
+                    m["market_identifier"],m["rights_class"],m["asset_class"],m["last_settled_price"],
+                    m["window_24h"]["volume_units"],w["volume_units"],w["trade_count"],w["unique_buyers"],
+                    m["active_holder_count"],w["low_price"],w["high_price"],
+                    w["externally_verified_trade_count"],flags))
+            self.clear(self.rollup)
+            for row in rollup.get("rows",[]):
+                notionals=", ".join(f"{k} {v}" for k,v in row["notional_30d_by_currency"].items()) or "—"
+                self.rollup.insert("", "end",values=(row["group"],row["instrument_count"],
+                    row["settled_trades_30d"],row["volume_units_30d"],notionals))
             self.clear(self.positions)
             for p in snap.get("positions",[]):
                 m=p["market"]; self.positions.insert("", "end",values=(p["instrument_id"],p["units"],p["settlement_currency"],m.get("last"),m.get("bid"),m.get("ask"),p.get("market_value_amount_units")))
@@ -407,7 +441,7 @@ class App(tk.Tk):
                     intel.get("last_settled_price"),w24.get("volume_units"),w30.get("volume_units"),w30.get("unique_buyers"),
                     intel.get("active_holder_count"),", ".join(flags) if flags else "CLEAR",row["venue_id"]))
             self.refresh_intelligence()
-            self.status.set(f"{len(snap.get('assets',[]))} assets · {len(instruments)} issued instruments · {len(self.market_rows)} active listings · protocol tax 0 · crypto not required")
+            self.status.set(f"{len(snap.get('assets',[]))} assets · {len(instruments)} instruments · {len(self.market_rows)} listings · {len(metrics)} demand series · protocol tax 0 · crypto not required")
         except Exception as e:
             messagebox.showerror("Refresh failed",str(e)); self.status.set(str(e))
 
