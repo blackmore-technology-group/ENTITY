@@ -58,7 +58,9 @@ class PrelaunchEconomicWithdrawal:
                 economic_events=int(ep.execute(
                     f"SELECT COUNT(*) FROM economic_events WHERE instrument_id IN ({iq})",ids).fetchone()[0])
                 rows=ep.execute(f"""SELECT r.instrument_id,r.units,r.treasury_entity_id,t.owner_entity_id
-                                    FROM reserve_allocations r JOIN treasuries t ON t.treasury_id=r.treasury_id
+                                    FROM reserve_allocations r
+                                    JOIN participation_policies p ON p.policy_id=r.policy_id
+                                    JOIN treasuries t ON t.treasury_id=p.treasury_id
                                     WHERE r.instrument_id IN ({iq})""",ids).fetchall()
                 reserve_by_instrument={r["instrument_id"]:dict(r) for r in rows}
             finally: ep.close()
