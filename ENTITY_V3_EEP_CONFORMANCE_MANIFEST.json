@@ -34,7 +34,7 @@
   "files": [
     {
       "path": "src/31_Profiles/exchange_protocol.py",
-      "sha256": "5615e0088438871da83e102de03f93ea944b42eb136d49fd7f3a09802aea6afb"
+      "sha256": "53761f15c7ae58726ce8cd01a28164d3a14ae29aac38a89859c408fc3c76b14a"
     },
     {
       "path": "src/32_V3_Hardening/exchange_protocol.py",
@@ -99,7 +99,7 @@
     "RFQ executions preserve a deterministic venue-signed source binding to signed RFQ, quote and acceptance records"
   ],
   "schema": "entity-v3-eep-conformance-manifest-v1",
-  "snapshot_sha256": "1215be351da52135cab65bd2883be238ff3affa7baa8d244ce2aa34c946a4127",
+  "snapshot_sha256": "65224aa97bde5456c4079097a37284ce6e023f3e1c635f25456683c74e3df91a",
   "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
   "version": "3.0.0",
   "working_tree_snapshot": false
