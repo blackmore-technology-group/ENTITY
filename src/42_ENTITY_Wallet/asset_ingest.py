@@ -1,86 +1,145 @@
 from __future__ import annotations
 from pathlib import Path
-from typing import Any
-import hashlib, json, shutil, time
+import json, sqlite3
 
-INGEST_SCHEMA="entity-wallet-asset-ingest-v1"
+INGEST_SCHEMA="entity-wallet-canonical-asset-ingest-v2"
 
-def sha256_file(path:str|Path,chunk_size:int=1024*1024)->str:
-    h=hashlib.sha256()
-    with Path(path).open("rb") as f:
-        while True:
-            block=f.read(chunk_size)
-            if not block: break
-            h.update(block)
-    return h.hexdigest()
+PACKAGE_KINDS={
+    "robotics":["robot","controller","model","software","telemetry","action_record"],
+    "ai":["training_dataset","corpus","model","weights","evaluation","agent","output"],
+    "manufacturing":["machine","digital_twin","firmware","telemetry","maintenance_record"],
+    "healthcare":["clinical_dataset","clinical_document","diagnostic_model","medical_device"],
+    "finance":["instrument","trade_record","settlement_record","market_dataset"],
+    "defence-public":["public_asset","public_dataset","software","device","model","custody_record"],
+}
+
+PACKAGE_POLICY_DEFAULTS={
+    "robotics":{"safety_policy":"ENTITY_FAIL_CLOSED"},
+    "ai":{"model_governance_policy":"ENTITY_PROVENANCE_BOUND"},
+    "manufacturing":{"asset_namespace":"ENTITY_CONTROLLER"},
+    "healthcare":{"privacy_policy":"ENTITY_RIGHTS_PASSPORT"},
+    "finance":{"settlement_policy":"EXTERNAL_SETTLEMENT_EVIDENCE_REQUIRED"},
+    "defence-public":{"release_policy":"PUBLIC_UNCLASSIFIED_ONLY","classification":"UNCLASSIFIED"},
+}
 
 class WalletAssetIngestor:
-    """Create a Digital Commodity Object from user-selected data.
+    """Wallet facade over the canonical v3.4.3 ingestion stack.
 
-    Ingest is deliberately asset-first. It registers the asset and optional local
-    custody copy, but never creates an EEP instrument, listing, price or licence.
+    The wallet does not maintain a parallel object-registration path. Every new DCO
+    flows through the same protocol origin, BTDU, evidence, rights passport and
+    Global Passport code used by the canonical ENTITY v3.4 deployment CLI.
     """
-    def __init__(self,state_dir:str|Path,fabric):
+    def __init__(self,state_dir:str|Path,canonical_cli):
         self.state=Path(state_dir)
-        self.fabric=fabric
-        self.vault=self.state/"wallet"/"asset_vault"
-        self.vault.mkdir(parents=True,exist_ok=True)
+        self.cli=canonical_cli
+
+    @staticmethod
+    def asset_kinds(package:str)->list[str]:
+        return list(PACKAGE_KINDS.get(str(package).lower(),[]))
+
+    def _existing_dco(self,controller_entity_id:str,content_sha256:str)->str|None:
+        dbp=self.state/"entity_v3"/"universal_fabric.sqlite"
+        if not dbp.exists(): return None
+        db=sqlite3.connect(dbp); db.row_factory=sqlite3.Row
+        try:
+            rows=db.execute("""SELECT object_id,descriptor_json FROM objects
+                               WHERE controller_entity_id=? AND content_sha256=? AND status='ACTIVE'
+                               ORDER BY created_at_ms DESC""",(controller_entity_id,content_sha256)).fetchall()
+            for row in rows:
+                try: descriptor=json.loads(row["descriptor_json"] or "{}")
+                except Exception: descriptor={}
+                if descriptor.get("digital_commodity") is True: return str(row["object_id"])
+        finally: db.close()
+        return None
+
+    @staticmethod
+    def _configuration(identity,controller_entity_id:str,package:str,jurisdiction:str,authority_basis:str,
+                       overrides:dict|None=None)->dict:
+        manifest=identity.load_manifest(controller_entity_id)
+        package=str(package).lower()
+        cfg={
+            "organization":str(manifest.get("display_name") or controller_entity_id),
+            "jurisdiction":str(jurisdiction or "").strip(),
+            "authority_source":str(authority_basis or "").strip(),
+            **dict(PACKAGE_POLICY_DEFAULTS.get(package) or {}),
+            **dict(overrides or {}),
+        }
+        if cfg.get("asset_namespace")=="ENTITY_CONTROLLER": cfg["asset_namespace"]=controller_entity_id
+        return cfg
 
     def ingest_file(self,controller_entity_id:str,file_path:str|Path,*,title:str|None=None,
-                    commodity_class:str="DATA",measurement_unit:str="USE",
-                    authority_basis:str="CREATOR_CONTROLLED",metadata:dict|None=None,
-                    copy_to_local_vault:bool=True)->dict:
-        source=Path(file_path).expanduser().resolve()
-        if not source.is_file(): raise FileNotFoundError(str(source))
-        digest=sha256_file(source)
-        size=source.stat().st_size
-        meta={
+                    package:str="general",asset_kind:str|None=None,jurisdiction:str="",
+                    authority_basis:str="CONTROLLER_ENTITY",commodity_class:str="DATA",
+                    measurement_unit:str="ASSET",version:str="1.0",
+                    previous_object_id:str|None=None,metadata:dict|None=None,
+                    configuration:dict|None=None)->dict:
+        src=Path(file_path).expanduser().resolve()
+        if not src.is_file(): raise FileNotFoundError(str(src))
+        identity,fabric,profiles,origin,passports,packages,sdk,origin_status=self.cli.runtime(
+            self.state,require_current_release=True)
+        release=origin.passport_binding("entity-release:v3.4.3")
+        if release.get("origin_lineage_id")!="entity-origin:shawn-btg-entity@1.0":
+            raise RuntimeError("canonical Shawn -> BTG -> ENTITY origin lineage required")
+        logical=src.name
+        universe=self.cli._btdu_for_controller(self.state,identity,controller_entity_id)
+        try:
+            receipt=self.cli._btdu_receipt(identity,controller_entity_id,src,logical)
+            btdu_obj=universe.ingest_file(
+                src,receipt,logical_path=logical,source_entity_id=controller_entity_id,
+                controller_entity_id=controller_entity_id,rights_holder_entity_id=controller_entity_id,
+                provenance_ref="entity-v3.4.3-wallet-ingest:"+logical)
+            binding=universe.passport_binding(btdu_obj["object_ref"])
+        finally:
+            universe.close()
+        content_sha=str(binding["content_sha256"])
+        existing=self._existing_dco(controller_entity_id,content_sha)
+        if existing:
+            raise ValueError(f"identical Digital Commodity Object already registered: {existing}")
+        commodity_meta={
             "wallet_ingest_schema":INGEST_SCHEMA,
-            "source_filename":source.name,
-            "size_bytes":size,
-            "authority_basis":str(authority_basis).upper(),
+            "authority_basis":str(authority_basis),
             "controller_asserted_registration_authority":True,
-            "market_instruments_created_automatically":False,
-            "market_value_created_by_ingest":False,
+            "canonical_protocol_lineage_required":True,
+            "profile_domain":str(package).lower(),
             **dict(metadata or {}),
         }
-        obj=self.fabric.register_digital_commodity(
-            controller_entity_id,
-            str(title or source.name),
-            digest,
-            commodity_class=str(commodity_class).upper(),
-            measurement_unit=str(measurement_unit).upper(),
-            metadata=meta,
-        )
-        custody=None
-        if copy_to_local_vault:
-            target_dir=self.vault/obj["object_id"]
-            target_dir.mkdir(parents=True,exist_ok=False)
-            target=target_dir/source.name
-            shutil.copy2(source,target)
-            receipt={
-                "schema":INGEST_SCHEMA,
-                "object_id":obj["object_id"],
-                "controller_entity_id":controller_entity_id,
-                "title":str(title or source.name),
-                "content_sha256":digest,
-                "size_bytes":size,
-                "source_filename":source.name,
-                "custody":"LOCAL_WALLET_VAULT",
-                "market_instruments_created":False,
-                "created_at_ms":int(time.time()*1000),
-            }
-            (target_dir/"INGEST_RECEIPT.json").write_text(
-                json.dumps(receipt,indent=2,sort_keys=True),encoding="utf-8")
-            custody={"mode":"LOCAL_WALLET_VAULT","path":str(target),
-                     "receipt_path":str(target_dir/"INGEST_RECEIPT.json")}
+        package=str(package or "general").lower()
+        common={
+            "logical_path":logical,"previous_object_id":previous_object_id,"version":str(version),
+            "btdu_binding":binding,"title":str(title or src.name),"digital_commodity":True,
+            "commodity_class":str(commodity_class).upper(),
+            "measurement_unit":str(measurement_unit).upper(),
+            "commodity_metadata":commodity_meta,
+            "industry_context":{"wallet_ingest":True},
+        }
+        if package=="general":
+            result=sdk.register_file(src,controller_entity_id,"global",**common)
+            object_id=result["object_id"]; passport_id=result["global_passport_id"]
+        else:
+            if package not in PACKAGE_KINDS: raise ValueError("unsupported ENTITY domain package")
+            if not asset_kind: raise ValueError("asset_kind required for domain package")
+            if asset_kind not in PACKAGE_KINDS[package]: raise ValueError("unsupported package asset kind")
+            if not str(jurisdiction or "").strip(): raise ValueError("jurisdiction required for domain package")
+            cfg=self._configuration(identity,controller_entity_id,package,jurisdiction,authority_basis,configuration)
+            result=sdk.ingest_package_file(src,controller_entity_id,package,cfg,asset_kind,**common)
+            object_id=result["object_id"]; passport_id=result["global_passport_id"]
+        gp=passports.get(passport_id)
+        check=passports.verify(gp)
+        if not check.get("valid"): raise RuntimeError("new Global Passport failed verification")
+        obj=fabric.get_object(object_id)
         return {
             "schema":INGEST_SCHEMA,
             "digital_asset":obj,
-            "content_sha256":digest,
-            "size_bytes":size,
-            "custody":custody,
+            "content_sha256":obj.get("content_sha256"),
+            "global_passport":gp,
+            "global_passport_verified":True,
+            "rights_passport_id":gp["rights_passport_id"],
+            "profile_refs":gp["profile_stack"]["profile_refs"],
+            "protocol_origin":gp["protocol_origin"],
+            "btdu_binding":gp.get("btdu_binding"),
+            "canonical_origin_installation":origin_status,
             "market_instruments_created":False,
             "listing_created":False,
             "price_created":False,
+            "economic_value_invented":False,
         }
