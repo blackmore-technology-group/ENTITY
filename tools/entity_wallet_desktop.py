@@ -400,12 +400,61 @@ class App(tk.Tk):
             for o in snap.get("orders",[]): self.orders.insert("", "end",values=(o["instrument_id"],o["side"],o["remaining"],o["limit_price"],o["status"]))
             self.clear(self.market)
             for i,row in enumerate(self.market_rows):
-                m=row["market"]; self.market.insert("", "end",iid=str(i),values=(
-                    row["market_identifier"],row["instrument_name"],row["issuer_entity_id"],row["rights_class"],row["settlement_currency"],
-                    m.get("bid"),m.get("ask"),m.get("last"),row["venue_id"]))
+                intel=row.get("intelligence") or {}; w24=intel.get("window_24h") or {}; w30=intel.get("window_30d") or {}
+                flags=(intel.get("market_integrity") or {}).get("flags") or []
+                self.market.insert("", "end",iid=str(i),values=(
+                    row["market_identifier"],row["instrument_name"],row["rights_class"],row["settlement_currency"],
+                    intel.get("last_settled_price"),w24.get("volume_units"),w30.get("volume_units"),w30.get("unique_buyers"),
+                    intel.get("active_holder_count"),", ".join(flags) if flags else "CLEAR",row["venue_id"]))
+            self.refresh_intelligence()
             self.status.set(f"{len(snap.get('assets',[]))} assets · {len(instruments)} issued instruments · {len(self.market_rows)} active listings · protocol tax 0 · crypto not required")
         except Exception as e:
             messagebox.showerror("Refresh failed",str(e)); self.status.set(str(e))
+
+    def refresh_intelligence(self):
+        if not self.backend: return
+        try:
+            roll=self.backend.economy_rollup(self.rollup_dimension.get())
+            self.clear(self.rollups)
+            for row in roll.get("rows",[]):
+                notional=", ".join(f"{cur} {amt:,}" for cur,amt in sorted(row.get("notional_30d_by_currency",{}).items())) or "—"
+                self.rollups.insert("", "end",values=(row["group"],row["instrument_count"],row["settled_trades_30d"],
+                    row["volume_units_30d"],notional,row["sum_instrument_unique_buyers_30d"]))
+        except Exception as e:
+            self.status.set("Economic intelligence: "+str(e))
+
+    def view_market_intelligence(self):
+        row=self._selected_market_row()
+        if not row: messagebox.showwarning("Market Intelligence","Select a market listing."); return
+        try:
+            m=row.get("intelligence") or self.backend.intelligence.instrument_metrics(row["instrument_id"])
+            w24=m["window_24h"]; w30=m["window_30d"]; roy=m["royalties_and_participation"]
+            rpaid=", ".join(f"{k} {v:,}" for k,v in sorted(roy["externally_verified_amounts_by_currency"].items())) or "None verified"
+            flags="\n".join("• "+x for x in m["market_integrity"]["flags"]) or "• No current integrity flags"
+            messagebox.showinfo("ENTITY Market Intelligence",
+                f"{m['market_identifier']}\n{m['instrument_name']}\n\n"
+                f"Last settled price: {m['last_settled_price']} {m['settlement_currency']}\n"
+                f"Last externally verified price: {m['last_externally_verified_price']} {m['settlement_currency']}\n\n"
+                f"24h settled volume: {w24['volume_units']:,} units / {w24['notional_amount_units']:,} {m['settlement_currency']}\n"
+                f"30d settled volume: {w30['volume_units']:,} units / {w30['notional_amount_units']:,} {m['settlement_currency']}\n"
+                f"30d high / low: {w30['high_price']} / {w30['low_price']}\n30d trades: {w30['trade_count']:,}\n"
+                f"Unique buyers: {w30['unique_buyers']:,}\nActive holders: {m['active_holder_count']:,}\n"
+                f"Open sell offers: {m['open_sell_offer_units']:,} units\nExternally verified royalties/participation: {rpaid}\n\n"
+                f"MARKET INTEGRITY\n{flags}\n\n"
+                "These observations value the traded rights under their terms; they do not prove intrinsic or accounting value of the underlying DCO.")
+        except Exception as e: messagebox.showerror("Market Intelligence",str(e))
+
+    def view_rights_demand(self):
+        if not self.backend: return
+        sel=self.assets.selection()
+        if not sel: messagebox.showwarning("Rights Demand","Select a digital asset."); return
+        try:
+            report=self.backend.rights_demand(sel[0]); lines=[]
+            for rights,row in report.get("rights_class_rollup",{}).items():
+                notion=", ".join(f"{cur} {amt:,}" for cur,amt in sorted(row["notional_30d_by_currency"].items())) or "—"
+                lines.append(f"{rights}: {row['volume_units_30d']:,} units · {row['settled_trades']:,} trades · {notion}")
+            messagebox.showinfo("DCO Rights Demand","\n".join(lines) if lines else "No active economic instruments or settled demand for this DCO yet.")
+        except Exception as e: messagebox.showerror("Rights Demand",str(e))
 
     def view_lineage(self):
         sel=self.assets.selection()
