@@ -37,3 +37,25 @@ ENTITY records are evidence inputs. Indicative reserve marks are not automatical
 
 ## Reconciliation gate
 Before treasury close or release reporting, BTG should run EOPP trade-capture reconciliation and investigate every missing or mismatched in-scope settled EEP trade. A clean reconciliation is evidence of capture completeness, not an accounting audit opinion.
+
+## Economic wallet presentation layer
+
+ENTITY v3.4.3 may present the treasury through the ENTITY Economic Wallet application layer without changing the protocol version.
+
+The Treasury Wallet MUST remain bound to the distinct treasury ENTITY. It may present reserve rights, instrument quantities, FIFO cost basis, last settled trade, bid, ask, indicative market value, realized/unrealized change, orders, entitlements, economic events, receivables and payables.
+
+The wallet is not a parallel economic ledger. Authoritative positions remain the EEP balances, trades, orders, entitlements and usage records together with the Originator Participation Profile's reserve allocations, economic events and obligations.
+
+Fiat custody remains external to ENTITY. The wallet MUST NOT infer that CAD, USD or other fiat is held merely because an ENTITY settlement or obligation exists. Bank/payment credentials are not wallet state. External money movement remains evidenced through settlement references and verification evidence.
+
+For market marks:
+
+- only an observed settled trade may populate the wallet's last-price field;
+- bids and asks remain quotes;
+- an issuer offer does not create realized or portfolio value;
+- a position without a qualifying settled-trade price remains unpriced;
+- indicative marks are not accounting fair value and are not protocol-generated value.
+
+"Stock-style" describes the portfolio/market user experience only. It does not classify an ENTITY right, entitlement, licence or instrument as a corporate share, security, commodity, derivative or other regulated product.
+
+See `docs/v3.4/ENTITY_WALLET_20261002.md`.
