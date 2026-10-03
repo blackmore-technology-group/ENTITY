@@ -133,8 +133,32 @@ class PrelaunchEconomicWithdrawal:
 
             if self.eopp.exists():
                 ep=self._db(self.eopp); ep.execute("BEGIN IMMEDIATE")
+                ep.execute("""CREATE TABLE IF NOT EXISTS participation_policy_withdrawals(
+                              withdrawal_id TEXT PRIMARY KEY, policy_id TEXT NOT NULL UNIQUE,
+                              instrument_id TEXT NOT NULL, originator_entity_id TEXT NOT NULL,
+                              reason TEXT NOT NULL, evidence_sha256 TEXT, created_at_ms INTEGER NOT NULL,
+                              signature_json TEXT NOT NULL)""")
                 iq=",".join("?" for _ in ids)
-                ep.execute(f"UPDATE participation_policies SET status='SUPERSEDED' WHERE instrument_id IN ({iq}) AND status='ACTIVE'",ids)
+                policies=ep.execute(f"""SELECT * FROM participation_policies
+                                       WHERE instrument_id IN ({iq}) AND status='ACTIVE'
+                                       ORDER BY instrument_id,version""",ids).fetchall()
+                for policy in policies:
+                    withdrawal_id="opw3-"+sha({"policy_id":policy["policy_id"],"evidence":evidence})[:24]
+                    wbody={"schema":"entity-v3-participation-policy-withdrawal-v1",
+                           "withdrawal_id":withdrawal_id,"policy_id":policy["policy_id"],
+                           "instrument_id":policy["instrument_id"],
+                           "originator_entity_id":policy["originator_entity_id"],
+                           "reason":reason,"evidence_sha256":evidence,"created_at_ms":created,
+                           "historical_obligations_and_reserves_preserved":True,
+                           "no_retroactive_economic_change":True,"protocol_tax_bps":0}
+                    wsig=self.identity.sign(policy["originator_entity_id"],wbody)
+                    ep.execute("""INSERT OR IGNORE INTO participation_policy_withdrawals
+                                  VALUES(?,?,?,?,?,?,?,?)""",(
+                                  withdrawal_id,policy["policy_id"],policy["instrument_id"],
+                                  policy["originator_entity_id"],reason,evidence,created,
+                                  json.dumps(wsig,sort_keys=True)))
+                    ep.execute("UPDATE participation_policies SET status='WITHDRAWN' WHERE policy_id=?",
+                               (policy["policy_id"],))
                 ep.commit(); ep.close()
 
             if self.factory.exists() and audit["dco_ids"]:
