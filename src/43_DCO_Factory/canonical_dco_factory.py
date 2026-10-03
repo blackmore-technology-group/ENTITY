@@ -19,10 +19,12 @@ def require_sha256(v,name):
     return s
 
 class DCOFactory:
-    """Application-layer DCO catalog/factory above ENTITY v3.4.3.
+    """Issuer-neutral application-layer DCO catalog/factory above ENTITY v3.4.3.
 
     It standardizes templates, duplicate/version classification and master economic
-    records. It does not replace the Universal Transaction Fabric, EEP, EOPP or Wallet.
+    records for any legitimate participant. It is not a BTG ownership/mass-production
+    target and does not replace the Universal Transaction Fabric, EEP, EOPP or Wallet.
+    Registration does not create ownership or hidden protocol privilege.
     """
     def __init__(self,state_dir:str|Path):
         self.root=Path(state_dir)/"dco_factory"; self.root.mkdir(parents=True,exist_ok=True)
@@ -234,4 +236,8 @@ class DCOFactory:
         return {"schema":"entity-dco-factory-portfolio-summary-v1","total_dcos":total,"active_dcos":active,
                 "families":families,"qualified_physical_instruments":int(issued["i"]),
                 "qualified_right_units":int(issued["u"]),"factory_version":FACTORY_VERSION,
-                "target_design_capacity_dcos":10000,"protocol_change_required":False}
+                "target_design_capacity_dcos":10000,
+                "capacity_target_is_not_btg_ownership_target":True,
+                "issuer_neutral":True,"provider_neutral":True,
+                "protocol_tax_bps":0,"cryptocurrency_required":False,
+                "protocol_change_required":False}
