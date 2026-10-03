@@ -1,0 +1,33 @@
+{
+  "schema": "entity-public-safe-dco-manifest-v1",
+  "dco_id": "DCO-XXXXXX",
+  "name": "PUBLIC NAME",
+  "asset_class": "DATASET|ALGORITHM|MODEL|BENCHMARK|GENERATOR|SYSTEM",
+  "content_sha256": "<sha256>",
+  "controller": "Blackmore Technology Group Limited",
+  "originator": "Blackmore Technology Group Limited",
+  "version": "1.0",
+  "public_rights_summary": {
+    "evaluation": true,
+    "training": false,
+    "inference": false,
+    "compute_to_data": false,
+    "derivative": false,
+    "oem": false,
+    "redistribution": false
+  },
+  "rights_passport_sha256": "<sha256>",
+  "global_passport_sha256": "<sha256>",
+  "qualification_sha256": "<sha256>",
+  "benchmark_summary": {},
+  "public_provenance_refs": [],
+  "economic_state": {
+    "state": "POTENTIAL",
+    "amount_units": 0,
+    "currency": "CAD",
+    "market_observation_is_not_accounting_fair_value": true
+  },
+  "live_operational_state_included": false,
+  "customer_data_included": false,
+  "credentials_included": false
+}
