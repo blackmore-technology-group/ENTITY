@@ -1,24 +1,61 @@
-name: ENTITY Wallet Desktop
+name: ENTITY Wallet Cross-Platform Builds
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - wallet-native-asset-ingest-20261003
+    paths:
+      - "src/31_Profiles/exchange_protocol.py"
+      - "src/33_Economic_Participation/**"
+      - "src/38_Global_Passports/**"
+      - "src/39_Implementation_Packages/**"
+      - "src/42_ENTITY_Wallet/**"
+      - "src/43_DCO_Factory/**"
+      - "src/45_ENTITY_Market/**"
+      - "sdk/global_passport_sdk/**"
+      - "protocol/profiles/**"
+      - "protocol/v3/ENTITY_ECONOMIC_MARKET_PROTOCOL.md"
+      - "tools/entity_wallet_desktop.py"
+      - "tools/build_entity_wallet_desktop.py"
+      - "ios/ENTITYWalletIOS/**"
+      - ".github/workflows/entity-wallet-desktop.yml"
   pull_request:
     paths:
       - "src/31_Profiles/exchange_protocol.py"
       - "src/33_Economic_Participation/**"
+      - "src/38_Global_Passports/**"
+      - "src/39_Implementation_Packages/**"
       - "src/42_ENTITY_Wallet/**"
       - "src/43_DCO_Factory/**"
       - "src/45_ENTITY_Market/**"
+      - "sdk/global_passport_sdk/**"
+      - "protocol/profiles/**"
       - "tools/entity_wallet_desktop.py"
       - "tools/build_entity_wallet_desktop.py"
-      - "protocol/v3/ENTITY_ECONOMIC_MARKET_PROTOCOL.md"
+      - "ios/ENTITYWalletIOS/**"
       - ".github/workflows/entity-wallet-desktop.yml"
 
+permissions:
+  contents: read
+
 jobs:
-  build:
+  desktop:
+    name: Desktop · ${{ matrix.label }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        include:
+          - os: windows-latest
+            label: Windows
+            artifact: ENTITY-Wallet-Windows
+          - os: ubuntu-latest
+            label: Linux
+            artifact: ENTITY-Wallet-Linux
+          - os: macos-latest
+            label: macOS
+            artifact: ENTITY-Wallet-macOS
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -26,12 +63,60 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install --upgrade pip
-      - run: python -m pip install pyinstaller cryptography PySide6
-      - run: python -m pytest tests/test_entity_market_registry.py tests/test_economic_intelligence.py tests/test_entity_wallet.py tests/test_wallet_asset_ingest.py tests/test_wallet_lineage_resolution.py -q
-      - run: python tools/build_entity_wallet_desktop.py
+      - run: python -m pip install pytest pyinstaller cryptography PySide6
+      - name: Wallet qualification
+        run: >-
+          python -m pytest
+          tests/test_wallet_onboarding.py
+          tests/test_entity_market_registry.py
+          tests/test_economic_intelligence.py
+          tests/test_exchange_lifecycle.py
+          tests/test_v3_economic_participation.py
+          tests/test_prelaunch_economic_withdrawal.py
+          tests/test_entity_wallet.py
+          tests/test_wallet_asset_ingest.py
+          tests/test_wallet_lineage_resolution.py
+          tests/test_v3_protocol_origin_lineage.py
+          tests/test_v3_global_passports.py
+          -q
+      - name: Build desktop wallet
+        run: python tools/build_entity_wallet_desktop.py
       - uses: actions/upload-artifact@v4
         with:
-          name: ENTITY-Wallet-${{ runner.os }}
+          name: ${{ matrix.artifact }}
+          if-no-files-found: error
           path: |
-            dist/ENTITY-Wallet*
+            dist/ENTITY-Wallet/**
             dist/ENTITY-Wallet.app/**
+
+  ios-simulator:
+    name: iOS · Simulator client
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate Xcode project
+        working-directory: ios/ENTITYWalletIOS
+        run: xcodegen generate
+      - name: Build iOS Simulator app
+        run: |
+          xcodebuild \
+            -project ios/ENTITYWalletIOS/ENTITYWalletIOS.xcodeproj \
+            -scheme ENTITYWalletIOS \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath build/ios \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+      - name: Package iOS Simulator app
+        run: |
+          mkdir -p dist
+          APP="build/ios/Build/Products/Release-iphonesimulator/ENTITYWalletIOS.app"
+          test -d "$APP"
+          ditto -c -k --sequesterRsrc --keepParent "$APP" dist/ENTITY-Wallet-iOS-Simulator.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ENTITY-Wallet-iOS-Simulator
+          if-no-files-found: error
+          path: dist/ENTITY-Wallet-iOS-Simulator.zip
