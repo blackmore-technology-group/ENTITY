@@ -1,0 +1,29 @@
+{
+  "body": {
+    "asset_provenance_is_separate_from_protocol_origin": true,
+    "automatic_protocol_royalty_bps": 0,
+    "created_at_ms": 1791032742763,
+    "economic_participation_requires_explicit_terms": true,
+    "historical_release_is_immutable_target": true,
+    "origin_lineage_id": "entity-origin:shawn-btg-entity@1.0",
+    "origin_lineage_sha256": "9d3bdc0ef2e6a27de5368541f6bc014fdec93b2c7af9770d163c804521b9efff",
+    "protocol_entity_id": "ent2-m3nofxtv3zwldhwuonw3h67hqjh2zambrhj4kaaulncpt4amkcua",
+    "release_commit_sha1": "528b70aabd05b1e930b77e4933f157731e47274f",
+    "release_ref": "entity-release:v3.4.3",
+    "release_tag": "v3.4.3",
+    "release_tree_sha1": "f13e42f515dcc4cd985e9b832e0ecfec416ce423",
+    "root_originator_entity_id": "ent2-6eoiiztjyhmyh2tbr5psmofcduwvjledubhoiqwo6mjfoqkn6ica",
+    "schema": "entity-protocol-release-origin-v1",
+    "steward_entity_id": "ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa"
+  },
+  "body_sha256": "150c4e02671b2175a45df921fcf6761119a6c587001c9b8fa039dd01ffe0e494",
+  "signature": {
+    "entity_id": "ent2-m3nofxtv3zwldhwuonw3h67hqjh2zambrhj4kaaulncpt4amkcua",
+    "key_id": "sig-a31ded371cfb5019",
+    "payload_sha256": "150c4e02671b2175a45df921fcf6761119a6c587001c9b8fa039dd01ffe0e494",
+    "signature": "cWSubQ8c3pJiZQArSlffOAZMlMfSkn6lb3lNDpWSv2Ol05zDY9Z0do7FoLu6GoBwf1xOZDIV6ekh6IHAhInsBg",
+    "signature_schema": "entity-signature-record-v2",
+    "signed_at_ms": 1791032742806,
+    "suite": "ENTITY-SIG-ED25519-v1"
+  }
+}

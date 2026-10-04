@@ -29,7 +29,10 @@ class ContinuousProvenanceEngine:
         self.protocol_release_ref=protocol_release_ref
     def ingest_file(self,path,controller_entity_id:str,profile_refs:list[str],*,logical_path:str|None=None,
                     previous_object_id:str|None=None,rights_actions:list[str]|None=None,version:str="1.0",
-                    protocol_release_ref:str|None=None,btdu_binding:dict|None=None)->dict:
+                    protocol_release_ref:str|None=None,btdu_binding:dict|None=None,title:str|None=None,
+                    object_type:str|None=None,digital_commodity:bool=False,commodity_class:str="DATA",
+                    measurement_unit:str="ASSET",commodity_metadata:dict|None=None,
+                    industry_context:dict|None=None,rights_constraints:dict|None=None)->dict:
         src=Path(path).resolve()
         if not src.is_file(): raise FileNotFoundError(src)
         content_sha=sha256_file(src); vault_path=self.vault/content_sha[:2]/content_sha
@@ -38,10 +41,22 @@ class ContinuousProvenanceEngine:
         if sha256_file(vault_path)!=content_sha: raise RuntimeError("content vault verification failed")
         descriptor={"logical_path":logical_path or src.name,"source_filename":src.name,"source_bytes":src.stat().st_size,
                     "content_addressed":True,"custody_provider":"BTG_LOCAL_CONTENT_VAULT","provider_is_authority":False}
-        obj=self.fabric.register_object(controller_entity_id,object_type_for(src),src.name,descriptor=descriptor,content_sha256=content_sha)
+        kind=str(object_type or object_type_for(src)).upper()
+        asset_title=str(title or src.name)
+        if digital_commodity:
+            commodity_meta={**descriptor,**dict(commodity_metadata or {}),
+                            "market_instruments_created_automatically":False,
+                            "market_value_created_by_ingest":False}
+            obj=self.fabric.register_digital_commodity(controller_entity_id,asset_title,content_sha,
+                commodity_class=commodity_class,measurement_unit=measurement_unit,
+                metadata=commodity_meta,object_type=kind)
+        else:
+            obj=self.fabric.register_object(controller_entity_id,kind,asset_title,descriptor=descriptor,content_sha256=content_sha)
         ev=self.evidence.issue_evidence(controller_entity_id,"DOCUMENT",obj["object_id"],content_sha,provenance_refs=[previous_object_id] if previous_object_id else [])
         actions=rights_actions or ["INSPECT","READ","COPY","DERIVE"]
-        right=self.fabric.grant_right(obj["object_id"],controller_entity_id,controller_entity_id,actions,constraints={"purpose":"BTG_ENGINEERING"},economic_terms={"monetary_value_asserted":False})
+        constraints={"purpose":"ENTITY_ASSET_CONTROL",**dict(rights_constraints or {})}
+        right=self.fabric.grant_right(obj["object_id"],controller_entity_id,controller_entity_id,actions,
+            constraints=constraints,economic_terms={"monetary_value_asserted":False})
         rp=self.rights.issue(controller_entity_id,obj["object_id"],[{"effect":"ALLOW","actions":actions}],version=version,
             custody=[{"provider":"BTG_LOCAL_CONTENT_VAULT","locator":f"sha256:{content_sha}","content_sha256":content_sha,"provider_is_authority":False,"credentials_included":False}],
             provenance_refs=[ev["evidence_id"]],economic_terms={"underlying_information_remains_nonrival":True})
@@ -51,13 +66,16 @@ class ContinuousProvenanceEngine:
         gp=self.global_passports.issue(controller_entity_id,obj["object_id"],rp["passport_id"],profile_refs,version=version,
             evidence_refs=[ev["evidence_id"]],provenance_refs=[p["edge_id"] for p in prov],
             standards_mappings=[],economic_state={"state":"POTENTIAL","amount_units":0,"currency":"UNSPECIFIED"},
-            industry_context={"continuous_ingestion":True,"logical_path":descriptor["logical_path"]},
+            industry_context={"continuous_ingestion":True,"logical_path":descriptor["logical_path"],
+                              "digital_commodity":bool(digital_commodity),**dict(industry_context or {})},
             protocol_release_ref=protocol_release_ref or self.protocol_release_ref,btdu_binding=btdu_binding)
         val=self.fabric.record_value(controller_entity_id,obj["object_id"],0,"UNSPECIFIED",state="POTENTIAL",
             basis_ref="v3.4-zero-value-baseline-no-market-or-accounting-value-asserted")
         return {"object":obj,"evidence":ev,"right":right,"rights_passport":rp,"global_passport":gp,
                 "provenance":prov,"value":val,"vault_sha256":content_sha,"vault_path":str(vault_path),
-                "continuous_provenance":True,"custody_is_not_authority":True}
+                "continuous_provenance":True,"custody_is_not_authority":True,
+                "digital_commodity":bool(digital_commodity),"market_instruments_created":False,
+                "market_value_created_by_ingest":False}
 
     def ingest_directory(self,path,controller_entity_id:str,profile_refs:list[str],*,prefix:str="",rights_actions:list[str]|None=None)->dict:
         root=Path(path).resolve(); records=[]
@@ -65,7 +83,9 @@ class ContinuousProvenanceEngine:
             if not src.is_file() or any(part in EXCLUDED_DIRS for part in src.parts): continue
             rel=src.relative_to(root).as_posix(); logical=(prefix.rstrip("/")+"/"+rel).lstrip("/") if prefix else rel
             records.append(self.ingest_file(src,controller_entity_id,profile_refs,logical_path=logical,rights_actions=rights_actions))
-        inventory=hashlib.sha256("\n".join(f"{r['object']['content_sha256']}  {r['object']['descriptor']['logical_path']}" for r in records).encode()).hexdigest()
+        inventory=hashlib.sha256("\n".join(
+            f"{r['object']['content_sha256']}  {r['object']['descriptor'].get('logical_path') or (r['object']['descriptor'].get('metadata') or {}).get('logical_path','')}"
+            for r in records).encode()).hexdigest()
         return {"schema":"entity-v3-continuous-ingest-result-v1","files":len(records),"inventory_sha256":inventory,
                 "object_ids":[r["object"]["object_id"] for r in records],"global_passport_ids":[r["global_passport"]["passport_id"] for r in records],
                 "content_addressed":True,"custody_is_not_authority":True,"economic_value_invented":False}

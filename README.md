@@ -61,7 +61,7 @@ The remediation keeps authoritative occurrence identity separate from evidence i
 | Compiled Rust qualification | **PASS — inherited unchanged scope** |
 | Real-world BTDU training qualification | **PASS — inherited unchanged scope** |
 
-Release merge commit: `528b70aabd05b1e930b77e4933f157731e47274f`  
+Release merge commit: `528b70aabd05b1e930b77e4933f157731e47274f`
 Immutable predecessor commit: `6dfa3d6cc738d9369cf092d2782676bf4f2a46e4`
 
 The v3.4.3 release does **not** rewrite the active 30-day wall-clock evidence campaign or immutable v3.4.2 evidence.
@@ -144,18 +144,24 @@ Originator participation may be expressed through explicit terms such as issuanc
 
 ### ENTITY Economic Wallet
 
-ENTITY v3.4.3 includes a **stock-style economic wallet application layer** over EEP and the Originator Participation Profile.
+ENTITY v3.4.3 includes the **ENTITY Data Economy Terminal**, a native wallet application layer over DCO state, Global/Rights Passports, EEP and the Originator Participation Profile.
 
-- **Participant Wallet:** rights positions, entitlements, usage, orders, last settled price, bid/ask, FIFO settled-trade cost basis, and economic receivables/payables.
-- **Treasury Wallet:** reserve rights, participation policies, originator obligations and economic events for a distinct treasury ENTITY.
-- **Fiat remains external:** the wallet does not custody CAD/USD or store payment credentials; bank/payment-service evidence feeds the existing settlement path.
-- **No artificial value:** bids and offers remain quotes; only settled trades can create an observed last-price mark, and unpriced rights remain unpriced.
+Current wallet behavior includes:
+
+- **Sovereign first-run onboarding:** create/adopt an ENTITY identity, claim a public `.entity` alias, optionally establish an organization, bind a separate Device ENTITY and authenticate through device-bound signing.
+- **Digital Assets:** controller-held DCOs with lineage, signed Asset Disclosure state, Global Passport/profile stack, explicit domain and `NO TICKER` when no instrument exists.
+- **Rights-Passport-driven issuance:** an economic instrument may select only a subset of actions already authorized by the active DCO Rights Passport; the canonical market registry re-validates this fail closed.
+- **Issuer-scoped tickers/instruments:** ticker suggestions derive from the selected authorized rights and canonical asset short name rather than a generic commercial-right default.
+- **Market / positions / orders:** instruments and positions remain separate from underlying DCO assets; listing and market activity do not manufacture intrinsic DCO value.
+- **Software Engineering domain:** `entity-profile:software-engineering@1.0` explicitly covers software repositories, algorithms, libraries, build artifacts, test evidence and engineering-control DCOs.
+- **Fiat remains external:** the wallet does not custody CAD/USD or store payment credentials.
 - **No token requirement:** `cryptocurrency_required = false` and `protocol_tax_bps = 0`.
-- **No legal classification inference:** stock-style describes the market/portfolio interface; the wallet does not declare DCO/EEP rights to be corporate shares or securities.
 
-The wallet does not create a second economic ledger. EEP balances, trades and entitlements remain authoritative, and transaction authority remains in the existing ENTITY/EEP signature path.
+The final focused wallet/economy/lineage/onboarding/global-passport qualification completed on 2026-10-03 at **91/91 PASS**. The qualified production snapshot resolved all 12 current assets to explicit domains: **10 Software Engineering + 2 Robotics**.
 
-[**Wallet design, deployment and usage**](docs/v3.4/ENTITY_WALLET_20261002.md) · [**Public qualification**](docs/evidence/v3.4.3-entity-wallet-20261002/QUALIFICATION.json)
+Windows, Linux and macOS are full PySide6 desktop builds of the canonical wallet. CI also builds a native Xcode iOS Simulator portable-snapshot client; native iOS authority/write parity is explicitly not claimed.
+
+[**Wallet design and current state**](docs/v3.4/ENTITY_WALLET_20261002.md) · [**Cross-platform builds**](docs/v3.4/ENTITY_WALLET_CROSS_PLATFORM_BUILDS_20261003.md) · [**Identity onboarding**](docs/v3.4/ENTITY_WALLET_IDENTITY_ONBOARDING.md) · [**Software Engineering profile**](docs/v3.4/passports/SOFTWARE_ENGINEERING.md)
 
 ---
 

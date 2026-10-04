@@ -1,8 +1,8 @@
 # ENTITY v3.4 Family Runtime Portal
 
-**Document class:** current-runtime family orientation / non-normative to Protocol 1.0  
-**Current supported runtime:** [ENTITY v3.4.3](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.3)  
-**BTDU component:** Blackmore Technology Data Universe (BTDU) 3.4.2, unchanged  
+**Document class:** current-runtime family orientation / non-normative to Protocol 1.0
+**Current supported runtime:** [ENTITY v3.4.3](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.3)
+**BTDU component:** Blackmore Technology Data Universe (BTDU) 3.4.2, unchanged
 **Historical v3.4.0/v3.4.1/v3.4.2 evidence:** preserved under its original release targets
 
 This directory describes the **v3.4 runtime family**: Global Passport architecture, domain packages, deployment and historical closure material. It is not the normative ENTITY Protocol 1.0 clean-room specification.
@@ -48,11 +48,23 @@ These runtime primitives and packages must not be mistaken for extra Protocol 1.
 ## Start here
 
 - [Global Passport runtime architecture](GLOBAL_PASSPORT.md)
-- [Six executable domain packages](DOMAIN_PACKAGES.md)
+- [Domain packages and profiles](DOMAIN_PACKAGES.md)
 - [Deployment model](DEPLOYMENT_MODEL.md)
 - [Historical v3.4.0 post-release recursive closure](RECURSIVE_CLOSURE.md)
 - [ENTITY v3.4.3 release record](../../RELEASE_V3_4_3.md)
+- [ENTITY Wallet — current application layer](ENTITY_WALLET_20261002.md)
+- [Wallet identity onboarding](ENTITY_WALLET_IDENTITY_ONBOARDING.md)
+- [Wallet cross-platform builds](ENTITY_WALLET_CROSS_PLATFORM_BUILDS_20261003.md)
+- [Software Engineering profile](passports/SOFTWARE_ENGINEERING.md)
 - [Engineering evidence](../ENGINEERING_EVIDENCE.md)
+
+## Current wallet application layer
+
+The current wallet is the **ENTITY Data Economy Terminal**. It includes sovereign first-run identity/lineage onboarding, Digital Asset/DCO holdings, signed asset disclosures, issuer-scoped economic instruments and tickers, Rights-Passport-driven instrument issuance, market listings/positions/orders and explicit domain lineage.
+
+The final focused qualification completed on 2026-10-03 at **91/91 PASS**. The qualified production snapshot contained 12 current assets with no missing domains: 10 Software Engineering and 2 Robotics.
+
+Windows, Linux and macOS are full PySide6 desktop builds of the canonical wallet. The repository also builds a native iOS Simulator portable-snapshot inspection client; native iOS write-authority parity is not claimed.
 
 ## Historical v3.4.1 qualification snapshot
 

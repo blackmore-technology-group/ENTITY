@@ -28,4 +28,4 @@ The v3.4 layer does not replace the existing data-rights lifecycle:
 
 Nor does it replace the v3.3 reality/evidence path. It composes those layers into a deployable passport surface.
 
-See [Domain Packages](DOMAIN_PACKAGES.md) for the six first-party implementation packages.
+See [Domain Packages](DOMAIN_PACKAGES.md) for the first-party domain packages and the built-in Software Engineering profile/package.

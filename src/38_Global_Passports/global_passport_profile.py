@@ -2,7 +2,7 @@ from __future__ import annotations
 
 CORE_PRIMITIVES=["ENTITY","AUTHORITY","RIGHT","EVENT","VALUE"]
 MARKET_LIFECYCLE=["DCO","INSTRUMENT","LISTING","DISCLOSURE","ORDER_RFQ_AUCTION","PRICE_DISCOVERY","TRADE","CLEARING","SETTLEMENT","ENTITLEMENT","USAGE","DERIVED_OUTPUT","ECONOMIC_CONSEQUENCE"]
-BUILTIN_PROFILE_REFS=["entity-profile:global@1.0","entity-profile:healthcare@1.0","entity-profile:finance@1.0","entity-profile:manufacturing@1.0","entity-profile:ai@1.0","entity-profile:robotics@1.0","entity-profile:defence-public@1.0"]
+BUILTIN_PROFILE_REFS=["entity-profile:global@1.0","entity-profile:healthcare@1.0","entity-profile:finance@1.0","entity-profile:manufacturing@1.0","entity-profile:ai@1.0","entity-profile:software-engineering@1.0","entity-profile:robotics@1.0","entity-profile:defence-public@1.0"]
 
 def passport_status()->dict:
     return {"schema":"entity-v3-global-passport-profile-status-v1","version":"3.4.0","core_primitives":CORE_PRIMITIVES,

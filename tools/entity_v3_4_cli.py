@@ -21,6 +21,9 @@ sdk_mod=load("cli_v34_sdk","sdk/global_passport_sdk/canonical_global_passport_sd
 btdu_mod=load("cli_v342_btdu","src/40_BTDU/canonical_btdu.py")
 ORIGIN_BUNDLE=ROOT/"protocol"/"origin"/"ENTITY_PROTOCOL_ORIGIN_BUNDLE.json"
 CURRENT_RELEASE_TAG="v3.4.3"; CURRENT_RELEASE_REF="entity-release:"+CURRENT_RELEASE_TAG
+SIGNED_PROFILE_PATHS=[
+    ROOT/"protocol"/"profiles"/"ENTITY_SOFTWARE_ENGINEERING_PROFILE.json",
+]
 
 def _current_release_path(explicit=None):
     candidates=[pathlib.Path(explicit)] if explicit else []
@@ -32,10 +35,30 @@ def runtime(state,release_origin_path=None,require_current_release=False):
     evidence=evidence_mod.EvidenceRegistry(state,identity); rights=rights_mod.RightsPassportRegistry(state,identity,fabric)
     profiles=profile_mod.GlobalProfileRegistry(state,identity); origin=origin_mod.ProtocolOriginRegistry(state,identity)
     bundle=read_json(ORIGIN_BUNDLE); origin_status=origin.install_bundle(bundle,profiles)
+    origin_record=origin.get_origin(origin_status["origin_lineage_id"])
+    protocol_entity_id=origin_record["body"]["protocol_entity_id"]
+    signed_profile_imports=[]
+    for profile_path in SIGNED_PROFILE_PATHS:
+        if not profile_path.is_file():
+            continue
+        record=read_json(profile_path)
+        if record.get("issuer_entity_id")!=protocol_entity_id:
+            raise RuntimeError("signed built-in profile issuer is not canonical ENTITY protocol identity")
+        imported=profiles.import_signed(record,allow_semantic_rebind=False)
+        signed_profile_imports.append({
+            "profile_ref":imported["profile_ref"],
+            "body_sha256":imported["body_sha256"],
+            "issuer_entity_id":imported["issuer_entity_id"],
+        })
     current_path=_current_release_path(release_origin_path); current_status=None
     if current_path: current_status=origin.install_current_release(read_json(current_path),CURRENT_RELEASE_TAG)
     if require_current_release and not current_status: raise RuntimeError("v3.4.3 current-release origin attestation required; supply --release-origin or use the signed release package")
-    origin_status=dict(origin_status,current_release_origin=current_status,current_release_origin_path=str(current_path) if current_path else None)
+    origin_status=dict(
+        origin_status,
+        current_release_origin=current_status,
+        current_release_origin_path=str(current_path) if current_path else None,
+        signed_builtin_profiles=signed_profile_imports,
+    )
     passports=global_mod.GlobalPassportRegistry(state,identity,fabric,rights,profiles,origin,required_release_ref=CURRENT_RELEASE_REF if require_current_release else None)
     ingestion=ingest_mod.ContinuousProvenanceEngine(state,identity,fabric,evidence,rights,passports,origin.default_release_ref)
     packages=package_mod.IndustryImplementationPackageRegistry(); sdk=sdk_mod.EntityGlobalPassportSDK(profiles,passports,ingestion,packages)
@@ -45,14 +68,23 @@ def emit(value): print(json.dumps(value,indent=2,sort_keys=True))
 
 def _btdu_for_controller(state,identity,controller_entity_id):
     controller=str(controller_entity_id); identity.load_manifest(controller)
+    # BTG canonical assets live in the one canonical BTG universe rooted at
+    # shawn.blackmore.entity. Asset source/controller/rights-holder remain explicit
+    # per-object and are not replaced by the universe sovereign identity.
+    canonical_ids={
+        btdu_mod.BTDU_CANONICAL_OWNER_ENTITY_ID,
+        btdu_mod.BTG_STEWARD_ENTITY_ID,
+        btdu_mod.ENTITY_PROTOCOL_ENTITY_ID,
+    }
+    universe_owner=btdu_mod.BTDU_CANONICAL_OWNER_ENTITY_ID if controller in canonical_ids else controller
     def verifier(record):
         try:
             body=dict(record["body"]); sig=dict(record["signature"])
             if body.get("scope")!="BTDU_WRITE" or body.get("actor_entity_id")!=controller: return False
             return identity.verify_signature(identity.load_manifest(controller),body,sig)
         except Exception: return False
-    return btdu_mod.BlackmoreTechnologyDataUniverse(pathlib.Path(state)/"btdu"/controller,
-        authorization_verifier=verifier,sovereign_entity_id=controller,
+    return btdu_mod.BlackmoreTechnologyDataUniverse(pathlib.Path(state)/"btdu"/universe_owner,
+        authorization_verifier=verifier,sovereign_entity_id=universe_owner,
         protocol_entity_id=btdu_mod.ENTITY_PROTOCOL_ENTITY_ID,steward_entity_id=btdu_mod.BTG_STEWARD_ENTITY_ID)
 
 def _btdu_receipt(identity,controller_entity_id,path,logical_path):

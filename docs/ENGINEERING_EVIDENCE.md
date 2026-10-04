@@ -1,9 +1,9 @@
 # ENTITY Engineering Evidence
 
-**Document class:** evidence index / current-runtime orientation  
-**Current supported runtime:** ENTITY v3.4.3  
-**BTDU component:** Blackmore Technology Data Universe (BTDU) 3.4.2, unchanged  
-**Protocol 1.0:** separate frozen clean-room target  
+**Document class:** evidence index / current-runtime orientation
+**Current supported runtime:** ENTITY v3.4.3
+**BTDU component:** Blackmore Technology Data Universe (BTDU) 3.4.2, unchanged
+**Protocol 1.0:** separate frozen clean-room target
 **Normative effect:** none; this page indexes and explains evidence rather than changing it
 
 This document separates **what Blackmore Technology Group Limited (BTG) has directly qualified**, **what unrelated people have reproduced**, and **what still requires independent evidence outside BTG control**.
@@ -28,8 +28,8 @@ A successful result at class 4 does not automatically become class 5 or 6. A BTG
 
 ## Current supported release — ENTITY v3.4.3
 
-**Release:** `v3.4.3`  
-**Release merge commit:** `528b70aabd05b1e930b77e4933f157731e47274f`  
+**Release:** `v3.4.3`
+**Release merge commit:** `528b70aabd05b1e930b77e4933f157731e47274f`
 **Immutable predecessor:** v3.4.2 commit `6dfa3d6cc738d9369cf092d2782676bf4f2a46e4`
 
 ENTITY v3.4.3 is a bounded remediation release for the two defects reproduced in Issue #28:
@@ -62,6 +62,20 @@ These are **inherited records**, not re-executed v3.4.3 campaigns.
 - active 30-day wall-clock campaign: not reset or rewritten by v3.4.3.
 
 Authoritative release material: [`RELEASE_V3_4_3.md`](../RELEASE_V3_4_3.md) and [`RELEASE_V3_4_3.json`](../RELEASE_V3_4_3.json).
+
+## Post-tag ENTITY Wallet qualification — 2026-10-03
+
+The current main-branch wallet application layer is later than the immutable `v3.4.3` tag and is therefore recorded separately from the tagged release evidence.
+
+Final focused wallet/economy/lineage/onboarding/global-passport campaign: **91/91 PASS**.
+
+Wallet implementation baseline: `212ee56d34aee578e6df701ef9f9a675661b7162`.
+
+The locally rebuilt/installed Windows package passed its frozen-runtime self-test. Qualified production-state domain resolution contained 12 current assets: 10 Software Engineering and 2 Robotics, with no missing domain.
+
+Windows/Linux/macOS full desktop binaries are produced by the cross-platform wallet workflow. The iOS Simulator artifact is a native portable-snapshot inspection client and is not classified as an independently qualified native authority/runtime implementation.
+
+See [wallet state](v3.4/ENTITY_WALLET_20261002.md) and [cross-platform builds](v3.4/ENTITY_WALLET_CROSS_PLATFORM_BUILDS_20261003.md).
 
 ## External reproduction evidence
 
@@ -103,7 +117,7 @@ A full external Protocol 1.0 interoperability PASS still requires the published 
 
 ## v3.4.1 — historical protected release
 
-**Release:** `v3.4.1`  
+**Release:** `v3.4.1`
 **Protected release commit:** `9822b1b65f8269ebc17208a342809720729ae2f8`
 
 Historical qualification retained exactly as v3.4.1 evidence:
@@ -122,7 +136,7 @@ Protocol origin remains separate from user/asset provenance and does not create 
 
 ## v3.4.0 — historical protected release and domain packages
 
-**Release:** `v3.4.0`  
+**Release:** `v3.4.0`
 **Protected release commit:** `2db5bff64507b8d67642122a5ff2fc73dfef9152`
 
 Historical qualification:

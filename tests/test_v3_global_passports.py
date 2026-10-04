@@ -41,8 +41,9 @@ class V34GlobalPassportTests(unittest.TestCase):
         s=status_mod.passport_status(); self.assertEqual(s["core_primitives"],["ENTITY","AUTHORITY","RIGHT","EVENT","VALUE"])
         self.assertFalse(s["core_semantics_changed"]); self.assertTrue(s["market_engine_preserved"]); self.assertTrue(s["evidence_truth_boundary_preserved"])
 
-    def test_02_builtin_global_and_six_industry_profiles_install(self):
-        self.assertEqual(len(self.installed),7); self.assertIn("entity-profile:global@1.0",self.installed)
+    def test_02_builtin_global_and_seven_industry_profiles_install(self):
+        self.assertEqual(len(self.installed),8); self.assertIn("entity-profile:global@1.0",self.installed)
+        self.assertIn("entity-profile:software-engineering@1.0",self.installed)
         self.assertTrue(all(self.profiles.verify(p)["valid"] for p in self.installed.values()))
 
     def test_03_profile_stack_requires_global_profile(self):
@@ -82,6 +83,13 @@ class V34GlobalPassportTests(unittest.TestCase):
 
     def test_13_robotics_profile_contains_ros_and_openrmf(self):
         names={x["standard"] for x in self.profiles.get("entity-profile:robotics@1.0")["standards"]}; self.assertEqual(names,{"ROS-2","OPEN-RMF"})
+
+    def test_13b_software_engineering_profile_contains_supply_chain_mappings(self):
+        p=self.profiles.get("entity-profile:software-engineering@1.0")
+        names={x["standard"] for x in p["standards"]}
+        self.assertEqual(names,{"SPDX-3","CYCLONEDX","SLSA"})
+        self.assertIn("SOFTWARE",p["object_types"])
+        self.assertIn("ALGORITHM",p["object_types"])
 
     def test_14_continuous_ingest_registers_bytes_evidence_rights_and_global_passport(self):
         f=self.source/"model.py"; f.write_text("print('entity')\n",encoding="utf-8")
@@ -139,9 +147,9 @@ class V34GlobalPassportTests(unittest.TestCase):
         status=sdk_mod.EntityGlobalPassportSDK.capability_status(); self.assertTrue(status["sdk_does_not_create_authority"])
         self.assertTrue(status["profile_is_not_regulatory_compliance"]); self.assertTrue(status["external_standards_are_mapped_not_redefined"])
 
-    def test_24_industry_package_registry_contains_six_deployable_families(self):
+    def test_24_industry_package_registry_contains_seven_deployable_families(self):
         r=package_mod.IndustryImplementationPackageRegistry()
-        self.assertEqual(r.list_packages(),["ai","defence-public","finance","healthcare","manufacturing","robotics"])
+        self.assertEqual(r.list_packages(),["ai","defence-public","finance","healthcare","manufacturing","robotics","software-engineering"])
         self.assertTrue(all(r.get(x)["developer_configures_not_redesigns"] if "developer_configures_not_redesigns" in r.get(x) else True for x in r.list_packages()))
 
     def test_25_healthcare_fhir_mapping_is_versioned_and_non_normative(self):
@@ -156,6 +164,15 @@ class V34GlobalPassportTests(unittest.TestCase):
         out=r.map_external("manufacturing","OPC-UA",{"NodeId":"ns=2;s=Machine1","BrowseName":"Machine1","DataType":"Double"})
         self.assertEqual(out["descriptor"]["opcua_node_id"],"ns=2;s=Machine1")
         self.assertTrue(out["external_standard_not_redefined"])
+
+    def test_26b_software_engineering_package_is_deployable(self):
+        r=package_mod.IndustryImplementationPackageRegistry()
+        cfg={"organization":"Example Dev","jurisdiction":"CA","authority_source":"controller:1",
+             "software_governance_policy":"ENTITY_PROVENANCE_BOUND"}
+        plan=r.deployment_plan("software-engineering",cfg,"engineering_control")
+        self.assertIn("entity-profile:software-engineering@1.0",plan["profile_refs"])
+        self.assertEqual(plan["object_type"],"DATASET")
+        self.assertIn("DERIVE",plan["rights_actions"])
 
     def test_27_package_configuration_requires_organization_facts(self):
         r=package_mod.IndustryImplementationPackageRegistry()

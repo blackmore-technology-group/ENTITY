@@ -15,10 +15,9 @@ STAGES=(
     "RIGHTS_PASSPORT_ISSUED",
     "GLOBAL_PASSPORT_ISSUED",
     "PROFILE_BTDU_BOUND",
-    "ECONOMIC_INSTRUMENTS_ISSUED",
     "PUBLIC_SAFE_EVIDENCE_PUBLISHED",
 )
-OPTIONAL_STAGES=("BRIDGE_EXPOSURE_BOUND",)
+OPTIONAL_STAGES=("ECONOMIC_INSTRUMENTS_ISSUED","BRIDGE_EXPOSURE_BOUND")
 DEPENDENCY={
     "ASSET_BUILT":None,
     "ASSET_QUALIFIED":"ASSET_BUILT",
@@ -28,8 +27,8 @@ DEPENDENCY={
     "GLOBAL_PASSPORT_ISSUED":"RIGHTS_PASSPORT_ISSUED",
     "PROFILE_BTDU_BOUND":"GLOBAL_PASSPORT_ISSUED",
     "ECONOMIC_INSTRUMENTS_ISSUED":"PROFILE_BTDU_BOUND",
-    "BRIDGE_EXPOSURE_BOUND":"ECONOMIC_INSTRUMENTS_ISSUED",
-    "PUBLIC_SAFE_EVIDENCE_PUBLISHED":"ECONOMIC_INSTRUMENTS_ISSUED",
+    "BRIDGE_EXPOSURE_BOUND":"PROFILE_BTDU_BOUND",
+    "PUBLIC_SAFE_EVIDENCE_PUBLISHED":"PROFILE_BTDU_BOUND",
 }
 FORBIDDEN_PUBLIC_KEYS={
     "object_id","instrument_id","instrument_ids","venue_id","wallet_id","wallet_ids",
@@ -53,10 +52,12 @@ def sha256_hex(v:str,name:str)->str:
     return s
 
 class DCOProductionPipeline:
-    """Factory-side issuance gate for real DCO assets.
+    """Asset-first production gate for real DCO assets.
 
-    This is an application-layer state machine. It does not replace canonical ENTITY
-    object, passport, BTDU, EEP, wallet or settlement state.
+    Registration, qualification and passporting establish the digital asset.
+    Economic-instrument issuance is optional and controller-directed; it is never
+    an automatic consequence of ingest. This application layer does not replace
+    canonical ENTITY object, passport, BTDU, EEP, wallet or settlement state.
     """
     def __init__(self,state_dir:str|Path):
         self.root=Path(state_dir)/"dco_factory"

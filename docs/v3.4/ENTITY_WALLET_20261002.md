@@ -2,7 +2,7 @@
 
 Date: 2026-10-02
 
-ENTITY v3.4.3 now includes a repository-safe **economic wallet application layer** over the existing ENTITY Exchange Protocol (EEP) and Originator Participation Profile.
+ENTITY v3.4.3 now includes a repository-safe **economic wallet application layer** over the Universal Transaction Fabric, ENTITY Exchange Protocol (EEP) and Originator Participation Profile. The wallet treats controller-held Digital Commodity Objects as first-class assets, independently from any later market instruments.
 
 This addition does **not** change the ENTITY protocol version, the EEP wire schema, the BTDU schema, or the no-token/no-protocol-tax model.
 
@@ -111,3 +111,164 @@ The qualification covers:
 This repository publishes generic wallet source, tooling, tests and qualification evidence only.
 
 It does **not** publish production wallet databases, live wallet IDs, treasury identity material, private signing/recovery keys, local launchers, payment credentials, runtime SQLite state, bank details, production snapshots or other private operational state.
+
+
+## Native desktop wallet and asset ingest
+
+The canonical user experience is now a native desktop application, not a generated HTML page. The source entry point is `tools/entity_wallet_desktop.py`.
+
+The native wallet provides:
+
+- **My Digital Assets** — controller-held DCOs from the Universal Transaction Fabric;
+- **Upload / Ingest Digital Asset** — select a local file, hash it, copy it into the local wallet vault and register it as a DCO;
+- **Market** — live instrument bid/ask/last observations and signed Buy/Sell order submission;
+- **Market Positions** — rights positions kept separate from the underlying assets;
+- **Orders** — active/recent exchange orders.
+
+Asset ingest is deliberately non-economic by default:
+
+`UPLOAD → SHA-256 → LOCAL VAULT → DCO REGISTRATION → MY DIGITAL ASSETS`
+
+It does **not** automatically create an EEP instrument, licence, listing, ask price or market value. The controller may later choose to create standardized tradeable rights.
+
+Cross-platform build tooling is provided by `tools/build_entity_wallet_desktop.py` and the `ENTITY Wallet Desktop` workflow for Windows, macOS and Linux.
+
+
+## ENTITY Data Economy Terminal redesign — 2026-10-03
+
+The native wallet is implemented with **PySide6/Qt**, replacing the earlier utility-style Tkinter presentation.
+
+The desktop experience is organized as a data-economy terminal:
+
+- **Overview** — sovereign portfolio state, market tape, asset holdings and settled rights-market activity;
+- **Digital Assets** — first-class DCO holdings with lineage, passports, BTDU status and explicit `NO TICKER` state when no instrument exists;
+- **Instruments** — canonical issuer-scoped economic instruments with ticker/market identifier, rights class, supply and underlying DCO;
+- **ENTITY Market** — universal multi-issuer listings with ticker, issuer, rights, bid/ask/last, settled volume, buyers, holders and integrity flags;
+- **Economic Intelligence** — settlement-aware Data Value Discovery by instrument and asset class;
+- **Orders** — exchange instructions kept distinct from assets and positions.
+
+Ticker behavior is intentionally strict:
+
+DCO → optional economic instrument → issuer namespace + display symbol → ticker/market identifier
+
+A DCO without an issued economic instrument displays `NO TICKER`. The wallet does not manufacture a ticker or price merely because an asset exists.
+
+Before first issuance the wallet may display a collision-checked **suggested issuer namespace** such as `BTG`, marked `RESERVED ON ISSUE`. The alias is not authority and is not persisted until an issuer explicitly creates an instrument. Canonical instrument identity remains the immutable instrument_id.
+
+The header exposes canonical origin context separately from asset provenance:
+
+Shawn Blackmore → Blackmore Technology Group Limited → ENTITY
+
+Domain lineage such as `Robotics` comes from the asset Global Passport/profile stack. AI and Manufacturing remain composed profiles rather than false parent-child lineage nodes.
+
+The PySide6 build continues to preserve:
+
+- protocol tax = 0;
+- no cryptocurrency requirement;
+- external settlement evidence boundary;
+- asset registration does not issue instruments;
+- instrument issuance does not automatically create a listing;
+- listing/market activity does not imply intrinsic DCO value;
+- BTDU, ADAM and NIKI do not create ownership.
+
+An **earlier 2026-10-03 checkpoint** of the desktop/economy/lineage regression campaign passed **84/84** before the Qt package was built; later wallet changes expanded the focused qualification to the final 91/91 campaign recorded below. The packaged Windows executable then passed a production-state frozen-runtime self-test with exit code 0.
+
+
+## Signed Asset Disclosure and Listing Information Sheet v2 — 2026-10-03
+
+A market listing now requires a **signed, versioned Asset Disclosure** for the underlying DCO. The disclosure belongs to the asset, not to a ticker, and can therefore support multiple economic instruments without duplicating the buyer-facing description.
+
+The production path is:
+
+DCO → signed Asset Disclosure → Rights Passport / Global Passport → Economic Instrument → Listing → Listing Information Sheet v2
+
+The Asset Disclosure supports:
+
+- detailed asset description;
+- purpose / problem addressed;
+- key capabilities;
+- included content or components;
+- intended uses;
+- known limitations and exclusions;
+- dependencies / prerequisites;
+- validation and qualification notes;
+- release/version notes;
+- supporting source references.
+
+Issuer-authored disclosure fields are signed issuer statements. ENTITY records and verifies the statement but does not convert it into objective truth or independent certification. Publishing an Asset Disclosure does not expand a Rights Passport and does not create economic value.
+
+The Listing Information Sheet v2 snapshots the current signed Asset Disclosure and combines it with canonical DCO facts from the asset record and Global Passport, including DCO ID/code, version, object type, commodity class, measurement unit, content hash, controller, jurisdiction profiles, canonical technical metadata, industry context, profile stack, standards mappings, validation/maturity flags, provenance edges and references, evidence references, BTDU binding, rights terms, market terms and the market-value boundary.
+
+A later Asset Disclosure update does not silently rewrite an already-created listing sheet; the listing retains the disclosure/dossier hashes that were shown to the buyer.
+
+Portable instrument packages now include `asset-dossier.json` and, when present, `asset-disclosure.json` in addition to the human Listing Information PDF/Markdown and existing canonical manifests/passports.
+
+The wallet shows Asset Information status directly in the DCO portfolio. A DCO without a signed disclosure is marked **REQUIRED TO LIST**. The two current Robotics DCOs were issued signed Asset Disclosure v1 records using facts already present in their canonical records; no new performance claims were inferred.
+
+
+## Universal first-run identity and lineage onboarding — 2026-10-03
+
+The desktop wallet no longer assumes a BTG identity on a clean installation. A first-run setup now creates or adopts a sovereign principal ENTITY, claims a human-readable `.entity` public name, optionally creates an operating organization/business/project beneath the principal, creates or adopts a separate Device ENTITY, records explicit lineage/device relationships, creates the wallet, and authenticates through a device-bound signing-key challenge.
+
+The wallet header now resolves the active user's lineage dynamically. For the migrated BTG installation it displays `shawn.blackmore.entity → btg.entity`; another user receives their own lineage with no BTG-specific structural privilege.
+
+Device information may bootstrap only a system/device identity. It must never silently create a human or organization identity. Public names remain aliases; immutable Entity IDs and signatures remain authoritative. Protocol origin remains separate from user lineage and user-asset ownership.
+
+See `docs/v3.4/ENTITY_WALLET_IDENTITY_ONBOARDING.md` for the complete first-run and login model.
+
+
+## Rights-Passport-driven instrument issuance — 2026-10-03
+
+The desktop wallet no longer defaults every new economic instrument to `COMMERCIALIZE`. Instrument issuance now reads the selected DCO's current Rights Passport and presents only actions with an explicit `ALLOW` effect as selectable economic rights.
+
+Rules:
+
+- the Rights Passport is the maximum authority boundary;
+- the instrument may contain only a subset of currently allowed Rights Passport actions;
+- prohibited actions are shown as prohibited and cannot be selected;
+- non-ALLOW/non-PROHIBIT actions are shown separately and are not directly issuable;
+- the backend re-validates the selected actions immediately before canonical instrument creation;
+- the canonical market registry remains the final enforcement layer and rejects any instrument whose actions exceed the Rights Passport;
+- ticker/right-class/name suggestions are derived from the selected authorized actions rather than a generic commercial-right default;
+- canonical asset short names are preferred for ticker suggestions where present (for example, BIRFR-1 training rights suggest `BIRFR1-TRN`).
+
+Production verification confirmed that BIRFR-1 exposes its allowed actions (BENCHMARK, CERTIFY, COMPUTE, DERIVE, EVALUATE, FINE_TUNE, INFER, OEM_DEPLOY, TRAIN) and does not expose COMMERCIALIZE, while the Blackmore Real-Time Failure Detection Engine does expose COMMERCIALIZE because that action is present in its Rights Passport.
+
+That **intermediate rights-driven checkpoint** of the wallet/economy/lineage/onboarding/market qualification campaign passed **89/89** after this change; later Software Engineering/profile packaging work expanded the final focused campaign to 91/91 as recorded below. The installed Windows executable then passed its frozen-runtime production self-test.
+
+
+## Rights-Passport-driven instrument issuance and Software Engineering domain — 2026-10-03
+
+Economic instrument issuance in the desktop wallet is now driven by the selected DCO's current Rights Passport. The wallet no longer defaults every asset to `COMMERCIALIZE`. It loads the active Rights Passport, presents only `ALLOW` actions as selectable instrument rights, displays prohibited/non-directly-issuable actions separately, validates the selected subset again at issuance, and derives the suggested rights class / ticker suffix from the selected actions. The canonical market validator remains the final fail-closed enforcement boundary.
+
+Example: BIRFR-1 currently exposes BENCHMARK, CERTIFY, COMPUTE, DERIVE, EVALUATE, FINE_TUNE, INFER, OEM_DEPLOY and TRAIN. `COMMERCIALIZE` is therefore not offered for BIRFR-1. Selecting TRAIN suggests `BIRFR1-TRN` and the TRAINING rights class. DCO-000002 separately allows COMMERCIALIZE because its Rights Passport explicitly grants that action.
+
+ENTITY now also includes a built-in `entity-profile:software-engineering@1.0` domain/profile and a `software-engineering` implementation package. This domain supports software repositories, source code, libraries, applications, algorithms, build artifacts, test evidence and engineering-control DCOs. It maps SPDX-3, CycloneDX and SLSA as non-normative interoperability mappings; the profile does not create authority or regulatory status.
+
+Ten active legacy ENGINEERING_CONTROL DCOs that previously carried only the Global profile were migrated by issuing new immutable Global Passport versions with the Software Engineering profile. Existing passports remain preserved. The migration did not change DCO IDs, controllers, Rights Passport IDs/hashes, evidence, provenance or economic state. The wallet now resolves all 12 current BTG assets to explicit domains: 10 Software Engineering and 2 Robotics.
+
+The Software Engineering profile is distributed as a pre-signed canonical profile record under `protocol/profiles`. Clean installations verify its `entity.entity` signature and import it at runtime; they do not mint or re-sign canonical profiles locally. This preserves the public-key-only trust boundary on new devices.
+
+
+## Final 2026-10-03 wallet qualification and publication state
+
+The complete focused wallet/economy/lineage/onboarding/global-passport campaign was rerun from a clean committed worktree and passed **91/91** immediately before the final Windows package was rebuilt.
+
+Wallet implementation baseline:
+
+`212ee56d34aee578e6df701ef9f9a675661b7162`
+`wallet: add software engineering domain and canonical instrument rights`
+
+The final locally installed Windows package from that baseline passed its frozen-runtime self-test and has SHA-256:
+
+`4F360D9F2C9DC51600B2C5D76FAA09364ADEF6762255D17F4DC528BDF3C069DD`
+
+The production-state domain verification resolved all 12 current wallet assets:
+
+- **10 Software Engineering**;
+- **2 Robotics**;
+- **0 missing domains**.
+
+The repository now includes [cross-platform build documentation](ENTITY_WALLET_CROSS_PLATFORM_BUILDS_20261003.md) and CI artifacts for Windows, Linux and macOS desktop wallets plus a native Xcode-built iOS Simulator portable-snapshot client.
+
+The iOS client is intentionally not represented as a native port of the Python authority runtime. Canonical identity, signing, DCO registration, Rights/Global Passport issuance, economic-instrument issuance, listing, orders and settlement mutations remain authoritative ENTITY runtime operations until a separately qualified native iOS authority implementation exists.
