@@ -143,3 +143,38 @@ def test_retired_dco_factory_master_is_not_current_wallet_asset():
         fdb.commit(); fdb.close()
         w=m.EntityEconomicWallet(state); wr=w.ensure_wallet("OWNER","Owner Wallet")
         assert w.snapshot(wr["wallet_id"])["assets"]==[]
+
+
+def test_dco_factory_current_object_hides_superseded_same_hash_registration():
+    m=load("wallet_current_registration_view_test","src/42_ENTITY_Wallet/canonical_wallet.py")
+    with tempfile.TemporaryDirectory() as td:
+        state=Path(td); dbp=state/"entity_v3"/"universal_fabric.sqlite"; dbp.parent.mkdir(parents=True)
+        db=sqlite3.connect(dbp)
+        db.execute("""CREATE TABLE objects(object_id TEXT PRIMARY KEY,controller_entity_id TEXT,object_type TEXT,
+                    title TEXT,content_sha256 TEXT,descriptor_json TEXT,status TEXT,created_at_ms INTEGER,signature_json TEXT)""")
+        db.execute("""CREATE TABLE provenance_edges(edge_id TEXT PRIMARY KEY,parent_object_id TEXT,child_object_id TEXT,
+                    relation TEXT,contribution_bps INTEGER,evidence_json TEXT,actor_entity_id TEXT,created_at_ms INTEGER,signature_json TEXT)""")
+        old_desc=json.dumps({"digital_commodity":True,"commodity_class":"ROBOTICS_FAILURE_DETECTION_ALGORITHM",
+                             "measurement_unit":"GOVERNED_RIGHT_UNIT","metadata":{"dco_code":"DCO-000002"}})
+        current_desc=json.dumps({"digital_commodity":True,"commodity_class":"ROBOTICS_FAILURE_DETECTION_ALGORITHM",
+                                 "measurement_unit":"ASSET","metadata":{"dco_code":"DCO-000002","registration_revision":2}})
+        content="6"*64
+        db.execute("INSERT INTO objects VALUES(?,?,?,?,?,?,?,?,?)",
+                   ("obj-old","OWNER","DATASET","Failure Detector",content,old_desc,"ACTIVE",1,"{}"))
+        db.execute("INSERT INTO objects VALUES(?,?,?,?,?,?,?,?,?)",
+                   ("obj-current","OWNER","ALGORITHM","Failure Detector",content,current_desc,"ACTIVE",2,"{}"))
+        db.commit(); db.close()
+        fdbp=state/"dco_factory"/"entity_dco_factory.sqlite"; fdbp.parent.mkdir(parents=True)
+        fdb=sqlite3.connect(fdbp)
+        fdb.execute("""CREATE TABLE dco_masters(dco_id TEXT,template_id TEXT,family TEXT,source_sha256 TEXT,
+                     provenance_root TEXT,semantic_fingerprint TEXT,version TEXT,lifecycle TEXT,
+                     master_json TEXT,created_at_ms INTEGER)""")
+        master=json.dumps({"metadata":{"dco_object_id":"obj-current","registration_revision":2}})
+        fdb.execute("INSERT INTO dco_masters VALUES(?,?,?,?,?,?,?,?,?,?)",
+                    ("DCO-000002","T","ROBOTICS",content,None,None,"1","ACTIVE",master,1))
+        fdb.commit(); fdb.close()
+        w=m.EntityEconomicWallet(state); wr=w.ensure_wallet("OWNER","Owner Wallet")
+        assets=w.snapshot(wr["wallet_id"])["assets"]
+        assert [x["object_id"] for x in assets]==["obj-current"]
+        assert assets[0]["object_type"]=="ALGORITHM"
+        assert assets[0]["dco_id"]=="DCO-000002"
