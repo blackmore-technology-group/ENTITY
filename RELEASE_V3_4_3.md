@@ -29,6 +29,16 @@ Causal tracing now validates both endpoints before traversal. Missing or empty e
 - v3.4.2 remains immutable historical evidence.
 - Production state and the active 30-day wall-clock qualification were not modified.
 
+## Post-tag wallet application layer on main
+
+The immutable `v3.4.3` tag remains the bounded remediation release described above. Subsequent main-branch application-layer work adds the ENTITY Data Economy Terminal without changing the Protocol 1.0 freeze or silently rewriting the historical tag.
+
+The current wallet application layer includes sovereign first-run identity/device onboarding, DCO asset holdings, signed asset disclosures, issuer-scoped instruments/tickers, Rights-Passport-driven instrument issuance, the Software Engineering domain/profile and cross-platform wallet builds.
+
+The final focused wallet/economy/lineage/onboarding/global-passport campaign completed on 2026-10-03 at **91/91 PASS**. Production-state verification resolved 12 current assets to explicit domains: 10 Software Engineering and 2 Robotics.
+
+See `docs/v3.4/ENTITY_WALLET_20261002.md` and `docs/v3.4/ENTITY_WALLET_CROSS_PLATFORM_BUILDS_20261003.md`.
+
 ## Claim boundary
 
 This release is limited to the two reproduced Issue #28 defects. It does not establish external settlement, payment, legal-entitlement, fair-value, or broader economic-causality claims beyond the qualified behavior above.

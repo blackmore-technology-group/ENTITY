@@ -171,7 +171,7 @@ The PySide6 build continues to preserve:
 - listing/market activity does not imply intrinsic DCO value;
 - BTDU, ADAM and NIKI do not create ownership.
 
-The 2026-10-03 desktop/economy/lineage regression campaign passed **84/84** before the Qt package was built. The packaged Windows executable then passed a production-state frozen-runtime self-test with exit code 0.
+An **earlier 2026-10-03 checkpoint** of the desktop/economy/lineage regression campaign passed **84/84** before the Qt package was built; later wallet changes expanded the focused qualification to the final 91/91 campaign recorded below. The packaged Windows executable then passed a production-state frozen-runtime self-test with exit code 0.
 
 
 ## Signed Asset Disclosure and Listing Information Sheet v2 — 2026-10-03
@@ -234,7 +234,7 @@ Rules:
 
 Production verification confirmed that BIRFR-1 exposes its allowed actions (BENCHMARK, CERTIFY, COMPUTE, DERIVE, EVALUATE, FINE_TUNE, INFER, OEM_DEPLOY, TRAIN) and does not expose COMMERCIALIZE, while the Blackmore Real-Time Failure Detection Engine does expose COMMERCIALIZE because that action is present in its Rights Passport.
 
-The complete wallet/economy/lineage/onboarding/market qualification campaign passed **89/89** after this change. The installed Windows executable then passed its frozen-runtime production self-test.
+That **intermediate rights-driven checkpoint** of the wallet/economy/lineage/onboarding/market qualification campaign passed **89/89** after this change; later Software Engineering/profile packaging work expanded the final focused campaign to 91/91 as recorded below. The installed Windows executable then passed its frozen-runtime production self-test.
 
 
 ## Rights-Passport-driven instrument issuance and Software Engineering domain — 2026-10-03
@@ -248,3 +248,27 @@ ENTITY now also includes a built-in `entity-profile:software-engineering@1.0` do
 Ten active legacy ENGINEERING_CONTROL DCOs that previously carried only the Global profile were migrated by issuing new immutable Global Passport versions with the Software Engineering profile. Existing passports remain preserved. The migration did not change DCO IDs, controllers, Rights Passport IDs/hashes, evidence, provenance or economic state. The wallet now resolves all 12 current BTG assets to explicit domains: 10 Software Engineering and 2 Robotics.
 
 The Software Engineering profile is distributed as a pre-signed canonical profile record under `protocol/profiles`. Clean installations verify its `entity.entity` signature and import it at runtime; they do not mint or re-sign canonical profiles locally. This preserves the public-key-only trust boundary on new devices.
+
+
+## Final 2026-10-03 wallet qualification and publication state
+
+The complete focused wallet/economy/lineage/onboarding/global-passport campaign was rerun from a clean committed worktree and passed **91/91** immediately before the final Windows package was rebuilt.
+
+Wallet implementation baseline:
+
+`212ee56d34aee578e6df701ef9f9a675661b7162`
+`wallet: add software engineering domain and canonical instrument rights`
+
+The final locally installed Windows package from that baseline passed its frozen-runtime self-test and has SHA-256:
+
+`4F360D9F2C9DC51600B2C5D76FAA09364ADEF6762255D17F4DC528BDF3C069DD`
+
+The production-state domain verification resolved all 12 current wallet assets:
+
+- **10 Software Engineering**;
+- **2 Robotics**;
+- **0 missing domains**.
+
+The repository now includes [cross-platform build documentation](ENTITY_WALLET_CROSS_PLATFORM_BUILDS_20261003.md) and CI artifacts for Windows, Linux and macOS desktop wallets plus a native Xcode-built iOS Simulator portable-snapshot client.
+
+The iOS client is intentionally not represented as a native port of the Python authority runtime. Canonical identity, signing, DCO registration, Rights/Global Passport issuance, economic-instrument issuance, listing, orders and settlement mutations remain authoritative ENTITY runtime operations until a separately qualified native iOS authority implementation exists.
