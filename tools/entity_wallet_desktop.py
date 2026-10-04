@@ -1,6 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
-import argparse, html, importlib.util, json, os, sqlite3, sys, uuid
+import argparse, hashlib, html, importlib.util, json, os, sqlite3, sys, uuid
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
@@ -54,6 +54,15 @@ def startup_stylesheet() -> str:
         selection-background-color: {ACCENT_DARK};
     }}
     QLineEdit:focus, QComboBox:focus {{ border-color: {ACCENT}; }}
+    QListWidget {{
+        background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER}; border-radius: 6px;
+        outline: none; padding: 4px;
+    }}
+    QListWidget::item {{
+        background: {PANEL_2}; color: {TEXT}; padding: 8px 7px; border-bottom: 1px solid #1D232B;
+    }}
+    QListWidget::item:hover {{ background: #1A2027; color: {TEXT}; }}
+    QListWidget::item:selected {{ background: #2A251A; color: {TEXT}; }}
     QCheckBox {{ spacing: 8px; }}
     """
 
@@ -886,6 +895,10 @@ class InstrumentDialog(QtWidgets.QDialog):
 
         self.namespace = QtWidgets.QLineEdit(namespace or "")
         self.symbol = QtWidgets.QLineEdit("")
+        self.symbol.setReadOnly(True)
+        self.symbol.setToolTip(
+            "Generated automatically from the current DCO identity, selected Rights Passport action(s), and series."
+        )
         self.name = QtWidgets.QLineEdit("")
         self.iclass = QtWidgets.QComboBox()
         self.iclass.addItems([
@@ -911,6 +924,8 @@ class InstrumentDialog(QtWidgets.QDialog):
             item = QtWidgets.QListWidgetItem(text)
             item.setData(QtCore.Qt.UserRole, action)
             item.setFlags(item.flags() | QtCore.Qt.ItemIsUserCheckable)
+            item.setForeground(QtGui.QBrush(QtGui.QColor(TEXT)))
+            item.setBackground(QtGui.QBrush(QtGui.QColor(PANEL_2)))
             item.setCheckState(QtCore.Qt.Unchecked)
             tip = []
             if conditions:
@@ -945,7 +960,7 @@ class InstrumentDialog(QtWidgets.QDialog):
         for label, widget in [
             ("Instrument name", self.name),
             ("Issuer namespace", self.namespace),
-            ("Display ticker / symbol", self.symbol),
+            ("Automatic ticker / symbol", self.symbol),
             ("EEP class", self.iclass),
             ("Rights class", self.rclass),
             ("Rights Passport actions", self.actions),
@@ -981,8 +996,8 @@ class InstrumentDialog(QtWidgets.QDialog):
         self.preview = Ui.label("", "tickerPreview")
         layout.addWidget(self.preview)
         self.namespace.textChanged.connect(self._preview)
-        self.symbol.textChanged.connect(self._preview)
         self.actions.itemChanged.connect(self._rights_changed)
+        self.series.valueChanged.connect(lambda _value: self._rights_changed())
 
         buttons = QtWidgets.QHBoxLayout()
         buttons.addStretch()
@@ -1031,6 +1046,25 @@ class InstrumentDialog(QtWidgets.QDialog):
             base = initials if len(initials) >= 3 else "".join(useful)[:10]
         return base[:10] or "ASSET"
 
+    def _generated_symbol(self, actions):
+        actions = [str(a).strip().upper() for a in (actions or []) if str(a).strip()]
+        if not actions:
+            return ""
+        metas = [self.ACTION_META.get(a, (a.replace("_", " ").title(), a[:5], a)) for a in actions]
+        base = self._base_symbol()
+        if len(actions) == 1:
+            suffix = metas[0][1]
+            symbol = f"{base}-{suffix}"
+        else:
+            readable = "-".join(m[1] for m in metas)
+            symbol = f"{base}-{readable}"
+            if len(symbol) > 26:
+                digest = hashlib.sha256("|".join(sorted(actions)).encode("utf-8")).hexdigest()[:6].upper()
+                symbol = f"{base}-BND-{digest}"
+        if self.series.value() > 1:
+            symbol += f"-S{self.series.value()}"
+        return symbol[:32]
+
     def _rights_changed(self, item=None):
         if self._updating:
             return
@@ -1045,18 +1079,17 @@ class InstrumentDialog(QtWidgets.QDialog):
 
         metas = [self.ACTION_META.get(a, (a.replace("_", " ").title(), a[:5], a)) for a in actions]
         if len(actions) == 1:
-            label, suffix, rights_class = metas[0]
+            label, _suffix, rights_class = metas[0]
             rights_name = f"{label} Rights"
             self.rclass.setText(rights_class)
         else:
             labels = [m[0] for m in metas]
-            suffix = "-".join(m[1] for m in metas[:3])
             rights_name = " + ".join(labels) + " Rights"
             self.rclass.setText("BUNDLED_RIGHTS")
 
         title = str(self.asset.get("title") or "Asset")
         self.name.setText(f"{title} {rights_name}")
-        self.symbol.setText(f"{self._base_symbol()}-{suffix}"[:24])
+        self.symbol.setText(self._generated_symbol(actions))
         receives = []
         for action in actions:
             detail = self.rights_profile["allowed"].get(action, {})
@@ -1089,14 +1122,17 @@ class InstrumentDialog(QtWidgets.QDialog):
                 "The selected actions are no longer a valid subset of the current Rights Passport."
             )
             return
-        if not self.symbol.text().strip() or not self.name.text().strip():
-            QtWidgets.QMessageBox.warning(self, "Instrument", "Instrument name and ticker are required.")
+        symbol = self._generated_symbol(actions)
+        self.symbol.setText(symbol)
+        self._preview()
+        if not symbol or not self.name.text().strip():
+            QtWidgets.QMessageBox.warning(self, "Instrument", "Instrument name and automatic ticker are required.")
             return
 
         self.result_data = {
             "name": self.name.text().strip(),
             "namespace": self.namespace.text().strip(),
-            "symbol": self.symbol.text().strip().upper(),
+            "symbol": symbol,
             "instrument_class": self.iclass.currentText(),
             "rights_class": self.rclass.text().strip(),
             "actions": actions,
@@ -1949,6 +1985,15 @@ class WalletWindow(QtWidgets.QMainWindow):
             background: {PANEL_2}; border: 1px solid {BORDER}; border-radius: 5px; padding: 7px; selection-background-color: {ACCENT_DARK};
         }}
         QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QPlainTextEdit:focus {{ border-color: {ACCENT}; }}
+        QListWidget {{
+            background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER}; border-radius: 6px;
+            outline: none; padding: 4px;
+        }}
+        QListWidget::item {{
+            background: {PANEL_2}; color: {TEXT}; padding: 8px 7px; border-bottom: 1px solid #1D232B;
+        }}
+        QListWidget::item:hover {{ background: #1A2027; color: {TEXT}; }}
+        QListWidget::item:selected {{ background: #2A251A; color: {TEXT}; }}
         QDialog {{ background: {ROOT_BG}; }}
         QTextBrowser[class="detail"] {{ background: {PANEL_BG}; border: 1px solid {BORDER}; border-radius: 7px; padding: 14px; }}
         QSplitter::handle {{ background: {ROOT_BG}; width: 8px; height: 8px; }}
