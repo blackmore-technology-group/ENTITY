@@ -1,5 +1,5 @@
 {
-  "based_on_local_commit": "68179328a2b87408af93a5caa1c64312e70247be",
+  "based_on_local_commit": "dedd47eb032b5a95d88f092cf3346298ca3011eb",
   "claim_boundaries": [
     "development conformance evidence is not a released protocol qualification",
     "signature cryptography remains governed by the ENTITY identity layer",
@@ -34,7 +34,7 @@
   "files": [
     {
       "path": "src/31_Profiles/exchange_protocol.py",
-      "sha256": "53761f15c7ae58726ce8cd01a28164d3a14ae29aac38a89859c408fc3c76b14a"
+      "sha256": "fa3c040b31d9cfd7ab37daddeb2c904f52f03a4fc110d77bdd8067fa1b9d547b"
     },
     {
       "path": "src/32_V3_Hardening/exchange_protocol.py",
@@ -99,7 +99,7 @@
     "RFQ executions preserve a deterministic venue-signed source binding to signed RFQ, quote and acceptance records"
   ],
   "schema": "entity-v3-eep-conformance-manifest-v1",
-  "snapshot_sha256": "65224aa97bde5456c4079097a37284ce6e023f3e1c635f25456683c74e3df91a",
+  "snapshot_sha256": "5d9ad374f4bfdce3181166a057d18b8bcca0ad966a1518f461967ad2a23ef18f",
   "status": "BTG_INTERNAL_QUALIFIED_RELEASE_COMPONENT",
   "version": "3.0.0",
   "working_tree_snapshot": false

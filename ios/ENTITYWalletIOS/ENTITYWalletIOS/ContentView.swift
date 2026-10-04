@@ -144,7 +144,7 @@ private struct AssetDetail: View {
                     .textSelection(.enabled)
             }
 
-            Section("Issuable Rights Passport actions") {
+            Section {
                 if asset.rightsActions.isEmpty {
                     Text("No directly issuable ALLOW actions were present in the imported snapshot.")
                         .foregroundStyle(.secondary)
@@ -153,6 +153,8 @@ private struct AssetDetail: View {
                         Label(action, systemImage: "checkmark.shield")
                     }
                 }
+            } header: {
+                Text("Issuable Rights Passport actions")
             } footer: {
                 Text("Economic instruments may select only a subset of actions already authorized by the active Rights Passport. The mobile client does not create new authority.")
             }
