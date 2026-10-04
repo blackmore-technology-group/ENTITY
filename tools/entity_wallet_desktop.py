@@ -889,8 +889,20 @@ class InstrumentDialog(QtWidgets.QDialog):
     def __init__(self, parent, asset, namespace, rights_profile):
         super().__init__(parent)
         self.setWindowTitle("Issue Economic Instrument")
-        self.resize(780, 820)
-        self.setMinimumSize(720, 700)
+        self.setMinimumSize(620, 520)
+        screen = QtWidgets.QApplication.screenAt(QtGui.QCursor.pos()) or QtWidgets.QApplication.primaryScreen()
+        if screen is not None:
+            available = screen.availableGeometry()
+            target_w = min(800, max(620, available.width() - 100))
+            target_h = min(760, max(520, available.height() - 120))
+            self.resize(target_w, target_h)
+            self.move(
+                available.left() + max(0, (available.width() - target_w) // 2),
+                available.top() + max(0, (available.height() - target_h) // 2),
+            )
+        else:
+            self.resize(760, 680)
+        self.setSizeGripEnabled(True)
         self.result_data = None
         self.asset = asset
         self.rights_profile = rights_profile
@@ -929,9 +941,23 @@ class InstrumentDialog(QtWidgets.QDialog):
             warning.setWordWrap(True)
             layout.addWidget(warning)
 
+        scroll = QtWidgets.QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QtWidgets.QFrame.NoFrame)
+        scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        scroll.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+
+        scroll_host = QtWidgets.QWidget()
+        scroll_layout = QtWidgets.QVBoxLayout(scroll_host)
+        scroll_layout.setContentsMargins(0, 0, 8, 0)
+        scroll_layout.setSpacing(12)
+        scroll.setWidget(scroll_host)
+        layout.addWidget(scroll, 1)
+
         form = QtWidgets.QFormLayout()
         form.setLabelAlignment(QtCore.Qt.AlignLeft)
         form.setFieldGrowthPolicy(QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
+        form.setRowWrapPolicy(QtWidgets.QFormLayout.WrapLongRows)
 
         self.namespace = QtWidgets.QLineEdit(namespace or "")
         self.symbol = QtWidgets.QLineEdit("")
@@ -955,7 +981,7 @@ class InstrumentDialog(QtWidgets.QDialog):
         )
 
         self.actions = QtWidgets.QListWidget()
-        self.actions.setMinimumHeight(190)
+        self.actions.setMinimumHeight(150)
         self.actions.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
         for action in rights_profile["allowed_actions"]:
             detail = rights_profile["allowed"].get(action, {})
@@ -1021,7 +1047,7 @@ class InstrumentDialog(QtWidgets.QDialog):
             ("Buyer does NOT receive", self.excludes),
         ]:
             form.addRow(label, widget)
-        layout.addLayout(form)
+        scroll_layout.addLayout(form)
 
         excluded = []
         if rights_profile["prohibited_actions"]:
@@ -1037,25 +1063,35 @@ class InstrumentDialog(QtWidgets.QDialog):
                 note = Ui.label(line, "muted")
                 note.setWordWrap(True)
                 bl.addWidget(note)
-            layout.addWidget(boundary)
+            scroll_layout.addWidget(boundary)
 
         self.preview = Ui.label("", "tickerPreview")
-        layout.addWidget(self.preview)
+        scroll_layout.addWidget(self.preview)
+        scroll_layout.addStretch()
         self.namespace.textChanged.connect(self._preview)
         self.actions.itemChanged.connect(self._rights_changed)
         self.rclass.currentIndexChanged.connect(self._rights_class_changed)
         self.series.valueChanged.connect(lambda _value: self._rights_class_changed())
 
         buttons = QtWidgets.QHBoxLayout()
+        buttons.setContentsMargins(0, 8, 0, 0)
         buttons.addStretch()
         cancel = Ui.button("Cancel")
         create = Ui.button("Issue instrument", True)
+        cancel.setMinimumHeight(40)
+        create.setMinimumHeight(40)
+        create.setDefault(True)
+        create.setAutoDefault(True)
         create.setEnabled(bool(rights_profile["allowed_actions"]))
         cancel.clicked.connect(self.reject)
         create.clicked.connect(self.accept_data)
         buttons.addWidget(cancel)
         buttons.addWidget(create)
         layout.addLayout(buttons)
+
+        self.form_scroll = scroll
+        self.cancel_button = cancel
+        self.issue_button = create
 
         self._rights_changed()
 
