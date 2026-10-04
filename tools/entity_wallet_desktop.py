@@ -942,12 +942,56 @@ class InstrumentDialog(QtWidgets.QDialog):
             layout.addWidget(warning)
 
         scroll = QtWidgets.QScrollArea()
+        scroll.setObjectName("instrumentScrollArea")
         scroll.setWidgetResizable(True)
         scroll.setFrameShape(QtWidgets.QFrame.NoFrame)
         scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         scroll.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
 
+        scroll.viewport().setObjectName("instrumentScrollViewport")
         scroll_host = QtWidgets.QWidget()
+        scroll_host.setObjectName("instrumentScrollHost")
+
+        dark_palette = scroll_host.palette()
+        dark_palette.setColor(QtGui.QPalette.Window, QtGui.QColor(ROOT_BG))
+        dark_palette.setColor(QtGui.QPalette.Base, QtGui.QColor(ROOT_BG))
+        dark_palette.setColor(QtGui.QPalette.Text, QtGui.QColor(TEXT))
+        dark_palette.setColor(QtGui.QPalette.WindowText, QtGui.QColor(TEXT))
+        scroll.viewport().setPalette(dark_palette)
+        scroll.viewport().setAutoFillBackground(True)
+        scroll_host.setPalette(dark_palette)
+        scroll_host.setAutoFillBackground(True)
+
+        scroll.setStyleSheet(f"""
+            QScrollArea#instrumentScrollArea {{
+                background: {ROOT_BG};
+                border: none;
+            }}
+            QWidget#instrumentScrollViewport,
+            QWidget#instrumentScrollHost {{
+                background: {ROOT_BG};
+                color: {TEXT};
+            }}
+            QScrollBar:vertical {{
+                background: {ROOT_BG};
+                width: 12px;
+                margin: 0;
+            }}
+            QScrollBar::handle:vertical {{
+                background: #303844;
+                min-height: 30px;
+                border-radius: 5px;
+            }}
+            QScrollBar::add-line:vertical,
+            QScrollBar::sub-line:vertical {{
+                height: 0;
+            }}
+            QScrollBar::add-page:vertical,
+            QScrollBar::sub-page:vertical {{
+                background: transparent;
+            }}
+        """)
+
         scroll_layout = QtWidgets.QVBoxLayout(scroll_host)
         scroll_layout.setContentsMargins(0, 0, 8, 0)
         scroll_layout.setSpacing(12)
