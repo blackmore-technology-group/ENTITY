@@ -54,6 +54,10 @@ def startup_stylesheet() -> str:
         selection-background-color: {ACCENT_DARK};
     }}
     QLineEdit:focus, QComboBox:focus {{ border-color: {ACCENT}; }}
+    QComboBox QAbstractItemView {{
+        background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER};
+        selection-background-color: #2A251A; selection-color: {TEXT}; outline: none;
+    }}
     QListWidget {{
         background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER}; border-radius: 6px;
         outline: none; padding: 4px;
@@ -167,6 +171,41 @@ class Backend:
 
     def asset_disclosure(self, object_id: str) -> dict | None:
         return self.market_registry.latest_asset_disclosure(object_id)
+
+    def instrument_product_plan(self, object_id: str) -> list[dict]:
+        """Return the DCO factory's governed instrument plan for this current asset."""
+        obj = self.asset_record(object_id)
+        descriptor = obj.get("descriptor") or {}
+        metadata = descriptor.get("metadata") or {}
+        dco_code = str(metadata.get("dco_code") or "").strip()
+        source_sha256 = str(obj.get("content_sha256") or "").strip()
+        dbp = self.state / "dco_factory" / "entity_dco_factory.sqlite"
+        if not dbp.exists():
+            return []
+        db = sqlite3.connect(dbp)
+        db.row_factory = sqlite3.Row
+        try:
+            row = None
+            if dco_code:
+                row = db.execute(
+                    "SELECT master_json FROM dco_masters WHERE dco_id=? LIMIT 1",
+                    (dco_code,),
+                ).fetchone()
+            if row is None and source_sha256:
+                row = db.execute(
+                    "SELECT master_json FROM dco_masters WHERE source_sha256=? ORDER BY created_at_ms DESC LIMIT 1",
+                    (source_sha256,),
+                ).fetchone()
+        finally:
+            db.close()
+        if not row:
+            return []
+        try:
+            master = json.loads(row["master_json"] or "{}")
+        except (TypeError, ValueError, json.JSONDecodeError):
+            return []
+        physical = ((master.get("plan") or {}).get("physical_instruments") or [])
+        return [dict(x) for x in physical if isinstance(x, dict)]
 
     def publish_asset_disclosure(self, object_id: str, options: dict) -> dict:
         return self.market_registry.publish_asset_disclosure(
@@ -855,6 +894,7 @@ class InstrumentDialog(QtWidgets.QDialog):
         self.result_data = None
         self.asset = asset
         self.rights_profile = rights_profile
+        self.instrument_plan = [dict(x) for x in (asset.get("instrument_plan") or []) if isinstance(x, dict)]
         self._updating = False
 
         layout = QtWidgets.QVBoxLayout(self)
@@ -900,13 +940,19 @@ class InstrumentDialog(QtWidgets.QDialog):
             "Generated automatically from the current DCO identity, selected Rights Passport action(s), and series."
         )
         self.name = QtWidgets.QLineEdit("")
+        self.name.setReadOnly(True)
+        self.name.setToolTip(
+            "Generated from the DCO's canonical asset name and the selected governed Rights Class."
+        )
         self.iclass = QtWidgets.QComboBox()
         self.iclass.addItems([
             "SPOT_LICENSE","SUBSCRIPTION","COMPUTE_TO_DATA",
             "PROCUREMENT","CONTRIBUTION","SECONDARY_LICENSE"
         ])
-        self.rclass = QtWidgets.QLineEdit("")
-        self.rclass.setReadOnly(True)
+        self.rclass = QtWidgets.QComboBox()
+        self.rclass.setToolTip(
+            "Rights Classes come from this DCO's governed instrument plan and are filtered by the selected Rights Passport actions."
+        )
 
         self.actions = QtWidgets.QListWidget()
         self.actions.setMinimumHeight(190)
@@ -958,7 +1004,7 @@ class InstrumentDialog(QtWidgets.QDialog):
         self.excludes.setMinimumHeight(70)
 
         for label, widget in [
-            ("Instrument name", self.name),
+            ("Automatic instrument name", self.name),
             ("Issuer namespace", self.namespace),
             ("Automatic ticker / symbol", self.symbol),
             ("EEP class", self.iclass),
@@ -997,7 +1043,8 @@ class InstrumentDialog(QtWidgets.QDialog):
         layout.addWidget(self.preview)
         self.namespace.textChanged.connect(self._preview)
         self.actions.itemChanged.connect(self._rights_changed)
-        self.series.valueChanged.connect(lambda _value: self._rights_changed())
+        self.rclass.currentIndexChanged.connect(self._rights_class_changed)
+        self.series.valueChanged.connect(lambda _value: self._rights_class_changed())
 
         buttons = QtWidgets.QHBoxLayout()
         buttons.addStretch()
@@ -1010,7 +1057,7 @@ class InstrumentDialog(QtWidgets.QDialog):
         buttons.addWidget(create)
         layout.addLayout(buttons)
 
-        self._preview()
+        self._rights_changed()
 
     def selected_actions(self):
         return [
@@ -1046,21 +1093,137 @@ class InstrumentDialog(QtWidgets.QDialog):
             base = initials if len(initials) >= 3 else "".join(useful)[:10]
         return base[:10] or "ASSET"
 
-    def _generated_symbol(self, actions):
-        actions = [str(a).strip().upper() for a in (actions or []) if str(a).strip()]
-        if not actions:
-            return ""
-        metas = [self.ACTION_META.get(a, (a.replace("_", " ").title(), a[:5], a)) for a in actions]
-        base = self._base_symbol()
-        if len(actions) == 1:
-            suffix = metas[0][1]
-            symbol = f"{base}-{suffix}"
+    @staticmethod
+    def _token(value):
+        text = "".join(ch if ch.isalnum() else "_" for ch in str(value or "").upper())
+        return "_".join(part for part in text.split("_") if part)
+
+    def _plan_option(self, plan):
+        archetype = self._token(plan.get("archetype"))
+        variant = self._token(plan.get("variant"))
+        if not archetype:
+            return None
+        value = archetype + (f"_{variant}" if variant else "")
+        label = archetype.replace("_", " ").title()
+        if variant:
+            label += f" · {str(plan.get('variant')).upper()}"
+        return {"value": value, "label": label, "plan": dict(plan)}
+
+    def _eligible_plan_options(self):
+        allowed = {self._token(a) for a in self.rights_profile.get("allowed_actions") or []}
+        prohibited = {self._token(a) for a in self.rights_profile.get("prohibited_actions") or []}
+        options = []
+        seen = set()
+        for plan in self.instrument_plan:
+            plan_actions = {self._token(a) for a in (plan.get("actions") or []) if self._token(a)}
+            if not plan_actions or not plan_actions.issubset(allowed) or plan_actions & prohibited:
+                continue
+            option = self._plan_option(plan)
+            if not option or option["value"] in seen:
+                continue
+            seen.add(option["value"])
+            option["plan_actions"] = sorted(plan_actions)
+            options.append(option)
+        options.sort(key=lambda x: x["label"])
+        return options
+
+    def _matching_plan_options(self, actions):
+        selected = {self._token(a) for a in actions if self._token(a)}
+        if not selected:
+            return []
+        return [
+            option for option in self._eligible_plan_options()
+            if selected == set(option.get("plan_actions") or [])
+        ]
+
+    def _populate_rights_classes(self, actions):
+        previous = self._selected_rights_class()
+        self.rclass.blockSignals(True)
+        self.rclass.clear()
+        if self.instrument_plan:
+            options = self._eligible_plan_options()
+            self.rclass.addItem("Choose governed Rights Class", None)
+            for option in options:
+                self.rclass.addItem(option["label"], option)
+            self.rclass.setEnabled(bool(options))
+            matches = self._matching_plan_options(actions)
+            selected_index = 0
+            if previous:
+                for i in range(1, self.rclass.count()):
+                    data = self.rclass.itemData(i)
+                    if (
+                        isinstance(data, dict)
+                        and data.get("value") == previous
+                        and any(m.get("value") == previous for m in matches)
+                    ):
+                        selected_index = i
+                        break
+            if selected_index == 0 and len(matches) == 1:
+                target = matches[0]["value"]
+                for i in range(1, self.rclass.count()):
+                    data = self.rclass.itemData(i)
+                    if isinstance(data, dict) and data.get("value") == target:
+                        selected_index = i
+                        break
+            self.rclass.setCurrentIndex(selected_index)
+        elif not actions:
+            self.rclass.addItem("Select Rights Passport action(s) first", None)
+            self.rclass.setEnabled(False)
         else:
-            readable = "-".join(m[1] for m in metas)
-            symbol = f"{base}-{readable}"
-            if len(symbol) > 26:
-                digest = hashlib.sha256("|".join(sorted(actions)).encode("utf-8")).hexdigest()[:6].upper()
-                symbol = f"{base}-BND-{digest}"
+            self.rclass.setEnabled(True)
+            metas = [self.ACTION_META.get(a, (a.replace("_", " ").title(), a[:5], a)) for a in actions]
+            if len(actions) == 1:
+                label, _suffix, value = metas[0]
+                option = {"value": self._token(value), "label": f"{label} Rights", "plan": None}
+            else:
+                option = {"value": "BUNDLED_RIGHTS", "label": "Bundled Rights", "plan": None}
+            self.rclass.addItem(option["label"], option)
+        self.rclass.blockSignals(False)
+
+    def _selected_rights_class(self):
+        data = self.rclass.currentData()
+        if isinstance(data, dict):
+            return str(data.get("value") or "").strip().upper()
+        return ""
+
+    def _selected_plan(self):
+        data = self.rclass.currentData()
+        if isinstance(data, dict) and isinstance(data.get("plan"), dict):
+            return data["plan"]
+        return None
+
+    def _rights_class_code(self, rights_class):
+        rc = self._token(rights_class)
+        known = {
+            "EVALUATION": "EVL", "RUNTIME_USE": "RUN", "INFERENCE": "INF",
+            "TRAINING": "TRN", "COMPUTE_TO_DATA": "CTD", "ENTERPRISE_API": "API",
+            "COMMERCIAL_DERIVATIVE": "CDR", "OEM_EMBEDDED": "OEM",
+            "FIELD_OF_USE": "FOU", "REDISTRIBUTION": "RED",
+            "SYNTHETIC_DERIVED_DATA": "SDD", "CONTRIBUTOR_PARTICIPATION": "CTR",
+            "COMMERCIAL": "COM", "DERIVATIVE": "DER", "EXECUTION": "EXE",
+            "CONTROL": "CTL", "ACCESS": "ACC", "INSPECTION": "INSP",
+            "BUNDLED_RIGHTS": "BND",
+        }
+        if rc.startswith("REGIONAL_EXCLUSIVITY_"):
+            region = rc[len("REGIONAL_EXCLUSIVITY_"):]
+            return f"REX-{region.replace('_', '-')}"
+        if rc in known:
+            return known[rc]
+        words = [x for x in rc.split("_") if x]
+        if not words:
+            return "RGT"
+        if len(words) == 1:
+            return words[0][:5]
+        initials = "".join(w[0] for w in words)
+        return initials[:5] or "RGT"
+
+    def _generated_symbol(self, actions=None):
+        rights_class = self._selected_rights_class()
+        if not rights_class:
+            return ""
+        base = self._base_symbol()
+        suffix = self._rights_class_code(rights_class)
+        symbol = f"{base}-{suffix}"
         if self.series.value() > 1:
             symbol += f"-S{self.series.value()}"
         return symbol[:32]
@@ -1069,27 +1232,7 @@ class InstrumentDialog(QtWidgets.QDialog):
         if self._updating:
             return
         actions = self.selected_actions()
-        if not actions:
-            self.rclass.setText("")
-            self.name.setText("")
-            self.symbol.setText("")
-            self.receives.setPlainText("")
-            self._preview()
-            return
-
-        metas = [self.ACTION_META.get(a, (a.replace("_", " ").title(), a[:5], a)) for a in actions]
-        if len(actions) == 1:
-            label, _suffix, rights_class = metas[0]
-            rights_name = f"{label} Rights"
-            self.rclass.setText(rights_class)
-        else:
-            labels = [m[0] for m in metas]
-            rights_name = " + ".join(labels) + " Rights"
-            self.rclass.setText("BUNDLED_RIGHTS")
-
-        title = str(self.asset.get("title") or "Asset")
-        self.name.setText(f"{title} {rights_name}")
-        self.symbol.setText(self._generated_symbol(actions))
+        self._populate_rights_classes(actions)
         receives = []
         for action in actions:
             detail = self.rights_profile["allowed"].get(action, {})
@@ -1100,6 +1243,55 @@ class InstrumentDialog(QtWidgets.QDialog):
                 line += " (subject to passport obligations)"
             receives.append(line)
         self.receives.setPlainText("\n".join(receives))
+        self._rights_class_changed()
+
+    def _rights_class_changed(self, _index=None):
+        rights_class = self._selected_rights_class()
+        data = self.rclass.currentData()
+        plan = self._selected_plan()
+        if rights_class and plan:
+            target_actions = {self._token(a) for a in (plan.get("actions") or []) if self._token(a)}
+            current_actions = {self._token(a) for a in self.selected_actions()}
+            if current_actions != target_actions:
+                self._updating = True
+                try:
+                    for i in range(self.actions.count()):
+                        item = self.actions.item(i)
+                        action = self._token(item.data(QtCore.Qt.UserRole))
+                        item.setCheckState(
+                            QtCore.Qt.Checked if action in target_actions else QtCore.Qt.Unchecked
+                        )
+                finally:
+                    self._updating = False
+
+        actions = self.selected_actions()
+        if not actions or not rights_class or not isinstance(data, dict):
+            self.name.setText("")
+            self.symbol.setText("")
+            self.receives.setPlainText("")
+            self._preview()
+            return
+
+        receives = []
+        for action in actions:
+            detail = self.rights_profile["allowed"].get(action, {})
+            line = f"{action} right under the current Rights Passport"
+            if detail.get("conditions"):
+                line += " (subject to passport conditions)"
+            if detail.get("obligations"):
+                line += " (subject to passport obligations)"
+            receives.append(line)
+        self.receives.setPlainText("\n".join(receives))
+
+        if plan:
+            eep_class = str(plan.get("eep_class") or "").strip().upper()
+            idx = self.iclass.findText(eep_class)
+            if idx >= 0:
+                self.iclass.setCurrentIndex(idx)
+        title = str(self.asset.get("title") or "Asset").strip()
+        rights_label = str(data.get("label") or rights_class.replace("_", " ").title()).strip()
+        self.name.setText(f"{title} — {rights_label} Rights")
+        self.symbol.setText(self._generated_symbol(actions))
         self._preview()
 
     def _preview(self):
@@ -1122,11 +1314,28 @@ class InstrumentDialog(QtWidgets.QDialog):
                 "The selected actions are no longer a valid subset of the current Rights Passport."
             )
             return
+        rights_class = self._selected_rights_class()
+        if not rights_class:
+            QtWidgets.QMessageBox.warning(
+                self, "Rights Class",
+                "Choose a governed Rights Class that matches the selected Rights Passport actions."
+            )
+            return
+        plan = self._selected_plan()
+        if plan:
+            selected = {self._token(a) for a in actions}
+            plan_actions = {self._token(a) for a in (plan.get("actions") or [])}
+            if not selected.issubset(plan_actions):
+                QtWidgets.QMessageBox.critical(
+                    self, "Rights Class",
+                    "The selected Rights Class does not authorize the selected Rights Passport action set."
+                )
+                return
         symbol = self._generated_symbol(actions)
         self.symbol.setText(symbol)
         self._preview()
         if not symbol or not self.name.text().strip():
-            QtWidgets.QMessageBox.warning(self, "Instrument", "Instrument name and automatic ticker are required.")
+            QtWidgets.QMessageBox.warning(self, "Instrument", "Automatic instrument identity could not be generated.")
             return
 
         self.result_data = {
@@ -1134,7 +1343,7 @@ class InstrumentDialog(QtWidgets.QDialog):
             "namespace": self.namespace.text().strip(),
             "symbol": symbol,
             "instrument_class": self.iclass.currentText(),
-            "rights_class": self.rclass.text().strip(),
+            "rights_class": rights_class,
             "actions": actions,
             "supply": self.supply.value(),
             "currency": self.currency.text().strip(),
@@ -1826,9 +2035,10 @@ class WalletWindow(QtWidgets.QMainWindow):
             obj = self.backend.asset_record(asset["object_id"])
             metadata = ((obj.get("descriptor") or {}).get("metadata") or {})
             dialog_asset["short_name"] = metadata.get("short_name")
-            dialog_asset["dco_code"] = metadata.get("dco_code")
+            dialog_asset["dco_code"] = metadata.get("dco_code") or asset.get("dco_id")
+            dialog_asset["instrument_plan"] = self.backend.instrument_product_plan(asset["object_id"])
         except Exception:
-            pass
+            dialog_asset["instrument_plan"] = []
         d = InstrumentDialog(self, dialog_asset, self.backend.namespace(), rights_profile)
         if d.exec() != QtWidgets.QDialog.Accepted:
             return
@@ -1985,6 +2195,10 @@ class WalletWindow(QtWidgets.QMainWindow):
             background: {PANEL_2}; border: 1px solid {BORDER}; border-radius: 5px; padding: 7px; selection-background-color: {ACCENT_DARK};
         }}
         QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QPlainTextEdit:focus {{ border-color: {ACCENT}; }}
+        QComboBox QAbstractItemView {{
+            background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER};
+            selection-background-color: #2A251A; selection-color: {TEXT}; outline: none;
+        }}
         QListWidget {{
             background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER}; border-radius: 6px;
             outline: none; padding: 4px;
