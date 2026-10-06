@@ -81,7 +81,7 @@ jobs:
           -q
       - name: Build desktop wallet
         run: python tools/build_entity_wallet_desktop.py
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ${{ matrix.artifact }}
           if-no-files-found: error
@@ -115,7 +115,7 @@ jobs:
           APP="build/ios/Build/Products/Release-iphonesimulator/ENTITYWalletIOS.app"
           test -d "$APP"
           ditto -c -k --sequesterRsrc --keepParent "$APP" dist/ENTITY-Wallet-iOS-Simulator.zip
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ENTITY-Wallet-iOS-Simulator
           if-no-files-found: error
