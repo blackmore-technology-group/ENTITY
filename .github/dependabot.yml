@@ -9,7 +9,6 @@ updates:
       timezone: "America/Vancouver"
     open-pull-requests-limit: 10
     labels:
-      - "dependencies"
       - "security"
 
   - package-ecosystem: "github-actions"
@@ -21,5 +20,4 @@ updates:
       timezone: "America/Vancouver"
     open-pull-requests-limit: 10
     labels:
-      - "dependencies"
       - "security"
