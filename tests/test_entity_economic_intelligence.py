@@ -44,6 +44,13 @@ def test_settlement_aware_instrument_metrics_and_rollups():
             rights={"actions":["TRAIN"]},supply=100,rights_passport_id="rp",global_passport_id="gp",
             settlement_currency="CAD",jurisdiction="CA",namespace="ACME",transferable=True,
             buyer_receives=["AI training right"],buyer_does_not_receive=["dataset ownership"])
+        reg.publish_asset_disclosure(
+            issuer,asset["object_id"],
+            description="Weather Data 2026 is a governed weather dataset offered for bounded AI training rights.",
+            purpose="Provide buyer-facing disclosure required before market listing.",
+            intended_uses=["AI training where permitted by the Rights Passport"],
+            limitations=["Instrument purchase does not transfer dataset ownership"],
+        )
         reg.create_listing(issuer,ins["instrument_id"],venue["venue_id"],market_id="ENTITY-PRIMARY",
             quote_unit="CAD",minimum_quantity=1,pricing_method="ORDER_BOOK")
         now=2_000_000_000_000

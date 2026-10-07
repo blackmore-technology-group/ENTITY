@@ -1,0 +1,75 @@
+{
+  "schema": "entity-btdu-huntar-formulation-qualification-v1",
+  "date": "2026-10-04",
+  "corpus": {
+    "description": "HUNTAR script/config/validation source corpus",
+    "files": 762,
+    "bytes": 10103319,
+    "tree_manifest_sha256": "e2d6100f157226a74082b76139a58d89a60657e2bf876094a53e81f5f6416b47",
+    "python_files": 491
+  },
+  "shared_btdu_basis": {
+    "code_tokens": 36724,
+    "english_lemmas": 127814,
+    "math_terms": 84266,
+    "code_root": "daf988e0ea24e9f068429c5940107d5ddbfba96dbde85fcb267df90df648e34d",
+    "english_root": "45721758813c3a076873e86e2f237da93839a866963e99ddc4eaf9694f0f17b6",
+    "math_root": "342f6f98d9f1e3f4aabd5425d8d843fc04df87aaa218d713f2682b155634f406"
+  },
+  "optimized_recipe": {
+    "bytes": 1021315,
+    "sha256": "d9eeb282e1d83febd27c24a28c3aa3655ca9ee95b4138ec87013d99e1bd060ef",
+    "physical_codec": "lzma-xz-preset9",
+    "shared_basis_bytes_referenced": 2288388,
+    "shared_basis_fraction": 0.22649863871466397,
+    "local_reuse_bytes": 6715517,
+    "local_reuse_fraction": 0.6646842488097229,
+    "residual_literal_bytes": 1099414,
+    "residual_literal_fraction": 0.10881711247561321
+  },
+  "storage": {
+    "original_bytes": 10103319,
+    "recipe_bytes": 1021315,
+    "bytes_saved": 9082004,
+    "retained_fraction": 0.1010870784145289,
+    "reduction_fraction": 0.8989129215854711,
+    "reduction_percent": 89.89129215854712
+  },
+  "controls": {
+    "zip_deflate9_bytes": 1947036,
+    "zip_reduction_fraction": 0.8072874864190669,
+    "whole_stream_zlib9_bytes": 1550004,
+    "whole_stream_zlib9_reduction_fraction": 0.8465846718291287,
+    "whole_stream_lzma9_bytes": 898768,
+    "whole_stream_lzma9_reduction_fraction": 0.9110423020395575,
+    "note": "Current BTDU formulation is smaller than ZIP and whole-stream zlib, but larger than whole-stream raw-corpus LZMA. The proof is reconstructive/shared-basis storage, not a universal compression superiority claim."
+  },
+  "reconstruction": {
+    "pass": true,
+    "files_verified": 762,
+    "bytes_verified": 10103319,
+    "tree_manifest_match": true,
+    "python_syntax_pass": 491,
+    "python_syntax_failures": 0,
+    "staging_source_present_before_reconstruction": false,
+    "old_recipe_present_before_reconstruction": false,
+    "zip_control_present_before_reconstruction": false,
+    "decoder_inputs": [
+      "optimized BTDU recipe",
+      "pre-existing BTDU shared basis"
+    ]
+  },
+  "regression": {
+    "targeted_passed": 16,
+    "targeted_skipped": 11,
+    "targeted_failed": 0
+  },
+  "claim_boundary": {
+    "proves_exact_huntar_script_reconstruction_without_persisting_conventional_script_files": true,
+    "proves_btdu_recipe_can_be_primary_reconstructive_representation_for_this_corpus": true,
+    "proves_universal_arbitrary_data_reduction": false,
+    "proves_model_weight_or_media_reduction": false,
+    "source_information_eliminated": false,
+    "explanation": "Unique information remains encoded in the shared basis, local formulation dictionary, and residual literal content. The result removes conventional HUNTAR script-file storage as the authoritative representation; it does not violate the information-theoretic requirement to retain unique information."
+  }
+}

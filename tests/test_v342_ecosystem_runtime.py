@@ -47,7 +47,7 @@ class FederatedEcosystemTests(unittest.TestCase):
     def test_two_install_encrypted_btdu_and_signed_trade(self):
         pong=self.node_a.request('buyer.example.entity','participant-v342',{'operation':'STATUS'}); self.assertTrue(pong['result']['ready']); self.assertTrue(pong['direct_encrypted_session']); self.assertFalse(pong['dns_used'])
         ctx=self.node_b.request('venue.example.entity','btdu-v342',{'operation':'CONTEXT','object_ref':self.btdu_object['object_ref']})['result']
-        self.assertFalse(ctx['raw_content_included']); self.assertFalse(ctx['authority_transferred_to_niki']); self.assertIn('atomized_as',ctx['context'])
+        self.assertFalse(ctx['raw_content_included']); self.assertFalse(ctx['authority_transferred_to_niki']); self.assertIn('formulated_as',ctx['context']); self.assertNotIn('atomized_as',ctx['context'])
         self.exchange.submit_order(self.venue['venue_id'],self.instrument['instrument_id'],self.owner,'SELL',10,50,nonce='seller-local')
         order={'schema':'entity-eep-order-v1','order_id':'remote-buy-1','venue_id':self.venue['venue_id'],'instrument_id':self.instrument['instrument_id'],'participant':self.buyer,'side':'BUY','quantity':10,'limit_price':50,'tif':'GTC','nonce':'buyer-remote','created_at_ms':int(time.time()*1000)}
         signature=self.b_identity.sign(self.buyer,order)
