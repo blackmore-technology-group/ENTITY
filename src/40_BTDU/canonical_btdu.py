@@ -3,17 +3,20 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable, Mapping, Iterable
 from contextlib import contextmanager
-import hashlib, json, mimetypes, os, sqlite3, subprocess, sys, time, threading
+import gc, hashlib, json, mimetypes, os, sqlite3, subprocess, sys, time, threading
 
 HERE=Path(__file__).resolve().parent
 SRC=HERE.parent
+if str(HERE) not in sys.path: sys.path.insert(0,str(HERE))
+from storage_kernel import BTDUStorageKernel, STORAGE_VERSION as BTDU_STORAGE_VERSION, STORAGE_SCHEMA as BTDU_STORAGE_SCHEMA
+from formula_kernel import BTDUFormulaKernel, FORMULA_VERSION as BTDU_FORMULA_VERSION, FORMULA_SCHEMA as BTDU_FORMULA_SCHEMA
 FULL_ADAM_RUNTIME=SRC/"11_ADAM"/"full_runtime"
 if str(FULL_ADAM_RUNTIME) not in sys.path: sys.path.insert(0,str(FULL_ADAM_RUNTIME))
 from canonical_full_adam_runtime import EntityFullAdamRuntime
 
 BTDU_VERSION="3.4.2"
 BTDU_SCHEMA="blackmore-technology-data-universe-v1"
-BTDU_BUILD_REVISION="v3.4.3+btdu-orientation-math-code-english.bridge-concurrency.20261002"
+BTDU_BUILD_REVISION="v3.4.3+btdu-reconstructive-formula.one-authoritative-payload.20261004"
 BTDU_CANONICAL_OWNER_ENTITY_ID="ent2-6eoiiztjyhmyh2tbr5psmofcduwvjledubhoiqwo6mjfoqkn6ica"
 BTDU_CANONICAL_OWNER_ALIAS="shawn.blackmore.entity"
 BTG_STEWARD_ENTITY_ID="ent2-kkov66eoh23h3zgr4pe4njsbkayn2kxad6vfyirqvuqrty52clpa"
@@ -109,12 +112,18 @@ class BlackmoreTechnologyDataUniverse:
     BTDU adds governed information topology and derived query indexes. NIKI receives only
     bounded projections. Mirrored lineage never creates ownership or entitlement itself.
     """
-    def __init__(self,state_dir:str|Path,*,authorization_verifier:Callable[[Mapping[str,Any]],bool],sovereign_entity_id:str,protocol_entity_id:str=ENTITY_PROTOCOL_ENTITY_ID,steward_entity_id:str=BTG_STEWARD_ENTITY_ID,enable_network_reference:bool=False):
+    def __init__(self,state_dir:str|Path,*,authorization_verifier:Callable[[Mapping[str,Any]],bool],sovereign_entity_id:str,protocol_entity_id:str=ENTITY_PROTOCOL_ENTITY_ID,steward_entity_id:str=BTG_STEWARD_ENTITY_ID,enable_network_reference:bool=False,storage_encryption_key:bytes|None=None):
         if authorization_verifier is None: raise ValueError("ENTITY authorization verifier is required")
         if not str(sovereign_entity_id).startswith(("ent1-","ent2-")): raise ValueError("sovereign Entity ID required")
         self.root=Path(state_dir); self.root.mkdir(parents=True,exist_ok=True)
         self._write_lock=threading.RLock()
         self.authorization_verifier=authorization_verifier; self.sovereign_entity_id=str(sovereign_entity_id); self.protocol_entity_id=str(protocol_entity_id); self.steward_entity_id=str(steward_entity_id)
+        if storage_encryption_key is None:
+            raw_key=os.environ.get("BTDU_STORAGE_MASTER_KEY_HEX")
+            if raw_key:
+                storage_encryption_key=bytes.fromhex(raw_key)
+        self.storage=BTDUStorageKernel(self.root/"storage",encryption_key=storage_encryption_key)
+        self.formulas=BTDUFormulaKernel(self.root/"formula",reservoir=self.storage,encryption_key=storage_encryption_key)
         self.runtime=EntityFullAdamRuntime(self.root/"adam",authorization_verifier=authorization_verifier,enable_network_reference=enable_network_reference)
         self.atomic=self.runtime.atomic; self.evidence=self.runtime.evidence; self.db_path=self.root/"btdu_index.sqlite"
         self._init_db(); self._load_adam_extensions(); self._load_orientation_layer(); self._ensure_root()
@@ -152,11 +161,29 @@ class BlackmoreTechnologyDataUniverse:
             CREATE TABLE IF NOT EXISTS economic_nodes(node_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL UNIQUE,node_kind TEXT NOT NULL,metadata_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS economic_edges(edge_id TEXT PRIMARY KEY,source_ref TEXT NOT NULL,predicate TEXT NOT NULL,target_ref TEXT NOT NULL,source_atom_id TEXT NOT NULL,target_atom_id TEXT NOT NULL,bond_id TEXT NOT NULL,evidence_sha256 TEXT,metadata_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS repository_manifests(manifest_id TEXT PRIMARY KEY,repository_path TEXT NOT NULL,git_commit_sha1 TEXT,git_tree_sha1 TEXT,tracked_files INTEGER NOT NULL,aggregate_sha256 TEXT NOT NULL,atomic_root TEXT NOT NULL,manifest_json TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS object_payloads(object_ref TEXT PRIMARY KEY,storage_object_id TEXT NOT NULL,manifest_sha256 TEXT NOT NULL,merkle_root TEXT NOT NULL,chunk_count INTEGER NOT NULL,authoritative INTEGER NOT NULL DEFAULT 1,migrated_from_legacy INTEGER NOT NULL DEFAULT 0,bound_at_ms INTEGER NOT NULL);
+            CREATE INDEX IF NOT EXISTS idx_object_payload_storage ON object_payloads(storage_object_id);
+            CREATE TABLE IF NOT EXISTS object_formulas(object_ref TEXT PRIMARY KEY,formula_object_id TEXT NOT NULL,formula_sha256 TEXT NOT NULL,root_node_id TEXT NOT NULL,authoritative INTEGER NOT NULL DEFAULT 1,migrated_from_legacy INTEGER NOT NULL DEFAULT 0,bound_at_ms INTEGER NOT NULL);
+            CREATE INDEX IF NOT EXISTS idx_object_formula_id ON object_formulas(formula_object_id);
             CREATE TABLE IF NOT EXISTS language_nodes(node_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL,node_kind TEXT NOT NULL,language TEXT,value_text TEXT,metadata_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS language_relations(relation_ref TEXT PRIMARY KEY,source_ref TEXT NOT NULL,predicate TEXT NOT NULL,target_ref TEXT NOT NULL,bond_id TEXT,metadata_json TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS english_lemmas(lemma_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL,lemma TEXT NOT NULL,pos TEXT NOT NULL,synset_count INTEGER NOT NULL);
             CREATE TABLE IF NOT EXISTS semantic_bridges(concept_ref TEXT PRIMARY KEY,math_operator TEXT NOT NULL,code_token_ref TEXT NOT NULL,english_refs_json TEXT NOT NULL,metadata_json TEXT NOT NULL,bridge_hash TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS semantic_bridge_manifests(manifest_id TEXT PRIMARY KEY,manifest_json TEXT NOT NULL,authorization_json TEXT NOT NULL,created_at_ms INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS primitive_byte_atoms(
+              byte_value INTEGER PRIMARY KEY CHECK(byte_value>=0 AND byte_value<=255),
+              atom_id TEXT NOT NULL UNIQUE,
+              atom_sha256 TEXT NOT NULL UNIQUE,
+              installed_at_ms INTEGER NOT NULL);
+            CREATE TABLE IF NOT EXISTS directory_assets(
+              asset_ref TEXT PRIMARY KEY,atom_id TEXT NOT NULL UNIQUE,
+              owner_lineage TEXT NOT NULL,owner_entity_id TEXT NOT NULL,
+              controller_entity_id TEXT NOT NULL,tree_sha256 TEXT NOT NULL,
+              metadata_sha256 TEXT NOT NULL,formula_sha256 TEXT NOT NULL,
+              entropy_storage_root TEXT NOT NULL,source_bytes INTEGER NOT NULL,
+              file_count INTEGER NOT NULL,descriptor_json TEXT NOT NULL,
+              registered_at_ms INTEGER NOT NULL);
+            CREATE INDEX IF NOT EXISTS idx_directory_assets_lineage ON directory_assets(owner_lineage,owner_entity_id);
             CREATE INDEX IF NOT EXISTS idx_language_relation_bridge ON language_relations(predicate,source_ref,target_ref);
             CREATE INDEX IF NOT EXISTS idx_btdu_object_sha ON objects(content_sha256);
             CREATE INDEX IF NOT EXISTS idx_btdu_edge_source ON edges(source_ref,predicate);
@@ -181,6 +208,163 @@ class BlackmoreTechnologyDataUniverse:
                 aid=self.atomic.atom_id(kind,value,metadata); ids.append(aid)
                 if aid not in self.atomic.atoms: ops.append({"op":"put_atom","atom_id":aid,"kind":kind,"value":value,"metadata":metadata})
             self._commit(ops,metadata={"btdu":reason,"count":len(ops)}); return ids
+    def install_primitive_byte_atom_universe(self,authorization_receipt:Mapping[str,Any])->dict[str,Any]:
+        """Install the 256 exact computing-byte atoms into canonical BTDU/ADAM state.
+
+        These atoms are universal infrastructure, not asset payload. Asset recipes may
+        reference them or higher-level compounds built from them, while conventional
+        files remain temporary materializations only.
+        """
+        self._authorize(authorization_receipt)
+        specs=[]
+        for value in range(256):
+            # Preserve the original BTDU primitive identity established by the
+            # production universe: kind='byte', value=0..255, fixed metadata.
+            # This reproduces the exact same content-addressed atom IDs in a
+            # successor universe rather than creating a parallel primitive set.
+            atom_value=value
+            metadata={"btdu_primitive":True,"width":8}
+            specs.append(("byte",atom_value,metadata))
+        atom_ids=self._put_atoms(specs,reason="install_primitive_byte_atom_universe")
+        rows=[]
+        for value,atom_id in enumerate(atom_ids):
+            atom_sha=sha256({"kind":"byte","value":value,"metadata":{"btdu_primitive":True,"width":8}})
+            rows.append((value,atom_id,atom_sha,now_ms()))
+        with self._db() as db:
+            db.executemany("INSERT OR REPLACE INTO primitive_byte_atoms(byte_value,atom_id,atom_sha256,installed_at_ms) VALUES(?,?,?,?)",rows)
+        root=sha256({"schema":"entity-btdu-primitive-byte-universe-root-v1",
+                     "atoms":[[value,atom_id] for value,atom_id in enumerate(atom_ids)]})
+        return {"schema":"entity-btdu-primitive-byte-universe-install-v1","pass":len(atom_ids)==256,
+                "count":len(atom_ids),"root":root,"atom_ids":atom_ids,
+                "conventional_payload_required":False}
+
+    def primitive_byte_atom_summary(self)->dict[str,Any]:
+        with self._db() as db:
+            rows=[dict(r) for r in db.execute("SELECT byte_value,atom_id,atom_sha256 FROM primitive_byte_atoms ORDER BY byte_value")]
+        return {"schema":"entity-btdu-primitive-byte-universe-summary-v1",
+                "installed":len(rows)==256,"count":len(rows),
+                "root":sha256({"schema":"entity-btdu-primitive-byte-universe-root-v1",
+                               "atoms":[[int(r["byte_value"]),str(r["atom_id"])] for r in rows]}) if rows else None}
+
+    def canonical_formula_basis(self)->dict[str,Any]:
+        """Return canonical semantic compounds by BTDU atom identity, not external lists."""
+        with self._db() as db:
+            code=[dict(r) for r in db.execute("""SELECT atom_id,value_text FROM language_nodes
+                WHERE node_kind='code_token' AND value_text IS NOT NULL ORDER BY atom_id""")]
+            english=[dict(r) for r in db.execute("""SELECT atom_id,lower(lemma) lemma FROM english_lemmas
+                WHERE lemma IS NOT NULL ORDER BY atom_id""")]
+            math=[dict(r) for r in db.execute("""SELECT atom_id,name FROM math_terms
+                WHERE name IS NOT NULL ORDER BY atom_id""")]
+        def dedupe(rows,value_key,max_bytes):
+            by_value={}
+            for r in rows:
+                raw=str(r[value_key]).encode("utf-8")
+                if not raw or len(raw)>max_bytes: continue
+                aid=str(r["atom_id"])
+                prev=by_value.get(raw)
+                if prev is None or aid<prev: by_value[raw]=aid
+            ordered=sorted(((aid,raw) for raw,aid in by_value.items()),key=lambda x:x[0])
+            root=sha256({"schema":"entity-btdu-canonical-compound-basis-v1",
+                         "entries":[[aid,raw.hex()] for aid,raw in ordered]})
+            return ordered,root
+        code_rows,code_root=dedupe(code,"value_text",256)
+        english_rows,english_root=dedupe(english,"lemma",128)
+        math_rows,math_root=dedupe(math,"name",256)
+        return {"schema":"entity-btdu-canonical-formula-basis-v1",
+                "primitive_bytes":self.primitive_byte_atom_summary(),
+                "code":{"count":len(code_rows),"root":code_root,"entries":code_rows},
+                "english":{"count":len(english_rows),"root":english_root,"entries":english_rows},
+                "math":{"count":len(math_rows),"root":math_root,"entries":math_rows},
+                "basis_is_canonical_atom_identity":True,
+                "external_payload_reference_required":False}
+
+    def register_directory_asset(self,descriptor:Mapping[str,Any],authorization_receipt:Mapping[str,Any])->dict[str,Any]:
+        """Register a BTDU directory formula under the current sovereign lineage."""
+        self._authorize(authorization_receipt)
+        doc=dict(descriptor)
+        if str(doc.get("schema"))!="entity-btdu-directory-asset-v1":
+            raise ValueError("unsupported directory asset descriptor")
+        required=("asset_ref","owner_lineage","owner_entity_id","controller_entity_id",
+                  "tree_sha256","metadata_sha256","formula_sha256","entropy_storage_root",
+                  "source_bytes","file_count")
+        missing=[k for k in required if doc.get(k) is None]
+        if missing:
+            raise ValueError("directory asset descriptor missing: "+",".join(missing))
+        if str(doc["owner_entity_id"])!=self.sovereign_entity_id:
+            raise PermissionError("directory asset owner does not match this sovereign ENTITY identity")
+        value={
+            "schema":"entity-btdu-directory-asset-registration-v1",
+            "asset_ref":str(doc["asset_ref"]),
+            "tree_sha256":str(doc["tree_sha256"]),
+            "metadata_sha256":str(doc["metadata_sha256"]),
+            "formula_sha256":str(doc["formula_sha256"]),
+            "entropy_storage_root":str(doc["entropy_storage_root"]),
+            "source_bytes":int(doc["source_bytes"]),
+            "file_count":int(doc["file_count"]),
+        }
+        asset_atom=self._put_atom("btdu_directory_asset",value,{
+            "formula_only":True,"conventional_payload_required":False,
+            "temporary_materialization_only":True,
+            "registration_does_not_create_ownership":True,
+        })
+        lineage_ref="btdu-lineage:"+sha256({"lineage":str(doc["owner_lineage"])})
+        lineage_atom=self._put_atom("btdu_lineage_ref",{
+            "lineage":str(doc["owner_lineage"]),
+            "entity_id":str(doc["owner_entity_id"]),
+        },{"asserted_by_entity":self.sovereign_entity_id})
+        bond_id=self._bond(
+            asset_atom,"registered_under_lineage",lineage_atom,
+            source_ref=str(doc["asset_ref"]),target_ref=lineage_ref,
+            context="BTDU_DIRECTORY_ASSET_LINEAGE",
+            metadata={
+                "owner_entity_id":str(doc["owner_entity_id"]),
+                "controller_entity_id":str(doc["controller_entity_id"]),
+                "does_not_create_ownership":True,
+            })
+        with self._db() as db:
+            db.execute("""INSERT OR REPLACE INTO directory_assets(
+                asset_ref,atom_id,owner_lineage,owner_entity_id,controller_entity_id,
+                tree_sha256,metadata_sha256,formula_sha256,entropy_storage_root,
+                source_bytes,file_count,descriptor_json,registered_at_ms)
+                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)""",(
+                str(doc["asset_ref"]),asset_atom,str(doc["owner_lineage"]),
+                str(doc["owner_entity_id"]),str(doc["controller_entity_id"]),
+                str(doc["tree_sha256"]),str(doc["metadata_sha256"]),
+                str(doc["formula_sha256"]),str(doc["entropy_storage_root"]),
+                int(doc["source_bytes"]),int(doc["file_count"]),
+                json.dumps(doc,sort_keys=True,separators=(",",":"),ensure_ascii=False),
+                now_ms()))
+        return {
+            "schema":"entity-btdu-directory-asset-registration-receipt-v1",
+            "asset_ref":str(doc["asset_ref"]),"asset_atom_id":asset_atom,
+            "lineage":str(doc["owner_lineage"]),"owner_entity_id":str(doc["owner_entity_id"]),
+            "lineage_bond_id":bond_id,"tree_sha256":str(doc["tree_sha256"]),
+            "formula_sha256":str(doc["formula_sha256"]),
+            "entropy_storage_root":str(doc["entropy_storage_root"]),
+            "source_bytes":int(doc["source_bytes"]),"file_count":int(doc["file_count"]),
+            "conventional_payload_required":False,
+            "temporary_materialization_only":True,
+        }
+
+    def directory_asset_binding(self,asset_ref:str)->dict[str,Any]:
+        with self._db() as db:
+            row=db.execute("SELECT * FROM directory_assets WHERE asset_ref=?",(str(asset_ref),)).fetchone()
+        if row is None:
+            raise KeyError(asset_ref)
+        return {
+            "schema":"entity-btdu-directory-asset-binding-v1",
+            "asset_ref":str(row["asset_ref"]),"asset_atom_id":str(row["atom_id"]),
+            "owner_lineage":str(row["owner_lineage"]),
+            "owner_entity_id":str(row["owner_entity_id"]),
+            "controller_entity_id":str(row["controller_entity_id"]),
+            "tree_sha256":str(row["tree_sha256"]),
+            "metadata_sha256":str(row["metadata_sha256"]),
+            "formula_sha256":str(row["formula_sha256"]),
+            "entropy_storage_root":str(row["entropy_storage_root"]),
+            "source_bytes":int(row["source_bytes"]),"file_count":int(row["file_count"]),
+            "conventional_payload_required":False,
+        }
+
     def _bond(self,source_atom_id:str,predicate:str,target_atom_id:str,*,source_ref:str,target_ref:str,context:str,metadata:dict[str,Any])->str:
         with self._write_lock:
             bid,op=self.atomic.bond_op(source_atom_id,str(predicate),target_atom_id,context=str(context),metadata=dict(metadata))
@@ -190,7 +374,7 @@ class BlackmoreTechnologyDataUniverse:
 
     def _ensure_root(self):
         root_ref=f"btdu:{self.sovereign_entity_id}"
-        rows=[("btdu_root",{"schema":BTDU_SCHEMA,"version":BTDU_VERSION,"root_ref":root_ref,"sovereign_entity_id":self.sovereign_entity_id,"protocol_entity_id":self.protocol_entity_id,"steward_entity_id":self.steward_entity_id},{"authority_model":"ENTITY","state_engine":"ADAM","advisory_reasoner":"NIKI","raw_compression_replacement":False}),
+        rows=[("btdu_root",{"schema":BTDU_SCHEMA,"version":BTDU_VERSION,"root_ref":root_ref,"sovereign_entity_id":self.sovereign_entity_id,"protocol_entity_id":self.protocol_entity_id,"steward_entity_id":self.steward_entity_id},{"authority_model":"ENTITY","state_engine":"ADAM","advisory_reasoner":"NIKI","primary_payload_model":"RECONSTRUCTIVE_FORMULA","conventional_bulk_storage_replacement":True}),
               ("entity_ref",{"entity_id":self.sovereign_entity_id},{"role":"sovereign_authority"}),
               ("entity_ref",{"entity_id":self.protocol_entity_id},{"role":"protocol_origin"}),
               ("entity_ref",{"entity_id":self.steward_entity_id},{"role":"steward"})]
@@ -200,6 +384,7 @@ class BlackmoreTechnologyDataUniverse:
         self._bond(self.root_atom_id,"uses_protocol",self.protocol_atom_id,source_ref=root_ref,target_ref=self.protocol_entity_id,context="BTDU_PROTOCOL",metadata=boundary)
         self._bond(self.protocol_atom_id,"stewarded_by",self.steward_atom_id,source_ref=self.protocol_entity_id,target_ref=self.steward_entity_id,context="BTDU_PROTOCOL",metadata=boundary)
         self.install_genesis_contract()
+        self.install_storage_contract()
 
     def install_genesis_contract(self)->dict[str,Any]:
         pids=self._put_atoms([("btdu_genesis_primitive",{"name":n},{"immutable_semantic":True}) for n in GENESIS_PRIMITIVES],reason="genesis_primitives")
@@ -208,6 +393,27 @@ class BlackmoreTechnologyDataUniverse:
         for aid,n in zip(pids,GENESIS_PRIMITIVES): self._bond(self.root_atom_id,"preserves_genesis_primitive",aid,source_ref=f"btdu:{self.sovereign_entity_id}",target_ref=n,context="BTDU_GENESIS_INVARIANT",metadata=md)
         for i in range(len(mids)-1): self._bond(mids[i],"precedes",mids[i+1],source_ref=GENESIS_MARKET_LIFECYCLE[i],target_ref=GENESIS_MARKET_LIFECYCLE[i+1],context="BTDU_GENESIS_MARKET_LIFECYCLE",metadata=md)
         return {"schema":"entity-btdu-genesis-contract-v1","primitives":list(GENESIS_PRIMITIVES),"market_lifecycle":list(GENESIS_MARKET_LIFECYCLE),"btdu_is_additive":True}
+
+    def install_storage_contract(self)->dict[str,Any]:
+        contract={"schema":"entity-btdu-storage-contract-v2",
+                  "formula_schema":BTDU_FORMULA_SCHEMA,"formula_version":BTDU_FORMULA_VERSION,
+                  "entropy_reservoir_schema":BTDU_STORAGE_SCHEMA,"entropy_reservoir_version":BTDU_STORAGE_VERSION,
+                  "one_authoritative_payload":True,"unlimited_semantic_views":True,
+                  "primary_payload_model":"RECONSTRUCTIVE_FORMULA",
+                  "formula_is_authority":True,"latent_occurrence_bonds":True,
+                  "temporary_materialization_only":True,
+                  "conventional_bulk_storage_required":False,
+                  "irreducible_entropy_reservoir_only":True,
+                  "raw_payload_bytes_in_adam_journal":False,
+                  "legacy_exact_representations":"read-only migration compatibility"}
+        aid=self._put_atom("btdu_storage_contract",contract,
+                           {"authoritative_payload_contract":True,"additive_to_genesis":True})
+        self._bond(self.root_atom_id,"formulates_payloads_under",aid,
+                   source_ref=f"btdu:{self.sovereign_entity_id}",target_ref="btdu-formula-kernel:v1",
+                   context="BTDU_STORAGE_AUTHORITY",
+                   metadata={"one_authoritative_payload":True,"semantic_views_unlimited":True,
+                             "formula_is_authority":True,"rights_created":False,"ownership_created":False})
+        return dict(contract,atom_id=aid)
 
     def materialize_primitive_bytes(self,authorization_receipt:Mapping[str,Any])->dict[str,Any]:
         self._authorize(authorization_receipt)
@@ -241,36 +447,107 @@ class BlackmoreTechnologyDataUniverse:
             return b"".join(walk(m["ref"]) for m in sorted(comp.members,key=lambda x:x["order"]))
         return walk(str(compound_id))
 
-    def ingest_bytes(self,*,logical_path:str,data:bytes,authorization_receipt:Mapping[str,Any],source_entity_id:str,controller_entity_id:str,rights_holder_entity_id:str|None=None,provenance_ref:str,media_type:str="application/octet-stream")->dict[str,Any]:
-        self._authorize(authorization_receipt); raw=bytes(data); content_sha=sha256(raw)
-        exact=self.evidence.ingest_evidence(raw,media_type=str(media_type),name=Path(str(logical_path)).name or "btdu-object")
-        encoded=self.encode_exact_bytes(str(logical_path),raw,authorization_receipt,chunk_size=4096)
-        object_ref="btdu-object:"+sha256({"logical_path":str(logical_path).replace("\\","/"),"content_sha256":content_sha,"source_entity_id":str(source_entity_id)})
-        value={"schema":"entity-btdu-object-v1","object_ref":object_ref,"logical_path":str(logical_path).replace("\\","/"),"content_sha256":content_sha,"size_bytes":len(raw),"evidence_object_id":exact.object_id,"exact_compound_id":encoded["compound_id"],"media_type":str(media_type)}
-        object_atom=self._put_atom("btdu_object",value,{"exact_content_externalized":True})
+    def _formula_atom(self,formula:Mapping[str,Any])->str:
+        value={"schema":"entity-btdu-formula-reference-v1",
+               "formula_object_id":str(formula["formula_object_id"]),
+               "content_sha256":str(formula["content_sha256"]),
+               "size_bytes":int(formula["size_bytes"]),
+               "root_node_id":str(formula["root_node_id"]),
+               "formula_sha256":str(formula["formula_sha256"]),
+               "unit_count":int(formula["unit_count"])}
+        return self._put_atom("btdu_formula",value,
+            {"authoritative_payload":True,"formula_kernel":BTDU_FORMULA_VERSION,
+             "raw_bytes_embedded_in_adam":False,"semantic_views_unlimited":True,
+             "latent_occurrence_bonds":True})
+
+    def _bind_object_formula(self,object_ref:str,object_atom:str,formula:Mapping[str,Any],*,migrated_from_legacy:bool=False)->str:
+        formula_atom=self._formula_atom(formula)
+        md={"authoritative_payload":True,"one_authoritative_payload":True,
+            "formula_is_authority":True,"semantic_views_unlimited":True,
+            "latent_occurrence_bonds":True,"migrated_from_legacy":bool(migrated_from_legacy),
+            "raw_bytes_embedded_in_adam":False}
+        self._bond(object_atom,"formulated_as",formula_atom,source_ref=str(object_ref),
+                   target_ref=str(formula["formula_object_id"]),context="BTDU_RECONSTRUCTIVE_FORMULA",metadata=md)
+        with self._db() as db:
+            db.execute("""INSERT OR REPLACE INTO object_formulas(
+                object_ref,formula_object_id,formula_sha256,root_node_id,
+                authoritative,migrated_from_legacy,bound_at_ms) VALUES(?,?,?,?,?,?,?)""",
+                (str(object_ref),str(formula["formula_object_id"]),str(formula["formula_sha256"]),
+                 str(formula["root_node_id"]),1,1 if migrated_from_legacy else 0,now_ms()))
+        return formula_atom
+
+    def _register_formula(self,*,logical_path:str,formula:Mapping[str,Any],
+            source_entity_id:str,controller_entity_id:str,rights_holder_entity_id:str|None,
+            provenance_ref:str,media_type:str)->dict[str,Any]:
+        content_sha=str(formula["content_sha256"])
+        object_ref="btdu-object:"+sha256({"logical_path":str(logical_path).replace("\\","/"),
+            "content_sha256":content_sha,"source_entity_id":str(source_entity_id)})
+        value={"schema":"entity-btdu-object-v3","object_ref":object_ref,
+               "logical_path":str(logical_path).replace("\\","/"),"content_sha256":content_sha,
+               "size_bytes":int(formula["size_bytes"]),"evidence_object_id":str(formula["formula_object_id"]),
+               "formula_object_id":str(formula["formula_object_id"]),
+               "formula_sha256":str(formula["formula_sha256"]),
+               "formula_root_node_id":str(formula["root_node_id"]),
+               "formula_unit_count":int(formula["unit_count"]),"media_type":str(media_type)}
+        object_atom=self._put_atom("btdu_object",value,
+            {"exact_content_externalized":True,"authoritative_payload":"BTDU_RECONSTRUCTIVE_FORMULA",
+             "raw_bytes_embedded_in_adam":False})
+        formula_atom=self._bind_object_formula(object_ref,object_atom,formula,migrated_from_legacy=False)
         refs=[("source",source_entity_id,"data_origin"),("controller",controller_entity_id,"data_controller")]
         if rights_holder_entity_id: refs.append(("rights_holder",rights_holder_entity_id,"rights_holder"))
         ref_ids=self._put_atoms([("entity_ref",{"entity_id":str(eid)},{"role":role}) for _,eid,role in refs],reason="object_entity_refs")
-        evidence_atom=self._put_atom("evidence_ref",{"object_id":exact.object_id,"sha256":content_sha},{"media_type":str(media_type)})
+        evidence_atom=self._put_atom("evidence_ref",
+            {"formula_object_id":str(formula["formula_object_id"]),"sha256":content_sha},
+            {"media_type":str(media_type),"payload_authority":"BTDU_RECONSTRUCTIVE_FORMULA"})
         provenance_atom=self._put_atom("provenance_ref",{"ref":str(provenance_ref)},{"source_entity_id":str(source_entity_id)})
-        boundary={"protocol_origin_is_not_asset_provenance":True,"topology_does_not_create_ownership":True,"topology_does_not_create_economic_entitlement":True}
-        self._bond(object_atom,"contained_in",self.root_atom_id,source_ref=object_ref,target_ref=f"btdu:{self.sovereign_entity_id}",context="BTDU_MEMBERSHIP",metadata=boundary)
-        self._bond(object_atom,"represented_by_evidence",evidence_atom,source_ref=object_ref,target_ref=exact.object_id,context="BTDU_EVIDENCE",metadata={"sha256":content_sha})
-        self._bond(object_atom,"atomized_as",encoded["compound_id"],source_ref=object_ref,target_ref=encoded["compound_id"],context="BTDU_EXACT_ATOMIZATION",metadata={"sha256":content_sha,"primitive":"byte","recursive_compounds":True})
-        self._bond(object_atom,"provenance_recorded_as",provenance_atom,source_ref=object_ref,target_ref=str(provenance_ref),context="BTDU_PROVENANCE",metadata={"source_entity_id":str(source_entity_id)})
+        boundary={"protocol_origin_is_not_asset_provenance":True,"topology_does_not_create_ownership":True,
+                  "topology_does_not_create_economic_entitlement":True,"one_authoritative_payload":True,
+                  "formula_is_authority":True}
+        self._bond(object_atom,"contained_in",self.root_atom_id,source_ref=object_ref,
+                   target_ref=f"btdu:{self.sovereign_entity_id}",context="BTDU_MEMBERSHIP",metadata=boundary)
+        self._bond(object_atom,"represented_by_evidence",evidence_atom,source_ref=object_ref,
+                   target_ref=str(formula["formula_object_id"]),context="BTDU_EVIDENCE",
+                   metadata={"sha256":content_sha,"authoritative_payload":True,"formula_is_authority":True})
+        self._bond(object_atom,"provenance_recorded_as",provenance_atom,source_ref=object_ref,
+                   target_ref=str(provenance_ref),context="BTDU_PROVENANCE",
+                   metadata={"source_entity_id":str(source_entity_id)})
         for (label,eid,role),atom_id in zip(refs,ref_ids):
             predicate={"source":"sourced_from","controller":"controlled_by","rights_holder":"rights_asserted_by"}[label]
             md=dict(boundary,role=role,assertion_explicit=(label=="rights_holder"))
-            self._bond(object_atom,predicate,atom_id,source_ref=object_ref,target_ref=str(eid),context="BTDU_PROVENANCE_RIGHTS",metadata=md)
+            self._bond(object_atom,predicate,atom_id,source_ref=object_ref,target_ref=str(eid),
+                       context="BTDU_PROVENANCE_RIGHTS",metadata=md)
         with self._db() as db:
-            db.execute('''INSERT OR REPLACE INTO objects(object_ref,atom_id,logical_path,content_sha256,size_bytes,media_type,evidence_object_id,source_entity_id,controller_entity_id,rights_holder_entity_id,provenance_ref,created_at_ms) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)''',(object_ref,object_atom,value["logical_path"],content_sha,len(raw),str(media_type),exact.object_id,str(source_entity_id),str(controller_entity_id),str(rights_holder_entity_id) if rights_holder_entity_id else None,str(provenance_ref),now_ms()))
-        return dict(value,atom_id=object_atom,source_entity_id=str(source_entity_id),controller_entity_id=str(controller_entity_id),rights_holder_entity_id=str(rights_holder_entity_id) if rights_holder_entity_id else None,provenance_ref=str(provenance_ref))
+            db.execute("""INSERT OR REPLACE INTO objects(
+                object_ref,atom_id,logical_path,content_sha256,size_bytes,media_type,evidence_object_id,
+                source_entity_id,controller_entity_id,rights_holder_entity_id,provenance_ref,created_at_ms)
+                VALUES(?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (object_ref,object_atom,value["logical_path"],content_sha,int(formula["size_bytes"]),
+                 str(media_type),str(formula["formula_object_id"]),str(source_entity_id),
+                 str(controller_entity_id),str(rights_holder_entity_id) if rights_holder_entity_id else None,
+                 str(provenance_ref),now_ms()))
+        return dict(value,atom_id=object_atom,formula_atom_id=formula_atom,
+                    source_entity_id=str(source_entity_id),controller_entity_id=str(controller_entity_id),
+                    rights_holder_entity_id=str(rights_holder_entity_id) if rights_holder_entity_id else None,
+                    provenance_ref=str(provenance_ref))
+
+    def ingest_bytes(self,*,logical_path:str,data:bytes,authorization_receipt:Mapping[str,Any],
+            source_entity_id:str,controller_entity_id:str,rights_holder_entity_id:str|None=None,
+            provenance_ref:str,media_type:str="application/octet-stream")->dict[str,Any]:
+        self._authorize(authorization_receipt)
+        formula=self.formulas.put_bytes(bytes(data))
+        return self._register_formula(logical_path=logical_path,formula=formula,
+            source_entity_id=source_entity_id,controller_entity_id=controller_entity_id,
+            rights_holder_entity_id=rights_holder_entity_id,provenance_ref=provenance_ref,
+            media_type=media_type)
 
     def ingest_file(self,path:str|Path,authorization_receipt:Mapping[str,Any],**kwargs:Any)->dict[str,Any]:
+        self._authorize(authorization_receipt)
         p=Path(path)
         if not p.is_file(): raise FileNotFoundError(str(p))
+        logical_path=kwargs.pop("logical_path",p.name)
         media=kwargs.pop("media_type",None) or mimetypes.guess_type(p.name)[0] or "application/octet-stream"
-        return self.ingest_bytes(logical_path=kwargs.pop("logical_path",p.name),data=p.read_bytes(),authorization_receipt=authorization_receipt,media_type=media,**kwargs)
+        formula=self.formulas.put_path(p)
+        return self._register_formula(logical_path=logical_path,formula=formula,media_type=media,**kwargs)
 
     @staticmethod
     def _git(repo:Path,*args:str)->str:
@@ -414,16 +691,24 @@ class BlackmoreTechnologyDataUniverse:
               "economic_nodes":rows("economic_nodes",("node_ref","atom_id","node_kind","metadata_json")),
               "economic_edges":rows("economic_edges",("edge_id","source_ref","predicate","target_ref","source_atom_id","target_atom_id","bond_id","evidence_sha256","metadata_json")),
               "semantic_bridges":rows("semantic_bridges",("concept_ref","math_operator","code_token_ref","english_refs_json","metadata_json","bridge_hash")),
+              "object_formulas":rows("object_formulas",("object_ref","formula_object_id","formula_sha256","root_node_id","authoritative","migrated_from_legacy")),
+              "formula_root":self.formulas.formula_root(),
             }
         return sha256(payload)
 
     def passport_binding(self,object_ref:str)->dict[str,Any]:
         with self._db() as db:
-            row=db.execute("SELECT object_ref,atom_id,content_sha256,controller_entity_id,source_entity_id,rights_holder_entity_id FROM objects WHERE object_ref=?",(str(object_ref),)).fetchone()
+            row=db.execute("""SELECT o.object_ref,o.atom_id,o.content_sha256,o.controller_entity_id,
+                              o.source_entity_id,o.rights_holder_entity_id,f.formula_object_id,
+                              f.formula_sha256,f.root_node_id
+                              FROM objects o LEFT JOIN object_formulas f ON f.object_ref=o.object_ref
+                              WHERE o.object_ref=?""",(str(object_ref),)).fetchone()
         if not row: raise KeyError(object_ref)
         return {"schema":"entity-btdu-passport-binding-v1","btdu_version":BTDU_VERSION,
                 "universe_root":self.atomic.root_hash,"object_ref":row["object_ref"],"object_atom_id":row["atom_id"],
-                "content_sha256":row["content_sha256"],"sovereign_entity_id":self.sovereign_entity_id,
+                "content_sha256":row["content_sha256"],"formula_object_id":row["formula_object_id"],
+                "formula_sha256":row["formula_sha256"],"formula_root_node_id":row["root_node_id"],
+                "sovereign_entity_id":self.sovereign_entity_id,
                 "controller_entity_id":row["controller_entity_id"],"source_entity_id":row["source_entity_id"],
                 "rights_holder_entity_id":row["rights_holder_entity_id"],"protocol_origin_is_not_asset_provenance":True,
                 "topology_does_not_create_ownership":True,"topology_does_not_create_economic_entitlement":True,
@@ -433,16 +718,163 @@ class BlackmoreTechnologyDataUniverse:
         with self._db() as db:
             obj=db.execute("SELECT * FROM objects WHERE object_ref=?",(str(object_ref),)).fetchone()
             if not obj: raise KeyError(object_ref)
+            formula=db.execute("SELECT formula_object_id FROM object_formulas WHERE object_ref=?",(str(object_ref),)).fetchone()
             edges=db.execute("SELECT predicate,target_ref,metadata_json FROM edges WHERE source_ref=? ORDER BY predicate,target_ref",(str(object_ref),)).fetchall()
         lines=[f"{object_ref} {row['predicate']} {row['target_ref']}" for row in edges]
-        return {"schema":"niki-btdu-context-v1","object_ref":str(object_ref),"content_sha256":obj["content_sha256"],"size_bytes":int(obj["size_bytes"]),"context":"\n".join(lines),"raw_content_included":False,"authority_transferred_to_niki":False,"execution_authority":"ENTITY","state_engine":"ADAM"}
+        return {"schema":"niki-btdu-context-v1","object_ref":str(object_ref),
+                "content_sha256":obj["content_sha256"],"size_bytes":int(obj["size_bytes"]),
+                "formula_object_id":formula["formula_object_id"] if formula else None,
+                "context":"\n".join(lines),"raw_content_included":False,
+                "authority_transferred_to_niki":False,"execution_authority":"ENTITY","state_engine":"ADAM"}
+
+    def _object_formula_id(self,object_ref:str)->str|None:
+        with self._db() as db:
+            row=db.execute("SELECT formula_object_id FROM object_formulas WHERE object_ref=?",(str(object_ref),)).fetchone()
+        return str(row["formula_object_id"]) if row else None
 
     def reconstruct_object(self,object_ref:str)->bytes:
-        with self._db() as db: row=db.execute("SELECT evidence_object_id,content_sha256 FROM objects WHERE object_ref=?",(str(object_ref),)).fetchone()
+        formula_id=self._object_formula_id(object_ref)
+        if formula_id is not None:
+            return self.formulas.read_all(formula_id)
+        with self._db() as db:
+            row=db.execute("SELECT evidence_object_id,content_sha256 FROM objects WHERE object_ref=?",(str(object_ref),)).fetchone()
         if not row: raise KeyError(object_ref)
         raw=self.evidence.exact.reconstruct(row["evidence_object_id"])
-        if sha256(raw)!=row["content_sha256"]: raise RuntimeError("BTDU exact evidence reconstruction hash mismatch")
+        if sha256(raw)!=row["content_sha256"]: raise RuntimeError("BTDU legacy exact evidence reconstruction hash mismatch")
         return raw
+
+    def stream_object(self,object_ref:str):
+        formula_id=self._object_formula_id(object_ref)
+        if formula_id is None:
+            yield self.reconstruct_object(object_ref); return
+        yield from self.formulas.iter_object(formula_id)
+
+    def read_object_range(self,object_ref:str,offset:int,length:int)->bytes:
+        formula_id=self._object_formula_id(object_ref)
+        if formula_id is None:
+            raw=self.reconstruct_object(object_ref); return raw[int(offset):int(offset)+int(length)]
+        return self.formulas.read_range(formula_id,offset,length)
+
+    def materialize_object(self,object_ref:str,output_path:str|Path)->dict[str,Any]:
+        formula_id=self._object_formula_id(object_ref)
+        if formula_id is None:
+            raw=self.reconstruct_object(object_ref); out=Path(output_path); out.parent.mkdir(parents=True,exist_ok=True)
+            out.write_bytes(raw)
+            return {"object_ref":str(object_ref),"path":str(out),"bytes":len(raw),"sha256":sha256(raw),"legacy":True}
+        result=self.formulas.materialize(formula_id,output_path)
+        return dict(result,object_ref=str(object_ref),legacy=False)
+
+    def transient_object_bond_plan(self,object_ref:str)->dict[str,Any]:
+        formula_id=self._object_formula_id(object_ref)
+        if formula_id is None: raise RuntimeError("legacy object must be migrated before transient formula expansion")
+        return self.formulas.transient_bond_plan(formula_id)
+
+    def migrate_legacy_object(self,object_ref:str,authorization_receipt:Mapping[str,Any])->dict[str,Any]:
+        self._authorize(authorization_receipt)
+        existing=self._object_formula_id(object_ref)
+        if existing is not None:
+            return {"schema":"entity-btdu-formula-migration-v1","object_ref":str(object_ref),
+                    "formula_object_id":existing,"already_migrated":True}
+        with self._db() as db:
+            row=db.execute("SELECT object_ref,atom_id,evidence_object_id,content_sha256,size_bytes FROM objects WHERE object_ref=?",(str(object_ref),)).fetchone()
+        if not row: raise KeyError(object_ref)
+        raw=self.evidence.exact.reconstruct(row["evidence_object_id"])
+        if sha256(raw)!=row["content_sha256"] or len(raw)!=int(row["size_bytes"]):
+            raise RuntimeError("legacy object failed exact reconstruction before formula migration")
+        formula=self.formulas.put_bytes(raw)
+        self._bind_object_formula(str(object_ref),str(row["atom_id"]),formula,migrated_from_legacy=True)
+        return {"schema":"entity-btdu-formula-migration-v1","object_ref":str(object_ref),
+                "formula_object_id":formula["formula_object_id"],"formula_sha256":formula["formula_sha256"],
+                "bytes":len(raw),"already_migrated":False,"legacy_signed_history_preserved":True,
+                "new_authoritative_payload":"BTDU_RECONSTRUCTIVE_FORMULA"}
+
+    def migrate_legacy_objects(self,authorization_receipt:Mapping[str,Any],*,limit:int|None=None,batch_size:int=256)->dict[str,Any]:
+        """Migrate legacy payloads to formula authority using durable signed batches.
+
+        Formula creation remains independently journaled before each binding.  The
+        ADAM formula-atom + formulated-as bond operations are then committed in a
+        deterministic batch, followed by their rebuildable SQLite indexes.  If a
+        process stops after the signed ADAM commit but before index insertion, a
+        rerun is idempotent: existing atom/bond identities are reused and only the
+        missing indexes are restored.
+        """
+        self._authorize(authorization_receipt)
+        batch_size=max(1,min(1024,int(batch_size)))
+        with self._db() as db:
+            rows=db.execute("""SELECT o.object_ref,o.atom_id,o.evidence_object_id,o.content_sha256,o.size_bytes
+                               FROM objects o LEFT JOIN object_formulas f ON f.object_ref=o.object_ref
+                               WHERE f.object_ref IS NULL ORDER BY o.created_at_ms,o.object_ref""").fetchall()
+        selected=rows if limit is None else rows[:max(0,int(limit))]
+        pending_ops=[]; pending_atoms=set(); pending_edges=[]; pending_bindings=[]
+        migrated=0
+
+        formula_atom_metadata={"authoritative_payload":True,"formula_kernel":BTDU_FORMULA_VERSION,
+            "raw_bytes_embedded_in_adam":False,"semantic_views_unlimited":True,
+            "latent_occurrence_bonds":True}
+        binding_metadata={"authoritative_payload":True,"one_authoritative_payload":True,
+            "formula_is_authority":True,"semantic_views_unlimited":True,
+            "latent_occurrence_bonds":True,"migrated_from_legacy":True,
+            "raw_bytes_embedded_in_adam":False}
+
+        def flush_batch():
+            nonlocal pending_ops,pending_atoms,pending_edges,pending_bindings
+            if not pending_bindings: return
+            self._commit(pending_ops,metadata={"btdu":"formula_bulk_migration",
+                "objects":len(pending_bindings),"deterministic_batch_size":batch_size})
+            with self._db() as db:
+                if pending_edges:
+                    db.executemany("INSERT OR REPLACE INTO edges VALUES(?,?,?,?,?,?,?)",pending_edges)
+                db.executemany("""INSERT OR REPLACE INTO object_formulas(
+                    object_ref,formula_object_id,formula_sha256,root_node_id,
+                    authoritative,migrated_from_legacy,bound_at_ms) VALUES(?,?,?,?,?,?,?)""",pending_bindings)
+            pending_ops=[]; pending_atoms=set(); pending_edges=[]; pending_bindings=[]
+
+        for row in selected:
+            object_ref=str(row["object_ref"])
+            raw=self.evidence.exact.reconstruct(row["evidence_object_id"])
+            if sha256(raw)!=row["content_sha256"] or len(raw)!=int(row["size_bytes"]):
+                raise RuntimeError("legacy object failed exact reconstruction before formula migration")
+            formula=self.formulas.put_bytes(raw)
+            formula_value={"schema":"entity-btdu-formula-reference-v1",
+                "formula_object_id":str(formula["formula_object_id"]),
+                "content_sha256":str(formula["content_sha256"]),
+                "size_bytes":int(formula["size_bytes"]),
+                "root_node_id":str(formula["root_node_id"]),
+                "formula_sha256":str(formula["formula_sha256"]),
+                "unit_count":int(formula["unit_count"])}
+            formula_atom,atom_op=self.atomic.atom_op("btdu_formula",formula_value,dict(formula_atom_metadata))
+            if atom_op is not None and formula_atom not in pending_atoms:
+                pending_ops.append(atom_op); pending_atoms.add(formula_atom)
+            bond_id,bond_op=self.atomic.bond_op(str(row["atom_id"]),"formulated_as",formula_atom,
+                context="BTDU_RECONSTRUCTIVE_FORMULA",metadata=dict(binding_metadata))
+            if bond_op is not None: pending_ops.append(bond_op)
+            pending_edges.append((bond_id,str(row["atom_id"]),"formulated_as",formula_atom,
+                object_ref,str(formula["formula_object_id"]),json.dumps(binding_metadata,sort_keys=True)))
+            pending_bindings.append((object_ref,str(formula["formula_object_id"]),
+                str(formula["formula_sha256"]),str(formula["root_node_id"]),1,1,now_ms()))
+            migrated+=1
+            if len(pending_bindings)>=batch_size: flush_batch()
+            # Release per-object reconstruction/compiler temporaries promptly on
+            # memory-constrained production devices. Durable formula/ADAM state is
+            # already owned by the journals or pending canonical batch structures.
+            raw=None; formula=None; formula_value=None; atom_op=None; bond_op=None
+            if migrated%4==0: gc.collect()
+        flush_batch()
+        gc.collect()
+        return {"schema":"entity-btdu-formula-bulk-migration-v2","migrated":migrated,
+                "total_candidates":len(rows),"remaining":len(rows)-migrated,
+                "batch_size":batch_size,"formula":self.formulas.stats()}
+
+    def storage_status(self,*,deep:bool=False)->dict[str,Any]:
+        formula=self.formulas.verify(deep=deep)
+        entropy=self.storage.verify(deep=False)
+        return {"schema":"entity-btdu-storage-status-v2",
+                "pass":bool(formula.get("pass")) and bool(entropy.get("pass")),
+                "formula":formula,
+                "entropy_reservoir":entropy,
+                "one_authoritative_payload":True,
+                "formula_is_authority":True,
+                "conventional_bulk_storage_required":False}
 
     def list_objects(self)->list[dict[str,Any]]:
         with self._db() as db: rows=db.execute("SELECT * FROM objects ORDER BY logical_path,object_ref").fetchall()
@@ -454,23 +886,57 @@ class BlackmoreTechnologyDataUniverse:
 
     def verify(self,*,deep:bool=True)->dict[str,Any]:
         atomic=self.runtime.verify(); problems=[]; objects=self.list_objects()
+        formula_check=self.formulas.verify(deep=False)
+        reservoir_check=self.storage.verify(deep=False)
+        if not formula_check.get("pass"): problems.append("formula_kernel")
+        if not reservoir_check.get("pass"): problems.append("entropy_reservoir")
         if deep:
+            with self._db() as db:
+                formula_map={r["object_ref"]:r["formula_object_id"] for r in db.execute("SELECT object_ref,formula_object_id FROM object_formulas")}
             for row in objects:
                 try:
-                    raw=self.evidence.exact.reconstruct(row["evidence_object_id"])
-                    if sha256(raw)!=row["content_sha256"]: problems.append("hash:"+row["object_ref"])
-                    with self._db() as db: atomized=db.execute("SELECT target_ref FROM edges WHERE source_ref=? AND predicate='atomized_as'",(row["object_ref"],)).fetchone()
-                    if not atomized or sha256(self.reconstruct_exact_bytes(atomized["target_ref"]))!=row["content_sha256"]: problems.append("atomization:"+row["object_ref"])
-                except Exception: problems.append("reconstruct:"+row["object_ref"])
+                    formula_id=formula_map.get(row["object_ref"])
+                    if formula_id:
+                        fv=self.formulas.verify_object(formula_id,deep=True)
+                        if not fv.get("pass"): problems.append("formula:"+row["object_ref"])
+                        fobj=self.formulas.object_record(formula_id)
+                        if fobj["content_sha256"]!=row["content_sha256"] or int(fobj["size_bytes"])!=int(row["size_bytes"]):
+                            problems.append("formula_binding:"+row["object_ref"])
+                    else:
+                        raw=self.evidence.exact.reconstruct(row["evidence_object_id"])
+                        if sha256(raw)!=row["content_sha256"]: problems.append("hash:"+row["object_ref"])
+                        with self._db() as db:
+                            atomized=db.execute("SELECT target_ref FROM edges WHERE source_ref=? AND predicate='atomized_as'",(row["object_ref"],)).fetchone()
+                        if atomized and sha256(self.reconstruct_exact_bytes(atomized["target_ref"]))!=row["content_sha256"]:
+                            problems.append("atomization:"+row["object_ref"])
+                except Exception:
+                    problems.append("reconstruct:"+row["object_ref"])
         primitive_targets=set(GENESIS_PRIMITIVES)
         with self._db() as db:
             present={r["target_ref"] for r in db.execute("SELECT target_ref FROM edges WHERE predicate='preserves_genesis_primitive'").fetchall()}
             econ_edges=[dict(r) for r in db.execute("SELECT * FROM economic_edges").fetchall()]
+            formula_bindings=int(db.execute("SELECT count(*) FROM object_formulas").fetchone()[0])
         if not primitive_targets.issubset(present): problems.append("genesis_primitives")
         orientation=self.orientation.verify()
         if not orientation.get("pass"): problems.append("orientation")
-        return {"schema":"entity-btdu-verification-v1","btdu_version":BTDU_VERSION,"build_revision":BTDU_BUILD_REVISION,"pass":bool(atomic.get("pass")) and not problems,"atomic":atomic,"orientation":orientation,"language_summary":self.language_summary(),"atomic_root":self.atomic.root_hash,"sovereign_entity_id":self.sovereign_entity_id,"protocol_entity_id":self.protocol_entity_id,"objects":len(objects),"economic_lineage_edges":len(econ_edges),"genesis_primitives_preserved":primitive_targets.issubset(present),"protocol_origin_is_not_asset_provenance":True,"automatic_protocol_royalty_bps":0,"problems":problems}
+        return {"schema":"entity-btdu-verification-v1","btdu_version":BTDU_VERSION,
+                "build_revision":BTDU_BUILD_REVISION,"formula_version":BTDU_FORMULA_VERSION,
+                "pass":bool(atomic.get("pass")) and not problems,"atomic":atomic,
+                "formula":formula_check,"entropy_reservoir":reservoir_check,
+                "orientation":orientation,"language_summary":self.language_summary(),
+                "atomic_root":self.atomic.root_hash,"formula_root":self.formulas.formula_root(),
+                "sovereign_entity_id":self.sovereign_entity_id,"protocol_entity_id":self.protocol_entity_id,
+                "objects":len(objects),"formula_bindings":formula_bindings,
+                "economic_lineage_edges":len(econ_edges),
+                "genesis_primitives_preserved":primitive_targets.issubset(present),
+                "one_authoritative_payload":True,"formula_is_authority":True,
+                "latent_occurrence_bonds":True,"temporary_materialization_only":True,
+                "conventional_bulk_storage_required":False,
+                "raw_payload_bytes_in_adam_journal_for_new_objects":False,
+                "protocol_origin_is_not_asset_provenance":True,"automatic_protocol_royalty_bps":0,
+                "problems":problems}
 
-    def close(self): self.runtime.close()
+    def close(self):
+        self.formulas.close(); self.runtime.close()
     def __enter__(self): return self
     def __exit__(self,exc_type,exc,tb): self.close()

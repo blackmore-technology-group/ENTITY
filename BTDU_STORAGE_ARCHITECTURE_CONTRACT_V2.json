@@ -1,0 +1,88 @@
+{
+  "schema": "entity-btdu-storage-architecture-contract-v2",
+  "display_release": "ENTITY v3.4.3",
+  "component": "BTDU — Blackmore Technology Data Universe",
+  "locked_rule": "One authoritative payload. Unlimited semantic views.",
+  "storage_model": {
+    "authority": "BTDU_RECONSTRUCTIVE_FORMULA",
+    "persistent_object": "canonical reconstructive formula",
+    "primary_bulk_storage": "BTDU",
+    "conventional_bulk_file_or_object_store_required": false,
+    "conventional_storage_permitted_for": [
+      "encrypted backup",
+      "disaster recovery replica",
+      "temporary export",
+      "interoperability materialization"
+    ],
+    "temporary_materialization_only": true,
+    "exact_reconstruction_required": true,
+    "content_sha256_verification_required": true
+  },
+  "universe": {
+    "primitive_binary_atoms": 256,
+    "primitive_binary_atom_domain": "byte values 0..255",
+    "higher_order_bases": [
+      "English atoms and lemmas",
+      "code token atoms",
+      "math term and declaration atoms",
+      "orientation/chirality topologies",
+      "economic and provenance references"
+    ],
+    "formula_node_families": [
+      "ATOM",
+      "LITERAL_ATOM_TAPE",
+      "REPEAT",
+      "CONCAT",
+      "SLICE",
+      "SHARED_BASIS_REFERENCE",
+      "LOCAL_DICTIONARY_REFERENCE"
+    ],
+    "occurrence_bonds": "latent/transient unless independently semantic",
+    "semantic_bonds": "persistent governed views over the authoritative formula"
+  },
+  "entropy_boundary": {
+    "universal_lossless_compression_claimed": false,
+    "irreducible_entropy_acknowledged": true,
+    "irreducible_entropy_representation": "content-addressed BTDU atom tape reservoir",
+    "raw_external_payload_copy_required": false,
+    "meaning": "A recipe cannot reconstruct information that exists nowhere. Bytes not derivable from shared atoms/formulas are preserved once as canonical BTDU atom tape entropy; they are not duplicated as conventional source files."
+  },
+  "deduplication": {
+    "scope": "global within a BTDU authority/replica set",
+    "formula_identity": "content addressed",
+    "entropy_identity": "content addressed",
+    "same_payload_stored_once": true,
+    "unlimited_semantic_views_reference_same_payload": true
+  },
+  "streaming": {
+    "ingest": true,
+    "reconstruction": true,
+    "range_read": true,
+    "whole_object_in_memory_required": false
+  },
+  "integrity_and_recovery": {
+    "corruption_detection": true,
+    "rebuildable_indexes": true,
+    "signed_adam_history_preserved": true,
+    "memory_bounded_historical_recovery": true,
+    "streaming_signed_checkpoint": true,
+    "cold_restart_from_checkpoint": true
+  },
+  "governance_boundaries": {
+    "ENTITY_remains_authority_and_rights_root": true,
+    "ADAM_remains_deterministic_signed_state_engine": true,
+    "NIKI_remains_bounded_reasoning_consumer": true,
+    "protocol_origin_is_not_asset_provenance": true,
+    "topology_does_not_create_ownership": true,
+    "topology_does_not_create_rights": true,
+    "topology_does_not_create_economic_entitlement": true,
+    "economic_participation_requires_explicit_terms": true
+  },
+  "qualification_rules": {
+    "byte_exact_reconstruction": "mandatory",
+    "source_payload_absent_during_reconstruction_test": "mandatory for corpus retirement qualification",
+    "high_entropy_fallback": "must remain exact even when storage reduction is near zero",
+    "no_universal_reduction_percentage_claim": true,
+    "production_primary_storage_status_requires_live_migration_and_cold_restart_verification": true
+  }
+}

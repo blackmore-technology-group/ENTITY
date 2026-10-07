@@ -30,8 +30,25 @@ def _load_adam_modules():
         )
     if str(root) not in sys.path:
         sys.path.insert(0, str(root))
+
+    # Historical BTDU authorities contain several valid signed frames around
+    # 47 MB whose expanded MsgPack operation arrays can exceed available RAM
+    # during a cold replay. Install the bounded parser before AtomicUniverse
+    # imports EventLog. This verifies the original bytes/signatures unchanged.
+    import importlib.util
+    recovery_path = HERE / "memory_bounded_recovery.py"
+    recovery_spec = importlib.util.spec_from_file_location(
+        "entity_adam_memory_bounded_recovery", recovery_path
+    )
+    if recovery_spec is None or recovery_spec.loader is None:
+        raise ImportError(f"Cannot load ADAM recovery layer: {recovery_path}")
+    recovery_mod = importlib.util.module_from_spec(recovery_spec)
+    recovery_spec.loader.exec_module(recovery_mod)
+    recovery_mod.install_memory_bounded_recovery()
+
     from adam_v1 import ArtificialLivingUniverseV1Candidate
     from adam_v41.universe import AtomicUniverse
+    recovery_mod.install_streaming_checkpoint(AtomicUniverse)
     from adam_v41.reactions import ReactionEngine, ReactionDefinition, ReactionIntent, Effect
     from adam_v41.schema import TypeSpec
     from adam_v42.evidence import EvidenceAlignmentEngine
@@ -122,8 +139,45 @@ class EntityFullAdamRuntime:
 
     def verify(self) -> dict[str, Any]:
         atomic = self.atomic.verify()
-        claims = [self.evidence.verify_claim(atom_id) for atom_id, atom in self.atomic.atoms.items() if atom.kind == "semantic_claim" and isinstance(atom.value, dict) and atom.value.get("claim_type") == "ENTITY_AUTHORIZED_TRANSITION"]
-        return {"schema": "entity-adam-full-runtime-verification-v1", "pass": bool(atomic.get("pass")) and all(c.get("pass") for c in claims), "atomic_universe": atomic, "aligned_transition_claims": len(claims), "full_candidate": self.full.local_status(), "authority_root": "ENTITY", "executor_state_engine": "ADAM"}
+        # Verify ENTITY transition evidence in one bond pass.  The previous
+        # implementation called EvidenceAlignmentEngine.verify_claim() once per
+        # transition claim; each call scans active bonds, which becomes O(C*B) on a
+        # large universe.  This preserves the exact evidence/proof invariants while
+        # making verification O(A+B).
+        claim_ids = {
+            atom_id for atom_id, atom in self.atomic.atoms.items()
+            if atom.kind == "semantic_claim" and isinstance(atom.value, dict)
+            and atom.value.get("claim_type") == "ENTITY_AUTHORIZED_TRANSITION"
+        }
+        evidence_by = {claim_id: [] for claim_id in claim_ids}
+        proof_by = {claim_id: [] for claim_id in claim_ids}
+        for bond in self.atomic.bonds.values():
+            if bond.revoked_seq is not None or bond.source not in claim_ids:
+                continue
+            if bond.predicate == "EVIDENCED_BY":
+                evidence_by[bond.source].append(bond.target)
+            elif bond.predicate == "HAS_ALIGNMENT_PROOF":
+                proof_by[bond.source].append(bond.target)
+        failures = []
+        for claim_id in sorted(claim_ids):
+            evidence = evidence_by[claim_id]
+            proofs = proof_by[claim_id]
+            if len(evidence) != 1 or len(proofs) != 1:
+                failures.append({"claim_id": claim_id, "reason": "evidence_proof_cardinality"})
+                continue
+            proof = self.atomic.atoms.get(proofs[0])
+            if proof is None or proof.kind != "evidence_alignment_proof":
+                failures.append({"claim_id": claim_id, "reason": "alignment_proof_missing"})
+                continue
+            if not isinstance(proof.value, dict) or proof.value.get("claim_id") != claim_id or proof.value.get("evidence_object_id") != evidence[0]:
+                failures.append({"claim_id": claim_id, "reason": "alignment_proof_mismatch"})
+        return {"schema": "entity-adam-full-runtime-verification-v1",
+                "pass": bool(atomic.get("pass")) and not failures,
+                "atomic_universe": atomic,
+                "aligned_transition_claims": len(claim_ids),
+                "alignment_failures": failures,
+                "full_candidate": self.full.local_status(),
+                "authority_root": "ENTITY", "executor_state_engine": "ADAM"}
 
     def close(self) -> None:
         self.full.close()

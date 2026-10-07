@@ -1,0 +1,45 @@
+{
+  "schema": "entity-btdu-primary-storage-production-qualification-v1",
+  "date": "2026-10-07",
+  "pass": true,
+  "migration": {
+    "objects": 4933,
+    "formula_bindings": 4933,
+    "legacy_remaining": 0
+  },
+  "production_cold_open": {
+    "pass": true,
+    "atomic_root": "f4edfd57142e7d345b487db34fd39bd46023ff1e1112f53e3c2f86d6f148ff4b",
+    "sequence": 78382,
+    "checkpoint_sequence": 78382,
+    "formula_root": "2d361acbfbc256e826bfbc84a0882b7c04949e788c8822809150d233751db07d",
+    "journal_bytes": 0,
+    "elapsed_seconds": 352.10011863708496
+  },
+  "database_integrity": {
+    "qualification_state": {"btdu_index": "ok", "formula_index": "ok", "storage_index": "ok"},
+    "production_state": {"btdu_index": "ok", "formula_index": "ok", "storage_index": "ok"},
+    "wal_checkpoint_truncate": "clean"
+  },
+  "qualified_source_sha256": {
+    "src/40_BTDU/canonical_btdu.py": "1f522ec33c9a25ff8bd55a317f25ec50c136dc9c8612c5bc2ab8f845c1ef3e7d",
+    "src/40_BTDU/formula_kernel.py": "95d72edd0eb446e39ba0bb4352399a6e43056a3280c6f28da5eb28d9bcf4bd23",
+    "src/40_BTDU/storage_kernel.py": "659f1924056476548e26100a8e837d1538b4b91a6aaf724c83a5da8699381b7d",
+    "src/11_ADAM/full_runtime/canonical_full_adam_runtime.py": "1276fe0594bd132d452840e33e8b8745f097b1e0d1215597bc0bb099fdb64099",
+    "src/11_ADAM/full_runtime/memory_bounded_recovery.py": "3e149268bfdf7f5276bbfffb2a27b59483dd6184c5d4a890882fc80e1d971efe"
+  },
+  "source_match_candidate_to_installed_production": true,
+  "regression": {
+    "final_preclone": {"passed": 23, "failed": 0, "skipped": 0},
+    "adam_memory_recovery": {"passed": 3, "failed": 0, "skipped": 0}
+  },
+  "storage_contract": {
+    "formula_is_authority": true,
+    "one_authoritative_payload": true,
+    "conventional_bulk_storage_required": false,
+    "raw_payload_bytes_in_adam_journal_for_new_objects": false,
+    "temporary_materialization_only": true
+  },
+  "rollback_snapshot_created_before_state_cutover": true,
+  "scope_note": "This qualifies the BTDU reconstructive/formula primary-storage deployment. ADAM v1.0 external certification gates remain a separate promotion program."
+}
