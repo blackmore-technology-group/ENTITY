@@ -5,12 +5,15 @@ on:
     paths:
       - "sdk/datachip/**"
       - "tests/test_entity_datachip*.py"
+      - "tests/test_btg*.py"
+      - "docs/architecture/BTG_DATACHIP_APPLICATION_STANDARD_V0_1.md"
       - ".github/workflows/datachip-portability.yml"
   push:
     branches: [main]
     paths:
       - "sdk/datachip/**"
       - "tests/test_entity_datachip*.py"
+      - "tests/test_btg*.py"
       - ".github/workflows/datachip-portability.yml"
 
 permissions:
@@ -30,7 +33,11 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.11"
+      - name: Install crypto verifier dependency
+        run: python -m pip install "cryptography>=50.0.1,<51"
       - name: Compile DataChip SDK
         run: python -m compileall -q sdk/datachip
-      - name: Test portable DataChip and existing BTDU adapter
+      - name: Verify portable format, formula interpreter and delegated rights
         run: python -B -m unittest discover -s tests -p "test_entity_datachip*.py" -v
+      - name: Verify BTG application bundles and host authorization
+        run: python -B -m unittest discover -s tests -p "test_btg*.py" -v
