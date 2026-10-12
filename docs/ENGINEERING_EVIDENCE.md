@@ -1,5 +1,7 @@
 # ENTITY Engineering Evidence
 
+> **Current implementation and qualification snapshot (2026-10-12):** [Release versus `main`, BTDU storage, wallet/SDK maturity and independent evidence gates](current/IMPLEMENTATION_STATUS_20261012.md). The protected v3.4.3 tag and post-tag work are distinct; historical sealed evidence is preserved.
+
 **Document class:** evidence index / current-runtime orientation
 **Current supported runtime:** ENTITY v3.4.3
 **BTDU component:** Blackmore Technology Data Universe (BTDU) 3.4.2, unchanged

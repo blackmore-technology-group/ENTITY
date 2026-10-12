@@ -60,11 +60,15 @@ This is the strongest review class described by this program, but it is still di
 
 ## Current review target
 
-Current protected release: **ENTITY v3.4.0 — Global Passport & Continuous Provenance**
+Current supported tagged reference release: **ENTITY v3.4.3 — bounded Issue #28 remediation**.
 
-Protected release commit: `2db5bff64507b8d67642122a5ff2fc73dfef9152`
+Protected release commit: `528b70aabd05b1e930b77e4933f157731e47274f`.
 
-The review scope should include Global Passport/profile composition, profile-registry integrity, standards-mapping boundaries, continuous provenance, passport derivation, domain-package deployment semantics, and the inherited v3.3 evidence/attestation surfaces. Reviewers should pin findings to an exact commit, tag or release artifact rather than reviewing an unspecified moving branch.
+The external release assessment should include replay/occurrence identity, causal zero-edge behavior, cryptographic/canonicalization rules, delegation and revocation, BTDU exact reconstruction, application capabilities, key custody, export/recovery, Global/Rights Passports and economic-state authorization. The v3.4.3 tagged scope inherits explicitly documented unchanged-scope v3.4.2 qualification and must not be labeled a rerun of those inherited tests.
+
+**Scope later `main` changes separately**, including BTDU reconstructive storage, desktop wallet asset transfer and market features. Their review target must state its own exact commit and deployed state, because the immutable v3.4.3 tag does not include all subsequent implementations.
+
+The former v3.4.0 review target remains historical; it is not the current supported release. Independent external audit is still **PENDING**. See the [current implementation status](../current/IMPLEMENTATION_STATUS_20261012.md).
 
 ## Evidence expected from reviewers
 

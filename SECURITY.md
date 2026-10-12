@@ -4,17 +4,11 @@ ENTITY handles identity, authority, provenance, evidence, rights, cryptographic 
 
 ## Supported public release
 
-The sole current supported canonical release is **ENTITY v3.4.2 — Canonical BTDU Release**.
+The current supported **tagged reference runtime** is **ENTITY v3.4.3** (bounded Issue #28 remediation), protected release commit `528b70aabd05b1e930b77e4933f157731e47274f`, release tree `f13e42f515dcc4cd985e9b832e0ecfec416ce423`. See the [v3.4.3 release](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.3) and [release origin record](ENTITY_CURRENT_RELEASE_ORIGIN.json).
 
-Protected release commit: `6dfa3d6cc738d9369cf092d2782676bf4f2a46e4`
+v3.4.2 (protected predecessor `6dfa3d6cc738d9369cf092d2782676bf4f2a46e4`) and older tagged releases remain immutable historical evidence, not current deployment targets. **BTDU 3.4.2 remains the component version inherited unchanged by the v3.4.3 tag.** Newer BTDU formula storage, wallet and market changes in `main` are **post-tag development**, not retroactive signed-release changes.
 
-Release tree: `f90bf74e29899f82d0a4ee321604346241bba4de`
-
-Release-origin attestation SHA-256: `0ba4b0cc8c34688d98ef3c3425fbd70ff5b59d26183a18a15506bbad3adea0c1`
-
-ENTITY v3.4.1 and earlier releases remain immutable historical provenance and are **superseded / unsupported for current deployment and conformance purposes**. Historical tags are not rewritten when a security issue is found; release-critical fixes produce a new candidate/release and affected qualification gates are rerun.
-
-The current release and claim boundaries are published in the [v3.4.2 release](https://github.com/blackmore-technology-group/ENTITY/releases/tag/v3.4.2), [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md), and the [ENTITY documentation portal](https://blackmore-technology-group.github.io/ENTITY-DOCS/). Independent external security review remains a separate post-release qualification gate and is not claimed complete by v3.4.2.
+The independent external security audit remains **PENDING**. Internal CI and local migration/cold-open receipts do not constitute external certification. See the [current implementation-status and evidence boundaries](docs/current/IMPLEMENTATION_STATUS_20261012.md), [engineering evidence](docs/ENGINEERING_EVIDENCE.md) and [external review programme](docs/security/INDEPENDENT_SECURITY_REVIEW_PROGRAM.md).
 
 ## Security-sensitive surfaces
 

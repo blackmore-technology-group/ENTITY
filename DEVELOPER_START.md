@@ -1,5 +1,7 @@
 # ENTITY Developer Quickstart
 
+> **Current implementation and qualification snapshot (2026-10-12):** [Release versus `main`, BTDU storage, wallet/SDK maturity and independent evidence gates](docs/current/IMPLEMENTATION_STATUS_20261012.md). The protected v3.4.3 tag and post-tag work are distinct; historical sealed evidence is preserved.
+
 **Target:** ENTITY v3.4.3  
 **Audience:** developers who want to build before reading the entire architecture  
 **Goal:** produce one small working artifact in 5–30 minutes

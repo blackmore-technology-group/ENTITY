@@ -108,3 +108,8 @@ As of 2026-09-25, the current protected release is **ENTITY v3.4.1 — Protocol 
 Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
 
 Historical release tags remain immutable. `v3.4.1` supersedes `v3.4.0` without moving or redefining the older tag. See [ROADMAP.md](../../ROADMAP.md), [v3.4.1 current documentation](../v3.4/README.md), [Engineering Evidence](../ENGINEERING_EVIDENCE.md) and [GitHub Releases](https://github.com/blackmore-technology-group/ENTITY/releases).
+## Active documentation, protected tags and local development
+
+The current supported tagged reference release is v3.4.3. New functionality on `main` or in a BTG local installed runtime is **not** silently part of that immutable release. Active guidance must distinguish: frozen Protocol 1.0, protected versioned release, untagged post-release implementation and independently verified production state. Historical evidence and signed manifests retain their original version and hashes; add dated interpretation pages instead of modifying them for cosmetic uniformity.
+
+See [current implementation status](../current/IMPLEMENTATION_STATUS_20261012.md). Security review, controlled benchmarks and full-system performance claims must retain their scope and exact commit/date.

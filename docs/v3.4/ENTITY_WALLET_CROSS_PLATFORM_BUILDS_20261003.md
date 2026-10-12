@@ -1,5 +1,8 @@
 # ENTITY Wallet cross-platform builds — 2026-10-03
 
+> **Current interpretation (2026-10-12):** This document describes the 2026-10-03 CI artifact design and qualification snapshot, not certification that native iOS/Android wallets have full authority parity. Read the [current implementation-status matrix](../current/IMPLEMENTATION_STATUS_20261012.md) for the separate Oct 7 desktop package and post-tag wallet/BTDU development scope. The Windows PyInstaller folder must retain its bundled `_internal` directory; producing an artifact is not proof that an unrelated machine has installed or operated it correctly.
+
+
 **Runtime family:** ENTITY v3.4.3
 **Wallet architecture:** ENTITY Data Economy Terminal
 **Canonical desktop implementation:** PySide6 / Qt + canonical ENTITY runtime modules

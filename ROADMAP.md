@@ -6,13 +6,11 @@ It is not a promise that every future version will follow a fixed feature schedu
 
 ## Current protected release
 
-**ENTITY v3.4.1 — Protocol Origin Lineage & Sovereign User Bootstrap**
+**ENTITY v3.4.3 — bounded Issue #28 remediation**. Protected release commit: `528b70aabd05b1e930b77e4933f157731e47274f`. Direct release qualification: **76/76 targeted; 279/279 full source-suite PASS**. BTDU component **3.4.2 is inherited unchanged** at this tag; inherited Rust and real-world BTDU evidence was not rerun for v3.4.3.
 
-Protected release commit: `9822b1b65f8269ebc17208a342809720729ae2f8`
+After the immutable tag, `main` adds BTDU reconstructive primary storage, wallet and market changes. These are implemented source and BTG local evidence, **not** implicitly part of the protected release. The [current implementation and qualification status](docs/current/IMPLEMENTATION_STATUS_20261012.md) states exactly what is present, locally verified and still pending.
 
-Release qualification: **185/185** regression, **8/8** protocol-origin/migration/economic-lineage tests, **33/33** targeted Global Passport/package tests, **24/24** sealed Global Passport vectors, six BTG-controlled native implementations, six executable domain repositories requalified unchanged, and protected GitHub checks/CodeQL PASS.
-
-See [v3.4.1 Portal](docs/v3.4/README.md) and [Engineering Evidence](docs/ENGINEERING_EVIDENCE.md).
+Historical v3.4.1 protected commit `9822b1b65f8269ebc17208a342809720729ae2f8` and its 185/185, 8/8, 33/33, 24/24 campaigns remain preserved as historical evidence, not current runtime results.
 
 ## What is already engineered
 
@@ -122,3 +120,11 @@ The roadmap does **not** aim to require:
 - silent reinterpretation of historical signed records.
 
 The project should become more credible as more of it can be reproduced outside BTG control.
+
+## Priority engineering-to-adoption gates (2026-10-12)
+
+1. Publish one current-source/release/installed-runtime claim map with CI checks; never silently rewrite signed frozen campaign artifacts.
+2. Qualify Swift, Kotlin, TypeScript and .NET verifier/SDK interfaces against versioned negative authorization, recovery and replay vectors; separate native mobile inspection from authority parity.
+3. Benchmark BTDU exact reconstructive storage against content-addressed and compressed baselines with all indexes, atomic checkpoints, RAM, latency and cold-restart cost accounted for.
+4. Obtain separately controlled external nodes, independent cryptographic/security review and trustworthy key-custody evidence.
+5. Measure cross-app integration and unrelated global pilots; publish false positives, unknowns, failure modes and actual adoption outcomes rather than inferred reach.

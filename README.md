@@ -1,5 +1,7 @@
 # ENTITY
 
+> **Current implementation and qualification snapshot (2026-10-12):** [Release versus `main`, BTDU storage, wallet/SDK maturity and independent evidence gates](docs/current/IMPLEMENTATION_STATUS_20261012.md). The protected v3.4.3 tag and post-tag work are distinct; historical sealed evidence is preserved.
+
 [![Release](https://img.shields.io/github/v/release/blackmore-technology-group/ENTITY?sort=semver)](https://github.com/blackmore-technology-group/ENTITY/releases/latest)
 [![CI](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/ci.yml/badge.svg)](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/ci.yml)
 [![Dependency review](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/blackmore-technology-group/ENTITY/actions/workflows/dependency-review.yml)
