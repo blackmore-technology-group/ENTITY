@@ -43,6 +43,16 @@ class DataChipPortableTests(unittest.TestCase):
             for info, body in items:
                 z.writestr(info, replacement if info.filename == member else body)
 
+    def test_deterministic_archive_bytes_for_equivalent_inputs(self):
+        data = b"DATACHIP-DETERMINISTIC|" * 200
+        first = pack_stream([data], self.chip("one.edc"),
+                            claimed_issuer="synthetic.example")
+        second = pack_stream([data[:50], data[50:]], self.chip("two.edc"),
+                             claimed_issuer="synthetic.example")
+        self.assertEqual(first["chip_id"], second["chip_id"])
+        self.assertEqual(self.chip("one.edc").read_bytes(),
+                         self.chip("two.edc").read_bytes())
+
     def test_empty_roundtrip_and_deterministic_identity(self):
         first = pack_stream([], self.chip("a.edc"))
         second = pack_stream([b""], self.chip("b.edc"))
