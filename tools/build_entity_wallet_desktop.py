@@ -10,6 +10,7 @@ DATA_PATHS=[
   "protocol/origin",
   "protocol/profiles",
   "tools/entity_v3_4_cli.py",
+  "tools/datachip_workspace_ui.py",
   "src/01_Core_Runtime/identity/canonical_identity.py",
   "src/11_ADAM/full_runtime",
   "src/22_Sovereign_Domain",
@@ -24,6 +25,7 @@ DATA_PATHS=[
   "src/42_ENTITY_Wallet",
   "src/45_ENTITY_Market",
   "sdk/global_passport_sdk",
+  "sdk/datachip",
 ]
 
 def _python_sources():
