@@ -4,8 +4,13 @@ on:
   push:
     branches:
       - feature/entity-wallet-datachip-composer-20261013
+      - feature/entity-full-wallet-composer-integration-20261013
     paths:
       - "src/42_ENTITY_Wallet/datachip_graph.py"
+      - "src/42_ENTITY_Wallet/datachip_catalog.py"
+      - "tests/test_datachip_wallet_catalog.py"
+      - "tools/entity_wallet_desktop.py"
+      - "tools/build_entity_wallet_desktop.py"
       - "tools/datachip_workspace_ui.py"
       - "tools/entity_datachip_composer_preview.py"
       - "tests/test_datachip_graph.py"
@@ -13,6 +18,10 @@ on:
   pull_request:
     paths:
       - "src/42_ENTITY_Wallet/datachip_graph.py"
+      - "src/42_ENTITY_Wallet/datachip_catalog.py"
+      - "tests/test_datachip_wallet_catalog.py"
+      - "tools/entity_wallet_desktop.py"
+      - "tools/build_entity_wallet_desktop.py"
       - "tools/datachip_workspace_ui.py"
       - "tools/entity_datachip_composer_preview.py"
       - "tests/test_datachip_graph.py"
@@ -37,9 +46,9 @@ jobs:
         with:
           python-version: "3.11"
       - name: Syntax-check bounded graph engine and visual workspace
-        run: python -m py_compile src/42_ENTITY_Wallet/datachip_graph.py tools/datachip_workspace_ui.py tools/entity_datachip_composer_preview.py
+        run: python -m py_compile src/42_ENTITY_Wallet/datachip_graph.py src/42_ENTITY_Wallet/datachip_catalog.py tools/datachip_workspace_ui.py tools/entity_wallet_desktop.py tools/entity_datachip_composer_preview.py
       - name: Adversarial graph, rights and wallet-scope tests
-        run: python -B -m unittest discover -s tests -p "test_datachip_graph.py" -v
+        run: python -B -m unittest discover -s tests -p "test_datachip*.py" -v
 
   headless-composer-ui:
     name: visual-canvas-smoke (windows-latest)
@@ -63,7 +72,7 @@ jobs:
       - name: Install preview packager and EDCF verifier dependencies
         run: python -m pip install pyinstaller cryptography
       - name: Build isolated Windows Composer preview EXE
-        run: python -m PyInstaller --noconfirm --clean --windowed --onedir --name ENTITY-Composer-Preview --hidden-import uuid --hidden-import dataclasses --hidden-import math --hidden-import json --hidden-import pathlib --hidden-import tempfile --hidden-import hashlib --hidden-import re --add-data "src/42_ENTITY_Wallet/datachip_graph.py;src/42_ENTITY_Wallet" --add-data "sdk/datachip;sdk/datachip" tools/entity_datachip_composer_preview.py
+        run: python -m PyInstaller --noconfirm --clean --windowed --onedir --name ENTITY-Composer-Preview --hidden-import uuid --hidden-import dataclasses --hidden-import math --hidden-import json --hidden-import pathlib --hidden-import tempfile --hidden-import hashlib --hidden-import re --add-data "src/42_ENTITY_Wallet/datachip_graph.py;src/42_ENTITY_Wallet" --add-data "src/42_ENTITY_Wallet/datachip_catalog.py;src/42_ENTITY_Wallet" --add-data "sdk/datachip;sdk/datachip" tools/entity_datachip_composer_preview.py
       - name: Confirm Windows EXE exists
         run: if (!(Test-Path "dist/ENTITY-Composer-Preview/ENTITY-Composer-Preview.exe")) { throw "Preview executable missing" }
       - name: Run the actual frozen Windows preview in sandboxed headless mode
