@@ -1,0 +1,152 @@
+{
+  "schema": "entity-dco-commercial-template-v1",
+  "template_id": "BTG-ADVANCED-ROBOTICS-ALGORITHM-01",
+  "entity_display_version": "3.4.3",
+  "profile": "ADVANCED",
+  "family": "ROBOTICS_ALGORITHM",
+  "protocol_change_required": false,
+  "products": [
+    {
+      "archetype": "EVALUATION",
+      "eep_class": "SUBSCRIPTION",
+      "scarcity_class": "OPEN_CAPACITY",
+      "initial_supply": 1000,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 2592000000,
+      "actions": [
+        "EVALUATE",
+        "EXECUTE"
+      ],
+      "terms": {
+        "commercial_use": false
+      }
+    },
+    {
+      "archetype": "RUNTIME_USE",
+      "eep_class": "SUBSCRIPTION",
+      "scarcity_class": "CONTROLLED_CAPACITY",
+      "initial_supply": 10000,
+      "reserve_units": 2000,
+      "transferable": false,
+      "duration_ms": 31536000000,
+      "actions": [
+        "EXECUTE",
+        "INFER"
+      ],
+      "terms": {
+        "unit_definition": "ONE_GOVERNED_RUNTIME_RIGHT"
+      }
+    },
+    {
+      "archetype": "ENTERPRISE_API",
+      "eep_class": "SUBSCRIPTION",
+      "scarcity_class": "CONTROLLED_CAPACITY",
+      "initial_supply": 250,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 31536000000,
+      "actions": [
+        "EXECUTE",
+        "API_CALL"
+      ],
+      "terms": {
+        "managed_api_access": true
+      }
+    },
+    {
+      "archetype": "COMMERCIAL_DERIVATIVE",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "FIXED_CAP",
+      "initial_supply": 100,
+      "reserve_units": 30,
+      "transferable": true,
+      "duration_ms": 157680000000,
+      "actions": [
+        "DERIVE",
+        "COMMERCIALIZE"
+      ],
+      "terms": {
+        "max_supply": 100,
+        "source_redistribution": false
+      }
+    },
+    {
+      "archetype": "OEM_EMBEDDED",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "CONTROLLED_CAPACITY",
+      "initial_supply": 500,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 157680000000,
+      "actions": [
+        "EXECUTE",
+        "OEM_DEPLOY",
+        "COMMERCIALIZE"
+      ],
+      "terms": {
+        "unit_definition": "100_AUTHORIZED_DEPLOYED_DEVICES",
+        "initial_device_capacity": 50000
+      }
+    },
+    {
+      "archetype": "FIELD_OF_USE",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "FIXED_CAP",
+      "initial_supply": 8,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 157680000000,
+      "actions": [
+        "EXECUTE",
+        "COMMERCIALIZE"
+      ],
+      "terms": {
+        "allowed_fields": [
+          "WAREHOUSE_AUTOMATION",
+          "MANUFACTURING",
+          "MINING_ROBOTICS",
+          "AGRICULTURAL_ROBOTICS",
+          "CONSTRUCTION_ROBOTICS",
+          "LOGISTICS",
+          "INSPECTION_MAINTENANCE",
+          "RESEARCH"
+        ]
+      }
+    },
+    {
+      "archetype": "REGIONAL_EXCLUSIVITY",
+      "eep_class": "SPOT_LICENSE",
+      "scarcity_class": "UNIQUE",
+      "initial_supply": 1,
+      "reserve_units": 0,
+      "transferable": false,
+      "duration_ms": 157680000000,
+      "actions": [
+        "EXECUTE",
+        "COMMERCIALIZE"
+      ],
+      "variants": [
+        "CA",
+        "US",
+        "EU",
+        "UK",
+        "JP",
+        "KR",
+        "AU-NZ",
+        "IN",
+        "ME-DEFINED",
+        "LATAM-DEFINED"
+      ],
+      "terms": {
+        "one_active_exclusive_per_region": true
+      }
+    }
+  ],
+  "invariants": {
+    "external_sale_enabled": false,
+    "pricing_separate_from_supply": true,
+    "protocol_tax_bps": 0,
+    "cryptocurrency_required": false
+  }
+}

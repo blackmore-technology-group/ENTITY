@@ -1,0 +1,104 @@
+{
+  "schema": "entity-v343-dco000002-public-qualification-v1",
+  "completed_utc": "2026-10-03T06:33:00Z",
+  "entity_display_version": "3.4.3",
+  "pass": true,
+  "dco_code": "DCO-000002",
+  "name": "Blackmore Real-Time Failure Detection Engine",
+  "version": "0.1.0",
+  "parent_dco": "DCO-000001",
+  "asset": {
+    "asset_class": "ROBOTICS_FAILURE_DETECTION_ALGORITHM",
+    "origin": "BTG_CREATED_ALGORITHM",
+    "proprietary": true,
+    "public_source_intended": false,
+    "asset_bundle_root_sha256": "60f64ccbed355a1d4a75b0253289487aa2017a513a87cd731f4ee7cc9924cd2e",
+    "source_sha256": "61967179d359ff93085ac3e3f1246fbe3f7afa2cea9dd4b017b768e0bcdb9a97",
+    "model_sha256": "9ecf46feefed093320fbe6db5e1fe80038ed0b0411025620345cea54de8ab2d7",
+    "provenance_sha256": "b2385d10949e7872dbfbe265732e12b127dee446cae63d6181ae933ad0787efd",
+    "third_party_source_data": false,
+    "third_party_algorithm_source": false
+  },
+  "benchmark": {
+    "parent_asset": "BIRFR-1",
+    "held_out_failure_episodes": 14000,
+    "held_out_success_episodes": 6000,
+    "failure_detection_rate": 1,
+    "success_episode_false_alert_rate": 0,
+    "failure_episode_early_alert_rate": 0,
+    "mean_detection_delay_steps": 0,
+    "p95_detection_delay_steps": 0,
+    "unknown_failure_detection_rate": 1,
+    "cross_embodiment_detection_rate": 1,
+    "inference_latency_us": {
+      "median": 4.1,
+      "p95": 6.3,
+      "p99": 7.6
+    },
+    "anomaly_score_used_at_runtime": false,
+    "failure_label_used_at_runtime": false,
+    "physical_time_to_detection_ms_qualified": false,
+    "physical_robot_validation": false,
+    "boundary": "Results are on the deterministic BIRFR-1 synthetic benchmark. They are not physical-robot safety certification."
+  },
+  "passports": {
+    "rights_passport_sha256": "8d83591eae4d221aa9e83c5a4ecfbd297d4cd421df1e209949b6210d4a217de4",
+    "rights_privacy_profile": "CONFIDENTIAL_PROVENANCE",
+    "global_passport_sha256": "1a43778b9fc0302584e984ff1041044a11380a6e249adbf6fc75486613018995",
+    "profile_stack": [
+      "entity-profile:global@1.0",
+      "entity-profile:robotics@1.0",
+      "entity-profile:ai@1.0",
+      "entity-profile:manufacturing@1.0"
+    ],
+    "economic_state": {
+      "state": "POTENTIAL",
+      "amount_units": 0,
+      "currency": "CAD"
+    }
+  },
+  "btdu_binding": {
+    "mode": "CONTENT_ADDRESSED_REFERENCE",
+    "exact_atomization": false,
+    "content_sha256": "60f64ccbed355a1d4a75b0253289487aa2017a513a87cd731f4ee7cc9924cd2e",
+    "qualified_universe_root": "74f9c41c26f1260c01adc3db839f573cb664cbf80b84e2ba4788d7da08bbebfd"
+  },
+  "economics": {
+    "commercial_archetypes": 7,
+    "physical_instruments": 16,
+    "total_right_units": 11868,
+    "treasury_reserve_units": 2030,
+    "issuer_units_after_reserve": 9838,
+    "orders": 0,
+    "trades": 0,
+    "market_marks": 0,
+    "external_sale_enabled": false
+  },
+  "shared_bridge": {
+    "bridge_family": "ENTITY_ROBOTICS_INTEGRATION",
+    "exposure_mode": "NOT_EXPOSED",
+    "unique_bridge_created": false
+  },
+  "runtime_integrity": {
+    "universal_fabric": "ok",
+    "exchange": "ok",
+    "economic_participation": "ok",
+    "wallet": "ok",
+    "dco_factory": "ok",
+    "production_pipeline": "ok",
+    "shared_bridge": "ok",
+    "rights_passport": "ok",
+    "global_passport": "ok"
+  },
+  "repository_boundary": {
+    "proprietary_source_committed": false,
+    "model_bytes_committed": false,
+    "live_object_ids_committed": false,
+    "live_instrument_ids_committed": false,
+    "wallet_ids_committed": false,
+    "treasury_ids_committed": false,
+    "private_keys_committed": false,
+    "credentials_committed": false,
+    "customer_entitlements_committed": false
+  }
+}
