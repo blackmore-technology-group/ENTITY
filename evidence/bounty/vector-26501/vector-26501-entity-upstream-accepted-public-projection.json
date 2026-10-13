@@ -1,0 +1,63 @@
+{
+  "schema": "entity-v343-external-contribution-upstream-accepted-public-projection-v1",
+  "projection_version": 1,
+  "publication": {
+    "kind": "PORTABLE_PUBLIC_PROJECTION",
+    "sealed_receipt_schema": "entity-v343-external-contribution-upstream-accepted-receipt-v1",
+    "sealed_receipt_sha256": "CD1099B45EB7727F839088FE030BA83B5ADEE64FFC63653AAFA31388E9ED3D50",
+    "sealed_receipt_unchanged": true,
+    "sealed_receipt_publication_commit": "3930f10bdb8606e8eeaf432315ad1597c4af1654",
+    "sealed_receipt_git_blob_sha1": "b226c36bf08d9e2487b1310e821afea084e59c7e",
+    "local_only_fields_omitted": [
+      "entity.state_dir",
+      "parent_entity_receipt.path"
+    ],
+    "claim_boundary": "This file is a portable public projection of the sealed acceptance receipt. It is not a replacement for the sealed receipt bytes and does not alter the recorded ENTITY/BTDU state."
+  },
+  "entity_release": "v3.4.3",
+  "btdu_component": "3.4.2",
+  "repository": "vectordotdev/vector",
+  "fork_repository": "blackmore-technology-group/vector",
+  "issue_number": 26501,
+  "pr_number": 26504,
+  "pr_url": "https://github.com/vectordotdev/vector/pull/26504",
+  "contribution_class": "PRO_BONO",
+  "phase": "UPSTREAM_ACCEPTED_RECORDED",
+  "observed_at_utc": "2026-09-28T23:12:31.055074+00:00",
+  "final_pr_head": "bf30a83523c21031b8f9cc12a7e27ebc8965b020",
+  "accepted_commit": "49a6f2880e5299de5937d8c6936b80ee885addbe",
+  "merged_at": "2026-09-28T22:23:20Z",
+  "atomic_root": "06274b223c27e5e9eca0a7157aadbe0a0062f4475b71cf2d1178e3c33257931e",
+  "exact_reconstruction_verified": true,
+  "predecessor": {
+    "phase": "READY_FOR_REVIEW_RECORDED",
+    "receipt_sha256": "FFDB3A2AF0914FFBB9F846BA70FD4A7DD3F2C1B15EBD8AD5F83FBB05EB13016F"
+  },
+  "maintainer_review": {
+    "actor": "thomasqueirozb",
+    "review_id": 5344988267,
+    "state": "APPROVED",
+    "submitted_at": "2026-09-28T21:43:42Z"
+  },
+  "ci": {
+    "success": 23,
+    "skipped": 37,
+    "failure": 0,
+    "pending": 0
+  },
+  "claims": {
+    "upstream_accepted": true,
+    "merged": true,
+    "maintainer_approved": true,
+    "issue_closed_by_maintainer": true,
+    "ci_passed": true,
+    "payment_settled": false,
+    "economic_rights_created_by_ingest": false,
+    "upstream_source_ownership_claimed": false
+  },
+  "realized_cash": {
+    "amount": 0,
+    "currency": "USD"
+  },
+  "rights_boundary": "ENTITY records the contribution lineage and evidenced economic state. It does not override MPL-2.0, create ownership of upstream source, or create a payment obligation."
+}
