@@ -1,6 +1,8 @@
 """Read-only real ENTITY RightsPassportRegistry wiring, synthetic keys and state."""
 from __future__ import annotations
 import hashlib
+from contextlib import closing
+import sqlite3
 import importlib.util
 import json
 from pathlib import Path
@@ -128,7 +130,7 @@ class AuthorityBridgeTests(unittest.TestCase):
                 self.registry.path.with_name("no-passport.sqlite").name,
                 expected_object_id="object:blocked",expected_controller=self.controller)
         # The actual blocked passport should fail even with a good signature.
-        with __import__("sqlite3").connect(self.registry.path) as db:
+        with closing(sqlite3.connect(self.registry.path)) as db:
             pid=db.execute("SELECT passport_id FROM passports WHERE object_id=?",("object:blocked",)).fetchone()[0]
         with self.assertRaises(PermissionError):
             inspect_active_passport(self.registry,pid,
