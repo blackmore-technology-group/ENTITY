@@ -63,9 +63,17 @@ jobs:
       - name: Install preview packager and EDCF verifier dependencies
         run: python -m pip install pyinstaller cryptography
       - name: Build isolated Windows Composer preview EXE
-        run: python -m PyInstaller --noconfirm --clean --windowed --onedir --name ENTITY-Composer-Preview --add-data "src/42_ENTITY_Wallet/datachip_graph.py;src/42_ENTITY_Wallet" --add-data "sdk/datachip;sdk/datachip" tools/entity_datachip_composer_preview.py
+        run: python -m PyInstaller --noconfirm --clean --windowed --onedir --name ENTITY-Composer-Preview --hidden-import uuid --hidden-import dataclasses --hidden-import math --hidden-import json --hidden-import pathlib --hidden-import tempfile --hidden-import hashlib --hidden-import re --add-data "src/42_ENTITY_Wallet/datachip_graph.py;src/42_ENTITY_Wallet" --add-data "sdk/datachip;sdk/datachip" tools/entity_datachip_composer_preview.py
       - name: Confirm Windows EXE exists
         run: if (!(Test-Path "dist/ENTITY-Composer-Preview/ENTITY-Composer-Preview.exe")) { throw "Preview executable missing" }
+      - name: Run the actual frozen Windows preview in sandboxed headless mode
+        shell: pwsh
+        run: |
+          $env:QT_QPA_PLATFORM="offscreen"
+          & "./dist/ENTITY-Composer-Preview/ENTITY-Composer-Preview.exe" --render-preview "composer-packaged-smoke.png"
+          if ($LASTEXITCODE -ne 0) { throw "Frozen preview failed to launch" }
+          if (!(Test-Path "composer-packaged-smoke.png")) { throw "No frozen GUI evidence was produced" }
+
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v4.4.3
         with:
           name: ENTITY-Composer-Preview-Windows
