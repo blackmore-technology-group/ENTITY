@@ -136,10 +136,15 @@ class EntityEconomicWallet:
         if self.dco_factory_path.exists():
             try:
                 with self._db(self.dco_factory_path) as fdb:
-                    for r in fdb.execute("SELECT dco_id,source_sha256,lifecycle FROM dco_masters"):
+                    for r in fdb.execute("SELECT dco_id,source_sha256,lifecycle,master_json FROM dco_masters"):
+                        master_doc=json.loads(r["master_json"] or "{}")
+                        master_meta=dict(master_doc.get("metadata") or {})
                         master_by_hash[str(r["source_sha256"])]={
-                            "dco_id":str(r["dco_id"]),"lifecycle":str(r["lifecycle"]).upper()}
-            except sqlite3.OperationalError:
+                            "dco_id":str(r["dco_id"]),
+                            "lifecycle":str(r["lifecycle"]).upper(),
+                            "current_object_id":str(master_meta.get("dco_object_id") or "") or None,
+                        }
+            except (sqlite3.OperationalError, json.JSONDecodeError, TypeError, ValueError):
                 master_by_hash={}
         with self._db(self.fabric_path) as db:
             rows=db.execute("""SELECT object_id,controller_entity_id,object_type,title,content_sha256,
@@ -159,6 +164,8 @@ class EntityEconomicWallet:
                 if descriptor.get("digital_commodity") is not True: continue
                 master=master_by_hash.get(str(d.get("content_sha256") or ""))
                 if master and (master["lifecycle"].startswith("RETIRED") or master["lifecycle"].startswith("HISTORICAL")):
+                    continue
+                if master and master.get("current_object_id") and d["object_id"] != master["current_object_id"]:
                     continue
                 d["descriptor"]=descriptor
                 if master:
