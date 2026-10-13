@@ -1,0 +1,16 @@
+{
+  "schema": "entity-usage-receipt-v2",
+  "receipt_id": "urc2-0000000000000000000000000000000000000000",
+  "licence_id": "lic-example-0001",
+  "actor_entity_id": "entity-example-actor",
+  "asset_id": "asset-example-0001",
+  "use_type": "READ",
+  "purpose": "example-purpose",
+  "quantity": 1,
+  "assurance": "ENTITY_GATEWAY_OBSERVED",
+  "assurance_level": 2,
+  "evidence_origin": "DIRECT_OBSERVATION",
+  "evidence_sha256": "3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b",
+  "nonce": "example-nonce-0001",
+  "created_at_ms": 1700000000000
+}
