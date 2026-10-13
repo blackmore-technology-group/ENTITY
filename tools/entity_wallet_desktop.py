@@ -1,11 +1,11 @@
 from __future__ import annotations
 from pathlib import Path
-import argparse, html, importlib.util, json, os, sqlite3, sys, uuid
+import argparse, hashlib, html, importlib.util, json, os, sqlite3, sys, time, uuid
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
-APP_NAME = "ENTITY Wallet"
-VERSION = "3.4.3"
+APP_NAME = "ENTITY Workspace — DataChips"
+VERSION = "3.4.3-composer-qualification"
 
 ROOT_BG = "#090B0E"
 SIDEBAR_BG = "#0D1014"
@@ -54,6 +54,19 @@ def startup_stylesheet() -> str:
         selection-background-color: {ACCENT_DARK};
     }}
     QLineEdit:focus, QComboBox:focus {{ border-color: {ACCENT}; }}
+    QComboBox QAbstractItemView {{
+        background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER};
+        selection-background-color: #2A251A; selection-color: {TEXT}; outline: none;
+    }}
+    QListWidget {{
+        background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER}; border-radius: 6px;
+        outline: none; padding: 4px;
+    }}
+    QListWidget::item {{
+        background: {PANEL_2}; color: {TEXT}; padding: 8px 7px; border-bottom: 1px solid #1D232B;
+    }}
+    QListWidget::item:hover {{ background: #1A2027; color: {TEXT}; }}
+    QListWidget::item:selected {{ background: #2A251A; color: {TEXT}; }}
     QCheckBox {{ spacing: 8px; }}
     """
 
@@ -80,6 +93,7 @@ EXCHANGE = load_module("entity_wallet_exchange", "src/31_Profiles/exchange_proto
 MARKET = load_module("entity_wallet_market", "src/45_ENTITY_Market/canonical_market_registry.py")
 INTEL = load_module("entity_wallet_intelligence", "src/45_ENTITY_Market/economic_intelligence.py")
 ONBOARDING = load_module("entity_wallet_onboarding", "src/42_ENTITY_Wallet/onboarding.py")
+COMPOSER_UI = load_module("entity_wallet_datachip_ui", "tools/datachip_workspace_ui.py")
 
 def default_state() -> Path:
     env = os.environ.get("ENTITY_STATE_DIR")
@@ -137,6 +151,8 @@ class Backend:
         self.wallet_record = self.wallet.ensure_wallet(
             entity_id, self.identity_manifest.get("display_name", "ENTITY") + " Wallet"
         )
+        self.formula_set_path = self.state / "wallet" / "btdu_asset_formula_sets.sqlite"
+        self._init_formula_set_registry()
 
     def snapshot(self):
         return self.wallet.snapshot(self.wallet_record["wallet_id"])
@@ -158,6 +174,296 @@ class Backend:
 
     def asset_disclosure(self, object_id: str) -> dict | None:
         return self.market_registry.latest_asset_disclosure(object_id)
+
+    def _init_formula_set_registry(self) -> None:
+        self.formula_set_path.parent.mkdir(parents=True, exist_ok=True)
+        db = sqlite3.connect(self.formula_set_path, timeout=30.0)
+        try:
+            db.execute("PRAGMA journal_mode=WAL")
+            db.executescript("""
+            CREATE TABLE IF NOT EXISTS asset_formula_sets(
+              object_id TEXT PRIMARY KEY,
+              controller_entity_id TEXT NOT NULL,
+              universe_owner_entity_id TEXT NOT NULL,
+              source_kind TEXT NOT NULL,
+              source_path TEXT NOT NULL,
+              source_name TEXT NOT NULL,
+              directories_json TEXT NOT NULL,
+              item_count INTEGER NOT NULL,
+              logical_bytes INTEGER NOT NULL,
+              manifest_sha256 TEXT NOT NULL,
+              verified INTEGER NOT NULL,
+              created_at_ms INTEGER NOT NULL,
+              updated_at_ms INTEGER NOT NULL
+            );
+            CREATE TABLE IF NOT EXISTS asset_formula_files(
+              object_id TEXT NOT NULL,
+              relative_path TEXT NOT NULL,
+              formula_object_id TEXT NOT NULL,
+              formula_sha256 TEXT NOT NULL,
+              content_sha256 TEXT NOT NULL,
+              size_bytes INTEGER NOT NULL,
+              PRIMARY KEY(object_id,relative_path)
+            );
+            CREATE INDEX IF NOT EXISTS idx_asset_formula_files_formula
+              ON asset_formula_files(formula_object_id);
+            """)
+            db.commit()
+        finally:
+            db.close()
+
+    @staticmethod
+    def _file_sha256(path: Path) -> tuple[str, int]:
+        h = hashlib.sha256()
+        size = 0
+        with path.open("rb") as fh:
+            for block in iter(lambda: fh.read(1024 * 1024), b""):
+                h.update(block)
+                size += len(block)
+        return h.hexdigest(), size
+
+    def _formula_universe_owner(self, obj: dict) -> str:
+        controller = str(obj.get("controller_entity_id") or "")
+        try:
+            binding = dict(self.latest_global_passport(obj["object_id"]).get("btdu_binding") or {})
+        except Exception:
+            binding = {}
+        owner = str(binding.get("sovereign_entity_id") or "").strip()
+        if owner:
+            return owner
+        btdu = CLI.btdu_mod
+        canonical_ids = {
+            btdu.BTDU_CANONICAL_OWNER_ENTITY_ID,
+            btdu.BTG_STEWARD_ENTITY_ID,
+            btdu.ENTITY_PROTOCOL_ENTITY_ID,
+        }
+        return btdu.BTDU_CANONICAL_OWNER_ENTITY_ID if controller in canonical_ids else controller
+
+    def formula_storage_status(self, object_id: str) -> dict | None:
+        db = sqlite3.connect(self.formula_set_path, timeout=5.0)
+        db.row_factory = sqlite3.Row
+        try:
+            row = db.execute(
+                "SELECT * FROM asset_formula_sets WHERE object_id=?",
+                (str(object_id),),
+            ).fetchone()
+            if not row:
+                return None
+            files = [
+                dict(r) for r in db.execute(
+                    """SELECT relative_path,formula_object_id,formula_sha256,content_sha256,size_bytes
+                       FROM asset_formula_files WHERE object_id=? ORDER BY relative_path""",
+                    (str(object_id),),
+                ).fetchall()
+            ]
+        finally:
+            db.close()
+        out = dict(row)
+        out["verified"] = bool(out["verified"])
+        out["directories"] = json.loads(out.pop("directories_json") or "[]")
+        out["files"] = files
+        return out
+
+    def add_asset_to_formula_storage(self, object_id: str, source_path: str | Path, progress=None) -> dict:
+        obj = self.asset_record(object_id)
+        controller = str(obj.get("controller_entity_id") or "")
+        if controller != self.entity_id:
+            raise PermissionError("Only assets controlled by the active ENTITY identity can be upgraded to formula storage.")
+        src = Path(source_path).expanduser().resolve()
+        if src.is_file():
+            source_kind = "FILE"
+            source_name = src.name
+            file_pairs = [(src.name, src)]
+            directories = []
+        elif src.is_dir():
+            source_kind = "FOLDER"
+            source_name = src.name
+            directories = sorted(
+                p.relative_to(src).as_posix()
+                for p in src.rglob("*")
+                if p.is_dir() and not p.is_symlink()
+            )
+            file_pairs = sorted(
+                (p.relative_to(src).as_posix(), p)
+                for p in src.rglob("*")
+                if p.is_file() and not p.is_symlink()
+            )
+            if not file_pairs:
+                raise ValueError("Selected folder contains no regular files.")
+        else:
+            raise FileNotFoundError(str(src))
+
+        universe_owner = self._formula_universe_owner({**obj, "object_id": str(object_id)})
+        root = self.state / "btdu" / universe_owner
+        btdu = CLI.btdu_mod
+        storage = btdu.BTDUStorageKernel(root / "storage")
+        formulas = btdu.BTDUFormulaKernel(root / "formula", reservoir=storage)
+        records = []
+        total = len(file_pairs)
+        try:
+            for i, (rel, path) in enumerate(file_pairs, 1):
+                if progress:
+                    progress(i, total, rel)
+                source_hash, source_size = self._file_sha256(path)
+                formula = formulas.put_path(path)
+                if str(formula.get("content_sha256") or "").lower() != source_hash:
+                    raise RuntimeError(f"Formula content hash mismatch for {rel}")
+                if int(formula.get("size_bytes") or -1) != int(source_size):
+                    raise RuntimeError(f"Formula size mismatch for {rel}")
+                verification = formulas.verify_object(str(formula["formula_object_id"]), deep=True)
+                if not verification.get("pass"):
+                    raise RuntimeError(f"Deep formula verification failed for {rel}: {verification.get('problems')}")
+                records.append({
+                    "relative_path": rel,
+                    "formula_object_id": str(formula["formula_object_id"]),
+                    "formula_sha256": str(formula["formula_sha256"]),
+                    "content_sha256": source_hash,
+                    "size_bytes": source_size,
+                })
+        finally:
+            formulas.close()
+
+        manifest = {
+            "schema": "entity-wallet-btdu-asset-formula-set-v1",
+            "object_id": str(object_id),
+            "controller_entity_id": controller,
+            "universe_owner_entity_id": universe_owner,
+            "source_kind": source_kind,
+            "source_name": source_name,
+            "directories": directories,
+            "files": records,
+        }
+        manifest_sha = hashlib.sha256(
+            json.dumps(manifest, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+        ).hexdigest()
+        now = int(time.time() * 1000)
+        db = sqlite3.connect(self.formula_set_path, timeout=30.0)
+        try:
+            db.execute("PRAGMA busy_timeout=30000")
+            db.execute("BEGIN IMMEDIATE")
+            previous = db.execute(
+                "SELECT created_at_ms FROM asset_formula_sets WHERE object_id=?",
+                (str(object_id),),
+            ).fetchone()
+            created = int(previous[0]) if previous else now
+            db.execute("DELETE FROM asset_formula_files WHERE object_id=?", (str(object_id),))
+            db.execute("DELETE FROM asset_formula_sets WHERE object_id=?", (str(object_id),))
+            db.execute(
+                """INSERT INTO asset_formula_sets(
+                   object_id,controller_entity_id,universe_owner_entity_id,source_kind,source_path,source_name,
+                   directories_json,item_count,logical_bytes,manifest_sha256,verified,created_at_ms,updated_at_ms)
+                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (
+                    str(object_id), controller, universe_owner, source_kind, str(src), source_name,
+                    json.dumps(directories, sort_keys=True), len(records),
+                    sum(int(x["size_bytes"]) for x in records), manifest_sha, 1, created, now,
+                ),
+            )
+            db.executemany(
+                """INSERT INTO asset_formula_files(
+                   object_id,relative_path,formula_object_id,formula_sha256,content_sha256,size_bytes)
+                   VALUES(?,?,?,?,?,?)""",
+                [
+                    (
+                        str(object_id), r["relative_path"], r["formula_object_id"],
+                        r["formula_sha256"], r["content_sha256"], int(r["size_bytes"]),
+                    )
+                    for r in records
+                ],
+            )
+            db.commit()
+        except Exception:
+            db.rollback()
+            raise
+        finally:
+            db.close()
+        return self.formula_storage_status(object_id)
+
+    def export_formula_storage_set(self, object_id: str, destination: str | Path) -> dict:
+        status = self.formula_storage_status(object_id)
+        if not status or not status.get("verified"):
+            raise RuntimeError("This asset has no verified formula-storage set.")
+        obj = self.asset_record(object_id)
+        if str(obj.get("controller_entity_id") or "") != self.entity_id:
+            raise PermissionError("Only assets controlled by the active ENTITY identity can be reconstructed.")
+        root = self.state / "btdu" / str(status["universe_owner_entity_id"])
+        btdu = CLI.btdu_mod
+        storage = btdu.BTDUStorageKernel(root / "storage")
+        formulas = btdu.BTDUFormulaKernel(root / "formula", reservoir=storage)
+        written = []
+        destination = Path(destination)
+        try:
+            if status["source_kind"] == "FILE":
+                if len(status["files"]) != 1:
+                    raise RuntimeError("File formula set has invalid item count.")
+                targets = [(status["files"][0], destination)]
+            else:
+                base = destination / status["source_name"]
+                base.mkdir(parents=True, exist_ok=True)
+                for rel_dir in status.get("directories") or []:
+                    (base / Path(rel_dir)).mkdir(parents=True, exist_ok=True)
+                targets = [(r, base / Path(r["relative_path"])) for r in status["files"]]
+
+            for record, target in targets:
+                result = formulas.materialize(record["formula_object_id"], target)
+                if str(result["sha256"]).lower() != str(record["content_sha256"]).lower():
+                    raise RuntimeError(f"Reconstructed hash mismatch for {record['relative_path']}")
+                written.append({
+                    "relative_path": record["relative_path"],
+                    "path": str(target),
+                    "bytes": int(result["bytes"]),
+                    "sha256": str(result["sha256"]),
+                    "formula_object_id": record["formula_object_id"],
+                })
+        finally:
+            formulas.close()
+        return {
+            "schema": "entity-wallet-btdu-formula-set-export-v1",
+            "object_id": str(object_id),
+            "source_kind": status["source_kind"],
+            "source_name": status["source_name"],
+            "item_count": len(written),
+            "bytes": sum(x["bytes"] for x in written),
+            "manifest_sha256": status["manifest_sha256"],
+            "verified": True,
+            "formula_remains_authority": True,
+            "files": written,
+        }
+
+    def instrument_product_plan(self, object_id: str) -> list[dict]:
+        """Return the DCO factory's governed instrument plan for this current asset."""
+        obj = self.asset_record(object_id)
+        descriptor = obj.get("descriptor") or {}
+        metadata = descriptor.get("metadata") or {}
+        dco_code = str(metadata.get("dco_code") or "").strip()
+        source_sha256 = str(obj.get("content_sha256") or "").strip()
+        dbp = self.state / "dco_factory" / "entity_dco_factory.sqlite"
+        if not dbp.exists():
+            return []
+        db = sqlite3.connect(dbp)
+        db.row_factory = sqlite3.Row
+        try:
+            row = None
+            if dco_code:
+                row = db.execute(
+                    "SELECT master_json FROM dco_masters WHERE dco_id=? LIMIT 1",
+                    (dco_code,),
+                ).fetchone()
+            if row is None and source_sha256:
+                row = db.execute(
+                    "SELECT master_json FROM dco_masters WHERE source_sha256=? ORDER BY created_at_ms DESC LIMIT 1",
+                    (source_sha256,),
+                ).fetchone()
+        finally:
+            db.close()
+        if not row:
+            return []
+        try:
+            master = json.loads(row["master_json"] or "{}")
+        except (TypeError, ValueError, json.JSONDecodeError):
+            return []
+        physical = ((master.get("plan") or {}).get("physical_instruments") or [])
+        return [dict(x) for x in physical if isinstance(x, dict)]
 
     def publish_asset_disclosure(self, object_id: str, options: dict) -> dict:
         return self.market_registry.publish_asset_disclosure(
@@ -226,6 +532,21 @@ class Backend:
         if not row:
             raise KeyError("asset has no Global Passport")
         return self.passports.get(row["passport_id"])
+
+    def global_passport_for_controller(self, object_id: str, controller_entity_id: str) -> dict | None:
+        dbp = self.state / "entity_v3_4_global_passports.sqlite"
+        db = sqlite3.connect(dbp)
+        db.row_factory = sqlite3.Row
+        try:
+            row = db.execute(
+                """SELECT passport_id FROM global_passports
+                   WHERE object_id=? AND controller_entity_id=?
+                   ORDER BY created_at_ms DESC, passport_id DESC LIMIT 1""",
+                (str(object_id), str(controller_entity_id)),
+            ).fetchone()
+        finally:
+            db.close()
+        return None if not row else self.passports.get(row["passport_id"])
 
     def instruments(self) -> list[dict]:
         if not self.market_registry.path.exists():
@@ -323,6 +644,245 @@ class Backend:
             previous_object_id=options.get("parent_object_id") or None,
         )
 
+    def export_asset_to_disk(self, object_id: str, output_path: str | Path) -> dict:
+        """Reconstruct one controlled DCO from its authoritative BTDU formula onto disk."""
+        obj = self.asset_record(object_id)
+        controller = str(obj.get("controller_entity_id") or "")
+        if controller != self.entity_id:
+            raise PermissionError("Only assets controlled by the active ENTITY identity can be reconstructed.")
+        gp = self.latest_global_passport(object_id)
+        binding = dict(gp.get("btdu_binding") or {})
+        object_ref = str(binding.get("object_ref") or "").strip()
+        passport_formula_id = str(binding.get("formula_object_id") or "").strip()
+        if not object_ref:
+            raise RuntimeError("Selected asset has no reconstructive BTDU object binding.")
+
+        btdu = CLI.btdu_mod
+        canonical_ids = {
+            btdu.BTDU_CANONICAL_OWNER_ENTITY_ID,
+            btdu.BTG_STEWARD_ENTITY_ID,
+            btdu.ENTITY_PROTOCOL_ENTITY_ID,
+        }
+        universe_owner = btdu.BTDU_CANONICAL_OWNER_ENTITY_ID if controller in canonical_ids else controller
+        root = self.state / "btdu" / universe_owner
+        index_path = root / "btdu_index.sqlite"
+        if not index_path.exists():
+            raise RuntimeError(f"BTDU universe is not installed for {universe_owner}.")
+
+        db = sqlite3.connect(index_path, timeout=5.0)
+        db.row_factory = sqlite3.Row
+        try:
+            row = db.execute(
+                """SELECT formula_object_id,formula_sha256,authoritative
+                   FROM object_formulas WHERE object_ref=?""",
+                (object_ref,),
+            ).fetchone()
+        finally:
+            db.close()
+        if not row or int(row["authoritative"]) != 1:
+            raise RuntimeError("BTDU formula binding is missing or not authoritative.")
+        formula_id = str(row["formula_object_id"])
+        if passport_formula_id and passport_formula_id != formula_id:
+            raise RuntimeError("Global Passport formula binding does not match the live BTDU index.")
+
+        storage = btdu.BTDUStorageKernel(root / "storage")
+        formulas = btdu.BTDUFormulaKernel(root / "formula", reservoir=storage)
+        result = formulas.materialize(formula_id, output_path)
+
+        expected = str(obj.get("content_sha256") or "").strip().lower()
+        bound_hash = str(binding.get("content_sha256") or "").strip().lower()
+        actual = str(result.get("sha256") or "").strip().lower()
+        if bound_hash and actual != bound_hash:
+            Path(output_path).unlink(missing_ok=True)
+            raise RuntimeError("Reconstructed file hash does not match the BTDU passport binding.")
+        full_dco_payload = bool(expected and actual == expected)
+        return {
+            **dict(result),
+            "schema": "entity-wallet-btdu-export-v1",
+            "object_id": str(object_id),
+            "btdu_object_ref": object_ref,
+            "formula_object_id": formula_id,
+            "formula_sha256": str(row["formula_sha256"]),
+            "canonical_content_sha256": expected,
+            "btdu_binding_content_sha256": bound_hash,
+            "verified": True,
+            "formula_remains_authority": True,
+            "export_scope": "FULL_DCO_PAYLOAD" if full_dco_payload else "BOUND_COMPONENT_ONLY",
+        }
+
+    def transfer_activation_status(self, object_id: str) -> dict:
+        obj = self.asset_record(object_id)
+        controller = str(obj.get("controller_entity_id") or "")
+        transfer = dict(obj.get("latest_controller_transfer") or {})
+        if controller != self.entity_id:
+            return {
+                "object_id": str(object_id), "controlled_by_wallet": False,
+                "required": False, "active": False, "reason": "NOT_CURRENT_CONTROLLER",
+            }
+        if not transfer or str(transfer.get("to_controller_entity_id") or "") != self.entity_id:
+            return {
+                "object_id": str(object_id), "controlled_by_wallet": True,
+                "required": False, "active": True, "reason": "NOT_TRANSFERRED_IN",
+            }
+        try:
+            gp = self.global_passport_for_controller(object_id, self.entity_id) or {}
+        except Exception:
+            gp = {}
+        gp_controller = str(gp.get("controller_entity_id") or "")
+        active = bool(gp and gp_controller == self.entity_id)
+        return {
+            "object_id": str(object_id),
+            "controlled_by_wallet": True,
+            "required": not active,
+            "active": active,
+            "reason": "ACTIVE" if active else "BUYER_PASSPORT_ACTIVATION_REQUIRED",
+            "transfer_id": str(transfer.get("transfer_id") or ""),
+            "from_controller_entity_id": str(transfer.get("from_controller_entity_id") or ""),
+            "to_controller_entity_id": str(transfer.get("to_controller_entity_id") or ""),
+            "trade_id": str(transfer.get("trade_id") or ""),
+            "settlement_ref": transfer.get("settlement_ref"),
+            "latest_global_passport_id": gp.get("passport_id"),
+            "latest_global_passport_controller": gp_controller or None,
+        }
+
+    def activate_transferred_asset(self, object_id: str) -> dict:
+        status = self.transfer_activation_status(object_id)
+        if not status.get("controlled_by_wallet"):
+            raise PermissionError("The active wallet is not the current DCO controller.")
+        if status.get("active"):
+            gp = self.global_passport_for_controller(object_id, self.entity_id)
+            if not gp:
+                raise RuntimeError("Buyer Global Passport activation state is inconsistent.")
+            rp = self.rights.get(gp["rights_passport_id"])
+            return {
+                "schema": "entity-wallet-transferred-asset-activation-v1",
+                "object_id": str(object_id),
+                "transfer_id": status.get("transfer_id"),
+                "activated": True,
+                "idempotent_replay": True,
+                "rights_passport_id": rp["passport_id"],
+                "global_passport_id": gp["passport_id"],
+                "controller_entity_id": self.entity_id,
+            }
+        transfer_id = str(status.get("transfer_id") or "")
+        if not transfer_id:
+            raise RuntimeError("Transferred asset has no controller-transfer receipt.")
+        # The buyer must have its own private signing key locally. We never sign
+        # a buyer passport with the seller's key or venue/operator key.
+        self.identity.load_manifest(self.entity_id)
+        old_gp = self.latest_global_passport(object_id)
+        if str(old_gp.get("controller_entity_id") or "") == self.entity_id:
+            raise RuntimeError("Buyer passport already exists but activation status did not resolve it.")
+        old_rp = self.rights.get(old_gp["rights_passport_id"])
+        version = "xfer-" + hashlib.sha256(transfer_id.encode("utf-8")).hexdigest()[:16]
+
+        rp_db = sqlite3.connect(self.rights.path, timeout=5.0)
+        rp_db.row_factory = sqlite3.Row
+        try:
+            existing_rp_row = rp_db.execute(
+                """SELECT passport_id FROM passports
+                   WHERE object_id=? AND controller_entity_id=? AND version=?""",
+                (str(object_id), self.entity_id, version),
+            ).fetchone()
+        finally:
+            rp_db.close()
+        if existing_rp_row:
+            new_rp = self.rights.get(existing_rp_row["passport_id"])
+        else:
+            authority_refs = sorted({
+                *[str(x) for x in old_rp.get("authority_refs") or []],
+                transfer_id,
+            })
+            provenance_refs = sorted({
+                *[str(x) for x in old_rp.get("provenance_refs") or []],
+                transfer_id,
+            })
+            # Deliberately conservative: whole-asset sale transfers ENTITY
+            # controller authority and re-transfer authority. It does not
+            # silently copy copyright, patent, commercialisation, training,
+            # derivative or other historical licence rights.
+            new_rp = self.rights.issue(
+                self.entity_id,
+                str(object_id),
+                [{
+                    "effect": "ALLOW",
+                    "actions": ["CONTROL", "TRANSFER"],
+                    "conditions": {
+                        "authority_basis": "SETTLED_ASSET_TRANSFER",
+                        "controller_transfer_id": transfer_id,
+                        "trade_id": str(status.get("trade_id") or ""),
+                    },
+                    "obligations": [],
+                    "right_refs": [transfer_id],
+                }],
+                version=version,
+                authority_refs=authority_refs,
+                jurisdiction_profile_refs=list(old_rp.get("jurisdiction_profile_refs") or []),
+                semantic_refs=list(old_rp.get("semantic_refs") or []),
+                custody=list(old_rp.get("custody") or []),
+                provenance_refs=provenance_refs,
+                disclosure_refs=list(old_rp.get("disclosure_refs") or []),
+                privacy_profile=str(old_rp.get("privacy_profile") or "SELECTIVE_DISCLOSURE"),
+                economic_terms=dict(old_rp.get("economic_terms") or {}),
+                legal_classification=dict(old_rp.get("legal_classification") or {}),
+            )
+
+        gp_db = sqlite3.connect(self.passports.path, timeout=5.0)
+        gp_db.row_factory = sqlite3.Row
+        try:
+            existing_gp_row = gp_db.execute(
+                """SELECT passport_id FROM global_passports
+                   WHERE object_id=? AND controller_entity_id=? AND version=?""",
+                (str(object_id), self.entity_id, version),
+            ).fetchone()
+        finally:
+            gp_db.close()
+        if existing_gp_row:
+            new_gp = self.passports.get(existing_gp_row["passport_id"])
+        else:
+            profile_refs = list((old_gp.get("profile_stack") or {}).get("profile_refs") or [])
+            origin_ref = str((old_gp.get("protocol_origin") or {}).get("release_ref") or "") or None
+            evidence_refs = sorted({
+                *[str(x) for x in old_gp.get("evidence_refs") or []],
+                transfer_id,
+            })
+            provenance_refs = sorted({
+                *[str(x) for x in old_gp.get("provenance_refs") or []],
+                transfer_id,
+            })
+            new_gp = self.passports.issue(
+                self.entity_id,
+                str(object_id),
+                new_rp["passport_id"],
+                profile_refs,
+                version=version,
+                evidence_refs=evidence_refs,
+                provenance_refs=provenance_refs,
+                jurisdiction_profile_refs=list(old_gp.get("jurisdiction_profile_refs") or []),
+                standards_mappings=list(old_gp.get("standards_mappings") or []),
+                economic_state=dict(old_gp.get("economic_state") or {}),
+                industry_context=dict(old_gp.get("industry_context") or {}),
+                protocol_release_ref=origin_ref,
+                btdu_binding=dict(old_gp.get("btdu_binding") or {}) or None,
+            )
+        if not self.rights.verify(new_rp).get("valid"):
+            raise RuntimeError("Buyer Rights Passport verification failed.")
+        if not self.passports.verify(new_gp).get("valid"):
+            raise RuntimeError("Buyer Global Passport verification failed.")
+        return {
+            "schema": "entity-wallet-transferred-asset-activation-v1",
+            "object_id": str(object_id),
+            "transfer_id": transfer_id,
+            "activated": True,
+            "idempotent_replay": False,
+            "rights_passport_id": new_rp["passport_id"],
+            "global_passport_id": new_gp["passport_id"],
+            "controller_entity_id": self.entity_id,
+            "rights_actions": ["CONTROL", "TRANSFER"],
+            "historical_seller_passports_preserved": True,
+            "seller_rights_not_silently_inherited": True,
+        }
+
     def create_instrument(self, object_id: str, options: dict) -> dict:
         gp = self.latest_global_passport(object_id)
         rights_profile = self.instrument_rights_profile(object_id)
@@ -341,6 +901,18 @@ class Backend:
                 f"Selected action(s) are not granted by the Rights Passport: {missing}. "
                 f"Permitted actions: {permitted}"
             )
+        asset_transfer = str(options["instrument_class"]).upper() == "ASSET_TRANSFER"
+        if asset_transfer:
+            if requested != {"TRANSFER"}:
+                raise ValueError("Whole-asset sale requires exactly the TRANSFER Rights Passport action.")
+            formula_set = self.formula_storage_status(object_id)
+            if not formula_set or not formula_set.get("verified"):
+                raise RuntimeError(
+                    "Whole-asset sale requires a verified complete formula-storage set. "
+                    "Use 'Add to Formula Storage' on the asset first."
+                )
+            if int(options["supply"]) != 1 or str(options["fungibility"]).upper() != "NON-FUNGIBLE"                     or int(options["divisibility"]) != 0 or bool(options["transferable"]):
+                raise ValueError("Whole-asset transfer must be one indivisible, non-fungible, non-secondary-transferable unit.")
         return self.market_registry.create_instrument(
             self.entity_id, object_id,
             instrument_name=options["name"], display_symbol=options["symbol"],
@@ -351,7 +923,12 @@ class Backend:
             series=options["series"], fungibility=options["fungibility"],
             divisibility=options["divisibility"], transferable=options["transferable"],
             duration_ms=options.get("duration_ms"),
-            transfer_rules={"wallet_defined": True},
+            delivery_mode="ASSET_CONTROL" if asset_transfer else "ENTITLEMENT",
+            transfer_rules={
+                "wallet_defined": True,
+                "underlying_controller_transfer_on_settlement": bool(asset_transfer),
+                "requires_verified_formula_storage": bool(asset_transfer),
+            },
             economic_terms={"market_value_created_by_issuance": False},
             royalty_terms={"automatic_protocol_royalty_bps": 0},
             buyer_receives=options["buyer_receives"],
@@ -381,6 +958,75 @@ class Backend:
         )
         trades = self.exchange.match_order_book(venue, row["instrument_id"])
         return {"order": order, "trades": trades}
+
+    def pending_settlements(self) -> list[dict]:
+        with self.exchange._db() as db:
+            rows = db.execute(
+                """SELECT t.trade_id,t.venue_id,t.instrument_id,t.buyer,t.seller,t.quantity,t.price,
+                          t.execution_model,t.status,c.amount_units,c.currency,c.payment_ref,c.external_verified,
+                          i.instrument_class,i.underlying_object_id,i.delivery_mode
+                   FROM trades t
+                   JOIN clearing c ON c.trade_id=t.trade_id
+                   JOIN instruments i ON i.instrument_id=t.instrument_id
+                   WHERE t.status='EXECUTED_UNSETTLED' AND c.status='PENDING'
+                     AND (t.buyer=? OR t.seller=?)
+                   ORDER BY t.created_at_ms DESC,t.trade_id""",
+                (self.entity_id, self.entity_id),
+            ).fetchall()
+        out = []
+        for row in rows:
+            d = dict(row)
+            d["role"] = "SELLER" if d["seller"] == self.entity_id else "BUYER"
+            try:
+                pkg = self.market_registry.instrument(d["instrument_id"])
+                d["market_identifier"] = pkg.get("market_identifier")
+                d["instrument_name"] = pkg.get("instrument_name")
+            except Exception:
+                d["market_identifier"] = None
+                d["instrument_name"] = d["instrument_id"]
+            d["delivery_kind"] = (
+                "WHOLE DCO + FORMULA STORAGE"
+                if d["instrument_class"] == "ASSET_TRANSFER"
+                else "RIGHTS ENTITLEMENT"
+            )
+            out.append(d)
+        return out
+
+    def complete_settlement(self, trade_id: str, payment_ref: str) -> dict:
+        trade_id = str(trade_id)
+        payment_ref = str(payment_ref or "").strip()
+        if not payment_ref:
+            raise ValueError("A payment/settlement reference is required.")
+        rows = [x for x in self.pending_settlements() if x["trade_id"] == trade_id]
+        if not rows:
+            raise KeyError("Pending settlement not found.")
+        pending = rows[0]
+        if pending["seller"] != self.entity_id:
+            raise PermissionError("The seller/controller must confirm payment and complete delivery.")
+        result = self.exchange.settle_trade(
+            trade_id, payment_ref=payment_ref, external_verified=False, payment_attestation_id=None
+        )
+        transfer = result.get("asset_transfer")
+        if transfer:
+            delivery = self.market_registry.finalize_asset_transfer_delivery(
+                pending["instrument_id"], trade_id, transfer
+            )
+            db = sqlite3.connect(self.formula_set_path, timeout=30.0)
+            try:
+                db.execute(
+                    "UPDATE asset_formula_sets SET controller_entity_id=?,updated_at_ms=? WHERE object_id=?",
+                    (str(transfer["to_controller_entity_id"]), int(time.time() * 1000), str(transfer["object_id"])),
+                )
+                db.commit()
+            finally:
+                db.close()
+            result["market_delivery"] = delivery
+            result["delivery_status"] = "DCO_CONTROLLER_AND_FORMULA_SET_DELIVERED"
+        else:
+            result["delivery_status"] = "RIGHTS_ENTITLEMENT_DELIVERED"
+        result["seller_confirmed_payment_reference"] = True
+        result["external_payment_verification"] = False
+        return result
 
 class Ui:
     @staticmethod
@@ -841,11 +1487,24 @@ class InstrumentDialog(QtWidgets.QDialog):
     def __init__(self, parent, asset, namespace, rights_profile):
         super().__init__(parent)
         self.setWindowTitle("Issue Economic Instrument")
-        self.resize(780, 820)
-        self.setMinimumSize(720, 700)
+        self.setMinimumSize(620, 520)
+        screen = QtWidgets.QApplication.screenAt(QtGui.QCursor.pos()) or QtWidgets.QApplication.primaryScreen()
+        if screen is not None:
+            available = screen.availableGeometry()
+            target_w = min(800, max(620, available.width() - 100))
+            target_h = min(760, max(520, available.height() - 120))
+            self.resize(target_w, target_h)
+            self.move(
+                available.left() + max(0, (available.width() - target_w) // 2),
+                available.top() + max(0, (available.height() - target_h) // 2),
+            )
+        else:
+            self.resize(760, 680)
+        self.setSizeGripEnabled(True)
         self.result_data = None
         self.asset = asset
         self.rights_profile = rights_profile
+        self.instrument_plan = [dict(x) for x in (asset.get("instrument_plan") or []) if isinstance(x, dict)]
         self._updating = False
 
         layout = QtWidgets.QVBoxLayout(self)
@@ -880,23 +1539,91 @@ class InstrumentDialog(QtWidgets.QDialog):
             warning.setWordWrap(True)
             layout.addWidget(warning)
 
+        scroll = QtWidgets.QScrollArea()
+        scroll.setObjectName("instrumentScrollArea")
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QtWidgets.QFrame.NoFrame)
+        scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        scroll.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+
+        scroll.viewport().setObjectName("instrumentScrollViewport")
+        scroll_host = QtWidgets.QWidget()
+        scroll_host.setObjectName("instrumentScrollHost")
+
+        dark_palette = scroll_host.palette()
+        dark_palette.setColor(QtGui.QPalette.Window, QtGui.QColor(ROOT_BG))
+        dark_palette.setColor(QtGui.QPalette.Base, QtGui.QColor(ROOT_BG))
+        dark_palette.setColor(QtGui.QPalette.Text, QtGui.QColor(TEXT))
+        dark_palette.setColor(QtGui.QPalette.WindowText, QtGui.QColor(TEXT))
+        scroll.viewport().setPalette(dark_palette)
+        scroll.viewport().setAutoFillBackground(True)
+        scroll_host.setPalette(dark_palette)
+        scroll_host.setAutoFillBackground(True)
+
+        scroll.setStyleSheet(f"""
+            QScrollArea#instrumentScrollArea {{
+                background: {ROOT_BG};
+                border: none;
+            }}
+            QWidget#instrumentScrollViewport,
+            QWidget#instrumentScrollHost {{
+                background: {ROOT_BG};
+                color: {TEXT};
+            }}
+            QScrollBar:vertical {{
+                background: {ROOT_BG};
+                width: 12px;
+                margin: 0;
+            }}
+            QScrollBar::handle:vertical {{
+                background: #303844;
+                min-height: 30px;
+                border-radius: 5px;
+            }}
+            QScrollBar::add-line:vertical,
+            QScrollBar::sub-line:vertical {{
+                height: 0;
+            }}
+            QScrollBar::add-page:vertical,
+            QScrollBar::sub-page:vertical {{
+                background: transparent;
+            }}
+        """)
+
+        scroll_layout = QtWidgets.QVBoxLayout(scroll_host)
+        scroll_layout.setContentsMargins(0, 0, 8, 0)
+        scroll_layout.setSpacing(12)
+        scroll.setWidget(scroll_host)
+        layout.addWidget(scroll, 1)
+
         form = QtWidgets.QFormLayout()
         form.setLabelAlignment(QtCore.Qt.AlignLeft)
         form.setFieldGrowthPolicy(QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
+        form.setRowWrapPolicy(QtWidgets.QFormLayout.WrapLongRows)
 
         self.namespace = QtWidgets.QLineEdit(namespace or "")
         self.symbol = QtWidgets.QLineEdit("")
+        self.symbol.setReadOnly(True)
+        self.symbol.setToolTip(
+            "Generated automatically from the current DCO identity, selected Rights Passport action(s), and series."
+        )
         self.name = QtWidgets.QLineEdit("")
+        self.name.setReadOnly(True)
+        self.name.setToolTip(
+            "Generated from the DCO's canonical asset name and the selected governed Rights Class."
+        )
         self.iclass = QtWidgets.QComboBox()
         self.iclass.addItems([
             "SPOT_LICENSE","SUBSCRIPTION","COMPUTE_TO_DATA",
-            "PROCUREMENT","CONTRIBUTION","SECONDARY_LICENSE"
+            "PROCUREMENT","CONTRIBUTION","SECONDARY_LICENSE","ASSET_TRANSFER"
         ])
-        self.rclass = QtWidgets.QLineEdit("")
-        self.rclass.setReadOnly(True)
+        self.rclass = QtWidgets.QComboBox()
+        self.rclass.setToolTip(
+            "Rights Classes come from this DCO's governed instrument plan and are filtered by the selected Rights Passport actions."
+        )
 
         self.actions = QtWidgets.QListWidget()
-        self.actions.setMinimumHeight(190)
+        self.actions.setMinimumHeight(150)
         self.actions.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
         for action in rights_profile["allowed_actions"]:
             detail = rights_profile["allowed"].get(action, {})
@@ -911,6 +1638,8 @@ class InstrumentDialog(QtWidgets.QDialog):
             item = QtWidgets.QListWidgetItem(text)
             item.setData(QtCore.Qt.UserRole, action)
             item.setFlags(item.flags() | QtCore.Qt.ItemIsUserCheckable)
+            item.setForeground(QtGui.QBrush(QtGui.QColor(TEXT)))
+            item.setBackground(QtGui.QBrush(QtGui.QColor(PANEL_2)))
             item.setCheckState(QtCore.Qt.Unchecked)
             tip = []
             if conditions:
@@ -943,9 +1672,9 @@ class InstrumentDialog(QtWidgets.QDialog):
         self.excludes.setMinimumHeight(70)
 
         for label, widget in [
-            ("Instrument name", self.name),
+            ("Automatic instrument name", self.name),
             ("Issuer namespace", self.namespace),
-            ("Display ticker / symbol", self.symbol),
+            ("Automatic ticker / symbol", self.symbol),
             ("EEP class", self.iclass),
             ("Rights class", self.rclass),
             ("Rights Passport actions", self.actions),
@@ -960,7 +1689,7 @@ class InstrumentDialog(QtWidgets.QDialog):
             ("Buyer does NOT receive", self.excludes),
         ]:
             form.addRow(label, widget)
-        layout.addLayout(form)
+        scroll_layout.addLayout(form)
 
         excluded = []
         if rights_profile["prohibited_actions"]:
@@ -976,18 +1705,25 @@ class InstrumentDialog(QtWidgets.QDialog):
                 note = Ui.label(line, "muted")
                 note.setWordWrap(True)
                 bl.addWidget(note)
-            layout.addWidget(boundary)
+            scroll_layout.addWidget(boundary)
 
         self.preview = Ui.label("", "tickerPreview")
-        layout.addWidget(self.preview)
+        scroll_layout.addWidget(self.preview)
+        scroll_layout.addStretch()
         self.namespace.textChanged.connect(self._preview)
-        self.symbol.textChanged.connect(self._preview)
         self.actions.itemChanged.connect(self._rights_changed)
+        self.rclass.currentIndexChanged.connect(self._rights_class_changed)
+        self.series.valueChanged.connect(lambda _value: self._rights_class_changed())
 
         buttons = QtWidgets.QHBoxLayout()
+        buttons.setContentsMargins(0, 8, 0, 0)
         buttons.addStretch()
         cancel = Ui.button("Cancel")
         create = Ui.button("Issue instrument", True)
+        cancel.setMinimumHeight(40)
+        create.setMinimumHeight(40)
+        create.setDefault(True)
+        create.setAutoDefault(True)
         create.setEnabled(bool(rights_profile["allowed_actions"]))
         cancel.clicked.connect(self.reject)
         create.clicked.connect(self.accept_data)
@@ -995,7 +1731,11 @@ class InstrumentDialog(QtWidgets.QDialog):
         buttons.addWidget(create)
         layout.addLayout(buttons)
 
-        self._preview()
+        self.form_scroll = scroll
+        self.cancel_button = cancel
+        self.issue_button = create
+
+        self._rights_changed()
 
     def selected_actions(self):
         return [
@@ -1031,32 +1771,161 @@ class InstrumentDialog(QtWidgets.QDialog):
             base = initials if len(initials) >= 3 else "".join(useful)[:10]
         return base[:10] or "ASSET"
 
+    @staticmethod
+    def _token(value):
+        text = "".join(ch if ch.isalnum() else "_" for ch in str(value or "").upper())
+        return "_".join(part for part in text.split("_") if part)
+
+    def _plan_option(self, plan):
+        archetype = self._token(plan.get("archetype"))
+        variant = self._token(plan.get("variant"))
+        if not archetype:
+            return None
+        value = archetype + (f"_{variant}" if variant else "")
+        label = archetype.replace("_", " ").title()
+        if variant:
+            label += f" · {str(plan.get('variant')).upper()}"
+        return {"value": value, "label": label, "plan": dict(plan)}
+
+    def _eligible_plan_options(self):
+        allowed = {self._token(a) for a in self.rights_profile.get("allowed_actions") or []}
+        prohibited = {self._token(a) for a in self.rights_profile.get("prohibited_actions") or []}
+        options = []
+        seen = set()
+        for plan in self.instrument_plan:
+            plan_actions = {self._token(a) for a in (plan.get("actions") or []) if self._token(a)}
+            if not plan_actions or not plan_actions.issubset(allowed) or plan_actions & prohibited:
+                continue
+            option = self._plan_option(plan)
+            if not option or option["value"] in seen:
+                continue
+            seen.add(option["value"])
+            option["plan_actions"] = sorted(plan_actions)
+            options.append(option)
+        options.sort(key=lambda x: x["label"])
+        return options
+
+    def _matching_plan_options(self, actions):
+        selected = {self._token(a) for a in actions if self._token(a)}
+        if not selected:
+            return []
+        return [
+            option for option in self._eligible_plan_options()
+            if selected == set(option.get("plan_actions") or [])
+        ]
+
+    def _populate_rights_classes(self, actions):
+        previous = self._selected_rights_class()
+        self.rclass.blockSignals(True)
+        self.rclass.clear()
+        if self.instrument_plan:
+            options = self._eligible_plan_options()
+            selected_tokens = {self._token(a) for a in actions}
+            allowed_tokens = {self._token(a) for a in self.rights_profile.get("allowed_actions") or []}
+            if selected_tokens == {"TRANSFER"} and "TRANSFER" in allowed_tokens:
+                options = options + [{
+                    "value": "ASSET_TRANSFER",
+                    "label": "Whole Asset Transfer",
+                    "plan": None,
+                    "plan_actions": ["TRANSFER"],
+                }]
+            self.rclass.addItem("Choose governed Rights Class", None)
+            for option in options:
+                self.rclass.addItem(option["label"], option)
+            self.rclass.setEnabled(bool(options))
+            matches = [
+                option for option in options
+                if selected_tokens == set(option.get("plan_actions") or [])
+            ]
+            selected_index = 0
+            if previous:
+                for i in range(1, self.rclass.count()):
+                    data = self.rclass.itemData(i)
+                    if (
+                        isinstance(data, dict)
+                        and data.get("value") == previous
+                        and any(m.get("value") == previous for m in matches)
+                    ):
+                        selected_index = i
+                        break
+            if selected_index == 0 and len(matches) == 1:
+                target = matches[0]["value"]
+                for i in range(1, self.rclass.count()):
+                    data = self.rclass.itemData(i)
+                    if isinstance(data, dict) and data.get("value") == target:
+                        selected_index = i
+                        break
+            self.rclass.setCurrentIndex(selected_index)
+        elif not actions:
+            self.rclass.addItem("Select Rights Passport action(s) first", None)
+            self.rclass.setEnabled(False)
+        else:
+            self.rclass.setEnabled(True)
+            metas = [self.ACTION_META.get(a, (a.replace("_", " ").title(), a[:5], a)) for a in actions]
+            if len(actions) == 1:
+                label, _suffix, value = metas[0]
+                if self._token(actions[0]) == "TRANSFER":
+                    option = {"value": "ASSET_TRANSFER", "label": "Whole Asset Transfer", "plan": None}
+                else:
+                    option = {"value": self._token(value), "label": f"{label} Rights", "plan": None}
+            else:
+                option = {"value": "BUNDLED_RIGHTS", "label": "Bundled Rights", "plan": None}
+            self.rclass.addItem(option["label"], option)
+        self.rclass.blockSignals(False)
+
+    def _selected_rights_class(self):
+        data = self.rclass.currentData()
+        if isinstance(data, dict):
+            return str(data.get("value") or "").strip().upper()
+        return ""
+
+    def _selected_plan(self):
+        data = self.rclass.currentData()
+        if isinstance(data, dict) and isinstance(data.get("plan"), dict):
+            return data["plan"]
+        return None
+
+    def _rights_class_code(self, rights_class):
+        rc = self._token(rights_class)
+        known = {
+            "EVALUATION": "EVL", "RUNTIME_USE": "RUN", "INFERENCE": "INF",
+            "TRAINING": "TRN", "COMPUTE_TO_DATA": "CTD", "ENTERPRISE_API": "API",
+            "COMMERCIAL_DERIVATIVE": "CDR", "OEM_EMBEDDED": "OEM",
+            "FIELD_OF_USE": "FOU", "REDISTRIBUTION": "RED",
+            "SYNTHETIC_DERIVED_DATA": "SDD", "CONTRIBUTOR_PARTICIPATION": "CTR",
+            "COMMERCIAL": "COM", "DERIVATIVE": "DER", "EXECUTION": "EXE",
+            "CONTROL": "CTL", "ACCESS": "ACC", "INSPECTION": "INSP",
+            "BUNDLED_RIGHTS": "BND", "ASSET_TRANSFER": "OWN",
+        }
+        if rc.startswith("REGIONAL_EXCLUSIVITY_"):
+            region = rc[len("REGIONAL_EXCLUSIVITY_"):]
+            return f"REX-{region.replace('_', '-')}"
+        if rc in known:
+            return known[rc]
+        words = [x for x in rc.split("_") if x]
+        if not words:
+            return "RGT"
+        if len(words) == 1:
+            return words[0][:5]
+        initials = "".join(w[0] for w in words)
+        return initials[:5] or "RGT"
+
+    def _generated_symbol(self, actions=None):
+        rights_class = self._selected_rights_class()
+        if not rights_class:
+            return ""
+        base = self._base_symbol()
+        suffix = self._rights_class_code(rights_class)
+        symbol = f"{base}-{suffix}"
+        if self.series.value() > 1:
+            symbol += f"-S{self.series.value()}"
+        return symbol[:32]
+
     def _rights_changed(self, item=None):
         if self._updating:
             return
         actions = self.selected_actions()
-        if not actions:
-            self.rclass.setText("")
-            self.name.setText("")
-            self.symbol.setText("")
-            self.receives.setPlainText("")
-            self._preview()
-            return
-
-        metas = [self.ACTION_META.get(a, (a.replace("_", " ").title(), a[:5], a)) for a in actions]
-        if len(actions) == 1:
-            label, suffix, rights_class = metas[0]
-            rights_name = f"{label} Rights"
-            self.rclass.setText(rights_class)
-        else:
-            labels = [m[0] for m in metas]
-            suffix = "-".join(m[1] for m in metas[:3])
-            rights_name = " + ".join(labels) + " Rights"
-            self.rclass.setText("BUNDLED_RIGHTS")
-
-        title = str(self.asset.get("title") or "Asset")
-        self.name.setText(f"{title} {rights_name}")
-        self.symbol.setText(f"{self._base_symbol()}-{suffix}"[:24])
+        self._populate_rights_classes(actions)
         receives = []
         for action in actions:
             detail = self.rights_profile["allowed"].get(action, {})
@@ -1067,6 +1936,90 @@ class InstrumentDialog(QtWidgets.QDialog):
                 line += " (subject to passport obligations)"
             receives.append(line)
         self.receives.setPlainText("\n".join(receives))
+        self._rights_class_changed()
+
+    def _rights_class_changed(self, _index=None):
+        rights_class = self._selected_rights_class()
+        data = self.rclass.currentData()
+        plan = self._selected_plan()
+        if rights_class and plan:
+            target_actions = {self._token(a) for a in (plan.get("actions") or []) if self._token(a)}
+            current_actions = {self._token(a) for a in self.selected_actions()}
+            if current_actions != target_actions:
+                self._updating = True
+                try:
+                    for i in range(self.actions.count()):
+                        item = self.actions.item(i)
+                        action = self._token(item.data(QtCore.Qt.UserRole))
+                        item.setCheckState(
+                            QtCore.Qt.Checked if action in target_actions else QtCore.Qt.Unchecked
+                        )
+                finally:
+                    self._updating = False
+
+        actions = self.selected_actions()
+        is_asset_transfer = rights_class == "ASSET_TRANSFER"
+        if is_asset_transfer:
+            idx = self.iclass.findText("ASSET_TRANSFER")
+            if idx >= 0:
+                self.iclass.setCurrentIndex(idx)
+            self.supply.setValue(1); self.supply.setEnabled(False)
+            self.fungibility.setCurrentText("NON-FUNGIBLE"); self.fungibility.setEnabled(False)
+            self.divisibility.setValue(0); self.divisibility.setEnabled(False)
+            self.transferable.setChecked(False); self.transferable.setEnabled(False)
+            self.receives.setPlainText(
+                "Controller/ownership position of the underlying DCO in ENTITY\n"
+                "Verified BTDU formula-storage set associated with the DCO\n"
+                "Right to reconstruct the delivered formula-stored asset under the transferred controller"
+            )
+            self.excludes.setPlainText(
+                "Copyright ownership unless separately stated\n"
+                "Patent or trademark rights unless separately stated\n"
+                "Rights not stated in the Rights Passport or sale terms"
+            )
+        else:
+            self.supply.setEnabled(True)
+            self.fungibility.setEnabled(True)
+            self.divisibility.setEnabled(True)
+            self.transferable.setEnabled(True)
+            if self.iclass.currentText() == "ASSET_TRANSFER":
+                self.iclass.setCurrentText("SPOT_LICENSE")
+            self.excludes.setPlainText(
+                "Ownership of the underlying DCO\n"
+                "Copyright ownership\n"
+                "Rights not stated in the Rights Passport"
+            )
+        if not actions or not rights_class or not isinstance(data, dict):
+            self.name.setText("")
+            self.symbol.setText("")
+            self.receives.setPlainText("")
+            self._preview()
+            return
+
+        if not is_asset_transfer:
+            receives = []
+            for action in actions:
+                detail = self.rights_profile["allowed"].get(action, {})
+                line = f"{action} right under the current Rights Passport"
+                if detail.get("conditions"):
+                    line += " (subject to passport conditions)"
+                if detail.get("obligations"):
+                    line += " (subject to passport obligations)"
+                receives.append(line)
+            self.receives.setPlainText("\n".join(receives))
+
+        if plan:
+            eep_class = str(plan.get("eep_class") or "").strip().upper()
+            idx = self.iclass.findText(eep_class)
+            if idx >= 0:
+                self.iclass.setCurrentIndex(idx)
+        title = str(self.asset.get("title") or "Asset").strip()
+        rights_label = str(data.get("label") or rights_class.replace("_", " ").title()).strip()
+        self.name.setText(
+            f"{title} — Whole Asset Transfer"
+            if is_asset_transfer else f"{title} — {rights_label} Rights"
+        )
+        self.symbol.setText(self._generated_symbol(actions))
         self._preview()
 
     def _preview(self):
@@ -1089,16 +2042,48 @@ class InstrumentDialog(QtWidgets.QDialog):
                 "The selected actions are no longer a valid subset of the current Rights Passport."
             )
             return
-        if not self.symbol.text().strip() or not self.name.text().strip():
-            QtWidgets.QMessageBox.warning(self, "Instrument", "Instrument name and ticker are required.")
+        rights_class = self._selected_rights_class()
+        if not rights_class:
+            QtWidgets.QMessageBox.warning(
+                self, "Rights Class",
+                "Choose a governed Rights Class that matches the selected Rights Passport actions."
+            )
+            return
+        plan = self._selected_plan()
+        if plan:
+            selected = {self._token(a) for a in actions}
+            plan_actions = {self._token(a) for a in (plan.get("actions") or [])}
+            if not selected.issubset(plan_actions):
+                QtWidgets.QMessageBox.critical(
+                    self, "Rights Class",
+                    "The selected Rights Class does not authorize the selected Rights Passport action set."
+                )
+                return
+        symbol = self._generated_symbol(actions)
+        self.symbol.setText(symbol)
+        self._preview()
+        if not symbol or not self.name.text().strip():
+            QtWidgets.QMessageBox.warning(self, "Instrument", "Automatic instrument identity could not be generated.")
             return
 
+        is_asset_transfer = self.iclass.currentText() == "ASSET_TRANSFER"
+        if is_asset_transfer:
+            if set(actions) != {"TRANSFER"} or rights_class != "ASSET_TRANSFER":
+                QtWidgets.QMessageBox.critical(
+                    self, "Whole Asset Transfer",
+                    "Whole-asset sale requires exactly the TRANSFER Rights Passport action and Whole Asset Transfer rights class."
+                )
+                return
+            self.supply.setValue(1)
+            self.fungibility.setCurrentText("NON-FUNGIBLE")
+            self.divisibility.setValue(0)
+            self.transferable.setChecked(False)
         self.result_data = {
             "name": self.name.text().strip(),
             "namespace": self.namespace.text().strip(),
-            "symbol": self.symbol.text().strip().upper(),
+            "symbol": symbol,
             "instrument_class": self.iclass.currentText(),
-            "rights_class": self.rclass.text().strip(),
+            "rights_class": rights_class,
             "actions": actions,
             "supply": self.supply.value(),
             "currency": self.currency.text().strip(),
@@ -1137,7 +2122,11 @@ class ListingDialog(QtWidgets.QDialog):
         self.market_id = QtWidgets.QLineEdit("ENTITY-MKT")
         self.quote = QtWidgets.QLineEdit("CAD")
         self.mode = QtWidgets.QComboBox(); self.mode.addItems(["ORDER_BOOK","CALL_AUCTION","RFQ"])
-        self.settlement = QtWidgets.QComboBox(); self.settlement.addItems(["PAYMENT_VERSUS_RIGHT"])
+        self.settlement = QtWidgets.QComboBox()
+        if str(instrument.get("instrument_class") or "").upper() == "ASSET_TRANSFER":
+            self.settlement.addItems(["PAYMENT_VERSUS_ASSET"])
+        else:
+            self.settlement.addItems(["PAYMENT_VERSUS_RIGHT"])
         self.min_qty = QtWidgets.QSpinBox(); self.min_qty.setRange(1, 2_000_000_000); self.min_qty.setValue(1)
         self.qprec = QtWidgets.QSpinBox(); self.qprec.setRange(0, 9)
         self.pprec = QtWidgets.QSpinBox(); self.pprec.setRange(0, 9)
@@ -1260,8 +2249,10 @@ class AssetIngestDialog(QtWidgets.QDialog):
 
 class WalletWindow(QtWidgets.QMainWindow):
     NAV = [
-        ("overview", "OVERVIEW"), ("assets", "DIGITAL ASSETS"), ("instruments", "INSTRUMENTS"),
-        ("market", "ENTITY MARKET"), ("intelligence", "ECONOMIC INTELLIGENCE"), ("orders", "ORDERS"),
+        ("workspace", "DATACHIP WORKSPACE"), ("composer", "VISUAL COMPOSER"),
+        ("assets", "CHIP LIBRARY / ASSETS"), ("instruments", "RIGHTS INSTRUMENTS"),
+        ("market", "CAPABILITY EXCHANGE"), ("intelligence", "MARKET ANALYTICS"),
+        ("orders", "SETTLEMENTS"), ("overview", "TREASURY OVERVIEW"),
     ]
 
     def __init__(self, state: Path, entity_id: str, wallet_profile: dict | None = None):
@@ -1275,13 +2266,14 @@ class WalletWindow(QtWidgets.QMainWindow):
         self.instruments_rows: list[dict] = []
         self.market_rows: list[dict] = []
         self.metrics_rows: list[dict] = []
-        self.setWindowTitle(f"{APP_NAME} · Data Economy Terminal")
+        self.settlements_rows: list[dict] = []
+        self.setWindowTitle(f"{APP_NAME} · Engineering Qualification")
         self.resize(1560, 940)
         self.setMinimumSize(1180, 720)
         self._build()
         self._apply_style()
         self.refresh()
-        self.navigate("overview")
+        self.navigate("workspace")
 
     def _build(self):
         root = QtWidgets.QWidget(); self.setCentralWidget(root)
@@ -1290,7 +2282,7 @@ class WalletWindow(QtWidgets.QMainWindow):
         side = QtWidgets.QFrame(); side.setObjectName("sidebar"); side.setFixedWidth(238)
         sl = QtWidgets.QVBoxLayout(side); sl.setContentsMargins(18, 22, 18, 20); sl.setSpacing(7)
         sl.addWidget(Ui.label("ENTITY", "brand"))
-        sl.addWidget(Ui.label("DATA ECONOMY TERMINAL", "brandSub"))
+        sl.addWidget(Ui.label("UNIVERSAL DATACHIP WORKSPACE", "brandSub"))
         sl.addSpacing(24)
         self.nav_buttons = {}
         for key, label in self.NAV:
@@ -1299,7 +2291,7 @@ class WalletWindow(QtWidgets.QMainWindow):
             self.nav_buttons[key] = b; sl.addWidget(b)
         sl.addStretch()
         sl.addWidget(Ui.label("SOVEREIGN LOCAL STATE", "eyebrow"))
-        sl.addWidget(Ui.label("Protocol tax 0\nNo cryptocurrency required\nExternal settlement evidence required", "sidebarFoot"))
+        sl.addWidget(Ui.label("DATACHIP COMPOSER · ALPHA\nUnverified rights remain denied\nMarkets and treasury preserved", "sidebarFoot"))
         outer.addWidget(side)
 
         body = QtWidgets.QWidget(); bl = QtWidgets.QVBoxLayout(body)
@@ -1325,6 +2317,8 @@ class WalletWindow(QtWidgets.QMainWindow):
         outer.addWidget(body, 1)
 
         self.pages = {}
+        self.pages["workspace"] = self._workspace_page()
+        self.pages["composer"] = self._composer_page()
         self.pages["overview"] = self._overview_page()
         self.pages["assets"] = self._assets_page()
         self.pages["instruments"] = self._instruments_page()
@@ -1333,6 +2327,66 @@ class WalletWindow(QtWidgets.QMainWindow):
         self.pages["orders"] = self._orders_page()
         for key, _ in self.NAV:
             self.stack.addWidget(self.pages[key])
+
+    def _workspace_page(self):
+        """DataChip-first workspace, not a rebranded stock-trading chart."""
+        p = QtWidgets.QWidget()
+        lay = QtWidgets.QVBoxLayout(p)
+        lay.setContentsMargins(0, 0, 0, 0)
+        lay.setSpacing(16)
+        message = QtWidgets.QFrame()
+        message.setProperty("class", "panel")
+        ml = QtWidgets.QVBoxLayout(message)
+        ml.setContentsMargins(22, 20, 22, 20)
+        ml.addWidget(Ui.label("BUILD · CONNECT · VERIFY · DEPLOY", "sectionTitle"))
+        title = Ui.label("The ENTITY DataChip Workspace", "pageTitle")
+        ml.addWidget(title)
+        info = Ui.label(
+            "Create typed DataChip assemblies visually; reconstruct and verify "
+            "content through BTDU and ENTITY. Licence, trade, transfer and "
+            "deploy only through separately authorized workflows.", "muted")
+        info.setWordWrap(True)
+        ml.addWidget(info)
+        buttons=QtWidgets.QHBoxLayout()
+        for label,key in [
+            ("Open DataChip Composer","composer"),
+            ("Browse controlled assets","assets"),
+            ("Rights & instruments","instruments"),
+            ("Explore Capability Exchange","market"),
+            ("Review Treasury","overview")
+        ]:
+            b=Ui.button(label,key=="composer")
+            b.clicked.connect(lambda checked=False,k=key:self.navigate(k))
+            buttons.addWidget(b)
+        buttons.addStretch()
+        ml.addLayout(buttons)
+        lay.addWidget(message)
+        panels=QtWidgets.QHBoxLayout()
+        lib=QtWidgets.QFrame();lib.setProperty("class","panel")
+        ll=QtWidgets.QVBoxLayout(lib)
+        ll.addWidget(Ui.label("YOUR LIBRARY & ASSEMBLIES","sectionTitle"))
+        self.workspace_summary=QtWidgets.QTextBrowser()
+        self.workspace_summary.setProperty("class","detail")
+        ll.addWidget(self.workspace_summary)
+        panels.addWidget(lib,2)
+        rights=QtWidgets.QFrame();rights.setProperty("class","panel")
+        rl=QtWidgets.QVBoxLayout(rights)
+        rl.addWidget(Ui.label("SECURITY / COMPOSITION BOUNDARY","sectionTitle"))
+        explanation=Ui.label(
+            "This first Composer compiles deterministic typed graphs only. "
+            "An imported chip hash verifies bytes, never ownership or licence. "
+            "No untrusted code execution, host deployment, wallet transfer, "
+            "grant issuance or exchange settlement is permitted from graph links.", "muted")
+        explanation.setWordWrap(True)
+        rl.addWidget(explanation);rl.addStretch()
+        panels.addWidget(rights,1)
+        lay.addLayout(panels,1)
+        return p
+
+    def _composer_page(self):
+        self.composer_page=COMPOSER_UI.ComposerPage(
+            self.state,self.entity_id,self,asset_provider=self.backend.snapshot)
+        return self.composer_page
 
     def _overview_page(self):
         p = QtWidgets.QWidget(); lay = QtWidgets.QVBoxLayout(p); lay.setContentsMargins(0, 0, 0, 0); lay.setSpacing(14)
@@ -1387,10 +2441,13 @@ class WalletWindow(QtWidgets.QMainWindow):
         p = QtWidgets.QWidget(); lay = QtWidgets.QVBoxLayout(p); lay.setContentsMargins(0,0,0,0); lay.setSpacing(12)
         actions = QtWidgets.QHBoxLayout()
         ingest = Ui.button("+ Ingest digital asset", True); ingest.clicked.connect(self.ingest_asset)
+        formula_store = Ui.button("Add to Formula Storage"); formula_store.clicked.connect(self.add_selected_asset_to_formula_storage)
+        activate_transfer = Ui.button("Activate Transferred Asset"); activate_transfer.clicked.connect(self.activate_selected_transferred_asset)
+        export_asset = Ui.button("Export / Reconstruct asset"); export_asset.clicked.connect(self.export_selected_asset)
         disclose = Ui.button("Asset information"); disclose.clicked.connect(self.edit_asset_information)
         issue = Ui.button("Issue economic instrument"); issue.clicked.connect(self.issue_selected_asset)
         lineage = Ui.button("Inspect lineage"); lineage.clicked.connect(self.show_asset_lineage)
-        actions.addWidget(ingest); actions.addWidget(disclose); actions.addWidget(issue); actions.addWidget(lineage); actions.addStretch()
+        actions.addWidget(ingest); actions.addWidget(formula_store); actions.addWidget(activate_transfer); actions.addWidget(export_asset); actions.addWidget(disclose); actions.addWidget(issue); actions.addWidget(lineage); actions.addStretch()
         lay.addLayout(actions)
         split = QtWidgets.QSplitter()
         self.assets_table = Ui.table(["TICKER(S)", "ASSET", "CLASS", "TYPE", "DOMAIN", "ASSET INFO", "PASSPORT", "BTDU", "DCO ID"])
@@ -1453,6 +2510,18 @@ class WalletWindow(QtWidgets.QMainWindow):
 
     def _orders_page(self):
         p = QtWidgets.QWidget(); lay = QtWidgets.QVBoxLayout(p); lay.setContentsMargins(0,0,0,0); lay.setSpacing(12)
+        settle_box = QtWidgets.QFrame(); settle_box.setProperty("class", "panel")
+        sl = QtWidgets.QVBoxLayout(settle_box)
+        sh = QtWidgets.QHBoxLayout()
+        sh.addWidget(Ui.label("PENDING SETTLEMENT / DELIVERY", "sectionTitle")); sh.addStretch()
+        complete = Ui.button("Complete Settlement / Deliver", True)
+        complete.clicked.connect(self.complete_selected_settlement)
+        sh.addWidget(complete); sl.addLayout(sh)
+        self.settlements_table = Ui.table([
+            "TRADE", "INSTRUMENT", "ROLE", "QTY", "AMOUNT", "CURRENCY", "DELIVERY", "STATUS"
+        ])
+        sl.addWidget(self.settlements_table)
+        lay.addWidget(settle_box, 1)
         box = QtWidgets.QFrame(); box.setProperty("class", "panel"); bl = QtWidgets.QVBoxLayout(box)
         bl.addWidget(Ui.label("OPEN / RECENT ORDERS", "sectionTitle"))
         self.orders_table = Ui.table(["TICKER / INSTRUMENT", "SIDE", "REMAINING", "LIMIT", "STATUS"])
@@ -1465,10 +2534,12 @@ class WalletWindow(QtWidgets.QMainWindow):
         for k, b in self.nav_buttons.items():
             b.setChecked(k == key)
         titles = {
-            "overview": ("Portfolio Overview", "Your sovereign asset state and market activity."),
-            "assets": ("Digital Assets", "DCO holdings, lineage, passports and optional economic issuance."),
-            "instruments": ("Economic Instruments", "Ticker-addressable bounded rights issued against controlled DCOs."),
-            "market": ("ENTITY Market", "Universal multi-issuer listings and wallet-to-wallet rights trading."),
+            "workspace": ("ENTITY Workspace", "Composable verified content, native hosts and rights-controlled exchange."),
+            "composer": ("DataChip Composer", "Drag, connect, validate and save typed DataChip graph assemblies."),
+            "overview": ("Treasury & Market Overview", "Legacy economics, asset portfolio and settlement overview."),
+            "assets": ("DataChip Library & Digital Assets", "Existing DCOs, BTDU formula storage, ownership lineage, and asset ingestion."),
+            "instruments": ("Rights Instruments", "Optional licences and bounded economic instruments issued against controlled assets."),
+            "market": ("Capability Exchange", "Existing multi-issuer bounded-rights listings and wallet-to-wallet settlement."),
             "intelligence": ("Economic Intelligence", "Settlement-aware price discovery and rights-demand analytics."),
             "orders": ("Orders", "Open and recent exchange instructions."),
         }
@@ -1477,9 +2548,20 @@ class WalletWindow(QtWidgets.QMainWindow):
     def refresh(self):
         self.snapshot_data = self.backend.snapshot()
         self.assets_rows = self.snapshot_data.get("assets", [])
+        drafts = self.composer_page.store.list_drafts()
+        self.workspace_summary.setHtml(
+            "<h2>Controlled DCO assets: "+str(len(self.assets_rows))+"</h2>"
+            "<p>Local DataChip assembly drafts: <b>"+str(len(drafts))+"</b></p>"
+            "<p>Verified formula storage and Rights Passports remain managed by their "
+            "existing authoritative ENTITY modules; this workspace does not "
+            "create ownership or execute modules.</p>"
+            "<p>Use the Composer to create a plan, or open the Library to inspect "
+            "existing assets and reconstructive storage.</p>"
+        )
         self.instruments_rows = self.backend.instruments()
         self.market_rows = self.backend.market()
         self.metrics_rows = self.backend.economic_metrics()
+        self.settlements_rows = self.backend.pending_settlements()
         rollup = self.backend.economy_rollup("asset_class")
         amap = self.backend.instrument_map_by_asset()
         ns_info=self.backend.namespace_info()
@@ -1531,12 +2613,19 @@ class WalletWindow(QtWidgets.QMainWindow):
             lin = a.get("lineage", {})
             domain = (lin.get("protocol_lineage", {}) or {}).get("primary_domain_profile") or "—"
             gp = lin.get("global_passport") or {}
-            btdu = (lin.get("capability_bindings", {}).get("BTDU", {}) or {}).get("bound", False)
+            btdu_info = (lin.get("capability_bindings", {}).get("BTDU", {}) or {})
+            btdu = btdu_info.get("bound", False)
+            formula_set = self.backend.formula_storage_status(a["object_id"])
+            if formula_set:
+                btdu_status = f"FORMULA SET · {formula_set['item_count']} FILE" + ("" if formula_set["item_count"] == 1 else "S")
+            else:
+                bref = str((btdu_info.get("binding") or {}).get("object_ref") or "")
+                btdu_status = "BOUND COMPONENT" if bref.startswith("btdu-object:") else ("LEGACY REF" if btdu else "—")
             disclosure = self.backend.asset_disclosure(a["object_id"])
             disclosure_status = f"SIGNED V{disclosure['version']}" if disclosure else "REQUIRED TO LIST"
             asset_table_rows.append([
                 tickers, a.get("title"), a.get("commodity_class"), a.get("object_type"), domain,
-                disclosure_status, gp.get("version") or "—", "BOUND" if btdu else "—", a.get("object_id")
+                disclosure_status, gp.get("version") or "—", btdu_status, a.get("object_id")
             ])
             overview_assets.append([tickers, a.get("title"), a.get("commodity_class"), domain, disclosure_status])
         Ui.fill_table(self.assets_table, asset_table_rows)
@@ -1588,6 +2677,15 @@ class WalletWindow(QtWidgets.QMainWindow):
             for r in rollup.get("rows", [])
         ])
 
+        Ui.fill_table(self.settlements_table, [
+            [
+                shorten(s["trade_id"], 13, 8),
+                s.get("market_identifier") or shorten(s["instrument_id"], 14, 8),
+                s["role"], s["quantity"], s["amount_units"], s["currency"],
+                s["delivery_kind"], s["status"],
+            ]
+            for s in self.settlements_rows
+        ])
         Ui.fill_table(self.orders_table, [
             [o["instrument_id"], o["side"], o["remaining"], o["limit_price"], o["status"]]
             for o in self.snapshot_data.get("orders", [])
@@ -1602,6 +2700,10 @@ class WalletWindow(QtWidgets.QMainWindow):
     def selected_asset(self):
         row = self.assets_table.currentRow()
         return self.assets_rows[row] if 0 <= row < len(self.assets_rows) else None
+
+    def selected_settlement(self):
+        row = self.settlements_table.currentRow()
+        return self.settlements_rows[row] if 0 <= row < len(self.settlements_rows) else None
 
     def selected_instrument(self):
         row = self.instruments_table.currentRow()
@@ -1674,7 +2776,15 @@ class WalletWindow(QtWidgets.QMainWindow):
         <table cellspacing='0' cellpadding='4'>{metadata_rows}</table><br>
         <b>Profile stack</b>{ul(profile_refs)}
         <b>Composed profiles</b><br>{html.escape(', '.join(p.get('composed_domain_profiles') or []) or 'Primary domain only')}<br><br>
-        <b>BTDU</b><br>{"Bound" if (cap.get('BTDU') or {}).get('bound') else "Not bound"}<br><br>
+        <b>BTDU</b><br>{html.escape(
+            (lambda fs: f"FORMULA SET · {fs['item_count']} FILE" + ("" if fs['item_count'] == 1 else "S") + f" · {fs['logical_bytes']:,} BYTES"
+             if fs else ("BOUND COMPONENT / LEGACY PASSPORT BINDING" if (cap.get('BTDU') or {}).get('bound') else "Not bound"))
+            (self.backend.formula_storage_status(a["object_id"]))
+        )}<br><br>
+        <b>Transfer passport activation</b><br>{html.escape(
+            (lambda s: "BUYER PASSPORT ACTIVATION REQUIRED" if s.get("required") else ("ACTIVE" if s.get("active") else str(s.get("reason") or "—")))
+            (self.backend.transfer_activation_status(a["object_id"]))
+        )}<br><br>
         <b>Provenance parents</b><br>{parents}<br><br>
         <small>Asset registration does not create a ticker, instrument, listing or market value. A signed Asset Disclosure is required before market listing.</small>
         """)
@@ -1747,6 +2857,197 @@ class WalletWindow(QtWidgets.QMainWindow):
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Asset ingest failed", str(e))
 
+    def activate_selected_transferred_asset(self):
+        asset = self.selected_asset()
+        if not asset:
+            QtWidgets.QMessageBox.warning(self, "Transferred Asset", "Select a transferred digital asset first.")
+            return
+        try:
+            status = self.backend.transfer_activation_status(asset["object_id"])
+            if not status.get("controlled_by_wallet"):
+                QtWidgets.QMessageBox.warning(
+                    self, "Transferred Asset",
+                    "The active wallet is not the current controller of this DCO."
+                )
+                return
+            if not status.get("required"):
+                QtWidgets.QMessageBox.information(
+                    self, "Transferred Asset",
+                    "This DCO already has an active Rights Passport and Global Passport signed by this wallet."
+                )
+                return
+            answer = QtWidgets.QMessageBox.question(
+                self, "Activate Transferred Asset",
+                "Create new buyer-controlled Rights and Global Passports using this wallet's own signing key?\n\n"
+                "The historical seller passports remain immutable. The new Rights Passport grants only CONTROL "
+                "and TRANSFER authority from the settled sale; it does not silently inherit copyright, patent, "
+                "commercialisation, training or derivative rights.",
+                QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                QtWidgets.QMessageBox.Yes,
+            )
+            if answer != QtWidgets.QMessageBox.Yes:
+                return
+            result = self.backend.activate_transferred_asset(asset["object_id"])
+            self.refresh()
+            self.update_asset_detail()
+            QtWidgets.QMessageBox.information(
+                self, "Transferred Asset Activated",
+                f"{asset.get('title')}\n\n"
+                f"Controller\n{result['controller_entity_id']}\n\n"
+                f"Rights Passport\n{result['rights_passport_id']}\n\n"
+                f"Global Passport\n{result['global_passport_id']}\n\n"
+                "The buyer can now manage or relist the DCO under its own controller identity. "
+                "Historical seller passports were preserved."
+            )
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Transfer activation failed", str(e))
+
+    def add_selected_asset_to_formula_storage(self):
+        asset = self.selected_asset()
+        if not asset:
+            QtWidgets.QMessageBox.warning(self, "Formula Storage", "Select an existing digital asset first.")
+            return
+
+        picker = QtWidgets.QMessageBox(self)
+        picker.setWindowTitle("Add to Formula Storage")
+        picker.setIcon(QtWidgets.QMessageBox.Information)
+        picker.setText("Choose what should become reconstructive BTDU formula storage for this existing asset.")
+        picker.setInformativeText(
+            "File stores one file. Folder stores every regular file recursively and preserves the folder tree. "
+            "Original files are not deleted."
+        )
+        file_btn = picker.addButton("Choose File", QtWidgets.QMessageBox.ActionRole)
+        folder_btn = picker.addButton("Choose Folder", QtWidgets.QMessageBox.ActionRole)
+        picker.addButton(QtWidgets.QMessageBox.Cancel)
+        picker.exec()
+        clicked = picker.clickedButton()
+        if clicked is file_btn:
+            source = QtWidgets.QFileDialog.getOpenFileName(self, "Choose file to add to formula storage")[0]
+        elif clicked is folder_btn:
+            source = QtWidgets.QFileDialog.getExistingDirectory(self, "Choose folder to add to formula storage")
+        else:
+            return
+        if not source:
+            return
+
+        progress = QtWidgets.QProgressDialog("Preparing formula storage…", None, 0, 0, self)
+        progress.setWindowTitle("BTDU Formula Storage")
+        progress.setWindowModality(QtCore.Qt.WindowModal)
+        progress.setMinimumDuration(0)
+        progress.setCancelButton(None)
+        progress.show()
+
+        def update_progress(index, total, rel):
+            if progress.maximum() != total:
+                progress.setRange(0, total)
+            progress.setValue(index - 1)
+            progress.setLabelText(f"Formulating {index} / {total}\\n{rel}")
+            QtWidgets.QApplication.processEvents()
+
+        try:
+            result = self.backend.add_asset_to_formula_storage(asset["object_id"], source, update_progress)
+            progress.setValue(result["item_count"])
+            self.refresh()
+            self.update_asset_detail()
+            QtWidgets.QMessageBox.information(
+                self, "Formula storage verified",
+                f"{asset.get('title')}\\n\\n"
+                f"Source: {result['source_kind']}\\n"
+                f"Formula files: {result['item_count']:,}\\n"
+                f"Logical bytes: {result['logical_bytes']:,}\\n"
+                f"Manifest SHA-256: {result['manifest_sha256']}\\n\\n"
+                "Every file passed deep reconstructive verification. "
+                "The original file/folder was left untouched. "
+                "Export / Reconstruct can now rebuild this formula set back onto disk."
+            )
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Formula storage failed", str(e))
+        finally:
+            progress.close()
+
+    def export_selected_asset(self):
+        asset = self.selected_asset()
+        if not asset:
+            QtWidgets.QMessageBox.warning(self, "BTDU export", "Select a digital asset first.")
+            return
+
+        formula_set = self.backend.formula_storage_status(asset["object_id"])
+        if formula_set:
+            if formula_set["source_kind"] == "FILE":
+                suggested = formula_set["source_name"] or "ENTITY-asset"
+                dest = QtWidgets.QFileDialog.getSaveFileName(
+                    self, "Reconstruct formula-stored file to disk", str(Path.home() / suggested)
+                )[0]
+            else:
+                dest = QtWidgets.QFileDialog.getExistingDirectory(
+                    self, "Choose destination folder for reconstructed asset"
+                )
+            if not dest:
+                return
+            try:
+                result = self.backend.export_formula_storage_set(asset["object_id"], dest)
+                QtWidgets.QMessageBox.information(
+                    self, "Formula-stored asset reconstructed",
+                    f"{asset.get('title')}\\n\\n"
+                    f"Files reconstructed: {result['item_count']:,}\\n"
+                    f"Bytes reconstructed: {result['bytes']:,}\\n"
+                    f"Formula-set manifest: {result['manifest_sha256']}\\n\\n"
+                    "All reconstructed files were hash-verified. "
+                    "The BTDU formula set remains the authoritative stored representation."
+                )
+            except Exception as e:
+                QtWidgets.QMessageBox.critical(self, "BTDU export failed", str(e))
+            return
+
+        lin = asset.get("lineage", {}) or {}
+        btdu = ((lin.get("capability_bindings") or {}).get("BTDU") or {})
+        binding = dict(btdu.get("binding") or {})
+        object_ref = str(binding.get("object_ref") or "")
+        if not btdu.get("bound") or not object_ref:
+            QtWidgets.QMessageBox.warning(
+                self, "BTDU export",
+                "This asset is not yet in reconstructive formula storage. "
+                "Use 'Add to Formula Storage' and choose the existing file or folder first."
+            )
+            return
+        if not object_ref.startswith("btdu-object:"):
+            QtWidgets.QMessageBox.warning(
+                self, "BTDU export",
+                "This asset has a legacy/deferred BTDU reference. "
+                "Use 'Add to Formula Storage' and choose its existing file or folder to upgrade it."
+            )
+            return
+        try:
+            obj = self.backend.asset_record(asset["object_id"])
+            descriptor = obj.get("descriptor") or {}
+            logical = str(descriptor.get("logical_path") or "").strip()
+            suggested = Path(logical).name if logical else str(asset.get("title") or "ENTITY-asset")
+            for ch in '<>:"/\\|?*':
+                suggested = suggested.replace(ch, "_")
+            suggested = suggested.strip(" .") or "ENTITY-asset"
+            dest = QtWidgets.QFileDialog.getSaveFileName(
+                self, "Reconstruct BTDU-bound component to disk", str(Path.home() / suggested)
+            )[0]
+            if not dest:
+                return
+            result = self.backend.export_asset_to_disk(asset["object_id"], dest)
+            QtWidgets.QMessageBox.information(
+                self, "BTDU component reconstructed",
+                f"Reconstructed and verified from BTDU formula.\\n\\n"
+                f"File\\n{result['path']}\\n\\n"
+                f"Bytes: {result['bytes']:,}\\n"
+                f"SHA-256: {result['sha256']}\\n\\n"
+                f"Formula object\\n{result.get('formula_object_id') or '—'}\\n\\n"
+                f"Scope: {result.get('export_scope')}\\n\\n"
+                + ("This export reconstructs the complete DCO payload. "
+                   if result.get("export_scope") == "FULL_DCO_PAYLOAD"
+                   else "This is the component currently bound by the historical DCO passport. "
+                        "Use 'Add to Formula Storage' with the complete source folder to make the full asset reconstructable. ")
+                + "The materialized copy is not authoritative; BTDU formula storage remains authoritative."
+            )
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "BTDU export failed", str(e))
+
     def edit_asset_information(self):
         asset = self.selected_asset()
         if not asset:
@@ -1790,9 +3091,10 @@ class WalletWindow(QtWidgets.QMainWindow):
             obj = self.backend.asset_record(asset["object_id"])
             metadata = ((obj.get("descriptor") or {}).get("metadata") or {})
             dialog_asset["short_name"] = metadata.get("short_name")
-            dialog_asset["dco_code"] = metadata.get("dco_code")
+            dialog_asset["dco_code"] = metadata.get("dco_code") or asset.get("dco_id")
+            dialog_asset["instrument_plan"] = self.backend.instrument_product_plan(asset["object_id"])
         except Exception:
-            pass
+            dialog_asset["instrument_plan"] = []
         d = InstrumentDialog(self, dialog_asset, self.backend.namespace(), rights_profile)
         if d.exec() != QtWidgets.QDialog.Accepted:
             return
@@ -1883,6 +3185,58 @@ class WalletWindow(QtWidgets.QMainWindow):
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Export failed", str(e))
 
+    def complete_selected_settlement(self):
+        row = self.selected_settlement()
+        if not row:
+            QtWidgets.QMessageBox.warning(self, "Settlement", "Select a pending settlement first.")
+            return
+        if row.get("seller") != self.entity_id:
+            QtWidgets.QMessageBox.information(
+                self, "Settlement",
+                "This wallet is the buyer. Delivery is completed by the seller/controller after payment confirmation."
+            )
+            return
+        prompt = (
+            "Enter the payment or settlement reference confirming value was received.\n\n"
+            + ("This is a WHOLE-ASSET delivery. Completing settlement transfers the underlying DCO "
+               "controller and its verified formula-storage association to the buyer."
+               if row.get("instrument_class") == "ASSET_TRANSFER"
+               else "Completing settlement delivers the purchased rights entitlement to the buyer.")
+            + "\n\nThis manual confirmation is recorded as seller-confirmed; it is not an external payment attestation."
+        )
+        ref, ok = QtWidgets.QInputDialog.getText(self, "Complete Settlement / Deliver", prompt)
+        if not ok or not ref.strip():
+            return
+        if row.get("instrument_class") == "ASSET_TRANSFER":
+            answer = QtWidgets.QMessageBox.question(
+                self, "Confirm Whole-Asset Transfer",
+                f"Transfer the underlying DCO to buyer\n{row['buyer']}\n\nafter settlement reference:\n{ref.strip()}?",
+                QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                QtWidgets.QMessageBox.No,
+            )
+            if answer != QtWidgets.QMessageBox.Yes:
+                return
+        try:
+            result = self.backend.complete_settlement(row["trade_id"], ref.strip())
+            self.refresh()
+            QtWidgets.QMessageBox.information(
+                self, "Settlement complete",
+                f"Trade\n{row['trade_id']}\n\n"
+                f"Delivery: {result.get('delivery_status')}\n"
+                f"Payment reference: {result.get('payment_ref')}\n"
+                f"External payment verification: {result.get('external_payment_verification')}\n\n"
+                + (
+                    f"Underlying DCO transferred to\n{result['asset_transfer']['to_controller_entity_id']}\n\n"
+                    f"Controller transfer receipt\n{result['asset_transfer']['transfer_id']}\n\n"
+                    "The DCO now belongs to the buyer's controller identity. The buyer's own wallet must "
+                    "activate replacement Rights/Global Passports with its private signing key before relisting."
+                    if result.get("asset_transfer") else
+                    "The purchased rights entitlement is now held by the buyer."
+                )
+            )
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Settlement failed", str(e))
+
     def trade_selected(self, side):
         r = self.selected_market()
         if not r:
@@ -1897,7 +3251,8 @@ class WalletWindow(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.information(
                 self, "Order submitted",
                 f"Order accepted.\nImmediate matches: {len(result['trades'])}\n\n"
-                "Matched trades remain subject to clearing and settlement evidence."
+                "Matched trades now appear under Orders → Pending Settlement / Delivery. "
+                "The seller/controller completes delivery only after settlement/payment confirmation."
             )
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Order failed", str(e))
@@ -1949,6 +3304,19 @@ class WalletWindow(QtWidgets.QMainWindow):
             background: {PANEL_2}; border: 1px solid {BORDER}; border-radius: 5px; padding: 7px; selection-background-color: {ACCENT_DARK};
         }}
         QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QPlainTextEdit:focus {{ border-color: {ACCENT}; }}
+        QComboBox QAbstractItemView {{
+            background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER};
+            selection-background-color: #2A251A; selection-color: {TEXT}; outline: none;
+        }}
+        QListWidget {{
+            background: {PANEL_2}; color: {TEXT}; border: 1px solid {BORDER}; border-radius: 6px;
+            outline: none; padding: 4px;
+        }}
+        QListWidget::item {{
+            background: {PANEL_2}; color: {TEXT}; padding: 8px 7px; border-bottom: 1px solid #1D232B;
+        }}
+        QListWidget::item:hover {{ background: #1A2027; color: {TEXT}; }}
+        QListWidget::item:selected {{ background: #2A251A; color: {TEXT}; }}
         QDialog {{ background: {ROOT_BG}; }}
         QTextBrowser[class="detail"] {{ background: {PANEL_BG}; border: 1px solid {BORDER}; border-radius: 7px; padding: 14px; }}
         QSplitter::handle {{ background: {ROOT_BG}; width: 8px; height: 8px; }}
@@ -1979,6 +3347,16 @@ def self_test(state: Path, entity_id: str, wallet_profile: dict | None = None) -
         "public_name_is_alias_not_authority": True,
         "device_information_creates_user_identity": False,
         "protocol_origin_is_separate_from_user_lineage": True,
+        "formula_storage_upgrade_supported": True,
+        "formula_storage_file_and_folder_supported": True,
+        "formula_storage_export_supported": True,
+        "asset_transfer_instrument_supported": True,
+        "controller_transfer_ledger_supported": True,
+        "settlement_delivery_supported": True,
+        "buyer_passport_activation_supported": True,
+        "formula_storage_sets": (lambda p: (
+            0 if not p.exists() else sqlite3.connect(p).execute("SELECT count(*) FROM asset_formula_sets").fetchone()[0]
+        ))(state / "wallet" / "btdu_asset_formula_sets.sqlite"),
         "protocol_tax_bps": 0, "cryptocurrency_required": False,
     }
 
