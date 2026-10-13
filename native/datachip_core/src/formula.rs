@@ -44,7 +44,6 @@ fn checked_hash(s: &str) -> R<()> {
 
 struct Formula {
     manifest: Value,
-    bytes: Vec<u64>,
     root: usize,
     entropy: HashMap<String,u64>
 }
@@ -135,12 +134,11 @@ fn validate(v: Value) -> R<Formula> {
     if id!=format!("edc:formula:sha256:{}",hash(&canonical)) {
         return Err(fail("manifest digest mismatch"))
     }
-    Ok(Formula{manifest:v,bytes:sizes,root,entropy})
+    Ok(Formula{manifest:v,root,entropy})
 }
 
-fn emit<F>(zip:&mut ZipArchive<File>, nodes:&[Value], index:usize,
-           out:&mut F) -> R<()>
-where F:FnMut(&[u8])->R<()> {
+fn emit(zip:&mut ZipArchive<File>, nodes:&[Value], index:usize,
+        out:&mut dyn FnMut(&[u8])->R<()>) -> R<()> {
     let node=&nodes[index];
     match text(node,"op")? {
       "ATOM" => {
