@@ -13,11 +13,16 @@ from PySide6 import QtCore, QtGui, QtWidgets
 
 ROOT=Path(getattr(sys,"_MEIPASS",Path(__file__).resolve().parents[1]))
 GRAPH_FILE=ROOT/"src"/"42_ENTITY_Wallet"/"datachip_graph.py"
+CATALOG_FILE=ROOT/"src"/"42_ENTITY_Wallet"/"datachip_catalog.py"
 _spec=importlib.util.spec_from_file_location("entity_wallet_datachip_graph",GRAPH_FILE)
 if not _spec or not _spec.loader:raise RuntimeError("missing DataChip graph compiler")
 GRAPH=importlib.util.module_from_spec(_spec)
 sys.modules[_spec.name]=GRAPH
 _spec.loader.exec_module(GRAPH)
+_catalog_spec=importlib.util.spec_from_file_location('entity_wallet_datachip_catalog',CATALOG_FILE)
+CATALOG=importlib.util.module_from_spec(_catalog_spec)
+sys.modules[_catalog_spec.name]=CATALOG
+_catalog_spec.loader.exec_module(CATALOG)
 
 BG=QtGui.QColor("#0b1018")
 PANEL=QtGui.QColor("#172232")
@@ -145,9 +150,10 @@ class Canvas(QtWidgets.QGraphicsView):
 
 class ComposerPage(QtWidgets.QWidget):
     chipResult=QtCore.Signal(str,object,str)
-    def __init__(self,state,owner_id,parent=None):
+    def __init__(self,state,owner_id,parent=None,asset_provider=None):
         super().__init__(parent)
         self.owner_id=owner_id
+        self.asset_provider=asset_provider
         self.store=GRAPH.GraphStore(state,owner_id)
         self.graph=GRAPH.Graph(owner_id)
         self.pending=None
@@ -173,6 +179,7 @@ class ComposerPage(QtWidgets.QWidget):
         action("New Graph",self.new_graph)
         action("Example Graph",self.example)
         action("Import .edcf",self.import_edcf)
+        action("Wallet DCO Reference",self.add_wallet_asset)
         action("Import Interface",self.import_interface)
         action("Save Draft",self.save)
         action("Open Draft",self.open_saved)
@@ -395,6 +402,32 @@ class ComposerPage(QtWidgets.QWidget):
                 f.write(GRAPH.canonical(plan)+b"\n")
             self.notify("Plan exported. Not licensed or executable: "+str(target))
         except (OSError,ValueError) as e:self.show_error("Export refused",e)
+
+    def add_wallet_asset(self):
+        """Reference controller-held DCO, never assert chip verification or a licence."""
+        if self.asset_provider is None:
+            self.notify("No active wallet is attached to this preview.")
+            return
+        try:
+            assets=CATALOG.owned_dco_catalog(self.asset_provider(),self.owner_id)
+            if not assets:
+                self.notify("No controlled DCOs in this wallet.")
+                return
+            labels=[a["title"]+" · "+a["object_id"] for a in assets]
+            choice,ok=QtWidgets.QInputDialog.getItem(
+                self,"Add DCO Reference","Controller-held assets:",labels,0,False)
+            if not ok:return
+            asset=assets[labels.index(choice)]
+            current={a["object_id"]:a for a in CATALOG.owned_dco_catalog(
+                self.asset_provider(),self.owner_id)}
+            if current.get(asset["object_id"])!=asset:
+                raise CATALOG.CatalogError("asset status or controller has changed")
+            mid=self.graph.register(CATALOG.interface_for_dco(asset))
+            self.add_module(mid,130+len(self.graph.nodes)*30,110+len(self.graph.nodes)*25)
+            self.notify("Added DCO reference only: "+asset["object_id"]+
+                        " · no EDCF verification, ownership transfer or usage grant.")
+        except (CATALOG.CatalogError,GRAPH.ComposerError,ValueError) as error:
+            self.show_error("Wallet asset reference rejected",error)
 
     def import_interface(self):
         name,_=QtWidgets.QFileDialog.getOpenFileName(
