@@ -1,0 +1,3 @@
+# Python reference verifier cryptography. Pin exact resolved versions for a release;
+# this is a bounded development dependency, not a production lockfile.
+cryptography>=50.0.1,<51
