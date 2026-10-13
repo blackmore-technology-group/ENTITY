@@ -1,0 +1,77 @@
+{
+  "schema": "btg.datachip.alignment-lock.v0.2",
+  "status": "engineering_verified_not_production_authorized",
+  "edc": {
+    "formula_schema": "entity-datachip-formula-v0.2",
+    "formula_ops": [
+      "ATOM",
+      "ENTROPY",
+      "CONCAT",
+      "REPEAT",
+      "SLICE"
+    ],
+    "formula_max_output_bytes": 67108864,
+    "formula_git_blob_sha1": "7c0351321cceec504442de9dcee1ccf64424e906",
+    "reference_repo": "blackmore-technology-group/ENTITY",
+    "reference_commit": "f19474c8915742f9622f9b42e8db80fb03d20b5e",
+    "application_bundle_schema": "btg-application-datachip-bundle-v0.1",
+    "signed_grant_schema": "entity-edc-signed-rights-grant-v0.2",
+    "signed_revocation_schema": "entity-edc-signed-revocations-v0.2",
+    "delegated_export_action": "dataplane:export",
+    "legacy_edc_v01_is_formula_v02": false
+  },
+  "native": {
+    "authoritative_repo": "blackmore-technology-group/ENTITY",
+    "rust_swift_abi_baseline_commit": "e2eae1139e4ca8a076185f1d6aa4d78eaa66a66f",
+    "c_header_git_blob_sha1": "42bb36183b7027291523796ccb56cd6db08bf790",
+    "entry_points": [
+      "entity_edc_verify_formula_v1",
+      "entity_edc_verify_delegation_v1"
+    ],
+    "native_reader_verified_on_physical_iphone": false
+  },
+  "large_assets": {
+    "optional_shardset_schema": "entity-datachip-shardset-v0.1",
+    "schema_is_independent_from_single_edcf": true,
+    "native_shardset_support_qualified": false,
+    "release_status": "opt_in_experimental"
+  },
+  "geography": {
+    "region": "boundary_bc",
+    "qa_bundle_filename": "HUNTAR_BOUNDARY_BC_EDCF_V02_UNSIGNED_QA_BUNDLE.zip",
+    "qa_bundle_sha256": "6a812975b4fb24c5e8ad22294e4d2500762870c8eb041422d6b10ee67faaba6d",
+    "qa_bundle_bytes": 104979303,
+    "geography_lock_schema": "btg.huntar.geography.edcf-lock-v0.2",
+    "geography_lock_filename": "HUNTAR_EDCF_GEOGRAPHY_LOCK_V02.json",
+    "source_count": 34,
+    "source_bytes": 104893863,
+    "edcf_count": 34,
+    "edcf_bytes": 104946066,
+    "huntAR_shadow_repo": "blackmore-technology-group/BTG-iOS-Cloud-Build",
+    "huntAR_shadow_branch": "huntar/edc-v02-native-shadow",
+    "huntAR_shadow_commit": "81d3b2c42625f79289008685045c8e1806e77b5b",
+    "sha256_source_parity_verified_windows": true,
+    "content_integrity_verified_windows": true,
+    "license_and_safety_currency_qualified": false,
+    "signed_production_entitlement_verified": false,
+    "native_ios_chip_mount_verified": false
+  },
+  "production_gates": {
+    "live_kms_issuer_and_authenticated_controller": false,
+    "signed_fresh_revocation_distribution": false,
+    "command_centre_authorized_live_device": false,
+    "native_ios_hardware_interoperability": false,
+    "approved_offline_geography_licensing": false,
+    "platform_secure_antirollback": false,
+    "independent_security_review": false,
+    "production_activated": false
+  },
+  "policy": {
+    "native_camera_arkit_metal_location_and_ui_remain_native": true,
+    "unverified_rights_always_fail_closed": true,
+    "chip_hash_is_not_issuer_authority": true,
+    "source_files_must_not_be_deleted_after_reconstruction_test": true,
+    "do_not_download_or_execute_native_code_from_chips": true,
+    "legacy_loader_remains_authoritative_on_huntar": true
+  }
+}
