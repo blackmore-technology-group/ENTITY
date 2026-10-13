@@ -85,13 +85,13 @@ jobs:
           if ($p.ExitCode -ne 0) { throw "Frozen preview failed with code $($p.ExitCode)" }
           if (!(Test-Path "composer-packaged-smoke.png")) { throw "No frozen GUI evidence was produced" }
 
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v4.4.3
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v4.4.3
         with:
           name: ENTITY-Composer-Preview-Windows
           path: dist/ENTITY-Composer-Preview/**
           if-no-files-found: error
 
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v4.4.3
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v4.4.3
         with:
           name: ENTITY-DataChip-Composer-Canvas
           path: composer-preview.png
