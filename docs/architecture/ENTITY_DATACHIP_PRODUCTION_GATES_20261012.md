@@ -1,5 +1,7 @@
 # ENTITY / BTG DataChip production qualification gates
 
+> **13 October 2026 evidence addendum:** This is the original October 12 gate matrix. The newer QA pilot includes 34 separately pinned Boundary Country EDCF v0.2 chips verified off-device; HuntAR 480 has a proposed user-consented QA importer. The physical 34-chip mount, approved licensing, issuer/export authority, native device gates and BSIE/HUD/map/NIKI evidence remain open. [Current DataChip platform status](ENTITY_DATACHIP_PLATFORM_STATUS_20261013.md). Historical synthetic-only descriptions below are not the current QA inventory.
+
 Date: 2026-10-12. Status: **in engineering, NOT authorized for live mobile production**.
 
 ## Scope and live-state boundary

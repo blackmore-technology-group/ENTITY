@@ -1,5 +1,7 @@
 # ENTITY
 
+> **New DataChip architecture (13 October 2026):** [EDCF v0.2, EDP, typed Composer, wallet evolution and qualification gates](docs/architecture/ENTITY_DATACHIP_PLATFORM_STATUS_20261013.md) · [Public GitHub Pages guide](https://blackmore-technology-group.github.io/ENTITY-DOCS/datachips/). These are additive post-v3.4.3 engineering capabilities, not a new protected production release.
+
 > **Current implementation and qualification snapshot (2026-10-12):** [Release versus `main`, BTDU storage, wallet/SDK maturity and independent evidence gates](docs/current/IMPLEMENTATION_STATUS_20261012.md). The protected v3.4.3 tag and post-tag work are distinct; historical sealed evidence is preserved.
 
 [![Release](https://img.shields.io/github/v/release/blackmore-technology-group/ENTITY?sort=semver)](https://github.com/blackmore-technology-group/ENTITY/releases/latest)

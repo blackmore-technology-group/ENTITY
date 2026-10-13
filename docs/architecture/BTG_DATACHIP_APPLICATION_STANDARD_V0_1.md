@@ -1,5 +1,7 @@
 # BTG DataChip Application Architecture — experimental v0.1
 
+> **13 October 2026 addendum:** This historical architecture page retains its initial synthetic-only pilot descriptions. [Current status](ENTITY_DATACHIP_PLATFORM_STATUS_20261013.md): 34 Boundary Country QA chips have since been verified off-device and HuntAR 480 has an opt-in native QA import candidate; no live signed entitlement, licensed field geography or full 34-chip physical iPhone mount is confirmed. All native host and authority gates remain in force.
+
 Date: 2026-10-12. Non-normative engineering specification. This does not amend ENTITY Protocol 1.0, the protected v3.4.3 tag, or live application binaries.
 
 ## The architecture

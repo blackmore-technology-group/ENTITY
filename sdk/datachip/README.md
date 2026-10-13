@@ -1,4 +1,16 @@
-# ENTITY DataChip / EDP v0.1
+# ENTITY DataChip SDK — versioned reference interfaces
+
+## Current EDCF v0.2 platform
+
+The current post-v3.4.3 **formula-native EDCF v0.2** reference implementation includes `formula_chip.py` (strict ATOM/ENTROPY/CONCAT/REPEAT/SLICE formula reconstruction, 64 MiB single output limit), `rights.py` (signed scoped delegation and revocation), `authority_bridge.py` (read-only Rights Passport state bridge), `application.py` and `host.py` (signed bundle planning), `deployment.py` (reference atomic data-only activation) and optional `shardset.py` (separately versioned large-file envelope). Rust/C/Swift native work, Composer and wallet migration remain engineering candidates pending CI, hardware and independent security qualification.
+
+**Important:** the legacy `.edc` v0.1 described below is **not** interchangeable with `.edcf` v0.2. Hash verification does not prove issuer identity, user permission, rights transfer or an explicit EXPORT grant. Production needs authenticated current controller approval, KMS/HSM-backed signing and trusted fresh revocation proofs. Existing READ/COPY rules do not automatically authorize export (see issue #155).
+
+[Current platform status](../../docs/architecture/ENTITY_DATACHIP_PLATFORM_STATUS_20261013.md) · [Pinned alignment lock](../../docs/architecture/BTG_DATACHIP_ALIGNMENT_LOCK_V02.json) · [Production gates](../../docs/architecture/ENTITY_DATACHIP_PRODUCTION_GATES_20261012.md).
+
+---
+
+## Legacy portable `.edc` v0.1 reference
 
 Experimental source. Not a protected ENTITY protocol release, production wallet or native mobile SDK.
 
