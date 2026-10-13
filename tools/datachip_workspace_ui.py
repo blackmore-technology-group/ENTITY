@@ -10,6 +10,7 @@ import html, importlib.util, json, os, sys, threading
 from pathlib import Path
 
 from PySide6 import QtCore, QtGui, QtWidgets
+import blackmore_aurora_qt as AURORA
 
 ROOT=Path(getattr(sys,"_MEIPASS",Path(__file__).resolve().parents[1]))
 GRAPH_FILE=ROOT/"src"/"42_ENTITY_Wallet"/"datachip_graph.py"
@@ -24,14 +25,14 @@ CATALOG=importlib.util.module_from_spec(_catalog_spec)
 sys.modules[_catalog_spec.name]=CATALOG
 _catalog_spec.loader.exec_module(CATALOG)
 
-BG=QtGui.QColor("#0b1018")
-PANEL=QtGui.QColor("#172232")
-BORDER=QtGui.QColor("#47627d")
-TEXT=QtGui.QColor("#eef3fa")
-MUTED=QtGui.QColor("#a9b9cb")
-GOLD=QtGui.QColor("#d5ac66")
-GREEN=QtGui.QColor("#48d4ae")
-BLUE=QtGui.QColor("#73b1eb")
+BG=AURORA.color("BG")
+PANEL=AURORA.color("SURFACE")
+BORDER=AURORA.color("LINE")
+TEXT=AURORA.color("TEXT")
+MUTED=AURORA.color("MUTED")
+GOLD=AURORA.color("AMBER")
+GREEN=AURORA.color("MINT")
+BLUE=AURORA.color("CYAN")
 MIME="application/x-entity-datachip-module"
 
 class Port(QtWidgets.QGraphicsEllipseItem):
@@ -39,7 +40,7 @@ class Port(QtWidgets.QGraphicsEllipseItem):
         super().__init__(-6,-6,12,12,card)
         self.card=card;self.side=side;self.record=record
         self.setPos(x,y);self.setZValue(10)
-        self.setPen(QtGui.QPen(QtGui.QColor("#07131b"),2))
+        self.setPen(QtGui.QPen(AURORA.color("BG"),2))
         self.setBrush(QtGui.QBrush(GREEN if side=="outputs" else BLUE))
         self.setCursor(QtCore.Qt.PointingHandCursor)
         self.setToolTip(side[:-1]+" · "+record["name"]+" : "+record["type"])
@@ -68,7 +69,7 @@ class Card(QtWidgets.QGraphicsRectItem):
         self.setZValue(3)
         head=QtWidgets.QGraphicsRectItem(0,0,self.WIDTH,35,self)
         head.setPen(QtGui.QPen(QtCore.Qt.NoPen))
-        head.setBrush(QtGui.QBrush(QtGui.QColor("#264056")))
+        head.setBrush(QtGui.QBrush(AURORA.color("RAISED")))
         label=QtWidgets.QGraphicsSimpleTextItem(spec["name"],self)
         label.setBrush(TEXT)
         label.setPos(10,7)

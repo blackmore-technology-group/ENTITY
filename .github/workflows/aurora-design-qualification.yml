@@ -1,0 +1,45 @@
+name: Blackmore Aurora — ENTITY Qt and Wallet design conformance
+
+on:
+  pull_request:
+    paths:
+      - "design/**"
+      - "tools/blackmore_aurora_qt.py"
+      - "tools/entity_wallet_desktop.py"
+      - "tools/datachip_workspace_ui.py"
+      - "tools/entity_datachip_composer_preview.py"
+      - "tools/build_entity_wallet_desktop.py"
+      - "src/42_ENTITY_Wallet/canonical_wallet.py"
+      - "tests/test_aurora_design_contract.py"
+      - ".github/workflows/aurora-design-qualification.yml"
+  push:
+    branches: [design/blackmore-aurora-v1-20261013]
+permissions:
+  contents: read
+jobs:
+  qt-design:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - name: Check Python and shared token contract
+        run: python -m unittest discover -s tests -p "test_aurora_design_contract.py" -v
+      - name: Check generated mobile, web and dotnet theme adapters
+        run: python tools/generate_blackmore_aurora_adapters.py --check
+      - name: Install Linux Qt platform dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libegl1 libopengl0 libxkbcommon-x11-0 libxcb-cursor0
+      - name: Install Qt runtime (isolated UI qualification)
+        run: python -m pip install PySide6
+      - name: Verify offline Qt Composer preview and graph compiler
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: python tools/entity_datachip_composer_preview.py --self-test

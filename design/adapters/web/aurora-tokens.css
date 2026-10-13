@@ -1,0 +1,24 @@
+/* Generated Blackmore Aurora v1.0 — never hand-edit. */
+:root {
+  --blackmore-ai: #CC9CFF;
+  --blackmore-background: #08121F;
+  --blackmore-blue: #77BBFF;
+  --blackmore-canvas: #0B1728;
+  --blackmore-danger: #FD8C9D;
+  --blackmore-ink: #041723;
+  --blackmore-muted: #9CB3CF;
+  --blackmore-primary: #57D7F7;
+  --blackmore-primaryStrong: #8DEBFF;
+  --blackmore-rights: #F6C879;
+  --blackmore-stroke: #29435F;
+  --blackmore-strokeStrong: #416581;
+  --blackmore-subtle: #6683A6;
+  --blackmore-success: #65E8BD;
+  --blackmore-surface: #101F32;
+  --blackmore-surfaceHover: #1B3150;
+  --blackmore-surfaceRaised: #142740;
+  --blackmore-text: #F4F8FF;
+  --blackmore-focus-width: 3px;
+  --blackmore-min-touch: 44px;
+}
+@media (prefers-reduced-motion: reduce) { :root { scroll-behavior: auto; } }

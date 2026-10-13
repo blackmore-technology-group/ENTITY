@@ -8,6 +8,7 @@ import argparse, json, os, sys
 from pathlib import Path
 
 from PySide6 import QtWidgets,QtCore
+import blackmore_aurora_qt as AURORA
 from datachip_workspace_ui import ComposerPage
 
 def default_preview_state():
@@ -24,17 +25,10 @@ def main():
         os.environ.setdefault("QT_QPA_PLATFORM","offscreen")
     app=QtWidgets.QApplication(sys.argv[:1])
     app.setStyle("Fusion")
-    app.setStyleSheet("""
-       QWidget { color:#e7edf3; background:#111923;font-family:Segoe UI;font-size:10pt }
-       QPushButton {background:#1e2d3e;border:1px solid #486582;border-radius:6px;padding:8px}
-       QPushButton:hover {background:#273b51;border-color:#d5ac66}
-       QGraphicsView {border:1px solid #354f66}
-       QTextBrowser,QListWidget,QLineEdit {background:#0c1420;border:1px solid #334b62;
-                                            border-radius:6px;color:#e7edf3;padding:6px}
-       QSplitter::handle {background:#1d2a39}
-    """)
+    app.setStyleSheet(AURORA.stylesheet())
+    app.setPalette(AURORA.palette())
     window=QtWidgets.QMainWindow()
-    window.setWindowTitle("ENTITY DataChip Composer · Engineering Preview")
+    window.setWindowTitle("ENTITY | Blackmore Aurora Composer · Engineering Preview")
     page=ComposerPage(Path(args.state),args.identity)
     window.setCentralWidget(page)
     window.resize(1570,910)

@@ -1,0 +1,85 @@
+{
+  "schema": "blackmore-aurora-design-tokens-v1.0.0",
+  "family": "Blackmore Aurora",
+  "brand": "Blackmore Technology Group",
+  "roles": {
+    "platform": "Blackmore Nexus",
+    "information": "ENTITY",
+    "ownership": "ENTITY Wallet",
+    "public_site": "ENTITY Developer Portal"
+  },
+  "version": "1.0.0",
+  "colors": {
+    "background": "#08121F",
+    "canvas": "#0B1728",
+    "surface": "#101F32",
+    "surfaceRaised": "#142740",
+    "surfaceHover": "#1B3150",
+    "stroke": "#29435F",
+    "strokeStrong": "#416581",
+    "text": "#F4F8FF",
+    "muted": "#9CB3CF",
+    "subtle": "#6683A6",
+    "primary": "#57D7F7",
+    "primaryStrong": "#8DEBFF",
+    "blue": "#77BBFF",
+    "success": "#65E8BD",
+    "ai": "#CC9CFF",
+    "rights": "#F6C879",
+    "danger": "#FD8C9D",
+    "ink": "#041723"
+  },
+  "spacing": {
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32,
+    "xxxl": 48
+  },
+  "radius": {
+    "small": 8,
+    "medium": 12,
+    "large": 18,
+    "hero": 24,
+    "pill": 999
+  },
+  "typography": {
+    "ui": "Segoe UI",
+    "technical": "Cascadia Code, Consolas",
+    "fallback": "Arial, sans-serif",
+    "scale_px": {
+      "micro": 11,
+      "caption": 12,
+      "body": 14,
+      "large": 16,
+      "section": 24,
+      "hero": 52
+    }
+  },
+  "motion": {
+    "fast_ms": 120,
+    "normal_ms": 220,
+    "slow_ms": 360,
+    "reduced_motion": "off"
+  },
+  "accessibility": {
+    "min_touch_px": 44,
+    "focus_ring_px": 3,
+    "high_contrast_required": true,
+    "keyboard_focus_visible": true
+  },
+  "semantics": {
+    "verified": "success",
+    "pending": "rights",
+    "rejected": "danger",
+    "ai": "ai",
+    "unverified": "muted"
+  },
+  "security": {
+    "colors_do_not_authorize_rights": true,
+    "verified_content_is_not_authenticated_issuer": true,
+    "critical_actions_require_textual_status": true
+  }
+}
