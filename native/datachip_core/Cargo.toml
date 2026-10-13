@@ -1,0 +1,18 @@
+[package]
+name = "entity-datachip-native"
+version = "0.1.0"
+edition = "2021"
+description = "Independent Rust verifier for experimental ENTITY formula-native DataChips"
+publish = false
+license = "UNLICENSED"
+
+[[bin]]
+name = "entity-datachip-verify"
+path = "src/main.rs"
+
+[dependencies]
+ed25519-dalek = { version = "2.2.0", default-features = false, features = ["std"] }
+hex = "0.4"
+serde_json = "1.0"
+sha2 = "0.10"
+zip = { version = "2.4", default-features = false }
