@@ -70,8 +70,10 @@ jobs:
         shell: pwsh
         run: |
           $env:QT_QPA_PLATFORM="offscreen"
-          & "./dist/ENTITY-Composer-Preview/ENTITY-Composer-Preview.exe" --render-preview "composer-packaged-smoke.png"
-          if ($LASTEXITCODE -ne 0) { throw "Frozen preview failed to launch" }
+          $binary=(Resolve-Path "./dist/ENTITY-Composer-Preview/ENTITY-Composer-Preview.exe").Path
+          $proof=Join-Path (Get-Location).Path "composer-packaged-smoke.png"
+          $p=Start-Process -FilePath $binary -ArgumentList @("--render-preview", $proof) -Wait -PassThru -NoNewWindow
+          if ($p.ExitCode -ne 0) { throw "Frozen preview failed with code $($p.ExitCode)" }
           if (!(Test-Path "composer-packaged-smoke.png")) { throw "No frozen GUI evidence was produced" }
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v4.4.3
