@@ -11,7 +11,7 @@ from pathlib import Path
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(getattr(sys,"_MEIPASS",Path(__file__).resolve().parents[1]))
 GRAPH_FILE=ROOT/"src"/"42_ENTITY_Wallet"/"datachip_graph.py"
 _spec=importlib.util.spec_from_file_location("entity_wallet_datachip_graph",GRAPH_FILE)
 if not _spec or not _spec.loader:raise RuntimeError("missing DataChip graph compiler")
