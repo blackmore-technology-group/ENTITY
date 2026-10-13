@@ -32,7 +32,10 @@ jobs:
         run: cargo build --release --locked --manifest-path native/datachip_core/Cargo.toml
       - name: Run Rust tests
         run: cargo test --locked --manifest-path native/datachip_core/Cargo.toml
+      - name: Typecheck Swift host adapter
+        if: matrix.os == 'macos-latest'
+        run: swiftc -typecheck native/datachip_core/bindings/swift/DataChipNativeVerifier.swift
       - name: Install Python oracle test dependency
         run: python -m pip install "cryptography>=50.0.1,<51"
       - name: Cross-language formula and Ed25519 grant parity
-        run: python -B -m unittest discover -s native/datachip_core/tests -p "test_native_parity.py" -v
+        run: python -B -m unittest discover -s native/datachip_core/tests -p "test_native_*.py" -v

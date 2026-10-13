@@ -6,6 +6,11 @@ description = "Independent Rust verifier for experimental ENTITY formula-native 
 publish = false
 license = "UNLICENSED"
 
+[lib]
+name = "entity_datachip_native"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib", "staticlib"]
+
 [[bin]]
 name = "entity-datachip-verify"
 path = "src/main.rs"

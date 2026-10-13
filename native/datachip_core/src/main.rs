@@ -1,5 +1,4 @@
-mod formula;
-mod rights;
+use entity_datachip_native::{formula, rights};
 
 use std::env;
 use std::path::Path;
