@@ -1,7 +1,9 @@
 # Display a lineage snapshot as Mermaid
 
-**Document class:** adapter/tooling example, non-normative  
-**Target:** ENTITY v3.4.3 `AssetProvenanceGraph.lineage()` output  
+**Document class:** adapter/tooling example, non-normative
+
+**Target:** ENTITY v3.4.3 `AssetProvenanceGraph.lineage()` output
+
 **Requirements:** Python 3.11+ standard library; no network or credentials
 
 `lineage_to_mermaid.py` displays the recorded parent/child relationships around one requested asset. Labels retain the supplied asset identifiers and relationship names. The example consumes the one-hop snapshot returned by [`AssetProvenanceGraph.lineage()` in v3.4.3](https://github.com/blackmore-technology-group/ENTITY/blob/v3.4.3/src/04_Entity_Registry/provenance/canonical_provenance.py); it does not traverse a database or fetch additional ancestry.
