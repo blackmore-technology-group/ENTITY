@@ -1,0 +1,7 @@
+{
+  "asset_id": "demo:edited",
+  "parents": [
+    {"parent_asset_id": "demo:source", "relation": "edit"}
+  ],
+  "children": []
+}
