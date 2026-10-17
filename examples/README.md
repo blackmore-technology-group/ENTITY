@@ -5,3 +5,5 @@ Examples in this directory are synthetic and contain no live Entity credentials,
 The Open SDK uses hash-first envelopes. Raw source data does not need to be placed in ENTITY merely to register provenance.
 
 See `open_sdk_asset_envelope.json` for a minimal non-authoritative asset-ingestion envelope shape.
+
+For a bounded, deterministic view of an ENTITY v3.4.3 lineage snapshot, see [Display a lineage snapshot as Mermaid](lineage_to_mermaid.md). This standard-library example renders recorded relationships without verifying their truth or ownership.
