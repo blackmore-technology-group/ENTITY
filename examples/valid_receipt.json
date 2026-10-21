@@ -1,0 +1,92 @@
+{
+  "schema": "entity-transaction-evidence-bundle-v1",
+  "transaction_id": "teb-example-0001-valid",
+  "issuer_entity_id": "ent2-EXAMPLE_ISSUER_ENTITY_ID",
+  "transaction_root_sha256": "fd6b9309d37ca807d878142704232160ef8b4048903f9c57b4c4c9e30c2cca41",
+  "generated_at_ms": 1791003502937,
+  "evidence": {
+    "transaction_record": {
+      "transaction_type": "ASSET_INGESTION",
+      "transaction_status": "COMPLETED",
+      "transaction_timestamp_ms": 1791003502000
+    },
+    "manifests": {
+      "asset_manifest_id": "birfr1-public-asset-manifest-v1",
+      "asset_bundle_root_sha256": "2e97dc53c308eb07f8d5040d3965fb5024ffe14ac431313c28c2e8dbbc0eaaa5"
+    },
+    "asset_provenance": {
+      "origin": "BTG_CREATED_SYNTHETIC",
+      "provenance_edge_id": "prov3-0577172d1dcd5b0e25b29ec2d3b414415ca34c92"
+    },
+    "rights": {
+      "right_id": "right3-80f5e5378a023f7f552e34d02aa3edca0be4778a",
+      "rights_type": "OPEN_SOURCE_APACHE_2_0"
+    },
+    "licence": {
+      "licence_id": "lic3-example",
+      "licence_type": "Apache-2.0",
+      "issued_at_ms": 1791003502000
+    },
+    "usage_receipt": {
+      "receipt_id": "rcpt3-example",
+      "usage_type": "INTERNAL_RESEARCH",
+      "recorded_at_ms": 1791003502000
+    },
+    "license_settlement": {
+      "settlement_id": "sett3-example",
+      "settlement_status": "NO_PAYMENT_REQUIRED",
+      "amount_units": 0,
+      "currency": "CAD"
+    },
+    "value_record": {
+      "value_id": "value3-96319d52ca531f73c76e0bae4d20e16dc789b0c5",
+      "value_state": "POTENTIAL",
+      "market_value_asserted": false
+    },
+    "digital_commodity": {
+      "commodity_id": "dcom3-example",
+      "instrument_issued": false,
+      "amount_units": 0
+    },
+    "corporate_authorization": {
+      "authorization_id": "auth3-example",
+      "authorized_by": "ent2-EXAMPLE_CONTROLLER_ENTITY_ID",
+      "authorization_type": "INGEST_APPROVAL"
+    },
+    "capital": {
+      "capital_event_id": "cap3-example",
+      "capital_event_type": "NONE",
+      "amount_units": 0
+    },
+    "share_settlement": {
+      "share_event_id": "shr3-example",
+      "share_event_type": "NONE",
+      "shares_issued": 0
+    },
+    "event_ledger": {
+      "ledger_id": "evnt3-example",
+      "ledger_entry_count": 1,
+      "ledger_checkpoint_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "external_trust_anchors": {
+      "anchors": [],
+      "note": "No external trust anchors for this example receipt."
+    }
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "placeholder_signature_value_for_example_only",
+    "key_id": "ent2-EXAMPLE_ISSUER_ENTITY_ID#key-1",
+    "signed_at": "2026-10-20T00:00:00Z",
+    "canonical_json": "RFC_8785_JCS",
+    "note": "This is a synthetic example. The signature value is a placeholder and will NOT verify against any real key."
+  },
+  "evidence_boundary": {
+    "factual_truth_not_asserted": true,
+    "legal_rights_not_established": true,
+    "external_authority_not_implied": true,
+    "accounting_state_not_guaranteed": true,
+    "market_value_not_endorsed": true,
+    "note": "This receipt proves structural integrity of the evidence bundle only. It does not establish factual truth, legal rights, or external authority."
+  }
+}
